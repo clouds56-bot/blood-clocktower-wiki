@@ -1,0 +1,26 @@
+{
+  "id": "hatter",
+  "type": "outsider",
+  "name": {
+    "en": "Hatter"
+  },
+  "ability": {
+    "en": "If you died today or tonight, the Minion & Demon players may choose new Minion & Demon characters to be."
+  },
+  "flavor_text": {
+    "en": "\"One Hat. Too Hat. Three Hat. Tea Hat. Fore Hat. Thrive Hat. Six Hat. Sticks Hat.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "Optional rule: if the Hatter dies, allow the Demon to become a Minion, and a Minion to become a Demon. This may cause some chaos among the evil team as they try to communicate silently at night about who wants to be the Demon.",
+    "The Hatter dies. The Ojo chooses to become the No Dashii and the Devil's Advocate chooses to become the Scarlet Woman.",
+    "The Vigormortis has killed their Pit-Hag, then later kills the Hatter. Both players choose to stay the same characters, so that they don't lose the effects of the Vigormortis.",
+    "The Assassin kills a player. The Hatter is executed. That night, the Assassin becomes the Mastermind and the Mastermind shakes their head no to stay the Mastermind. The Storyteller shakes their head no because the Mastermind character has been chosen already, and gestures for the Mastermind player to choose again, so they choose Assassin. The new Assassin then uses their new ability to kill a player."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Hatter"
+}

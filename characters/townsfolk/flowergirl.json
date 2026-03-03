@@ -1,0 +1,26 @@
+{
+  "id": "flowergirl",
+  "type": "townsfolk",
+  "name": {
+    "en": "Flowergirl"
+  },
+  "ability": {
+    "en": "Each night*, you learn if a Demon voted today."
+  },
+  "flavor_text": {
+    "en": "\"Yesterday's violets have withered and died, but today my poppies bloom.\""
+  },
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "If you forget whether the Demon voted or not, wake the Demon at night and ask by showing them the DID YOU VOTE TODAY? info token. They must answer honestly, then go to sleep.",
+    "There was one nomination today. Lots of players voted, the player was executed, but the Demon did not vote. That night, the Flowergirl learns that the Demon did not vote today.",
+    "There were three nominations today. The Demon voted during the second nomination. Nobody was executed. That night, the Flowergirl learns that the Demon voted today.",
+    "There were no nominations today. A Traveller was exiled, and all players raised their hand to support the exile. That night, the Flowergirl learns that the Demon did not vote today. (Exiles are never affected by abilities.)"
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Flowergirl"
+}

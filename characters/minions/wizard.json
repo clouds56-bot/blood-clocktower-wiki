@@ -1,0 +1,28 @@
+{
+  "id": "wizard",
+  "type": "minion",
+  "name": {
+    "en": "Wizard"
+  },
+  "ability": {
+    "en": "Once per game, choose to make a wish. If granted, it might have a price & leave a clue as to its nature."
+  },
+  "flavor_text": {
+    "en": "\"Every man and every woman is a star. Love is the law, love under will.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "Storytelling the Wizard can be tricky. The Wizard is the most fun for everybody when all wishes are granted, all wishes leave a clue, and all wishes have a price. However...\n\nIf you feel that by granting a wish, the evil team has benefitted a small amount but the good team still has all they need to figure out who the Demon is and to win the game, you may apply no clue and no price. You may even skip telling the good team that the Wizard has made a wish, or tell them but give no clue.\n\nIf you feel that by granting the wish, the good team is at a severe disadvantage in terms of balance - the game rules have changed so that it is impossible for the good team to win even if they learn who the Demon is - then change the game rules or change the wish so that it is still fair for the good team.\n\nIf you feel that by granting the wish, the good team is at a severe disadvantage in terms of knowledge - they lack the needed information to reasonably win the game - then give them a helpful clue to find out what the wish was.\n\nIf you feel that the wish is so extreme and convoluted that you can think of no clue or price to balance it, or that it would just make the game unfun, then decline the wish completely.\n\nOverall, the wish should tip the scales in favour of the Wizard, but still allow the good team a reasonable chance of winning. Take your time in deciding how to do this.",
+    "The Wizard wishes to see the Grimoire. The Storyteller grants this wish, and there is no price and no clue.",
+    "The Wizard wishes that all good players are drunk. The Storyteller grants the wish. Later, they declare that the Wizard has made a wish and that “Things are wrong” but provide no further context. For the rest of the game, the Storyteller makes all information false.",
+    "The Wizard wishes that they become a Demon. The Storyteller grants the wish. Later, they declare that the Wizard has made a wish, and that “The student has become the master.” The Storyteller kills the Lord of Typhon and turns the Wizard into the Ojo.",
+    "The Wizard wishes to win the game. The Storyteller grants the wish, and tells the Wizard that the evil team will win the game at the end of the day. The Storyteller declares that the Wizard has made a wish, and that either Ben, Amy, or Lewis is the Demon. The group executes Ben, who is the Demon, and good wins.",
+    "The Wizard wishes that all players have 5 lives, and all reminder tokens for the script are added to characters. The Storyteller judges that this wish is too awkward, confusing and boring, declines the wish, and asks the Wizard to wish again."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Wizard"
+}

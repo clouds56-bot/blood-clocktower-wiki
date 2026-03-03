@@ -1,0 +1,26 @@
+{
+  "id": "alsaahir",
+  "type": "townsfolk",
+  "name": {
+    "en": "Alsaahir"
+  },
+  "ability": {
+    "en": "Each day, if you publicly guess which players are Minion(s) and which are Demon(s), good wins."
+  },
+  "flavor_text": {
+    "en": "\"I am here because of you, and you are here because of me.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "Optional rule: like the Juggler and the Gossip, the Storyteller may limit the number of players that make an Alsaahir guess to three players per day. Only use this optional rule if so many players are bluffing as the Alsaahir that the game slows down and ceases to be fun.",
+    "The Alsaahir guesses four good players. Nothing happens.",
+    "The Alsaahir guesses that Doug is the Demon, and Ben and Sarah are Minions. Doug is the Demon, and Ben and Sarah are Minions. Good wins immediately.",
+    "The drunk Alsaahir guesses that Doug is the Demon, and Ben and Sarah are Minions. Doug is the Demon, and Ben and Sarah are Minions. Nothing happens and the game continues. The next day, the sober Alsaahir guesses that Ben is the Demon and Doug and Sarah are Minions. Nothing happens and the game continues."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Alsaahir"
+}

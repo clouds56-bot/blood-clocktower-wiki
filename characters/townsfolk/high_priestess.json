@@ -1,0 +1,24 @@
+{
+  "id": "high_priestess",
+  "type": "townsfolk",
+  "name": {
+    "en": "High Priestess"
+  },
+  "ability": {
+    "en": "Each night, learn which player the Storyteller believes you should talk to most."
+  },
+  "flavor_text": {
+    "en": "“There is life behind the personality that uses personalities as masks. There are times when life puts off the mask and deep answers to deep.”"
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "On the first night, the High Priestess learns Julian. Julian is the Chef and has useful information to share. On the second night, the High Priestess is shown Marianna. Marianna is the Goblin and the Storyteller thinks that the High Priestess would benefit most from talking to Marianna to find this out as early as possible. On the third night, the High Priestess is shown Doug. Doug is the Drunk whose information is wrong and harming the good team.",
+    "For three nights in a row, the High Priestess learns Sarah. Sarah is the Saint and the good team are trying to execute her. On the last night, the High Priestess learns Lewis. Lewis is the Imp, and his story is clashing with several good players."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/High_Priestess"
+}

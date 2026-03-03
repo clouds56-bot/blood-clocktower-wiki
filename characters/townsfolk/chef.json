@@ -1,58 +1,26 @@
 {
   "id": "chef",
   "type": "townsfolk",
-  "editions": ["trouble_brewing"],
   "name": {
-    "en": "Chef",
-    "zh": "厨师",
-    "cn": "厨师",
-    "ja": "シェフ"
+    "en": "Chef"
   },
   "ability": {
-    "en": "You start knowing how many pairs of evil players there are.",
-    "zh": "游戏开始时，你知道有多少对邪恶玩家相邻。",
-    "cn": "在你的首个夜晚，你会得知场上邻座的邪恶玩家有多少对。",
-    "ja": "ゲーム開始時、邪悪なプレイヤーが隣り合っている組数を知る。"
+    "en": "You start knowing how many pairs of evil players there are."
   },
   "flavor_text": {
-    "en": "This evening's reservations seem odd. Never before has Mrs Mayweather kept company with that scamp from Hudson Lane. Yet, tonight, they have a table for two. Strange.",
-    "zh": "今晚的预约有些古怪。我从未见过梅威瑟太太此前跟那个哈德逊巷的流氓有过交情。然而今晚，他们订了一张双人桌。真奇怪。",
-    "cn": "今晚的预约有些古怪。我从未见过梅威瑟太太此前跟那个哈德逊巷的流氓有过交情。然而今晚，他们订了一张双人桌。真奇怪。"
+    "en": "\"This evening's reservations seem odd. Never before has Mrs Mayweather kept company with that scamp from Hudson Lane. Yet, tonight, they have a table for two. Strange.\""
   },
+  "editions": [
+    "trouble_brewing"
+  ],
   "first_night": true,
   "other_nights": false,
-  "reminders": [],
-  "how_to_run": {
-    "en": "During the first night, wake the Chef. Show the Chef fingers (0, 1, 2, etc.) equaling the number of pairs of neighboring evil players. Put the Chef to sleep.",
-    "zh": "在首个夜晚里，唤醒厨师。为厨师用手势比划场上互为邻座的邪恶玩家有多少对（0，1，2，等等）。让厨师重新入睡。",
-    "cn": "在首个夜晚里，唤醒厨师。为厨师用手势比划场上互为邻座的邪恶玩家有多少对（0，1，2，等等）。让厨师重新入睡。"
-  },
+  "jinxes": [],
   "examples": [
     "No evil players are sitting next to each other. The Chef learns a '0'.",
     "The Imp is sitting next to the Baron. Across the circle, the Poisoner is sitting next to the Scarlet Woman. The Chef learns a '2'.",
-    "An evil Scapegoat is sitting between the Imp and a Minion. Across the circle, two other Minions are sitting next to each other. The Chef learns a '3'."
+    "An evil Scapegoat is sitting between the Imp and a Minion. Across the circle, two other Minions are sitting next to each other. The Chef learns a '3'.",
+    "The Recluse is sitting between the Imp and the Poisoner. The Chef learns a '1'. Here, the Recluse is registering as evil for the Imp-Recluse pair, but as good for the Poisoner-Recluse pair."
   ],
-  "tips": {
-    "en": [
-      "At the start of the game, your information is not very useful by itself, but can be extremely helpful when combined with the information of your allies.",
-      "If you can find an Empath, or Fortune Teller, then knowing who is Good or Evil, or who is or is not the Demon, can be very powerful.",
-      "Your information will be most useful towards the end of the game.",
-      "Getting a '0' means no Evil players are sitting next to each other."
-    ],
-    "zh": [
-      "在游戏开始，单看你自己的信息并不是非常有用，但如果你将你的信息与你队友的信息相结合，就会变得非常有用了。",
-      "如果你能找到共情者或者占卜师，随后知道了一名玩家的阵营，或是知道了一名玩家是否为恶魔后，你的信息就开始发挥作用了。",
-      "你的信息随着游戏的进行将会变得越来越有用，所以在关键的时刻记得对善良阵营重申你的信息。",
-      "得到信息'0'意味着没有邪恶玩家邻座。"
-    ],
-    "cn": [
-      "在游戏开始，单看你自己的信息并不是非常有用，但如果你将你的信息与你队友的信息相结合，就会变得非常有用了。",
-      "如果你能找到共情者或者占卜师，随后知道了一名玩家的阵营，或是知道了一名玩家是否为恶魔后，你的信息就开始发挥作用了。",
-      "你的信息随着游戏的进行将会变得越来越有用，所以在关键的时刻记得对善良阵营重申你的信息。",
-      "得到信息'0'意味着没有邪恶玩家邻座。"
-    ]
-  },
-  "image": "assets/tokens/chef.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Chef",
-  "source_url_cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E5%8E%A8%E5%B8%88"
+  "source_url": "https://wiki.bloodontheclocktower.com/Chef"
 }

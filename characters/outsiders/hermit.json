@@ -1,0 +1,25 @@
+{
+  "id": "hermit",
+  "type": "outsider",
+  "name": {
+    "en": "Hermit"
+  },
+  "ability": {
+    "en": "You have all Outsider abilities. [-0 or -1 Outsider]"
+  },
+  "flavor_text": {
+    "en": "\"In the lost and forgotten places of the earth, the soul’s light beckons.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "If Outsider abilities clash, make up a rule to fix the clash, and tell the group. For example, for a Hermit-Butler-Zealot, you may declare that the Hermit must vote when their master votes.",
+    "Marianna is the Hermit, and has the Klutz, Butler, and Recluse abilities. Each night, she chooses a player as her master due to the Butler ability. The Ravenkeeper dies and learns that she is the Lord of Typhon, due to the Recluse ability. Marianna is executed, and chooses a player due to the Klutz ability. She chooses the Wizard. Good loses.",
+    "Lewis is the Hermit and has the Drunk, Mutant, and Sweetheart abilities. Thinking that he is the Exorcist, he chooses a player each night. Lewis says that he thinks he might be the Drunk, so the Storyteller executes him due to the Mutant ability. Due to the Sweetheart ability, the Alchemist is now drunk."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Hermit"
+}

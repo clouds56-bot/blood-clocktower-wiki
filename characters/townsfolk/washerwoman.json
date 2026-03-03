@@ -1,0 +1,25 @@
+{
+  "id": "washerwoman",
+  "type": "townsfolk",
+  "name": {
+    "en": "Washerwoman"
+  },
+  "ability": {
+    "en": "You start knowing that 1 of 2 players is a particular Townsfolk."
+  },
+  "flavor_text": {
+    "en": "\"Bloodstains on a dinner jacket? No, this is cooking sherry. How careless.\""
+  },
+  "editions": [
+    "trouble_brewing"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "Evin is the Chef, and Amy is the Ravenkeeper. The Washerwoman learns that either Evin or Amy is the Chef.",
+    "Julian is the Imp, and Alex is the Virgin. The Washerwoman learns that either Julian or Alex is the Virgin.",
+    "Marianna is the Spy, and Sarah is the Scarlet Woman. The Washerwoman learns that one of them is the Ravenkeeper. Here, the Spy is registering as a Townsfolk—in this case, the Ravenkeeper."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Washerwoman"
+}

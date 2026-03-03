@@ -1,0 +1,24 @@
+{
+  "id": "gambler",
+  "type": "townsfolk",
+  "name": {
+    "en": "Gambler"
+  },
+  "ability": {
+    "en": "Each night*, choose a player & guess their character: if you guess wrong, you die."
+  },
+  "flavor_text": {
+    "en": "\"Heads, I win. Tails, you lose.\""
+  },
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "The Gambler points to the Minstrel player, then to the Minstrel icon. This guess is correct, so the Gambler remains alive, but is killed by the Demon tonight anyway.",
+    "The Devil's Advocate is bluffing as the Pacifist. That night, the Gambler points to the Devil's Advocate player, then to the Pacifist icon. This guess is wrong, so the Gambler dies."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Gambler"
+}

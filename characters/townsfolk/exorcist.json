@@ -1,0 +1,26 @@
+{
+  "id": "exorcist",
+  "type": "townsfolk",
+  "name": {
+    "en": "Exorcist"
+  },
+  "ability": {
+    "en": "Each night*, choose a player (different to last night): the Demon, if chosen, learns who you are then doesn't wake tonight."
+  },
+  "flavor_text": {
+    "en": "\"We cast you out, every unclean spirit, every satanic power, every onslaught of the infernal adversary, every legion, every diabolical group and sect, in the name and by the power of Our Lord Jesus Christ. We command you, begone and fly far from the Church of God, from the souls made by God in His image and redeemed by the precious blood of the divine Lamb.\""
+  },
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "A Demon chosen by the Exorcist will not wake to use their Demon ability, but will still wake if they need to due to other characters’ abilities. This may be relevant if using the Exorcist with characters from other editions.",
+    "The Exorcist chooses the Shabaloth. The Shabaloth does not kill tonight. At dawn, the Storyteller declares that nobody died that night.",
+    "The Exorcist chooses the Pukka. The Pukka does not wake to attack tonight, but a player still dies because of the Pukka’s attack during the previous night.",
+    "The Po chooses to attack no one. The next night, the Exorcist chooses the Po. The Po does not wake to act tonight. The next night, the Exorcist chooses the Assassin. The Assassin can still attack tonight, and the Po chooses three players to attack, because the Po's last choice was no one."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Exorcist"
+}

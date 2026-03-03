@@ -1,0 +1,25 @@
+{
+  "id": "snitch",
+  "type": "outsider",
+  "name": {
+    "en": "Snitch"
+  },
+  "ability": {
+    "en": "Each Minion gets 3 bluffs."
+  },
+  "flavor_text": {
+    "en": "\"It was John.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "On the first night, the Demon and its two Minions all learn that the Sage, Innkeeper, and Golem are not in play.",
+    "On the first night, the Demon learns that the Fool, Monk, and Saint are not in play. The Mastermind learns that the Fool, Monk, and Saint are not in play. The Witch learns that the Fool, Flowergirl, and Barber are not in play. The Fearmonger learns that the Noble, Amnesiac, and Heretic are not in play.",
+    "On the fourth night, the Pit-Hag creates a Snitch. All Minions learn three not-in-play characters."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Snitch"
+}

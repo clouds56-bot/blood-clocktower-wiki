@@ -1,0 +1,23 @@
+{
+  "id": "fang_gu",
+  "type": "demon",
+  "name": {
+    "en": "Fang Gu"
+  },
+  "ability": {
+    "en": "Each night*, choose a player: they die. The 1st Outsider this kills becomes an evil Fang Gu & you die instead. [+1 Outsider]"
+  },
+  "flavor_text": {
+    "en": "\"Your walls and your weapons are but smoke in dreams.\""
+  },
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "The Fang Gu attacks the Artist, who dies. The next night, the Fang Gu attacks the Sweetheart, who becomes the Fang Gu while the old Fang Gu dies. The Sweetheart does not make a player drunk, because they did not die. The next night, the new Fang Gu attacks the Klutz, who dies."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Fang_Gu"
+}

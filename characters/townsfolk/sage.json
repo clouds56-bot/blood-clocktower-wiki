@@ -1,0 +1,26 @@
+{
+  "id": "sage",
+  "type": "townsfolk",
+  "name": {
+    "en": "Sage"
+  },
+  "ability": {
+    "en": "If the Demon kills you, you learn that it is 1 of 2 players."
+  },
+  "flavor_text": {
+    "en": "\"These mountainous tomes guard the secret, I am sure of it! Twixt word and word, it lies in wait. More candles, boy! More ink! These notes may look arcane, but the infernal puzzle is revealing itself.\""
+  },
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "If the Sage dies early, you will probably want to show the Sage two alive players, which lets the evil team still have a slim chance of winning. If the Sage dies on the final night, feel free to show one alive and one dead player.",
+    "During the second night, the Demon kills the Sage. The Storyteller points at two players, one of whom is the Demon.",
+    "During the final night, the Demon kills the Sage, who is drunk because of the Sweetheart. The Storyteller points at a dead player and one of the remaining three alive players. This information is incorrect.",
+    "The Pit-Hag creates a Demon. Because the Pit-Hag ability says that \"all deaths tonight are arbitrary,” the Storyteller decides that the old Demon dies, and the Sage dies. Because the Sage died due to the Pit-Hag, not the Demon, the Sage does not wake to learn anything tonight"
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Sage"
+}

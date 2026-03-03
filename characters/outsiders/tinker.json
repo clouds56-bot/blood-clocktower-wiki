@@ -1,0 +1,26 @@
+{
+  "id": "tinker",
+  "type": "outsider",
+  "name": {
+    "en": "Tinker"
+  },
+  "ability": {
+    "en": "You might die at any time."
+  },
+  "flavor_text": {
+    "en": "\"I think I see the problem. Luckily, I have an idea! This catapult will shoot twice as far with just a minor adjustment...\""
+  },
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "While you may kill the Tinker out of the blue during the day, it is most interesting if the Tinker dies at night, because the players will be wondering whether the Tinker died due to their ability or for some other reason.\n\n\nYou can choose to never kill the Tinker. This makes the Tinker look really suspicious.\n\n\nWe recommend that you never kill the Tinker when it would end the game. Players should win or lose by their own efforts, not Storyteller fiat.",
+    "During the night, the Tinker dies, even though the Demon attacked a different player.",
+    "The Tea Lady sits next to the Tinker and another good player, protecting the Tinker from death. The Tinker cannot die from their ability.",
+    "The Tinker is attacked by the Demon. The Tinker does not die because they are protected by the Innkeeper. Later that night, the Innkeeper dies, so the Storyteller chooses to kill the Tinker too."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Tinker"
+}

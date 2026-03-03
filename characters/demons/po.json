@@ -1,0 +1,25 @@
+{
+  "id": "po",
+  "type": "demon",
+  "name": {
+    "en": "Po"
+  },
+  "ability": {
+    "en": "Each night*, you may choose a player: they die. If your last choice was no-one, choose 3 players tonight."
+  },
+  "flavor_text": {
+    "en": "\"Would you like a flower? I'm so lonely.\""
+  },
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "On the second night, the Po attacks one player. On the third night, the Po chooses to attack nobody. On the fourth night, the Po attacks three players.",
+    "The Po chooses to attack nobody, but is drunk. The next night, the Po is poisoned. They choose three players, but none of them die. The following night, the Po is sober and healthy and attacks a player, who dies.",
+    "The Po attacks the Moonchild, then the Goon, then the Grandmother. Only the Moonchild dies, because the Po became drunk when they attacked the Goon."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Po"
+}

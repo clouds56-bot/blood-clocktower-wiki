@@ -1,0 +1,24 @@
+{
+  "id": "kazali",
+  "type": "demon",
+  "name": {
+    "en": "Kazali"
+  },
+  "ability": {
+    "en": "Each night*, choose a player: they die. [You choose which players are which Minions. -? to +? Outsiders]"
+  },
+  "flavor_text": {
+    "en": "\"Gon(z)a7les6. Take cau8tun. The mech4an4ion is iNvert10d. E99ors insy6tum. Reco{7}fig.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "Depending on the script, adding more than one Outsider can put the good team at a significant disadvantage.",
+    "There are 15 players and no Minions in play yet. The Kazali wakes and chooses that Doug becomes the evil Organ Grinder, that Amy becomes the evil Vizier, and that Lewis becomes the evil Goblin."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Kazali"
+}

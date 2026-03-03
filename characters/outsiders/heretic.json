@@ -1,0 +1,27 @@
+{
+  "id": "heretic",
+  "type": "outsider",
+  "name": {
+    "en": "Heretic"
+  },
+  "ability": {
+    "en": "Whoever wins, loses & whoever loses, wins, even if you are dead."
+  },
+  "flavor_text": {
+    "en": "\"After the hail has smashed the roof and splintered the glass of the Cathedral windows, it melts again into the earth, like a dying lamb in the desert sun. Such is the parable of the madman.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "On the first day, the Heretic publicly claims to be the Heretic. That night, the Demon kills themself. Evil wins.",
+    "The Heretic does not reveal their character until the final day, when 3 players are alive. They convince the good team to execute a good player, leaving 2 players alive, one of which is the Demon. Good wins.",
+    "The Heretic is dead. The Saint is executed. Good wins.",
+    "The Heretic is poisoned. The Assassin kills the Demon. Good wins.",
+    "There are 3 players alive. The Demon is executed. Because there is a Heretic in play, evil wins."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Heretic"
+}

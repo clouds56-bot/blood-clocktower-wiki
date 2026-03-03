@@ -1,0 +1,26 @@
+{
+  "id": "assassin",
+  "type": "minion",
+  "name": {
+    "en": "Assassin"
+  },
+  "ability": {
+    "en": "Once per game, at night*, choose a player: they die, even if for some reason they could not."
+  },
+  "flavor_text": {
+    "en": "\"...\""
+  },
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "For the first three nights the Assassin wakes, but chooses not to act. During the fourth night, they choose to kill the Fool. Even though the Fool still has their ability, the Fool dies and stays dead.",
+    "The Tea Lady neighbours two good players. The Assassin chooses to kill one of the Tea Lady’s neighbours, who dies even though they were protected by the Tea Lady.",
+    "The Minstrel is in play. The Mastermind dies by execution. That night, the Assassin chooses to kill the Moonchild, but they do not die, because the Assassin is drunk due to the Minstrel.",
+    "The Assassin, who was drunk due to the Courtier, chooses to kill the Goon. The Assassin has no ability, so the Goon remains alive but turns evil."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Assassin"
+}

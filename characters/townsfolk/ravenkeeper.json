@@ -1,0 +1,24 @@
+{
+  "id": "ravenkeeper",
+  "type": "townsfolk",
+  "name": {
+    "en": "Ravenkeeper"
+  },
+  "ability": {
+    "en": "If you die at night, you are woken to choose a player: you learn their character."
+  },
+  "flavor_text": {
+    "en": "\"My birds will avenge me! Fly! Fly, my sweet and dutiful pets! To the manor and to the river! To the alleys and to the salons! Fly!\""
+  },
+  "editions": [
+    "trouble_brewing"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "The Ravenkeeper is killed by the Imp, and then wakes to choose a player. After some deliberation, they choose Benjamin. Benjamin is the Empath, and the Ravenkeeper learns this.",
+    "The Imp attacks the Mayor. The Mayor doesn't die, but the Ravenkeeper dies instead, due to the Mayor's ability. The Ravenkeeper is woken and chooses Douglas, who is a dead Recluse. The Ravenkeeper learns that Douglas is the Scarlet Woman, since the Recluse registered as a Minion."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Ravenkeeper"
+}

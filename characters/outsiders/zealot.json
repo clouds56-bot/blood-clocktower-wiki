@@ -1,0 +1,25 @@
+{
+  "id": "zealot",
+  "type": "outsider",
+  "name": {
+    "en": "Zealot"
+  },
+  "ability": {
+    "en": "If there are 5 or more players alive, you must vote for every nomination."
+  },
+  "flavor_text": {
+    "en": "\"I enjoy talking to you. Your mind appeals to me. It resembles my own mind except that you happen to be insane.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "If the Zealot accidentally forgets to vote, do not tally the Zealot's vote. If you do tally the vote, the total will be more than it should be, and all players will know which player is the Zealot, which is unfair for the evil team. Mistakes happen. Just play on and have a private chat later.",
+    "There are 7 players alive. The Zealot votes for the Alsaahir, the Summoner, Ogre, and the Banshee. The next day, there are 5 players alive. The Zealot votes for the Yaggababble, and the High Priestess. The next day, there are 3 players alive. The Zealot votes for the Yaggababble, but chooses not to vote for the High Priestess.",
+    "There are 9 players alive. The Zealot is dead. The Zealot doesn't vote for 3 days, and uses their vote token when just 3 players are alive to vote for the Farmer."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Zealot"
+}

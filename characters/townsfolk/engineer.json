@@ -1,0 +1,26 @@
+{
+  "id": "engineer",
+  "type": "townsfolk",
+  "name": {
+    "en": "Engineer"
+  },
+  "ability": {
+    "en": "Once per game, at night, choose which Minions or which Demon is in play."
+  },
+  "flavor_text": {
+    "en": "\"If it bends, great. If it breaks, well, it probably needed fixing anyway.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "On the second night, the Engineer chooses that the Demon is a Lleech. Lewis, who was the Imp, is now the Lleech.",
+    "On the first night, the Engineer changes the Baron into the Boomdandy. There are still an extra two Outsiders in play.",
+    "The Fearmonger and the Psychopath are in play, and causing havoc. The Engineer chooses that the Mezepheles and the Spy are in play. The Storyteller chooses to change the Fearmonger into the Mezepheles and the Psychopath into the Spy.",
+    "The Spy, Assassin, and Witch are in play. The Engineer chooses that the Spy, Assassin and Mezepheles are in play. The Witch turns into the Mezepheles."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Engineer"
+}

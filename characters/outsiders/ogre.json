@@ -1,0 +1,25 @@
+{
+  "id": "ogre",
+  "type": "outsider",
+  "name": {
+    "en": "Ogre"
+  },
+  "ability": {
+    "en": "On your 1st night, choose a player (not yourself): you become their alignment (you don't know which) even if drunk or poisoned.”"
+  },
+  "flavor_text": {
+    "en": "\"<grunt><grin></grunt>\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "Optional rule: Mark the Ogre’s chosen player with a FRIEND reminder. The Ogre is always the same alignment as their friend. If the Ogre’s friend changes alignment, the Ogre changes alignment too, but the Ogre does not learn this.\n\nThis is only recommended for games of 15 players or more, so that there are not too many evil players.",
+    "On the first night, the Ogre chooses the Summoner. The Ogre becomes evil, and stays evil for the rest of the game.",
+    "On the first night, the Ogre chooses the Banshee. The Ogre stays good. On the third night, the Mezepheles turns the Banshee evil. The Ogre remains good."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Ogre"
+}

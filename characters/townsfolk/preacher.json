@@ -1,0 +1,25 @@
+{
+  "id": "preacher",
+  "type": "townsfolk",
+  "name": {
+    "en": "Preacher"
+  },
+  "ability": {
+    "en": "Each night, choose a player: a Minion, if chosen, learns this. All chosen Minions have no ability."
+  },
+  "flavor_text": {
+    "en": "\"It is better to be rich and healthy than poor and sick.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "The Preacher points to Alex, who is the Engineer. Nothing happens.",
+    "The Preacher points to Lachlan, who is the Cerenovus. Lachlan wakes to learn that he has been preached, and is not woken to use his ability.",
+    "Doug is the Preacher. He points to Marianna, who is the Pit-Hag. Marianna wakes to learn that she has been preached, and is not woken to use her ability. The following night, the Poisoner points to Doug. Because Doug is now poisoned, Marianna wakes to use her ability."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Preacher"
+}

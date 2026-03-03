@@ -1,0 +1,25 @@
+{
+  "id": "puzzlemaster",
+  "type": "outsider",
+  "name": {
+    "en": "Puzzlemaster"
+  },
+  "ability": {
+    "en": "1 player is drunk, even if you die. If you guess (once) who it is, learn the Demon player, but guess wrong & get false info."
+  },
+  "flavor_text": {
+    "en": "\"When one begins to think that some thing is merely some other thing, one is usually on the brink of an error. Patience, patience. Don’t confuse just and should with is and isn’t.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "While you can make a Minion or the Demon drunk with the Puzzlemaster ability, only do this if you have an excellent reason in mind. It is almost always best to select a Townsfolk player.",
+    "Alex is the Demon. Sarah is the Empath who has been made drunk by the Puzzlemaster and is getting false information. The Puzzlemaster publicly guesses that Sarah is drunk, and is told “Alex is the Demon” privately by the Storyteller.",
+    "Lewis is the Demon. Ben is dead and is drunk due to the Puzzlemaster. Marianna is alive and drunk due to the Sailor. The Puzzlemaster privately guesses Marianna, and is told “Evin is the Demon” privately by the Storyteller."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Puzzlemaster"
+}

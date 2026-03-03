@@ -1,0 +1,25 @@
+{
+  "id": "town_crier",
+  "type": "townsfolk",
+  "name": {
+    "en": "Town Crier"
+  },
+  "ability": {
+    "en": "Each night*, you learn if a Minion nominated today."
+  },
+  "flavor_text": {
+    "en": "\"Hear ye! Hear ye! Witchcraft in the labyrinth! Genius savant reveals all! Town in danger! Hear Ye!\""
+  },
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "If you forget whether a Minion made a nomination or not, wake each Minion at night and ask by showing them the DID YOU NOMINATE TODAY? info token. They must answer honestly, then go to sleep.",
+    "Today, four players nominated. Two of them were Minions. Many players voted, but there was no execution. That night, the Town Crier learns a “yes.”",
+    "A Minion called for the exile of a Traveller, who was exiled. That night, the Town Crier learns a “no.” (Exiles are never affected by character abilities.)"
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Town_Crier"
+}

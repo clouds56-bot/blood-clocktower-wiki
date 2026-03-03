@@ -1,0 +1,25 @@
+{
+  "id": "lleech",
+  "type": "demon",
+  "name": {
+    "en": "Lleech"
+  },
+  "ability": {
+    "en": "Each night*, choose a player: they die. You start by choosing a player: they are poisoned. You die if & only if they are dead."
+  },
+  "flavor_text": {
+    "en": "\"Tasty, tasty, tasty, tasty, tasty, tasty, tasty, tasty brai- I mean pie! Yes. Tasty pie. That’s what I meant to say.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "When giving false information to a good player poisoned by the Lleech, make sure this information seems true. If the good player believes it to be false, they will quickly execute themselves and win the game.",
+    "The Lleech poisons the Noble. The Noble learns false information. The Lleech is executed, but does not die. The next day, the Noble is executed. The Noble and the Lleech die. Good wins.",
+    "The Lleech poisons the Farmer. The Lleech is made drunk by the Courtier. The poisoned Farmer dies, and the game continues because the Lleech is also drunk. The drunk Lleech is executed and dies, and good wins."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Lleech"
+}

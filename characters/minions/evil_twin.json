@@ -1,0 +1,28 @@
+{
+  "id": "evil_twin",
+  "type": "minion",
+  "name": {
+    "en": "Evil Twin"
+  },
+  "ability": {
+    "en": "You & an opposing player know each other. If the good player is executed, evil wins. Good can't win if you both live."
+  },
+  "flavor_text": {
+    "en": "\"I'm not Sara! I'm Clara! SHE is Sara! Sara is the evil one! Not me!\""
+  },
+  "editions": [
+    "sects_violets",
+    "trouble_brewing"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "If a Pit-Hag creates an Evil Twin during the final night, either make the other Twin the Demon player or a dead player, so that the good team is still able to win.\n\n\nIt is rarely a good idea to choose a Traveller to be a Twin.",
+    "Both twins are claiming to be the Oracle. The Evil Twin is executed. The game continues.",
+    "The Pit-Hag turns the good Sage, who is also the Good Twin, into the Mutant. Both twins try to convince the group that they are the Mutant. The Storyteller immediately executes the Mutant, who is also the Good Twin. The game ends and evil wins.",
+    "The Good Twin and the Evil Twin are both loudly claiming to be the Artist. Both players approach the Storyteller to ask a question in private. The good players, confused, execute the Demon. The game continues, with no death during the night from now on.",
+    "The Pit-Hag turns a good player into the Evil Twin, who remains good. The group executes the good-aligned Evil Twin. Evil wins."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Evil_Twin"
+}

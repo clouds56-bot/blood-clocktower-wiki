@@ -1,0 +1,24 @@
+{
+  "id": "no_dashii",
+  "type": "demon",
+  "name": {
+    "en": "No Dashii"
+  },
+  "ability": {
+    "en": "Each night*, choose a player: they die. Your 2 Townsfolk neighbors are poisoned."
+  },
+  "flavor_text": {
+    "en": "\"By the sins of Arnoch, I feel thy laden stench. By the curs-ed sun and her foul legion of tiny grinning gods, I corrupt thee. By the blessed night and the hidden depths of the horrid and unholy sea, I end thy squalid life upon this plane.\""
+  },
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "At the start of the game, the No Dashii neighbors a Town Crier and a Snake Charmer. They are both poisoned. A few days later, they are both dead, and the closest alive neighbors to the No Dashii are an unpoisoned Clockmaker and an unpoisoned Barber.",
+    "Clockwise from the No Dashii sits a Philosopher, a Mathematician, then a Sage. Anticlockwise from the No Dashii sits a Witch, a Mutant, then a Seamstress. The Philosopher and the Seamstress are poisoned"
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/No_Dashii"
+}

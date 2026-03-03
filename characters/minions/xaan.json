@@ -1,0 +1,25 @@
+{
+  "id": "xaan",
+  "type": "minion",
+  "name": {
+    "en": "Xaan"
+  },
+  "ability": {
+    "en": "On night X, all Townsfolk are poisoned until dusk. [X Outsiders]"
+  },
+  "flavor_text": {
+    "en": "\"Down they fall. One by one. By two, by three, by five.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "There are 3 Outsiders in play, due to the Xaan. On night 3, the Exorcist chooses the Demon but nothing happens, the Acrobat chooses the Drunk but nothing happens, and the Seamstress gets false information.",
+    "There is 1 Outsider in play. It is an 11 player game. On the first night, the Xaan poisons all 7 Townsfolk. On the second night, the Pit-Hag creates a Hatter. Even though there are 2 Outsiders in play, all players are healthy tonight.",
+    "There are no Outsiders in play. The Xaan never poisons anyone. The Xaan bluffs as the Zealot, and the good team believes that all Townsfolk are poisoned on night 1, but they are not."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Xaan"
+}

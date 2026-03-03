@@ -1,0 +1,24 @@
+{
+  "id": "godfather",
+  "type": "minion",
+  "name": {
+    "en": "Godfather"
+  },
+  "ability": {
+    "en": "You start knowing which Outsiders are in play. If 1 died today, choose a player tonight: they die. [-1 or +1 Outsider]"
+  },
+  "flavor_text": {
+    "en": "\"Normally, it's just business. But when you insult my daughter, you insult me. And when you insult me, you insult my family. You really should be more careful - it would be a shame if you had an unfortunate accident.\""
+  },
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "The Godfather learns that the Lunatic and the Moonchild are in play, so the Godfather bluffs as the Tinker. During the third day, the Lunatic dies by execution. That night, the Demon kills the Minstrel, and the Godfather kills the Pacifist.",
+    "The Tinker is executed but remains alive, because they were protected by the Devil's Advocate. The Godfather does not act that night. The next day, the Tinker dies due to their own ability. That night, the Demon kills a player, and the Godfather kills themself to appear like a good player."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Godfather"
+}

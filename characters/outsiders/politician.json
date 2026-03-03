@@ -1,0 +1,25 @@
+{
+  "id": "politician",
+  "type": "outsider",
+  "name": {
+    "en": "Politician"
+  },
+  "ability": {
+    "en": "If you were the player most responsible for your team losing, you change alignment & win, even if dead."
+  },
+  "flavor_text": {
+    "en": "\"I'm glad you asked that question. Truly, I am. But I think the REAL question here is...\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "The Politician has been trying to execute the Demon all game, without success. With just three players alive, the Politician convinces the group to not execute, since someone is claiming to be the Mayor. There is no execution, and evil wins because a Minion was bluffing as the Mayor. The Politician wins too.",
+    "On the final day, the Politician votes for the Empath, and tells the group that the Empath is evil. The Saint is executed instead. The Storyteller judges that the good team lost due to their own actions as a group, not just the bad advice of the Politician. Good loses, and the Politician loses.",
+    "The Politician, believing that evil is winning, bluffs as the Atheist. The Storyteller is executed. Evil wins, and the Politician wins too."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Politician"
+}

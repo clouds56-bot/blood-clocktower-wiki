@@ -1,0 +1,25 @@
+{
+  "id": "monk",
+  "type": "townsfolk",
+  "name": {
+    "en": "Monk"
+  },
+  "ability": {
+    "en": "Each night*, choose a player (not yourself): they are safe from the Demon tonight."
+  },
+  "flavor_text": {
+    "en": "\"'Tis an ill and deathly wind that blows tonight. Come, my brother, take shelter in the abbey while the storm rages. By my word, or by my life, you will be safe.\""
+  },
+  "editions": [
+    "trouble_brewing"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "The Monk protects the Fortune Teller. The Imp attacks the Fortune Teller. No deaths occur tonight.",
+    "The Monk protects the Mayor, and the Imp attacks the Mayor. The Mayor's \"another player dies\" ability does not trigger, because the Mayor is safe from the Imp. Nobody dies tonight.",
+    "The Monk protects the Imp . The Imp chooses to kill themself tonight, but nothing happens. The Imp stays alive and a new Imp is not created."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Monk"
+}

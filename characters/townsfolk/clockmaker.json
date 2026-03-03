@@ -1,0 +1,25 @@
+{
+  "id": "clockmaker",
+  "type": "townsfolk",
+  "name": {
+    "en": "Clockmaker"
+  },
+  "ability": {
+    "en": "You start knowing how many steps from the Demon to its nearest Minion."
+  },
+  "flavor_text": {
+    "en": "\"Do not disturb me. The tick must continue, for the circle is a symbol of life and contains all things - all answers - in its divine machinery. I must work.\""
+  },
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "The Fang Gu is sitting next to the Pit-Hag. During the first night, the Clockmaker learns a \"1\".",
+    "Clockwise from the No Dashii sits the Dreamer, the Snake Charmer, then the Evil Twin. Counterclockwise from the No Dashii sits the Mutant, the Sweetheart, the Philosopher, the Sage, then the Witch. Because the Witch is five steps away from the Demon, and the Evil Twin is three steps away from the Demon, the Clockmaker learns a \"3\" during the first night.",
+    "The Fang Gu neighbours two Travellers, one good and one evil. Neighboring one of these Travellers is a Cerenovus. During the first night, the Clockmaker learns a \"2\", because evil Travellers are not Minions."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Clockmaker"
+}

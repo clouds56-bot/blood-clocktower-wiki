@@ -1,0 +1,27 @@
+{
+  "id": "barber",
+  "type": "outsider",
+  "name": {
+    "en": "Barber"
+  },
+  "ability": {
+    "en": "If you died today or tonight, the Demon may choose 2 players (not another Demon) to swap characters."
+  },
+  "flavor_text": {
+    "en": "\"Did you know that barbery and surgery were once the same profession? No? Well, now you do.\""
+  },
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "If a good player becomes a Minion or Demon, or an evil player becomes a Townsfolk or Outsider, you may wish to remind them that their alignment has not changed.",
+    "The Barber dies. The Demon considers swapping the Clockmaker and the Juggler, but then does nothing.",
+    "The Barber dies. The Demon swaps the alive Snake Charmer with the dead Barber. Now, there is an alive Barber and a dead Snake Charmer.",
+    "The Barber dies. The Vortox swaps themself with an alive Witch.",
+    "The Barber dies. The Vigormortis swaps themself with a dead Sweetheart. The old Vigormortis is now the evil Sweetheart. Because the Pit-Hag created a good Demon during the previous night, the game continues."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Barber"
+}

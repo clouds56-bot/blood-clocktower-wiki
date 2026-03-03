@@ -1,57 +1,27 @@
 {
   "id": "poisoner",
   "type": "minion",
-  "editions": ["trouble_brewing"],
   "name": {
-    "en": "Poisoner",
-    "zh": "毒师",
-    "cn": "投毒者",
-    "ja": "毒使い"
+    "en": "Poisoner"
   },
   "ability": {
-    "en": "Each night, choose a player: they are poisoned tonight and tomorrow day.",
-    "zh": "每晚，选择一名玩家：他在当晚和下一个白天中毒。",
-    "cn": "每个夜晚，你要选择一名玩家：他在当晚的剩余时间和接下来的一整个白天阶段里中毒。",
-    "ja": "毎晩、プレイヤーを1人選ぶ：そのプレイヤーは今晩と翌日の昼間、毒を受ける。"
+    "en": "Each night, choose a player: they are poisoned tonight and tomorrow day."
   },
   "flavor_text": {
-    "en": "Add compound Alpha to compound Beta... NOT TOO MUCH!",
-    "zh": "将α化合物加入到β化合物中……别！太！多！",
-    "cn": "将α化合物加入到β化合物中……别！太！多！"
+    "en": "\"Add compound Alpha to compound Beta... NOT TOO MUCH!\""
   },
-  "first_night": true,
+  "editions": [
+    "trouble_brewing"
+  ],
+  "first_night": false,
   "other_nights": true,
-  "reminders": [
-    { "en": "POISONED", "zh": "中毒", "cn": "中毒", "ja": "毒" }
-  ],
-  "how_to_run": {
-    "en": "Each night, wake the Poisoner. They point at any player. The chosen player becomes poisoned—put the POISONED reminder token by their character token. Each dusk, the poisoned player becomes healthy—remove their POISONED reminder.",
-    "zh": "每个夜晚，唤醒投毒者。让投毒者指向任意一名玩家。被选择的玩家中毒——将'中毒'提示标记放置在被选择的玩家角色标记旁。每到黄昏时，中毒玩家会恢复健康——移除他的中毒提示标记。",
-    "cn": "每个夜晚，唤醒投毒者。让投毒者指向任意一名玩家。被选择的玩家中毒——将'中毒'提示标记放置在被选择的玩家角色标记旁。让投毒者重新入睡。（这名中毒的玩家会照常被唤醒并行动。他失去了能力，但他认为自己还拥有能力。如果他的能力会获取信息，你可以按你的意愿来给出错误的信息。参考规则书中的'醉酒与中毒'部分。）每到黄昏时，中毒玩家会恢复健康——移除他的中毒提示标记。"
-  },
+  "jinxes": [],
   "examples": [
-    "During the night, the Poisoner poisons the Slayer. The next day, the Slayer tries to slay the Imp. Nothing happens.",
-    "The poisoned Empath, who neighbours two evil players, learns a '0'.",
-    "The Investigator is poisoned. They learn that one of two players is the Baron, even though neither is a Minion."
+    "During the night, the Poisoner poisons the Slayer. The next day, the Slayer tries to slay the Imp. Nothing happens. The Slayer now has no ability.",
+    "The poisoned Empath, who neighbours two evil players, learns a \"0.” The next night, the Empath, no longer poisoned, learns the correct information: a \"2.”",
+    "The Investigator is poisoned. They learn that one of two players is the Baron, even though neither is a Minion. (Or even the right players, but the wrong Minion type.)",
+    "The Undertaker is poisoned. Even though the Imp died today, they learn that the Virgin died. A few days later, a poisoned Saint dies, and the game continues.",
+    "The Poisoner poisons the Mayor, then becomes the Imp. The Mayor is no longer poisoned because there is no Poisoner in play."
   ],
-  "tips": {
-    "en": [
-      "Target characters who get information over several nights like Fortune Teller or Undertaker.",
-      "Undermine players who trust each other by poisoning key info sources.",
-      "You can poison your own Demon if it helps create confusion."
-    ],
-    "zh": [
-      "确定你要下毒的目标非常重要。如果你能找到的话，像占卜师和送葬者这样在晚上能获得信息的角色都是不错的选择。",
-      "下毒给团队中能获得关键信息的角色能够摧毁玩家之间的信任。",
-      "你也可以对恶魔下毒，这样就可以伪装成僧侣或者士兵，因为今天晚上没人被杀害。"
-    ],
-    "cn": [
-      "确定你要下毒的目标非常重要。如果你能找到的话，像占卜师和送葬者这样在晚上能获得信息的角色都是不错的选择。你也可以基于玩家来做出你的选择；那些对于善良阵营有强领导力和号召力的玩家或者一直保持安静不想引起注意的玩家都是很好的选项。",
-      "下毒给团队中能获得关键信息的角色能够摧毁玩家之间的信任。如果一个团队是围绕着送葬者进行游戏的，那你就可以通过在合适的时间给他下毒来让大家把目标都转移到一个无辜的玩家身上。",
-      "与恶魔协作，确保你们不会选择到同一位玩家。除非你们是选择了像守鸦人这样的角色，否则你这一夜的下毒机会就被浪费了。"
-    ]
-  },
-  "image": "assets/tokens/poisoner.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Poisoner",
-  "source_url_cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%8A%95%E6%AF%92%E8%80%85"
+  "source_url": "https://wiki.bloodontheclocktower.com/Poisoner"
 }

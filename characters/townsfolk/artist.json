@@ -1,0 +1,27 @@
+{
+  "id": "artist",
+  "type": "townsfolk",
+  "name": {
+    "en": "Artist"
+  },
+  "ability": {
+    "en": "Once per game, during the day, privately ask the Storyteller any yes/no question."
+  },
+  "flavor_text": {
+    "en": "\"Mon Dieu! C'est lumineux! My work, she is... how you say... Magnifique! Dieu est révélé! Oui.\""
+  },
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "Like the Savant, evil players bluffing as the Artist may request a private chat with you and pretend to ask a question. To help them bluff, you can pretend to give an answer by nodding or shaking your head.",
+    "The Artist asks, \"Is the Demon sitting in a brown chair?\" The Storyteller answers, \"No,” because the Demon is in a black chair.",
+    "The Artist asks, \"Is David the Evil Twin?” and the Storyteller answers, \"Yes,” because David is.",
+    "The Artist asks, \"How many Minions are alive?” and the Storyteller says, \"Please ask another question. I cannot answer that with a yes, no, or I don't know.\"",
+    "The Artist asks, \"Are we winning?” and the Storyteller answers, \"I don't know,” because even though all the Minions are dead, many good players trust the Demon."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Artist"
+}

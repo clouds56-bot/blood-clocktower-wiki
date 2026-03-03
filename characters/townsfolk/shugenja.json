@@ -1,0 +1,24 @@
+{
+  "id": "shugenja",
+  "type": "townsfolk",
+  "name": {
+    "en": "Shugenja"
+  },
+  "ability": {
+    "en": "You start knowing if your closest evil player is clockwise or anti-clockwise. If equidistant, this info is arbitrary."
+  },
+  "flavor_text": {
+    "en": "これは夢。それも夢。すべて夢です。"
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "The Organ Grinder is 2 steps away from the Shugenja in a clockwise direction. The Fearmonger is 3 steps away from the Shugenja in an anti-clockwise direction. The Shugenja wakes and learns that the closest evil player is in a clockwise direction.",
+    "The Marionette is 1 step away from the Shugenja in  a clockwise direction. The Widow is 1 step away from the Shugenja in an anti-clockwise direction. The Shugenja wakes and the Storyteller chooses to tell the Shugenja that the closest evil player is in a clockwise direction."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Shugenja"
+}

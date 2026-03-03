@@ -47,6 +47,27 @@ const CHARACTERS = {
 const BASE_URL = 'https://wiki.bloodontheclocktower.com';
 const OUTPUT_DIR = path.join(__dirname, '..', 'characters');
 
+// Type mapping from category names (plural) to schema type (singular)
+const TYPE_MAPPING = {
+  townsfolk: 'townsfolk',
+  outsiders: 'outsider',
+  minions: 'minion',
+  demons: 'demon'
+};
+
+// Edition mapping from wiki text
+const EDITION_MAPPING = {
+  'trouble brewing': 'trouble_brewing',
+  'trouble_brewing': 'trouble_brewing',
+  'bad moon rising': 'bad_moon_rising',
+  'bad_moon_rising': 'bad_moon_rising',
+  'sects & violets': 'sects_violets',
+  'sects_%26_violets': 'sects_violets',
+  'sects_&_violets': 'sects_violets',
+  'experimental characters': 'experimental',
+  'experimental': 'experimental'
+};
+
 // Rate limiting
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -69,17 +90,47 @@ function parseCharacterPage(html, characterId, type) {
     ability = summarySection.text().trim().replace(/^"|"$/g, '');
   }
 
-  // Extract editions from the "Appears in" section
-  const editions = [];
-  const editionsSection = $('#content');
-  if (editionsSection.find('a[href*="Trouble_Brewing"]').length > 0) {
-    editions.push('trouble_brewing');
-  }
-  if (editionsSection.find('a[href*="Bad_Moon_Rising"]').length > 0) {
-    editions.push('bad_moon_rising');
-  }
-  if (editionsSection.find('a[href*="Sects_%26_Violets"], a[href*="Sects_&_Violets"]').length > 0) {
-    editions.push('sects_violets');
+  // Extract editions from categories and "Appears in" section
+  const editions = new Set();
+
+  // Check categories first (more reliable)
+  $('.catlinks a').each(function() {
+    const categoryText = $(this).text().toLowerCase().trim();
+    const categoryHref = $(this).attr('href') || '';
+
+    // Map category text to edition
+    if (EDITION_MAPPING[categoryText]) {
+      editions.add(EDITION_MAPPING[categoryText]);
+    }
+    // Also check href
+    for (const [key, value] of Object.entries(EDITION_MAPPING)) {
+      if (categoryHref.toLowerCase().includes(key.replace(/_/g, '_').replace(/%26/g, '%26'))) {
+        editions.add(value);
+      }
+    }
+  });
+
+  // Also check for edition links in the content
+  const content = $('#content');
+  content.find('a').each(function() {
+    const href = $(this).attr('href') || '';
+    const text = $(this).text().toLowerCase().trim();
+
+    for (const [key, value] of Object.entries(EDITION_MAPPING)) {
+      if (href.toLowerCase().includes(key) || text.includes(key.replace(/_/g, ' '))) {
+        editions.add(value);
+      }
+    }
+  });
+
+  // Convert Set to Array
+  const editionsArray = Array.from(editions);
+
+  // If no editions found, check if it's in Experimental by looking at character list
+  if (editionsArray.length === 0) {
+    // Characters not in main editions are often experimental
+    // We'll mark as experimental as fallback
+    editionsArray.push('experimental');
   }
 
   // Determine first_night / other_nights
@@ -131,11 +182,11 @@ function parseCharacterPage(html, characterId, type) {
 
   return {
     id: characterId.toLowerCase().replace(/%27/g, "'").replace(/_/g, '_'),
-    type,
+    type: TYPE_MAPPING[type] || type,
     name: { en: characterId.replace(/_/g, ' ').replace(/%27/g, "'") },
     ability: ability ? { en: ability } : null,
     flavor_text: flavorText ? { en: flavorText } : null,
-    editions,
+    editions: editionsArray,
     first_night: firstNight,
     other_nights: otherNights,
     jinxes,

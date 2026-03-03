@@ -1,0 +1,25 @@
+{
+  "id": "lord_of_typhon",
+  "type": "demon",
+  "name": {
+    "en": "Lord of Typhon"
+  },
+  "ability": {
+    "en": "Each night*, choose a player: they die. [Evil characters are in a line. You are in the middle. +1 Minion. -? to +? Outsiders]"
+  },
+  "flavor_text": {
+    "en": "\"In the shadowed and forgotten corners of the cosmos, where the stars whisper secrets to the void, lies a truth so profound that the merest glimpse of it unravels the sanity of mortal minds.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "There are two Minions: the Organ Grinder and the Mezepheles. In between them, neighboring them both, sits the Lord of Typhon. The number of Outsiders is normal.",
+    "The Vizier neighbors the Harpy, who neighbors the Lord of Typhon, who neighbors the Goblin. There are ten players, and two Outsiders in play, due to the Lord of Typhon ability.",
+    "The Fearmonger neighbors the Boomdandy, who neighbors the Lord of Typhon, who neighbors the Poisoner, who neighbors the Mastermind. There are 15 players, but zero Outsiders in play, since the Lord of Typhon removed one Outsider, and the Puzzlemaster became the Boomdandy during the first night."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Lord_of_Typhon"
+}

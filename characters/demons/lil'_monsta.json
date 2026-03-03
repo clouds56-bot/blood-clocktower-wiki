@@ -1,0 +1,24 @@
+{
+  "id": "lil'_monsta",
+  "type": "demon",
+  "name": {
+    "en": "Lil' Monsta"
+  },
+  "ability": {
+    "en": "Each night, Minions choose who babysits Lil' Monsta & \"is the Demon\". Each night*, a player might die. [+1 Minion]"
+  },
+  "flavor_text": {
+    "en": "\"Step 1: Be cute.\n\t\t\t\tStep 2: World domination.\n\t\t\t\tStep 3: Bweakfast.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "You may need to kill a Minion or two at night using the Lil’\nMonsta’s ability. On the final day, it would be unfair for the good team to have 2 or more Minions alive, since either Minions could have been chosen to babysit Lil’ Monsta without any way for the good team to know which. Avoid this, and make the game fairer for the good team by killing Minions so that only 1 remains on the final day.",
+    "The Poisoner and the Widow wake. They point at each other, then point at themselves, then eventually both point at the Widow, who receives Lil’ Monsta’s token. The next night, they both choose that the Poisoner babysits Lil’ Monsta instead."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Lil%27_Monsta"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "general",
+  "type": "townsfolk",
+  "name": {
+    "en": "General"
+  },
+  "ability": {
+    "en": "Each night, you learn which alignment the Storyteller believes is winning: good, evil, or neither."
+  },
+  "flavor_text": {
+    "en": "\"I don’t have time for quotes.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "There are 5 good players alive and 4 evil players alive. Even though the Demon is very suspicious and will probably be executed next, there is a Scarlet Woman in play, who is very trustworthy. The Storyteller gives a thumbs down.",
+    "The Good team has a lot of information, and believes that their false information is indeed false. The only Minion is dead. The Storyteller gives a thumbs up.",
+    "The Po is a very experienced player and is coordinating well with the Minions. The Monk is successfully protecting the Savant each night and the good team have correctly identified several good players. However, the Po will probably kill 3 times tomorrow night, so it is anyone’s game. The Storyteller gives a thumbs to the side."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/General"
+}

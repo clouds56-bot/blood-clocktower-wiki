@@ -1,0 +1,26 @@
+{
+  "id": "courtier",
+  "type": "townsfolk",
+  "name": {
+    "en": "Courtier"
+  },
+  "ability": {
+    "en": "Once per game, at night, choose a character: they are drunk for 3 nights & 3 days."
+  },
+  "flavor_text": {
+    "en": "\"I am more afraid of an army of one hundred sheep led by a lion than an army of one hundred lions led by a sheep.\""
+  },
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "In other editions, there can be multiple copies of the same character in play. The Courtier only makes one of them drunk.",
+    "For four nights, the Courtier wakes but does not use their ability. During the fifth night, they make the Shabaloth drunk. For the next three nights, the Shabaloth acts but cannot kill anybody.",
+    "The Courtier uses their ability while drunk. Nothing happens, but they are not woken again.",
+    "The Courtier makes the Mastermind drunk. The Po is executed while the Mastermind still lives. The game ends and good wins."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Courtier"
+}

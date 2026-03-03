@@ -1,0 +1,25 @@
+{
+  "id": "legion",
+  "type": "demon",
+  "name": {
+    "en": "Legion"
+  },
+  "ability": {
+    "en": "Each night*, a player might die. Executions fail if only evil voted. You register as a Minion too. [Most players are Legion]"
+  },
+  "flavor_text": {
+    "en": "\"We are the chill wind on a winter’s day. We are the shadow in the moonless night. We are the poison in your tea and the whisper in your ear. We are everywhere.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "Most nights, kill a Legion. Killing a good player is usually unfair. Your aim is to get to three players alive—two good players and one Legion player. On the final day, if the players don’t execute, kill a good player that night so that evil wins.\n\n\nIf the players try to force others to vote to “test whether the vote tally is zero”, you may instead declare that a zero-tally vote is successful but secretly keep a record of which player is really about to die by marking them with Legion’s ABOUT TO DIE reminder, then execute them when nominations are over. This keeps Legion games mysterious and challenging.",
+    "The only good players are the Fortune Teller and the Slayer. 6 Legion and the Slayer vote to execute the Fortune Teller. They are executed, and evil wins.",
+    "4 players are alive. 3 Legion and no good players vote to execute Julian. Julian is not executed. Alex, who has 2 votes, 1 of which is a good player, is executed instead. Evil wins."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Legion"
+}

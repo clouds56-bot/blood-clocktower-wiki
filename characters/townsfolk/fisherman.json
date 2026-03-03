@@ -1,0 +1,26 @@
+{
+  "id": "fisherman",
+  "type": "townsfolk",
+  "name": {
+    "en": "Fisherman"
+  },
+  "ability": {
+    "en": "Once per game, during the day, visit the Storyteller for some advice to help your team win."
+  },
+  "flavor_text": {
+    "en": "\"This was my favourite part of the river... see how the sunlight makes a rainbow from the monastery to the market? This was the best place for big fish. And the older I get, the bigger they were.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "It is best to give the Fisherman advice on what to DO, not just information about what IS. This makes the Fisherman more fun and unique.\n\nEg. Saying “You should execute that player” or “Keep this player alive” or “find out who is drunk” or “change your thinking entirely” or “ignore the Minions” or “trust this player” are much more interesting than saying “this player is evil” or “the Demon is a No Dashii”.",
+    "The Fisherman visits the Storyteller and learns that “You shouldn’t trust Ben”. Ben is the poisoned Empath, and is unknowingly spreading false information.",
+    "The Fisherman learns “Keep the players claiming to be Outsiders alive”. These players are secretly the Klutz and the Fearmonger. The Storyteller believes that keeping these players alive is more likely to end up with good executing the Demon.",
+    "On the final day, the Fisherman learns to “kill Lewis”. The Fisherman is drunk, and Lewis is a Townsfolk. The Storyteller gave bad (“false”) advice to the Fisherman."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Fisherman"
+}

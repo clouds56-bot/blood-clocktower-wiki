@@ -1,0 +1,25 @@
+{
+  "id": "bounty_hunter",
+  "type": "townsfolk",
+  "name": {
+    "en": "Bounty Hunter"
+  },
+  "ability": {
+    "en": "You start knowing 1 evil player. If the player you know dies, you learn another evil player tonight. [1 Townsfolk is evil]"
+  },
+  "flavor_text": {
+    "en": "\"Alone, I walk these streets, paved with the sick stench of corruption. Its thickness worms its way into my nostrils, unbidden, burning with revulsion. And anticipation. The illness of this wretched place grows each night. And I... I am the cure.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "Alex is the Bounty Hunter, Ben is the Harpy, and Abdallah is the Tea Lady. During setup, the Storyteller decides that Abdallah will be the Evil Tea Lady. On the first night, Alex learns Ben. On day 3, Ben is executed. That night, Alex learns Abdallah.",
+    "On the first night, the Bounty Hunter learns Julian, who is the evil Baron. When Julian dies, the Poisoner targets the Bounty Hunter. That night, the Bounty Hunter learns Evin, who is the good Magician.",
+    "Lachlan is the Drunk who thinks he is the Bounty Hunter. No evil Townsfolk was added at setup, because the Bounty Hunter is not in play. On the first night, Lachlan learns Marianna, who is the good  Empath. When Marianna dies, Lachlan learns Doug, who is the good Flowergirl."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Bounty_Hunter"
+}

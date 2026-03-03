@@ -1,0 +1,27 @@
+{
+  "id": "pit-hag",
+  "type": "minion",
+  "name": {
+    "en": "Pit-Hag"
+  },
+  "ability": {
+    "en": "Each night*, choose a player & a character they become (if not in play). If a Demon is made, deaths tonight are arbitrary."
+  },
+  "flavor_text": {
+    "en": "\"Round about the cauldron go; In the poison'd entrails throw; Toad, that under cold stone; Days and nights has thirty-one; Sweated venom sleeping got; Boil thou first in the charmed pot.\""
+  },
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "If the Pit-Hag changes a Demon into a new Demon, it is best to make no death occur tonight, so the good team gets a clue that the Demon has changed. You can even wake the Demon, see who they choose to attack, and decide that no one dies. If the Pit-Hag creates a new evil Demon, it is best to kill the old Demon and some other player, to signal to the good team that the Demon has changed. If the Pit-Hag creates a good Demon, it is best to kill either Demon (if it is the final night), or to just let two Demons run amok (if it is not the final night)—but since all Demons must die for good to win, use caution.",
+    "The Pit-Hag turns the Clockmaker into the Mutant.",
+    "The Pit-Hag tries to turn the Savant into the Sage, but nothing happens because a Sage is already in play.",
+    "The Pit-Hag turns the Flowergirl into the Evil Twin. Now, there is a good Evil Twin, so the Evil Twin and an evil player are woken to learn each other's character.",
+    "During the final night, the Pit-Hag turns the Oracle into a good No Dashii. The Storyteller kills the evil Demon only, so that only one Demon is alive during the final day."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Pit-Hag"
+}

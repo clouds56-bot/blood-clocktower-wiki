@@ -1,0 +1,24 @@
+{
+  "id": "steward",
+  "type": "townsfolk",
+  "name": {
+    "en": "Steward"
+  },
+  "ability": {
+    "en": "You start knowing 1 good player."
+  },
+  "flavor_text": {
+    "en": "\"How DARE you accuse Her Ladyship of wrongdoing? I’ve known her my entire life! All nine years!\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "The Steward learns that Alex is good. Alex is the Undertaker.",
+    "The Pit-Hag turns the Poppy Grower into the Steward.\nThat night, the Steward learns that Abdallah is good. Abdallah is the Spy, and is registering as good."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Steward"
+}

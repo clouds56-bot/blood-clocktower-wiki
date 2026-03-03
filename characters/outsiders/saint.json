@@ -1,0 +1,25 @@
+{
+  "id": "saint",
+  "type": "outsider",
+  "name": {
+    "en": "Saint"
+  },
+  "ability": {
+    "en": "If you die by execution, your team loses."
+  },
+  "flavor_text": {
+    "en": "\"Wisdom begets peace. Patience begets wisdom. Fear not, for the time shall come when fear too shall pass. Let us pray, and may the unity of our vision make saints of us all.\""
+  },
+  "editions": [
+    "trouble_brewing"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "There are seven players alive and nominations are in progress. The Saint gets four votes and is about to die. Then, the Baron is nominated but only gets three votes. No more nominations occur today. The Saint is executed, and evil wins.",
+    "The Imp is nominated, and the players vote. The Gunslinger kills the Saint. The Saint dies, and the game continues.",
+    "The Saint is executed. However, the  Scapegoat's ability is triggered, so the Scapegoat dies instead. The game continues, because the Saint did not die."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Saint"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "fearmonger",
+  "type": "minion",
+  "name": {
+    "en": "Fearmonger"
+  },
+  "ability": {
+    "en": "Each night, choose a player: if you nominate & execute them, their team loses. All players know if you choose a new player."
+  },
+  "flavor_text": {
+    "en": "\"Beware of gazing long into the Abyss, lest the Abyss also gaze into you.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "On the first night, the Fearmonger chooses the Butler. All players learn the Fearmonger has chosen a new player. During the day, the Fearmonger nominates the Butler, and the Butler is executed. Evil wins.",
+    "At night, the Fearmonger chooses the Juggler. The Flowergirl nominates the Juggler, and the Juggler is executed. The game continues.",
+    "The Fearmonger chooses the Empath. The next night, the Fearmonger chooses the Soldier. The Fearmonger nominates and executes the Empath. The game continues because the Fearmonger has selected the Soldier, not the Empath.",
+    "The Fearmonger accidentally chooses the Baron, due to the Poppy Grower being in play. The Fearmonger nominates and executes the Baron. Good wins."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Fearmonger"
+}

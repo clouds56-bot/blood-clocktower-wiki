@@ -1,0 +1,25 @@
+{
+  "id": "cerenovus",
+  "type": "minion",
+  "name": {
+    "en": "Cerenovus"
+  },
+  "ability": {
+    "en": "Each night, choose a player & a good character: they are \"mad\" they are this character tomorrow, or might be executed."
+  },
+  "flavor_text": {
+    "en": "\"Reality is merely an opinion. Specifically, my opinion.\""
+  },
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "The Cerenovus makes the Barber mad about being the Savant. Tomorrow, the Barber claims to be the Savant, talks to the Storyteller, and tells the group two facts that they made up. When asked whether they are mad, the Barber says \"no\" emphatically, so avoids being executed.",
+    "The dead Artist is made mad about being the Sage. The next day, they say nothing about being the Sage. The Artist is executed.",
+    "The Cerenovus makes the Flowergirl mad about being the Clockmaker. The Flowergirl says to the group that they are the Clockmaker and learned a \"2,” but hints privately to other players that they are mad. The Storyteller overhears this and executes the Flowergirl."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Cerenovus"
+}

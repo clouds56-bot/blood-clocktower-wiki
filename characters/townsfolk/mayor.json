@@ -1,0 +1,26 @@
+{
+  "id": "mayor",
+  "type": "townsfolk",
+  "name": {
+    "en": "Mayor"
+  },
+  "ability": {
+    "en": "If only 3 players live & no execution occurs, your team wins. If you die at night, another player might die instead."
+  },
+  "flavor_text": {
+    "en": "\"We must put our differences aside, and cease this senseless killing. We are all taxpayers after all. Well, most of us.\""
+  },
+  "editions": [
+    "trouble_brewing"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "We recommend you keep the Mayor alive until the final day, since it is most fun for the players that way. On rare occasions, if the group is overwhelmingly convinced early in the game that the Mayor is the Mayor, let the Mayor die so that evil has a chance to win. \n\n\nIn TROUBLE BREWING, the Mayor’s phrase “your team wins” will always mean “good wins” because the Mayor is always good. In other editions, an evil Mayor means “evil wins” instead.",
+    "The Imp attacks the Mayor. The Storyteller chooses that the Ravenkeeper dies instead.",
+    "There are three players alive. There are no nominations for execution today. Good wins.",
+    "There are five players alive, including two Travellers. Both Travellers are exiled, and the vote is tied between the remaining players. Because a tied vote means neither player is executed, good wins."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Mayor"
+}

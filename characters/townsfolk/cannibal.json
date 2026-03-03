@@ -1,0 +1,26 @@
+{
+  "id": "cannibal",
+  "type": "townsfolk",
+  "name": {
+    "en": "Cannibal"
+  },
+  "ability": {
+    "en": "You have the ability of the recently killed executee. If they are evil, you are poisoned until a good player dies by execution."
+  },
+  "flavor_text": {
+    "en": "\"I don’t like clowns. They taste funny.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "Pay attention to which character each evil player is bluffing as. If they are executed, then their bluffed ability is the best one to pretend that the Cannibal has gained.",
+    "The Clockmaker is executed and dies. That night, the Cannibal learns a “2” because the Demon and Minion are two steps apart.",
+    "It is the third night and the Widow was executed today. Because the Widow was bluffing as the Fortune Teller, the Cannibal is prompted to choose 2 players, but they learn a “no” after choosing the Demon because they don’t actually have the Fortune Teller's (or Widow’s) ability, because they are poisoned.",
+    "It is the fourth night and the Mutant was executed today. The Cannibal doesn’t learn anything tonight, because a real Mutant would not wake."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Cannibal"
+}

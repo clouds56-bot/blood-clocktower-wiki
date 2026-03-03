@@ -1,0 +1,25 @@
+{
+  "id": "klutz",
+  "type": "outsider",
+  "name": {
+    "en": "Klutz"
+  },
+  "ability": {
+    "en": "When you learn that you died, publicly choose 1 alive player: if they are evil, your team loses."
+  },
+  "flavor_text": {
+    "en": "\"Oops.\""
+  },
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "If the Klutz player doesn’t realize that they must choose a player when they die, privately remind them. New players may not understand how their character works.",
+    "The Klutz dies by execution. After much yelling and confusion, the Klutz chooses a player—who is secretly the Seamstress. Night falls, and the game continues.",
+    "The Demon kills Dave, the Klutz. In the morning, when the Storyteller informs the group that Dave is dead, Dave says \"Ok everybody, I was the Klutz\" and after discussion for a few minutes, Dave publicly chooses the player that is the Demon. The game ends immediately and evil rejoices."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Klutz"
+}

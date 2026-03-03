@@ -1,0 +1,24 @@
+{
+  "id": "knight",
+  "type": "townsfolk",
+  "name": {
+    "en": "Knight"
+  },
+  "ability": {
+    "en": "You start knowing 2 players that are not the Demon."
+  },
+  "flavor_text": {
+    "en": "\"When a man lies, he murders some part of the world.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "Lewis is the Undertaker, Doug is the Imp and Ben is the Fortune Teller. The Knight learns Lewis and Ben.",
+    "Marianna is the Vortox and Abdallah is the Alchemist. The Knight learns Marianna and Abdallah. The Knight must learn Marianna and Abdallah because the Knight's information must be false due to the Vortox ability and therefore include the Demon."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Knight"
+}

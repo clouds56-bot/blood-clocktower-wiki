@@ -1,0 +1,25 @@
+{
+  "id": "amnesiac",
+  "type": "townsfolk",
+  "name": {
+    "en": "Amnesiac"
+  },
+  "ability": {
+    "en": "You do not know what your ability is. Each day, privately guess what it is: you learn how accurate you are."
+  },
+  "flavor_text": {
+    "en": "\"Wait. What. Who? Oh, ok. Wait. What?\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "Make the Amnesiac’s ability guessable, so that the Amnesiac can figure out what their ability is over time. Learning a piece of information each night, or a power that affects the game in a way that the Amnesiac notices, are both good ideas.\n\n\nIf the Amnesiac guesses their ability, but the wording is different, still tell them they guessed correctly.\n\n\nYou can make the Amnesiac’s ability slightly better than a normal Townsfolk’s ability. Not knowing what it is, the player will need to work harder to receive its full benefit.",
+    "Each night, the Amnesiac wakes and is prompted to point at two players. The Storyteller shakes their head on the first night, and nods on the second. The Amnesiac guesses “Am I learning if both players are Minions?” The Storyteller says “Hot” because their ability is that they detect if either of the two players are a Minion.",
+    "Each night, the Amnesiac learns a number. The Amnesiac is learning how many of their living neighbours are Townsfolk."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Amnesiac"
+}

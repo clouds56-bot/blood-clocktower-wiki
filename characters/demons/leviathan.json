@@ -1,0 +1,25 @@
+{
+  "id": "leviathan",
+  "type": "demon",
+  "name": {
+    "en": "Leviathan"
+  },
+  "ability": {
+    "en": "If more than 1 good player is executed, evil wins. All players know you are in play. After day 5, evil wins."
+  },
+  "flavor_text": {
+    "en": "\"To the last, I grapple with thee. From Hell’s heart, I stab at thee. For hate’s sake, I spit my last breath at thee.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "For new players, it is helpful to declare that the Leviathan is in play each day, and to say what day it is. On the first day, say “The Leviathan is in play. It is day one.” On the second day, say “The Leviathan is in play. It is day two.” etc. This helps your players remember what Demon they are facing and avoid accidentally losing by forgetting to count the days.",
+    "On the first day, the Monk nominates the Virgin, and is executed. On the second day, the Courtier is executed. Evil wins.",
+    "On the second day, the Scarlet Woman is executed. On the third day, the Poisoner is executed. On the fifth day, the Soldier is executed. Evil wins."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Leviathan"
+}

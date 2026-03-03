@@ -1,0 +1,25 @@
+{
+  "id": "philosopher",
+  "type": "townsfolk",
+  "name": {
+    "en": "Philosopher"
+  },
+  "ability": {
+    "en": "Once per game, at night, choose a good character: gain that ability. If this character is in play, they are drunk."
+  },
+  "flavor_text": {
+    "en": "\"If anything is real, beer is real. Drink, for tomorrow we may die.\""
+  },
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "During the first night, the Philosopher chooses to gain the Dreamer's ability. They gain the Dreamer's ability from now on and act when the Dreamer normally acts.",
+    "During the third night, the Philosopher chooses to gain the Clockmaker's ability. That night, they learn the distance from the Demon to their nearest Minion.",
+    "An Artist is in play. The Philosopher chooses to gain the Artist's ability. The original Artist becomes drunk. Later, the Philosopher dies, so the original Artist becomes sober again. (The original Artist would also become sober if the Philosopher became drunk.)"
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Philosopher"
+}

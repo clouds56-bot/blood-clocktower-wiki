@@ -1,0 +1,25 @@
+{
+  "id": "grandmother",
+  "type": "townsfolk",
+  "name": {
+    "en": "Grandmother"
+  },
+  "ability": {
+    "en": "You start knowing a good player & their character. If the Demon kills them, you die too."
+  },
+  "flavor_text": {
+    "en": "\"Take a jacket if you go outside, dearie. And your thermos. And your scarf. I have a weak heart, you know. Whatever would I do if you caught cold...or worse?\""
+  },
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "During the first night, the Grandmother wakes and learns that Julian, their Grandchild, is the Professor. Three nights later, Julian is killed by the Demon, so the Grandmother dies too.",
+    "The Grandmother knows that Lewis, their Grandchild, is the Gambler. Lewis gambles and dies because of it. The Grandmother remains alive.",
+    "The Grandmother knows that Sarah, their Grandchild, is the Tinker. Sarah is killed by the Demon, but the Grandmother is drunk because of the Sailor, so the Grandmother remains alive."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Grandmother"
+}

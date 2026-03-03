@@ -1,70 +1,25 @@
 {
   "id": "scarlet_woman",
   "type": "minion",
-  "editions": ["trouble_brewing"],
   "name": {
-    "en": "Scarlet Woman",
-    "zh": "猩红女郎",
-    "cn": "红唇女郎",
-    "ja": "緋色の女"
+    "en": "Scarlet Woman"
   },
   "ability": {
-    "en": "If there are 5 or more players alive & the Demon dies, you become the Demon. (Travellers don't count.)",
-    "zh": "如果有5名或更多玩家存活且恶魔死亡，你变成恶魔。（旅行者不计。）",
-    "cn": "如果大于等于五名玩家存活时（旅行者不计算在内）恶魔死亡，你变成那个恶魔。",
-    "ja": "生存プレイヤーが5人以上いて悪魔が死亡した場合、あなたが悪魔になる。（旅行者は数えない。）"
+    "en": "If there are 5 or more players alive & the Demon dies, you become the Demon. (Travellers don't count.)"
   },
   "flavor_text": {
-    "en": "You have shown me the secrets of the Council of the Purple Flame. We have lain together in fire and in lust and in beastly communion, and I am forever your servant. But tonight, my dear, I am your master.",
-    "zh": "你曾向我展示了紫焰议会的秘密。我们也曾一起在烈火里拥抱，在欲望中交欢，在兽性的驱使下耳厮磨，我将永生永世侍奉于你。但今晚，我亲爱的，我是你的主人。",
-    "cn": "你曾向我展示了紫焰议会的秘密。我们也曾一起在烈火里拥抱，在欲望中交欢，在兽性的驱使下耳厮磨，我将永生永世侍奉于你。但今晚，我亲爱的，我是你的主人。"
+    "en": "\"You have shown me the secrets of the Council of the Purple Flame. We have lain together in fire and in lust and in beastly commune, and I am forever your servant. But tonight, my dear, I am your master.\""
   },
+  "editions": [
+    "trouble_brewing"
+  ],
   "first_night": false,
   "other_nights": false,
-  "reminders": [
-    { "en": "IS THE DEMON", "zh": "是恶魔", "cn": "是恶魔", "ja": "悪魔である" }
-  ],
-  "jinxes": [
-    {
-      "character": "al-hadikhia",
-      "effect": "If there would be two Demons, one of which was the Scarlet Woman, the Scarlet Woman becomes the Scarlet Woman again."
-    },
-    {
-      "character": "fang_gu",
-      "effect": "If there would be two Demons, one of which was the Scarlet Woman, the Scarlet Woman remains the Scarlet Woman."
-    },
-    {
-      "character": "lil_monsta",
-      "effect": "If Lil' Monsta dies with 5 or more players alive, the Scarlet Woman babysits Lil' Monsta for the rest of the game."
-    }
-  ],
-  "how_to_run": {
-    "en": "If the Demon dies and there were five or more alive players immediately before the Demon died, replace the Scarlet Woman token with a spare Imp token.",
-    "zh": "如果恶魔死亡且在恶魔死前有五名或更多的存活玩家，在魔典中用闲置的小恶魔标记替换红唇女郎的标记。",
-    "cn": "如果恶魔死亡，且在恶魔死前有五名或更多的存活玩家，在魔典中用闲置的小恶魔标记替换红唇女郎的标记，也意味着那名玩家的角色从红唇女郎变成了小恶魔。（她现在是恶魔，且具有恶魔的能力。如果她死亡，善良阵营获胜。）"
-  },
+  "jinxes": [],
   "examples": [
-    "There are seven players alive: the Imp, the Scarlet Woman, two Townsfolk, and three Travellers. The Imp is executed, so the game ends and good wins because Travellers don't add to the player count.",
-    "There are five players alive: the Imp, the Scarlet Woman, the Baron, and two Townsfolk. The Imp is executed. The Scarlet Woman becomes the Imp."
+    "There are seven players alive: the Imp, the Scarlet Woman, two Townsfolk, and three Travellers. The Imp is executed, so the game ends and good wins because Travellers do not add to the player count for the Scarlet Woman's ability.",
+    "There are five players alive: the Imp, the Scarlet Woman, the Baron, and two Townsfolk. The Imp is executed. The Scarlet Woman becomes the Imp, and the game continues.",
+    "Brianna is the Scarlet Woman. The Fortune Teller chooses Brianna and Alex, and learns a \"no.” Later, the Imp dies, so Brianna becomes the Imp. The Fortune Teller chooses Brianna and Alex again, and learns a \"yes.\""
   ],
-  "tips": {
-    "en": [
-      "Your ability is a safety net for the evil team.",
-      "If the Imp is under suspicion, they can kill themselves at night to pass demonhood to you.",
-      "Position yourself to look trustworthy so you're a good candidate to become the Demon."
-    ],
-    "zh": [
-      "你的能力是邪恶方的安全网。",
-      "如果小恶魔备受他人关注，并且你觉得他可能没法活到游戏最后了，立刻采取行动且让恶魔在五名或以上玩家存活时被杀死。",
-      "如果恶魔玩得很好，并且似乎已经被善良阵营所信任，你就不需要使用自己的能力了。"
-    ],
-    "cn": [
-      "当红唇女郎在场时，恶魔可以做到一些原本无法做到的事且无需承担任何后果。例如，他可以在被成功处决或者被猎手杀死的情况下让游戏继续进行。",
-      "与其他爪牙不同，在游戏前期你更需要'活下来'。像男爵和投毒者就算很早就死了也无所谓（因为前期他们就会带来很多麻烦）。但你如果打算在某个时刻变为恶魔，就需要活到游戏最后。",
-      "时机很重要。如果恶魔死亡时存活玩家少于五位，这个时候游戏就结束了，且善良玩家胜利，时刻记住这一点。"
-    ]
-  },
-  "image": "assets/tokens/scarlet_woman.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Scarlet_Woman",
-  "source_url_cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E7%BA%A2%E5%94%87%E5%A5%B3%E9%83%8E"
+  "source_url": "https://wiki.bloodontheclocktower.com/Scarlet_Woman"
 }

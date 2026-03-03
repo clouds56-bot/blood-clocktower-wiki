@@ -1,0 +1,24 @@
+{
+  "id": "choirboy",
+  "type": "townsfolk",
+  "name": {
+    "en": "Choirboy"
+  },
+  "ability": {
+    "en": "If the Demon kills the King, you learn which player is the Demon. [+the King]"
+  },
+  "flavor_text": {
+    "en": "\"I saw it, I did. I was in the pews, tidying the hymn books, when a dreadful tune started from the pipe organ. The organist had a long cloak, and long fingers on the keys. And a hat that looked… just like… yours.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "The Imp attacks the Empath. The Empath dies. The next night, the Imp attacks the King, who is protected by the Monk. The King lives. The next night, the Imp attacks the King, who is no longer protected by the Monk. The King dies. The Choirboy is woken by the Storyteller and learns which player is the Imp.",
+    "The Shabaloth kills the King. The drunk Choirboy wakes and wrongly learns that the General is the Demon."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Choirboy"
+}

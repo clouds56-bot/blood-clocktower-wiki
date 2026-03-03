@@ -1,48 +1,27 @@
 {
   "id": "recluse",
   "type": "outsider",
-  "editions": ["trouble_brewing"],
   "name": {
-    "en": "Recluse",
-    "cn": "隐士",
-    "ja": "隠者"
+    "en": "Recluse"
   },
   "ability": {
-    "en": "You might register as evil & as a Minion or Demon, even if dead.",
-    "cn": "你可能显示为邪恶，也可能显示为爪牙或恶魔，即使已死亡。",
-    "ja": "死亡していても、邪悪として、あるいはミニオンや悪魔として判定される可能性がある。"
+    "en": "You might register as evil & as a Minion or Demon, even if dead."
   },
   "flavor_text": {
-    "en": "Garn git ya darn grub ya mitts ofma lorn yasee. Grr. Natsy pikkins yonder southwise ye begittin afta ya! Git!"
+    "en": "\"Garn git ya darn grub ya mitts ofma lorn yasee. Grr. Natsy pikkins yonder southwise ye begittin afta ya! Git! Me harvy no so widda licks and demmons no be fightin' hadsup ne'er ma kin. Git, assay!\""
   },
+  "editions": [
+    "trouble_brewing"
+  ],
   "first_night": false,
   "other_nights": false,
-  "reminders": [],
-  "jinxes": [
-    {
-      "character": "ogre",
-      "effect": "If the Recluse registers as evil to the Ogre, the Ogre learns that they are evil."
-    },
-    {
-      "character": "sage",
-      "effect": "The Recluse might register as the Demon to the Sage."
-    }
-  ],
-  "how_to_run": {
-    "en": "Each time the Recluse is targeted by an ability that detects or affects evil characters, choose which character and alignment the Recluse registers as."
-  },
+  "jinxes": [],
   "examples": [
-    "The Slayer uses their ability on the Recluse. The Storyteller decides that the Recluse registers as the Imp, so the Recluse dies.",
-    "The Empath, who neighbours the Recluse and the Monk, learns she is neighbouring one evil player.",
-    "The Recluse is executed. The Undertaker learns that the Imp was executed."
+    "The Slayer uses their ability on the Recluse. The Storyteller decides that the Recluse registers as the Imp, so the Recluse dies. The Slayer believes that they just killed the Imp.",
+    "The Empath, who neighbours the Recluse and the Monk, learns she is neighbouring one evil player. The next night, the Empath learns they are neighbouring no evil players.",
+    "The Investigator learns that either the Recluse or the Saint is the Scarlet Woman.",
+    "The Recluse is executed. The Undertaker learns that the Imp was executed.",
+    "The Recluse neighbours the Imp and an Evil Traveller. Because showing a \"2\" to the Chef might be too revealing, the Chef learns true information, a \"0,” instead."
   ],
-  "tips": {
-    "en": [
-      "Tell everyone you are the Recluse as soon as possible to account for misinformation.",
-      "Alternatively, stay silent until the final day to catch evil players.",
-      "You can register differently to different characters on the same night."
-    ]
-  },
-  "image": "assets/tokens/recluse.png",
   "source_url": "https://wiki.bloodontheclocktower.com/Recluse"
 }

@@ -1,0 +1,24 @@
+{
+  "id": "damsel",
+  "type": "outsider",
+  "name": {
+    "en": "Damsel"
+  },
+  "ability": {
+    "en": "All Minions know a Damsel is in play. If a Minion publicly guesses you (once), your team loses."
+  },
+  "flavor_text": {
+    "en": "\"Don't touch ze hair, honey.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "Marianna is the Damsel. She is bluffing as the Lycanthrope. The Witch guesses that Marianna is the Damsel. Evil wins.",
+    "Doug is the Damsel. The Boomdandy guesses that Julian is the Damsel. Nothing happens, and the game continues. The Goblin guesses that Doug is the Damsel. Nothing happens, and the game continues."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Damsel"
+}

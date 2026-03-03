@@ -1,0 +1,24 @@
+{
+  "id": "balloonist",
+  "type": "townsfolk",
+  "name": {
+    "en": "Balloonist"
+  },
+  "ability": {
+    "en": "Each night, you learn a player of a different character type than last night. [+0 or +1 Outsider]"
+  },
+  "flavor_text": {
+    "en": "\"More heat! Higher! Higher! Più alto! Ahhh... it is so beautiful from up here, don't you agree? Can you see the children fishing by the river, under the willow? Can you see the  glint of the sun on the circus tent-poles? What's this? An old man, alone, passed out in the vineyard? Less heat! Lower! Lower! Vai più in basso!\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "Abdallah is the Vizier, Lewis is the High Priestess, and Sarah is the Politician. On the first night, the Balloonist learns Abdallah. On the second night, the Balloonist learns Lewis. On the third night, the Balloonist learns Sarah.",
+    "Julian is the Nightwatchman, Alex is the Sailor, and Lachlan is the Puzzlemaster. On the first night, the Balloonist learns Julian. On the second night, the Poisoner chooses the Balloonist. Because the Balloonist is poisoned, the Storyteller chooses to show the Balloonist another Townsfolk, and the Balloonist learns Alex. On the third night, the Balloonist is sober and healthy, and learns Lachlan, who is a different character type to Alex."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Balloonist"
+}

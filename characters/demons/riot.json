@@ -1,0 +1,23 @@
+{
+  "id": "riot",
+  "type": "demon",
+  "name": {
+    "en": "Riot"
+  },
+  "ability": {
+    "en": "On day 3, Minions become Riot & nominees die but nominate an alive player immediately. This must happen."
+  },
+  "flavor_text": {
+    "en": "\"Larga vida a la revolución! Mi revolucion!\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "Alex nominates Lewis. Lewis dies and nominates Ben. Ben dies and nominates Marianna. Marianna dies and nominates Lachlan. Lachlan dies. All Riot players are dead. Good wins."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Riot"
+}

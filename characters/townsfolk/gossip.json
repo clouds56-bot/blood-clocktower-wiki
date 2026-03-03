@@ -1,0 +1,27 @@
+{
+  "id": "gossip",
+  "type": "townsfolk",
+  "name": {
+    "en": "Gossip"
+  },
+  "ability": {
+    "en": "Each day, you may make a public statement. Tonight, if it was true, a player dies."
+  },
+  "flavor_text": {
+    "en": "\"Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah. Blah.\""
+  },
+  "editions": [
+    "bad_moon_rising",
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "When choosing a player to die due to the Gossip ability, we recommend that you choose a character that will actually die, not one protected from death by an ability (like the Fool or Tea Lady). The Gossip gains knowledge when their statement caused a death. This is more helpful to the good team, and more fun for everyone.",
+    "During the day, the Gossip says, \"I am the Gossip. My public statement is: The Demon is wearing a hat.\" The Demon is not wearing a hat. That night, nobody dies due to the Gossip’s ability.",
+    "The Gossip neighbours a good Traveller and the Pacifist. During the day, the drunk Gossip says, \"Both my neighbours are good.\" At dusk, the drunk Gossip becomes sober. That night, the Chambermaid dies.",
+    "During the day, the Gossip makes a true statement. That night, the Gossip is killed by the Demon. They lose their ability, so their statement does not kill anyone tonight."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Gossip"
+}

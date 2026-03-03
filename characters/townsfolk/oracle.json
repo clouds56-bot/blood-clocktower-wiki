@@ -1,0 +1,24 @@
+{
+  "id": "oracle",
+  "type": "townsfolk",
+  "name": {
+    "en": "Oracle"
+  },
+  "ability": {
+    "en": "Each night*, you learn how many dead players are evil."
+  },
+  "flavor_text": {
+    "en": "\"Only the chosen may gaze beyond the veil. The dead are restless, and they point in silence toward the icy north.\""
+  },
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "During the first day, the Flowergirl is executed. That night, the Demon kills the Juggler. The Oracle wakes and learns a \"0,” because all dead players are good.",
+    "Halfway through the game, seven players are dead. Five of them are good and two of them are evil. During the day, an evil Traveller is Exiled. That night, the Demon kills one of it's Minions. The Oracle wakes and learns a \"4,” because four dead players are evil."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Oracle"
+}

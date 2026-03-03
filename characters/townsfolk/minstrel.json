@@ -1,0 +1,25 @@
+{
+  "id": "minstrel",
+  "type": "townsfolk",
+  "name": {
+    "en": "Minstrel"
+  },
+  "ability": {
+    "en": "When a Minion dies by execution, all other players (except Travellers) are drunk until dusk tomorrow."
+  },
+  "flavor_text": {
+    "en": "\"And I shall hear, tho' soft you tread above me... And all my dreams will warm and sweeter be... If you'll not fail to tell me that you love me... I simply sleep in peace until you come to me.\""
+  },
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "During the first day, the Pacifist dies. That night, players act as normal, because the Pacifist is not a Minion. During the second day, the Judge executes the Godfather. That night, everyone is drunk, including the Demon, so nobody dies. During the third day, a Minion who is protected by the Devil's Advocate is executed and dies, because the Devil's Advocate is drunk. Again, since a Minion died during the day, the Minstrel makes everyone drunk.",
+    "The Assassin is executed, so the Minstrel makes everyone drunk. The next day, the Godfather is executed, so the Minstrel makes everyone drunk again. The Demon could not kill on either night. The next day, the evil Apprentice Mastermind is exiled, so that night everyone becomes sober again, because the Minstrel ability doesn't trigger from a Traveller being exiled.",
+    "During the day, the Assassin dies, so the Minstrel makes everyone drunk. The following day, the Zombuul is executed and dies for the first time. Good wins, because the Zombuul is drunk and so has no ability."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Minstrel"
+}

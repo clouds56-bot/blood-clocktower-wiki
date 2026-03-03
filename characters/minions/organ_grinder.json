@@ -1,0 +1,24 @@
+{
+  "id": "organ_grinder",
+  "type": "minion",
+  "name": {
+    "en": "Organ Grinder"
+  },
+  "ability": {
+    "en": "All players keep their eyes closed when voting and the vote tally is secret. Each night, choose if you are drunk until dusk."
+  },
+  "flavor_text": {
+    "en": "\"Round and round the handles go. The more you dance the less you know.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "Players are not allowed to use other methods to determine who is voting, such as touch or sound. It is a secret.",
+    "There are 8 players alive. The Noble is nominated. All players close eyes to vote and the Noble gets 5 votes. The Imp is nominated. All players close eyes to vote and the Imp gets 7 votes. The Pixie is nominated. All players close eyes to vote and the Pixie gets 4 votes. After nominations close, the Storyteller declares that Doug (the Imp) is executed and dies, and that good has won."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Organ_Grinder"
+}

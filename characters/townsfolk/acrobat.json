@@ -1,0 +1,25 @@
+{
+  "id": "acrobat",
+  "type": "townsfolk",
+  "name": {
+    "en": "Acrobat"
+  },
+  "ability": {
+    "en": "Each night*, choose a player: if they are or become drunk or poisoned tonight, you die."
+  },
+  "flavor_text": {
+    "en": "\"Ladies and gentlemen, hold fast to your hats, for I shall defy the very laws of gravity and dance upon the air, a marvel of agility and daring, all for your delight and wonder!\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "The Sailor chooses the Assassin, and the Storyteller makes the Sailor drunk. The Acrobat chooses the Sailor, and dies because the Sailor is drunk.",
+    "The Acrobat chooses the Tinker, who is sober and healthy. Nothing happens.",
+    "The Acrobat chooses the Preacher. Later that night, the Pukka poisons the Preacher. The Acrobat dies, because the Preacher is no longer healthy."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Acrobat"
+}

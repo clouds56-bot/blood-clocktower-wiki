@@ -1,0 +1,27 @@
+{
+  "id": "dreamer",
+  "type": "townsfolk",
+  "name": {
+    "en": "Dreamer"
+  },
+  "ability": {
+    "en": "Each night, choose a player (not yourself or Travellers): you learn 1 good & 1 evil character, 1 of which is correct."
+  },
+  "flavor_text": {
+    "en": "\"I remember the Clockmaker. The sky was red and it was raining fractal triangles. There was a smell of violets and a bubbling sound. A woman with glowing eyes and a scraggly beard was hissing at the sky. Then, I awoke.\""
+  },
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "If the Dreamer chooses an evil player, you can help the evil team if you show the Dreamer the good character that this evil player is bluffing as, or if you show a more secretive character such as the Snake Charmer, Sage, Mutant, or Klutz.",
+    "The Dreamer chooses a player who is the Mutant. The Dreamer learns that this player is either the Mutant or the Cerenovus.",
+    "The Dreamer chooses a player who was the Philosopher but gained the Flowergirl ability earlier that night. The Dreamer learns that this player is either the Philosopher or the Vigormortis.",
+    "Today, both the Evil Twin and the Artist claimed to be the Artist. That night, the Dreamer chooses the player who is the Evil Twin. If the Storyteller wanted to help the good team, they could show the Evil Twin and the Sweetheart. But the Storyteller decides to help evil, so they show the Evil Twin and the Artist to the Dreamer.",
+    "The Dreamer chooses a player who is the Vortox. The Dreamer's information must be false because the Vortox is in play, so the Dreamer learns that this player is either the Oracle or the No Dashii."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Dreamer"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chambermaid",
+  "type": "townsfolk",
+  "name": {
+    "en": "Chambermaid"
+  },
+  "ability": {
+    "en": "Each night, choose 2 alive players (not yourself): you learn how many woke tonight due to their ability."
+  },
+  "flavor_text": {
+    "en": "\"I aint seen nothin' untoward, Milady. Begging your pardon, but if I did see somethin', it certainly weren't the master o' the house sneaking into the professor's laboratory 'round eleven o'clock and mixing up fancy potions, just like you said, Miss.\""
+  },
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "The Chambermaid chooses the Exorcist and the Innkeeper, and learns a \"2.\" The next night, the Exorcist chooses the Shabaloth, which will wake the Shabaloth. Later, Chambermaid chooses the Shabaloth and the Fool. Since the Shabaloth only woke due to the Exorcist ability, the Chambermaid learns a \"0\".",
+    "It is the second night. The Chambermaid chooses the Grandmother and the evil Goon, and learns a \"2.\" Only the Goon will wake tonight, but the Chambermaid is drunk.",
+    "It is the first night. The Chambermaid chooses the Assassin and the Moonchild, and learns a \"0\" because the Assassin does not wake to use their ability on the first night. The next night, they choose the Assassin and the Gossip. The Assassin woke but did not use their ability. The Gossip ability is used, but the Gossip does not wake to use it. The Chambermaid learns a \"1\"."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Chambermaid"
+}

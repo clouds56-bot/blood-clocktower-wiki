@@ -1,0 +1,24 @@
+{
+  "id": "village_idiot",
+  "type": "townsfolk",
+  "name": {
+    "en": "Village Idiot"
+  },
+  "ability": {
+    "en": "Each night, choose a player: you learn their alignment. [+0 to +2 Village Idiots. 1 of the extras is drunk]"
+  },
+  "flavor_text": {
+    "en": "\"Roses are blue, and violets are red, Please reverse what I just said.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "Doug, Lewis, and Amy are all Village Idiots. Doug is drunk. At night, they all choose Evin, the Kazali. Doug learns that Evin is good. Lewis and Amy learn that Evin is evil.",
+    "Ben and Marianna are Village Idiots. Marianna is drunk. Sarah is evil, and bluffing as the Village Idiot. Ben chooses Sarah and learns that she is evil. Marianna chooses the Heretic player and learns that they are good. Sarah claims to have chosen Ben and learnt that he is evil."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Village_Idiot"
+}

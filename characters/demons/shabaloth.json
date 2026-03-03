@@ -1,0 +1,28 @@
+{
+  "id": "shabaloth",
+  "type": "demon",
+  "name": {
+    "en": "Shabaloth"
+  },
+  "ability": {
+    "en": "Each night*, choose 2 players: they die. A dead player you chose last night might be regurgitated."
+  },
+  "flavor_text": {
+    "en": "\"Blarg f'taag nm mataan! No sho gumtha m'sik na yuuu. Fluuuuuuuuurg h-sikkkh.\""
+  },
+  "editions": [
+    "bad_moon_rising",
+    "trouble_brewing",
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "Since the Shabaloth cannot regurgitate themself—they have no ability when dead—it is best to only rarely make the Shabaloth regurgitate. Once per game, maybe twice, is usually sufficient.",
+    "The Shabaloth attacks the Gossip, then the Gambler. The Gossip dies, but the Gambler, who was protected by the Innkeeper, remains alive.",
+    "The Shabaloth attacks the alive Courtier and the dead Exorcist. The Courtier dies. The next night, the Storyteller decides that the Exorcist becomes alive again. The Exorcist doesn't act tonight--they normally act before the Shabaloth.",
+    "The Shabaloth attacks the Tea Lady’s neighbour, then the Tea Lady. The Tea Lady’s neighbour, who is protected by the Tea Lady, doesn’t die, but then the Tea Lady dies."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Shabaloth"
+}

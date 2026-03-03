@@ -1,0 +1,26 @@
+{
+  "id": "banshee",
+  "type": "townsfolk",
+  "name": {
+    "en": "Banshee"
+  },
+  "ability": {
+    "en": "If the Demon kills you, all players learn this. From now on, you may nominate twice per day and vote twice per nomination.”"
+  },
+  "flavor_text": {
+    "en": "\"Gorm do shúile, dearg do ghruaig, ní bheidh sé i bhfad, is a mbeidh tú san uaigh.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "If all good players are dead, the game continues. Good can still win due to the Banshee being able to nominate.",
+    "The Kazali kills the Banshee. All players learn that the Banshee has died. Tomorrow, the Banshee nominates the Village Idiot and votes twice, then nominates the Fearmonger and votes twice, then votes twice when the Shugenja is nominated. The next day, the Banshee doesn’t nominate at all, but votes twice for the Kazali.",
+    "The Banshee is poisoned. The Ojo kills the Banshee. Nobody learns that the Banshee has died, and for the rest of the game, the Banshee may not nominate, and has just one vote.",
+    "The Lycanthrope kills the Banshee. The Banshee does not gain their additional powers and is not announced."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Banshee"
+}

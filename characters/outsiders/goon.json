@@ -1,0 +1,26 @@
+{
+  "id": "goon",
+  "type": "outsider",
+  "name": {
+    "en": "Goon"
+  },
+  "ability": {
+    "en": "Each night, the 1st player to choose you with their ability is drunk until dusk. You become their alignment."
+  },
+  "flavor_text": {
+    "en": "\"Yes boss. I explained fings real good to dat geezer. He don't want me explain it again. Nah boss, I don't need no doctor - it's only a knife wound. Be right come mornin'\""
+  },
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "The Courtier chooses the Goon. The Goon turns good, and the Courtier becomes drunk.",
+    "The Shabaloth attacks the Goon, then the Gossip. Since the Shabaloth became drunk as soon as they chose the Goon, neither player dies tonight, and the Goon turns evil. The next night, the Shabaloth attacks the Gambler then the Goon. The Gambler dies, then the Shabaloth becomes drunk again. The Goon is still alive and still evil.",
+    "The Chambermaid chooses the Goon and the Minstrel, and learns a \"1\" because the Chambermaid is drunk.",
+    "The Tea Lady neighbours the good Goon and the Tinker. The Tinker is executed, but does not die. The next day, the Goon is evil. The Tinker is executed again and dies."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Goon"
+}

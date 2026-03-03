@@ -1,0 +1,26 @@
+{
+  "id": "marionette",
+  "type": "minion",
+  "name": {
+    "en": "Marionette"
+  },
+  "ability": {
+    "en": "You think you are a good character, but you are not. The Demon knows who you are. [You neighbor the Demon]"
+  },
+  "flavor_text": {
+    "en": "\"Words, words. They're all we have to go on.\""
+  },
+  "editions": [
+    "experimental",
+    "trouble_brewing"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "Marianna is the Marionette, but thinks she is the Undertaker. She wakes each night to learn who was executed that day, but her information is often wrong. Halfway through the game, the Demon tells her that she is the Marionette.",
+    "Lachlan is the Demon. He tells Sarah that she is the Marionette. Lachlan is lying. There is no Marionette.",
+    "The Demon tells Ben that he is the Marionette. Ben thinks he is the Fortune Teller, but he isn’t. Ben doesn’t believe the Demon, and executes them. Good wins."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Marionette"
+}

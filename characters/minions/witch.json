@@ -1,0 +1,27 @@
+{
+  "id": "witch",
+  "type": "minion",
+  "name": {
+    "en": "Witch"
+  },
+  "ability": {
+    "en": "Each night, choose a player: if they nominate tomorrow, they die. If just 3 players live, you lose this ability."
+  },
+  "flavor_text": {
+    "en": "\"Three drops of goat's blood. A lock of hair, torn in anger. The name is spoken, the shadow cast. Walk left foot first down that brambled path, and don't look back.\""
+  },
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "At night, the Witch curses the Sage. During the next day, the Sage nominates the Dreamer. The Storyteller immediately declares that the player of the Sage dies. The players still vote to execute the Dreamer, who dies too.",
+    "The Witch curses themself. During the next day, the Witch nominates the Demon, and dies. The players do not vote to execute the Demon, and nominations continue.",
+    "The Witch curses the Klutz. The Fang Gu attacks the Klutz, so the Klutz becomes the Fang Gu. The new Fang Gu is now cursed by the Witch, and they nominate. The new Fang Gu dies, and good wins.",
+    "The Witch curses the Savant. Later that night, after the Demon kills a player, only three players are alive, so the curse is removed. The Savant may nominate safely.",
+    "The Witch curses the Juggler. During the next day, the Juggler calls for the exile of a Traveller. The Juggler lives, and may nominate again, because abilities do not affect exiles."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Witch"
+}

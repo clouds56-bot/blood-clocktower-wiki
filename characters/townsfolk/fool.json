@@ -1,0 +1,25 @@
+{
+  "id": "fool",
+  "type": "townsfolk",
+  "name": {
+    "en": "Fool"
+  },
+  "ability": {
+    "en": "The 1st time you die, you don't."
+  },
+  "flavor_text": {
+    "en": "\"...and the King said 'What?! I've never even owned a pair of rubber pantaloons, let alone a custard cannon!' Ho-ho! Jolly day!\""
+  },
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "On the first day, the Fool is executed but remains alive. On the fourth day, the Fool is executed again. This time, they die.",
+    "The Demon attacks the Fool, who remains alive. Nobody dies that night. The next day, the Fool is executed by the Judge, and dies.",
+    "The Demon attacks the Fool, who is protected by the Tea Lady. The Fool remains alive and keeps their ability. Later, after the Tea Lady has died, the Demon attacks the Fool, who is now protected by the Innkeeper. The Fool remains alive and keeps their ability. Later, after the Innkeeper has died, the Demon attacks the Fool, who remains alive again but uses their ability, so next time they will die."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Fool"
+}

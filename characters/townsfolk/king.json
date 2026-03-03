@@ -1,0 +1,25 @@
+{
+  "id": "king",
+  "type": "townsfolk",
+  "name": {
+    "en": "King"
+  },
+  "ability": {
+    "en": "Each night, if the dead equal or outnumber the living, you learn 1 alive character. The Demon knows you are the King."
+  },
+  "flavor_text": {
+    "en": "\"↑Betwixt the unknown strains of mortal strife→\n                And morbid night, sweet↓ with mystery and woe\n                ←Lies unfettered joys of fate’s long and colored life\n                Who’s garden blooms with each painted Face to Show.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "Think carefully about what character tokens to show the King. Don’t be afraid to give great information. Most Kings will die before the final day. A King that lives to the final day will usually win, and that’s ok.",
+    "Amy is the King. There are 12 players alive, and one dead player. On the second night, she learns nothing. On the third night, she learns nothing. On the fourth day, there are 7 dead players and 6 alive players. On the fourth night, Amy learns that the Snitch is alive. On the fifth night, she learns that the Witch is alive.",
+    "The Demon knows that Abdallah is the King. Evin is claiming to be the Choirboy, but is the Butler. The Demon takes a risk and kills Abdallah. If Evin was actually the Choirboy, he would have learnt which player was the Demon."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/King"
+}

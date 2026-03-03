@@ -1,0 +1,27 @@
+{
+  "id": "savant",
+  "type": "townsfolk",
+  "name": {
+    "en": "Savant"
+  },
+  "ability": {
+    "en": "Each day, you may visit the Storyteller to learn 2 things in private: 1 is true & 1 is false."
+  },
+  "flavor_text": {
+    "en": "\"Seventy-two matchsticks on the floor... the sun sets early but the moon is unchanged... a torn piece of cloth... evil in the manor house... three by three... the one we trusted is not what he seems... green light means magnesium... residue, but the pattern is wrong... Seventy-two matchsticks on the floor...\""
+  },
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "Keep the information you give helpful and related to the game. Avoid saying who exactly the Demon is, or it could be a very short game. If you need help on choosing what to say, give information similar to what Townsfolk abilities would provide.",
+    "The Savant learns that \"All players wearing glasses are good\" and that \"One player sitting on the black couch is a Minion.\"",
+    "The Savant learns that \"A Snake Charmer is in play\" and \"Everybody got true information last night.\"",
+    "The Savant learns that \"The Demon is a woman\" and \"Benjamin is evil.\"",
+    "The Savant learns that \"Evin and Amy are the same alignment\" and \"There is one Outsider in play.\""
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Savant"
+}

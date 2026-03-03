@@ -1,0 +1,26 @@
+{
+  "id": "boffin",
+  "type": "minion",
+  "name": {
+    "en": "Boffin"
+  },
+  "ability": {
+    "en": "The Demon (even if drunk or poisoned) has a not-in-play good character's ability. You both know which."
+  },
+  "flavor_text": {
+    "en": "\"Stellar hydrogen, vast, inert; carbon, oxygen, neon gases, all ruined. Molecular chaos, entropy, yields new cosmic phenomena, rebirth from atomic chaos, dense matter collapsing. All in a teeny little bottle.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "Good abilities that would drunk/poison themselves, such as the Sailor, only drunk/poison the Demon's good ability.",
+    "The Imp has the Virgin ability. The Alsaahir nominates the Imp, and is immediately executed.",
+    "The Lord of Typhon has the Chambermaid ability. Each night, the Lord of Typhon wakes, chooses two players, and learns how many woke tonight. On the 4th night, the Boffin is drunk, so the Demon has no Chambermaid ability, so does not wake.",
+    "The Kazali has the Banshee ability. The Kazali dies at night, and the Scarlet Woman becomes the Kazali. The dead Kazali may nominate and vote twice per day."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Boffin"
+}

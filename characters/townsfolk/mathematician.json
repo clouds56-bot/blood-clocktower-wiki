@@ -1,0 +1,25 @@
+{
+  "id": "mathematician",
+  "type": "townsfolk",
+  "name": {
+    "en": "Mathematician"
+  },
+  "ability": {
+    "en": "Each night, you learn how many players' abilities worked abnormally (since dawn) due to another character's ability."
+  },
+  "flavor_text": {
+    "en": "\"Any consistent formal system x, within which a certain amount of elementary arithmetic can be carried out is incomplete; that is, there are statements of the language of x which can neither be proved nor disproved in x. Ergo, you are drunk.\""
+  },
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "The poisoned Oracle learns that two dead players are evil, when three dead players are actually evil. All other character abilities work normally. Later that night, the Mathematician learns a \"1\".",
+    "The poisoned Snake Charmer chooses a Townsfolk player, and nothing happens. The drunk Juggler gets correct information. The Savant learns two pieces of true information. Later that night, the Mathematician learns a \"1\" because the Snake Charmer and Juggler's abilities worked as normal, whilst one of the Savant's facts was true when it should have been false.",
+    "A Vortox is in play. Five good players got false information. The Witch is drunk, and when their cursed player nominated, nothing happened. Even though six abilities worked abnormally, the Mathematician learns a \"4\" due to the Vortox's ability."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Mathematician"
+}

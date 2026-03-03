@@ -1,0 +1,24 @@
+{
+  "id": "zombuul",
+  "type": "demon",
+  "name": {
+    "en": "Zombuul"
+  },
+  "ability": {
+    "en": "Each night*, if no-one died today, choose a player: they die. The 1st time you die, you live but register as dead."
+  },
+  "flavor_text": {
+    "en": "\"I do not. Understand. Your ways. Fellow human. Show me. The dirt. Where the holy. Lay. Sleeping. I too. Must sleep. Soon.\""
+  },
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "The Zombuul is executed and appears to die. They cannot attack tonight. A few days later, only two players appear alive on the Town Square. The good team is fairly certain that one of the dead players is the Zombuul, and the game continues until one more player dies.",
+    "Nobody died today. That night, the Zombuul attacks. The next day, the Tinker dies. That night, the Zombuul does not wake."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Zombuul"
+}

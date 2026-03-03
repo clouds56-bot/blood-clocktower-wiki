@@ -1,0 +1,26 @@
+{
+  "id": "moonchild",
+  "type": "outsider",
+  "name": {
+    "en": "Moonchild"
+  },
+  "ability": {
+    "en": "When you learn that you died, publicly choose 1 alive player. Tonight, if it was a good player, they die."
+  },
+  "flavor_text": {
+    "en": "\"Scorpio looks sideways at the lovers, and you have a choice to make. With silver cross my palm, and your fate shall be revealed. With steel cross my throat, and by the stars you shall regret it.\""
+  },
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "If the Moonchild doesn’t realize that they must choose a player when they die, privately remind them. New players may not understand how their character works.",
+    "The Pukka kills the Moonchild. The next morning, the Moonchild chooses a player, who is the Exorcist. That night, the Exorcist dies.",
+    "The Pacifist is in play. The Moonchild is executed but remains alive. The Moonchild does not choose a player, because the Moonchild did not die.",
+    "The Shabaloth eats the Moonchild. The Moonchild chooses the Assassin, who remains alive. The Shabaloth regurgitates the Moonchild. A few nights later, the Shabaloth eats the Moonchild again. This time, the Moonchild chooses the Gossip, who dies."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Moonchild"
+}

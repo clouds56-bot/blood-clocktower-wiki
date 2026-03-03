@@ -1,0 +1,26 @@
+{
+  "id": "goblin",
+  "type": "minion",
+  "name": {
+    "en": "Goblin"
+  },
+  "ability": {
+    "en": "If you publicly claim to be the Goblin when nominated & are executed that day, your team wins."
+  },
+  "flavor_text": {
+    "en": "\"You don’t want to insult the goblins. You really, really don’t. On a completely different note… can I have another piece of cake?\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "If a non-Goblin player claims to be the Goblin when nominated, act as if they are the Goblin. Declare to the group that they have claimed to be the Goblin and pretend to move a reminder token in the Grimoire.",
+    "Abdallah is the Goblin. Alex nominates Abdallah, and Abdallah claims to be the Goblin. Votes are counted, and Abdallah is about to die. Other nominations occur later today, but Abdallah has the most votes and is executed. Evil wins.",
+    "Lewis is the Artist, and claims to be the Goblin when nominated. He is executed, and the game continues.",
+    "Doug is the Goblin. He claimed to be the Goblin yesterday and the day before, but not today. He is executed. The game continues."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Goblin"
+}

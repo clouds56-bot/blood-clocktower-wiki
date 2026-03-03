@@ -1,0 +1,25 @@
+{
+  "id": "professor",
+  "type": "townsfolk",
+  "name": {
+    "en": "Professor"
+  },
+  "ability": {
+    "en": "Once per game, at night*, choose a dead player: if they are a Townsfolk, they are resurrected."
+  },
+  "flavor_text": {
+    "en": "\"The process is simple. Attach the hydraulic confabulator to the modified chi matrix amplifier, add 20 CCs of pseudodorafine, keep his Z levels above 20%, and your husband will be fine. Now, all we need is a lightning strike.\""
+  },
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "The Professor chooses a dead player who is claiming to be the Tea Lady. The player is actually the Lunatic. Nobody is resurrected.",
+    "The Professor resurrects the Grandmother, who learns a good player’s character. At dawn, all players learn the Grandmother player is alive, but not that the player is the Grandmother.",
+    "The drunk Professor chooses to resurrect the Minstrel. Unbeknownst to the Professor, the Minstrel was regurgitated by the Shabaloth and is now alive. The Storyteller shakes their head no, because the Professor must choose a dead player. The Professor chooses the dead Fool instead. Nothing happens because the Professor is drunk, and the Professor cannot use their ability again."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Professor"
+}

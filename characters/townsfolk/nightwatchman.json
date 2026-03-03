@@ -1,0 +1,25 @@
+{
+  "id": "nightwatchman",
+  "type": "townsfolk",
+  "name": {
+    "en": "Nightwatchman"
+  },
+  "ability": {
+    "en": "Once per game, at night, choose a player: they learn you are the Nightwatchman."
+  },
+  "flavor_text": {
+    "en": "\"The night is cold and lonely, but I have the moon, the stars, the crisp wind and the soft thud of leather boots on cobbled stone for company. Yonder, candlelight flickers behind a murky window...\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "Lachlan is the Nightwatchman. He chooses Abdallah. Abdallah learns that Lachlan is the Nightwatchman.",
+    "Marianna is the drunk Nightwatchman. She chooses Amy. Amy does not wake, and does not learn that Marianna is the Nightwatchman, because the Nightwatchman has no ability.",
+    "Ben is the Nightwatchman and Vortox is in play. Ben chooses Sarah. Sarah learns that Lewis is the Nightwatchman. Even though the Nightwatchman has their ability, the information is false."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Nightwatchman"
+}

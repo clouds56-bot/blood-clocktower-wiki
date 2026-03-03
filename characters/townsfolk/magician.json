@@ -1,0 +1,23 @@
+{
+  "id": "magician",
+  "type": "townsfolk",
+  "name": {
+    "en": "Magician"
+  },
+  "ability": {
+    "en": "The Demon thinks you are a Minion. Minions think you are a Demon."
+  },
+  "flavor_text": {
+    "en": "\"1... 2... Abra... 3... 4... Cadabra... *poof!*\n                And, as you can see, ladies and gentlemen, Captain Farnsworth’s bag of gold has disappeared! Gone! Without a trace! Thank you, and goodnight!\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "The Minions wake to learn that either the Leviathan player or the Magician player is the Demon. The Leviathan player learns that the Fearmonger player, the Assassin player, and the Magician player are the Minions."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Magician"
+}

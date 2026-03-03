@@ -1,0 +1,25 @@
+{
+  "id": "vigormortis",
+  "type": "demon",
+  "name": {
+    "en": "Vigormortis"
+  },
+  "ability": {
+    "en": "Each night*, choose a player: they die. Minions you kill keep their ability & poison 1 Townsfolk neighbor. [-1 Outsider]"
+  },
+  "flavor_text": {
+    "en": "\"All doors are one door. All keys are one key. All cups are one cup, but whosoever drinketh of the water that I give shall never thirst, but the water shall be in him a well springing up into everlasting life.\""
+  },
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "The Vigormortis kills the Witch. The player that the Witch cursed tonight remains cursed. The next day, when the cursed player nominates, they die.",
+    "The Vigormortis kills the Evil Twin. The Evil Twin neighbours a Klutz and a Flowergirl. The Sage is the next neighbour to the Klutz. The Storyteller chooses that the Sage is poisoned.",
+    "The Vigormortis kills the Pit-Hag. The Pit-Hag changes a Savant into a Witch. The Vigormortis kills the Witch, who curses and kills a player. The Pit-Hag turns the dead Witch into the Oracle, who now has no ability. The Pit-Hag turns the Vigormortis into a Vortox. The Pit-Hag now has no ability."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Vigormortis"
+}

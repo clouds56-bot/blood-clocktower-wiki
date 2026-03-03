@@ -1,0 +1,25 @@
+{
+  "id": "seamstress",
+  "type": "townsfolk",
+  "name": {
+    "en": "Seamstress"
+  },
+  "ability": {
+    "en": "Once per game, at night, choose 2 players (not yourself): you learn if they are the same alignment."
+  },
+  "flavor_text": {
+    "en": "\"Did you hear that stranger in the cashmere coat put the word on our young Belle? And she said yes? Well, that's nothing compared to what Harry and that juggler got up to at the fair! The things I could say if I was a tattletale... my, yes.\""
+  },
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "During the first night, the Seamstress chooses two players, who are the Barber and the Clockmaker. Because they are both good, the Seamstress learns a \"yes.”",
+    "During the first three nights, the Seamstress chooses not to use their ability. During the fourth night, they choose two players, who are the Fang Gu and the Sweetheart. The Seamstress learns a \"no.”",
+    "The Pit-Hag turns the Mathematician into the Witch, who remains good. Later that night, the Seamstress chooses the two players, the Witch and the Town Crier. The Seamstress learns a \"yes\" because they are both good."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Seamstress"
+}

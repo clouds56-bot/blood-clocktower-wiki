@@ -1,0 +1,25 @@
+{
+  "id": "atheist",
+  "type": "townsfolk",
+  "name": {
+    "en": "Atheist"
+  },
+  "ability": {
+    "en": "The Storyteller can break the game rules, and if executed, good wins, even if you are dead. [No evil characters]"
+  },
+  "flavor_text": {
+    "en": "\"Let us disperse with unnecessary conjecture and silly paranoia. There is a perfectly rational explanation for everything. Yes, a teacup may indeed be orbiting the planet, too small to see, but I shall drink my tea from the very real china in my very real hands.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "The Atheist is a complex character, and is recommended for experienced Storytellers. In addition to rules knowledge, it requires you to have a good sense of fun and fairness. It is your job to create a fun game for all players, so only break the game rules to give false information (as much or as little as you want) or simulate the actions of evil characters that could be in play, but aren’t. If you can convince the players that there is no Atheist in play, or at least get them discussing the possibility, you’ve done well.\n\n\nAvoid creating arbitrary rules or changing the win conditions. In order to have a good time, the players need to know how they can win the game if an Atheist is in play.",
+    "The Investigator learns that either the Grandmother or the Seamstress is the Boomdandy. The Sweetheart nominates, and dies, even though there is no Witch in play. The Slayer uses their ability on the Gossip, who dies.",
+    "There are three Outsiders in play, when there should be two. The players execute the Storyteller. Good wins."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Atheist"
+}

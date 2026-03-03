@@ -1,0 +1,25 @@
+{
+  "id": "noble",
+  "type": "townsfolk",
+  "name": {
+    "en": "Noble"
+  },
+  "ability": {
+    "en": "You start knowing 3 players, 1 and only 1 of which is evil."
+  },
+  "flavor_text": {
+    "en": "\"Sarcasm is indeed the lowest form of wit. But speaking in response to your criticism, Sir, it is, nevertheless, a form of wit.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "The Noble is shown Marianna, Alex, and Abdallah. Marianna and Abdallah are good, and Alex is evil.",
+    "The Noble learns Doug, Lachlan and Ben. Doug is the Chambermaid. Lachlan is the Barber. Ben is the Recluse, who has registered as evil to the Noble.",
+    "On the third night, the Pit-Hag turns Amy into the Noble. Amy learns that 1 of Evin, Sarah, or Julian is evil. However, Sarah is the evil Spy and has registered as good, and Julian is the Po, who is also evil."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Noble"
+}

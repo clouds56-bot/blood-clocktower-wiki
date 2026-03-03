@@ -1,0 +1,25 @@
+{
+  "id": "plague_doctor",
+  "type": "outsider",
+  "name": {
+    "en": "Plague Doctor"
+  },
+  "ability": {
+    "en": "When you die, the Storyteller gains a Minion ability."
+  },
+  "flavor_text": {
+    "en": "\"Pleauze shtay shtill. Thinks nid tiime for hillink. Myrhh-myrhh.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "The Plague Doctor dies. The Storyteller gains the Poisoner ability and chooses a player to poison each night for the rest of the game.",
+    "The Plague Doctor is executed and the Storyteller gains the Cerenovus ability. That night, the Pit-Hag turns the Witch into the Cerenovus. There are now two Cerenovus abilities in play – the Storyteller’s and the new Cerenovus’.",
+    "The Plague Doctor has died and the Storyteller has had the Organ Grinder ability for two days. The Plague Doctor is made drunk by the Minstrel. The Storyteller still has the Organ Grinder ability as they gained it when the Plague Doctor died and the Plague Doctor now being drunk does not affect that."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Plague_Doctor"
+}

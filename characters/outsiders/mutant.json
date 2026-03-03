@@ -1,0 +1,26 @@
+{
+  "id": "mutant",
+  "type": "outsider",
+  "name": {
+    "en": "Mutant"
+  },
+  "ability": {
+    "en": "If you are \"mad\" about being an Outsider, you might be executed."
+  },
+  "flavor_text": {
+    "en": "\"I am not a freak! I am a human being! Have mercy!\""
+  },
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "Ten seconds into the first day, the Mutant says to the group that they’re the Mutant. The Storyteller declares that the Mutant is executed immediately. There is no nomination for an execution today, since there can be a maximum of one execution per day.",
+    "A Witch privately talks to the Storyteller and says that Evin, who is playing the Mutant, told them they are the Klutz. The Storyteller chooses to execute the Mutant immediately.",
+    "The Mutant tells the group that they are a Townsfolk, but does not say which one. When questioned if they are the Mutant, they stay silent. After a minute or so of silence, the Storyteller executes the Mutant.",
+    "The Mutant says they are the Oracle, gives some bogus Oracle information, then says \"By the way, I am definitely not the Mutant\" while giving a subtle wink. The Storyteller chooses to execute the Mutant immediately."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Mutant"
+}

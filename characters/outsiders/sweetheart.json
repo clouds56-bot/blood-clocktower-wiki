@@ -1,0 +1,26 @@
+{
+  "id": "sweetheart",
+  "type": "outsider",
+  "name": {
+    "en": "Sweetheart"
+  },
+  "ability": {
+    "en": "When you die, 1 player is drunk from now on."
+  },
+  "flavor_text": {
+    "en": "\"I will never forget her. Never.\""
+  },
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "jinxes": [],
+  "examples": [
+    "You will almost always want to make a Townsfolk drunk, which will hurt the good team, but if evil is winning quite convincingly, you can make an Outsider, Minion, or even the Demon drunk.",
+    "The Sweetheart dies. The Mathematician is now drunk, and may get false information at night.",
+    "The Sweetheart dies. The Mutant is now drunk. The Mutant may safely come out as the Mutant, but they do not know this.",
+    "The Sweetheart dies. The Demon is now drunk, so their attack at night won’t kill anyone."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Sweetheart"
+}

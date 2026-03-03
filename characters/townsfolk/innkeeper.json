@@ -1,0 +1,25 @@
+{
+  "id": "innkeeper",
+  "type": "townsfolk",
+  "name": {
+    "en": "Innkeeper"
+  },
+  "ability": {
+    "en": "Each night*, choose 2 players: they can't die tonight, but 1 is drunk until dusk."
+  },
+  "flavor_text": {
+    "en": "\"Come inside, fair traveller, and rest your weary bones. Drink and be merry, for the legions of the Dark One shall not harass thee tonight.\""
+  },
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "The Innkeeper protects the Fool and the Chambermaid. The Storyteller chooses that the Fool becomes drunk. Tomorrow, when the Fool is executed, they die, even though they hadn’t used their ability yet.",
+    "The Innkeeper protects the Assassin and the Po. The Storyteller chooses that the Assassin becomes drunk. Later that night, the Assassin uses their ability, but nothing happens.",
+    "The Innkeeper protects themself and the Pacifist. The Storyteller chooses that the Innkeeper becomes drunk. The Pacifist is attacked by the Demon tonight and dies."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Innkeeper"
+}

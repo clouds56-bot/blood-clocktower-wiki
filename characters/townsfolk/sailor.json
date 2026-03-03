@@ -1,0 +1,25 @@
+{
+  "id": "sailor",
+  "type": "townsfolk",
+  "name": {
+    "en": "Sailor"
+  },
+  "ability": {
+    "en": "Each night, choose an alive player: either you or they are drunk until dusk. You can't die."
+  },
+  "flavor_text": {
+    "en": "\"I'll drink any one of yer under the table! You! The chatterbox! Reckon you can take me? No? Howza 'bout you, Grandma? You ever tried Old McKillys Extra Spiced Rum before? Guaranteed to put hairs on yer chest! Step aboard, aye!\""
+  },
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "jinxes": [],
+  "examples": [
+    "The Sailor chooses the Exorcist, and the Storyteller decides that the Exorcist is drunk. That night, the Sailor is attacked by the Shabaloth. The Sailor remains alive. The next day, the Sailor is executed but remains alive.",
+    "During the day, the Gossip made a public statement they thought was false, but was actually true. That night, the Gossip ability kills a player. The Sailor has made themself drunk, and the Storyteller decides that the Sailor dies.",
+    "The Sailor chooses the Mastermind, but the Storyteller decides that the Sailor is drunk. The next day, the Sailor asks to be executed to “prove they are the Sailor,” but dies because they're drunk."
+  ],
+  "source_url": "https://wiki.bloodontheclocktower.com/Sailor"
+}
