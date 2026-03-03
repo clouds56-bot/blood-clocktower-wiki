@@ -15,11 +15,27 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Marianna Carr",
   "jinxes": [],
   "examples": [
     "Alex is the Bounty Hunter, Ben is the Harpy, and Abdallah is the Tea Lady. During setup, the Storyteller decides that Abdallah will be the Evil Tea Lady. On the first night, Alex learns Ben. On day 3, Ben is executed. That night, Alex learns Abdallah.",
     "On the first night, the Bounty Hunter learns Julian, who is the evil Baron. When Julian dies, the Poisoner targets the Bounty Hunter. That night, the Bounty Hunter learns Evin, who is the good Magician.",
     "Lachlan is the Drunk who thinks he is the Bounty Hunter. No evil Townsfolk was added at setup, because the Bounty Hunter is not in play. On the first night, Lachlan learns Marianna, who is the good  Empath. When Marianna dies, Lachlan learns Doug, who is the good Flowergirl."
   ],
+  "tips": {
+    "en": [
+      "This is pretty simple, right? You know who an evil player is, right off the bat on day 1! Not even the Investigator info is this strong! You should tell everyone about it immediately and get that filthy scoundrel of an evil player executed as soon as possible so you can get more information on other dastardly fiends around town and work your way closer to finding out who the Demon is!",
+      "You know who an evil player is, but they don’t know you know… Maybe this is a time to sit back in the shadows and pay attention to who they talk to, whether they seem to start without a bluff and then get one after a certain conversation, or maybe they just seem entirely lost and not sure who to talk to. This can tell you who the other evil players are in the first case and that it’s probably the evil Townsfolk in the latter case. Either way, now you have a better idea of who else might be evil and if you now get them executed and see one of the only other people they spoke to on the first day, this is just more evidence that shows your information is correct!",
+      "Once you’re public as a Bounty Hunter, you’re a target for the Demon to kill, so choose your moment to make your information public with great care. Come out too early and you can just be killed before you get the full extent of your potential information. Come out too late and you won’t be able to convince enough people to execute your target in order to get more information. The game can literally swing based on how much information you get, if you manage to work your way through executing the whole evil team to find out who the Demon is, but that requires you both controlling a lot of executions and surviving to that point, so public knowledge about you has to be timed just right!",
+      "Remember you’ve created an evil Townsfolk in this game! Not only is this an extra evil player with an extra nomination and an extra vote, but also they have a free bluff in the character token they actually received if they want it. Even worse, however, they have an incentive to lie about their information, so this is yet another source of misinformation that you will have to be wary of. It’s also worth remembering that there’s an extra evil player if the game goes to a final three – you’ll need an extra good vote on the Demon in order for the evil team not to be able to rise up and beat your numbers just with evil votes!",
+      "Maybe this is a moment to go up to the evil player you saw and try to convince them you’re evil too! If they’re the evil Townsfolk created by your own ability, they won’t know who the other evil players are and will possibly just trust you if you “out” as evil to them. If they’re a Minion, however, you might be putting them on their guard that they’ve been seen by a Bounty Hunter and they might be able to tell the Demon to kill you, so use this tactic with caution!",
+      "If you are staying concealed, you still need to get your targets executed. So you’ll want to be either getting someone else to claim your information for you or claiming your information privately to get people on board with executing your targets – you’ll need plenty of votes, especially if you’ve seen a Minion that the evil team won’t want to be voting on.",
+      "Your information is, unfortunately, very fragile when poisoned – you will almost always learn a good player rather than an evil one and you may not want to get that player executed… If you think you’ve been spotted by an evil team and are just going to be poisoned consistently because you absolutely trust your latest target, maybe this is a time to accept that you’re not going to get any more good information and accept death if people don’t trust you… Or maybe you can discuss with that player and see if they’re willing to die to get you another bit of info that might not be poisoned this time. Or you can turn your attentions to hunting down that pesky Poisoner or Widow that’s messing with your info and hope the Demon kills your current target at night to get you some juicy new info!",
+      "Pay attention to what evil characters are on the script – you don’t want to lead the town on a crusade to execute your target only to find out that they were a Goblin or Boomdandy that’s just won the game for the evil team!"
+    ]
+  },
+  "how_to_run": {
+    "en": "During setup, turn one Townsfolk character token upside down, to represent that they are evil. Mark one evil player with the KNOW reminder."
+  },
   "source_url": "https://wiki.bloodontheclocktower.com/Bounty_Hunter"
 }

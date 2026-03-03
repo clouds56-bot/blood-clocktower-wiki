@@ -15,10 +15,24 @@
   ],
   "first_night": false,
   "other_nights": true,
+  "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
     "The Gambler points to the Minstrel player, then to the Minstrel icon. This guess is correct, so the Gambler remains alive, but is killed by the Demon tonight anyway.",
     "The Devil's Advocate is bluffing as the Pacifist. That night, the Gambler points to the Devil's Advocate player, then to the Pacifist icon. This guess is wrong, so the Gambler dies."
   ],
+  "tips": {
+    "en": [
+      "The Gambler is a high risk, high reward character. You get reliable information that can't be easily tainted, but you put your life on the line to do it. What a thrill!",
+      "Probably one of the strongest uses of your ability is to confirm other good players. Backing up the claims of a couple of players and their characters will go a long way to building trust, and there's really no bad option to confirm: knowing for certain that a Pacifist is in play can be just as useful as knowing that a Chambermaid is who they say they are.",
+      "Choose the good players you most want to know about. The nature of your ability means that you're not the most likely to survive until final day, so try to maximize your chances of getting useful information before your luck runs out. This can mean taking a gamble on trusting one player for the sake of confirming a powerful role like the Exorcist or Courtier, giving the good team an ace in the hole at a critical moment later.",
+      "There's a difference between taking a well reasoned gamble and throwing caution to the wind entirely and leaving it all up to Lady Luck. Using your ability to try and guess evil characters can be like this. Even if you have very strong suspicions that someone is evil, you still have to guess if they are a Minion or a Demon, and then you have four options in each category! The odds are not really in your favor. With that said...get it right, and you've hit the jackpot.",
+      "Deliberately die to prove you are the Gambler. This can seem counter-intuitive, but if you have a few nights of confirming players and you want to dispel any suspicions of your reliability, predict your own death (preferably in private to someone you trust), and then that night, choose wrong. Dying in this way makes it very likely you are who you claim, and can be trusted",
+      "If you don't have any idea who to guess, you can guess yourself. Since you know for certain you are the Gambler, your ability will definitely not kill you that night, guaranteeing that you aren't responsible for your death. This is also useful if you suspect that you may be targeted by a wily Demon or Assassin in the night - if you choose yourself and still die, there's no ambiguity about the fact that you were targeted!"
+    ]
+  },
+  "how_to_run": {
+    "en": "Each night except the first, wake the Gambler. They point at any player, then point at any character icon on their character sheet. Put the Gambler to sleep. If the chosen player is a different character from the chosen character icon, the Gambler dies—mark them with the DEAD reminder."
+  },
   "source_url": "https://wiki.bloodontheclocktower.com/Gambler"
 }

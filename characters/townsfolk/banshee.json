@@ -15,6 +15,7 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Chloe McDougall",
   "jinxes": [],
   "examples": [
     "If all good players are dead, the game continues. Good can still win due to the Banshee being able to nominate.",
@@ -22,5 +23,20 @@
     "The Banshee is poisoned. The Ojo kills the Banshee. Nobody learns that the Banshee has died, and for the rest of the game, the Banshee may not nominate, and has just one vote.",
     "The Lycanthrope kills the Banshee. The Banshee does not gain their additional powers and is not announced."
   ],
+  "tips": {
+    "en": [
+      "Get killed by the Demon, by any method that works for you!",
+      "You can come out as the Banshee while still alive, if you have information backing you up, forcing the evil team to kill you and confirm you or leave you alive to the final three and have the Demon options reduced to one of the other two remaining players.",
+      "You get confirmed when you die – take advantage of this. Get hold of every bit of information you can.",
+      "Your votes become disproportionately powerful – as the numbers alive dwindle, your two votes become a larger and larger proportion of the votes required to get someone on the block. This is, however, a double-edged sword – you’re going to be having a major impact on the execution that gets most votes regardless of whether you’re right or not, so sometimes you might want to hold your fire if you have doubts!",
+      "Your nominations may end up being the only good nominations remaining – unlike normally, when the game ends if there’s only evil alive to nominate, you can still nominate in death, so don’t preclude worlds where all living players are evil. It could literally come down to you correctly nominating the 1-in-3 that is the Demon of evil players living.",
+      "You can afford to always hunt Demons once you’re dead – killing Minions may no longer be as important as you can’t automatically lose to having only evil players remaining alive. So gun for the Demon every day!",
+      "Use your nominations every day – you can be assured that a good player is nominating. And use your votes at least once a day – you swing the voting majority very much in the good team’s favour.",
+      "If you find out that you died at night and the Storyteller didn’t announce you, confirm with the Storyteller that your ability didn’t trigger rather than just nominating to test it."
+    ]
+  },
+  "how_to_run": {
+    "en": "If the Banshee is killed by the Demon, place the HAS ABILITY reminder token next to the Banshee and say “The Banshee has awoken” or something similarly dramatic. The Banshee may nominate twice per day, but it is the player’s responsibility to remember how many times they have nominated. The Banshee may raise two hands when voting. When counting the votes, count each hand as a vote."
+  },
   "source_url": "https://wiki.bloodontheclocktower.com/Banshee"
 }

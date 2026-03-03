@@ -15,10 +15,30 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Anica Kelsen",
   "jinxes": [],
   "examples": [
     "Julian is the Farmer. The Demon kills him at night. Evin is the Fearmonger, and Sarah is the Alchemist. Sarah becomes the Farmer that night. Evin could not become the Farmer, because he is evil.",
     "On the 2nd night, the Farmer dies. The Choirboy becomes the Farmer. On the 3rd night, the new Farmer dies, and the Heretic becomes a Farmer. There is now no Heretic and no Choirboy in play, and three Farmers in play, two of which are dead."
   ],
+  "tips": {
+    "en": [
+      "If you die at night, play it cool and wait for somebody to approach you as the new Farmer that has been created.",
+      "The Farmer can be a powerful trap for the evil team. If you turn into the Farmer at night, reach out to the player that most recently died and reveal to them that you are a Farmer now. It’s very difficult to fake this interaction, meaning the two of you can trust each other.",
+      "If you feel like you want to survive, come out as the Farmer, blatantly daring the Demon to kill you at night. This is especially effective if there are no other sources of deaths by night in the game. It might also confuse the Demon, who might second guess your motives.",
+      "Claim to be a high priority target, like the Bounty Hunter or the Fortune Teller, and bait the Demon into killing you at night. Then, once you’ve died and confirmed who the new Farmer is, claim that you swapped characters with them and that they’re the real high priority target to try and bait the Demon into killing them too.",
+      "Try not to come out right away publically as building up a large group of Farmers is much more powerful than a small group of Farmers. Backtracking through the information that the new Farmers may have is valuable information that you can trust.",
+      "Try to find a high priority target and role swap with them so that you can become a good target to be killed at night and also helps to protect that player, especially if you are the first Farmer.",
+      "Try to talk with lots of people throughout the game, that way you may look like you are spreading lots of powerful information about where the evil team might be, that way you seem like a high priority target that may need to be silenced.",
+      "Avoid execution at all costs as your ability only triggers if you die at night.",
+      "After you have confirmed a couple of players who have been turned into Farmers coming out together and using that information as a base for where to start looking for evil players can be a good strategy to get the ball rolling on who you can and cannot trust.",
+      "If there is a Farmer chain that is greater than the total number of evil players in the current game's setup this generally means that you can trust all the Farmers in that group.",
+      "Powerful roles becoming Farmers is much more beneficial than trying to keep powerful characters alive at night. Do not be scared of dying at night for fear of turning powerful characters into Farmers.",
+      "Pay attention to what the player was before they became a Farmer. If they were an Outsider, this might be a clue that the good team is doing badly and the Storyteller is trying to help out. If it’s a start player or a once per game character that’s used their ability, this might mean the game is fairly even. If it’s a powerful character, and there seem to be other choices, maybe this means the good team is winning."
+    ]
+  },
+  "how_to_run": {
+    "en": "If the Farmer died tonight, wake an alive good player. Show them the YOU ARE info token and a Farmer character token, then put them to sleep. Replace their previous character token with a Farmer character token."
+  },
   "source_url": "https://wiki.bloodontheclocktower.com/Farmer"
 }

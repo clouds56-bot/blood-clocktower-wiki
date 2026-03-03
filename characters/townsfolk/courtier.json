@@ -15,6 +15,7 @@
   ],
   "first_night": false,
   "other_nights": true,
+  "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
     "In other editions, there can be multiple copies of the same character in play. The Courtier only makes one of them drunk.",
@@ -22,5 +23,19 @@
     "The Courtier uses their ability while drunk. Nothing happens, but they are not woken again.",
     "The Courtier makes the Mastermind drunk. The Po is executed while the Mastermind still lives. The game ends and good wins."
   ],
+  "tips": {
+    "en": [
+      "The Courtier is unique in that you choose a character, not a player. This means you select an actual role, and if they exist in your game they will be drunk. This is different from the Poisoner, who chooses a player to be poisoned regardless of who they are. Thanks to this, you have some different strategies available to you!",
+      "You can only use your ability once in the entire game, so time it well! The later you make your choice, the more information you will have about the game's state and what characters are in play and causing mayhem. On the other hand, the evil team will be keen to target you as soon as they possibly can, so using your ability early can ensure you get it off and learn something before you die. It's up to you to judge the landscape of your particular game and make your choice!",
+      "Obviously one of the strongest uses of your ability is to target the demon - if you can block the demon by getting them drunk, then the good team will have three nights of reprieve and the evil team will be at a severe disadvantage. The biggest tell for which demon is in play is the number of deaths each night - spot a pattern there, and you can pick out a deadly Shabaloth or cunning Po before they unleash their devastating attacks.",
+      "Another powerful strategy you have available to you is to get Minions drunk. A drunk Assassin or Godfather won't be able to unleash unexpected deaths on the town, though getting the timing right can be very tricky - only aim for these if you're really sure it's going to help the good team out. A drunk Devil's Advocate or Mastermind is a little more insidious, since the evil team often rely on their abilities to save them in a pinch, and the drunkenness will not be obvious right away. An evil team who thinks they have a Mastermind in their back pocket may be okay with letting their demon die, when in fact they're about to lose the game!",
+      "In most cases, getting good players drunk is probably not the best use of your ability, but there are some cases where it can be viable. For example, a drunk Tinker can no longer die randomly, a drunk Grandmother will not die alongside her grandchild, and a drunk Moonchild who dies will not cause an extra good player's death.",
+      "If you suspect that someone may not be who they claim to be, you can choose the character they're claiming and see if their story changes. For example, if a Chambermaid continues to come out with 'true' information after you've had a few too many drinks with that character, or an Exorcist continues to 'block' the demon after they're supposed to be hammered? (Note: if you're wrong and you make the actual Chambermaid or Exorcist drunk, you may gain some suspicion and ire for undermining the good team! It's a risky play with a big payoff.)",
+      "If you're just not sure who to make drunk and you're rapidly running out of days, a valid option is to simply choose the most deadly character on the script. Whether or not they are in play, you can now be completely confident that they are not impacting your game at all, allowing the good team to rule them out of any reasoning. (Who is the most deadly character in Bad Moon Rising, you ask? Well, that's up to you! ;) )"
+    ]
+  },
+  "how_to_run": {
+    "en": "Each night, wake the Courtier. They either shake their head no or point at any character icon on their character sheet. Put the Courtier to sleep."
+  },
   "source_url": "https://wiki.bloodontheclocktower.com/Courtier"
 }

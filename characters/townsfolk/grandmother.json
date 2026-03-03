@@ -15,11 +15,27 @@
   ],
   "first_night": true,
   "other_nights": false,
+  "artist": "John Grist",
   "jinxes": [],
   "examples": [
     "During the first night, the Grandmother wakes and learns that Julian, their Grandchild, is the Professor. Three nights later, Julian is killed by the Demon, so the Grandmother dies too.",
     "The Grandmother knows that Lewis, their Grandchild, is the Gambler. Lewis gambles and dies because of it. The Grandmother remains alive.",
     "The Grandmother knows that Sarah, their Grandchild, is the Tinker. Sarah is killed by the Demon, but the Grandmother is drunk because of the Sailor, so the Grandmother remains alive."
   ],
+  "tips": {
+    "en": [
+      "Protect your beloved grandchild! They are almost certainly good, and that is a certainty that is rare and precious in Bad Moon Rising. Also, if they're killed by the Demon, you will die too - extra motivation!",
+      "Talk to your grandchild, feed them cookies, and get them to trust you! Unlike similar characters like the Washerwoman, your information is so absolute since you only learn one player and their identity - there's no benefit to getting them to admit who they are first unless you sincerely doubt your sobriety. When you get a chance, reveal that you know their character and how, and you will have a lot of trust from the get go.",
+      "Don't reveal the identity of your grandchild to anyone! If the evil team know how you are connected, they'll absolutely want to kill them and score your death as a free bonus. Keep them secret to keep them safe.",
+      "Reveal your identity and your grandchild early to a couple of players. This has a couple of bonuses - if these people are trustworthy, they will know to trust you and your grandchild in turn. However, if you and your grandchild suddenly die, you can look at these players with great suspicion - it's possible that one of them is actually the Demon! (If you suspect you're talking to evil players, you don't have to tell them who your real grandchild is...)",
+      "There are many ways to build trust with the good team using your information!\nEncourage protective characters to cover your grandchild. If you know the identity of an Innkeeper, or your grandchild is close to a Tea Lady, try getting things set up so that your grandchild can be covered at night, keeping both of you safe.\nSimilarly, you can warn away players like the Sailor and the Exorcist, who will be making your grandchild drunk OR just wasting their ability on someone you know for certain is good.\nFinally, you can encourage the Gambler and the Chambermaid to use their abilities on you or your grandchild, expanding the circle of trust when your information lines up!Encourage protective characters to cover your grandchild. If you know the identity of an Innkeeper, or your grandchild is close to a Tea Lady, try getting things set up so that your grandchild can be covered at night, keeping both of you safe.Similarly, you can warn away players like the Sailor and the Exorcist, who will be making your grandchild drunk OR just wasting their ability on someone you know for certain is good.Finally, you can encourage the Gambler and the Chambermaid to use their abilities on you or your grandchild, expanding the circle of trust when your information lines up!",
+      "If you and your grandchild are the only ones to die at night, you probably died because of your ability. If you suspect this is the case, make sure to let the good team know, as otherwise two deaths at night is an early indicator that the deadly Shabaloth or Po is lurking, when in fact the Zombuul or Pukka are still very viable options.",
+      "Don't talk to your grandchild right away. Whispering together, especially in the early days of the game, will attract both good and evil attention, and a Demon may just pick you two off on suspicion that you're Grandmother and grandchild.",
+      "Reveal to the group that you are the Grandmother, but without saying which player your grandchild is. For example, you can simply say \"I am the Grandmother, I know there is an Exorcist in the Town\", or something similar. This lets the group know that you are a Townsfolk character, and also lets them know to expect an Exorcist to reveal themselves at some stage"
+    ]
+  },
+  "how_to_run": {
+    "en": "When preparing the first night, choose a Grandchild by marking any good character with the GRANDCHILD reminder."
+  },
   "source_url": "https://wiki.bloodontheclocktower.com/Grandmother"
 }

@@ -15,10 +15,23 @@
   ],
   "first_night": false,
   "other_nights": true,
+  "artist": "John Grist",
   "jinxes": [],
   "examples": [
     "During the first day, the Flowergirl is executed. That night, the Demon kills the Juggler. The Oracle wakes and learns a \"0,” because all dead players are good.",
     "Halfway through the game, seven players are dead. Five of them are good and two of them are evil. During the day, an evil Traveller is Exiled. That night, the Demon kills one of it's Minions. The Oracle wakes and learns a \"4,” because four dead players are evil."
   ],
+  "tips": {
+    "en": [
+      "So long as you are getting a \"0\", you can trust that all the dead players are good, and can therefore work with them and use their information.",
+      "The moment you get a \"1\" or more, an evil player has entered the realm of the dead, and you should now be very careful about who you speak to. Outsource your suspicions to the dead - they'll be incentivised to prove themselves good and can do a lot of the work of accusations for you.",
+      "Most players who die at night will be good players; evil players want to stay alive as long as possible, so the demon will be focusing their kill on good player threats. If you suddenly start getting a read on an evil player, you should start your suspicions with the most recent executee.",
+      "The Fang Gu and the Vigormortis are both demons that you can detect when they move around the town. The Fang Gu will cause unexpected jumps in the evil count if they hit an outsider and jump between players, while the Vigormortis will probably take out a minion (or two!) close to the beginning of the game to ensure their ability stays active. If you're noticing either of these trends, check for other tells of these demons (e.g., increased outsider count, minion abilities activating despite only a few alive players remaining). If you can confirm one of them is in play, you know it isn't Vortox and can start forming a strategy for victory!",
+      "Feel free to come out early or late in the game - you receive valuable information the entire day, so even your first piece of info alone can give the good team a lot to work with. You might be able to make a deduction or two based on when you die - an early Oracle  death could indicate a spooked Vigormortis, OR that someone evil recently was executed and they don't want you to know."
+    ]
+  },
+  "how_to_run": {
+    "en": "Each night except the first, wake the Oracle. Show fingers (0, 1, 2, etc.) equaling the number of dead evil players. Then, put the Oracle to sleep."
+  },
   "source_url": "https://wiki.bloodontheclocktower.com/Oracle"
 }

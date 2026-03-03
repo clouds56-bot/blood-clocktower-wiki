@@ -15,11 +15,24 @@
   ],
   "first_night": false,
   "other_nights": true,
+  "artist": "John Grist",
   "jinxes": [],
   "examples": [
     "The Innkeeper protects the Fool and the Chambermaid. The Storyteller chooses that the Fool becomes drunk. Tomorrow, when the Fool is executed, they die, even though they hadn’t used their ability yet.",
     "The Innkeeper protects the Assassin and the Po. The Storyteller chooses that the Assassin becomes drunk. Later that night, the Assassin uses their ability, but nothing happens.",
     "The Innkeeper protects themself and the Pacifist. The Storyteller chooses that the Innkeeper becomes drunk. The Pacifist is attacked by the Demon tonight and dies."
   ],
+  "tips": {
+    "en": [
+      "Your ability is powerful and when used effectively you can stall the evil team and keep your fellow good team safe. The price of your ability is steep, however - anyone protected by you becomes unreliable as they may be drunk for the night that they survive. Coordinating with your fellow good players to find ideal targets to protect is absolutely vital - some characters (such as the Pacifist and the Exorcist) become stronger the longer they survive, and you can enable that.",
+      "Be mindful of the drunkenness your ability causes! Don't protect people who need to receive reliable information or use their ability with any sort of guarantee that night. If you know for example that a Courtier is about to use their ability, you protecting them may cause them to become drunk and waste their powerful ability!",
+      "Protect different people than who you publicly claim to be protecting. If the evil team believes what you are saying, they will not want to waste time targeting players who can't be killed. Meanwhile, you secretly protect other players that are potential victims, hopefully blocking the evil team from a necessary kill.",
+      "It can seem like a good idea to protect yourself using your ability, but this is generally not recommended - it is likely that the Storyteller will choose to make you drunk by your own ability, completely negating your protection and making both you and the other player vulnerable.",
+      "If you think you know at least 2 evil players, select them both! Guarding them from death isn't ideal, but it does mean that one of them will be drunk that night. If you manage to get your hands on the Demon or a potent Minion like the Assassin or the Devil's Advocate, you're cutting off evil abilities at source! If you miss, though, you can almost guarantee that whichever player is good will be drunk."
+    ]
+  },
+  "how_to_run": {
+    "en": "Each night except the first, wake the Innkeeper. They point at any two players. Put the Innkeeper to sleep. Mark the two chosen players with SAFE reminders. One of the chosen players becomes drunk—mark them with the DRUNK reminder. The players marked SAFE cannot die tonight."
+  },
   "source_url": "https://wiki.bloodontheclocktower.com/Innkeeper"
 }

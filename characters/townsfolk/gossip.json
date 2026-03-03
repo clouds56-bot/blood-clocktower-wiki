@@ -16,6 +16,7 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
     "When choosing a player to die due to the Gossip ability, we recommend that you choose a character that will actually die, not one protected from death by an ability (like the Fool or Tea Lady). The Gossip gains knowledge when their statement caused a death. This is more helpful to the good team, and more fun for everyone.",
@@ -23,5 +24,19 @@
     "The Gossip neighbours a good Traveller and the Pacifist. During the day, the drunk Gossip says, \"Both my neighbours are good.\" At dusk, the drunk Gossip becomes sober. That night, the Chambermaid dies.",
     "During the day, the Gossip makes a true statement. That night, the Gossip is killed by the Demon. They lose their ability, so their statement does not kill anyone tonight."
   ],
+  "tips": {
+    "en": [
+      "Get over your fear of death! A lot of Gossips will be tentative about using their ability, since they're worried about causing a death accidentally. While it's true you should be cautious with any ability that could cause death, the potential gain in information more than makes up for the risk. Use your ability every day!",
+      "Similar to the Artist in Sects & Violets, you are an extremely flexible and versatile information gatherer. Since you can make literally any statement you like about anything, you can cover gaps in the good team, back up other players' information, or ask that one question that everyone desperately wants to know but have no way to find out! Take full advantage of this and the good team will be thanking you.",
+      "Be precise with your statements! A vague statement that could be true OR false (e.g. \"The demon made someone look evil yesterday.\") won't be helpful to you when you're trying to figure out if someone died as a result of your ability. Instead, aim for binary statements that are definitely true or false (e.g., \"The demon nominated yesterday.\")",
+      "Deliberately say statements that you believe are false. This reduces the risk that you will kill a player, but still allow you to gain information. If nobody dies (or at least, you don't think anyone died because of you), then you can reverse your statement to get the truth! For example, if you say \"The Chambermaid is not in play\" because you believe another player is the Chambermaid and no deaths occur, you can trust their claim!",
+      "Deliberately say true statements! This can be advantageous for two reasons. One, if someone dies because of you, it'll be hard to deny you're the Gossip (providing you can trace that death back to you and not one of the many other causes). This will be less effective in a game with a multi-kill demon like the Shabaloth or Po. Two, if someone dies as a result of your ability, then you can be very confident that the statement was true (deliberately saying false statements does not account for your ability malfunctioning, so if you suspect that could be the case, this is the way to confirm it!)",
+      "Be wary of the game state and time what kind of statements you say. If it's late enough in the game, an extra death at night could be all the evil team needs to squeeze out a victory. As the amount of living players runs low, try to avoid saying anything that could cause an extra death, just to be on the safe side.",
+      "Not sure what sort of statements you can make? Here's some examples!\n\"The demon is a Zombuul.\"\n\"Steven is evil.\"\n\"Two evil players are sitting next to each other.\"\n\"The Assassin has used their ability.\"\n\"Marianna is the Courtier.\"\n\"Both of my neighbours are good.\"\"The demon is a Zombuul.\"\"Steven is evil.\"\"Two evil players are sitting next to each other.\"\"The Assassin has used their ability.\"\"Marianna is the Courtier.\"\"Both of my neighbours are good.\""
+    ]
+  },
+  "how_to_run": {
+    "en": "Each day, if the Gossip makes a definite, true public statement, put the Gossip’s DEAD reminder in the center of the left side of the Grimoire as a reminder to yourself to place it tonight."
+  },
   "source_url": "https://wiki.bloodontheclocktower.com/Gossip"
 }

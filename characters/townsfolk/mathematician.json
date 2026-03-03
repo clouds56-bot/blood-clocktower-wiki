@@ -15,11 +15,27 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "John Grist",
   "jinxes": [],
   "examples": [
     "The poisoned Oracle learns that two dead players are evil, when three dead players are actually evil. All other character abilities work normally. Later that night, the Mathematician learns a \"1\".",
     "The poisoned Snake Charmer chooses a Townsfolk player, and nothing happens. The drunk Juggler gets correct information. The Savant learns two pieces of true information. Later that night, the Mathematician learns a \"1\" because the Snake Charmer and Juggler's abilities worked as normal, whilst one of the Savant's facts was true when it should have been false.",
     "A Vortox is in play. Five good players got false information. The Witch is drunk, and when their cursed player nominated, nothing happened. Even though six abilities worked abnormally, the Mathematician learns a \"4\" due to the Vortox's ability."
   ],
+  "tips": {
+    "en": [
+      "Your information is valuable, but only if you know what the rest of the town is doing. Get chatty with your fellow players and find out what their information is - figuring out who has an ability that isn't working correctly will help out the good team a lot. Characters like the Clockmaker, Flowergirl, Seamstress, and Oracle (among others) will need your help making sure their information should be acted upon!",
+      "Pay attention to game changes that would affect your data, and be wary if your data suddenly changes. If a recent executee is claiming to be the Sweetheart, your number might increment that evening. Alternatively, if you're suddenly getting a '2' when you were previously getting a '0', you can be suspicious that a Pit-Hag just created a No Dashii.",
+      "Make sure to ask your Storyteller what sort of ability malfunctions you're picking up on. In Sects & Violets, you typically detect when good characters have their ability altered due to evil characters, like the No Dashii and Vortox. However, you will also detect character abilities not working as intended due to the Sweetheart after death, or the Philosopher duplicating an in-play character, and a poisoned Snake Charmer trying to use their ability on the Demon to no avail.",
+      "Beware of the Vortox! Just like everyone else, all of your information will be false. If you are getting a low number, but it seems like a lot of Townsfolk are getting misinformation, you can suspect that this is in play. In particular, getting a '0' when others appear to be getting bad information is a great tell that you are poisoned OR a Vortox is in town.",
+      "Getting a read of '0' is fantastic, as it means that nobody got bad information or had their ability not work correctly. Everyone should be able to trust their info for that day and night.",
+      "Getting a read of '1' is also fantastic - this means only one ability didn't work as intended, and if you can figure out who that is, everyone else can trust their information is reliable for that day and night.",
+      "If you're getting a read of '2' or more, your town might be in trouble. This is a very good sign that multiple sources of poisoning or ability malfunctions are afoot in the town... or that maybe you're the one who is poisoned.",
+      "Unlike other townsfolk, the Mathematician doesn't need to be shy in coming out. Not only is your information most useful when shared, but even one night of it is incredibly powerful when it comes to helping the town. Compared to a Flowergirl or a Juggler, you're also just not as much of a threat."
+    ]
+  },
+  "how_to_run": {
+    "en": "Each time a character's ability works abnormally due to another character's ability, mark them with an ABNORMAL reminder."
+  },
   "source_url": "https://wiki.bloodontheclocktower.com/Mathematician"
 }

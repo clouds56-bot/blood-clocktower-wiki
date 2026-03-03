@@ -15,6 +15,7 @@
   ],
   "first_night": false,
   "other_nights": true,
+  "artist": "Caitlin Murphy",
   "jinxes": [],
   "examples": [
     "If the Dreamer chooses an evil player, you can help the evil team if you show the Dreamer the good character that this evil player is bluffing as, or if you show a more secretive character such as the Snake Charmer, Sage, Mutant, or Klutz.",
@@ -23,5 +24,23 @@
     "Today, both the Evil Twin and the Artist claimed to be the Artist. That night, the Dreamer chooses the player who is the Evil Twin. If the Storyteller wanted to help the good team, they could show the Evil Twin and the Sweetheart. But the Storyteller decides to help evil, so they show the Evil Twin and the Artist to the Dreamer.",
     "The Dreamer chooses a player who is the Vortox. The Dreamer's information must be false because the Vortox is in play, so the Dreamer learns that this player is either the Oracle or the No Dashii."
   ],
+  "tips": {
+    "en": [
+      "Every time you choose a player, you learn a potential evil character that they could be. Pay close attention to these, because they give you a surprising amount of information even if they are wrong. For example, any player who registers as a Minion cannot be a Demon, so you can exclude them from your list of potential suspects.",
+      "Your ability is a fantastic detector for the Vortox and No Dashii, because unlike other players, it can be very easy to confirm if your information is correct or not. If you get one player who doesn't add up, be suspicious. If you get three? It's time to look at other options.",
+      "Try to choose players who are not close to you. If you are neighbouring a No Dashii, you will be poisoned, and your information will favor the Demon. By choosing someone further away from you in the town, you're much less likely to hit an evil player early and get unreliable information about them. (Feel free to revisit your neighbours in the future though!)",
+      "Giving your information tends to be more powerful in the early game rather than later. Fewer people will have publicly stated their character, and since an evil pair often needs time to coordinate, you'll have a better chance of proving you are a good player.",
+      "When swapping your information with your chosen target, be careful not to reveal your information first. If you are dealing with an evil player, telling them a potential good character might be feeding them a bluff. Instead, have them reveal to you and see if your information aligns with their claims.",
+      "Revealing your information first when swapping information will conclusively prove to the player you're speaking to that you are the Dreamer... providing your information is good. This will allow them to put a lot of trust in you right away, because it's very difficult to have that information otherwise.",
+      "Encourage players to not reveal who they are in the early game. If people come out with who they are, you can still check their claim, but it's much harder for you to confirm yourself if everyone is open about who they are from the get go!",
+      "Check people who you think are lying, not those you think are telling the truth. Catching players out in a lie is awesome, because you'll know what evil player they are and can decide right then and there if you want them dead.",
+      "Check players whom you think are telling the truth; not only does this enable you to back up players whom you trust, but if your information is differs from what you expect, then you can be suspicious that it has been tampered with.",
+      "You should never receive information about a Vortox, because the Vortox forces all information received by good players to be false. This means that if the Vortox is play, your information about them will be incorrect, so you will always receive a different evil character.",
+      "If you have an Evil Twin, don't bother checking them. You will receive the Good Twin's character and the Evil Twin for both players, which is... not very useful. One exception: You can check for Vortox this way, since the information would have to be false!"
+    ]
+  },
+  "how_to_run": {
+    "en": "Each night, wake the Dreamer. They point at any player. If the chosen player’s character is a Townsfolk or Outsider, show their character token and any Minion or Demon token to the Dreamer. If the chosen player’s character is a Minion or Demon, show their character token and any Townsfolk or Outsider token to the Dreamer. Then, put the Dreamer to sleep."
+  },
   "source_url": "https://wiki.bloodontheclocktower.com/Dreamer"
 }

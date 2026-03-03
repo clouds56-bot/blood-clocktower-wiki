@@ -15,11 +15,25 @@
   ],
   "first_night": true,
   "other_nights": false,
+  "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
     "The Fang Gu is sitting next to the Pit-Hag. During the first night, the Clockmaker learns a \"1\".",
     "Clockwise from the No Dashii sits the Dreamer, the Snake Charmer, then the Evil Twin. Counterclockwise from the No Dashii sits the Mutant, the Sweetheart, the Philosopher, the Sage, then the Witch. Because the Witch is five steps away from the Demon, and the Evil Twin is three steps away from the Demon, the Clockmaker learns a \"3\" during the first night.",
     "The Fang Gu neighbours two Travellers, one good and one evil. Neighboring one of these Travellers is a Cerenovus. During the first night, the Clockmaker learns a \"2\", because evil Travellers are not Minions."
   ],
+  "tips": {
+    "en": [
+      "You don't have to give your information out immediately; wait a couple of days so that you can observe the other players and see if you uncover anything suspicious while the evil team thinks the pressure is off.",
+      "Your information is most valuable if you can identify a Minion. Figure out which player is a Minion, and you can pin down some very likely Demon suspects. You should try to coordinate with other good players in the game to uncover this information. Many players detect players of an evil alignment (like the Oracle and the Seamstress), while others detect the Demons and Minions directly (like the Flowergirl, Town Crier, or even the Snake Charmer).",
+      "If you get a very large number (> 3), then the Minions are probably sitting close together and away from their Demon. Similarly, if you get a very small number (< 2), one of the Minions and the Demon are probably very close together. You can use this information to look at who is talking to whom - watch for players interacting in a way that matches up with what you know.",
+      "If you have a suspicion of who you think the Demon is, use your information to locate their possible Minions and observe those players/what information they have, and what information exists about them. Minions tend to have a harder time hiding themselves than a Demon (who knows not-in-play characters), so you can take advantage of this weak point to confirm the Demon.",
+      "Your information becomes more valuable as the game goes on and players die. Since the evil players are unlikely to die at night, they tend to survive longer and will support each other and their arguments, thus making themselves more obvious than at the start of the game. Look at which players still alive match up to your information; if they're coordinating or backing each other up, they might be secretly evil!",
+      "All of the Minions you'll be facing tend to act obviously, which means that it is also quite obvious when they die. If you notice that suddenly nobody is dying by Witch, being driven mad by Cerenovus, or transformed by the Pit-Hag, then you may have executed one of the Minions. Figuring out who will lead you right back to the Demon! The Evil Twin is a bit of an exception to this since you'll very likely know they're in play from the beginning. This also means you know (up to) four Demon options from the very beginning!"
+    ]
+  },
+  "how_to_run": {
+    "en": "During the first night, wake the Clockmaker. Show fingers (1, 2, etc.) equaling the distance in players from the Demon to the nearest Minion, starting with the player neighboring the Demon closer to that Minion. Put the Clockmaker to sleep."
+  },
   "source_url": "https://wiki.bloodontheclocktower.com/Clockmaker"
 }

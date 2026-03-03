@@ -15,11 +15,30 @@
   ],
   "first_night": false,
   "other_nights": true,
+  "artist": "Anica Kelsen",
   "jinxes": [],
   "examples": [
     "On day 3, the good Cult Leader’s living neighbors are the good Town Crier and the evil Goblin. The Cult Leader requests to form a cult, and all good players vote to join the cult. The game ends and the good team wins!",
     "The Cult Leader neighbors the No Dashii. On day 2, the Cult Leader attempts to form a cult. All players vote to join the cult, but a cult is not formed, because the Cult Leader is poisoned.",
     "The Cult Leader’s living neighbors are the evil Poisoner and the good Fortune Teller. The Poisoner chooses the Cult Leader, and the Kazali kills the Fortune Teller. The Cult Leader’s living neighbors are now the evil Poisoner and the evil Wizard. While the Cult Leader’s living neighbors are both evil, the Cult Leader doesn’t turn evil, because they cannot change alignment while poisoned."
   ],
+  "tips": {
+    "en": [
+      "Come out as the Cult Leader early, as your chances of being good are much higher early in the game. It is true that on the first night you can turn evil, but this will probably not be the case. However, that being said, the town may be hesitant to gun for a Cult Leader win on the first day as this feels like a cheap win and they won't have much evidence either way about your alignment.",
+      "Come out late as the Cult Leader since you'll have more information to share. However, beware, players are prone to distrusting Cult Leaders towards the end of the game as the chance you are evil increases near the end of the game because good players are more likely to have died than evil, so your living neighbours get increasingly likely to be evil in the late game.",
+      "Come out as the Cult Leader while evil (without admitting that you are evil), because it will be easier to get the evil team to back your plays for executions and Cult Leader votes.",
+      "Get other players to use detection abilities on your neighbours to verify your claims. Get the Chambermaid or the Seamstress to pick both your neighbours at night, to verify your claims of alignment.",
+      "Try and execute players between you and those verified as good by Townsfolk, such as the Virgin or the Noble, as this will help make the town trust that you are good for a Cult Leader victory.",
+      "Don't admit you are evil until you are good again, or else you might get executed and locked into evil. However, if it's the final day, coming out as evil can destroy the good team for an easy win. If you were evil the night before and you're good now, you can tell the group that you have been evil and that therefore one of your neighbours must be evil.",
+      "Ignore the Cult Leader's cult joining ability, and just quietly learn if you have evil neighbours like an Empath. Over the course of the game, keep a mental note of when you have been evil, especially if your neighbours die across the course of the game. Then you'll have some good information on which players are probably good and probably evil.",
+      "Always use the Cult Leader's cult joining ability, and observe voter behaviour. Evil knows if you're next to an evil player, and are more likely to vote on you then. Cult Leaders can have a hard time convincing the whole group to vote, as there is usually one good player that holds back thinking \"what if they're evil?\". That's okay, you can still learn a lot just by watching how players vote, because evil players are much more enthusiastic to vote as their vote doesn't impact the outcome anyway.",
+      "During the end game, if players are not sure about who the Demon is, you have a victory condition that can be a Hail Mary. If the odds of finding the Demon are worse than 50/50, then a Cult Leader offers better odds. If it is suddenly clear based on voter patterns that the Demon has escaped execution, you can offer a backup plan. You might be evil, but it's still a better chance at victory for the good team, than knowing that the Demon cannot be executed.",
+      "Remember on the final day, if there are only 3 players alive and you're one of them, you are next to the Demon. If the third player is evil, then all three of you are evil, meaning no one will nominate the Demon for an easy evil victory. If you're good, then you know for sure that the Demon is only evil player left alive.",
+      "Player count is important: in games with 9, 12, or 15 players, you have the highest good to evil player ratio. This means that your chances of being good are higher, but you also have more people to convince to join your cult. In a 9 player game, there are 7 good players and only 2 evil players, so while the chances of you being next to an evil player are much lower, you still have 6 other people to convince to join your cult."
+    ]
+  },
+  "how_to_run": {
+    "en": "Each night, turn the Cult Leader character token right side up (if both alive neighbors are good) or upside down (if both alive neighbors are evil) or either (if one alive neighbor is good and the other alive neighbor is evil). If the Cult Leader's alignment changes, wake the Cult Leader and give a thumbs up or a thumbs down, then put the Cult Leader to sleep. If the Cult Leader’s alignment doesn’t change, do not wake them."
+  },
   "source_url": "https://wiki.bloodontheclocktower.com/Cult_Leader"
 }

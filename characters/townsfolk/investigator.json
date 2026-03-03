@@ -15,11 +15,28 @@
   ],
   "first_night": true,
   "other_nights": false,
+  "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
     "Amy is the Baron, and Julian is the Mayor. The Investigator learns that either Amy or Julian is the Baron.",
     "Angelus is the Spy, and Lewis is the Poisoner. The Investigator learns that either Angelus or Lewis is the Spy.",
     "Brianna is the Recluse, and Marianna is the Imp. The Investigator learns that either Brianna or Marianna is the Poisoner. (This happens because the Recluse is registering as a Minion—in this case, the Poisoner.)"
   ],
+  "tips": {
+    "en": [
+      "Tell the group what your information is as soon as possible on the first day. You probably won't be able to determine which of the two players is the Minion, but if you are believed, then the good team will probably have enough time to execute both players, guaranteeing that a Minion is dead on the final day.",
+      "Whilst your information by itself will probably not be enough to condemn a specific player, it might combine well with another good player's information, such as the Empath or the Chef. If you trust them, you can team up to execute a Minion early in the game, which removes their voting power and gives you an advantage.",
+      "If you have a strong suspicion regarding one of the 2 players shown to you, simply say nothing and study their behaviour. If they continually come to the defense of a particular player, that player is likely the Demon. If they continually try to get a particular player executed, that player is probably good. You can reveal this later in the game when you've gathered a solid portfolio of evidence. If the Minion is still alive on the final day then you know that they are likely not the Demon, and should not be executed.",
+      "Instead of revealing your information publicly, confide in other members of the town secretly. Someone else may have information that exonerates or condemns one of your choices, and it may be easier to persuade them to tell you what they know in secret.",
+      "If you learn that a Scarlet Woman or a Poisoner is in play, it becomes all the more important to execute them as soon as you can! They have powerful abilities that can continue to disrupt the Good team for as long as they are in play.",
+      "All minions are dangerous. Even if you learn of a Baron or a Spy, it remains important to execute them. Even if doing so doesn't prevent them from mechanically affecting the game, they still retain their voting and nomination power, and may even go on to become the Imp!",
+      "If you learn that any minion other than the Baron is in play in a game with only one minion, you know exactly how many outsiders there are. If more than that number are claiming to be outsiders, then you know that at least one of them is lying.",
+      "Beware the Recluse! They may register as a Minion to you. If one of the players you detect is actually the Recluse, the second player could be literally anything, including the Minion you were shown.",
+      "Even though one of the players you detect is a Minion, that does not necessarily mean that the other player is good."
+    ]
+  },
+  "how_to_run": {
+    "en": "While preparing the first night, put the Investigator's MINION reminder token by any Minion character token, and put the Investigator's WRONG reminder token by any other character token."
+  },
   "source_url": "https://wiki.bloodontheclocktower.com/Investigator"
 }

@@ -15,9 +15,26 @@
   ],
   "first_night": true,
   "other_nights": false,
+  "artist": "John Grist",
   "jinxes": [],
   "examples": [
     "The Minions wake to learn that either the Leviathan player or the Magician player is the Demon. The Leviathan player learns that the Fearmonger player, the Assassin player, and the Magician player are the Minions."
   ],
+  "tips": {
+    "en": [
+      "Look as evil as you can. Make poor decisions on who to nominate. Vote haphazardly. Say that trustworthy players are untrustworthy, or vice versa. The evil players think that you might be evil, so if you act more evil than the others, they may believe that you are the evil player, and the Magician is elsewhere.",
+      "Evil players that believe that you are evil will tend to keep you alive. The Minions think that you might be the Demon. If you are nominated, pay attention to who doesn't vote for you, or who seems afraid to vote for you. You may have found some Minions.",
+      "Choose a different character to bluff as, or stay silent about who you are for as long as possible. If the evil team learns that you are the Magician, the Minions will learn who the real Demon is and the Demon will learn who the real Minions are - this won't end the game, but it would mean that your ability no longer causes any disruption to the evil team.",
+      "If you can find a confirmed good player, such as the Virgin or the Slayer, or an almost confirmed good player, such as the only Outsider in a one-Outsider game, tell them that you are the Magician. You need to stay alive as long as possible, and having at least one good player (plus several evil players) who don't want to execute you will help this.",
+      "Stay alive as long as possible. Don't get executed. The Demon probably won't kill you at night, because they think that you are a Minion, so staying alive is up to you and the good team. The longer you are alive, the more your ability has an effect.",
+      "When you think that the jig is up, that the evil team have figured out that you are the Magician, tell the whole group who you are. Like the Lunatic, it is not expected that the ruse will last for the entire game. If the evil team knows who you are, you've got nothing to lose by revealing yourself.",
+      "Watch people's body language and eye contact. Listen to hints and subtext in people's words. It is likely that the Minions (and possibly the Demon) will approach you to make eye contact with a \"knowing look\" or a hint that they think you are evil. The evil team will be trying to figure out who each other are, and you are a candidate. If someone gives you a knowing look, or winks, wink back. If someone approaches you and you find the conversation to be unusual or confusing, hinting that you are evil to them without actually saying it, may go someway towards convincing them that you are evil.",
+      "The ideal goal of the Magician is to trick the evil players into believing that the Magician is in fact evil, and telling the Magician who the other evil players are. The more realistic goal of the Magician is to confuse the evil team for long enough so that they accidentally kill each other, or at least take a few days to be able to begin coordinating. If you are the Magician, you won't get a lot of feedback as to whether your plan is working or not. Be patient, hope for the best, and don't get too distraught if you feel like you are not having an effect - you probably are.",
+      "If you die at night, the Demon has either figured out that you are the Magician, or has deliberately killed a player that they thought could be a Minion. If this happens, pay attention to who died the previous night, and the subsequent night. The Demon may be killing all of the possible Minions, just to find out who is who. Once you are dead, the Minions will know you are not the Demon, but the Demon won't know that you are not a Minion. If you die, pay attention to which players talk together in private - they may be Minions telling the Demon that they know who the evil players are now."
+    ]
+  },
+  "how_to_run": {
+    "en": "During the first night, wake the Minions. Show them the THIS IS THE DEMON info token, then point to the Demon and the Magician. Put the Minions to sleep."
+  },
   "source_url": "https://wiki.bloodontheclocktower.com/Magician"
 }

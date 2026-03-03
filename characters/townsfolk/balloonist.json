@@ -15,10 +15,28 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Anica Kelsen",
   "jinxes": [],
   "examples": [
     "Abdallah is the Vizier, Lewis is the High Priestess, and Sarah is the Politician. On the first night, the Balloonist learns Abdallah. On the second night, the Balloonist learns Lewis. On the third night, the Balloonist learns Sarah.",
     "Julian is the Nightwatchman, Alex is the Sailor, and Lachlan is the Puzzlemaster. On the first night, the Balloonist learns Julian. On the second night, the Poisoner chooses the Balloonist. Because the Balloonist is poisoned, the Storyteller chooses to show the Balloonist another Townsfolk, and the Balloonist learns Alex. On the third night, the Balloonist is sober and healthy, and learns Lachlan, who is a different character type to Alex."
   ],
+  "tips": {
+    "en": [
+      "Pay attention to Outsider claims! You might have added an extra Outsider, so if you hear players claiming to be the Zealot, the Snitch, and the Moonchild, this can help you prove you are what you claim to be. Plus, knowing where the Outsiders are makes it easier to decipher your information.",
+      "Each day, talk to the player whose name you learned last night. Find out what character they’re claiming to be, so you can compare their claim to the previous player you learned and see if it makes sense!",
+      "Wait to talk to the players you’ve learned until later in the game, when good players are more likely to tell the truth about their characters, and evil players have already decided what they’re bluffing. If an evil player finds out early on that you saw them after a trusted Townsfolk, they may choose to bluff as an Outsider to obfuscate their true character and weaken your information.",
+      "Choose one player you trust, and share your information with them every day. This helps the good team trust that you haven’t lied or changed your information.",
+      "Lie about your role to stay alive as long as possible. Claim to be a Banshee or Farmer so the evil team is hesitant to kill you at night! The longer you live, the more powerful your information is.",
+      "After you’ve received several nights of information, decide which player you trust the most in your information, and check if the rest of your information makes sense compared to that player’s claim. If you learned the Dreamer on night 3, and you fully trust them, then you know the players you learned on night 2 and night 4 cannot be Townsfolk.",
+      "Look out for misregistration! The Spy and Recluse may show up as different character types. In fact, if your Storyteller is feeling exceptionally devious, they could show you the Recluse every single night (Storytellers, please don’t).",
+      "Look for other characters that detect character type, like the Librarian and the Town Crier. If you know someone is definitely an Outsider, or cannot be a Minion, this narrows down your information and makes you even more powerful.",
+      "Unless there are characters like the Drunk or the Cerenovus on the script, if you learn two players in a row who are both claiming Townsfolk, it’s extremely likely that one of them is evil. Treat this information just as you would a Seamstress who learned that two players are on opposite teams!",
+      "Pay attention to what’s on the script. A Damsel is very unlikely to tell you they are an Outsider while they’re alive, and the Mutant quite literally can’t! Just because you learned two players claiming to be Townsfolk in a row, that doesn’t mean one of them has to be evil. Uniquely, if the Demon is a Vortox, then every player you learn must be the same character type as the previous player."
+    ]
+  },
+  "how_to_run": {
+    "en": "During setup, you may add an Outsider."
+  },
   "source_url": "https://wiki.bloodontheclocktower.com/Balloonist"
 }

@@ -15,11 +15,28 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
     "If the Juggler is guessing too fast, prompt them to slow down.\n\n\nIf an evil player is bluffing as the Juggler, it can help their bluff if you pretend to move tokens around the Grimoire as they make their fake guesses.",
     "During the first day, the Juggler guesses that Alex is the Town Crier, Mia is the No Dashii, and Julian is the Sage. That night, the Juggler learns a \"2,\" meaning two of those guesses were correct.",
     "During the fourth night, the Savant gets turned into the Juggler. The next day, the new Juggler guesses that Benjamin is the Pit-Hag, that Benjamin is the Witch, and that Amy is the Pit-Hag. That night, the Juggler learns a \"1.”"
   ],
+  "tips": {
+    "en": [
+      "Try to guess as many good characters as you can! The more good characters you are able to name and confirm, the more good players you'll have in the town that you can trust. This also helps protect you and other information gathering characters from the Demon - you might be a prime target alone, but the Demon will have to choose very carefully if a Savant, Flowergirl and yourself are out and active.",
+      "Guessing that someone is an evil character is powerful if you can confirm it, but difficult without a lead. If you intend to go down this path, try to seek out a Dreamer and their information (they'll definitely have one evil character for somebody by the time you use your ability!). This can also be very effective when dealing with an Evil Twin.",
+      "Guess the maximum amount of characters you can - you'll get a read on 5 people, and the number you get back will give you a LOT to work with, whether or not it backs up the claims made to you. Getting the fabled 5 is incredibly tricky, but manage it and you'll have 5 people you can completely trust - a massive blow for the evil team!",
+      "Guess a small number of characters for focused information on a particular set of players. This can be especially effective for targeting evil players, but you can also use it to confirm the existence of a Vortox by checking information that is verifiable as true.",
+      "A proactive Juggler is a high priority target for the Demon. Consider getting someone to double up with you to confuse the Demon about where the real Juggler is. Bonus points if you can find a Sage, since if the Demon picks wrong, it's doubly bad for them!",
+      "Convince as many people to reveal as possible, even if you don't eventually target them with you ability. The good team thrives on freedom of information, and your ability facilitates this - use it to get a dialogue happening in your town about information. This has the bonus of allowing the good team to coordinate while leaving the Demon with no clear cut target that they should definitely pick on - no matter what, somebody will be alive the next day with new information.",
+      "There's no penalty for guessing the wrong character; in fact, false info is just as useful as true info! If you don't get the number you expected, you might have an evil player in your midst trying to confuse things, or an outsider like the Sweetheart trying to hide, or even have been affected by the Cerenovus! Figuring out why your number was wrong will give you valuable information about the town.",
+      "This is less a tip for the Juggler, and more the Juggler's teammates. Do you suspect your Juggler is not who they claim? Lie to them! Deliberately giving them a false role and seeing if they detect you is a great test to counter the Juggler bluff. (Just be sure to let them know afterwards!)",
+      "Not everyone will want to reveal to you. Evil players will be among them - having a confident bluff on the first day can be a struggle, especially if they are a Minion. However, outsiders (especially ones like the Klutz) and characters like the Oracle or Town Crier will also be reluctant, trying to avoid drawing attention to themselves as Demon targets. It's worth being suspicious of anyone who doesn't share, but don't automatically condemn them either."
+    ]
+  },
+  "how_to_run": {
+    "en": "During the first day, if the Juggler declares that they are using their ability, then you enter the circle, holding the Grimoire. The Juggler can make up to five guesses, each of any one player and any one character. For each correct guess, mark the Juggler with a CORRECT reminder. (Make sure the players don’t see how many reminders you’re placing.)"
+  },
   "source_url": "https://wiki.bloodontheclocktower.com/Juggler"
 }

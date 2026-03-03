@@ -15,6 +15,7 @@
   ],
   "first_night": false,
   "other_nights": true,
+  "artist": "John Grist",
   "jinxes": [],
   "examples": [
     "On the second night, the Engineer chooses that the Demon is a Lleech. Lewis, who was the Imp, is now the Lleech.",
@@ -22,5 +23,21 @@
     "The Fearmonger and the Psychopath are in play, and causing havoc. The Engineer chooses that the Mezepheles and the Spy are in play. The Storyteller chooses to change the Fearmonger into the Mezepheles and the Psychopath into the Spy.",
     "The Spy, Assassin, and Witch are in play. The Engineer chooses that the Spy, Assassin and Mezepheles are in play. The Witch turns into the Mezepheles."
   ],
+  "tips": {
+    "en": [
+      "If you are the Engineer, you can broadly accomplish one of four things: deciding which Minions are in play, deciding which Minions are not in play, deciding which Demon is in play, deciding which Demon is not in play.",
+      "If you want to choose which Minions are in play, this lets you and the entire good team know what you are facing. This can be crucial information. Knowing that there is a Goblin or Boomdandy is in play at least means that you need to be wary on who to execute. Knowing that a Spy or Widow is in play means that you and all the good players should reveal who you are, honestly, as soon as possible. Knowing what you are up against means that you can plan your strategy accordingly. Similarly, choosing which Demon is in play allows you to plan what to do. Knowing that a Vortox is in play means the good team must reverse their information, that it can not be true, for example.",
+      "If you want to choose which Minions are not in play, simply choose the other Minions to be in play instead. If you want to avoid poisoning, then choosing characters other than the Poisoner may guarantee it. If your group is particularly susceptible to the Mastermind then you can make sure that you don't have to think about it by changing all Minions to other characters instead. Similarly, if you don't know what Demon you do want in play, but there is one Demon in particular that you definitely do NOT want in play, choose to turn the Demon into this character. You will still be facing a powerful adversary, but not the most feared adversary.",
+      "To prevent the evil team (or the good team!) killing you before you use your ability, use your ability on the first night. This guarantees that you will get to act. The downside to acting this early is that you miss out on the group discussion, and any pertinent information that may influence your decision, like which good characters are in play and which evil characters that they are particularly suited at combatting.",
+      "To choose the most ideal Minions or Demon to create, wait until the second or third night, and generate as much discussion as you can in the meantime. To make the best decision possible, you'll need to know as many good characters that are in play, so that their particular abilities can be used to the full, such as creating a Vigormortis to help the Oracle detect evil players, or creating a Goblin if there is a Voudon in play you are fairly certain that the dead players are all good.",
+      "Timing can be crucial for the Engineer. Some evil abilities can be entirely negated by you acting at the right time. For example, if you turn the Mezepheles into the Devil's Advocate on the night that the Mezepheles was due to turn a player evil, that player will stay good. If you turn the Devil's Advocate into the Mezepheles on the final night, then you guarantee that the final day will continue without the Demon being safe from execution AND prevent the Mezepheles from using their ability (since there are no more nights).",
+      "Creating an obvious Demon or Minion in the middle of the game may confirm your identity as the Engineer. A surprise Fearmonger or Evil Twin will get the good team trusting you, since those characters didn't seem to exist the previous day, but they may not be the Minions that the good team really wants to face. Be careful when balancing the benefit of your glowing reputation as a good player with the benefit of facing the most ideal Minions and Demons.",
+      "Don't be afraid to create character that add Outsiders in square brackets, like [this]. Square brackets indicate to the Storyteller what tokens to add or remove during the game setup, and won't influence what happens in the middle of the game. If you add a Baron, then two Outsiders will not be added.",
+      "How much discussion you generate about your ability is up to you. Too much discussion, and the Demon may kill you that night, preventing you from using your ability. Too little, and the group may get suspicious that you didn't involve them in the decision."
+    ]
+  },
+  "how_to_run": {
+    "en": "Each night, wake the Engineer. They either shake their head no or point at evil characters on the character sheet."
+  },
   "source_url": "https://wiki.bloodontheclocktower.com/Engineer"
 }

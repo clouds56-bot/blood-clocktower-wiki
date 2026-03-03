@@ -15,11 +15,25 @@
   ],
   "first_night": true,
   "other_nights": false,
+  "artist": "John Grist",
   "jinxes": [],
   "examples": [
     "Think carefully about what character tokens to show the King. Don’t be afraid to give great information. Most Kings will die before the final day. A King that lives to the final day will usually win, and that’s ok.",
     "Amy is the King. There are 12 players alive, and one dead player. On the second night, she learns nothing. On the third night, she learns nothing. On the fourth day, there are 7 dead players and 6 alive players. On the fourth night, Amy learns that the Snitch is alive. On the fifth night, she learns that the Witch is alive.",
     "The Demon knows that Abdallah is the King. Evin is claiming to be the Choirboy, but is the Butler. The Demon takes a risk and kills Abdallah. If Evin was actually the Choirboy, he would have learnt which player was the Demon."
   ],
+  "tips": {
+    "en": [
+      "The King is one of the few characters who can come out early and confidently. The Demon knows who the King is and knows they might be a possible trap if killed too early in the game. Because the Demon can only kill the King if they’re confident the Choirboy is out of the way, the King is likely to survive to the end game.",
+      "The King can also wait secretly. The King gets a lot of really good information at the end of the game, and while Kings often come out, staying silent might be a good way to throw the Demon off. You can quietly watch for players who seem to be paying you too much attention as this might be the Demon.",
+      "The King’s protection from the Demon lasts as long as the Choirboy is alive. Find another good player and secretly let others know that they are the Choirboy. If there is no Choirboy in play, this might help drive the Demon mad as they desperately hunt for the Choirboy. If there is one in play, it provides a false target for the Demon, helping the Choirboy (and therefore you) to stay alive.",
+      "Coming out straight away as the King creates a fun gambit. Because the only other characters who are certain whether the King is in play or not are the Choirboy and the Demon. By coming out straight away, you’re throwing down a challenge that suggests you’re either the King or the Demon. In this way, you can ask people for their characters with the promise that you will consent to be executed before the final night to lessen suspicion that you’re the Demon.",
+      "Because the King’s information at the end of the game can be very powerful and because Kings are prime suspects of being the Demon, the chance that a public King survives to the end game is quite low. If you go public, focus on using your position to form a trusted court around you rather than surviving.",
+      "There is a lot of fun in being the King and holding court. Make other players come to you and tell you their secrets, rather than wandering around the court like a peasant."
+    ]
+  },
+  "how_to_run": {
+    "en": "During the first night, wake the Demon. Show them the THIS PLAYER IS info token, then the King token, then point at the King player. Put the Demon to sleep."
+  },
   "source_url": "https://wiki.bloodontheclocktower.com/King"
 }

@@ -15,6 +15,7 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
     "We recommend you keep the Mayor alive until the final day, since it is most fun for the players that way. On rare occasions, if the group is overwhelmingly convinced early in the game that the Mayor is the Mayor, let the Mayor die so that evil has a chance to win. \n\n\nIn TROUBLE BREWING, the Mayor’s phrase “your team wins” will always mean “good wins” because the Mayor is always good. In other editions, an evil Mayor means “evil wins” instead.",
@@ -22,5 +23,18 @@
     "There are three players alive. There are no nominations for execution today. Good wins.",
     "There are five players alive, including two Travellers. Both Travellers are exiled, and the vote is tied between the remaining players. Because a tied vote means neither player is executed, good wins."
   ],
+  "tips": {
+    "en": [
+      "Your power activates on the final day, when just three players are alive. You may not know who the Demon is, but you can definitely win by not executing. Do whatever you can to convince the group that you are the Mayor. Everything. If the good team believes you, they will either not nominate anybody, or will deliberately tie votes so that no execution occurs.",
+      "It is often best not to reveal that you are the Mayor until late in the game. If you reveal early, the Demon may spend night after night trying to kill you, and the Storyteller may let that attempt succeed.",
+      "You might want to tell people that you're the Mayor. Winning the game with your ability requires trust from your fellow players, and being open and honest is a fine way to acheive that trust.",
+      "When a character that's an unlikely target for the Demon to pick dies at night, such as the Butler, this may be an indication that you were attacked instead. When convincing other players that you are the Mayor, you can use this as evidence.",
+      "Once the Demon attacks you and somebody else dies, they will know for sure that you are the Mayor. At the very beginning of each morning, if a particular player looks surprised and confused, they are likely to be the Demon!",
+      "If you intend to use your ability to win the game by not executing, do everything you can to make sure you are not actually the Drunk. Spend the game listening to other players, and verifying that any Outsiders are actually Outsiders. If you think a Drunk is in play, you will need to figure out who it is, because if it is you, and you don't execute on the final day, evil wins. Similarly, if the only other players alive are the Imp and the Poisoner, then you will certainly be poisoned. You will need to make sure that the Poisoner is dead before using your Mayor ability."
+    ]
+  },
+  "how_to_run": {
+    "en": "During the night, if the Mayor would die, you choose if the Mayor actually dies, or if the Mayor remains alive and another character dies instead—put the Demon's DEAD reminder token by that character token instead of the Mayor, and put a shroud on that character token instead of the Mayor."
+  },
   "source_url": "https://wiki.bloodontheclocktower.com/Mayor"
 }

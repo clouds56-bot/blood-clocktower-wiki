@@ -15,11 +15,15 @@
   ],
   "first_night": false,
   "other_nights": true,
+  "artist": "Chloe McDougall",
   "jinxes": [],
   "examples": [
     "The Sailor chooses the Assassin, and the Storyteller makes the Sailor drunk. The Acrobat chooses the Sailor, and dies because the Sailor is drunk.",
     "The Acrobat chooses the Tinker, who is sober and healthy. Nothing happens.",
     "The Acrobat chooses the Preacher. Later that night, the Pukka poisons the Preacher. The Acrobat dies, because the Preacher is no longer healthy."
   ],
+  "how_to_run": {
+    "en": "Each night except the first, wake the Acrobat. They point to a player. Put the Acrobat to sleep."
+  },
   "source_url": "https://wiki.bloodontheclocktower.com/Acrobat"
 }

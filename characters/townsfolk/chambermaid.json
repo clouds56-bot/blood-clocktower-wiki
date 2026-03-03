@@ -15,11 +15,25 @@
   ],
   "first_night": false,
   "other_nights": true,
+  "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
     "The Chambermaid chooses the Exorcist and the Innkeeper, and learns a \"2.\" The next night, the Exorcist chooses the Shabaloth, which will wake the Shabaloth. Later, Chambermaid chooses the Shabaloth and the Fool. Since the Shabaloth only woke due to the Exorcist ability, the Chambermaid learns a \"0\".",
     "It is the second night. The Chambermaid chooses the Grandmother and the evil Goon, and learns a \"2.\" Only the Goon will wake tonight, but the Chambermaid is drunk.",
     "It is the first night. The Chambermaid chooses the Assassin and the Moonchild, and learns a \"0\" because the Assassin does not wake to use their ability on the first night. The next night, they choose the Assassin and the Gossip. The Assassin woke but did not use their ability. The Gossip ability is used, but the Gossip does not wake to use it. The Chambermaid learns a \"1\"."
   ],
+  "tips": {
+    "en": [
+      "Your ability does not outright detect evil players - it detects players who are lying about their character ability. This can catch out players who are good AND evil, since many good players have a reason to be dishonest about their character... at least initially. If you catch someone out in a lie, see what they have to say for themselves. Good players will usually come clean about their real character, while evil players will have to choose between picking a second bluff to match your information or doubling down on their claim.",
+      "Pick players to verify their claims. If someone is claiming to be the Gambler, they'll wake up every night - check them and see if they're being honest. As another example, someone claiming to be a Courtier will only wake up each night until they've used their ability - if they're claiming to have used their ability, you can check to see if that's true by seeing if they wake up the next night!",
+      "Early in the game, you can tell players what you know about them before they have revealed their character. This helps them to trust you.",
+      "Pick the same players a couple of nights in a row. Some characters don't act consistently every night. For example, an Assassin claiming to be an Innkeeper could wake up one night when you check them, appearing to be legitimate. However once they have killed, they do not wake up again, meaning that checking them for a second night will give them away as being dishonest.",
+      "Find a player with an ability that doesn't act at night (like the Fool or Minstrel - if you trust this player, you can use them as base for checking a single person thoroughly. Since the Fool or Minstrel will always give you a 0, you know that any read of 1 must be coming from the other player that you select. This method is slower and garners you less information about the entire town overall in favor of getting a narrow and accurate focus on one player.",
+      "Pick as many players as you can, casting a wide net and getting a good amount of information on the entire town. Death can come at any time in Bad Moon Rising, and broad information will give you a lot of options to work with when comparing to other players and their information/claims."
+    ]
+  },
+  "how_to_run": {
+    "en": "Each night, wake the Chambermaid. They point at any two alive players except themself. Show the Chambermaid fingers (0, 1, or 2) equaling the number of chosen characters who woke tonight. Put the Chambermaid to sleep."
+  },
   "source_url": "https://wiki.bloodontheclocktower.com/Chambermaid"
 }

@@ -15,11 +15,29 @@
   ],
   "first_night": true,
   "other_nights": false,
+  "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
     "Benjamin is the Saint, and Filip is the Baron. The Librarian learns that either Benjamin or Filip is the Saint.",
     "There are no Outsiders in this game. The Librarian learns a '0'.",
     "Abdallah is the Drunk, who thinks they are the Monk, and Douglas is the Undertaker. The Librarian learns that either Abdallah or Douglas is the Drunk. (This happens because the Librarian learns the true character. The Drunk is Abdallah’s true character, not the Monk.)"
   ],
+  "tips": {
+    "en": [
+      "It is vital to figure out early which of the two players is the one you have information about. The player that you know is good even if they are an Outsider - while their ability may be detrimental to the good team, they are a guaranteed good vote and also one player who you know for sure is definitely not the Demon.",
+      "If you get a 0, this information is super powerful if you aren't the Drunk or poisoned, as then you know for sure there are no Outsiders in the game. This means there is no Baron in play, and any Outsider claims are probably evil players bluffing. You can also try to encourage Outsider bluffs by lying about your information and claiming there is at least one Outsider in play; a Minion or Demon may jump on that to back up their bluff.",
+      "You learn your information on the first night of the game. Revealing what you know early can help confirm a player as good, which might in turn confirm other information from Townsfolk like the Empath or the Ravenkeeper.",
+      "If you do not reveal your information until late in the game and the player you are confirming is still alive, then you can reveal them on the final day or close to it, taking them out of contention as a potential Demon and reducing the number of players for the good team to deliberate on from 3 to 2.",
+      "Because you get all of your information at the start of the game, you might find it useful to confirm it by nominating a Virgin. Alternatively, you might want to claim to be something more powerful to incite the demon into attacking you rather than the Undertaker or the Monk.",
+      "Characters like the Saint would rather die at night than by execution. Since Outsiders are generally not targets a Demon will want to kill, you can try to bait the Imp into attacking them during the night. Perhaps you could imply that they are a powerful Townsfolk, or else you can make it known that they are confirmed not to be the Demon, meaning the real Demon will have to kill them in the night or have only 1 other person who might be the demon at the end of the game. In either case, the Imp attacking an Outsider means they aren't attacking an Empath or a Fortune Teller.",
+      "If you see that your two shown players are the Drunk, it is a good idea to communicate this early, especially if they think they are actually a character who receives information. Knowing that their information may be wrong is information in itself.",
+      "Alternatively, you can deliberately give false information about who the Drunk is - the Demon is less likely to attack a player they think is the Drunk, which means that you can protect players who are sober and getting information while getting the Imp to target the actual Drunk instead.",
+      "If you see two players as the Drunk, remember that you might be the real drunk!",
+      "Giving away your information freely will mean that the other player can trust you, but not that you can necessarily trust them - it is always possible they are an evil player simply agreeing with you to shore up their own bluff. In turn, asking the player to reveal to you means you can trust them, but not that they can trust you. Try to find a middle ground where it's reasonable that both of you knew the information. For example, you could share a small list of characters they could potentially be, and get them to pick from the list who they are."
+    ]
+  },
+  "how_to_run": {
+    "en": "While preparing the first night, put the Librarian's OUTSIDER reminder token by any Outsider character token, and put the Librarian's WRONG reminder token by any other character token."
+  },
   "source_url": "https://wiki.bloodontheclocktower.com/Librarian"
 }

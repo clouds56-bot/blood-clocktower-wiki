@@ -15,11 +15,24 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "John Grist",
   "jinxes": [],
   "examples": [
     "During the first day, the Pacifist dies. That night, players act as normal, because the Pacifist is not a Minion. During the second day, the Judge executes the Godfather. That night, everyone is drunk, including the Demon, so nobody dies. During the third day, a Minion who is protected by the Devil's Advocate is executed and dies, because the Devil's Advocate is drunk. Again, since a Minion died during the day, the Minstrel makes everyone drunk.",
     "The Assassin is executed, so the Minstrel makes everyone drunk. The next day, the Godfather is executed, so the Minstrel makes everyone drunk again. The Demon could not kill on either night. The next day, the evil Apprentice Mastermind is exiled, so that night everyone becomes sober again, because the Minstrel ability doesn't trigger from a Traveller being exiled.",
     "During the day, the Assassin dies, so the Minstrel makes everyone drunk. The following day, the Zombuul is executed and dies for the first time. Good wins, because the Zombuul is drunk and so has no ability."
   ],
+  "tips": {
+    "en": [
+      "At first glance, the Minstrel does not seem that powerful, but in actuality you gain some of the most reliable information in the game. After any day with an execution, you know with confidence that if anyone dies at night, the recent executee is not a Minion. Since an executed Demon typically ends the game (Zombuul and Mastermind aside), you can in fact be reasonably confident that they are actually good!",
+      "If the town does successfully execute a Minion, the Minstrel ability will activate, and nobody will die that night. This does not mean that a night without death is any guarantee that your ability was the cause though. In Bad Moon Rising, there are as many reasons people don't die as there are reasons they do (e.g. Exorcist, Innkeeper, Po charging up)! To be sure your ability is the cause and the recent executee should be condemned, do some sleuthing - since you affect all abilities in the game, you should be able to find evidence that other abilities did not work as expected. As an example, characters like the Chambermaid or Gambler could get odd results. Additionally, nobody will be safe from execution (e.g. Pacifist, Devil's Advocate), and characters like the Tinker will not randomly die that day.",
+      "Gun for executions! The more executions, the better chance you have of getting a minion. Good players may be reluctant to execute anyone who isn't a demon suspect as the death count can be unexpected and heavy in Bad Moon Rising, but it is worth it to remove powerful Minions like the Assassin or Mastermind from play before they can do too much damage. Combined with the one night reprieve your ability grants on successful execution, your ability should be plenty of incentive to be more aggressive than usual!",
+      "Demons may be less likely to target you since they underestimate your power! Unless Minions are getting executed left and right, the Minstrel is likely to survive a little longer than other townsfolk without protections, simply because a Demon is going to be much more worried about an Exorcist or a Tea Lady surviving for another night. Take full advantage of this blind spot - hopefully by the time the evil team realizes what a danger you are, a Minion or two has fallen!",
+      "If your evil team is a little more savvy, they may be keen to target you earlier, especially if the good team is zeroing in on some of the Minions. Keeping your identity under your hat for a few days can allow you to spring an unpleasant surprise on these clever sorts, since they won't know that you've blocked them from acting and exposed a demon until nobody gets to act. Your unexpected death can also be an indicator that you were hot on the trail of a minion that the evil team really didn't want confirmed as such."
+    ]
+  },
+  "how_to_run": {
+    "en": "During the day, if a Minion dies by execution, all other players except Travellers become drunk—put the Minstrel’s EVERYONE IS DRUNK reminder in the center of the left side of the Grimoire."
+  },
   "source_url": "https://wiki.bloodontheclocktower.com/Minstrel"
 }
