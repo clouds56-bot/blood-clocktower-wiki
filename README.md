@@ -56,6 +56,8 @@ Each character is stored as a JSON file with the following structure:
 | Minions | 27 | 2 | 🟡 In Progress |
 | Demons | 19 | 1 | 🟡 In Progress |
 
+**Latest:** Scraper rewritten with cheerio for proper HTML parsing (March 2026)
+
 ## Next Steps
 
 1. Run `node scripts/scrape-wiki.js` to fetch all characters
