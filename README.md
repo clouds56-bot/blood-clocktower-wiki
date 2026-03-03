@@ -64,10 +64,15 @@ Each character is stored as a JSON file with the following structure:
 
 ## Next Steps
 
-1. Run `node scripts/scrape-wiki.js` to fetch all characters
-2. Download token images from official sources
+1. ~~Run `node scripts/scrape-wiki.js` to fetch all characters~~ ✅ Done
+2. Run `node scripts/download-images.js` to download token images (47/138 done)
 3. Add CN/JA translations for all characters
 4. Create night order reference
+
+## Scripts
+
+- `scripts/scrape-wiki.js` - Main scraper with caching
+- `scripts/download-images.js` - Image downloader (uses scraper cache)
 
 ## License
 

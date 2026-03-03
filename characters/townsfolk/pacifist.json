@@ -36,5 +36,6 @@
   "how_to_run": {
     "en": "If a good character is executed, declare either that they die or they remain alive. (Do not say why.) Then, begin the night phase. (Whether the player lived or died, this was the one execution for the day.)"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Pacifist"
+  "source_url": "https://wiki.bloodontheclocktower.com/Pacifist",
+  "image": "assets/tokens/pacifist.png"
 }
