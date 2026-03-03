@@ -46,6 +46,7 @@ const CHARACTERS = {
 
 const BASE_URL = 'https://wiki.bloodontheclocktower.com';
 const OUTPUT_DIR = path.join(__dirname, '..', 'characters');
+const CACHE_DIR = path.join(__dirname, '..', '.cache', 'html');
 
 // Type mapping from category names (plural) to schema type (singular)
 const TYPE_MAPPING = {
@@ -70,6 +71,29 @@ const EDITION_MAPPING = {
 
 // Rate limiting
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+/**
+ * Fetch HTML with caching
+ */
+async function fetchWithCache(url, characterId) {
+  const cacheFile = path.join(CACHE_DIR, `${characterId}.html`);
+  
+  // Try to read from cache
+  if (fs.existsSync(cacheFile)) {
+    const cached = fs.readFileSync(cacheFile, 'utf8');
+    return cached;
+  }
+  
+  // Fetch from remote
+  const response = await fetch(url);
+  const html = await response.text();
+  
+  // Save to cache
+  fs.mkdirSync(CACHE_DIR, { recursive: true });
+  fs.writeFileSync(cacheFile, html, 'utf8');
+  
+  return html;
+}
 
 /**
  * Parse wiki HTML to extract character data using cheerio
@@ -165,19 +189,38 @@ function parseCharacterPage(html, characterId, type) {
 
   // Extract tips from "Tips & Tricks" section
   const tips = { en: [] };
-  const tipsSection = $('#Tips_\\&_Tricks, #Tips_&amp;_Tricks, #Tips_and_Tricks').next('ul');
-  tipsSection.find('li').each(function() {
-    const tipText = $(this).text().trim();
-    if (tipText) {
-      tips.en.push(tipText);
-    }
-  });
+  const tipsHeader = $('h2:contains("Tips & Tricks")').first();
+  if (tipsHeader.length > 0) {
+    // Get all ul elements after the Tips header (before the next h2)
+    const tipsLists = tipsHeader.nextAll().not('h2').filter(function() {
+      return $(this)[0].tagName === 'ul';
+    });
+    
+    tipsLists.each(function() {
+      const tipText = $(this).find('li').text().trim();
+      if (tipText) {
+        tips.en.push(tipText);
+      }
+    });
+  }
 
   // Extract how_to_run
   let howToRun = null;
-  const howToRunPara = howToRunSection.find('p').first();
-  if (howToRunPara.length > 0) {
-    howToRun = howToRunPara.text().trim();
+  if (howToRunSection.length > 0 && howToRunSection[0].tagName === 'p') {
+    howToRun = howToRunSection.text().trim();
+  }
+
+  // Extract artist and author from infobox
+  let artist = null;
+  const infobox = $('#character-details, .infobox').first();
+  if (infobox.length > 0) {
+    const artistRow = infobox.find('tr:contains("Artist"), tr:contains("artist")').first();
+    if (artistRow.length > 0) {
+      const artistCell = artistRow.find('td').eq(1);
+      if (artistCell.length > 0) {
+        artist = artistCell.text().trim();
+      }
+    }
   }
 
   return {
@@ -189,6 +232,7 @@ function parseCharacterPage(html, characterId, type) {
     editions: editionsArray,
     first_night: firstNight,
     other_nights: otherNights,
+    artist: artist,
     jinxes,
     examples: examples.length > 0 ? examples : undefined,
     tips: tips.en.length > 0 ? tips : undefined,
@@ -250,12 +294,7 @@ async function scrapeAllCharacters() {
       console.log(`  → ${characterId.replace(/_/g, ' ')}`);
 
       try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}`);
-        }
-
-        const html = await response.text();
+        const html = await fetchWithCache(url, characterId);
         const data = parseCharacterPage(html, characterId, type);
 
         // Validate before writing
