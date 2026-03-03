@@ -1,0 +1,27 @@
+{
+  "name": "blood-clocktower-wiki",
+  "version": "1.0.0",
+  "description": "A multi-locale knowledge base for Blood on the Clocktower.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clouds56-bot/blood-clocktower-wiki.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/clouds56-bot/blood-clocktower-wiki/issues"
+  },
+  "homepage": "https://github.com/clouds56-bot/blood-clocktower-wiki#readme",
+  "dependencies": {
+    "cheerio": "^1.2.0"
+  }
+}
