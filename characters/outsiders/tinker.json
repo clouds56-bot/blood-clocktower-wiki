@@ -22,5 +22,6 @@
     "The Tea Lady sits next to the Tinker and another good player, protecting the Tinker from death. The Tinker cannot die from their ability.",
     "The Tinker is attacked by the Demon. The Tinker does not die because they are protected by the Innkeeper. Later that night, the Innkeeper dies, so the Storyteller chooses to kill the Tinker too."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Tinker"
+  "source_url": "https://wiki.bloodontheclocktower.com/Tinker",
+  "image": "assets/tokens/tinker.png"
 }

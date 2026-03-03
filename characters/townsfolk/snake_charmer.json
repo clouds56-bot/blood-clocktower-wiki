@@ -22,5 +22,6 @@
     "The Snake Charmer chooses a player who is the Vigormortis. The Snake Charmer immediately becomes the evil Vigormortis, and the Vigormortis becomes the good Snake Charmer and gets poisoned.",
     "The Pit-Hag turns themself into the Snake Charmer. Then, the Snake Charmer chooses a player who is the Fang Gu. The Snake Charmer becomes the Fang Gu, while the Fang Gu becomes the Snake Charmer and gets poisoned. Both remain evil."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Snake_Charmer"
+  "source_url": "https://wiki.bloodontheclocktower.com/Snake_Charmer",
+  "image": "assets/tokens/snake_charmer.png"
 }

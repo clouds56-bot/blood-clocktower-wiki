@@ -21,5 +21,6 @@
     "On the first night, the Ogre chooses the Summoner. The Ogre becomes evil, and stays evil for the rest of the game.",
     "On the first night, the Ogre chooses the Banshee. The Ogre stays good. On the third night, the Mezepheles turns the Banshee evil. The Ogre remains good."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Ogre"
+  "source_url": "https://wiki.bloodontheclocktower.com/Ogre",
+  "image": "assets/tokens/ogre.png"
 }

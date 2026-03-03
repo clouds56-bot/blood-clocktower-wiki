@@ -19,5 +19,6 @@
   "examples": [
     "Alex nominates Lewis. Lewis dies and nominates Ben. Ben dies and nominates Marianna. Marianna dies and nominates Lachlan. Lachlan dies. All Riot players are dead. Good wins."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Riot"
+  "source_url": "https://wiki.bloodontheclocktower.com/Riot",
+  "image": "assets/tokens/riot.png"
 }

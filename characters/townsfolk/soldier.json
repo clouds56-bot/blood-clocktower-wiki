@@ -21,5 +21,6 @@
     "The Poisoner poisons the Soldier, then the Imp attacks the Soldier. The Soldier dies, since they have no ability.",
     "The Imp attacks the Soldier. The Soldier dies, because they are actually the Drunk."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Soldier"
+  "source_url": "https://wiki.bloodontheclocktower.com/Soldier",
+  "image": "assets/tokens/soldier.png"
 }

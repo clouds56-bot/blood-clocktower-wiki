@@ -20,5 +20,6 @@
     "At the start of the game, the No Dashii neighbors a Town Crier and a Snake Charmer. They are both poisoned. A few days later, they are both dead, and the closest alive neighbors to the No Dashii are an unpoisoned Clockmaker and an unpoisoned Barber.",
     "Clockwise from the No Dashii sits a Philosopher, a Mathematician, then a Sage. Anticlockwise from the No Dashii sits a Witch, a Mutant, then a Seamstress. The Philosopher and the Seamstress are poisoned"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/No_Dashii"
+  "source_url": "https://wiki.bloodontheclocktower.com/No_Dashii",
+  "image": "assets/tokens/no_dashii.png"
 }

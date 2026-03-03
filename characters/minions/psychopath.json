@@ -20,5 +20,6 @@
     "The Psychopath chooses to kill the Sailor. The Sailor is sober, so does not die. The Psychopath may not use their ability again today.",
     "The Psychopath has been nominated by the Barber, and is executed. In Roshambo, the Barber has rock and the Psychopath has rock, so the Psychopath lives. The next day, the Saint nominates and executes the Psychopath. The Saint has paper and the Psychopath has scissors, so the Psychopath lives. The next day, the Barber nominates and executes the Psychopath again. The Barber has rock and the Psychopath has scissors, so the Psychopath dies."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Psychopath"
+  "source_url": "https://wiki.bloodontheclocktower.com/Psychopath",
+  "image": "assets/tokens/psychopath.png"
 }

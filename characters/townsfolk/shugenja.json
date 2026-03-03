@@ -20,5 +20,6 @@
     "The Organ Grinder is 2 steps away from the Shugenja in a clockwise direction. The Fearmonger is 3 steps away from the Shugenja in an anti-clockwise direction. The Shugenja wakes and learns that the closest evil player is in a clockwise direction.",
     "The Marionette is 1 step away from the Shugenja in  a clockwise direction. The Widow is 1 step away from the Shugenja in an anti-clockwise direction. The Shugenja wakes and the Storyteller chooses to tell the Shugenja that the closest evil player is in a clockwise direction."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Shugenja"
+  "source_url": "https://wiki.bloodontheclocktower.com/Shugenja",
+  "image": "assets/tokens/shugenja.png"
 }

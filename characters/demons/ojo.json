@@ -20,5 +20,6 @@
     "If the Ojo is on a script with a Demon that kills multiple times per night, such as the Shabaloth, and the Ojo chooses a not-in-play character, you may choose more than one player to kill that night. This helps the Ojo player pretend that a different Demon is in play.",
     "The Ojo chooses the Plague Doctor. The Plague Doctor dies. The next night, the Ojo chooses the Poppy Grower. The Poppy Grower dies. The next night, the Ojo chooses the Empath. There is no Empath in play, so the Storyteller chooses that the  Shugenja dies instead."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Ojo"
+  "source_url": "https://wiki.bloodontheclocktower.com/Ojo",
+  "image": "assets/tokens/ojo.png"
 }

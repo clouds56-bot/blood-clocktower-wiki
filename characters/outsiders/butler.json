@@ -21,5 +21,6 @@
     "A nomination is in progress. The Butler and their Master both have their hands raised to vote. As the Storyteller is counting votes, the Master lowers their hand at the last second. The Butler must lower their hand immediately.",
     "The Butler is dead. Because dead players have no ability, the Butler may vote with their vote token at any time."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Butler"
+  "source_url": "https://wiki.bloodontheclocktower.com/Butler",
+  "image": "assets/tokens/butler.png"
 }

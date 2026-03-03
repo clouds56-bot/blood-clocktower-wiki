@@ -22,5 +22,6 @@
     "The Zombuul is executed and appears to die. The Mastermind’s ability does not trigger yet, because the Zombuul's execution did not make the game end. When the Zombuul is executed a second time and dies for real, the Mastermind’s ability triggers, and the game continues for one more day.",
     "There are three players alive. The Demon dies. The following day, with just two players alive, good decides not to execute. When night falls, just two players are left alive but the Demon is dead, so good wins."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Mastermind"
+  "source_url": "https://wiki.bloodontheclocktower.com/Mastermind",
+  "image": "assets/tokens/mastermind.png"
 }

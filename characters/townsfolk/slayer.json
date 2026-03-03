@@ -21,5 +21,6 @@
     "The Slayer chooses the Recluse. The Storyteller decides that the Recluse registers as the Imp, so the Recluse dies, but the game continues.",
     "The Imp is bluffing as the Slayer. They declare that they use their Slayer ability on the Scarlet Woman. Nothing happens."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Slayer"
+  "source_url": "https://wiki.bloodontheclocktower.com/Slayer",
+  "image": "assets/tokens/slayer.png"
 }

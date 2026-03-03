@@ -21,5 +21,6 @@
     "The Golem nominates the Poppy Grower. The Poppy Grower dies. The Golem may not nominate again this game.",
     "The Golem nominates the Recluse. The Recluse registers as the Demon. Nothing happens, and the Storyteller begins counting votes for the Recluse to be executed. The Golem may not nominate again this game."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Golem"
+  "source_url": "https://wiki.bloodontheclocktower.com/Golem",
+  "image": "assets/tokens/golem.png"
 }

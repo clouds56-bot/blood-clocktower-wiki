@@ -22,5 +22,6 @@
     "The Mutant tells the group that they are a Townsfolk, but does not say which one. When questioned if they are the Mutant, they stay silent. After a minute or so of silence, the Storyteller executes the Mutant.",
     "The Mutant says they are the Oracle, gives some bogus Oracle information, then says \"By the way, I am definitely not the Mutant\" while giving a subtle wink. The Storyteller chooses to execute the Mutant immediately."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Mutant"
+  "source_url": "https://wiki.bloodontheclocktower.com/Mutant",
+  "image": "assets/tokens/mutant.png"
 }

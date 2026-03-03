@@ -22,5 +22,6 @@
     "Lewis is the Artist, and claims to be the Goblin when nominated. He is executed, and the game continues.",
     "Doug is the Goblin. He claimed to be the Goblin yesterday and the day before, but not today. He is executed. The game continues."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Goblin"
+  "source_url": "https://wiki.bloodontheclocktower.com/Goblin",
+  "image": "assets/tokens/goblin.png"
 }

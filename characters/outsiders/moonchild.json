@@ -22,5 +22,6 @@
     "The Pacifist is in play. The Moonchild is executed but remains alive. The Moonchild does not choose a player, because the Moonchild did not die.",
     "The Shabaloth eats the Moonchild. The Moonchild chooses the Assassin, who remains alive. The Shabaloth regurgitates the Moonchild. A few nights later, the Shabaloth eats the Moonchild again. This time, the Moonchild chooses the Gossip, who dies."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Moonchild"
+  "source_url": "https://wiki.bloodontheclocktower.com/Moonchild",
+  "image": "assets/tokens/moonchild.png"
 }

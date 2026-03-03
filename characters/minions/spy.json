@@ -21,5 +21,6 @@
     "The Spy neighbours the Imp and the Empath. The Chef learns a \"1\" because the Spy is registering as evil. Later that night, the Empath learns a \"0\" because the Spy is now registering as good.",
     "The Spy nominates the Virgin and is executed by the Virgin’s ability, because the Storyteller chooses that the Spy registers as a Townsfolk. That night, the Undertaker learns that the Drunk died today, because the Spy is now registering as the Drunk."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Spy"
+  "source_url": "https://wiki.bloodontheclocktower.com/Spy",
+  "image": "assets/tokens/spy.png"
 }

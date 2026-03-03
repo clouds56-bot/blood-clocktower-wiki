@@ -21,5 +21,6 @@
     "The Drunk, who thinks they are the Chef, nominates the Virgin. The Drunk remains alive, and the Virgin loses their ability. Players may now vote on whether or not to execute the Virgin. (This happens because the Drunk is not a Townsfolk.)",
     "A dead player nominates the Virgin. The dead, however, cannot nominate. The Storyteller declares that the nomination does not count. The Virgin does not lose their ability."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Virgin"
+  "source_url": "https://wiki.bloodontheclocktower.com/Virgin",
+  "image": "assets/tokens/virgin.png"
 }

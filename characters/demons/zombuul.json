@@ -20,5 +20,6 @@
     "The Zombuul is executed and appears to die. They cannot attack tonight. A few days later, only two players appear alive on the Town Square. The good team is fairly certain that one of the dead players is the Zombuul, and the game continues until one more player dies.",
     "Nobody died today. That night, the Zombuul attacks. The next day, the Tinker dies. That night, the Zombuul does not wake."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Zombuul"
+  "source_url": "https://wiki.bloodontheclocktower.com/Zombuul",
+  "image": "assets/tokens/zombuul.png"
 }

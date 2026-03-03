@@ -21,5 +21,6 @@
     "The Imp is nominated, and the players vote. The Gunslinger kills the Saint. The Saint dies, and the game continues.",
     "The Saint is executed. However, the  Scapegoat's ability is triggered, so the Scapegoat dies instead. The game continues, because the Saint did not die."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Saint"
+  "source_url": "https://wiki.bloodontheclocktower.com/Saint",
+  "image": "assets/tokens/saint.png"
 }

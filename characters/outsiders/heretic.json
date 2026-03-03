@@ -23,5 +23,6 @@
     "The Heretic is poisoned. The Assassin kills the Demon. Good wins.",
     "There are 3 players alive. The Demon is executed. Because there is a Heretic in play, evil wins."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Heretic"
+  "source_url": "https://wiki.bloodontheclocktower.com/Heretic",
+  "image": "assets/tokens/heretic.png"
 }
