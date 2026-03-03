@@ -1,0 +1,58 @@
+{
+  "id": "empath",
+  "type": "townsfolk",
+  "editions": ["trouble_brewing"],
+  "name": {
+    "en": "Empath",
+    "zh": "共情者",
+    "cn": "共情者",
+    "ja": "共感者"
+  },
+  "ability": {
+    "en": "Each night, you learn how many of your 2 alive neighbors are evil.",
+    "zh": "每晚，你得知你的2名存活邻居中有多少是邪恶的。",
+    "cn": "每个夜晚，你会得知与你邻近的两名存活的玩家中邪恶玩家的数量。",
+    "ja": "毎晩、生きている両隣のプレイヤーのうち、邪悪なプレイヤーが何人いるかを知る。"
+  },
+  "flavor_text": {
+    "en": "My skin prickles. Something is not right here. I can feel it.",
+    "zh": "我的皮肤有些刺痛。这有些不太对劲。我能感觉得到。",
+    "cn": "我的皮肤有些刺痛。这有些不太对劲。我能感觉得到。"
+  },
+  "first_night": true,
+  "other_nights": true,
+  "reminders": [],
+  "how_to_run": {
+    "en": "Each night, wake the Empath. Show them fingers (0, 1, or 2) equaling the number of evil players neighbouring the Empath. Put the Empath to sleep.",
+    "zh": "每个夜晚，唤醒共情者。为共情者用手势比划与他邻近的邪恶玩家数量（0，1，或2）。让共情者重新入睡。",
+    "cn": "每个夜晚，唤醒共情者。为共情者用手势比划与他邻近的邪恶玩家数量（0，1，或2）。让共情者重新入睡。"
+  },
+  "examples": [
+    "The Empath neighbours two good players—a Soldier and a Monk. The Empath learns a '0'.",
+    "The next day, the Soldier is executed. That night, the Monk is killed by the Imp. The Empath now detects the players sitting next to the Soldier and the Monk.",
+    "There are only three players left alive: the Empath, the Imp, and the Baron. No matter who is seated where, the Empath learns a '2'."
+  ],
+  "tips": {
+    "en": [
+      "You get information based on the state of the game when you wake up (after the Demon has killed).",
+      "A '0' means you're probably sitting between two good players.",
+      "A '1' means one neighbor is trustworthy, one is not.",
+      "A '2' means you're sitting between two evil players."
+    ],
+    "zh": [
+      "你应该根据你得到的信息决定如何对待你的邻座。",
+      "如果你得到的数字是'0'，那你可能就是坐在两位善良阵营玩家中间。",
+      "如果你得到的数字是'1'，那就只有一位邻座是可信的。",
+      "如果你得到的数字是'2'，那就表明你坐在两位邪恶阵营玩家中间。"
+    ],
+    "cn": [
+      "你应该根据你得到的信息决定如何对待你的邻座：",
+      "如果你得到的数字是\"0\"，那你可能就是坐在两位善良阵营玩家中间，你可以与他们合作并且努力让他们存活下来。",
+      "如果你得到的数字是\"1\"，那就只有一位邻座是可信的。你需要决定你要相信哪一位，并且让另外一位出局。",
+      "如果你得到的数字是\"2\"，那就表明你坐在两位邪恶阵营玩家中间，你应该尽快想办法去改变现状。"
+    ]
+  },
+  "image": "assets/tokens/empath.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Empath",
+  "source_url_cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E5%85%B1%E6%83%85%E8%80%85"
+}

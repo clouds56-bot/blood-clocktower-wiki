@@ -1,0 +1,48 @@
+{
+  "id": "recluse",
+  "type": "outsider",
+  "editions": ["trouble_brewing"],
+  "name": {
+    "en": "Recluse",
+    "cn": "隐士",
+    "ja": "隠者"
+  },
+  "ability": {
+    "en": "You might register as evil & as a Minion or Demon, even if dead.",
+    "cn": "你可能显示为邪恶，也可能显示为爪牙或恶魔，即使已死亡。",
+    "ja": "死亡していても、邪悪として、あるいはミニオンや悪魔として判定される可能性がある。"
+  },
+  "flavor_text": {
+    "en": "Garn git ya darn grub ya mitts ofma lorn yasee. Grr. Natsy pikkins yonder southwise ye begittin afta ya! Git!"
+  },
+  "first_night": false,
+  "other_nights": false,
+  "reminders": [],
+  "jinxes": [
+    {
+      "character": "ogre",
+      "effect": "If the Recluse registers as evil to the Ogre, the Ogre learns that they are evil."
+    },
+    {
+      "character": "sage",
+      "effect": "The Recluse might register as the Demon to the Sage."
+    }
+  ],
+  "how_to_run": {
+    "en": "Each time the Recluse is targeted by an ability that detects or affects evil characters, choose which character and alignment the Recluse registers as."
+  },
+  "examples": [
+    "The Slayer uses their ability on the Recluse. The Storyteller decides that the Recluse registers as the Imp, so the Recluse dies.",
+    "The Empath, who neighbours the Recluse and the Monk, learns she is neighbouring one evil player.",
+    "The Recluse is executed. The Undertaker learns that the Imp was executed."
+  ],
+  "tips": {
+    "en": [
+      "Tell everyone you are the Recluse as soon as possible to account for misinformation.",
+      "Alternatively, stay silent until the final day to catch evil players.",
+      "You can register differently to different characters on the same night."
+    ]
+  },
+  "image": "assets/tokens/recluse.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Recluse"
+}

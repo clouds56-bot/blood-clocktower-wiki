@@ -1,0 +1,59 @@
+{
+  "id": "imp",
+  "type": "demon",
+  "editions": ["trouble_brewing"],
+  "name": {
+    "en": "Imp",
+    "zh": "小恶魔",
+    "cn": "小恶魔",
+    "ja": "インプ"
+  },
+  "ability": {
+    "en": "Each night*, choose a player: they die. If you kill yourself this way, a Minion becomes the Imp.",
+    "zh": "每晚*，选择一名玩家：他死亡。如果你以此法自杀，一名爪牙变成小恶魔。",
+    "cn": "每个夜晚*，你要选择一名玩家：他死亡。如果你以这种方式自杀，一名爪牙会变成小恶魔。",
+    "ja": "毎晩*、プレイヤーを1人選ぶ：そのプレイヤーは死亡する。この方法で自殺した場合、ミニオンがインプになる。"
+  },
+  "flavor_text": {
+    "en": "We must keep our wits sharp and our sword sharper. Evil walks among us, and will stop at nothing to destroy us good, simple folk, bringing our fine town to ruin. Trust no-one. But, if you must trust someone, trust me.",
+    "zh": "我们必须让自己的头脑保持敏锐，刀刃保持锋利。邪恶在我们之中穿行，想要不择手段地摧毁我们的善良。那些愚蠢之辈，把我们美丽的小镇给毁了。不要相信任何人。但如果你一定要相信某人，请相信我。",
+    "cn": "我们必须让自己的头脑保持敏锐，刀刃保持锋利。邪恶在我们之中穿行，想要不择手段地摧毁我们的善良。那些愚蠢之辈，把我们美丽的小镇给毁了。不要相信任何人。但如果你一定要相信某人，请相信我。"
+  },
+  "first_night": false,
+  "other_nights": true,
+  "reminders": [
+    { "en": "DEAD", "zh": "死亡", "cn": "死亡", "ja": "死亡" }
+  ],
+  "how_to_run": {
+    "en": "Each night except the first, wake the Imp. The Imp points at any player. Put the Imp to sleep. The chosen player dies. If the Imp killed themself at night, choose an alive Minion and replace their character token with a spare Imp token.",
+    "zh": "除首个夜晚以外的每个夜晚，唤醒小恶魔。让小恶魔指向任意一名玩家。让小恶魔重新入睡。被选择的玩家死亡。如果小恶魔选择在夜里自杀，用多出来的小恶魔标记替换一名存活的爪牙玩家的角色标记，让那名玩家的角色改变为小恶魔。",
+    "cn": "除首个夜晚以外的每个夜晚，唤醒小恶魔。让小恶魔指向任意一名玩家。让小恶魔重新入睡。被选择的玩家死亡——在那名玩家的角色标记旁放置小恶魔的'死亡'提示标记并放置帷幕标记。如果小恶魔选择在夜里自杀，用多出来的小恶魔标记替换一名存活的爪牙玩家的角色标记，让那名玩家的角色改变为小恶魔。"
+  },
+  "examples": [
+    "It is the first night. The Imp learns that Evin and Sarah are the Minions. The Imp also learns that the Monk, Chef, and Librarian are not in play.",
+    "During the night, the Imp wakes and chooses a player, who dies. The next night, the Imp chooses themselves to die. The Imp dies, and the Poisoner becomes the Imp."
+  ],
+  "tips": {
+    "en": [
+      "Stay alive during the day at all costs.",
+      "Night time suicide is always an option - pass Demonhood to a more trustworthy Minion.",
+      "Your Minions are pawns to be sacrificed.",
+      "Use the three bluffs the Storyteller gives you wisely."
+    ],
+    "zh": [
+      "在白天无论如何都要活下来。",
+      "在晚上自杀永远可以作为选择之一——将恶魔血脉传递给一名更受信任的爪牙。",
+      "你的爪牙就是被用来牺牲的马前卒。",
+      "使用那三个你可以安全伪装的角色。"
+    ],
+    "cn": [
+      "在白天无论如何都要活下来。就算场上有三名爪牙，你也没法保证红唇女郎在场。",
+      "在晚上自杀永远可以作为选择之一——杀死自己并且将恶魔血脉传递给一名更受信任的爪牙，虽然会让你失去继续投票的权利，但让场上一直有恶魔存活更加重要。",
+      "你的爪牙就是被用来牺牲的马前卒！杀死他们！全都杀了！你才是最重要的那个！",
+      "在游戏开始，说书人将会告诉你三个可以用作伪装的角色。"
+    ]
+  },
+  "image": "assets/tokens/imp.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Imp",
+  "source_url_cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E5%B0%8F%E6%81%B6%E9%AD%94"
+}

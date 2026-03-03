@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Blood on the Clocktower Character",
+  "type": "object",
+  "required": ["id", "type", "ability", "editions"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "URL-safe character ID (lowercase, underscores)"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["townsfolk", "outsider", "minion", "demon", "traveller", "fabled"]
+    },
+    "editions": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["trouble_brewing", "bad_moon_rising", "sects_violets", "experimental"] }
+    },
+    "name": {
+      "type": "object",
+      "description": "Character name in different languages. zh = machine-translated from English (frontend fallback), cn = ONLY if official Chinese wiki has content",
+      "properties": {
+        "en": { "type": "string" },
+        "zh": { "type": "string" },
+        "cn": { "type": "string" },
+        "ja": { "type": "string" }
+      },
+      "required": ["en"]
+    },
+    "ability": {
+      "type": "object",
+      "description": "Character ability. zh = machine-translated from English (frontend fallback), cn = ONLY if official Chinese wiki has content",
+      "properties": {
+        "en": { "type": "string" },
+        "zh": { "type": "string" },
+        "cn": { "type": "string" },
+        "ja": { "type": "string" }
+      },
+      "required": ["en"]
+    },
+    "flavor_text": {
+      "type": "object",
+      "description": "Character quote/story. zh = machine-translated from English (frontend fallback), cn = ONLY if official Chinese wiki has content",
+      "properties": {
+        "en": { "type": "string" },
+        "zh": { "type": "string" },
+        "cn": { "type": "string" },
+        "ja": { "type": "string" }
+      }
+    },
+    "artist": { "type": "string" },
+    "first_night": { "type": "boolean", "default": false },
+    "other_nights": { "type": "boolean", "default": false },
+    "reminders": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Reminder tokens. zh = machine-translated from English (frontend fallback), cn = ONLY if official Chinese wiki has content",
+        "properties": {
+          "en": { "type": "string" },
+          "zh": { "type": "string" },
+          "cn": { "type": "string" },
+          "ja": { "type": "string" }
+        }
+      }
+    },
+    "setup_modification": {
+      "type": "string",
+      "description": "e.g., Baron: '+2 Outsiders'"
+    },
+    "jinxes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "character": { "type": "string" },
+          "effect": { "type": "string" }
+        }
+      }
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "tips": {
+      "type": "object",
+      "description": "Strategy tips. zh = machine-translated from English (frontend fallback), cn = ONLY if official Chinese wiki has content",
+      "properties": {
+        "en": { "type": "array", "items": { "type": "string" } },
+        "zh": { "type": "array", "items": { "type": "string" } },
+        "cn": { "type": "array", "items": { "type": "string" } },
+        "ja": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "how_to_run": {
+      "type": "object",
+      "description": "Storyteller instructions. zh = machine-translated from English (frontend fallback), cn = ONLY if official Chinese wiki has content",
+      "properties": {
+        "en": { "type": "string" },
+        "zh": { "type": "string" },
+        "cn": { "type": "string" },
+        "ja": { "type": "string" }
+      }
+    },
+    "source_url_cn": { "type": "string", "format": "uri", "description": "Chinese wiki URL - ONLY if page exists" }
+    "image": { "type": "string" },
+    "source_url": { "type": "string", "format": "uri" }
+  }
+}

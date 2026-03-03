@@ -1,0 +1,58 @@
+{
+  "id": "fortune_teller",
+  "type": "townsfolk",
+  "editions": ["trouble_brewing"],
+  "name": {
+    "en": "Fortune Teller",
+    "zh": "算命师",
+    "cn": "占卜师",
+    "ja": "占い師"
+  },
+  "ability": {
+    "en": "Each night, choose 2 players: you learn if either is a Demon. There is a good player that registers as a Demon to you.",
+    "zh": "每晚，选择2名玩家：你得知其中是否有恶魔。有一名善良玩家对你显示为恶魔。",
+    "cn": "每个夜晚，你要选择两名玩家：你会得知他们之中是否有恶魔。会有一名善良玩家始终被你的能力当作恶魔。",
+    "ja": "毎晩、プレイヤーを2人選ぶ：その中に悪魔がいるかを知る。あなたには悪魔として判定される善良なプレイヤーが1人いる。"
+  },
+  "flavor_text": {
+    "en": "I sense great evil in your soul! But... that could just be your perfume. I am allergic to Elderberry.",
+    "zh": "我在你的灵魂中感受到了庞大的恶意！但……那可能只是你的香水味道。我对接骨木汁过敏。",
+    "cn": "我在你的灵魂中感受到了庞大的恶意！但……那可能只是你的香水味道。我对接骨木汁过敏。"
+  },
+  "first_night": true,
+  "other_nights": true,
+  "reminders": [
+    { "en": "RED HERRING", "zh": "红鲱鱼", "cn": "干扰项", "ja": "赤いニシン" }
+  ],
+  "how_to_run": {
+    "en": "While preparing the first night, put the Fortune Teller's RED HERRING reminder token by any good character token. Each night, wake the Fortune Teller. The Fortune Teller points at any two players. If either chosen player is a Demon or the Red Herring, nod your head yes. Otherwise, shake your head no.",
+    "zh": "在为首个夜晚进行准备时，将占卜师的'干扰项'提示标记放置在任意善良角色标记旁。每个夜晚，唤醒占卜师。让占卜师指向任意两名玩家。如果这两名玩家中任意一名是恶魔或'干扰项'，点头表示'是'。否则，摇头表示'否'。",
+    "cn": "在为首个夜晚进行准备时，将占卜师的\"干扰项\"提示标记放置在任意善良角色标记旁，标记那名玩家为\"干扰项\"。每个夜晚，唤醒占卜师。让占卜师指向任意两名玩家。如果这两名玩家中任意一名是恶魔或\"干扰项\"，对占卜师点头表示\"是\"。否则，摇头表示\"否\"。"
+  },
+  "examples": [
+    "The Fortune Teller chooses the Monk and the Undertaker and learns a 'no'.",
+    "The Fortune Teller chooses the Imp and the Empath, and learns a 'yes'.",
+    "The Fortune Teller chooses an alive Butler and a dead Imp, and learns a 'yes'.",
+    "The Fortune Teller chooses themselves and a Saint. The Saint is the Red Herring. The Fortune Teller learns a 'yes'."
+  ],
+  "tips": {
+    "en": [
+      "Getting a 'no' is often more useful than getting a 'yes'.",
+      "You only learn about Demons - a 'no' doesn't mean they're good, they could be a Minion.",
+      "Try triangulation: pick one player from a 'yes' pair and one from a 'no' pair."
+    ],
+    "zh": [
+      "得到'没有恶魔'的信息要比你得到'有恶魔'的信息更有用。",
+      "你只能得知关于恶魔的信息——'否'并不意味着他们是善良阵营，他们可能是爪牙。",
+      "你可以用你已经验证的非恶魔玩家帮助你找到恶魔。"
+    ],
+    "cn": [
+      "得到\"没有恶魔\"的信息要比你得到\"有恶魔\"的信息更有用。",
+      "\"没有恶魔\"意味着你所选择的两位玩家都不是恶魔，这能帮助你缩小恶魔的嫌疑范围。",
+      "你可以用你已经验证的非恶魔玩家帮助你找到恶魔。"
+    ]
+  },
+  "image": "assets/tokens/fortune_teller.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Fortune_Teller",
+  "source_url_cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E5%8D%A0%E5%8D%9C%E5%B8%88"
+}

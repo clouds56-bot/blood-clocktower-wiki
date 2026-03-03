@@ -1,0 +1,54 @@
+{
+  "id": "spy",
+  "type": "minion",
+  "editions": ["trouble_brewing"],
+  "name": {
+    "en": "Spy",
+    "zh": "间谍",
+    "cn": "间谍",
+    "ja": "スパイ"
+  },
+  "ability": {
+    "en": "Each night, you can look at the Grimoire. You might be seen as good, Townsfolk, or Outsider, even if dead.",
+    "zh": "每个夜晚，你能查看魔典。你可能会被当作善良阵营、镇民角色或外来者角色，即使你已死亡。",
+    "cn": "每个夜晚，你能查看魔典。你可能会被当作善良阵营、镇民角色或外来者角色，即使你已死亡。",
+    "ja": "毎晩、グリモワールを見ることができる。善良、あるいはタウンズフォークやアウトサイダーであると見なされる可能性がある。死亡していても同様。"
+  },
+  "flavor_text": {
+    "en": "Every mixmaster knows\nCompounding is no trouble\nTwo-faced spy is trouble's main course",
+    "zh": "每个调酒大师心中明白\n配方没有麻烦来得更快\n双面间谍是麻烦的主菜",
+    "cn": "每个调酒大师心中明白\n配方没有麻烦来得更快\n双面间谍是麻烦的主菜"
+  },
+  "first_night": true,
+  "other_nights": true,
+  "reminders": [],
+  "how_to_run": {
+    "en": "Each night, wake the Spy and let them view the Grimoire for as long as they want. Put the Spy to sleep.",
+    "zh": "每个夜晚，唤醒间谍并让他按自己意愿的时长来查看魔典。让间谍重新入睡。",
+    "cn": "每个夜晚，唤醒间谍并让他按自己意愿的时长来查看魔典。让间谍重新入睡。每当因游戏规则或角色能力的效果要探查或影响玩家的阵营或角色，且间谍因此被选中为目标时，由你决定间谍被当作哪种角色和哪种阵营。（做出任何合适的举动，例如展示一个善良角色标记，点头，给出手势，或允许一项通常只针对善良阵营，镇民或外来者角色的能力对间谍生效。）"
+  },
+  "examples": [
+    "The Washerwoman learns that either Little Black is the Ravenkeeper, or Doge is the Ravenkeeper. Little Black is the Monk, and Doge is the Spy disguised as the Ravenkeeper.",
+    "The Spy sits between the Imp and the Empath. The Chef learns a '1' because the Spy is seen as evil at this time. Later in the night, the Empath learns a '0' because the Spy is seen as good at this time."
+  ],
+  "tips": {
+    "en": [
+      "At the start of the game, you will know all information. Remember them as much as possible and give to your teammates!",
+      "You look like you're good, but you're actually evil.",
+      "Share information with your Demon and Minions to coordinate your attacks."
+    ],
+    "zh": [
+      "在游戏开始你将知道所有信息，尽可能记住他们并提供给队友！",
+      "间谍看起来像是善良一员，但实际上是邪恶的。",
+      "与恶魔和爪牙交流！通过帮助他们伪装角色的方式与他们配合。"
+    ],
+    "cn": [
+      "在游戏开始你将知道所有信息，尽可能记住他们并提供给队友！所有在场的玩家及他们对应的角色都会被放置在魔典中。",
+      "间谍看起来像是善良一员，但实际上是邪恶的。",
+      "如果你知道间谍在场的对局中，就需要谨慎对待其他角色所给出的信息，特别是当一些玩家已经公开他们的角色之后。"
+    ]
+  },
+  "image": "assets/tokens/spy.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Spy",
+  "source_url_cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E9%97%B4%E8%B0%8D"
+}

@@ -1,0 +1,51 @@
+{
+  "id": "drunk",
+  "type": "outsider",
+  "editions": ["trouble_brewing"],
+  "name": {
+    "en": "Drunk",
+    "cn": "酒鬼",
+    "ja": "酔っ払い"
+  },
+  "ability": {
+    "en": "You do not know you are the Drunk. You think you are a Townsfolk character, but you are not.",
+    "cn": "你不知道你是酒鬼。你以为你是某个村民角色，但你不是。",
+    "ja": "自分が酔っ払いであることを知らない。自分が村人キャラクターだと思っているが、そうではない。"
+  },
+  "flavor_text": {
+    "en": "I'm only a *hic* social drinker, my dear. Admittedly, I am a heavy *burp* socializer."
+  },
+  "first_night": false,
+  "other_nights": false,
+  "reminders": [
+    { "en": "IS THE DRUNK", "cn": "是酒鬼", "ja": "酔っ払いである" }
+  ],
+  "setup_modification": "Replaces a Townsfolk token during setup. The Drunk token does NOT go in the bag - instead, add a Townsfolk token and mark one player as the Drunk secretly.",
+  "jinxes": [
+    {
+      "character": "boffin",
+      "effect": "The Demon cannot have the Drunk ability."
+    },
+    {
+      "character": "mathematician",
+      "effect": "The Mathematician might learn if the Drunk's ability yielded false info or failed to work properly."
+    }
+  ],
+  "how_to_run": {
+    "en": "While setting up, before putting character tokens in the bag, remove the Drunk token and add a Townsfolk character token. Put the Drunk's IS THE DRUNK reminder token by any Townsfolk character token in the Grimoire. Act as if the Drunk is actually this Townsfolk character."
+  },
+  "examples": [
+    "The Drunk, who thinks they are the Soldier, is attacked by the Imp. The Drunk dies.",
+    "The Drunk, who thinks they are the Empath, wakes and learns a '0', even though they are sitting next to one evil player.",
+    "The Drunk, who thinks they are the Ravenkeeper, is killed at night. They choose the Saint, but learn that this player is the Poisoner."
+  ],
+  "tips": {
+    "en": [
+      "The Drunk will never know they are the Drunk - look for tells like inconsistent information.",
+      "If your information seems wrong or doesn't match others', you might be the Drunk.",
+      "The Drunk is still good - even without an ability, you can help through logic and deduction."
+    ]
+  },
+  "image": "assets/tokens/drunk.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Drunk"
+}
