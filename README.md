@@ -51,12 +51,16 @@ Each character is stored as a JSON file with the following structure:
 
 | Category | Total | Scraped | Status |
 |----------|-------|---------|--------|
-| Townsfolk | 69 | 3 | 🟡 In Progress |
-| Outsiders | 23 | 2 | 🟡 In Progress |
-| Minions | 27 | 2 | 🟡 In Progress |
-| Demons | 19 | 1 | 🟡 In Progress |
+| Townsfolk | 69 | 69 | ✅ Complete |
+| Outsiders | 23 | 23 | ✅ Complete |
+| Minions | 27 | 27 | ✅ Complete |
+| Demons | 19 | 19 | ✅ Complete |
 
-**Latest:** Scraper rewritten with cheerio for proper HTML parsing (March 2026)
+**Latest:** All 138 characters scraped with full data including:
+- ✅ Ability, flavor_text, editions
+- ✅ Examples, tips, jinxes, how_to_run
+- ✅ Artist field from infobox
+- ✅ Local HTML caching for faster re-scraping
 
 ## Next Steps
 
