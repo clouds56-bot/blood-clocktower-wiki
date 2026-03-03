@@ -60,14 +60,8 @@ Each character is stored as a JSON file with the following structure:
 - ✅ Ability, flavor_text, editions
 - ✅ Examples, tips, jinxes, how_to_run
 - ✅ Artist field from infobox
+- ✅ **All 138 token images downloaded and pushed** 🖼️
 - ✅ Local HTML caching for faster re-scraping
-
-## Next Steps
-
-1. ~~Run `node scripts/scrape-wiki.js` to fetch all characters~~ ✅ Done
-2. Run `node scripts/download-images.js` to download token images (47/138 done)
-3. Add CN/JA translations for all characters
-4. Create night order reference
 
 ## Scripts
 
