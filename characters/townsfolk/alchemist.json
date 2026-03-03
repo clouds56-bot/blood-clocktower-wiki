@@ -24,5 +24,6 @@
   "how_to_run": {
     "en": "During the first night, wake the Alchemist. Show the YOU ARE info token then the character token of a Minion. Put the Alchemist to sleep. If the Alchemist has a not-in-play Minion ability, mark the Alchemist with the IS THE ALCHEMIST reminder and swap the Alchemist token with this Minion token and turn it upside down. (This shows they are still good.)"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Alchemist"
+  "source_url": "https://wiki.bloodontheclocktower.com/Alchemist",
+  "image": "assets/tokens/alchemist.png"
 }

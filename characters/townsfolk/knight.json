@@ -38,5 +38,6 @@
   "how_to_run": {
     "en": "During setup, mark two non-Demon players with the Knight’s KNOW reminders.\nDuring the first night, wake the Knight. Point to the two players marked KNOW."
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Knight"
+  "source_url": "https://wiki.bloodontheclocktower.com/Knight",
+  "image": "assets/tokens/knight.png"
 }

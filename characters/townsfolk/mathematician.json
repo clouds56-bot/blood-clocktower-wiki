@@ -37,5 +37,6 @@
   "how_to_run": {
     "en": "Each time a character's ability works abnormally due to another character's ability, mark them with an ABNORMAL reminder."
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Mathematician"
+  "source_url": "https://wiki.bloodontheclocktower.com/Mathematician",
+  "image": "assets/tokens/mathematician.png"
 }

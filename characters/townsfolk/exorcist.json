@@ -37,5 +37,6 @@
   "how_to_run": {
     "en": "Each night except the first, wake the Exorcist. They point at any player. Mark the chosen player’s character token with the CHOSEN reminder. Put the Exorcist to sleep."
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Exorcist"
+  "source_url": "https://wiki.bloodontheclocktower.com/Exorcist",
+  "image": "assets/tokens/exorcist.png"
 }

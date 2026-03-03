@@ -33,5 +33,6 @@
   "how_to_run": {
     "en": "While setting up the game, before putting character tokens in the bag, if the King is not already in play, remove a Townsfolk character token and add the King character token."
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Choirboy"
+  "source_url": "https://wiki.bloodontheclocktower.com/Choirboy",
+  "image": "assets/tokens/choirboy.png"
 }

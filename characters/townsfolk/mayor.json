@@ -36,5 +36,6 @@
   "how_to_run": {
     "en": "During the night, if the Mayor would die, you choose if the Mayor actually dies, or if the Mayor remains alive and another character dies instead—put the Demon's DEAD reminder token by that character token instead of the Mayor, and put a shroud on that character token instead of the Mayor."
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Mayor"
+  "source_url": "https://wiki.bloodontheclocktower.com/Mayor",
+  "image": "assets/tokens/mayor.png"
 }

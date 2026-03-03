@@ -25,5 +25,6 @@
   "how_to_run": {
     "en": "Each night except the first, wake the Acrobat. They point to a player. Put the Acrobat to sleep."
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Acrobat"
+  "source_url": "https://wiki.bloodontheclocktower.com/Acrobat",
+  "image": "assets/tokens/acrobat.png"
 }

@@ -39,5 +39,6 @@
   "how_to_run": {
     "en": "Each night except the first, wake the Monk. The Monk points at any player except themself. (If the Monk points at themself, shake your head no and prompt them to point at another player.) Put the Monk to sleep. Put the Monk's SAFE reminder token by the chosen player's character token."
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Monk"
+  "source_url": "https://wiki.bloodontheclocktower.com/Monk",
+  "image": "assets/tokens/monk.png"
 }

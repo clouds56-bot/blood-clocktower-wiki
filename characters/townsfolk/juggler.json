@@ -38,5 +38,6 @@
   "how_to_run": {
     "en": "During the first day, if the Juggler declares that they are using their ability, then you enter the circle, holding the Grimoire. The Juggler can make up to five guesses, each of any one player and any one character. For each correct guess, mark the Juggler with a CORRECT reminder. (Make sure the players don’t see how many reminders you’re placing.)"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Juggler"
+  "source_url": "https://wiki.bloodontheclocktower.com/Juggler",
+  "image": "assets/tokens/juggler.png"
 }

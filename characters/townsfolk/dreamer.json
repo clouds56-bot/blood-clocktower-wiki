@@ -42,5 +42,6 @@
   "how_to_run": {
     "en": "Each night, wake the Dreamer. They point at any player. If the chosen player’s character is a Townsfolk or Outsider, show their character token and any Minion or Demon token to the Dreamer. If the chosen player’s character is a Minion or Demon, show their character token and any Townsfolk or Outsider token to the Dreamer. Then, put the Dreamer to sleep."
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Dreamer"
+  "source_url": "https://wiki.bloodontheclocktower.com/Dreamer",
+  "image": "assets/tokens/dreamer.png"
 }

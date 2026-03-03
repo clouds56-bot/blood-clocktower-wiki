@@ -40,5 +40,6 @@
   "how_to_run": {
     "en": "If the Farmer died tonight, wake an alive good player. Show them the YOU ARE info token and a Farmer character token, then put them to sleep. Replace their previous character token with a Farmer character token."
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Farmer"
+  "source_url": "https://wiki.bloodontheclocktower.com/Farmer",
+  "image": "assets/tokens/farmer.png"
 }

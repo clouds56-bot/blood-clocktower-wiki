@@ -37,5 +37,6 @@
   "how_to_run": {
     "en": "If the Fool would die, they remain alive. (But they die if they are drunk or poisoned.) If the Fool was executed, declare that the player was executed but remains alive. (Do not say why.)"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Fool"
+  "source_url": "https://wiki.bloodontheclocktower.com/Fool",
+  "image": "assets/tokens/fool.png"
 }

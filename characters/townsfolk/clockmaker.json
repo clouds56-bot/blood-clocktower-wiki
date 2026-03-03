@@ -35,5 +35,6 @@
   "how_to_run": {
     "en": "During the first night, wake the Clockmaker. Show fingers (1, 2, etc.) equaling the distance in players from the Demon to the nearest Minion, starting with the player neighboring the Demon closer to that Minion. Put the Clockmaker to sleep."
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Clockmaker"
+  "source_url": "https://wiki.bloodontheclocktower.com/Clockmaker",
+  "image": "assets/tokens/clockmaker.png"
 }

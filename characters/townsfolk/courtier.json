@@ -37,5 +37,6 @@
   "how_to_run": {
     "en": "Each night, wake the Courtier. They either shake their head no or point at any character icon on their character sheet. Put the Courtier to sleep."
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Courtier"
+  "source_url": "https://wiki.bloodontheclocktower.com/Courtier",
+  "image": "assets/tokens/courtier.png"
 }

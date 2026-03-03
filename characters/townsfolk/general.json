@@ -36,5 +36,6 @@
   "how_to_run": {
     "en": "Each night, wake the General. If you believe that the good team is winning, give a thumbs up. If you believe that the evil team is winning, give a thumbs down. If you don’t know which team is winning, give a thumbs to the side. Put the General to sleep."
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/General"
+  "source_url": "https://wiki.bloodontheclocktower.com/General",
+  "image": "assets/tokens/general.png"
 }

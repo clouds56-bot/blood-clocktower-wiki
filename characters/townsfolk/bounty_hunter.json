@@ -37,5 +37,6 @@
   "how_to_run": {
     "en": "During setup, turn one Townsfolk character token upside down, to represent that they are evil. Mark one evil player with the KNOW reminder."
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Bounty_Hunter"
+  "source_url": "https://wiki.bloodontheclocktower.com/Bounty_Hunter",
+  "image": "assets/tokens/bounty_hunter.png"
 }

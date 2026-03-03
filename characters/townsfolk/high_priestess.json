@@ -38,5 +38,6 @@
   "how_to_run": {
     "en": "Each night, wake the High Priestess. Point to a player. Put the High Priestess to sleep."
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/High_Priestess"
+  "source_url": "https://wiki.bloodontheclocktower.com/High_Priestess",
+  "image": "assets/tokens/high_priestess.png"
 }

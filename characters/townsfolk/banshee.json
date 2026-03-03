@@ -38,5 +38,6 @@
   "how_to_run": {
     "en": "If the Banshee is killed by the Demon, place the HAS ABILITY reminder token next to the Banshee and say “The Banshee has awoken” or something similarly dramatic. The Banshee may nominate twice per day, but it is the player’s responsibility to remember how many times they have nominated. The Banshee may raise two hands when voting. When counting the votes, count each hand as a vote."
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Banshee"
+  "source_url": "https://wiki.bloodontheclocktower.com/Banshee",
+  "image": "assets/tokens/banshee.png"
 }

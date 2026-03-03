@@ -39,5 +39,6 @@
   "how_to_run": {
     "en": "During the first night, wake the Chef. Show the Chef fingers (0, 1, 2, etc.) equaling the number of pairs of neighboring evil players. Put the Chef to sleep."
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Chef"
+  "source_url": "https://wiki.bloodontheclocktower.com/Chef",
+  "image": "assets/tokens/chef.png"
 }

@@ -34,5 +34,6 @@
   "how_to_run": {
     "en": "During the day, if a Minion dies by execution, all other players except Travellers become drunk—put the Minstrel’s EVERYONE IS DRUNK reminder in the center of the left side of the Grimoire."
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Minstrel"
+  "source_url": "https://wiki.bloodontheclocktower.com/Minstrel",
+  "image": "assets/tokens/minstrel.png"
 }

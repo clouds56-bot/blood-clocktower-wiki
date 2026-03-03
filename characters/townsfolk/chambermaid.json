@@ -35,5 +35,6 @@
   "how_to_run": {
     "en": "Each night, wake the Chambermaid. They point at any two alive players except themself. Show the Chambermaid fingers (0, 1, or 2) equaling the number of chosen characters who woke tonight. Put the Chambermaid to sleep."
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Chambermaid"
+  "source_url": "https://wiki.bloodontheclocktower.com/Chambermaid",
+  "image": "assets/tokens/chambermaid.png"
 }

@@ -40,5 +40,6 @@
   "how_to_run": {
     "en": "Each night, turn the Cult Leader character token right side up (if both alive neighbors are good) or upside down (if both alive neighbors are evil) or either (if one alive neighbor is good and the other alive neighbor is evil). If the Cult Leader's alignment changes, wake the Cult Leader and give a thumbs up or a thumbs down, then put the Cult Leader to sleep. If the Cult Leader’s alignment doesn’t change, do not wake them."
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Cult_Leader"
+  "source_url": "https://wiki.bloodontheclocktower.com/Cult_Leader",
+  "image": "assets/tokens/cult_leader.png"
 }
