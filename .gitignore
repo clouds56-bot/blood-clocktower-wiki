@@ -1,8 +1,10 @@
 .cache/
 node_modules/
+data/node_modules/
+data/.cache/
+data/results
 data/scrape-results.json
 data/scrape-results-cn.json
-assets/tokens/
-dist/
-wiki/node_modules/
-wiki/dist/
+
+pnpm-lock.yaml
+package-lock.json

@@ -198,6 +198,10 @@ async function downloadAllImages() {
     results.failed.forEach(f => console.log(`  - ${f.characterId}: ${f.error}`));
   }
 
+  // Save summary to data/results
+  fs.mkdirSync(path.join(__dirname, '..', 'results'), { recursive: true });
+  fs.writeFileSync(path.join(__dirname, '..', 'results', 'download-images-results.json'), JSON.stringify(results, null, 2));
+
   return results;
 }
 

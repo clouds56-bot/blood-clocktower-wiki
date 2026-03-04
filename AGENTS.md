@@ -12,12 +12,23 @@ This file serves as the definitive guide for all agentic coding assistants (e.g.
 
 ## 2. Build, Lint, and Test Commands
 
-Currently, the project is heavily focused on Node.js scraping scripts. As the interactive wiki application is developed (e.g., using a modern frontend framework), these commands will evolve. Always check `package.json` for the most up-to-date scripts.
+This repository is organised as a small pnpm workspace. The scraping package lives in `data/` and its scripts are under `data/scripts/`.
 
-### Running Scripts
-- **Scrape Wiki**: `node scripts/scrape-wiki.js` (Downloads and parses character data)
-- **Scrape Chinese Wiki**: `node scripts/scrape-chinese-wiki.js` (Scrapes localized data)
-- **Download Images**: `node scripts/download-images.js` (Fetches character tokens/icons)
+Install dependencies (from the repo root):
+
+- `pnpm install`
+
+Run the scraping utilities (from the repo root):
+
+- **Scrape Wiki (English)**: `pnpm run scrape` — runs `data/scripts/scrape-wiki.js`
+- **Scrape Chinese Wiki**: `pnpm run scrape:cn` — runs `data/scripts/scrape-chinese-wiki.js`
+- **Download Images**: `pnpm run download-images` — runs `data/scripts/download-images.js`
+
+You can also run the scripts directly with node if you prefer:
+
+- `node data/scripts/scrape-wiki.js`
+- `node data/scripts/scrape-chinese-wiki.js`
+- `node data/scripts/download-images.js`
 
 ### Testing
 We encourage writing tests for pure functions (e.g., parsing logic, data transformations). The project currently does not have a comprehensive test suite, but as we migrate toward test-driven development, standard Node testing practices apply.
