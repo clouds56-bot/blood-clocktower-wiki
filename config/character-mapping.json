@@ -1,295 +1,311 @@
 {
   "characters": {
     "townsfolk": {
-      "washerwoman": {
-        "cn": "洗衣妇",
-        "url_param": "洗衣妇"
-      },
-      "librarian": {
-        "cn": "图书管理员",
-        "url_param": "图书管理员"
-      },
-      "investigator": {
-        "cn": "调查员",
-        "url_param": "调查员"
-      },
-      "chef": {
-        "cn": "厨师",
-        "url_param": "厨师"
-      },
-      "empath": {
-        "cn": "共情者",
-        "url_param": "共情者"
-      },
-      "fortuneteller": {
-        "cn": "占卜师",
-        "url_param": "占卜师"
-      },
-      "undertaker": {
-        "cn": "送葬者",
-        "url_param": "送葬者"
-      },
-      "monk": {
-        "cn": "僧侣",
-        "url_param": "僧侣"
-      },
-      "ravenkeeper": {
-        "cn": "守鸦人",
-        "url_param": "守鸦人"
-      },
-      "virgin": {
-        "cn": "贞洁者",
-        "url_param": "贞洁者"
-      },
-      "slayer": {
-        "cn": "猎手",
-        "url_param": "猎手"
-      },
-      "soldier": {
-        "cn": "士兵",
-        "url_param": "士兵"
-      },
-      "mayor": {
-        "cn": "镇长",
-        "url_param": "镇长"
-      },
-      "grandmother": {
-        "cn": "祖母",
-        "url_param": "祖母"
-      },
-      "fisherman": {
-        "cn": "水手",
-        "url_param": "水手"
-      },
-      "chambermaid": {
-        "cn": "侍女",
-        "url_param": "侍女"
-      },
-      "exorcist": {
-        "cn": "驱魔人",
-        "url_param": "驱魔人"
-      },
-      "innkeeper": {
-        "cn": "旅店老板",
-        "url_param": "旅店老板"
-      },
-      "gambler": {
-        "cn": "赌徒",
-        "url_param": "赌徒"
-      },
-      "gossip": {
-        "cn": "造谣者",
-        "url_param": "造谣者"
-      },
-      "courtier": {
-        "cn": "侍臣",
-        "url_param": "侍臣"
-      },
-      "professor": {
-        "cn": "教授",
-        "url_param": "教授"
-      },
-      "minstrel": {
-        "cn": "吟游诗人",
-        "url_param": "吟游诗人"
-      },
-      "tea_lady": {
-        "cn": "茶艺师",
-        "url_param": "茶艺师"
-      },
-      "pacifist": {
-        "cn": "和平主义者",
-        "url_param": "和平主义者"
-      },
-      "fool": {
-        "cn": "弄臣",
-        "url_param": "弄臣"
-      },
-      "clockmaker": {
-        "cn": "钟表匠",
-        "url_param": "钟表匠"
-      },
-      "dreamer": {
-        "cn": "筑梦师",
-        "url_param": "筑梦师"
-      },
-      "snake_charmer": {
-        "cn": "舞蛇人",
-        "url_param": "舞蛇人"
-      },
-      "mathematician": {
-        "cn": "数学家",
-        "url_param": "数学家"
-      },
-      "flowergirl": {
-        "cn": "卖花女孩",
-        "url_param": "卖花女孩"
-      },
-      "town_crier": {
-        "cn": "城镇公告员",
-        "url_param": "城镇公告员"
-      },
-      "oracle": {
-        "cn": "神谕者",
-        "url_param": "神谕者"
-      },
-      "sage": {
-        "cn": "博学者",
-        "url_param": "博学者"
-      },
-      "seamstress": {
-        "cn": "女裁缝",
-        "url_param": "女裁缝"
-      },
-      "philosopher": {
-        "cn": "哲学家",
-        "url_param": "哲学家"
-      },
-      "artist": {
-        "cn": "艺术家",
-        "url_param": "艺术家"
-      },
-      "juggler": {
-        "cn": "杂耍艺人",
-        "url_param": "杂耍艺人"
-      },
-      "savant": {
-        "cn": "贤者",
-        "url_param": "贤者"
-      },
-      "klutz": {
-        "cn": "半兽人",
-        "url_param": "半兽人"
-      },
-      "banshee": {
-        "cn": "报丧女妖",
-        "url_param": "报丧女妖"
-      },
-      "choirboy": {
-        "cn": "唱诗男孩",
-        "url_param": "唱诗男孩"
-      },
-      "preacher": {
-        "cn": "传教士",
-        "url_param": "传教士"
-      },
-      "farmer": {
-        "cn": "村夫",
-        "url_param": "村夫"
-      },
-      "engineer": {
-        "cn": "工程师",
-        "url_param": "工程师"
-      },
-      "noble": {
-        "cn": "贵族",
-        "url_param": "贵族"
-      },
-      "princess": {
-        "cn": "公主",
-        "url_param": "公主"
-      },
-      "king": {
-        "cn": "国王",
-        "url_param": "国王"
-      },
-      "general": {
-        "cn": "将军",
-        "url_param": "将军"
+      "acrobat": {
+        "cn": "杂技演员",
+        "url_param": "杂技演员"
       },
       "alchemist": {
         "cn": "炼金术士",
         "url_param": "炼金术士"
       },
-      "magician": {
-        "cn": "魔术师",
-        "url_param": "魔术师"
+      "alsaahir": {
+        "cn": "阿拉希",
+        "url_param": "阿拉希"
       },
-      "mutant": {
-        "cn": "农夫",
-        "url_param": "农夫"
+      "amnesiac": {
+        "cn": "失忆者",
+        "url_param": "失忆者"
+      },
+      "artist": {
+        "cn": "艺术家",
+        "url_param": "艺术家"
+      },
+      "atheist": {
+        "cn": "无神论者",
+        "url_param": "无神论者"
+      },
+      "balloonist": {
+        "cn": "气球驾驶员",
+        "url_param": "气球驾驶员"
+      },
+      "banshee": {
+        "cn": "报丧女妖",
+        "url_param": "报丧女妖"
+      },
+      "bounty_hunter": {
+        "cn": "赏金猎人",
+        "url_param": "赏金猎人"
+      },
+      "cannibal": {
+        "cn": "食人族",
+        "url_param": "食人族"
+      },
+      "chambermaid": {
+        "cn": "侍女",
+        "url_param": "侍女"
+      },
+      "chef": {
+        "cn": "厨师",
+        "url_param": "厨师"
+      },
+      "choirboy": {
+        "cn": "唱诗男孩",
+        "url_param": "唱诗男孩"
+      },
+      "clockmaker": {
+        "cn": "钟表匠",
+        "url_param": "钟表匠"
+      },
+      "courtier": {
+        "cn": "侍臣",
+        "url_param": "侍臣"
+      },
+      "cult_leader": {
+        "cn": "邪教头目",
+        "url_param": "邪教头目"
+      },
+      "dreamer": {
+        "cn": "筑梦师",
+        "url_param": "筑梦师"
+      },
+      "empath": {
+        "cn": "共情者",
+        "url_param": "共情者"
+      },
+      "engineer": {
+        "cn": "工程师",
+        "url_param": "工程师"
+      },
+      "exorcist": {
+        "cn": "驱魔人",
+        "url_param": "驱魔人"
+      },
+      "farmer": {
+        "cn": "村夫",
+        "url_param": "村夫"
+      },
+      "fisherman": {
+        "cn": "水手",
+        "url_param": "水手"
+      },
+      "flowergirl": {
+        "cn": "卖花女孩",
+        "url_param": "卖花女孩"
+      },
+      "fool": {
+        "cn": "弄臣",
+        "url_param": "弄臣"
+      },
+      "fortune_teller": {
+        "cn": "占卜师",
+        "url_param": "占卜师"
+      },
+      "gambler": {
+        "cn": "赌徒",
+        "url_param": "赌徒"
+      },
+      "general": {
+        "cn": "将军",
+        "url_param": "将军"
+      },
+      "gossip": {
+        "cn": "造谣者",
+        "url_param": "造谣者"
+      },
+      "grandmother": {
+        "cn": "祖母",
+        "url_param": "祖母"
       },
       "high_priestess": {
         "cn": "女祭司",
         "url_param": "女祭司"
       },
-      "balloonist": {
-        "cn": "气球驾驶员",
-        "url_param": "气球驾驶员"
-      }
-    },
-    "outsiders": {
-      "butler": {
+      "huntsman": {
+        "cn": "猎人",
+        "url_param": "猎人"
+      },
+      "innkeeper": {
+        "cn": "旅店老板",
+        "url_param": "旅店老板"
+      },
+      "investigator": {
+        "cn": "调查员",
+        "url_param": "调查员"
+      },
+      "juggler": {
+        "cn": "杂耍艺人",
+        "url_param": "杂耍艺人"
+      },
+      "king": {
+        "cn": "国王",
+        "url_param": "国王"
+      },
+      "knight": {
+        "cn": "骑士",
+        "url_param": "骑士"
+      },
+      "librarian": {
+        "cn": "图书管理员",
+        "url_param": "图书管理员"
+      },
+      "lycanthrope": {
+        "cn": "狼人",
+        "url_param": "狼人"
+      },
+      "magician": {
+        "cn": "魔术师",
+        "url_param": "魔术师"
+      },
+      "mathematician": {
+        "cn": "数学家",
+        "url_param": "数学家"
+      },
+      "mayor": {
+        "cn": "镇长",
+        "url_param": "镇长"
+      },
+      "minstrel": {
+        "cn": "吟游诗人",
+        "url_param": "吟游诗人"
+      },
+      "monk": {
+        "cn": "僧侣",
+        "url_param": "僧侣"
+      },
+      "nightwatchman": {
+        "cn": "守夜人",
+        "url_param": "守夜人"
+      },
+      "noble": {
+        "cn": "贵族",
+        "url_param": "贵族"
+      },
+      "oracle": {
+        "cn": "神谕者",
+        "url_param": "神谕者"
+      },
+      "pacifist": {
+        "cn": "和平主义者",
+        "url_param": "和平主义者"
+      },
+      "philosopher": {
+        "cn": "哲学家",
+        "url_param": "哲学家"
+      },
+      "pixie": {
+        "cn": "小精灵",
+        "url_param": "小精灵"
+      },
+      "poppy_grower": {
+        "cn": "罂粟花农",
+        "url_param": "罂粟花农"
+      },
+      "preacher": {
+        "cn": "传教士",
+        "url_param": "传教士"
+      },
+      "princess": {
+        "cn": "公主",
+        "url_param": "公主"
+      },
+      "professor": {
+        "cn": "教授",
+        "url_param": "教授"
+      },
+      "ravenkeeper": {
+        "cn": "守鸦人",
+        "url_param": "守鸦人"
+      },
+      "sage": {
+        "cn": "博学者",
+        "url_param": "博学者"
+      },
+      "sailor": {
+        "cn": "水手",
+        "url_param": "水手"
+      },
+      "savant": {
+        "cn": "贤者",
+        "url_param": "贤者"
+      },
+      "seamstress": {
+        "cn": "女裁缝",
+        "url_param": "女裁缝"
+      },
+      "shugenja": {
+        "cn": "阴阳师",
+        "url_param": "阴阳师"
+      },
+      "slayer": {
+        "cn": "猎手",
+        "url_param": "猎手"
+      },
+      "snake_charmer": {
+        "cn": "舞蛇人",
+        "url_param": "舞蛇人"
+      },
+      "soldier": {
+        "cn": "士兵",
+        "url_param": "士兵"
+      },
+      "steward": {
         "cn": "管家",
         "url_param": "管家"
       },
-      "drunk": {
-        "cn": "酒鬼",
-        "url_param": "酒鬼"
+      "tea_lady": {
+        "cn": "茶艺师",
+        "url_param": "茶艺师"
       },
-      "recluse": {
-        "cn": "陌客",
-        "url_param": "陌客"
+      "town_crier": {
+        "cn": "城镇公告员",
+        "url_param": "城镇公告员"
       },
-      "saint": {
-        "cn": "圣徒",
-        "url_param": "圣徒"
+      "undertaker": {
+        "cn": "送葬者",
+        "url_param": "送葬者"
       },
-      "tinker": {
-        "cn": "修补匠",
-        "url_param": "修补匠"
+      "village_idiot": {
+        "cn": "村中白痴",
+        "url_param": "村中白痴"
       },
-      "moonchild": {
-        "cn": "月之子",
-        "url_param": "月之子"
+      "virgin": {
+        "cn": "贞洁者",
+        "url_param": "贞洁者"
       },
+      "washerwoman": {
+        "cn": "洗衣妇",
+        "url_param": "洗衣妇"
+      }
+    },
+    "outsiders": {
       "barber": {
-        "cn": "莽夫",
-        "url_param": "莽夫"
+        "cn": "理发师",
+        "url_param": "理发师"
       },
-      "lunatic": {
-        "cn": "疯子",
-        "url_param": "疯子"
-      },
-      "sweetheart": {
-        "cn": "心上人",
-        "url_param": "心上人"
-      },
-      "klutz": {
-        "cn": "呆瓜",
-        "url_param": "呆瓜"
-      },
-      "snitch": {
-        "cn": "告密者",
-        "url_param": "告密者"
-      },
-      "puzzlemaster": {
-        "cn": "解谜大师",
-        "url_param": "解谜大师"
-      },
-      "zealot": {
-        "cn": "狂热者",
-        "url_param": "狂热者"
+      "butler": {
+        "cn": "管家",
+        "url_param": "管家"
       },
       "damsel": {
         "cn": "落难少女",
         "url_param": "落难少女"
       },
-      "hatter": {
-        "cn": "帽匠",
-        "url_param": "帽匠"
+      "drunk": {
+        "cn": "酒鬼",
+        "url_param": "酒鬼"
       },
       "golem": {
         "cn": "魔像",
         "url_param": "魔像"
       },
-      "ogre": {
-        "cn": "食人魔",
-        "url_param": "食人魔"
+      "goon": {
+        "cn": "打手",
+        "url_param": "打手"
       },
-      "plague_doctor": {
-        "cn": "瘟疫医生",
-        "url_param": "瘟疫医生"
+      "hatter": {
+        "cn": "帽匠",
+        "url_param": "帽匠"
       },
       "heretic": {
         "cn": "异端分子",
@@ -299,181 +315,253 @@
         "cn": "隐士",
         "url_param": "隐士"
       },
+      "klutz": {
+        "cn": "呆瓜",
+        "url_param": "呆瓜"
+      },
+      "lunatic": {
+        "cn": "疯子",
+        "url_param": "疯子"
+      },
+      "moonchild": {
+        "cn": "月之子",
+        "url_param": "月之子"
+      },
+      "mutant": {
+        "cn": "变异者",
+        "url_param": "变异者"
+      },
+      "ogre": {
+        "cn": "食人魔",
+        "url_param": "食人魔"
+      },
+      "plague_doctor": {
+        "cn": "瘟疫医生",
+        "url_param": "瘟疫医生"
+      },
       "politician": {
         "cn": "政客",
         "url_param": "政客"
+      },
+      "puzzlemaster": {
+        "cn": "解谜大师",
+        "url_param": "解谜大师"
+      },
+      "recluse": {
+        "cn": "陌客",
+        "url_param": "陌客"
+      },
+      "saint": {
+        "cn": "圣徒",
+        "url_param": "圣徒"
+      },
+      "snitch": {
+        "cn": "告密者",
+        "url_param": "告密者"
+      },
+      "sweetheart": {
+        "cn": "心上人",
+        "url_param": "心上人"
+      },
+      "tinker": {
+        "cn": "修补匠",
+        "url_param": "修补匠"
+      },
+      "zealot": {
+        "cn": "狂热者",
+        "url_param": "狂热者"
       }
     },
     "minions": {
-      "poisoner": {
-        "cn": "投毒者",
-        "url_param": "投毒者"
-      },
-      "spy": {
-        "cn": "间谍",
-        "url_param": "间谍"
-      },
-      "scarlet_woman": {
-        "cn": "红唇女郎",
-        "url_param": "红唇女郎"
+      "assassin": {
+        "cn": "刺客",
+        "url_param": "刺客"
       },
       "baron": {
         "cn": "男爵",
         "url_param": "男爵"
       },
-      "godfather": {
-        "cn": "教父",
-        "url_param": "教父"
-      },
-      "devil's_advocate": {
-        "cn": "魔鬼代言人",
-        "url_param": "魔鬼代言人"
-      },
-      "assassin": {
-        "cn": "刺客",
-        "url_param": "刺客"
-      },
-      "mastermind": {
-        "cn": "主谋",
-        "url_param": "主谋"
-      },
-      "marionette": {
-        "cn": "镜像双子",
-        "url_param": "镜像双子"
-      },
-      "witch": {
-        "cn": "女巫",
-        "url_param": "女巫"
-      },
-      "pukka": {
-        "cn": "洗脑师",
-        "url_param": "洗脑师"
-      },
-      "pit-hag": {
-        "cn": "麻脸巫婆",
-        "url_param": "麻脸巫婆"
-      },
-      "goblin": {
-        "cn": "哥布林",
-        "url_param": "哥布林"
-      },
-      "widow": {
-        "cn": "寡妇",
-        "url_param": "寡妇"
+      "boffin": {
+        "cn": "科学怪人",
+        "url_param": "科学怪人"
       },
       "boomdandy": {
         "cn": "街头风琴手",
         "url_param": "街头风琴手"
       },
-      "psychopath": {
-        "cn": "精神病患者",
-        "url_param": "精神病患者"
+      "cerenovus": {
+        "cn": "瑟勒诺弗斯",
+        "url_param": "瑟勒诺弗斯"
       },
-      "boffin": {
-        "cn": "科学怪人",
-        "url_param": "科学怪人"
+      "devil's_advocate": {
+        "cn": "魔鬼代言人",
+        "url_param": "魔鬼代言人"
+      },
+      "evil_twin": {
+        "cn": "邪恶双子",
+        "url_param": "邪恶双子"
       },
       "fearmonger": {
         "cn": "恐惧之灵",
         "url_param": "恐惧之灵"
       },
-      "summoner": {
-        "cn": "灵言师",
-        "url_param": "灵言师"
+      "goblin": {
+        "cn": "哥布林",
+        "url_param": "哥布林"
+      },
+      "godfather": {
+        "cn": "教父",
+        "url_param": "教父"
+      },
+      "harpy": {
+        "cn": "鹰身女妖",
+        "url_param": "鹰身女妖"
+      },
+      "marionette": {
+        "cn": "镜像双子",
+        "url_param": "镜像双子"
+      },
+      "mastermind": {
+        "cn": "主谋",
+        "url_param": "主谋"
       },
       "mezepheles": {
         "cn": "提线木偶",
         "url_param": "提线木偶"
       },
-      "wraith": {
-        "cn": "亡魂",
-        "url_param": "亡魂"
+      "organ_grinder": {
+        "cn": "手摇风琴师",
+        "url_param": "手摇风琴师"
+      },
+      "pit-hag": {
+        "cn": "麻脸巫婆",
+        "url_param": "麻脸巫婆"
+      },
+      "poisoner": {
+        "cn": "投毒者",
+        "url_param": "投毒者"
+      },
+      "psychopath": {
+        "cn": "精神病患者",
+        "url_param": "精神病患者"
+      },
+      "scarlet_woman": {
+        "cn": "红唇女郎",
+        "url_param": "红唇女郎"
+      },
+      "spy": {
+        "cn": "间谍",
+        "url_param": "间谍"
+      },
+      "summoner": {
+        "cn": "灵言师",
+        "url_param": "灵言师"
       },
       "vizier": {
         "cn": "维齐尔",
         "url_param": "维齐尔"
       },
+      "widow": {
+        "cn": "寡妇",
+        "url_param": "寡妇"
+      },
+      "witch": {
+        "cn": "女巫",
+        "url_param": "女巫"
+      },
       "wizard": {
         "cn": "巫师",
         "url_param": "巫师"
+      },
+      "wraith": {
+        "cn": "亡魂",
+        "url_param": "亡魂"
+      },
+      "xaan": {
+        "cn": "赞",
+        "url_param": "赞"
       }
     },
     "demons": {
-      "imp": {
-        "cn": "小恶魔",
-        "url_param": "小恶魔"
-      },
-      "ojo": {
-        "cn": "僵尸",
-        "url_param": "僵尸"
-      },
-      "pukka": {
-        "cn": "普加",
-        "url_param": "普加"
-      },
-      "vigormortis": {
-        "cn": "维格莫提斯",
-        "url_param": "维格莫提斯"
-      },
-      "po": {
-        "cn": "珀",
-        "url_param": "珀"
+      "al-hadikhia": {
+        "cn": "奥赫",
+        "url_param": "奥赫"
       },
       "fang_gu": {
         "cn": "方古",
         "url_param": "方古"
       },
-      "shabaloth": {
-        "cn": "亡骨魔",
-        "url_param": "亡骨魔"
-      },
-      "no_dashii": {
-        "cn": "诺-达鲺",
-        "url_param": "诺-达鲺"
-      },
-      "vortox": {
-        "cn": "涡流",
-        "url_param": "涡流"
-      },
-      "al-hadikhia": {
-        "cn": "奥赫",
-        "url_param": "奥赫"
-      },
-      "riot": {
-        "cn": "暴乱",
-        "url_param": "暴乱"
-      },
-      "lord_of_typhon": {
-        "cn": "堤丰之首",
-        "url_param": "堤丰之首"
-      },
-      "yaggababble": {
-        "cn": "牙噶巴卜",
-        "url_param": "牙噶巴卜"
-      },
-      "legion": {
-        "cn": "军团",
-        "url_param": "军团"
+      "imp": {
+        "cn": "小恶魔",
+        "url_param": "小恶魔"
       },
       "kazali": {
         "cn": "卡扎力",
         "url_param": "卡扎力"
       },
+      "legion": {
+        "cn": "军团",
+        "url_param": "军团"
+      },
       "leviathan": {
         "cn": "利维坦",
         "url_param": "利维坦"
+      },
+      "lil'_monsta": {
+        "cn": "小怪宝",
+        "url_param": "小怪宝"
       },
       "lleech": {
         "cn": "痢蛭",
         "url_param": "痢蛭"
       },
-      "lil_monsta": {
-        "cn": "小怪宝",
-        "url_param": "小怪宝"
+      "lord_of_typhon": {
+        "cn": "堤丰之首",
+        "url_param": "堤丰之首"
+      },
+      "no_dashii": {
+        "cn": "诺-达鲺",
+        "url_param": "诺-达鲺"
+      },
+      "ojo": {
+        "cn": "奥霍",
+        "url_param": "奥霍",
+        "note": "No Chinese wiki page"
+      },
+      "po": {
+        "cn": "珀",
+        "url_param": "珀"
+      },
+      "pukka": {
+        "cn": "普加",
+        "url_param": "普加",
+        "note": "No Chinese wiki page"
+      },
+      "riot": {
+        "cn": "暴乱",
+        "url_param": "暴乱"
+      },
+      "shabaloth": {
+        "cn": "亡骨魔",
+        "url_param": "亡骨魔"
+      },
+      "vigormortis": {
+        "cn": "维格莫提斯",
+        "url_param": "维格莫提斯",
+        "note": "No Chinese wiki page"
+      },
+      "vortox": {
+        "cn": "涡流",
+        "url_param": "涡流"
+      },
+      "yaggababble": {
+        "cn": "牙噶巴卜",
+        "url_param": "牙噶巴卜"
       },
       "zombuul": {
         "cn": "赞布乌",
-        "url_param": "赞布乌"
+        "url_param": "赞布乌",
+        "note": "No Chinese wiki page"
       }
     }
   }
