@@ -393,7 +393,7 @@
         "cn": "瑟勒诺弗斯",
         "url_param": "瑟勒诺弗斯"
       },
-      "devil's_advocate": {
+      "devil_s_advocate": {
         "cn": "魔鬼代言人",
         "url_param": "魔鬼代言人"
       },
@@ -507,7 +507,7 @@
         "cn": "利维坦",
         "url_param": "利维坦"
       },
-      "lil'_monsta": {
+      "lil_monsta": {
         "cn": "小怪宝",
         "url_param": "小怪宝"
       },
@@ -525,8 +525,7 @@
       },
       "ojo": {
         "cn": "奥霍",
-        "url_param": "奥霍",
-        "note": "No Chinese wiki page"
+        "url_param": "奥霍"
       },
       "po": {
         "cn": "珀",
@@ -534,8 +533,7 @@
       },
       "pukka": {
         "cn": "普加",
-        "url_param": "普加",
-        "note": "No Chinese wiki page"
+        "url_param": "普加"
       },
       "riot": {
         "cn": "暴乱",
@@ -547,8 +545,7 @@
       },
       "vigormortis": {
         "cn": "维格莫提斯",
-        "url_param": "维格莫提斯",
-        "note": "No Chinese wiki page"
+        "url_param": "维格莫提斯"
       },
       "vortox": {
         "cn": "涡流",
@@ -560,8 +557,7 @@
       },
       "zombuul": {
         "cn": "赞布乌",
-        "url_param": "赞布乌",
-        "note": "No Chinese wiki page"
+        "url_param": "赞布乌"
       }
     }
   }
