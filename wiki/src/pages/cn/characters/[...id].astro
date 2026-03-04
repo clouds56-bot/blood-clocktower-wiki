@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { useTranslations, getLangFromUrl, getBasePath } from '../../../i18n/utils';
+import { useTranslations, getLangFromUrl, getBasePath, getAssetUrl } from '../../../i18n/utils';
 
 export async function getStaticPaths() {
   const characters = await getCollection('characters');
@@ -26,7 +26,14 @@ const t = useTranslations(lang);
     <header class="mb-6">
       <div class="flex items-center gap-6 mb-4 flex-col md:flex-row">
         <div class="w-40 h-40 rounded-lg overflow-hidden bg-slate-100 flex-shrink-0">
-          <img src={data.image ? `/${data.image.replace(/^\/+/, '')}` : `/data/assets/tokens/${data.id}.png`} alt={data.name?.[lang] || data.id} class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'" />
+          {
+            (() => {
+              const id = data.id || char.id.split('/').pop();
+              const imgField = data.image ? data.image.replace(/^\/+/, '') : `data/assets/tokens/${id}.png`;
+              const src = getAssetUrl(imgField);
+              return <img src={src} alt={data.name?.[lang] || data.id} class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'" />;
+            })()
+          }
         </div>
         <div class="flex-1 min-w-0">
           <div class="flex items-baseline gap-4 mb-2">

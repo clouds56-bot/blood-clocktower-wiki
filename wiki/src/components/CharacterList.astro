@@ -1,5 +1,5 @@
 ---
-import { useTranslations } from '../i18n/utils';
+import { useTranslations, getBasePath, getAssetUrl } from '../i18n/utils';
 
 export interface Props {
   characters: any[];
@@ -8,7 +8,6 @@ export interface Props {
 
 const { characters, lang } = Astro.props;
 const t = useTranslations(lang);
-import { getBasePath } from '../i18n/utils';
 const base = getBasePath(lang);
 
 const typesOrder = ['townsfolk', 'outsider', 'minion', 'demon', 'traveller', 'fabled'];
@@ -57,13 +56,16 @@ const typeTranslations: Record<string, any> = {
 const getTypeLabel = (type: string) => typeTranslations[type]?.[lang] || type.charAt(0).toUpperCase() + type.slice(1);
 
 const resolveImageSrc = (c: any) => {
-  const p = c.data?.image || `assets/tokens/${c.id}`;
-  if (!p) return `/assets/tokens/${c.id}.png`;
-  // If the stored path already has an extension use it, otherwise try png
+  const imgField = c.data?.image;
+  // Get the pure ID, ignoring directories (e.g. townsfolk/alchemist -> alchemist)
+  const id = c.data?.id || c.id.split('/').pop();
+  let p = imgField || `data/assets/tokens/${id}.png`;
+
   const hasExt = /\.\w{2,5}$/.test(p);
-  const candidate = hasExt ? p : `${p}.png`;
-  if (candidate.startsWith('http') || candidate.startsWith('//')) return candidate;
-  return `/${candidate.replace(/^\/+/, '')}`;
+  let candidate = hasExt ? p : `${p}.png`;
+
+  candidate = candidate.replace(/^\/*assets\//, 'data/assets/');
+  return getAssetUrl(candidate);
 };
 ---
 

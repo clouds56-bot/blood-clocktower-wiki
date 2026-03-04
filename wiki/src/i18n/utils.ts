@@ -11,7 +11,11 @@ export function getBasePath(lang: keyof typeof languages) {
   // dev), this becomes an empty string and the result is `/en` as before.
   const rawBase = (import.meta.env.BASE_URL ?? '') as string;
   const normalizedBase = rawBase.replace(/\/$/, '');
-  return `${normalizedBase}/${lang}`;
+  // Ensure a leading slash when a base is present (so we always produce
+  // absolute paths like `/repo/en` instead of `repo/en` which would be
+  // interpreted as relative by the browser).
+  const prefix = normalizedBase === '' ? '' : (normalizedBase.startsWith('/') ? normalizedBase : `/${normalizedBase}`);
+  return `${prefix}/${lang}`;
 }
 
 export function stripLangFromPath(pathname: string) {
@@ -72,3 +76,12 @@ export const ui = {
     'footer.text': '非官方染血钟楼维基。数据来源于官方维基。',
   },
 } as const;
+
+export function getAssetUrl(path: string) {
+  const rawBase = (import.meta.env.BASE_URL ?? '') as string;
+  const normalizedBase = rawBase.replace(/\/$/, '');
+  const assetBase = normalizedBase === '' ? '' : (normalizedBase.startsWith('/') ? normalizedBase : `/${normalizedBase}`);
+  const cleanPath = path.replace(/^\/+/, '');
+  if (cleanPath.startsWith('http') || cleanPath.startsWith('//')) return cleanPath;
+  return `${assetBase}/${cleanPath}`;
+}
