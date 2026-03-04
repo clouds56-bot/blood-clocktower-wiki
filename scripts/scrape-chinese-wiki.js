@@ -106,6 +106,21 @@ function parseChinesePage(html, urlParam) {
   return result;
 }
 
+function extractChineseImageName(html) {
+  const $ = cheerio.load(html);
+  // Try multiple selectors: infobox, character-details, main content thumbnails
+  let img = $('.infobox img, #character-details img').first();
+  if (!img.length) img = $('#mw-content-text img').first();
+  if (!img.length) img = $('.mw-parser-output img').first();
+  if (!img.length) return null;
+  const src = img.attr('src') || img.attr('data-src') || '';
+  if (!src) return null;
+  // get last path segment
+  const parts = src.split('/').filter(Boolean);
+  const last = parts.length > 0 ? parts[parts.length - 1] : null;
+  return last ? decodeURIComponent(last) : null;
+}
+
 function mergeChineseData(englishId, type, chineseData) {
   const jsonPath = path.join(CHARACTERS_DIR, type, `${englishId}.json`);
   
@@ -154,12 +169,14 @@ async function scrapeCharacter(type, englishId, mapping) {
   const url = `${BASE_URL}=${encodeURIComponent(urlParam)}`;
   const html = await fetchWithCache(url, urlParam);
   const chineseData = parseChinesePage(html, urlParam);
+  const imageName = extractChineseImageName(html);
   const merged = mergeChineseData(englishId, type, chineseData);
   
   return {
     englishId,
     chineseName: mapping.cn,
     fieldsExtracted: Object.keys(chineseData),
+    imageName: imageName,
     success: true
   };
 }
@@ -199,7 +216,16 @@ async function scrapeTestCharacters() {
     
     try {
       const result = await scrapeCharacter(type, id, charMapping);
-      console.log(`    ✅ Success - extracted: ${result.fieldsExtracted.join(', ')}`);
+      // Normalize id and image name for confidence check
+      const normalizedId = id.replace(/[^a-z0-9]/gi, '').toLowerCase();
+      const normalizedImage = (result.imageName || '').replace(/[^a-z0-9]/gi, '').toLowerCase();
+      if (result.imageName && normalizedImage.includes(normalizedId)) {
+        console.log(`    ✅ Success - image: ${result.imageName} - extracted: ${result.fieldsExtracted.join(', ')}`);
+      } else if (result.imageName) {
+        console.log(`    ⚠️ Suspicious image: ${result.imageName} - extracted: ${result.fieldsExtracted.join(', ')}`);
+      } else {
+        console.log(`    ✅ Success - extracted: ${result.fieldsExtracted.join(', ')}`);
+      }
       results.success.push(result);
     } catch (error) {
       console.error(`    ❌ Failed: ${error.message}`);
@@ -236,7 +262,11 @@ async function scrapeAllCharacters() {
       
       try {
         const result = await scrapeCharacter(type, englishId, charMapping);
-        console.log(`    ✅ Success`);
+        if (result.imageName) {
+          console.log(`    ✅ Success - image: ${result.imageName}`);
+        } else {
+          console.log(`    ✅ Success`);
+        }
         results.success.push(result);
       } catch (error) {
         console.error(`    ❌ Failed: ${error.message}`);

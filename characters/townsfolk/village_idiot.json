@@ -3,13 +3,15 @@
   "type": "townsfolk",
   "name": {
     "en": "Village Idiot",
-    "cn": "村中白痴"
+    "cn": "村夫"
   },
   "ability": {
-    "en": "Each night, choose a player: you learn their alignment. [+0 to +2 Village Idiots. 1 of the extras is drunk]"
+    "en": "Each night, choose a player: you learn their alignment. [+0 to +2 Village Idiots. 1 of the extras is drunk]",
+    "cn": "每个夜晚，你要选择一名玩家：你会得知他的阵营。[+0~2村夫，复数村夫中有一人醉酒]"
   },
   "flavor_text": {
-    "en": "\"Roses are blue, and violets are red, Please reverse what I just said.\""
+    "en": "\"Roses are blue, and violets are red, Please reverse what I just said.\"",
+    "cn": "“玫瑰花是蓝色哒！草桂花是红色哒！哦豁，俺说反啦！”"
   },
   "editions": [
     "experimental"
@@ -19,8 +21,8 @@
   "artist": "Chloe McDougall",
   "jinxes": [],
   "examples": [
-    "Doug, Lewis, and Amy are all Village Idiots. Doug is drunk. At night, they all choose Evin, the Kazali. Doug learns that Evin is good. Lewis and Amy learn that Evin is evil.",
-    "Ben and Marianna are Village Idiots. Marianna is drunk. Sarah is evil, and bluffing as the Village Idiot. Ben chooses Sarah and learns that she is evil. Marianna chooses the Heretic player and learns that they are good. Sarah claims to have chosen Ben and learnt that he is evil."
+    "道哥、小莱和小米都是村夫，道哥醉酒。在夜晚时，他们都选择了卡扎力小艾。道哥得知小艾是善良玩家。小莱和小米得知小艾是邪恶玩家。",
+    "小八和小明是村夫，小明醉酒。小美是邪恶玩家，并且伪装成村夫。小八选择了小美并得知她是邪恶玩家。小明选择了异端分子并得知他是善良玩家。小美声称自己选择了小八并得知他是邪恶玩家。"
   ],
   "tips": {
     "en": [
@@ -33,10 +35,22 @@
       "If a player is confirmed or strongly believed to be good or evil, choose them to determine whether you are the drunk VI or not.",
       "Be aware that the Storyteller may still give correct information to the drunk Village Idiot in order to prevent you becoming too powerful.",
       "Wait a while before revealing you are a Village Idiot. If three or more other players claim to be a Village Idiot, you’ll know at least one of them is lying."
+    ],
+    "cn": [
+      "找到你的村夫同伴。要想知道你们之中有谁醉酒了，最简单的方式就是比对你们的信息，找出其中相同之处和不同之处。同时，如果你是唯一的村夫，那么就说明你是清醒的！",
+      "与其他村夫合作，一起选择同一名玩家。这可以帮助你们确定你们谁醉酒了（如果其中有人的信息与其他人不同），或者确定是否有人在伪装成村夫（如果你们所有的信息都相同）。",
+      "如果正好只有两名村夫，而你们又无法确定谁醉酒了，那么一定要选择不同的玩家，这样你们仍然可以获得信息。如果你们两人始终选择相同的目标，将无法获得任何有效信息。",
+      "记住，有三人宣称自己是村夫并不能证明你们之中任何人是善良玩家。注意那些潜藏的邪恶玩家，如果村夫实际数量没有那么多，那么邪恶玩家就有机会伪装成村夫，并让你看起来像是醉酒了，但其实你并没有醉酒！",
+      "你也可以不必理会其他的村夫，假设你的信息就是正确的。如果所有的村夫都这么做，那么你们的能力效果叠加时总是会产生正向的收益。",
+      "尝试处决你认为醉酒的村夫以防万一，因为他们有可能实际上是邪恶玩家。",
+      "如果你确信某一玩家的阵营，那么就选择他，来检验自己是否是醉酒的。",
+      "但请注意，说书人仍然有可能向醉酒的村夫提供正确信息，以防止村夫的能力过于强大。",
+      "在透露自己是村夫之前先等待一小段时间。如果有三名或更多的玩家声称自己是村夫，你就知道他们之中至少有一人在撒谎。"
     ]
   },
   "how_to_run": {
-    "en": "While setting up the game, before putting the character tokens in the bag, replace zero, one or two Townsfolk tokens with Village Idiot tokens. While preparing the first night, mark one Village Idiot with the DRUNK reminder."
+    "en": "While setting up the game, before putting the character tokens in the bag, replace zero, one or two Townsfolk tokens with Village Idiot tokens. While preparing the first night, mark one Village Idiot with the DRUNK reminder.",
+    "cn": "在游戏设置时，将角色标记放入盲抽袋之前，使用额外的村夫角色标记替换掉其中的0~2个镇民角色标记。在为首个夜晚做准备时，（如果有超过一名村夫在场，）将村夫的“醉酒”提示标记放置到其中一个村夫角色标记旁。\n每个夜晚，唤醒任意一名村夫。让他指向一名玩家。对他给出拇指向上或向下的手势。让他重新入睡。重复这个操作，直到所有村夫玩家都进行了夜晚行动。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Village_Idiot"
 }
