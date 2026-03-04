@@ -5,14 +5,14 @@ const lang = getLangFromUrl(Astro.url);
 const routeBase = stripLangFromPath(Astro.url.pathname);
 ---
 
-<div class="flex gap-2 text-sm font-medium items-center ml-4 border-l border-indigo-700 pl-4">
+<div class="flex gap-2 text-sm font-medium items-center ml-4 border-l border-[rgba(215,180,106,0.35)] pl-4">
   {Object.entries(languages).map(([l, label]) => {
     const isCurrent = l === lang;
     const href = `${getBasePath(l as keyof typeof languages)}${routeBase === '/' ? '' : routeBase}`;
     return (
       <a 
         href={href} 
-        class={`transition ${isCurrent ? 'text-white underline' : 'text-indigo-300 hover:text-indigo-100'}`}
+        class={`transition ${isCurrent ? 'text-[color:var(--ink-50)] underline' : 'text-[color:var(--ink-200)] hover:text-[color:var(--accent-gold)]'}`}
       >
         {label}
       </a>

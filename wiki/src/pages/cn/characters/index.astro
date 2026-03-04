@@ -11,8 +11,13 @@ const t = useTranslations(lang);
 
 <BaseLayout title={`${t('nav.characters')} | Wiki`}>
   <div class="mb-8">
-    <h1 class="text-4xl font-bold mb-4 text-indigo-900">{t('nav.characters')}</h1>
-    <p class="text-lg text-slate-600">浏览和搜索血染钟楼的全部角色。</p>
+    <p class="uppercase tracking-[0.4em] text-xs text-[color:var(--ink-200)]">Grimoire Index</p>
+    <h1 class="font-display text-4xl sm:text-5xl mt-3 mb-3 text-[color:var(--ink-50)]">
+      {t('nav.characters')}
+    </h1>
+    <p class="text-base sm:text-lg text-[color:var(--ink-200)] max-w-2xl">
+      浏览和搜索血染钟楼的全部角色。
+    </p>
   </div>
   
   <CharacterList characters={characters} lang={lang} />

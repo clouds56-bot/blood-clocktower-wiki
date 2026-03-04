@@ -19,69 +19,74 @@ const t = useTranslations(lang);
 
 <BaseLayout title={`${data.name?.[lang] || data.name?.en || data.id} | Wiki`}>
   <div class="mb-6">
-    <a href={`${getBasePath('cn')}/characters`} class="text-indigo-600 hover:underline">{t('char.back')}</a>
+    <a href={`${getBasePath('cn')}/characters`} class="text-[color:var(--ink-200)] hover:text-[color:var(--accent-gold)] transition">{t('char.back')}</a>
   </div>
 
-  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
-    <header class="mb-6">
-      <div class="flex items-center gap-6 mb-4 flex-col md:flex-row">
-        <div class="w-40 h-40 rounded-lg overflow-hidden bg-slate-100 flex-shrink-0">
-          {
-            (() => {
-              const id = data.id || char.id.split('/').pop();
-              const imgField = data.image ? data.image.replace(/^\/+/, '') : `data/assets/tokens/${id}.png`;
-              const src = getAssetUrl(imgField);
-              return <img src={src} alt={data.name?.[lang] || data.id} class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'" />;
-            })()
-          }
-        </div>
-        <div class="flex-1 min-w-0">
-          <div class="flex items-baseline gap-4 mb-2">
-            <h1 class="text-4xl font-extrabold text-indigo-900 truncate">{data.name?.[lang] || data.name?.en}</h1>
-            {lang === 'cn' && data.name?.en && <span class="text-xl text-slate-500 truncate">{data.name.en}</span>}
-            {lang === 'en' && data.name?.cn && <span class="text-xl text-slate-500 truncate">{data.name.cn}</span>}
+  <div class="surface-panel rounded-3xl p-6 sm:p-8">
+    <header class="mb-8">
+      <div class="flex flex-col lg:flex-row lg:items-center gap-6">
+        <div class="flex justify-center lg:justify-start">
+          <div class="token-ring w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden bg-[color:var(--bg-700)] border border-[rgba(215,180,106,0.5)]">
+            {
+              (() => {
+                const id = data.id || char.id.split('/').pop();
+                const imgField = data.image ? data.image.replace(/^\/+/, '') : `data/assets/tokens/${id}.png`;
+                const src = getAssetUrl(imgField);
+                return <img src={src} alt={data.name?.[lang] || data.id} class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'" />;
+              })()
+            }
           </div>
         </div>
-      </div>
-      <div class="flex gap-2 text-sm font-medium">
-        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full capitalize">
-          {data.type}
-        </span>
-        {data.editions && data.editions.map((edition: string) => (
-          <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-full">
-            {edition.replace('_', ' ')}
-          </span>
-        ))}
+        <div class="flex-1 min-w-0">
+          <p class="uppercase tracking-[0.35em] text-xs text-[color:var(--ink-200)]">Character Dossier</p>
+          <div class="mt-3">
+            <h1 class="font-display text-4xl sm:text-5xl text-[color:var(--ink-50)] truncate">{data.name?.[lang] || data.name?.en}</h1>
+            {lang === 'cn' && data.name?.en && <div class="text-lg text-[color:var(--ink-200)] mt-2">{data.name.en}</div>}
+            {lang === 'en' && data.name?.cn && <div class="text-lg text-[color:var(--ink-200)] mt-2">{data.name.cn}</div>}
+          </div>
+          <div class="flex flex-wrap gap-2 mt-4 text-xs uppercase tracking-widest">
+            <span class="px-3 py-1 rounded-full border border-[rgba(215,180,106,0.4)] text-[color:var(--accent-gold)]">
+              {data.type}
+            </span>
+            {data.editions && data.editions.map((edition: string) => (
+              <span class="px-3 py-1 rounded-full border border-[rgba(255,255,255,0.15)] text-[color:var(--ink-200)]">
+                {edition.replace('_', ' ')}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     </header>
 
     {data.ability?.[lang] && (
-      <div class="mb-8 p-4 bg-slate-50 rounded-lg border-l-4 border-indigo-400">
-        <h2 class="font-bold text-lg mb-2 text-slate-800">{t('char.ability')}</h2>
-        <p class="text-lg text-slate-700 leading-relaxed">{data.ability?.[lang]}</p>
-        {data.ability?.[lang === 'en' ? 'cn' : 'en'] && (
-          <p class="mt-2 text-slate-600">{data.ability?.[lang === 'en' ? 'cn' : 'en']}</p>
-        )}
-      </div>
+      <section class="mb-10">
+        <div class="rounded-2xl border border-[rgba(215,180,106,0.35)] bg-[color:var(--bg-800)] p-5 sm:p-6">
+          <p class="uppercase tracking-[0.3em] text-xs text-[color:var(--ink-200)] mb-3">{t('char.ability')}</p>
+          <p class="text-lg sm:text-xl text-[color:var(--ink-50)] leading-relaxed">{data.ability?.[lang]}</p>
+          {data.ability?.[lang === 'en' ? 'cn' : 'en'] && (
+            <p class="mt-3 text-[color:var(--ink-200)]">{data.ability?.[lang === 'en' ? 'cn' : 'en']}</p>
+          )}
+        </div>
+      </section>
     )}
 
     {data.flavor_text?.[lang] && (
-      <blockquote class="italic text-slate-500 mb-8 border-l-4 border-slate-300 pl-4 py-1">
+      <blockquote class="italic text-[color:var(--ink-200)] mb-8 border-l-4 border-[rgba(215,180,106,0.45)] pl-4 py-1">
         "{data.flavor_text?.[lang]}"
         {data.flavor_text?.[lang === 'en' ? 'cn' : 'en'] && (
-          <div class="mt-1">{data.flavor_text?.[lang === 'en' ? 'cn' : 'en']}</div>
+          <div class="mt-2">{data.flavor_text?.[lang === 'en' ? 'cn' : 'en']}</div>
         )}
       </blockquote>
     )}
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       {data.tips?.[lang] && data.tips?.[lang].length > 0 && (
-        <section>
-          <h2 class="text-2xl font-bold mb-4 text-slate-800 border-b pb-2">{t('char.tips')}</h2>
+        <section class="surface-panel rounded-2xl p-5 sm:p-6">
+          <h2 class="font-display text-2xl mb-4 text-[color:var(--ink-50)] border-b soft-divider pb-2">{t('char.tips')}</h2>
           <ul class="space-y-4">
             {data.tips?.[lang].map((tip: string) => (
-              <li class="flex gap-3 text-slate-700">
-                <span class="text-indigo-400 mt-1">✦</span>
+              <li class="flex gap-3 text-[color:var(--ink-200)]">
+                <span class="text-[color:var(--accent-gold)] mt-1">✦</span>
                 <span>{tip}</span>
               </li>
             ))}
@@ -90,11 +95,11 @@ const t = useTranslations(lang);
       )}
 
       {data.examples?.[lang] && data.examples?.[lang].length > 0 && (
-        <section>
-          <h2 class="text-2xl font-bold mb-4 text-slate-800 border-b pb-2">{t('char.examples')}</h2>
+        <section class="surface-panel rounded-2xl p-5 sm:p-6">
+          <h2 class="font-display text-2xl mb-4 text-[color:var(--ink-50)] border-b soft-divider pb-2">{t('char.examples')}</h2>
           <ul class="space-y-4">
             {data.examples?.[lang].map((ex: string) => (
-              <li class="bg-slate-50 p-3 rounded border border-slate-200 text-slate-700 text-sm">
+              <li class="bg-[color:var(--bg-800)] p-4 rounded-xl border border-[rgba(215,180,106,0.2)] text-[color:var(--ink-200)] text-sm">
                 {ex}
               </li>
             ))}
@@ -104,15 +109,15 @@ const t = useTranslations(lang);
     </div>
 
     {data.how_to_run?.[lang] && (
-      <section class="mt-8 pt-6 border-t border-slate-200">
-        <h2 class="text-2xl font-bold mb-4 text-slate-800">{t('char.how_to_run')}</h2>
-        <p class="text-slate-700">{data.how_to_run?.[lang]}</p>
+      <section class="mt-10 pt-6 border-t soft-divider">
+        <h2 class="font-display text-2xl mb-4 text-[color:var(--ink-50)]">{t('char.how_to_run')}</h2>
+        <p class="text-[color:var(--ink-200)]">{data.how_to_run?.[lang]}</p>
       </section>
     )}
     
     {data.source_url && (
-      <div class="mt-10 text-sm text-slate-500 text-right">
-        <a href={data.source_url} target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 underline">
+      <div class="mt-10 text-sm text-[color:var(--ink-200)] text-right">
+        <a href={data.source_url} target="_blank" rel="noopener noreferrer" class="hover:text-[color:var(--accent-gold)] underline">
           {t('char.view_official')}
         </a>
       </div>
