@@ -8,41 +8,9 @@ const fs = require('fs');
 const path = require('path');
 const cheerio = require('cheerio');
 
-// Character lists from wiki categories
-const CHARACTERS = {
-  townsfolk: [
-    'Acrobat', 'Alchemist', 'Alsaahir', 'Amnesiac', 'Artist', 'Atheist',
-    'Balloonist', 'Banshee', 'Bounty_Hunter', 'Cannibal', 'Chambermaid',
-    'Chef', 'Choirboy', 'Clockmaker', 'Courtier', 'Cult_Leader', 'Dreamer',
-    'Empath', 'Engineer', 'Exorcist', 'Farmer', 'Fisherman', 'Flowergirl',
-    'Fool', 'Fortune_Teller', 'Gambler', 'General', 'Gossip', 'Grandmother',
-    'High_Priestess', 'Huntsman', 'Innkeeper', 'Investigator', 'Juggler',
-    'King', 'Knight', 'Librarian', 'Lycanthrope', 'Magician', 'Mathematician',
-    'Mayor', 'Minstrel', 'Monk', 'Nightwatchman', 'Noble', 'Oracle',
-    'Pacifist', 'Philosopher', 'Pixie', 'Poppy_Grower', 'Preacher', 'Princess',
-    'Professor', 'Ravenkeeper', 'Sage', 'Sailor', 'Savant', 'Seamstress',
-    'Shugenja', 'Slayer', 'Snake_Charmer', 'Soldier', 'Steward', 'Tea_Lady',
-    'Town_Crier', 'Undertaker', 'Village_Idiot', 'Virgin', 'Washerwoman'
-  ],
-  outsiders: [
-    'Barber', 'Butler', 'Damsel', 'Drunk', 'Golem', 'Goon', 'Hatter',
-    'Heretic', 'Hermit', 'Klutz', 'Lunatic', 'Moonchild', 'Mutant', 'Ogre',
-    'Plague_Doctor', 'Politician', 'Puzzlemaster', 'Recluse', 'Saint',
-    'Snitch', 'Sweetheart', 'Tinker', 'Zealot'
-  ],
-  minions: [
-    'Assassin', 'Baron', 'Boffin', 'Boomdandy', 'Cerenovus', 'Devil%27s_Advocate',
-    'Evil_Twin', 'Fearmonger', 'Goblin', 'Godfather', 'Harpy', 'Marionette',
-    'Mastermind', 'Mezepheles', 'Organ_Grinder', 'Pit-Hag', 'Poisoner',
-    'Psychopath', 'Scarlet_Woman', 'Spy', 'Summoner', 'Vizier', 'Widow',
-    'Witch', 'Wizard', 'Wraith', 'Xaan'
-  ],
-  demons: [
-    'Al-Hadikhia', 'Fang_Gu', 'Imp', 'Kazali', 'Legion', 'Leviathan',
-    'Lil%27_Monsta', 'Lleech', 'Lord_of_Typhon', 'No_Dashii', 'Ojo', 'Po',
-    'Pukka', 'Riot', 'Shabaloth', 'Vigormortis', 'Vortox', 'Yaggababble', 'Zombuul'
-  ]
-};
+// Load character config
+const CONFIG_PATH = path.join(__dirname, '..', 'config', 'characters.json');
+const CHARACTERS = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8')).characters;
 
 const BASE_URL = 'https://wiki.bloodontheclocktower.com';
 const OUTPUT_DIR = path.join(__dirname, '..', 'characters');
@@ -76,7 +44,7 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
  * Fetch HTML with caching
  */
 async function fetchWithCache(url, characterId) {
-  const cacheFile = path.join(CACHE_DIR, `${characterId}.html`);
+  const cacheFile = path.join(CACHE_DIR, `${characterId.toLowerCase().replace(/%27/g, "'")}.html`);
   
   // Try to read from cache
   if (fs.existsSync(cacheFile)) {

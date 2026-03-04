@@ -19,7 +19,7 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
  * Fetch HTML with caching
  */
 async function fetchWithCache(url, characterId) {
-  const cacheFile = path.join(CACHE_DIR, `${characterId}.html`);
+  const cacheFile = path.join(CACHE_DIR, `${characterId.toLowerCase().replace(/%27/g, "'")}.html`);
   
   // Try to read from cache
   if (fs.existsSync(cacheFile)) {
