@@ -35,6 +35,9 @@ jobs:
         run: pnpm install
 
       - name: Build wiki
+        env:
+          SITE_URL: "https://clouds56-bot.github.io"
+          BASE_PATH: "/blood-clocktower-wiki"
         run: pnpm -C wiki run build
 
       - name: Upload artifact
