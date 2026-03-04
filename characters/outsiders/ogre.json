@@ -6,10 +6,12 @@
     "cn": "食人魔"
   },
   "ability": {
-    "en": "On your 1st night, choose a player (not yourself): you become their alignment (you don't know which) even if drunk or poisoned.”"
+    "en": "On your 1st night, choose a player (not yourself): you become their alignment (you don't know which) even if drunk or poisoned.”",
+    "cn": "在你的首个夜晚，你要选择除你以外的一名玩家：你转变为他的阵营，即使你已醉酒或中毒，但你不知道你转变后的阵营。"
   },
   "flavor_text": {
-    "en": "\"<grunt><grin></grunt>\""
+    "en": "\"<grunt><grin></grunt>\"",
+    "cn": "<咽口水>\n<咧嘴笑>\n</咽口水>"
   },
   "editions": [
     "experimental"
@@ -23,6 +25,10 @@
       "Optional rule: Mark the Ogre’s chosen player with a FRIEND reminder. The Ogre is always the same alignment as their friend. If the Ogre’s friend changes alignment, the Ogre changes alignment too, but the Ogre does not learn this.\n\nThis is only recommended for games of 15 players or more, so that there are not too many evil players.",
       "On the first night, the Ogre chooses the Summoner. The Ogre becomes evil, and stays evil for the rest of the game.",
       "On the first night, the Ogre chooses the Banshee. The Ogre stays good. On the third night, the Mezepheles turns the Banshee evil. The Ogre remains good."
+    ],
+    "cn": [
+      "在首个夜晚，食人魔选择了召唤师。食人魔转变为邪恶阵营，并在游戏的余下时间里一直都是邪恶阵营。",
+      "在首个夜晚，食人魔选择了报丧女妖。食人魔保持善良阵营不变。在第三个夜晚，灵言师将报丧女妖转变为邪恶阵营。食人魔仍然是善良阵营。"
     ]
   },
   "tips": {
@@ -39,10 +45,25 @@
       "If someone is claiming to be the Ogre, the person they are claiming to have picked is almost always a good player. Either that player is really a good Ogre who is aligned with the friend, or that player is evil and bluffing Ogre, in which case they are more likely to have picked a good player as their imaginary friend.",
       "Get your friend to reveal everything they know - you don’t get information, so you’ll have to rely on other characters to share crucial information in the game. The only information that you will be close to sure of will come from your friend, so treat them well and request that they tell you everything that they know. Let them know that the more that they tell you, the more convinced you are that they are good, and the more that you will be able to help the good team. If your friend is evil and tells you everything that they know, then even better.",
       "If you are good and a player claims to be your Ogre, it is usually best to tell them what you know. Either they are good, and deserve to know what you know, or they are evil, and know the most important information about who is who already. Lie, or don’t tell your Ogre anything, if you want to test to see if they are really the Ogre."
+    ],
+    "cn": [
+      "与其他玩家相比，食人魔处在一个有趣的位置。因为你不知道你的阵营，但你清楚自己要为谁而战。在游戏初期就告诉你的朋友，你选择了他，这对你有利。并且向他表示忠诚，让他能够相信你。如果你想让玩家们相信你与你的朋友利益一致，你可以公开进行这种对话；如果你想与你的朋友密谋并制定游戏计划，你可以私下进行这种对话。",
+      "如果你的朋友不相信你，你要保持耐心。向他保证你说的都是实话，并利用好那些可以探查阵营信息的角色，比如厨师，让你的观点更具有说服力。",
+      "对你的朋友说真话，但对其他人撒谎，这可能会让游戏变得有趣，并且对你有利。如果你是善良的，而邪恶阵营不知道你的朋友是谁，他们可能会更容易忽视你的朋友。如果你是邪恶的，而善良阵营不知道你的朋友是谁，他们可能会更难解释当前的游戏局势。",
+      "不去告诉你的朋友你选择了他，而是先观察几天，这会对你有利。你可以通过观察他与谁交谈，他对谁投票，以及他看起来信任谁，来判断他和你的阵营是哪一方。",
+      "与你的朋友做相同的投票！如果你的朋友是邪恶的，他会以有利于你们阵营的方式投票；如果你的朋友是善良的，他很可能会以他认为对自己阵营有利的方式投票。",
+      "不要对你的朋友投票。你不知道他到底是善良的还是邪恶的。但不管他是什么阵营，如果他死于处决，你都是杀害队友。",
+      "告诉多名玩家你选择了他，看看他们会有什么反应，并且你能以此隐藏自己真正的朋友。既然你不知道自己正在为哪个阵营而战，那么混乱一点也无妨……对吧？",
+      "如果你的朋友的行为开始变得奇怪，而且剧本里有改变阵营的角色能力，你要假设最坏的情况——你的朋友可能已经加入敌对阵营！如果你担心你的朋友不再与同阵营的队友分享信息，你可能希望限制你们对他的分享内容，并且你会希望通过诸如共情者或艺术家这样的其他信息来源，帮助你去确认你的阵营，或者你朋友当前的阵营。",
+      "如果你用尽所有手段都无法确认自己的阵营，那么就假设你是善良的，从概率上来说这对你有利。",
+      "如果有玩家声称自己是食人魔，而他们声称选择的朋友几乎总是善良的。要么因为他是真的选中了善良玩家的食人魔，要么就是邪恶玩家正在伪装食人魔。邪恶玩家在伪装食人魔的时候可能更愿意选择一名善良玩家作为假想朋友。",
+      "让你的朋友向你透露他得知的所有事情——因为你无法获得信息，所以你必须依靠其他角色与你分享游戏中的关键信息。在游戏中，只有来自朋友的信息是你最能够信任的，因此好好对待你的朋友并请求他说出自己所知的一切。让他意识到，他告诉给你的越多，你越能确信他是善良的，然后你能够更好地帮助善良阵营。如果你的朋友是邪恶的，并向你透露一切，那就更好了。",
+      "如果你是善良玩家，同时有其他玩家声称自己是食人魔并过来找你，通常来说最好告诉他你知道的一切。他要么是善良玩家，那么他值得知道这一切；要么是邪恶玩家，那么他早已得知关于各个玩家身份的最关键内容。如果你想测试他是否是真的食人魔，你可以撒谎，或者不告诉他任何事情。"
     ]
   },
   "how_to_run": {
-    "en": "During the first night, wake the Ogre. The Ogre points to a player. Put the Ogre to sleep. If the Ogre pointed to an evil player, flip the Ogre's character token upside down to represent that the Ogre is evil."
+    "en": "During the first night, wake the Ogre. The Ogre points to a player. Put the Ogre to sleep. If the Ogre pointed to an evil player, flip the Ogre's character token upside down to represent that the Ogre is evil.",
+    "cn": "在首个夜晚，唤醒食人魔。让食人魔指向一名玩家。让食人魔重新入睡。如果食人魔指向了一名邪恶玩家，将食人魔的角色标记倒转放置，代表食人魔现在属于邪恶阵营。\n可选规则：使用“挚友”提示标记来标记被食人魔选择的玩家。食人魔始终与他所选择的玩家同一阵营。如果食人魔的挚友转变了阵营，食人魔也一同转变阵营，但食人魔不会得知自己的阵营发生变化。该可选规则仅在15人及以上的游戏中建议使用，以使得游戏中不会出现过多的邪恶玩家。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Ogre"
 }

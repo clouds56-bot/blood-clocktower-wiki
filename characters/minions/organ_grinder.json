@@ -6,10 +6,12 @@
     "cn": "街头风琴手"
   },
   "ability": {
-    "en": "All players keep their eyes closed when voting and the vote tally is secret. Each night, choose if you are drunk until dusk."
+    "en": "All players keep their eyes closed when voting and the vote tally is secret. Each night, choose if you are drunk until dusk.",
+    "cn": "所有玩家在投票时闭眼，且票数会秘密统计。\n每个夜晚，你要选择自己是否醉酒直到下个黄昏。"
   },
   "flavor_text": {
-    "en": "\"Round and round the handles go. The more you dance the less you know.\""
+    "en": "\"Round and round the handles go. The more you dance the less you know.\"",
+    "cn": "“如果你想让别人听信你的花言巧语，那么就搭配上一段音乐吧。”\n（英文维基上的背景描述与角色详解中的不同，此处也一并贴出。见下）\n“曲柄划圆吱呀吱，舞步渐狂心渐痴。”"
   },
   "editions": [
     "experimental"
@@ -22,6 +24,9 @@
     "en": [
       "Players are not allowed to use other methods to determine who is voting, such as touch or sound. It is a secret.",
       "There are 8 players alive. The Noble is nominated. All players close eyes to vote and the Noble gets 5 votes. The Imp is nominated. All players close eyes to vote and the Imp gets 7 votes. The Pixie is nominated. All players close eyes to vote and the Pixie gets 4 votes. After nominations close, the Storyteller declares that Doug (the Imp) is executed and dies, and that good has won."
+    ],
+    "cn": [
+      "有八名玩家存活。贵族被提名了。所有玩家闭眼投票，贵族获得了5票。小恶魔被提名了。所有玩家闭眼投票，小恶魔获得了7票。小精灵被提名了。所有玩家闭眼投票，小精灵获得了4票。在提名阶段结束时，说书人宣布道哥（小恶魔的玩家）被处决并死亡，善良阵营获胜。"
     ]
   },
   "tips": {
@@ -39,7 +44,8 @@
     ]
   },
   "how_to_run": {
-    "en": "Each night, wake the Organ Grinder. The Organ Grinder either nods or shakes their head. If they nod their head, mark them with the DRUNK reminder. Put the Organ Grinder to sleep."
+    "en": "Each night, wake the Organ Grinder. The Organ Grinder either nods or shakes their head. If they nod their head, mark them with the DRUNK reminder. Put the Organ Grinder to sleep.",
+    "cn": "每个夜晚，唤醒街头风琴手点头或摇头。街头风琴手如果点头：放置“醉酒”提示标记；如果摇头：不放置“醉酒”提示标记。让街头风琴手重新入睡。\n当一名玩家被提名后开始投票时，如果街头风琴手是清醒的，要求所有玩家闭上双眼。如果有玩家询问原因，那么告诉他们街头风琴手在场。秘密无声地进行票数的统计。在那之后，不要告诉大家有多少玩家投了票，也不告诉大家被提名者是否“即将被处决”。如果被提名者有足够被处决的票数，标记那名玩家“即将被处决”。告诉所有玩家可以睁开眼睛了，并继续处理接下来可能会有的提名。\n当一天的所有提名都结束时，宣布当前被标记了“即将被处决”的玩家被处决（并死亡，或因为其他原因没有死亡）。\n黄昏时，移除街头风琴手的醉酒提示标记。\n玩家不允许使用任何手段或方式来决定谁来投票，例如触碰或是声响。投票必须是秘密进行的。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Organ_Grinder"
 }

@@ -6,10 +6,12 @@
     "cn": "莽夫"
   },
   "ability": {
-    "en": "Each night, the 1st player to choose you with their ability is drunk until dusk. You become their alignment."
+    "en": "Each night, the 1st player to choose you with their ability is drunk until dusk. You become their alignment.",
+    "cn": "每个夜晚，首个使用其自身能力选择了你的玩家会醉酒直到下个黄昏。你会转变为他的阵营。"
   },
   "flavor_text": {
-    "en": "\"Yes boss. I explained fings real good to dat geezer. He don't want me explain it again. Nah boss, I don't need no doctor - it's only a knife wound. Be right come mornin'\""
+    "en": "\"Yes boss. I explained fings real good to dat geezer. He don't want me explain it again. Nah boss, I don't need no doctor - it's only a knife wound. Be right come mornin'\"",
+    "cn": "“是的，老大。我跟那个家伙好好解释过了。他不愿意再听我解释一遍。不不，老大，我不需要医生——只是刀伤而已。明天早上就好了。”"
   },
   "editions": [
     "bad_moon_rising"
@@ -24,6 +26,12 @@
       "The Shabaloth attacks the Goon, then the Gossip. Since the Shabaloth became drunk as soon as they chose the Goon, neither player dies tonight, and the Goon turns evil. The next night, the Shabaloth attacks the Gambler then the Goon. The Gambler dies, then the Shabaloth becomes drunk again. The Goon is still alive and still evil.",
       "The Chambermaid chooses the Goon and the Minstrel, and learns a \"1\" because the Chambermaid is drunk.",
       "The Tea Lady neighbours the good Goon and the Tinker. The Tinker is executed, but does not die. The next day, the Goon is evil. The Tinker is executed again and dies."
+    ],
+    "cn": [
+      "侍臣选择了莽夫。莽夫转变为善良阵营，并且侍臣醉酒。",
+      "沙巴洛斯攻击了莽夫和造谣者。由于沙巴洛斯在选择莽夫的那一刻就醉酒，所以莽夫和造谣者都不会死亡，且莽夫转为邪恶。在下一个夜晚，沙巴洛斯攻击了赌徒和莽夫。赌徒死亡，然后沙巴洛斯因为莽夫而再次醉酒。莽夫仍存活且仍为邪恶。",
+      "侍女选择了莽夫和吟游诗人，并得知了“1”，因为侍女醉酒了。\n（此范例假设了侍女是当夜首个使用能力选择莽夫的角色，且莽夫仍为善良，因此在本该得知0的基础上因为醉酒所以得知了1）",
+      "茶艺师的邻近玩家是善良的莽夫和修补匠。修补匠被处决但没有死亡。在下一个白天，莽夫转变为邪恶阵营。修补匠再次被处决，并且死亡。"
     ]
   },
   "tips": {
@@ -33,10 +41,18 @@
       "It is unlikely that you will die at night. Thanks to your powerful ability, other character's abilities will malfunction before they even get close - this is true even of the Pukka, who malfunctions before they can poison you. (Beware the Assassin though, who trumps you - the evil team can remove you if you annoy them too much!)",
       "As you approach the end of the game, the alignment you currently are is probably the team you will be winning or losing with. If you are good, this means it is time to help - reveal who you are and give out your information! If your alignment switched on certain nights, that can be indications of when abilities failed, and can expose evil players using your silence as a safe space to bluff in. Once you do this, you'll really want to get the demon ASAP - the evil team could flip you if there's another night or two, and if that's the case you could very well hand the good team what they need to win and then not get to enjoy it.",
       "If you are evil near the end of the game, it is time to sow some chaos (if you haven't been already!). While you have the option of revealing as the Goon and claiming to be good, this is not remotely your only option - you can bluff as anything you like to create confusion, or even just to keep up the facade that you are good when you are in fact a secret fourth evil vote. Trying to find the other evil players may be a good idea at this point too, so you can be sure you're coordinating with the right bunch of dastardly ne'er-do-wells."
+    ],
+    "cn": [
+      "与其他玩家相比，莽夫处于一个有趣的位置，因为直到最后你都无法确定自己将为哪个阵营效力。安静地坐着，虚张声势，看看游戏如何展开对你有利——你的能力会给你大量的信息，你将处于一个很好的位置来帮助你的团队进入游戏尾声……不管你站在哪一边。",
+      "或者，特别是如果你早早变成邪恶阵营——出来吧！让两个阵营都知道你在比赛中可以让他们为你的忠诚而战，这总是很有趣。这还可以让双方的玩家都知道以你为目标是一个糟糕的选择……如果这是你想要解决的问题。请注意，如果你在一个热衷于处决的嗜血城镇，这可能会有风险——他们可能会因为潜在的邪恶罪行而处决您。不过你可以试着阻止他们——指出一旦你死了，你的阵营就会被锁定，因为你会失去你的能力，而如果他们让你活着，可能让你重新变回善良的！",
+      "你不太可能在晚上死去。多亏了你强大的能力，其他角色的能力在他们触发之前就会出现问题 - 即使是普卡也是如此，他们在毒死你之前就出现了问题。（不过要当心刺客，他可以直接杀死你——如果你惹恼他们，邪恶的小队可以把你送走！）",
+      "当接近游戏结束时，你目前的阵营可能胜利也可能失败。如果你是善良的，这意味着是时候提供帮助了——揭示你是谁并提供你的信息！如果你的阵营在某些晚上改变，这可能是能力失败的迹象，并且可能暴露邪恶的玩家在利用你的沉默作为一个安全的空间来虚张声势。一旦你这样做了，那你真的需要尽快找到恶魔——如果还有一两个晚上，邪恶阵营可能会让你失望，如果是这样的话，你可以很好地把他们获胜的关键信息交给善良阵营，然后邪恶阵营就无法享受它了。",
+      "如果你在游戏快结束时是邪恶的，那么是时候散布一些混乱了（如果你还没有这样做的话！）。虽然你可以选择作为莽夫自称是善良阵营，但这并不是你唯一的选择——你可以随心所欲地虚张声势，制造混乱，甚至只是为了维持你善良的外表但实际上为邪恶。在这一点上尝试寻找其他邪恶的玩家也可能是一个好主意，从而你可以和其他邪恶玩家沟通合作。"
     ]
   },
   "how_to_run": {
-    "en": "At night, if a player chooses to use their ability on the Goon and nobody is marked with the Goon’s DRUNK reminder, this player immediately becomes drunk—mark them with the DRUNK reminder. Finish resolving this player’s ability and put them to sleep. If this player’s alignment is different from the Goon’s alignment, rotate the Goon’s character token—right side up for good, upside-down for evil—to match this player’s alignment, then wake the Goon, give them a thumbs-up or a thumbs-down (indicating their new alignment), then put the Goon to sleep."
+    "en": "At night, if a player chooses to use their ability on the Goon and nobody is marked with the Goon’s DRUNK reminder, this player immediately becomes drunk—mark them with the DRUNK reminder. Finish resolving this player’s ability and put them to sleep. If this player’s alignment is different from the Goon’s alignment, rotate the Goon’s character token—right side up for good, upside-down for evil—to match this player’s alignment, then wake the Goon, give them a thumbs-up or a thumbs-down (indicating their new alignment), then put the Goon to sleep.",
+    "cn": "在夜晚，如果一名玩家用自己的能力选择了莽夫，并且莽夫的“醉酒”提示标记未激活，那么该玩家立即醉酒——将“醉酒”标记放置到该玩家角色标记旁。完成该玩家的能力结算并让他重新入睡。如果该玩家与莽夫阵营不同，旋转莽夫的角色标记（正向放置代表善良，颠倒放置代表邪恶）以符合他的阵营，然后唤醒莽夫，对他做出拇指手势（指明他的新阵营），然后让莽夫重新入睡。\n在下一个黄昏，因莽夫而醉酒的玩家恢复清醒——移除莽夫的“醉酒”提示标记。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Goon"
 }

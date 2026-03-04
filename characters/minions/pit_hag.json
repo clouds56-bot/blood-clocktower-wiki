@@ -6,10 +6,12 @@
     "cn": "麻脸巫婆"
   },
   "ability": {
-    "en": "Each night*, choose a player & a character they become (if not in play). If a Demon is made, deaths tonight are arbitrary."
+    "en": "Each night*, choose a player & a character they become (if not in play). If a Demon is made, deaths tonight are arbitrary.",
+    "cn": "每个夜晚*，你要选择一名玩家和一个角色，如果该角色不在场，他变成该角色。如果因此创造了一个恶魔，当晚的死亡由说书人决定。"
   },
   "flavor_text": {
-    "en": "\"Round about the cauldron go; In the poison'd entrails throw; Toad, that under cold stone; Days and nights has thirty-one; Sweated venom sleeping got; Boil thou first in the charmed pot.\""
+    "en": "\"Round about the cauldron go; In the poison'd entrails throw; Toad, that under cold stone; Days and nights has thirty-one; Sweated venom sleeping got; Boil thou first in the charmed pot.\"",
+    "cn": "“绕釜环行火融融，毒肝腐脏寘其中。\n蛤蟆蛰眠寒石底，三十一日夜相继；\n汗出淋漓化毒浆，投之鼎釜沸为汤。”"
   },
   "editions": [
     "sects_violets"
@@ -25,6 +27,11 @@
       "The Pit-Hag tries to turn the Savant into the Sage, but nothing happens because a Sage is already in play.",
       "The Pit-Hag turns the Flowergirl into the Evil Twin. Now, there is a good Evil Twin, so the Evil Twin and an evil player are woken to learn each other's character.",
       "During the final night, the Pit-Hag turns the Oracle into a good No Dashii. The Storyteller kills the evil Demon only, so that only one Demon is alive during the final day."
+    ],
+    "cn": [
+      "麻脸巫婆试图将博学者变成贤者，但无事发生，因为贤者在场。",
+      "麻脸巫婆将卖花女孩变成镜像双子。现在，有一名善良阵营的镜像双子，所以镜像双子和一名邪恶玩家被唤醒并得知彼此的角色。",
+      "在最后一个夜晚，麻脸巫婆将神谕者变成善良的诺-达鲺。说书人只杀死了邪恶的恶魔，这样只有一个恶魔在最后一个白天存活。"
     ]
   },
   "tips": {
@@ -40,10 +47,29 @@
       "At some stage in the game, stop transforming people. As long as you transform people, the good team will know that you are still alive, since a dead Pit-Hag has no ability. This strategy is particularly useful in a game with only one Minion, or a game where the only other Minion is the Evil Twin. If the good players know that all Minions are still alive, then they also know that all executed players are good. But when they get suspicious that a Minion is dead, from that point onward, they won't know which dead players are good, and which are evil.",
       "If a fellow evil player is claiming to be the victim of the Cerenovus, or they are claiming that an Evil Twin is in play, then their claims may clash with a good player's claim that they were transformed by the Pit-Hag. If there is only meant to be 1 Minion in the game, and that Minion is the Pit-Hag, then claiming to be affected by the Cerenovus will not make sense. Pay attention to your fellow evil players, and don't transform people at night if you want their claims to be believed.",
       "You can transform Travellers... maybe. It's an optional rule that your Storyteller may allow. Be careful though, as if a Traveller is changed into a non-Traveller, their token in the Town Square is changed so everyone will know there is a Pit-Hag in play."
+    ],
+    "cn": [
+      "你的能力会改变玩家的角色，但不会改变他们的阵营。这意味着如果你把一个善良玩家变成一个女巫，他们将是一个善良的爪牙。同样，如果您将邪恶玩家转变为哲学家，他们现在是邪恶阵营的镇民。在决定转变谁时请记住这一点 - 创造邪恶的镇民/外来者，甚至是善良的爪牙/恶魔都有好处，但是记得你的能力并不能让某一名善良玩家加入邪恶阵营。",
+      "创造新恶魔是麻脸巫婆的一项独特能力。您可以将现有的恶魔转化为不同的恶魔角色（让涡流进入游戏中），但你也可以通过将邪恶玩家变成新的恶魔来“转移”恶魔，最后你可以通过改造任何敌人来创造一个善良恶魔！当然，这种能力有一个主要的缺点——说书人会通过控制当晚的死亡来平衡你所做的任何操作。通常来说，“转移”恶魔会导致邪恶玩家（通常是前一个恶魔）死亡 - 说书人不允许多个邪恶恶魔活着的情况下继续游戏！所以更微妙的操作是，改变在场的恶魔角色，这可能根本不会导致死亡，所以善良阵营可以借此发现一些变化的迹象。最后，虽然他们可能会允许有一个善良恶魔共存，但你应该小心，因为那个善良恶魔也有杀戮的能力，并且能紧紧咬住邪恶阵营！（另外，小心对待亡骨魔一旦它变成别的东西，如果你是保留能力的死亡爪牙，你就会失去能力！）",
+      "创造外来者！有一个讨厌的博学者得到很多有用的信息吗？把他们变成心上人！怀疑某人是试图欺骗你的恶魔的贤者？现在他们是一个卑微的呆瓜了，死去不再是一件那么幸运的事了！你的恶魔是无处可藏的方古？创造一个新的！",
+      "通过将他们变成对当前游戏配置不太有用的镇民来削弱麻烦的镇民。例如，如果你的恶魔是亡骨魔，神谕者将是一个特别危险的角色，而钟表匠的信息可能不会那么令人担忧。或者（在提醒你的恶魔之后），你可以将玩家变成像贤者一样很有用的镇民，抵消他们原本的强大能力。总是简单地将别人变成外来者似乎更容易，但请记住，您只能将某人变成不在场角色 - 最好让一些信息流逝而不是因为已经有一个理发师潜伏在其中而使转换失败。",
+      "与您的邪恶阵营沟通，以充分利用您的转换。没有什么比把一个镇民变成无用的东西并在第二天早上醒来看到你的恶魔选择了同样的目标并杀死他们更让他们沮丧的了。与你的恶魔和爪牙一起消灭多个目标是非常有效的。或者，您可以在您的恶魔杀死他们时创造一个呆瓜，让您的受害者措手不及（因为他们不会考虑在他们死亡的情况下该信任谁）。",
+      "创造爪牙！即使是善良爪牙！像女巫和洗脑师这样的角色很有趣，即使在善良阵营中也会造成很大的伤害。如果场上有一个特别爱针对他人或似乎非常偏执的玩家......并且思路是错误的，请让他们有能力根据自己的冲动采取行动并坐下来欣赏大屠杀。同样的，你要注意——这些能力对你也是有效的！",
+      "转变你自己！虽然这将意味着你能转变的日子结束了，但很多时候将自己变成另一个角色会改变游戏的状态。善良玩家赢得了大家的信任吗？成为诺-达鲺并接管恶魔！想偷偷地破坏卖花女孩的信息？变身邪恶的哲学家，获得卖花女孩的能力并让她醉倒！只是感觉游戏节奏慢了？成为女巫，诅咒那个打算提名的玩家！",
+      "如果你没有在夜晚改造一个玩家，你可以让邪恶玩家声称他们被改造成了邪恶阵营的角色，即使他们不是。公开声称自己是被改造的玩家往往会立即得到善良玩家的信任，因为麻脸巫婆通常会改造善良玩家。或者，如果你是昨晚被麻脸巫婆改造的邪恶玩家。告诉大家，你已经变成了……变成了一个善良角色。",
+      "在游戏的某个阶段，不再进行有效的改造。（比如选择改造自己为麻脸巫婆）只要你改造了玩家，善良阵营就会知道你还活着，因为一个死了的麻脸巫婆没有能力。这种策略在只有一个爪牙的游戏，或者另一个爪牙是镜像双子的游戏中特别有用。如果善良玩家知道所有爪牙还活着，那么他们也知道所有被处决的玩家都是善良的。但是当他们怀疑一个爪牙已经死了，从那时起，他们将不知道哪些死去的玩家是善良的，哪些是邪恶的。",
+      "如果一个邪恶玩家声称自己是洗脑师的受害者，或者他们声称镜像双子在场，那么可能会与一个善良玩家声称他们被麻脸巫婆发生冲突。如果游戏中只有麻脸巫婆在场，那么声称受到洗脑师影响是没有意义的。注意你的邪恶玩家，如果你想让他们的说法被相信，不要在晚上改造他们。",
+      "如果你被麻脸巫婆变成了不同的角色，请立即告诉大家昨晚发生了什么。大家会更倾向于认为你是善良的，仅仅是因为麻脸巫婆针对了你。",
+      "只要发生转变，您就可以知道麻脸巫婆还活着。这意味着死去的玩家更容易被认为他是善良的。在只有1个爪牙的游戏中，只要麻脸巫婆通过更换角色来表明他们还活着，你就可以相信迄今为止被处决的所有玩家，因为他们都一定是善良的。",
+      "如果有玩家之前已经被改造，但昨晚没有人被改造，要么是麻脸巫婆昨晚改造了一个邪恶玩家（他没有告诉大家），要么是麻脸巫婆选择了一个游戏中的角色，或者是麻脸巫婆已经死了。如果没有发生任何转换，请调查这些可能性，看看它们是否带给您任何有用的信息。",
+      "如果夜间死亡人数超过1，那么说明麻脸巫婆可能创造了一个新的恶魔。通常来说，如果麻脸巫婆将恶魔玩家变成另一个恶魔角色，晚上不会发生死亡。如果麻脸巫婆创造了一个新的恶魔玩家（例如，通过将自己或同伴爪牙改造成恶魔），那么晚上会发生2次死亡……其中一个很可能是恶魔！当这些不寻常的死亡情况发生时，那你可以假设恶魔已经改变了——它现在可能是一个之前不在场的涡流，或者它现在可能是一个方古，而之前它是一个诺-达鲺，这意味着相邻的镇民不再中毒。",
+      "请记住，如果你是一个善良玩家，并且变成了女巫，你仍然是好人 - 现在可以使用你的女巫能力诅咒人......如果你幸运的话，甚至可能诅咒到邪恶玩家。如果你是一个善良玩家，并且变成了一个恶魔，那么你就是一个善良恶魔——你可以利用你的能力在晚上杀死玩家，并可能以这种方式杀死邪恶的恶魔。如果您确实成为了一个好恶魔，请记住只有在包括您在内的所有恶魔都死了之后，善良才会获胜，因此您和邪恶的恶魔都需要死去才能使善良获胜。",
+      "麻脸巫婆的能力只能创造不在游戏中的角色——所以声称自己是一个不受欢迎的角色，麻脸巫婆就不会试图将玩家变成它。例如，如果你声称自己是心上人，那么麻脸巫婆就不会试图将镇民变成心上人，而是可能意外选择在游戏中的角色……这意味着不会发生任何转变。即使麻脸巫婆创造了新角色，通过声称自己是不受欢迎的角色，你几乎可以保证麻脸巫婆不会创造出那个特别不受欢迎的角色。"
     ]
   },
   "how_to_run": {
-    "en": "Each night except the first, wake the Pit-Hag. They point at any player and any character icon on their character sheet. Put the Pit-Hag to sleep."
+    "en": "Each night except the first, wake the Pit-Hag. They point at any player and any character icon on their character sheet. Put the Pit-Hag to sleep.",
+    "cn": "除首夜外的每个夜晚，唤醒麻脸巫婆。让她指向一名玩家和角色列表上的一个角色图标。让麻脸巫婆重新入睡。\n如果她选择的角色在场，无事发生。\n如果她选择的角色不在场，则唤醒所选玩家。依次向他展示“你是”信息标记、他的新角色标记，然后让他重新入睡。用新角色标记替换他的旧角色标记。（你可能需要倒置角色标记，表示玩家阵营与该角色原本阵营相反。同样你可能也需要通过手势来提醒玩家，他的阵营没有改变。）\n如果有玩家因此变成恶魔，你能在当晚杀死任意数量的玩家或阻止被恶魔攻击的玩家死亡来平衡游戏。由你选择且未被恶魔选择的玩家的死亡视为被麻脸巫婆杀死。\n如果麻脸巫婆将恶魔变成另一种恶魔，最好是让今晚无人死亡，以此来提示善良阵营恶魔的角色发生了变化。你可以在唤醒恶魔并让他选择攻击目标后，再决定无人死亡。如果麻脸巫婆创造了新的邪恶恶魔，最好杀死老恶魔和一名其他玩家，以此提示善良阵营恶魔玩家已经改变了。如果麻脸巫婆创造了善良恶魔，最好杀死一个恶魔（如果是最后一夜），或让两个恶魔一同肆虐（如果不是最后一夜）但由于所有恶魔都死亡善良阵营才能获胜，所以请谨慎使用这种方法。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Pit-Hag"
 }

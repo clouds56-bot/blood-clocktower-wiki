@@ -6,10 +6,12 @@
     "cn": "管家"
   },
   "ability": {
-    "en": "Each night, choose a player (not yourself): tomorrow, you may only vote if they are voting too."
+    "en": "Each night, choose a player (not yourself): tomorrow, you may only vote if they are voting too.",
+    "cn": "每个夜晚，你要选择除你以外的一名玩家：明天白天，只有他投票时你才能投票。"
   },
   "flavor_text": {
-    "en": "\"Yes, sir...\n\t\t\t\tNo, sir...\n\t\t\t\tCertainly, sir.\""
+    "en": "\"Yes, sir...\n\t\t\t\tNo, sir...\n\t\t\t\tCertainly, sir.\"",
+    "cn": "“是的，先生……不对，先生……当然，先生。”"
   },
   "editions": [
     "trouble_brewing"
@@ -23,6 +25,11 @@
       "The Butler chooses Filip to be their Master. Tomorrow, if Filip raises his hand to vote on an execution, then the Butler may too. If not, then the Butler may not raise their hand.",
       "A nomination is in progress. The Butler and their Master both have their hands raised to vote. As the Storyteller is counting votes, the Master lowers their hand at the last second. The Butler must lower their hand immediately.",
       "The Butler is dead. Because dead players have no ability, the Butler may vote with their vote token at any time."
+    ],
+    "cn": [
+      "管家选择小黑成为他的主人。明天，如果小黑在一次处决中举手投票了，那么管家也可以一同参与投票。否则，管家无法举手投票。",
+      "当前正处于一次提名的流程中。管家和他的主人一同举手投票。轮到说书人开始计票时，管家的主人在最后一秒放下了自己的手。管家此时也必须立刻放下自己的手。",
+      "管家死了。因为死亡的玩家没有任何能力，因此管家可以使用他的投票标记在任何时候投票。"
     ]
   },
   "tips": {
@@ -35,10 +42,19 @@
       "If particular other players think that you are evil, and want to execute you, you can often win their support by promising to be their Butler tonight. If you ask them not to nominate or vote for you today, and in return you will choose them as your master tonight, they will often agree, and keep you alive.",
       "You may choose a dead player to be your Master. Sometimes, you will do so without intending to, if you and the Imp choose the same player. If this happens, you might find it hard to vote that day, but if you know tomorrow will be the last day, it can be beneficial to tie your vote to that of someone you trust to vote for the Demon - perhaps the Librarian who saw you, or else the Virgin whom you all know to be good?",
       "This is not a tip, but a word of warning: the onus is on you as a player to remember your ability. You may not under any circumstances vote if your Master didn't. The Storyteller will still count your vote, but by voting when your ability doesn't allow you to, you have broken the rules of the game. If this happens at a time when it doesn't affect the game, usually your Storyteller and fellow players will understand, but it's nonetheless important to only vote when you're allowed to."
+    ],
+    "cn": [
+      "被你选为\"主人\"的那名玩家非常重要。你的投票依然按照正常的投票计数，只不过在你的主人不举手的情况下你不能投票。既然如此，你就需要仔细听场上玩家的发言，并且找出哪些玩家是善良阵营的。如果你的主人是邪恶的，你就只能在一些没用的时候投票。如果你的主人是善良的，你就可以投出有意义的一票。找到一个善良的主人，然后紧紧跟随他。",
+      "如果你告诉你的主人你选择了他，他在投票时基本就会默认你也会跟着投。观察你的主人在何时希望你投票能够让你发现一些细节，帮助你判断他到底是善良的还是邪恶的。一个邪恶阵营的主人可能会鼓动你去投一个看起来比较可信的玩家。",
+      "你的主人不投票，你就不可以投票，但是这不意味着在他投票时你必须投票。记得只去投那些你认为是邪恶阵营的玩家，或者是值得你投出一票的人。",
+      "被你选做主人的玩家通常是会相信你的，他也会希望你保持存活。毕竟，你也是他权力中的一部分。帮你活下来能让他获得最大的利益，因此如果有人要提名你，这个时候建立起来的信任就会帮助到你。",
+      "你可以选择一名死亡玩家作为你的主人。但是要小心一点——因为死亡玩家仅剩一票可用了，他可能暂时不会用这一票，这意味着你可能根本就没机会投票。",
+      "如果其他玩家认为你是邪恶玩家，并且想要处决你，你通常能够通过承诺晚上去做他的管家来赢得他的信任。如果你让他今天不要提名你，并且答应在今晚选他做你的主人，对方经常是会同意并且让你保持存活的。"
     ]
   },
   "how_to_run": {
-    "en": "Each night, wake the Butler. They point at any player. Mark this player with the MASTER reminder token. Put the Butler to sleep."
+    "en": "Each night, wake the Butler. They point at any player. Mark this player with the MASTER reminder token. Put the Butler to sleep.",
+    "cn": "每个夜晚，唤醒管家。让管家指向除自己外的任意一名玩家。用“主人”提示标记来标记这名玩家。让管家重新入睡。\n在一次提名中，管家只能在主人举手投票，或主人的投票已经被统计时，才能举手投票。\n如果管家不小心进行了违规投票，仍统计管家的票。因为如果不这么做，实际的总票数会比原本的总票数少，因此所有玩家都会知道谁是管家，这对邪恶阵营来说非常不公平。人总会犯错。继续进行游戏，并在稍后私下提示管家。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Butler"
 }

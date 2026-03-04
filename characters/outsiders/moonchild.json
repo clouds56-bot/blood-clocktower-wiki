@@ -6,10 +6,12 @@
     "cn": "月之子"
   },
   "ability": {
-    "en": "When you learn that you died, publicly choose 1 alive player. Tonight, if it was a good player, they die."
+    "en": "When you learn that you died, publicly choose 1 alive player. Tonight, if it was a good player, they die.",
+    "cn": "当你得知你死亡时，你要公开选择一名存活的玩家。如果他是善良的，在当晚他会死亡。"
   },
   "flavor_text": {
-    "en": "\"Scorpio looks sideways at the lovers, and you have a choice to make. With silver cross my palm, and your fate shall be revealed. With steel cross my throat, and by the stars you shall regret it.\""
+    "en": "\"Scorpio looks sideways at the lovers, and you have a choice to make. With silver cross my palm, and your fate shall be revealed. With steel cross my throat, and by the stars you shall regret it.\"",
+    "cn": "“天蝎座侧身遥望恋人，此刻即为抉择进行之时。\n以白银拂过我的掌心，你的宿命将在此地揭示。\n以钢铁穿过我的咽喉，群星在上你将追悔莫及。”"
   },
   "editions": [
     "bad_moon_rising"
@@ -24,6 +26,11 @@
       "The Pukka kills the Moonchild. The next morning, the Moonchild chooses a player, who is the Exorcist. That night, the Exorcist dies.",
       "The Pacifist is in play. The Moonchild is executed but remains alive. The Moonchild does not choose a player, because the Moonchild did not die.",
       "The Shabaloth eats the Moonchild. The Moonchild chooses the Assassin, who remains alive. The Shabaloth regurgitates the Moonchild. A few nights later, the Shabaloth eats the Moonchild again. This time, the Moonchild chooses the Gossip, who dies."
+    ],
+    "cn": [
+      "普卡杀死了月之子。在下一个白天，月之子选择了一名玩家，该玩家是驱魔人。当晚，驱魔人死亡。",
+      "和平主义者在场。月之子被处决但依然存活。月之子无法选择玩家，因为月之子没有死亡。",
+      "沙巴洛斯吞食了月之子。月之子选择了刺客，刺客依然存活。沙巴洛斯当晚再次吞食了月之子，并在下一夜将其反刍。几个夜晚后，沙巴洛斯又吞食了月之子。这一次，月之子选择了造谣者，造谣者死亡。"
     ]
   },
   "tips": {
@@ -34,10 +41,19 @@
       "On death, choose someone you suspect is evil. There's a couple of great reasons for this! Firstly, if you believe that the following night is going to see a lot of death (e.g., a Po has charged up), then the extra kill from your ability might be the one that pushes the game firmly in evil's favor. Secondly, should that player not die? You can now be reasonably confident that they are evil. The confirmation is not as drastic as confirming someone as good, but if you believe you are sober, then regard that player with a lot of suspicion moving forward - there's usually more than one clue that someone isn't who they claim to be.",
       "When choosing the player you intend to pick, be aware that characters that \"cannot die\" or are protected at night will not die as a result of your ability. This includes characters like the Sailor and Fool, and players in the company of a Tea Lady or an Innkeeper. Try to have a good idea of who is who before you die, so you can choose around these character. Or, if you want to avoid an extra death, you can deliberately choose one of them, keeping the death toll from rising too dramatically.",
       "If the Godfather is in play, they will get the chance to kill the same night that you die and curse someone. If you suspect a Godfather, be aware of this extra kill and plan your choice accordingly. Also be aware that they could choose to trick you into believing you killed a good player, but in fact it was an evil minion thrown under the bus to sow chaos and confusion in the afterlife!"
+    ],
+    "cn": [
+      "如果可以的话，尽量避免死亡！即使你是外来者，你仍然是一名善良玩家，在这个剧本中，并没有很多善良玩家是多余的。对你来说尤其如此，因你的能力额外死的玩家一定是好人，你甚至不能指望带走一个邪恶的人。用难以杀死的角色（比如弄臣或莽夫）来伪装以避开恶魔的注意是一个不错的选择，尤其是如果你悄悄地向善良的玩家表露你的角色，他们就不会轻易处决你。或者，在绝对必要之前，你可以不向任何人承认任何事情，从而保证自己的安全！",
+      "也可以直接赴死。这并不总是最好的举动（实际上应该只在游戏的早期尝试），但你的能力强大到可以确认角色是否善良——如果他们死了，你可以确信他们说的是实话，也就是说可以信任他们的信息。最好在你死前协调好你要选择的人——有一些善良角色适合早逝。如果你正在怀疑某人，要求城镇处决你以获取信息也是建立信任的好方法 - 大多数邪恶的玩家不会自愿去死。不过，僵怖和魔鬼代言人可能会给你的分析添麻烦！",
+      "在死亡时，选择一个你认为对你致命的诅咒有好处的人。这有几个重要的原因！首先，如果他们死了：你可以相信他们是好的，并且他们拥有的任何信息都可能是可靠的。其次，如果你的能力激活而这个人死了，很可能你说的是实话——虽然邪恶阵营可以通过恶魔或刺客的帮助来模拟你的能力激活，但他们通常会接受你免费的额外击杀，导致不寻常的死亡人数。好团队相信你，他们就可以相信你杀的人，然后从那里开始拼凑信息，找出潜伏在小镇的邪恶团队！",
+      "在死亡时，也可以选择一个你怀疑是邪恶的人。这有几个重要的原因！首先，如果你认为接下来的晚上会出现大量死亡（例如珀已经蓄力），那么你能力的额外杀戮可能会让善良方更劣势。其次，你选那个玩家居然没死？那么你可以有理由相信他们是邪恶的。虽然也不一定确认他是邪恶的，但如果您认为自己是清醒的，那么请以怀疑的态度看待该玩家 - 通常有不止一个线索表明某人不是他们声称的那个人。",
+      "在选择要杀死的玩家时，请注意“不会死”或在夜间受到保护的角色不会因你的能力而死亡。这包括像水手和弄臣这样的角色，以及受茶艺师或旅店老板保护的玩家。试着在你死之前对在场玩家角色有一个很好的了解，这样你就可以围绕这些角色进行选择。或者，如果你想避免额外的死亡，你可以刻意选择其中之一，避免死亡人数急剧上升。",
+      "如果教父在场，他们将有机会在你死的同一晚杀死某人。如果你怀疑场上有教父，请注意这种额外的杀戮并相应地计划你的选择。另请注意，他们可能会选择欺骗你，让你相信你杀死了一名善良玩家，但实际上这是一个主动赴死的邪恶爪牙，在传播混乱的信息！"
     ]
   },
   "how_to_run": {
-    "en": "When you declare that the Moonchild’s player has died, the Moonchild chooses any alive player. If the chosen player is good, mark their character token with the DEAD reminder. Tonight, the player marked with the Moonchild’s DEAD reminder dies."
+    "en": "When you declare that the Moonchild’s player has died, the Moonchild chooses any alive player. If the chosen player is good, mark their character token with the DEAD reminder. Tonight, the player marked with the Moonchild’s DEAD reminder dies.",
+    "cn": "当你宣布月之子玩家死亡时，月之子需要选择任意一名存活玩家。如果所选玩家是善良的，将“死亡”提示标记放置到该玩家的角色标记旁。当晚，标有月之子的“死亡”提示标记的玩家死亡。\n如果月之子没有意识到自己必须在死亡时选择一名玩家，私下提醒该玩家。新手玩家可能没有弄清楚自己的角色是如何运作的。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Moonchild"
 }
