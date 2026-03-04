@@ -1,0 +1,10 @@
+{
+	"devDependencies": {
+		"astro": "^5.18.0",
+		"@unocss/astro": "^66.6.4",
+		"unocss": "^66.6.4",
+		"@unocss/preset-uno": "^66.6.4",
+		"@unocss/preset-attributify": "^66.6.4",
+		"@unocss/preset-icons": "^66.6.4"
+	}
+}
