@@ -190,6 +190,12 @@ async function scrapeTestCharacters() {
     
     const charMapping = mapping[type][id];
     
+    if (charMapping.note) {
+      console.log(`    ⚠️  Skipped: ${charMapping.note}`);
+      results.skipped.push({ type, id, reason: charMapping.note });
+      continue;
+    }
+    
     try {
       const result = await scrapeCharacter(type, id, charMapping);
       console.log(`    ✅ Success - extracted: ${result.fieldsExtracted.join(', ')}`);
@@ -220,6 +226,12 @@ async function scrapeAllCharacters() {
     
     for (const [englishId, charMapping] of Object.entries(characters)) {
       console.log(`  → ${englishId} (${charMapping.cn})`);
+      
+      if (charMapping.note) {
+        console.log(`    ⚠️  Skipped: ${charMapping.note}`);
+        results.skipped.push({ type, id: englishId, reason: charMapping.note });
+        continue;
+      }
       
       try {
         const result = await scrapeCharacter(type, englishId, charMapping);
