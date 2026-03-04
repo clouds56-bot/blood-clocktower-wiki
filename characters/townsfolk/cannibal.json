@@ -2,13 +2,16 @@
   "id": "cannibal",
   "type": "townsfolk",
   "name": {
-    "en": "Cannibal"
+    "en": "Cannibal",
+    "cn": "食人族"
   },
   "ability": {
-    "en": "You have the ability of the recently killed executee. If they are evil, you are poisoned until a good player dies by execution."
+    "en": "You have the ability of the recently killed executee. If they are evil, you are poisoned until a good player dies by execution.",
+    "cn": "你拥有上个死于处决的玩家的能力。如果该玩家属于邪恶阵营，你中毒直到下个善良玩家死于处决。"
   },
   "flavor_text": {
-    "en": "\"I don’t like clowns. They taste funny.\""
+    "en": "\"I don’t like clowns. They taste funny.\"",
+    "cn": "“我讨厌小丑的味道。吃起来会让我想笑。”"
   },
   "editions": [
     "experimental"
@@ -18,10 +21,9 @@
   "artist": "John Grist",
   "jinxes": [],
   "examples": [
-    "Pay attention to which character each evil player is bluffing as. If they are executed, then their bluffed ability is the best one to pretend that the Cannibal has gained.",
-    "The Clockmaker is executed and dies. That night, the Cannibal learns a “2” because the Demon and Minion are two steps apart.",
-    "It is the third night and the Widow was executed today. Because the Widow was bluffing as the Fortune Teller, the Cannibal is prompted to choose 2 players, but they learn a “no” after choosing the Demon because they don’t actually have the Fortune Teller's (or Widow’s) ability, because they are poisoned.",
-    "It is the fourth night and the Mutant was executed today. The Cannibal doesn’t learn anything tonight, because a real Mutant would not wake."
+    "钟表匠被处决并死亡。当晚，食人族得知了“2”，因为恶魔与爪牙之间的最近距离是2。",
+    "女巫被处决并死亡，而她之前正谎称自己是调查员。当晚，中毒的食人族得知了镇长和杂耍艺人之中有一人是女巫。",
+    "士兵死于处决。当晚，小恶魔攻击了食人族，但食人族没有死亡。随后僧侣死于处决。当晚，食人族和小恶魔都选择了造谣者，造谣者没有死亡。在下一个白天，没有人被处决。在当晚，食人族仍然具有僧侣的能力。"
   ],
   "tips": {
     "en": [
@@ -31,10 +33,19 @@
       "Be sure to talk to executees before they die if you can, in the hopes that you can learn what exact ability you’re going to be picking up from them. If their ability is something that can only be used during the day, for example a Slayer, you may miss the opportunity to use such an ability if you don’t know you have it.",
       "Alternatively, don’t talk to the executed and then approach them the following day and describe what you experienced in the night, thus confirming to them that you are the Cannibal. This will help you build a circle of trust amongst the executed dead.",
       "Don’t forget that evil players might give you fake abilities when executed. Your Storyteller will generally still try to make you think you have the ability the evil player claimed they had."
+    ],
+    "cn": [
+      "尽量执行处决！虽然处决善良玩家并不好，但是你的能力可以让这一举动的负面影响降低到最小。即使你们意外处决了一名善良玩家，你仍可以获取其能力继续帮助团队。",
+      "请留意那些宣称拥有每局游戏限一次能力的玩家，你可以使用他们的每局游戏限一次能力，并在游戏进行中吞噬到更多此类能力。",
+      "你要注意，任何时候你都不会被告知获得了何种能力，但你可以根据晚上被唤醒后说书人给予你的反馈或指示来判断——比如你在夜晚被唤醒要求选择两位玩家，你可能获得了占卜师或是侍女的能力，但你无法确定是哪个（译者注：在说书人反馈信息后你应该能够排除其中一种）。",
+      "如果可以的话，与那些白天即将被处决的玩家交流一下，希冀于能够了解到他们的确切能力。如果他们的能力只能在白天使用，例如猎手，而你不知道自己拥有这种能力，你很有可能会错过发动能力的机会。",
+      "亦或者，在第二天白天再去寻找那些前一天被处决的玩家，告知他们你是食人族然后和他们分享你在夜晚获得的信息，从而获取这些玩家的信任。这能够帮助你在被处决的死者群体里获得信任。",
+      "切记，邪恶玩家可能在被处决前伪装成拥有某个能力，说书人通常会配合他们让你认为自己拥有了那种能力。"
     ]
   },
   "how_to_run": {
-    "en": "If a good player dies by execution, mark them with the LUNCH reminder, and remove the Cannibal’s POISONED reminder if necessary. The Cannibal now has this good player’s ability (do not say which), and will wake at night when this good character would normally wake."
+    "en": "If a good player dies by execution, mark them with the LUNCH reminder, and remove the Cannibal’s POISONED reminder if necessary. The Cannibal now has this good player’s ability (do not say which), and will wake at night when this good character would normally wake.",
+    "cn": "如果一名善良玩家死于处决，用“饱餐”提示标记标记他的角色，并移除食人族的“中毒”标记（如果有的话）。现在食人族会拥有这名善良玩家的能力（不要告诉他具体的能力是什么），且夜晚时会在这名玩家原本会被唤醒的时机被唤醒。\n如果一名邪恶玩家死于处决，用“饱餐”提示标记标记他的角色，并用“中毒”标记食人族。食人族现在中毒了。你可以选择在夜晚时唤醒食人族（但这不是必须的），并假装他获得了一项新的能力。\n请留意每名邪恶玩家正在谎称自己是什么角色。如果他们被处决了，那么他们谎称的那种角色就是你要去假装食人族获得了能力的最佳选择。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Cannibal",
   "image": "assets/tokens/cannibal.png"

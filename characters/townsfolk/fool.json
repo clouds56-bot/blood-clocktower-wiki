@@ -2,13 +2,16 @@
   "id": "fool",
   "type": "townsfolk",
   "name": {
-    "en": "Fool"
+    "en": "Fool",
+    "cn": "弄臣"
   },
   "ability": {
-    "en": "The 1st time you die, you don't."
+    "en": "The 1st time you die, you don't.",
+    "cn": "当你首次将要死亡时，你不会死亡。"
   },
   "flavor_text": {
-    "en": "\"...and the King said 'What?! I've never even owned a pair of rubber pantaloons, let alone a custard cannon!' Ho-ho! Jolly day!\""
+    "en": "\"...and the King said 'What?! I've never even owned a pair of rubber pantaloons, let alone a custard cannon!' Ho-ho! Jolly day!\"",
+    "cn": "“……然后国王说道：‘什么？！我甚至从未有过一条橡胶马裤，更别提一门奶油大炮了！’嗬嗬！欢乐一日！”"
   },
   "editions": [
     "bad_moon_rising"
@@ -18,9 +21,9 @@
   "artist": "Anica Kelsen",
   "jinxes": [],
   "examples": [
-    "On the first day, the Fool is executed but remains alive. On the fourth day, the Fool is executed again. This time, they die.",
-    "The Demon attacks the Fool, who remains alive. Nobody dies that night. The next day, the Fool is executed by the Judge, and dies.",
-    "The Demon attacks the Fool, who is protected by the Tea Lady. The Fool remains alive and keeps their ability. Later, after the Tea Lady has died, the Demon attacks the Fool, who is now protected by the Innkeeper. The Fool remains alive and keeps their ability. Later, after the Innkeeper has died, the Demon attacks the Fool, who remains alive again but uses their ability, so next time they will die."
+    "在首个白天，弄臣被处决但依然存活。在第四个白天，弄臣再次被处决。这一次，他死亡。",
+    "恶魔攻击了弄臣，但他依然存活。当晚无人死亡。在下一个白天，弄臣被法官处决并且死亡。",
+    "恶魔攻击了弄臣，但他被茶艺师保护。弄臣依然存活，且保留着自己的能力。之后，在茶艺师死亡后，恶魔攻击了弄臣，但他被旅店老板保护。弄臣依然存活，且保留着自己的能力。之后，在旅店老板死亡后，恶魔攻击了弄臣，他依旧存活但使用了自己的能力，所以弄臣下一次再被攻击时，就会死亡。"
   ],
   "tips": {
     "en": [
@@ -32,10 +35,21 @@
       "If you have the trust of a good player who would really prefer not to die at night, you can take over claiming to be their character. For example, a Pacifist might want people to know they're in play, but not expose themselves to the demon... so you can claim on their behalf instead! If the demon hits you, the Pacifist lives for another day!",
       "If you die early or unexpectedly, you should be on the lookout for an Assassin or Pukka. The Assassin will be able to bypass your protection and kill you, while the Pukka poisons you, causing it to simply malfunction. Both of these are deadly characters, and knowing they are in play early can be a huge boon for the good team, even if it came at the expense of your death. (Note: You should also rule out that you were targeted by a Sailor, which is less deadly to the good team, but still could be why you died when you thought your protection was still active).",
       "You can still be protected by other means - the Tea Lady, Innkeeper, Pacifist and even Devil's Advocate can also spare you from death. If you get lucky and gain any extra protection on top of your own power, take advantage! Taunt the evil team a bit! What could go wrong?"
+    ],
+    "cn": [
+      "弄臣是在《黯月初升》中少数可以自由呼吸的角色之一，因为他们的能力使他们免于一次死亡。然而，这并不意味着你应该固步自封——作为一个积极主动的弄臣可以虚张声势，把邪恶阵营逼疯，浪费恶魔一次宝贵的杀戮机会，保护你的善良队友。谁会笑到最后？由你决定！",
+      "你的能力使你免于死亡……一次。你可以依靠这一点来保证你在整个游戏中的长期生存，但也可以故意虚张声势让恶魔来瞄准你。比如你自称是驱魔人或侍臣，那么没有经验的恶魔可能会惊慌失措地瞄准你，从而浪费当晚的杀戮。这也是对付珀和沙巴洛斯的有效策略，这两个恶魔都是通过尽快屠杀小镇而获胜的——如果他们选择了你，那么你和另一个善良玩家（一个如果恶魔不选择你，可能会选择的玩家）就可以活到下一天！",
+      "你的角色能力在晚上恶魔杀戮时触发，是更有价值的。你不会因处决而死并不意味着你应该冲上处决台！",
+      "如果你真的受到善良团队的怀疑，你可以通过被处决来证明自己——因为你不会死，这是一个相当不错的证明。这实际上是放弃了你的夜间自我保护，从而让善良阵营安心，但这并不是绝对的证据（精明的玩家会指出，魔鬼代言人的行动也达到了同样的效果），但是你愿意牺牲自己的行为可能会动摇小镇的心……并希望这么做，能摆脱过分热心的驱魔人或侍女。",
+      "尝试通过跟踪死亡轨迹来推断你何时成为了夜间目标。例如，如果你在整个游戏中每晚都看到两次死亡，然后突然出现了一次死亡……可能是沙巴洛斯试图攻击您，而你却安然无恙。知道你什么时候可能容易受到攻击可以让你调整你的策略，以便在必要时或多或少地成为目标。",
+      "如果你信任一个确实不想晚上死去的玩家，你可以自称是他的角色。例如，和平主义者可能希望人们知道他们在游戏中，但又不想暴露在恶魔前……所以你可以伪装他！如果恶魔袭击你，和平主义者会再活一天！",
+      "如果你过早意外死亡，你应该留意刺客或普卡。刺客将能够绕过你的保护并杀死你，而普卡会毒害你，使你的能力无法正常生效。这两个都是致命的角色，早早知道他们在场对于善良团队来说可能是一个巨大的福音，即使它是以牺牲你为代价的。（注意：还要考虑水手选中的可能，这对善良团队来说不太致命，但仍然可能你突然死亡的原因。）",
+      "你仍然可以通过其他方式得到保护——茶艺师、旅店老板、和平主义者甚至是魔鬼代言人也可以让你免于死亡。如果你幸运地在你自己的力量之上获得任何额外的保护，那就好好利用，嘲讽一下邪恶的队伍吧！这有什么关系呢？"
     ]
   },
   "how_to_run": {
-    "en": "If the Fool would die, they remain alive. (But they die if they are drunk or poisoned.) If the Fool was executed, declare that the player was executed but remains alive. (Do not say why.)"
+    "en": "If the Fool would die, they remain alive. (But they die if they are drunk or poisoned.) If the Fool was executed, declare that the player was executed but remains alive. (Do not say why.)",
+    "cn": "如果弄臣将要死亡，他依然存活。（但是如果此时醉酒或中毒就会死亡。）如果弄臣被处决，宣布该玩家被处决但依然存活。（不要说明原因。）\n无论哪种情况，弄臣都失去自己的能力——将“失去能力”提示标记放置到弄臣的角色标记旁。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Fool",
   "image": "assets/tokens/fool.png"

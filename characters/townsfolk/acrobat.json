@@ -2,13 +2,16 @@
   "id": "acrobat",
   "type": "townsfolk",
   "name": {
-    "en": "Acrobat"
+    "en": "Acrobat",
+    "cn": "杂技演员"
   },
   "ability": {
-    "en": "Each night*, choose a player: if they are or become drunk or poisoned tonight, you die."
+    "en": "Each night*, choose a player: if they are or become drunk or poisoned tonight, you die.",
+    "cn": "每个夜晚*，你要选择一名玩家：如果当晚他醉酒或中毒，你死亡。"
   },
   "flavor_text": {
-    "en": "\"Ladies and gentlemen, hold fast to your hats, for I shall defy the very laws of gravity and dance upon the air, a marvel of agility and daring, all for your delight and wonder!\""
+    "en": "\"Ladies and gentlemen, hold fast to your hats, for I shall defy the very laws of gravity and dance upon the air, a marvel of agility and daring, all for your delight and wonder!\"",
+    "cn": "“列位看官，请扶好帽盔，我将逆天而行，踏空起舞！身如飞燕，胆若雷霆，只为博君一笑一惊！”"
   },
   "editions": [
     "experimental"
@@ -18,12 +21,13 @@
   "artist": "Chloe McDougall",
   "jinxes": [],
   "examples": [
-    "The Sailor chooses the Assassin, and the Storyteller makes the Sailor drunk. The Acrobat chooses the Sailor, and dies because the Sailor is drunk.",
-    "The Acrobat chooses the Tinker, who is sober and healthy. Nothing happens.",
-    "The Acrobat chooses the Preacher. Later that night, the Pukka poisons the Preacher. The Acrobat dies, because the Preacher is no longer healthy."
+    "首个夜晚，半兽人因为寡妇而中毒了。在第二个夜晚，杂技演员选择了中毒的半兽人，杂技演员死亡。",
+    "杂技演员选择了清醒健康的街头风琴手。街头风琴手选择“醉酒”。现在杂技演员选择的街头风琴手醉酒了。杂技演员死亡。",
+    "杂技演员选择了酒鬼。杂技演员死亡。"
   ],
   "how_to_run": {
-    "en": "Each night except the first, wake the Acrobat. They point to a player. Put the Acrobat to sleep."
+    "en": "Each night except the first, wake the Acrobat. They point to a player. Put the Acrobat to sleep.",
+    "cn": "除首个夜晚以外的每个夜晚，唤醒杂技演员。让杂技演员指向一名玩家。将“被选择”提示标记放置到所选玩家的角色标记旁。让杂技演员重新入睡。\n如果被选择的玩家在当晚任何时刻醉酒或中毒，杂技演员死亡——在杂技演员的角色标记旁放置“死亡”提示标记并放置帷幕标记。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Acrobat",
   "image": "assets/tokens/acrobat.png"

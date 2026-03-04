@@ -2,13 +2,16 @@
   "id": "atheist",
   "type": "townsfolk",
   "name": {
-    "en": "Atheist"
+    "en": "Atheist",
+    "cn": "无神论者"
   },
   "ability": {
-    "en": "The Storyteller can break the game rules, and if executed, good wins, even if you are dead. [No evil characters]"
+    "en": "The Storyteller can break the game rules, and if executed, good wins, even if you are dead. [No evil characters]",
+    "cn": "说书人可以打破游戏规则，如果说书人被处决，善良阵营获胜，即使你已死亡。[无邪恶角色在场]"
   },
   "flavor_text": {
-    "en": "\"Let us disperse with unnecessary conjecture and silly paranoia. There is a perfectly rational explanation for everything. Yes, a teacup may indeed be orbiting the planet, too small to see, but I shall drink my tea from the very real china in my very real hands.\""
+    "en": "\"Let us disperse with unnecessary conjecture and silly paranoia. There is a perfectly rational explanation for everything. Yes, a teacup may indeed be orbiting the planet, too small to see, but I shall drink my tea from the very real china in my very real hands.\"",
+    "cn": "“让我们驱散这不必要的猜忌和愚蠢的妄想吧。这发生的一切都有一个完全合理的解释。是的，现在正有一个茶杯在围绕着地球旋转，它太小了，所以你们都无法看见。但我会真实地用我的手端起这真实的瓷器，饮下这茶。”"
   },
   "editions": [
     "experimental"
@@ -18,9 +21,8 @@
   "artist": "Marianna Carr",
   "jinxes": [],
   "examples": [
-    "The Atheist is a complex character, and is recommended for experienced Storytellers. In addition to rules knowledge, it requires you to have a good sense of fun and fairness. It is your job to create a fun game for all players, so only break the game rules to give false information (as much or as little as you want) or simulate the actions of evil characters that could be in play, but aren’t. If you can convince the players that there is no Atheist in play, or at least get them discussing the possibility, you’ve done well.\n\n\nAvoid creating arbitrary rules or changing the win conditions. In order to have a good time, the players need to know how they can win the game if an Atheist is in play.",
-    "The Investigator learns that either the Grandmother or the Seamstress is the Boomdandy. The Sweetheart nominates, and dies, even though there is no Witch in play. The Slayer uses their ability on the Gossip, who dies.",
-    "There are three Outsiders in play, when there should be two. The players execute the Storyteller. Good wins."
+    "调查员得知祖母和女裁缝之中有一人是炸弹人。调查员发起了提名，然后死亡了，即使女巫并不在场。猎手对造谣者使用了能力，并杀死了他。",
+    "有三名外来者在场，然而根据游戏人数，本该只有两名外来者在场。玩家处决了说书人。善良阵营获胜。"
   ],
   "tips": {
     "en": [
@@ -33,10 +35,22 @@
       "If all the good team's information makes sense and is consistent, then kill all the players that this information points to as evil. Once all these players are dead, it should be much easier to convince the other players that you are the Atheist.",
       "If the good team's information has some noticeable inconsistencies, such as once player learning that an Evil Twin is in play and another learning that a Scarlet Woman is in play in a one-Minion game, then highlight these inconsistencies to the group as evidence that the Storyteller is breaking the rules.",
       "If there are any characters in play that have game-ending abilities, such as the Mayor or Saint, then check with the Storyteller as to whether or not the game will end if you take a risky action. It is best that all players know beforehand, when they are about to do something that could end the game, with either a win or a loss."
+    ],
+    "cn": [
+      "如果你是无神论者，你能确切地知道场上不存在恶魔（及其他邪恶角色），你知道只有处决说书人才能获胜，如果你能向其他玩家证明你是无神论者，你就能赢得游戏。",
+      "如果其他玩家起初并不信任你，并且想提名处决一些玩家，请不要惊慌。对于大多数人来说，仅仅因为一名玩家在第一天宣称自己是无神论者就处决说书人是一件风险极大的事情，让游戏正常地进行几天是更加明智的选择。记住，要不厌其烦地去宣称并说服其他人接受你是无神论者这个事实。",
+      "记得尽早表露你的角色，隐藏或者谎报你的角色没有任何意义，因为在场并没有邪恶玩家需要去欺骗，也不需要躲避恶魔夜晚的攻击。",
+      "说服尽可能多的玩家去开诚布公地透露自己所知道的所有角色与信息，因为任何的隐藏都是无意义的，你们共同的敌人是说书人，而说书人早已知晓一切。",
+      "如果剧本中存在可能让你陷入醉酒的角色，比如酒鬼，尽你所能弄清楚你是否醉酒。如果你是一个酒鬼，那么你其实根本不是无神论者，没有无神论者在场，你们之中其实隐藏着邪恶玩家，处决说书人只会导致邪恶阵营获胜。",
+      "千万不要害怕死亡，绝大多数的玩家会在某个阶段想要杀死无神论者，以防你是一名虚张声势的邪恶玩家。记住，为了善良阵营获胜而死是值得的，即使这会导致说书人在当晚杀死一名或更多的玩家。",
+      "如果所有善良阵营的玩家的信息都有迹可循而且指向一致，那就杀死所有这些信息中指认为邪恶的玩家。一旦这些玩家都死亡之后，让其他玩家相信你是无神论者会更加容易。",
+      "如果你发现善良阵营的信息出现明显的矛盾，例如一名玩家得知镜像双子在场且另一名玩家得知红唇女郎在场，但本场游戏配置只有一个爪牙，你可以向其他玩家说明这些不一致是说书人打破规则的证据。",
+      "如果当前游戏有特殊胜利能力角色在场，例如镇长或者圣徒，你需要与说书人确定如果在这种情况下，如果你贸然行动，游戏是否会结束。最好提前让所有玩家都知道这么做会导致的结果，无论输赢。"
     ]
   },
   "how_to_run": {
-    "en": "During setup, before giving the bag to the players, remove all evil character tokens and add Townsfolk or Outsider character tokens to match the player count."
+    "en": "During setup, before giving the bag to the players, remove all evil character tokens and add Townsfolk or Outsider character tokens to match the player count.",
+    "cn": "在进行游戏设置，将盲抽袋给玩家进行角色抽取之前，将所有的邪恶角色标记移除，并加入镇民和外来者角色标记，直至盲抽袋中的角色标记总数等同于玩家人数。\n你可以在你认为合适的时候打破规则。如果你需要，你可以随意使用邪恶角色的相关提示标记。\n无神论者是一个非常复杂的角色，仅建议十分熟练的说书人尝试。在游戏的规则熟知和储备之上，这个角色还需要你对游戏乐趣与公平性有正确的判断。你的目的是为所有玩家创造一局有趣的游戏，所以你应该仅仅在给出适当的错误信息，或是模拟邪恶角色在场时的行为时打破规则。如果你能够让玩家相信无神论者并不在场，或者至少让他们探讨这种可能性，那么你就做得很好了。\n避免随意创造规则或是改变游戏的获胜条件。乐趣至上，玩家需要知道如果无神论者在场，他们如何才能获胜。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Atheist",
   "image": "assets/tokens/atheist.png"

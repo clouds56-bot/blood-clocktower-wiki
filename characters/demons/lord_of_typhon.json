@@ -2,13 +2,16 @@
   "id": "lord_of_typhon",
   "type": "demon",
   "name": {
-    "en": "Lord of Typhon"
+    "en": "Lord of Typhon",
+    "cn": "堤丰之首"
   },
   "ability": {
-    "en": "Each night*, choose a player: they die. [Evil characters are in a line. You are in the middle. +1 Minion. -? to +? Outsiders]"
+    "en": "Each night*, choose a player: they die. [Evil characters are in a line. You are in the middle. +1 Minion. -? to +? Outsiders]",
+    "cn": "每个夜晚*，你要选择一名玩家：他死亡。[邪恶角色全部邻座，你靠近正中，+1爪牙，-或+任意数量外来者]"
   },
   "flavor_text": {
-    "en": "\"In the shadowed and forgotten corners of the cosmos, where the stars whisper secrets to the void, lies a truth so profound that the merest glimpse of it unravels the sanity of mortal minds.\""
+    "en": "\"In the shadowed and forgotten corners of the cosmos, where the stars whisper secrets to the void, lies a truth so profound that the merest glimpse of it unravels the sanity of mortal minds.\"",
+    "cn": "“在宇宙的阴影之中，被遗忘的角落里，星辰向虚空低声诉说着秘密，那些深邃的真理，仅是一瞥就能让肉体凡胎的心智崩溃瓦解。”"
   },
   "editions": [
     "experimental"
@@ -17,10 +20,38 @@
   "other_nights": false,
   "jinxes": [],
   "examples": [
-    "There are two Minions: the Organ Grinder and the Mezepheles. In between them, neighboring them both, sits the Lord of Typhon. The number of Outsiders is normal.",
-    "The Vizier neighbors the Harpy, who neighbors the Lord of Typhon, who neighbors the Goblin. There are ten players, and two Outsiders in play, due to the Lord of Typhon ability.",
-    "The Fearmonger neighbors the Boomdandy, who neighbors the Lord of Typhon, who neighbors the Poisoner, who neighbors the Mastermind. There are 15 players, but zero Outsiders in play, since the Lord of Typhon removed one Outsider, and the Puzzlemaster became the Boomdandy during the first night."
+    "在一局游戏中有两名爪牙：街头风琴手和灵言师。堤丰之首位于他们中间，三人相邻而坐。外来者的数量没有出现异常。",
+    "维齐尔与鹰身女妖相邻，鹰身女妖的另一侧则是堤丰之首，而堤丰之首的另一侧是哥布林。本局为10人游戏，因为堤丰之首的能力而使得有两名外来者在场。",
+    "恐惧之灵与炸弹人相邻，炸弹人的另一侧是堤丰之首，堤丰之首的另一侧是投毒者，投毒者的另一侧是主谋。本局为15人游戏，但没有外来者在场，因为堤丰之首移除了一个外来者，而解谜大师在首夜变成了炸弹人。"
   ],
   "source_url": "https://wiki.bloodontheclocktower.com/Lord_of_Typhon",
-  "image": "assets/tokens/lord_of_typhon.png"
+  "image": "assets/tokens/lord_of_typhon.png",
+  "how_to_run": {
+    "cn": "在进行游戏设置时，将角色标记放入盲抽袋前，移除所有的爪牙角色标记，并加入等量的镇民或外来者角色标记作为补充。\n在首个夜晚，分别依次唤醒位于堤丰之首两侧的，等同于常规游戏爪牙数量加一的玩家。分别对这些玩家展示一个不同的爪牙角色标记和朝下的大拇指，再让他们重新入睡。再用展示给他们的爪牙角色标记替换魔典中这些玩家的善良角色标记。然后再如常进行爪牙信息和恶魔信息步骤。\n在除首个夜晚以外的每个夜晚，唤醒堤丰之首。让他指向任意一名玩家。那名玩家死亡——用“死亡”提示标记标记那名玩家。让堤丰之首重新入睡。"
+  },
+  "tips": {
+    "cn": [
+      "如果你是爪牙，直接使用你在游戏开始时抽到的角色作为伪装。如果善良阵营找出了一名邪恶玩家，并发现堤丰之首在场，他们就能找出整个邪恶团队。所以你必须看起来非常像是善良的。",
+      "如果你是爪牙，并且开局抽到的角色是外来者，那么就使用恶魔的其中一个伪装。因为如果让善良阵营认为游戏中的外来者数量不合标准，这会指出堤丰之首在场。",
+      "如果你是爪牙，并且你使用其他角色作为伪装，记得将你开局抽到的角色作为备用计划。",
+      "藏起来！堤丰之首这种恶魔并不适合高风险高收益的玩法。谨慎考虑作为一个明跳出来的邪恶玩家所带来的后果。",
+      "利用好额外爪牙带来的优势。额外增加一名爪牙意味着你们能以更多票数压倒善良阵营，并且能在游戏后期有更多存活的邪恶玩家。",
+      "随时分析你们与善良阵营对票数的掌控能力对比。",
+      "不要形成一致票型。如果一条线并排的玩家一起投票，善良阵营会发现邪恶玩家连座的位置，特别是有卖花女孩这样的角色可以监测投票信息的时候。",
+      "利用邻座的优势来交换信息。在每个白天开始时随意闲聊！在夜晚时与邻座玩家窃窃私语！你们有着完美的座位优势来制定不间断的邪恶计划。",
+      "注意那些正在观察你与邻座玩家交谈的玩家。将这些玩家诬陷为邪恶的，以此来转移其他人对于你及你的阵营的注意力。",
+      "努力诋毁或是毒害那些有信息能够指向堤丰之首在场的玩家们。",
+      "当善良玩家还没法确定邪恶玩家在哪里时，让那些离你较远的玩家看起来是邪恶的。比如声称自己是城镇公告员，然后在只有坐在你对面的某名玩家提名之后，声称自己得知有爪牙提名；或是声称自己是占卜师，声称从离自己较远的两名玩家中得知“是”。",
+      "如果善良玩家正在锁定邪恶团队，你们就去诬陷你们这一排两头的那些善良玩家。",
+      "如果有玩家认为不是堤丰之首在场，就让他们这样想！爪牙应该做坏事来分散善良玩家的注意力并保护恶魔。",
+      "公开反对你的队友们，让你们看起来像是对立的阵营。",
+      "如果你没有坐在整个邪恶阵营的两头，你可以选择一些离你们这排较远的善良玩家，与他们建立信任。",
+      "注意玩家的投票票型。因为邪恶玩家们坐成一排，他们会为了最大化他们的控票力量而一同投票。",
+      "找出一名邪恶玩家。如果你找出了一名邪恶的爪牙，并且排除了其他恶魔在场的可能性，这会让你们找出剩下的整个邪恶团队。",
+      "找出善良玩家们，因为他们不可能与恶魔邻座——因为堤丰之首必须让邪恶玩家坐成一排，并让自己坐在靠近中间的位置，所以如果堤丰之首在场，恶魔在初始时总是与邪恶玩家邻座。",
+      "分析出是哪个恶魔在场。",
+      "注意有多少个爪牙能力正在生效。如果场上有额外的爪牙，那意味着堤丰之首在场。得知这一点会很有帮助。",
+      "如果你找出了一名爪牙，或者认为你找到了，那就杀死他们两边的玩家。如果是堤丰之首在场，你这样做就能保证杀死了一名爪牙，或两名爪牙，或是杀死恶魔。"
+    ]
+  }
 }

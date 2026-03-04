@@ -2,13 +2,16 @@
   "id": "farmer",
   "type": "townsfolk",
   "name": {
-    "en": "Farmer"
+    "en": "Farmer",
+    "cn": "村夫"
   },
   "ability": {
-    "en": "When you die at night, an alive good player becomes a Farmer."
+    "en": "When you die at night, an alive good player becomes a Farmer.",
+    "cn": "每个夜晚，你要选择一名玩家：你会得知他的阵营。[+0~2村夫，复数村夫中有一人醉酒]"
   },
   "flavor_text": {
-    "en": "\"Even the high and mighty need food on the table. Without us, the city starves.\""
+    "en": "\"Even the high and mighty need food on the table. Without us, the city starves.\"",
+    "cn": "“玫瑰花是蓝色哒！草桂花是红色哒！哦豁，俺说反啦！”"
   },
   "editions": [
     "experimental"
@@ -18,8 +21,8 @@
   "artist": "Anica Kelsen",
   "jinxes": [],
   "examples": [
-    "Julian is the Farmer. The Demon kills him at night. Evin is the Fearmonger, and Sarah is the Alchemist. Sarah becomes the Farmer that night. Evin could not become the Farmer, because he is evil.",
-    "On the 2nd night, the Farmer dies. The Choirboy becomes the Farmer. On the 3rd night, the new Farmer dies, and the Heretic becomes a Farmer. There is now no Heretic and no Choirboy in play, and three Farmers in play, two of which are dead."
+    "道哥、小莱和小米都是村夫，道哥醉酒。在夜晚时，他们都选择了卡扎力小艾。道哥得知小艾是善良玩家。小莱和小米得知小艾是邪恶玩家。",
+    "小八和小明是村夫，小明醉酒。小美是邪恶玩家，并且伪装成村夫。小八选择了小美并得知她是邪恶玩家。小明选择了异端分子并得知他是善良玩家。小美声称自己选择了小八并得知他是邪恶玩家。"
   ],
   "tips": {
     "en": [
@@ -35,10 +38,22 @@
       "If there is a Farmer chain that is greater than the total number of evil players in the current game's setup this generally means that you can trust all the Farmers in that group.",
       "Powerful roles becoming Farmers is much more beneficial than trying to keep powerful characters alive at night. Do not be scared of dying at night for fear of turning powerful characters into Farmers.",
       "Pay attention to what the player was before they became a Farmer. If they were an Outsider, this might be a clue that the good team is doing badly and the Storyteller is trying to help out. If it’s a start player or a once per game character that’s used their ability, this might mean the game is fairly even. If it’s a powerful character, and there seem to be other choices, maybe this means the good team is winning."
+    ],
+    "cn": [
+      "找到你的村夫同伴。要想知道你们之中有谁醉酒了，最简单的方式就是比对你们的信息，找出其中相同之处和不同之处。同时，如果你是唯一的村夫，那么就说明你是清醒的！",
+      "与其他村夫合作，一起选择同一名玩家。这可以帮助你们确定你们谁醉酒了（如果其中有人的信息与其他人不同），或者确定是否有人在伪装成村夫（如果你们所有的信息都相同）。",
+      "如果正好只有两名村夫，而你们又无法确定谁醉酒了，那么一定要选择不同的玩家，这样你们仍然可以获得信息。如果你们两人始终选择相同的目标，将无法获得任何有效信息。",
+      "记住，有三人宣称自己是村夫并不能证明你们之中任何人是善良玩家。注意那些潜藏的邪恶玩家，如果村夫实际数量没有那么多，那么邪恶玩家就有机会伪装成村夫，并让你看起来像是醉酒了，但其实你并没有醉酒！",
+      "你也可以不必理会其他的村夫，假设你的信息就是正确的。如果所有的村夫都这么做，那么你们的能力效果叠加时总是会产生正向的收益。",
+      "尝试处决你认为醉酒的村夫以防万一，因为他们有可能实际上是邪恶玩家。",
+      "如果你确信某一玩家的阵营，那么就选择他，来检验自己是否是醉酒的。",
+      "但请注意，说书人仍然有可能向醉酒的村夫提供正确信息，以防止村夫的能力过于强大。",
+      "在透露自己是村夫之前先等待一小段时间。如果有三名或更多的玩家声称自己是村夫，你就知道他们之中至少有一人在撒谎。"
     ]
   },
   "how_to_run": {
-    "en": "If the Farmer died tonight, wake an alive good player. Show them the YOU ARE info token and a Farmer character token, then put them to sleep. Replace their previous character token with a Farmer character token."
+    "en": "If the Farmer died tonight, wake an alive good player. Show them the YOU ARE info token and a Farmer character token, then put them to sleep. Replace their previous character token with a Farmer character token.",
+    "cn": "在游戏设置时，将角色标记放入盲抽袋之前，使用额外的村夫角色标记替换掉其中的0~2个镇民角色标记。在为首个夜晚做准备时，（如果有超过一名村夫在场，）将村夫的“醉酒”提示标记放置到其中一个村夫角色标记旁。\n每个夜晚，唤醒任意一名村夫。让他指向一名玩家。对他给出拇指向上或向下的手势。让他重新入睡。重复这个操作，直到所有村夫玩家都进行了夜晚行动。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Farmer",
   "image": "assets/tokens/farmer.png"

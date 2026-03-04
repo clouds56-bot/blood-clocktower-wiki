@@ -2,13 +2,16 @@
   "id": "plague_doctor",
   "type": "outsider",
   "name": {
-    "en": "Plague Doctor"
+    "en": "Plague Doctor",
+    "cn": "瘟疫医生"
   },
   "ability": {
-    "en": "When you die, the Storyteller gains a Minion ability."
+    "en": "When you die, the Storyteller gains a Minion ability.",
+    "cn": "当你死亡时，说书人会获得一个爪牙能力。"
   },
   "flavor_text": {
-    "en": "\"Pleauze shtay shtill. Thinks nid tiime for hillink. Myrhh-myrhh.\""
+    "en": "\"Pleauze shtay shtill. Thinks nid tiime for hillink. Myrhh-myrhh.\"",
+    "cn": "“辟免剧勒润动。输要时间康护。莫要，抹药。”"
   },
   "editions": [
     "experimental"
@@ -17,10 +20,23 @@
   "other_nights": false,
   "jinxes": [],
   "examples": [
-    "The Plague Doctor dies. The Storyteller gains the Poisoner ability and chooses a player to poison each night for the rest of the game.",
-    "The Plague Doctor is executed and the Storyteller gains the Cerenovus ability. That night, the Pit-Hag turns the Witch into the Cerenovus. There are now two Cerenovus abilities in play – the Storyteller’s and the new Cerenovus’.",
-    "The Plague Doctor has died and the Storyteller has had the Organ Grinder ability for two days. The Plague Doctor is made drunk by the Minstrel. The Storyteller still has the Organ Grinder ability as they gained it when the Plague Doctor died and the Plague Doctor now being drunk does not affect that."
+    "瘟疫医生死亡了。说书人获得了投毒者的能力，并在随后的每个夜晚选择一名玩家使其中毒。",
+    "瘟疫医生死于处决，说书人获得了洗脑师的能力。当晚，麻脸巫婆将女巫变成了洗脑师。现在，场上有两个具有洗脑师能力的人——说书人和新的洗脑师。",
+    "瘟疫医生死亡了，说书人获得了街头风琴手的能力。两天后，瘟疫医生因为吟游诗人的效果醉酒。说书人仍然具有街头风琴手的能力，因为这项能力在瘟疫医生死亡时让说书人获得，因此现在瘟疫医生的醉酒并不会对说书人获得的能力产生影响。"
   ],
   "source_url": "https://wiki.bloodontheclocktower.com/Plague_Doctor",
-  "image": "assets/tokens/plague_doctor.png"
+  "image": "assets/tokens/plague_doctor.png",
+  "how_to_run": {
+    "cn": "当瘟疫医生死亡时，将一个不在场的爪牙角色标记放置在魔典左侧的正中位置，并用瘟疫医生的“说书人能力”标记标记该爪牙角色；或直接用该标记标记一个在场的爪牙角色。如可能，在夜晚顺序表旁添加相应的夜晚标记用以提示。\n当此爪牙角色的能力将要执行相关行动时，由说书人来为该能力做出一系列的选择。"
+  },
+  "tips": {
+    "cn": [
+      "不要让你自己被处决！你不会想给邪恶阵营一个额外的爪牙能力，所以你活得越久，那个可能出现的爪牙能力对局势的影响就会越小。",
+      "在你死亡后，找出因你死亡而加入游戏的爪牙能力。如果你能向其他善良玩家指出那些公开暴露的爪牙能力，或是那些不易暴露的爪牙能力存在的证据，这将能证明你是好人，并且因为证明你是外来者而强化你们阵营的逻辑链。",
+      "在你死亡后，找出因你死亡而加入游戏的爪牙能力——这个爪牙能力是之前不在场的爪牙能力，因此你们可以通过排除这个爪牙在场来确定游戏中可能存在哪些爪牙。",
+      "盘你的说书人——如果你认为说书人希望获得某个爪牙能力，你可以以此推断出哪些爪牙从一开始就在场，因为说书人会为了获得他最感兴趣获得的爪牙能力而留出空间让这个爪牙不在场。",
+      "如果游戏的初始配置有三名爪牙，你清楚在你死后所有爪牙能力都会在场，所以你们能够制订相应的对策。",
+      "通常来说，你可以预想到说书人使用爪牙能力往往比爪牙玩家更有效率，因为说书人完全了解游戏的所有信息，所以你要特别注意在你死后，游戏的平衡可能会有多大程度的倾斜。"
+    ]
+  }
 }

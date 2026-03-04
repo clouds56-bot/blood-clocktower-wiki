@@ -2,13 +2,16 @@
   "id": "oracle",
   "type": "townsfolk",
   "name": {
-    "en": "Oracle"
+    "en": "Oracle",
+    "cn": "神谕者"
   },
   "ability": {
-    "en": "Each night*, you learn how many dead players are evil."
+    "en": "Each night*, you learn how many dead players are evil.",
+    "cn": "每个夜晚*，你会得知有多少名死亡的玩家是邪恶的。"
   },
   "flavor_text": {
-    "en": "\"Only the chosen may gaze beyond the veil. The dead are restless, and they point in silence toward the icy north.\""
+    "en": "\"Only the chosen may gaze beyond the veil. The dead are restless, and they point in silence toward the icy north.\"",
+    "cn": "“唯有受选者才能凝视面纱之外的光景。亡者躁动不安……他们的每一根僵硬的手指都指向了刺骨的北地。”"
   },
   "editions": [
     "sects_violets"
@@ -18,8 +21,8 @@
   "artist": "John Grist",
   "jinxes": [],
   "examples": [
-    "During the first day, the Flowergirl is executed. That night, the Demon kills the Juggler. The Oracle wakes and learns a \"0,” because all dead players are good.",
-    "Halfway through the game, seven players are dead. Five of them are good and two of them are evil. During the day, an evil Traveller is Exiled. That night, the Demon kills one of it's Minions. The Oracle wakes and learns a \"4,” because four dead players are evil."
+    "第一个白天，卖花女孩被处决。当晚，恶魔杀死了杂耍艺人。神谕者被唤醒并得知“0”，因为所有死亡玩家都是善良的。",
+    "游戏进行到一半，七名玩家死亡。其中五名是善良的，两名是邪恶的。并且在白天，一名邪恶旅行者被流放了。当晚，恶魔杀死了他的一名爪牙。神谕者醒来并得知了“4”，因为四名死亡玩家是邪恶的。"
   ],
   "tips": {
     "en": [
@@ -28,10 +31,18 @@
       "Most players who die at night will be good players; evil players want to stay alive as long as possible, so the demon will be focusing their kill on good player threats. If you suddenly start getting a read on an evil player, you should start your suspicions with the most recent executee.",
       "The Fang Gu and the Vigormortis are both demons that you can detect when they move around the town. The Fang Gu will cause unexpected jumps in the evil count if they hit an outsider and jump between players, while the Vigormortis will probably take out a minion (or two!) close to the beginning of the game to ensure their ability stays active. If you're noticing either of these trends, check for other tells of these demons (e.g., increased outsider count, minion abilities activating despite only a few alive players remaining). If you can confirm one of them is in play, you know it isn't Vortox and can start forming a strategy for victory!",
       "Feel free to come out early or late in the game - you receive valuable information the entire day, so even your first piece of info alone can give the good team a lot to work with. You might be able to make a deduction or two based on when you die - an early Oracle  death could indicate a spooked Vigormortis, OR that someone evil recently was executed and they don't want you to know."
+    ],
+    "cn": [
+      "只要你的信息是\"0\"，你就可以相信那些已经死去的玩家都是善良的，也因此你可以与他们合作并使用他们的信息。",
+      "一旦你得到\"1\"或者更大的信息时，邪恶玩家已经有人死去，你现在需要尤其注意和谁去沟通交流。将你的怀疑交给他们去做——他们会急切的希望证明自己是好的，并帮助你来做很多相关指控。",
+      "大部分在夜晚死亡的玩家是善良的。邪恶的玩家希望自己能尽可能的活下去，所以恶魔通常也会集中去杀戮那些有威胁的善良玩家。如果你突然得知有一个邪恶玩家，你通常需要开始怀疑最近被处决的玩家。",
+      "方古和亡骨魔是两个你可以辨别出的恶魔。方古会在他击杀外来者时将其转化，而亡骨魔很可能在游戏早期杀死他的一两个爪牙同伴，以确保他的能力保持持续有效。如果你发现了这两种情况中的趋势，那么去检查来自这些恶魔的其他内容（比如：外来者数量、在只有少量玩家存活时有爪牙能力生效）。如果你可以确认是其中的一种情况，那么你就可以确认没有涡流影响，并且这将为你的胜利带来战略上的意义。",
+      "你可以随意一些，想要早些说明自己角色或晚些都可以，你会一整天都得到有用的信息，所以即便你只有第一天晚上的信息对善良阵营来说也是很有用的。你可以在你的死亡的基础上推断出两种情况——有亡骨魔受到了你的威胁，或者有某个邪恶玩家白天被处决了但恶魔不想让你知道。"
     ]
   },
   "how_to_run": {
-    "en": "Each night except the first, wake the Oracle. Show fingers (0, 1, 2, etc.) equaling the number of dead evil players. Then, put the Oracle to sleep."
+    "en": "Each night except the first, wake the Oracle. Show fingers (0, 1, 2, etc.) equaling the number of dead evil players. Then, put the Oracle to sleep.",
+    "cn": "除了第一个夜晚的每个夜晚，唤醒神谕者。对他用手势比划已死亡的邪恶玩家的数量 (0，1，2等）。让神谕者重新入睡。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Oracle",
   "image": "assets/tokens/oracle.png"

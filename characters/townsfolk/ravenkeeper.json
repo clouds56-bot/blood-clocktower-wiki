@@ -2,13 +2,16 @@
   "id": "ravenkeeper",
   "type": "townsfolk",
   "name": {
-    "en": "Ravenkeeper"
+    "en": "Ravenkeeper",
+    "cn": "守鸦人"
   },
   "ability": {
-    "en": "If you die at night, you are woken to choose a player: you learn their character."
+    "en": "If you die at night, you are woken to choose a player: you learn their character.",
+    "cn": "如果你在夜晚死亡，你会被唤醒，然后你要选择一名玩家：你会得知他的角色。"
   },
   "flavor_text": {
-    "en": "\"My birds will avenge me! Fly! Fly, my sweet and dutiful pets! To the manor and to the river! To the alleys and to the salons! Fly!\""
+    "en": "\"My birds will avenge me! Fly! Fly, my sweet and dutiful pets! To the manor and to the river! To the alleys and to the salons! Fly!\"",
+    "cn": "“我的鸟儿们会替我复仇的！飞吧！飞吧，我尽职的小可爱！\n去到庄园和溪边！去到小巷和集会所里！快飞吧！”"
   },
   "editions": [
     "trouble_brewing"
@@ -17,9 +20,26 @@
   "other_nights": false,
   "jinxes": [],
   "examples": [
-    "The Ravenkeeper is killed by the Imp, and then wakes to choose a player. After some deliberation, they choose Benjamin. Benjamin is the Empath, and the Ravenkeeper learns this.",
-    "The Imp attacks the Mayor. The Mayor doesn't die, but the Ravenkeeper dies instead, due to the Mayor's ability. The Ravenkeeper is woken and chooses Douglas, who is a dead Recluse. The Ravenkeeper learns that Douglas is the Scarlet Woman, since the Recluse registered as a Minion."
+    "守鸦人被小恶魔杀死，然后被唤醒以选择一名玩家。经过一番深思熟虑后，他选择了小八。小八是共情者，而守鸦人得知了这一消息。",
+    "小恶魔杀死了镇长。镇长并没有死亡，而是由守鸦人通过镇长的能力代替镇长死亡。守鸦人被唤醒并选择了已死亡的陌客道哥。守鸦人得知道哥是红唇女郎，因为陌客此时被当作了红唇女郎。"
   ],
   "source_url": "https://wiki.bloodontheclocktower.com/Ravenkeeper",
-  "image": "assets/tokens/ravenkeeper.png"
+  "image": "assets/tokens/ravenkeeper.png",
+  "how_to_run": {
+    "cn": "如果守鸦人在夜晚死去，唤醒他。让守鸦人指向任意一名玩家。对守鸦人展示那名玩家的角色标记。让守鸦人重新入睡。\n我们建议你阻止甚至禁止玩家在夜晚谈论他们当晚正在进行的操作。"
+  },
+  "tips": {
+    "cn": [
+      "如果恶魔知道你是个守鸦人，他会非常不想杀你。伪装成一个对恶魔有持续威胁的角色会对你比较有帮助，比如共情者，占卜师，猎手，送葬者或者镇长。即便是伪装成一个可能被善良阵营相信的好角色（例如厨师或洗衣妇），也能够让你在恶魔眼里看起来更显眼，就可能在晚上吸引到恶魔的注意。",
+      "在暗流涌动中，守鸦人的信息最为优质。在每个夜幕来临之前，想清楚你想知道哪位玩家的角色。你绝对不会想一瞬间去随便做个匆忙的决定。",
+      "选存活的玩家通常比选已经死亡的玩家更能带来收益。如果你知道一个存活玩家是善良角色，你就不应该去处决他。如果你知道一个存活玩家是邪恶角色，你就应该处决他！然而，去确认一个死亡玩家是否为善良角色偶尔也可以带来巨大帮助。例如，确认一个已经死亡的洗衣妇、图书管理员、调查员或者厨师在说真话能够帮助你证实他们的信息。",
+      "当心间谍和陌客。如果你认为某名玩家是间谍，在你选择他时不大可能会得知他的真实角色，因为他的能力会让你将他错误地当作其他角色。然而，你可以用你的能力去查验酒鬼。如果你知道某名玩家是酒鬼，那你就可以确定他属于善良阵营，也能确信他所拿到的信息基本都是错误的。",
+      "记住，你只有死在夜晚才会得到信息。死在白天你将不会得知任何事情。",
+      "有时，安静地坐着并且拒绝提供任何信息会让你产生有强大威胁的气场，而实际上你也不必为你的伪装提供任何理由。",
+      "死在夜晚对你来说是最好的选择，因此要试着引诱恶魔来杀你。",
+      "你可能在第一天想要告诉团队的第一件事就是你是守鸦人。这通常会让你能够活到最后一天，因为恶魔大概率不会杀你。这个策略就意味着你将在游戏后期掌握更多主动（因为存活玩家可以比死亡玩家多投票），但你就牺牲了通过死亡换取信息的机会。",
+      "如果你在晚上通过死亡触发了能力，在接下来的白天告诉大家你是守鸦人的话，你的信息就能够立刻起作用。",
+      "如果你没有告诉任何人你是守鸦人，并且还活到了最后一天，那就很可能有间谍在场。如果你意识到这种情况，注意哪些人在窃窃私语。"
+    ]
+  }
 }

@@ -2,13 +2,16 @@
   "id": "mayor",
   "type": "townsfolk",
   "name": {
-    "en": "Mayor"
+    "en": "Mayor",
+    "cn": "镇长"
   },
   "ability": {
-    "en": "If only 3 players live & no execution occurs, your team wins. If you die at night, another player might die instead."
+    "en": "If only 3 players live & no execution occurs, your team wins. If you die at night, another player might die instead.",
+    "cn": "如果只有三名玩家存活且白天没有人被处决，你的阵营获胜。\n如果你在夜晚即将死亡，可能会有一名其他玩家代替你死亡。"
   },
   "flavor_text": {
-    "en": "\"We must put our differences aside, and cease this senseless killing. We are all taxpayers after all. Well, most of us.\""
+    "en": "\"We must put our differences aside, and cease this senseless killing. We are all taxpayers after all. Well, most of us.\"",
+    "cn": "“我们必须抛开分歧，停止这种毫无意义的杀戮。\n毕竟，我们都是纳税人。嗯，我是说我们中的绝大多数。”"
   },
   "editions": [
     "trouble_brewing"
@@ -18,10 +21,8 @@
   "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
-    "We recommend you keep the Mayor alive until the final day, since it is most fun for the players that way. On rare occasions, if the group is overwhelmingly convinced early in the game that the Mayor is the Mayor, let the Mayor die so that evil has a chance to win. \n\n\nIn TROUBLE BREWING, the Mayor’s phrase “your team wins” will always mean “good wins” because the Mayor is always good. In other editions, an evil Mayor means “evil wins” instead.",
-    "The Imp attacks the Mayor. The Storyteller chooses that the Ravenkeeper dies instead.",
-    "There are three players alive. There are no nominations for execution today. Good wins.",
-    "There are five players alive, including two Travellers. Both Travellers are exiled, and the vote is tied between the remaining players. Because a tied vote means neither player is executed, good wins."
+    "小恶魔攻击了镇长。说书人选择由守鸦人代替镇长死亡。下一个白天，只有三名玩家存活。当天没有任何人为处决而发起提名。善良阵营获胜。",
+    "包含两名旅行者在内的五名玩家存活。两名旅行者都被流放了，并且剩余玩家的处决投票数量打平。因为投票数量打平意味着这些玩家都不会被处决，善良阵营获胜。"
   ],
   "tips": {
     "en": [
@@ -31,10 +32,18 @@
       "When a character that's an unlikely target for the Demon to pick dies at night, such as the Butler, this may be an indication that you were attacked instead. When convincing other players that you are the Mayor, you can use this as evidence.",
       "Once the Demon attacks you and somebody else dies, they will know for sure that you are the Mayor. At the very beginning of each morning, if a particular player looks surprised and confused, they are likely to be the Demon!",
       "If you intend to use your ability to win the game by not executing, do everything you can to make sure you are not actually the Drunk. Spend the game listening to other players, and verifying that any Outsiders are actually Outsiders. If you think a Drunk is in play, you will need to figure out who it is, because if it is you, and you don't execute on the final day, evil wins. Similarly, if the only other players alive are the Imp and the Poisoner, then you will certainly be poisoned. You will need to make sure that the Poisoner is dead before using your Mayor ability."
+    ],
+    "cn": [
+      "你的能力在最后一天仅剩三名玩家时生效。你可能不知道谁是恶魔，但你能够通过让场上不发生处决来保证胜利。尽全力说服大家相信你是镇长。如果善良阵营相信你，他们要么根本不提名任何人，要么就会故意达成平票来保证没有处决的发生。",
+      "不到游戏的最后，你最好都不要表明自己的镇长角色。如果你暴露的太早，恶魔就会用很多夜晚来尝试杀死你，说书人也许就会让这种尝试成功。或者你可以在前期秘密告诉一到两名玩家你是镇长，到游戏最后一天再告诉剩余玩家，这样你就会更容易被人相信。",
+      "如果一个不那么容易被当成恶魔目标的角色死亡（例如管家），这就意味着你可能才是恶魔的攻击目标。你可以通过这一点作为证据来向其他玩家证明你是镇长。",
+      "一旦恶魔攻击了你并且其他人替你死亡，恶魔就会知道你是镇长。在每天早上刚开始的时候，如果某位玩家表现出惊讶或者疑惑，他大概率就是恶魔！",
+      "如果你要尝试通过不发生处决来赢得胜利，首先要确定你不是酒鬼。在游戏中多听其他玩家的发言，并且验证哪些外来者是真的。如果你认为酒鬼在场，你就得找到他是谁，因为如果你是酒鬼的话，即便最后一天没有发生处决，邪恶阵营也会胜利。同样的，如果仅剩的两名玩家为小恶魔和投毒者，你就肯定是那个会中毒的目标了。在触发你的镇长特殊胜利能力前，确保投毒者已经死了。"
     ]
   },
   "how_to_run": {
-    "en": "During the night, if the Mayor would die, you choose if the Mayor actually dies, or if the Mayor remains alive and another character dies instead—put the Demon's DEAD reminder token by that character token instead of the Mayor, and put a shroud on that character token instead of the Mayor."
+    "en": "During the night, if the Mayor would die, you choose if the Mayor actually dies, or if the Mayor remains alive and another character dies instead—put the Demon's DEAD reminder token by that character token instead of the Mayor, and put a shroud on that character token instead of the Mayor.",
+    "cn": "在夜晚时，如果镇长即将死去，由你来选择镇长会真正死去，或是镇长仍然存活但有其他角色代替他死亡——将恶魔的“死亡”提示标记放置在镇长或代替镇长死亡的角色标记旁，并在对应的角色标记上放置帷幕标记。\n在黎明时，宣布被标记了“死亡”标记的玩家在当晚死亡。（不要说出他的死亡原因。）\n在黄昏时，如果正好有三名玩家存活，且当天没有玩家被处决，宣布游戏结束且善良阵营获胜。（注：即使宣布胜利的时机是在黄昏，但镇长的能力有效与否是在处决阶段结算的）\n我们建议你让镇长活到最后一天，因为这种方式对玩家来说会更加有趣。在罕见的情形下，如果游戏早期时，镇长便在玩家群体中以压倒性的优势让大家认为自己是镇长，那么让镇长在被恶魔攻击时死去，以使得邪恶玩家仍有机会获胜。\n在《暗流涌动》里，镇长的能力描述中“你的阵营获胜”始终意味着“善良阵营获胜”，因为镇长始终会是善良角色。在其他剧本中，如果出现了邪恶的镇长，他的能力意味着“邪恶阵营获胜”。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Mayor",
   "image": "assets/tokens/mayor.png"

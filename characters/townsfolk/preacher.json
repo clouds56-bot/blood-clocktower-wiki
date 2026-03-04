@@ -2,13 +2,16 @@
   "id": "preacher",
   "type": "townsfolk",
   "name": {
-    "en": "Preacher"
+    "en": "Preacher",
+    "cn": "传教士"
   },
   "ability": {
-    "en": "Each night, choose a player: a Minion, if chosen, learns this. All chosen Minions have no ability."
+    "en": "Each night, choose a player: a Minion, if chosen, learns this. All chosen Minions have no ability.",
+    "cn": "每个夜晚，你要选择一名玩家：如果你选中了爪牙，他会得知被传教士选中。\n所有被你选中的爪牙失去能力。"
   },
   "flavor_text": {
-    "en": "\"It is better to be rich and healthy than poor and sick.\""
+    "en": "\"It is better to be rich and healthy than poor and sick.\"",
+    "cn": "“富有和健康总比贫穷和疾病要好。”"
   },
   "editions": [
     "experimental"
@@ -17,10 +20,23 @@
   "other_nights": true,
   "jinxes": [],
   "examples": [
-    "The Preacher points to Alex, who is the Engineer. Nothing happens.",
-    "The Preacher points to Lachlan, who is the Cerenovus. Lachlan wakes to learn that he has been preached, and is not woken to use his ability.",
-    "Doug is the Preacher. He points to Marianna, who is the Pit-Hag. Marianna wakes to learn that she has been preached, and is not woken to use her ability. The following night, the Poisoner points to Doug. Because Doug is now poisoned, Marianna wakes to use her ability."
+    "小艾是传教士。第一个夜晚，传教士选择了恐惧之灵。恐惧之灵失去能力并得知被传教士选中。第二个夜晚，传教士选择了猎手。无事发生，因为猎手不是爪牙。第三个夜晚，传教士选择了珀。无事发生，因为珀不是爪牙。第四个夜晚，传教士选择了投毒者。投毒者失去能力，并得知被传教士选中。",
+    "传教士之前已经选择了间谍、圣徒、酒鬼和哥布林。间谍和哥布林失去能力，所以间谍每晚都不能查看魔典，而哥布林不能通过被处决而获胜。随后传教士醉酒，间谍和哥布林能力恢复。间谍当晚可以查看魔典，哥布林被处决会获胜。传教士清醒后，间谍和哥布林再次失去能力。随后间谍死亡，传教士死亡。哥布林能力恢复，但间谍无法再查看魔典，因为他已经死亡了。"
   ],
   "source_url": "https://wiki.bloodontheclocktower.com/Preacher",
-  "image": "assets/tokens/preacher.png"
+  "image": "assets/tokens/preacher.png",
+  "how_to_run": {
+    "cn": "每个夜晚，唤醒传教士并让他选择一名玩家。如果他选中一名爪牙，在那名爪牙的角色标记旁放置“失去能力”提示标记。让传教士重新入睡。如可能，则唤醒今晚被传教士选中的爪牙，向他展示“该角色的能力对你生效”信息标记以及传教士角色标记。让这名爪牙重新入睡。\n在传教士存活期间，所有被标记“失去能力”的爪牙不会拥有能力。"
+  },
+  "tips": {
+    "cn": [
+      "传教士的能力可以阻断爪牙的能力。但是他们会得知这点并且能在你死后夺回能力。虽然你无法得知你是否成功地命中一个爪牙，但你可以在次日小心观察你的目标，观察他们的行为是否发生了变化。如果他们有变化，并且似乎突然提升了对处决的热情，那么你很可能命中了一个爪牙。",
+      "小心揭露你是传教士的事实！你的能力是邪恶阵营的眼中钉，能够做到比如缴械他们的炸弹人或是智取他们的灵言师这样的事。仅是爪牙能力能被夺取这个威胁本身也足以瓦解邪恶阵营的精心谋划，从而使得你具有很高的死亡优先级。试着伪装成更无害的镇民，甚至是一个诸如管家或是理发师这样的外来者！",
+      "如果一名玩家表现可疑并保持沉默，那他就是一个合适目标。尽管善良玩家与邪恶玩家都有试图低调的理由，但你的能力对那些并非爪牙而仅仅只是想遁出视线的善良玩家没有效果。在暗中狙击他们不会有任何损失。",
+      "在第一天，仔细倾听那些公开宣称的人们。要记得爪牙不会获得伪装因而往往是最后才会公开现身的人。那些陷入同角色宣称或是仅在游戏后期才现身的玩家是你能力的合适目标。",
+      "如果你必须在两个潜在爪牙之中选择一个，那就选择那个能造成最多持续输出的。命中一个已经杀人的刺客对你的阵营而言不算多大成就，一个失去能力的寡妇仍然已经看过魔典，虽然他们失去了投毒的能力。一个麻脸巫婆将会是一个更紧急的优先目标！",
+      "一旦你死亡，并且你怀疑你已经无效化了一些爪牙，那此时现身是非常重要的事——你现在已经死亡，那些能力又恢复并对你的小镇构成了威胁！",
+      "传教士可以以死亡玩家为目标！虽然这在大多数情况下没什么用，但这让你对亡骨魔或是邪恶的集骨者形成了奇妙的反制。一些未来会登场的爪牙可能在死亡后也保留他们的能力——但并不能在你的能力下保留！"
+    ]
+  }
 }

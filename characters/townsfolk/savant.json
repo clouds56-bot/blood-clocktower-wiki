@@ -2,13 +2,16 @@
   "id": "savant",
   "type": "townsfolk",
   "name": {
-    "en": "Savant"
+    "en": "Savant",
+    "cn": "贤者"
   },
   "ability": {
-    "en": "Each day, you may visit the Storyteller to learn 2 things in private: 1 is true & 1 is false."
+    "en": "Each day, you may visit the Storyteller to learn 2 things in private: 1 is true & 1 is false.",
+    "cn": "如果恶魔杀死了你，在当晚你会被唤醒并得知两名玩家，其中一名是杀死你的那个恶魔。"
   },
   "flavor_text": {
-    "en": "\"Seventy-two matchsticks on the floor... the sun sets early but the moon is unchanged... a torn piece of cloth... evil in the manor house... three by three... the one we trusted is not what he seems... green light means magnesium... residue, but the pattern is wrong... Seventy-two matchsticks on the floor...\""
+    "en": "\"Seventy-two matchsticks on the floor... the sun sets early but the moon is unchanged... a torn piece of cloth... evil in the manor house... three by three... the one we trusted is not what he seems... green light means magnesium... residue, but the pattern is wrong... Seventy-two matchsticks on the floor...\"",
+    "cn": "“这书山卷海中一定隐藏着秘密，我非常确信！这些秘密就隐藏在这一字一句之间等待着我们发掘。小子！再帮我多拿点蜡烛！还有墨水！虽然这些笔记有些晦涩，但有关恶魔的谜语很快就会被揭晓。”"
   },
   "editions": [
     "sects_violets"
@@ -17,12 +20,21 @@
   "other_nights": false,
   "jinxes": [],
   "examples": [
-    "Keep the information you give helpful and related to the game. Avoid saying who exactly the Demon is, or it could be a very short game. If you need help on choosing what to say, give information similar to what Townsfolk abilities would provide.",
-    "The Savant learns that \"All players wearing glasses are good\" and that \"One player sitting on the black couch is a Minion.\"",
-    "The Savant learns that \"A Snake Charmer is in play\" and \"Everybody got true information last night.\"",
-    "The Savant learns that \"The Demon is a woman\" and \"Benjamin is evil.\"",
-    "The Savant learns that \"Evin and Amy are the same alignment\" and \"There is one Outsider in play.\""
+    "第二个夜晚，恶魔杀死了贤者。说书人为贤者指出了两名玩家，其中一名是恶魔。",
+    "在最后一夜，恶魔杀死了醉酒的贤者。说书人为贤者指出了一名死亡玩家和剩下的一名存活善良玩家，没有给他正确信息。",
+    "麻脸巫婆创造了一名恶魔。因为麻脸巫婆的能力，当晚由说书人来选择杀死谁。说书人决定旧恶魔死亡，贤者也死亡，且当晚这些恶魔选择攻击的目标中没有贤者。因为贤者死于麻脸巫婆，而非恶魔，所以贤者不会醒来也不会得知任何信息。"
   ],
   "source_url": "https://wiki.bloodontheclocktower.com/Savant",
-  "image": "assets/tokens/savant.png"
+  "image": "assets/tokens/savant.png",
+  "how_to_run": {
+    "cn": "如果贤者被恶魔杀死，唤醒贤者。指向两名玩家，其中一名是杀死贤者的恶魔。让贤者重新入睡。\n如果贤者在游戏前期死亡，你可能会想给贤者展示两名存活玩家，因为这能让邪恶阵营仍然有微弱的获胜机会。如果贤者在游戏的最后一个夜晚死去，你可以指向一名存活玩家和一名已死亡的玩家。"
+  },
+  "tips": {
+    "cn": [
+      "让自己被恶魔杀死。随便用什么方式，越快越好。如果恶魔杀死了你，你可以得到非常棒的信息，所以尽你可能去让恶魔杀死你。你可以装作一个恶魔想要击杀的目标，比如卖花女孩或者博学者，或者保持沉默。和希望死的时间越晚越有利的守鸦人不同，你能从更早就死亡中获得更大收益。如果恶魔在前两晚（或前期）杀死了你，那么你们就有足够的时间去处决你得到的那两名可能是恶魔的玩家。",
+      "如果恶魔杀死了你，那么立刻告诉大家你得到的信息。善良玩家越早知道了你是贤者，知道了两名玩家中有一个是恶魔，那么你们就越早可以指出谁是恶魔。如果你要等到最后一天再公开信息（正如占卜师可能会在最后一天只能证明活着的某一个两玩家不是恶魔一样），你也只能知道其中有一个是恶魔。而且，在这种情况下，你还需要让大家相信你是贤者，可能对你们而言已经没有足够的时间了。",
+      "你也可以就直接公开说自己是贤者，为了活到最后一天。如果你认为大家可以相信你，就告诉大家你是贤者，那么恶魔也不会来杀你，而其他玩家会在白天被处决。但是要这么做，至关重要的是要让大家都相信你。活到最后就意味着邪恶方不能通过最后活着的三个玩家都是邪恶的来获胜，也意味着在最后三选一时变为二选一。",
+      "如果你在夜晚死了但是没有获得信息，这也是个不错的消息！虽然你没有发现恶魔是谁，但是你知道了只有通过麻脸巫婆的方式导致你死亡才会使你没有得到信息，所以你可以将你确认的信息告诉大家。"
+    ]
+  }
 }

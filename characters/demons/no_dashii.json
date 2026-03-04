@@ -2,13 +2,16 @@
   "id": "no_dashii",
   "type": "demon",
   "name": {
-    "en": "No Dashii"
+    "en": "No Dashii",
+    "cn": "诺-达鲺"
   },
   "ability": {
-    "en": "Each night*, choose a player: they die. Your 2 Townsfolk neighbors are poisoned."
+    "en": "Each night*, choose a player: they die. Your 2 Townsfolk neighbors are poisoned.",
+    "cn": "每个夜晚*，你要选择一名玩家：他死亡。\n与你邻近的两名镇民中毒。"
   },
   "flavor_text": {
-    "en": "\"By the sins of Arnoch, I feel thy laden stench. By the curs-ed sun and her foul legion of tiny grinning gods, I corrupt thee. By the blessed night and the hidden depths of the horrid and unholy sea, I end thy squalid life upon this plane.\""
+    "en": "\"By the sins of Arnoch, I feel thy laden stench. By the curs-ed sun and her foul legion of tiny grinning gods, I corrupt thee. By the blessed night and the hidden depths of the horrid and unholy sea, I end thy squalid life upon this plane.\"",
+    "cn": "“彼因汝之罪孽，吾已嗅汝之恶臭满溢全身。时日曷丧？予及汝皆亡。竖子命如草芥，以吾之力，使汝终末于深海，终于此良夜。”"
   },
   "editions": [
     "sects_violets"
@@ -17,9 +20,27 @@
   "other_nights": false,
   "jinxes": [],
   "examples": [
-    "At the start of the game, the No Dashii neighbors a Town Crier and a Snake Charmer. They are both poisoned. A few days later, they are both dead, and the closest alive neighbors to the No Dashii are an unpoisoned Clockmaker and an unpoisoned Barber.",
-    "Clockwise from the No Dashii sits a Philosopher, a Mathematician, then a Sage. Anticlockwise from the No Dashii sits a Witch, a Mutant, then a Seamstress. The Philosopher and the Seamstress are poisoned"
+    "在游戏开始时，诺-达鲺与城镇公告员和舞蛇人相邻，这两名玩家都中毒了。几天之后，他们都死了，与诺-达鲺最近的存活玩家变为了钟表匠和理发师，但他们不会受到诺-达鲺的影响。",
+    "诺-达鲺顺时针方向依次坐着哲学家，数学家和贤者。诺-达鲺逆时针方向依次坐着女巫，畸形秀演员和女裁缝。哲学家和女裁缝中毒了。",
+    "麻脸巫婆将死亡的诺-达鲺变成了卖花女孩。下个夜晚，麻脸巫婆将存活的方古变成了诺-达鲺。这个新的诺-达鲺现在使与他邻近的两个镇民玩家中毒。"
   ],
   "source_url": "https://wiki.bloodontheclocktower.com/No_Dashii",
-  "image": "assets/tokens/no_dashii.png"
+  "image": "assets/tokens/no_dashii.png",
+  "how_to_run": {
+    "cn": "在为首个夜晚进行准备时，让两名与诺-达鲺邻近的镇民玩家中毒——在他们角色标记旁放置“中毒”提示标记。\n如果一名被诺-达鲺影响的镇民变成了一个非镇民角色，或者诺-达鲺变成了另一个角色，或者如果一个新的玩家变成了诺-达鲺，都会让与诺-达鲺现在邻近的镇民中毒，而之前邻近但现在不邻近的镇民恢复健康。如有需要，立即移除诺-达鲺的“中毒”提示标记。\n除首个夜晚外的每个夜晚，唤醒诺-达鲺。让诺-达鲺指向一名玩家。该玩家死亡，在他角色标记旁放置“死亡”提示标记。让诺-达鲺重新入睡。"
+  },
+  "tips": {
+    "cn": [
+      "找到谁是那个与你相邻的镇民。你可能坐在了爪牙、旅行者或者外来者的旁边，所以你可能不会立即发现你会让谁中毒。",
+      "一旦知道与你相邻的镇民是谁，就要尽可能地支持他们，听他们说。向其他玩家重复他们的观点。由于他们中毒了，他们的信息可能是假的，传播他们的假信息将会使其他人看起来很可疑，尤其是最初宣称这些假信息的不是你。",
+      "在夜里，不要杀害与你相邻的人。因为他们中毒了，他们活得越久，没有中毒的镇民就死的越多，游戏中错误信息就越多，你获胜的机会就越大。",
+      "如果大家开始认为诺-达鲺在游戏之中，那就杀掉与你相邻的人吧。这样做会让局势看起来像是其他人是诺-达鲺，或者至少让你看起来是个不同于诺-达鲺的其他恶魔。",
+      "如果所有的邪恶阵营玩家都在传播假信息，那么有时候看起来像是涡流在游戏之中。提出场上实际存在的恶魔是涡流的依据会使场上其余好人玩家不信任自己的信息是正确的，而且那会使你起来像好人。",
+      "诺-达鲺的毒会跳过爪牙、外来者和旅行者。多亏这一点，诺-达鲺不需要和你相邻就能够使你中毒。",
+      "在极少数情况下，诺-达鲺最近的镇民可能会改变——这要多亏于理发师或者麻脸巫婆这样的角色。当这种情况发生时，最近的一位新镇民将会中毒。例如，恶魔坐在了卖花女孩的旁边，他们的旁边是博学者。卖花女孩因此中毒。在晚上，麻脸巫婆将卖花女孩变成了呆瓜。由于呆瓜是一个外来者，所以新的一位最靠近恶魔的镇民就是博学者，他从现在开始中毒。另一个例子——离恶魔最近的角色是他们的一个爪牙，即一个被恶魔选择与舞蛇人互换角色的女巫。现在，这个新的邪恶的舞蛇人变成了与恶魔最相邻的镇民角色，他变成了中毒的镇民，数学家不再中毒。",
+      "梦殒春宵里有一些错误信息来源，但是如果你是个镇民角色，并且怀疑你的信息受到了干扰，那么你应该从仔细观察与你相邻的玩家开始，看看他们是否有可疑之处。如果诺-达鲺是中毒的来源，那么他如果要发挥他的能力，就必须要靠近你。",
+      "根据游戏的规模（游玩人数），区分在场恶魔是否为诺-达鲺应该是比较容易的。举个例子，如果在场的恶魔是亡骨魔，那么大部分的镇民信息应该都是合理且构成逻辑链的。这种时候你就可以大方排除涡流或者亡骨魔的可能性。如果部分镇民甚至全部人的信息都极其不合理，你就应该考虑到诺-达鲺与涡流的可能性。区分以下三种情况：所有的信息都是错误的、部分信息是错误的、有玩家故意给出错误信息，是帮助你们轻松取胜或者惨败的关键。",
+      "想出一个我们还没想到的很酷且有趣的策略，然后联系我们并发布到钟楼百科上！"
+    ]
+  }
 }

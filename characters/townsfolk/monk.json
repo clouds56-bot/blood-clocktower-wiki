@@ -2,13 +2,16 @@
   "id": "monk",
   "type": "townsfolk",
   "name": {
-    "en": "Monk"
+    "en": "Monk",
+    "cn": "僧侣"
   },
   "ability": {
-    "en": "Each night*, choose a player (not yourself): they are safe from the Demon tonight."
+    "en": "Each night*, choose a player (not yourself): they are safe from the Demon tonight.",
+    "cn": "每个夜晚*，你要选择除你以外的一名玩家：当晚恶魔的负面能力对他无效。"
   },
   "flavor_text": {
-    "en": "\"'Tis an ill and deathly wind that blows tonight. Come, my brother, take shelter in the abbey while the storm rages. By my word, or by my life, you will be safe.\""
+    "en": "\"'Tis an ill and deathly wind that blows tonight. Come, my brother, take shelter in the abbey while the storm rages. By my word, or by my life, you will be safe.\"",
+    "cn": "“今夜吹来的是一股邪恶又致命的风。\n来吧，我的同胞，这风暴过于肆虐，来修道院找寻庇佑吧。\n我保证，我会用性命，护你周全。”"
   },
   "editions": [
     "trouble_brewing"
@@ -18,9 +21,9 @@
   "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
-    "The Monk protects the Fortune Teller. The Imp attacks the Fortune Teller. No deaths occur tonight.",
-    "The Monk protects the Mayor, and the Imp attacks the Mayor. The Mayor's \"another player dies\" ability does not trigger, because the Mayor is safe from the Imp. Nobody dies tonight.",
-    "The Monk protects the Imp . The Imp chooses to kill themself tonight, but nothing happens. The Imp stays alive and a new Imp is not created."
+    "僧侣保护了占卜师。小恶魔攻击了占卜师。今晚没有人死亡。",
+    "僧侣保护了镇长。小恶魔攻击了镇长。镇长的“会有其他玩家死亡”的能力不会被触发，因为小恶魔的能力对镇长无效。今晚没有人死亡。",
+    "僧侣保护了小恶魔。小恶魔选择在当晚自杀，但无事发生。小恶魔仍然存活，并且也没有新的小恶魔被创造出来。"
   ],
   "tips": {
     "en": [
@@ -34,10 +37,22 @@
       "Misdirect the Demon about who you are going to protect. You can do this publicly or by privately whispering to select players. If the Demon believes you are guarding the Fortune Teller, they may not target them, leaving you free to provide your actual protection to someone else. Keeping the evil team guessing is a good way to spread your 'protection' among multiple players. Be aware, though, that if the player that you say you're going to protect dies, it might make you look evil, so consider confiding in them that they won't actually be protected.",
       "If you wake up and nobody is dead, you might not have protected anyone. The Demon may have attacked a Soldier.",
       "If think you've successfully protected your target, ask them to bluff as the Soldier. This will cause the Demon to think they are not worth targeting again, and mask your existence for another night."
+    ],
+    "cn": [
+      "你的目标是要去保证还有价值的善良阵营玩家存活并阻止恶魔带来的骚乱。根据手头可用的信息以及其他玩家的行为来尝试预判恶魔在每个晚上可能会对哪位玩家出手。每个恶魔的想法都不同，找到一种能够让你保护更多玩家的方法。",
+      "不要试着预测恶魔会做什么。相反，你需要与你的队友交流并且尽全力保证其中一名玩家的存活。像占卜师和共情者这样强力的角色，能够在你的保护下整场存活。",
+      "如果你找到了猎手或者贞洁者，你要说服他们不要立刻使用能力，因为你能保护他们。这能让他们把整场仅限一次的能力多保留一会儿，直到场面上出现了更多的信息。",
+      "你不能保护的玩家只有你自己。如果你阻挠了恶魔的行动，那他很可能会想要找到你并且杀害你，因此你要尽量避免被恶魔盯上。你可以伪装成像厨师这类不那么起眼的角色，也可以伪装成守鸦人或者士兵这种恶魔对他毫无兴趣的角色。",
+      "如果你在晚上成功保护了某个人，你有理由确认他是个善良阵营玩家，因为恶魔想要他死。唯一的例外就是小恶魔，他可以通过特殊的能力自杀并且将恶魔能力传递给爪牙，不过这种情况发生的概率也不是很大。",
+      "如果你怀疑某个人是小恶魔，并且感觉他可能要自杀来传递恶魔能力，你就可以故意保护他，让他没办法做这件事情。",
+      "公然承认自己的僧侣角色能让你更好地与善良阵营玩家配合，找到一个夜晚守护的最佳人选。即便你死了，你也守护了小镇。因为恶魔必须要耗费一个晚上的时间去杀你，这样就不能杀送葬者或是贞洁者了。（如果你要这么玩的话，就得当心投毒者！他能让你的能力失效，之后恶魔就可以随意杀人了。）",
+      "误导恶魔，让他们弄错你将要保护的玩家。你可以公开选择玩家也可以私下选择。如果恶魔相信你将要保护占卜师，恶魔就不会杀他，这样你就可以保护你想要保护的另一个人。如果你不说要保护某一个人，而是说要从几个人里面挑几个保护会让恶魔更加猜不透你。",
+      "如果你成功保护了目标，就让他说自己是士兵。这样就会让恶魔认为这个目标没有再次攻击的必要了，同时又能让你自己再多隐藏一晚。"
     ]
   },
   "how_to_run": {
-    "en": "Each night except the first, wake the Monk. The Monk points at any player except themself. (If the Monk points at themself, shake your head no and prompt them to point at another player.) Put the Monk to sleep. Put the Monk's SAFE reminder token by the chosen player's character token."
+    "en": "Each night except the first, wake the Monk. The Monk points at any player except themself. (If the Monk points at themself, shake your head no and prompt them to point at another player.) Put the Monk to sleep. Put the Monk's SAFE reminder token by the chosen player's character token.",
+    "cn": "除首个夜晚以外的每个夜晚，唤醒僧侣。让僧侣指向除自己外的任意一名玩家。（如果僧侣指向自己，摇头表示否定，并让他指向另一名玩家。）让僧侣重新入睡。将僧侣的“保护”提示标记放置在他选择的玩家角色标记旁。\n如果恶魔攻击了标记有“保护”标记的玩家，玩家仍然会存活。（不要对他进行通常应该进行的放置恶魔“死亡”标记的操作，或放置帷幕标记的操作。）在黎明时，宣布当晚无人死亡。（不要解释原因。）\n在黎明时，移除“保护”提示标记。\n在其他剧本中，恶魔可能会拥有除杀死以外的其他能力。僧侣的保护同样可以阻止恶魔的其他有害效果，例如中毒或将玩家转变为邪恶阵营。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Monk",
   "image": "assets/tokens/monk.png"

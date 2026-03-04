@@ -2,13 +2,16 @@
   "id": "fisherman",
   "type": "townsfolk",
   "name": {
-    "en": "Fisherman"
+    "en": "Fisherman",
+    "cn": "水手"
   },
   "ability": {
-    "en": "Once per game, during the day, visit the Storyteller for some advice to help your team win."
+    "en": "Once per game, during the day, visit the Storyteller for some advice to help your team win.",
+    "cn": "每个夜晚，你要选择一名存活的玩家：你或他之一会醉酒直到下个黄昏。\n你不会死亡。"
   },
   "flavor_text": {
-    "en": "\"This was my favourite part of the river... see how the sunlight makes a rainbow from the monastery to the market? This was the best place for big fish. And the older I get, the bigger they were.\""
+    "en": "\"This was my favourite part of the river... see how the sunlight makes a rainbow from the monastery to the market? This was the best place for big fish. And the older I get, the bigger they were.\"",
+    "cn": "“你们随便谁来我都能把他喝到桌子底下去！说你呢！那个话痨！敢来和我喝一杯么？不来？那你呢，老太婆？你以前喝过老麦基利的加香料朗姆酒吗？保证能让你喝成个真男人！上船咯，噢耶！”"
   },
   "editions": [
     "experimental"
@@ -18,10 +21,9 @@
   "artist": "Anica Kelsen",
   "jinxes": [],
   "examples": [
-    "It is best to give the Fisherman advice on what to DO, not just information about what IS. This makes the Fisherman more fun and unique.\n\nEg. Saying “You should execute that player” or “Keep this player alive” or “find out who is drunk” or “change your thinking entirely” or “ignore the Minions” or “trust this player” are much more interesting than saying “this player is evil” or “the Demon is a No Dashii”.",
-    "The Fisherman visits the Storyteller and learns that “You shouldn’t trust Ben”. Ben is the poisoned Empath, and is unknowingly spreading false information.",
-    "The Fisherman learns “Keep the players claiming to be Outsiders alive”. These players are secretly the Klutz and the Fearmonger. The Storyteller believes that keeping these players alive is more likely to end up with good executing the Demon.",
-    "On the final day, the Fisherman learns to “kill Lewis”. The Fisherman is drunk, and Lewis is a Townsfolk. The Storyteller gave bad (“false”) advice to the Fisherman."
+    "水手选择了驱魔人，于是说书人决定让驱魔人醉酒。在这个夜晚，水手被沙巴洛斯攻击。水手依然存活。在下一个白天，水手被处决，但依然存活。",
+    "在白天，造谣者发表了一个公开声明，他以为是错误的，但其实是正确的。在当晚，造谣者的能力将会杀死一名玩家。水手让自己醉酒了，于是说书人决定让水手死亡。",
+    "水手选择了主谋，但是说书人决定让水手醉酒。在下一个白天，水手要求处决自己来“证明自己是水手”，但是因为他醉酒，所以死亡了。"
   ],
   "tips": {
     "en": [
@@ -37,10 +39,19 @@
       "Think about who you want to trust with your advice. You might simply want to reveal it immediately and put the clue on the table for everyone to digest. Alternatively, you might want to share the hint with a trusted group of players who can use it to coordinate in secret.",
       "If you’re not certain that you’re remembered the advice right, you can revisit the Storyteller and ask them to repeat it. However, be aware that the Storyteller likely cannot provide context, or significant clarifications.",
       "Characters that register as different alignments or characters may affect the hint given to the Fisherman. For example, a Recluse may register as the Demon, prompting the Storyteller to advise you to execute them. Be aware of this possibility."
+    ],
+    "cn": [
+      "显而易见...如果你在晚上选择了一个镇民，你很可能不会醉酒。如果你选择了一个外来者，爪牙，或恶魔，你可能醉酒。水手的生存能力非常强大，说书人通常会抓住一切机会让善良阵营玩家为水手的存活付出代价，只要有可能就会让镇民醉酒，而你选择了非镇民玩家就会让你醉酒。",
+      "选择你想醉酒的玩家，比如你怀疑的邪恶玩家，或者是目前没有其他人有用的镇民。一个醉酒的祖母或一个醉酒的弄臣可能比一个醉酒的驱魔人或一个醉酒的侍臣危害要小。",
+      "通过让其他玩家醉酒来最大化你的生存能力。如果你一直选择镇民，特别是能力强大的镇民，你可以比其他玩家更容易活到最后一天。",
+      "告诉玩家晚上你选了谁，让他们知道他们可能喝醉了。这是至关重要的。例如，一个醉酒的旅店老板需要知道他们的能力可能在没有玩家死亡的晚上其实没起作用，或者醉酒的侍女需要知道他们的信息可能是假的。",
+      "与其他玩家交流，寻找好的买醉对象。你不会想和你不清楚角色的玩家买醉的...你要喝就要找知晓的那几个。如果你能分辨出一些玩家的角色，你就能更好地为善良阵营团队工作。有些人，醉了会更好。",
+      "你可以通过故意被处决来证明你就是那个水手。如果你没有醉酒，你就不会死。从这一点开始，如果团队确信你确实是水手，而不是简单地受到魔鬼代言人的保护，那么你应该能够活到最后一天，这使善良阵营的团队找到恶魔的机会大大增加。毕竟...他们知道恶魔不是你。"
     ]
   },
   "how_to_run": {
-    "en": "Once per game, the Fisherman will ask to use their ability. In private, give them once piece of advice to help them win. Then, put the No ability reminder by the Fisherman token."
+    "en": "Once per game, the Fisherman will ask to use their ability. In private, give them once piece of advice to help them win. Then, put the No ability reminder by the Fisherman token.",
+    "cn": "每个夜晚，唤醒水手。让水手指向任意一名存活玩家。让水手重新入睡。水手或他选择的玩家两者之一会进入醉酒状态——将“醉酒”提示标记放置到该玩家的角色标记旁。\n如果清醒的水手将要死亡，他会依然存活。如果清醒的水手被处决，宣布该玩家被处决但依然存活。（不要说明原因。）"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Fisherman",
   "image": "assets/tokens/fisherman.png"

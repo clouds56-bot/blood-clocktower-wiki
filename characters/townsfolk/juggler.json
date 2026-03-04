@@ -2,13 +2,16 @@
   "id": "juggler",
   "type": "townsfolk",
   "name": {
-    "en": "Juggler"
+    "en": "Juggler",
+    "cn": "杂耍艺人"
   },
   "ability": {
-    "en": "On your 1st day, publicly guess up to 5 players' characters. That night, you learn how many you got correct."
+    "en": "On your 1st day, publicly guess up to 5 players' characters. That night, you learn how many you got correct.",
+    "cn": "在你的首个白天，你可以公开猜测任意玩家的角色最多五次。在当晚，你会得知猜测正确的角色数量。"
   },
   "flavor_text": {
-    "en": "\"For my next trick, as per request, I will need a flower, a bag of beans, a toy snake, a paintbrush, and a motorized gasoline-powered hedge trimming device. I warn you, this trick may be my last. Oh dear.\""
+    "en": "\"For my next trick, as per request, I will need a flower, a bag of beans, a toy snake, a paintbrush, and a motorized gasoline-powered hedge trimming device. I warn you, this trick may be my last. Oh dear.\"",
+    "cn": "“下一场表演，我需要一朵花、一袋豆子、一条玩具蛇、一支画笔、和一个电动的树篱修剪机。不过我得和你说，宝贝，这可能是我最后的表演了哦。”"
   },
   "editions": [
     "sects_violets"
@@ -18,9 +21,8 @@
   "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
-    "If the Juggler is guessing too fast, prompt them to slow down.\n\n\nIf an evil player is bluffing as the Juggler, it can help their bluff if you pretend to move tokens around the Grimoire as they make their fake guesses.",
-    "During the first day, the Juggler guesses that Alex is the Town Crier, Mia is the No Dashii, and Julian is the Sage. That night, the Juggler learns a \"2,\" meaning two of those guesses were correct.",
-    "During the fourth night, the Savant gets turned into the Juggler. The next day, the new Juggler guesses that Benjamin is the Pit-Hag, that Benjamin is the Witch, and that Amy is the Pit-Hag. That night, the Juggler learns a \"1.”"
+    "第一个白天，杂耍艺人猜测小明是城镇公告员，小兰是诺-达鲺，小黑是贤者。当晚，杂耍艺人得知“2”，这代表他猜对了两个。",
+    "第四个夜晚，博学者变成了杂耍艺人。下个白天，新的杂耍艺人猜测小八是麻脸巫婆，小八是女巫，小米是麻脸巫婆。当晚，杂耍艺人得知“1”。"
   ],
   "tips": {
     "en": [
@@ -33,10 +35,22 @@
       "There's no penalty for guessing the wrong character; in fact, false info is just as useful as true info! If you don't get the number you expected, you might have an evil player in your midst trying to confuse things, or an outsider like the Sweetheart trying to hide, or even have been affected by the Cerenovus! Figuring out why your number was wrong will give you valuable information about the town.",
       "This is less a tip for the Juggler, and more the Juggler's teammates. Do you suspect your Juggler is not who they claim? Lie to them! Deliberately giving them a false role and seeing if they detect you is a great test to counter the Juggler bluff. (Just be sure to let them know afterwards!)",
       "Not everyone will want to reveal to you. Evil players will be among them - having a confident bluff on the first day can be a struggle, especially if they are a Minion. However, outsiders (especially ones like the Klutz) and characters like the Oracle or Town Crier will also be reluctant, trying to avoid drawing attention to themselves as Demon targets. It's worth being suspicious of anyone who doesn't share, but don't automatically condemn them either."
+    ],
+    "cn": [
+      "你可以尽可能多的去猜测那些善良角色！你能够确认的善良角色越多，就有越多的善良玩家你们可以信任。这也有助于保护你和其他有信息的玩家——你可能会成为首要目标，但是如果还有博学者、卖花女孩等在场时，那么恶魔就需要谨慎的做出选择。",
+      "在没有线索的情况下猜测出邪恶玩家是很困难的，但是如果你能猜测并确认一个邪恶玩家，那么将非常强大。如果你打算用这个方式，那么你可以去试着找一个类似筑梦师的角色配合（他可以得到某个人的潜在邪恶角色），这在解决镜像双子时也特别有效。",
+      "猜测一下你能够猜测最多多少个角色——你能够获取5名玩家的信息，你得到的数字会给你很多信息，即使有时候他不是全对。得到传说中的5是非常困难的，但是如果你控制好，你将获得5个可以信任的人——这对邪恶队伍将会是致命打击！",
+      "猜测一小部分的玩家角色，以获得焦点位玩家的角色信息，这对攻击邪恶玩家非常有效，但你也可以通过猜测可验证为真实的信息来确定涡流的存在。",
+      "一个积极主动的杂耍艺人是恶魔的首要目标。考虑找个人和你一起声称杂耍艺人来迷惑恶魔让他找不到真正的杂耍艺人在哪里。如果你能够找到贤者和你一起配合这将是非常棒的，因为如果恶魔选错了的话。这对邪恶阵营来说真的是最糟糕的事情。",
+      "可以说服大家尽可能的表明自己的角色，即使你没有去猜测他们。善良玩家需要依靠信息去推进，而你可以促使这点——利用你的能力来让大家的信息早呈现。这样做的好处是，善良队伍可以更好的相互协作，而同时恶魔将会没有明确的目标，虽然不管怎样恶魔都会杀人，但是始终会有带着新信息而活着的玩家。",
+      "猜错了也不完全是坏事，事实上，错误的信息和正确的信息一样有用！如果你没有得到你期望的数字，那么可能其中有邪恶玩家，或者有一个类似心上人这样的外来者玩家试图隐藏角色，或者甚至能判断出有玩家受到了洗脑师的影响！弄清楚你的数字为什么错了，就会给你们提供到有价值的信息。",
+      "这条不是针对杂耍艺人的，而是对他的队友说的。如果你怀疑杂耍艺人是伪装的，你可以对他撒谎报一个假的角色，看他是否能够发现你，可以用来对抗那些伪装成杂耍艺人的人。（但事后一定要告诉大家）",
+      "不是所有人都想向你透露角色。这之中通常就会有邪恶玩家——在第一天要自信的进行伪装可能很艰难，尤其对于爪牙而言。然而外来者（特别是呆瓜）和像神谕者、城镇公告员等这类的角色也会不情愿过早暴露自己，以避免恶魔把他们当做目标。你可以去怀疑那些不愿意透露他们的人，但不要不假思索就判断他们一定是邪恶的。"
     ]
   },
   "how_to_run": {
-    "en": "During the first day, if the Juggler declares that they are using their ability, then you enter the circle, holding the Grimoire. The Juggler can make up to five guesses, each of any one player and any one character. For each correct guess, mark the Juggler with a CORRECT reminder. (Make sure the players don’t see how many reminders you’re placing.)"
+    "en": "During the first day, if the Juggler declares that they are using their ability, then you enter the circle, holding the Grimoire. The Juggler can make up to five guesses, each of any one player and any one character. For each correct guess, mark the Juggler with a CORRECT reminder. (Make sure the players don’t see how many reminders you’re placing.)",
+    "cn": "在第一个白天，如果杂耍艺人声明使用他的能力，你需要拿着魔典进入玩家围成的圆圈内。杂耍艺人最多可以做出五次猜测，每次猜测选择一名玩家和一个角色。对于每个正确的猜测，放置一枚“猜测正确”提示标记在杂耍艺人角色标记旁。（确保其他玩家不会看到你放置了几枚提示标记。）\n当晚，唤醒杂耍艺人。对他用手势比划等同于“猜测正确”提示标记的数量（0，1，2 等）。让杂耍艺人重新入睡。在稍后说书人方便的时候，移除所有“猜测正确”提示标记以及杂耍艺人的夜晚标记。\n如果杂耍艺人猜的太快，让他放慢速度。 \n如果邪恶玩家伪装成杂耍艺人，在他假装进行猜测时，你可以在魔典中假装四处移动标记来协助他进行伪装。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Juggler",
   "image": "assets/tokens/juggler.png"

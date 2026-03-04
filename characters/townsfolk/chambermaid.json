@@ -2,13 +2,16 @@
   "id": "chambermaid",
   "type": "townsfolk",
   "name": {
-    "en": "Chambermaid"
+    "en": "Chambermaid",
+    "cn": "侍女"
   },
   "ability": {
-    "en": "Each night, choose 2 alive players (not yourself): you learn how many woke tonight due to their ability."
+    "en": "Each night, choose 2 alive players (not yourself): you learn how many woke tonight due to their ability.",
+    "cn": "每个夜晚，你要选择除你以外的两名存活的玩家：你会得知他们中有几人在当晚因其自身能力而被唤醒。"
   },
   "flavor_text": {
-    "en": "\"I aint seen nothin' untoward, Milady. Begging your pardon, but if I did see somethin', it certainly weren't the master o' the house sneaking into the professor's laboratory 'round eleven o'clock and mixing up fancy potions, just like you said, Miss.\""
+    "en": "\"I aint seen nothin' untoward, Milady. Begging your pardon, but if I did see somethin', it certainly weren't the master o' the house sneaking into the professor's laboratory 'round eleven o'clock and mixing up fancy potions, just like you said, Miss.\"",
+    "cn": "“我没有看到任何不寻常的事，夫人。请原谅我，但要是我真的看到了什么，那一定不是屋子主人在大约十一点的时候溜进了教授的实验室还把那些花花绿绿的药剂混合在了一起，就如你所说的那样，女士。”"
   },
   "editions": [
     "bad_moon_rising"
@@ -18,9 +21,9 @@
   "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
-    "The Chambermaid chooses the Exorcist and the Innkeeper, and learns a \"2.\" The next night, the Exorcist chooses the Shabaloth, which will wake the Shabaloth. Later, Chambermaid chooses the Shabaloth and the Fool. Since the Shabaloth only woke due to the Exorcist ability, the Chambermaid learns a \"0\".",
-    "It is the second night. The Chambermaid chooses the Grandmother and the evil Goon, and learns a \"2.\" Only the Goon will wake tonight, but the Chambermaid is drunk.",
-    "It is the first night. The Chambermaid chooses the Assassin and the Moonchild, and learns a \"0\" because the Assassin does not wake to use their ability on the first night. The next night, they choose the Assassin and the Gossip. The Assassin woke but did not use their ability. The Gossip ability is used, but the Gossip does not wake to use it. The Chambermaid learns a \"1\"."
+    "侍女选择了驱魔人和旅店老板，并得知了“2”。在接下来的一个夜晚，驱魔人选择了沙巴洛斯，这会导致沙巴洛斯被唤醒。同一晚，侍女选择了沙巴洛斯和弄臣。因为沙巴洛斯只因驱魔人的能力被唤醒，侍女得知了“0”。",
+    "现在是第二个夜晚。侍女选择了祖母和邪恶的莽夫，并得知了“2”。莽夫当晚会被唤醒，但是侍女醉酒了。",
+    "现在是首个夜晚。侍女选择了刺客和月之子，并得知了“0”，因为刺客在首个夜晚不会被唤醒来使用自己的能力。在下一个夜晚，侍女选择了刺客和造谣者。刺客被唤醒但没有使用自己的能力。造谣者使用了自己的能力，但造谣者使用能力不需要被唤醒。侍女得知了“1”。"
   ],
   "tips": {
     "en": [
@@ -30,10 +33,19 @@
       "Pick the same players a couple of nights in a row. Some characters don't act consistently every night. For example, an Assassin claiming to be an Innkeeper could wake up one night when you check them, appearing to be legitimate. However once they have killed, they do not wake up again, meaning that checking them for a second night will give them away as being dishonest.",
       "Find a player with an ability that doesn't act at night (like the Fool or Minstrel - if you trust this player, you can use them as base for checking a single person thoroughly. Since the Fool or Minstrel will always give you a 0, you know that any read of 1 must be coming from the other player that you select. This method is slower and garners you less information about the entire town overall in favor of getting a narrow and accurate focus on one player.",
       "Pick as many players as you can, casting a wide net and getting a good amount of information on the entire town. Death can come at any time in Bad Moon Rising, and broad information will give you a lot of options to work with when comparing to other players and their information/claims."
+    ],
+    "cn": [
+      "你的能力并不能直接检测出邪恶的玩家--但是可以检测出那些对自己的角色能力撒谎的玩家。这可以用于发现善良或是邪恶的玩家，因为许多善良的玩家有理由对他们的角色说谎......至少在最开始可能会这样。如果你发现有人在撒谎，看看他们怎么自圆其说。善良的玩家通常会坦白他们的真实角色，而邪恶的玩家将不得不选择第二次虚张声势来配合你的信息，或者加倍地坚持他们的主张。",
+      "挑选玩家使用能力来验证他们的发言。如果有人声称自己是赌徒，他们每天晚上都会醒来--检查他们，看他们是否诚实。再比如，声称自己是侍臣的人每晚都会醒来，直到他们使用了自己的能力--如果他们声称对某人使用了能力，你可以通过看他们第二天晚上是否醒来来检查他们的话是否属实。",
+      "在游戏的初期，你可以在玩家透露他们的角色之前，告诉他们你获取的信息，这会让他们愿意相信你。",
+      "连续几晚选择相同的玩家。有些角色的行动在每个夜晚并不一致。例如，一个自称是旅店老板的刺客可能在你选择他的时候醒来，这时候看上去是合理的。然而，一旦他杀了人，他就不会再醒来，这时候你再查他，就会发现他不诚实。",
+      "找到一个夜间不醒来的玩家（如弄臣或吟游诗人--如果你信任这个玩家，你可以把他们作为彻底检查一个人的基础。由于弄臣或吟游诗人总是会给你一个0，你知道任何读到的 \"1 \"一定是来自你选择的另一个玩家。）这种方法比较慢，而且给你带来的信息比较少，但对另一个玩家的关注会相对准确。",
+      "尽可能多的挑选玩家，撒下一张大网，获得整个城镇的大量信息。在黯月初升中，死亡可能随时降临，在与其他玩家和他们的信息/发言进行比较时，广泛的信息会让你的能力更有价值。"
     ]
   },
   "how_to_run": {
-    "en": "Each night, wake the Chambermaid. They point at any two alive players except themself. Show the Chambermaid fingers (0, 1, or 2) equaling the number of chosen characters who woke tonight. Put the Chambermaid to sleep."
+    "en": "Each night, wake the Chambermaid. They point at any two alive players except themself. Show the Chambermaid fingers (0, 1, or 2) equaling the number of chosen characters who woke tonight. Put the Chambermaid to sleep.",
+    "cn": "每个夜晚，唤醒侍女。让侍女指向除自己外任意两名存活的玩家。用手势向侍女比划出所选角色中当晚被唤醒过的数量（0，1，或2）。让侍女重新入睡。\n如果没有两名存活玩家能够选择（由于主谋、僵怖等的能力造成），不要唤醒侍女。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Chambermaid",
   "image": "assets/tokens/chambermaid.png"

@@ -2,13 +2,16 @@
   "id": "drunk",
   "type": "outsider",
   "name": {
-    "en": "Drunk"
+    "en": "Drunk",
+    "cn": "酒鬼"
   },
   "ability": {
-    "en": "You do not know you are the Drunk. You think you are a Townsfolk character, but you are not."
+    "en": "You do not know you are the Drunk. You think you are a Townsfolk character, but you are not.",
+    "cn": "你不知道你是酒鬼。你以为你是一个镇民角色，但其实你不是。"
   },
   "flavor_text": {
-    "en": "\"I’m only a *hic* social drinker, my dear. Admittedly, I am a heavy *burp* socializer.\""
+    "en": "\"I’m only a *hic* social drinker, my dear. Admittedly, I am a heavy *burp* socializer.\"",
+    "cn": "“我是个只在社交场合里~嗝儿~喝酒的人，亲爱的。\n但无可否认，我是一个非常~嗝儿~擅长社交的人。”\n（英文维基上的背景描述与角色详解中的不同，此处也一并贴出。见下）\n“这完全合乎~嗝儿~逻辑。我知道的是狄亚哈特小姐是个占卜师。狄亚哈特夫人则发誓詹金斯是她的管家。得出这样的推论非常~嗝儿~简单。”"
   },
   "editions": [
     "trouble_brewing"
@@ -17,11 +20,25 @@
   "other_nights": false,
   "jinxes": [],
   "examples": [
-    "The Drunk, who thinks they are the Soldier, is attacked by the Imp. The Drunk dies.",
-    "The Drunk, who thinks they are the Empath, wakes and learns a \"0,” even though they are sitting next to one evil player. The next night, they learn a \"1.\".",
-    "The Drunk, who thinks they are the Ravenkeeper, is killed at night. They choose the Saint, but learn that this player is the Poisoner.",
-    "The Fortune Teller is executed. That night, the Drunk, who thinks they are Undertaker, learns that the Drunk died today."
+    "以为自己是士兵的酒鬼被小恶魔攻击。酒鬼死亡。",
+    "以为自己是共情者的酒鬼被唤醒并得知了“0”，即使他与一位邪恶玩家相邻。在下一夜，他得知了“1”。",
+    "以为自己是守鸦人的酒鬼在夜晚被杀死。他选择了圣徒，但得知这名玩家是投毒者。",
+    "占卜师被处决。在当晚，以为自己是送葬者的酒鬼，得知今天白天死亡的是酒鬼。"
   ],
   "source_url": "https://wiki.bloodontheclocktower.com/Drunk",
-  "image": "assets/tokens/drunk.png"
+  "image": "assets/tokens/drunk.png",
+  "how_to_run": {
+    "cn": "在游戏设置时，将角色标记放进盲抽袋之前，移除酒鬼标记并添加一枚额外的镇民角色标记。将酒鬼的“是酒鬼”提示标记放置进魔典中。将用于替换的镇民角色标记放进盲抽袋中，而不是酒鬼的角色标记。\n在为首个夜晚进行准备时，将酒鬼的“是酒鬼”提示标记放置在用于替换的那名镇民角色标记旁，用于提醒那名玩家的角色实际上是酒鬼。这名玩家现在是一名外来者，并且不再具有这个镇民的能力。（但他仍然以为自己是镇民。）\n在游戏过程中，以酒鬼的镇民角色来让酒鬼进行行动。（如果那个角色会在夜里行动，唤醒酒鬼让他进行行动。如果镇民的能力会获取信息，若你愿意，你可以对酒鬼给出错误的信息。参考规则书中的“醉酒与中毒”部分。）"
+  },
+  "tips": {
+    "cn": [
+      "酒鬼永远不知道自己是酒鬼——他在游戏开始时就会获得一个镇民角色标记，在收到错误信息时也会表现得像个普通镇民一样。你只能在游戏进行过程中发现到底是不是酒鬼；如果你发现你收到了明显有误的信息，亦或是能力没有成功触发(例如士兵死于夜晚)，你就需要注意了。",
+      "确认酒鬼是否在场非常重要——这将让镇民知道是否需要仔细核对自己拿到的信息。一个最直观的用来确定场上是否有酒鬼的方法，就是看场上已知的外来者数量是否符合你的预期（如果比你想的多了，那场上可能存在男爵，而酒鬼也可能随之加入了游戏）。",
+      "如果你怀疑酒鬼在场，那就需要尽快找到哪位镇民是酒鬼。每局游戏中最多存在一个酒鬼，因此知道酒鬼是谁能让你更谨慎地对待他的信息，这也意味着其他镇民能够相信自己得到的信息是真实且可靠的。",
+      "像送葬者和守鸦人这样的角色，是可以查验到酒鬼的实际角色的。你不会被他们当作你以为的那个镇民！这对于像贞洁者这样的角色也同样适用——酒鬼不会触发贞洁者的能力，因为酒鬼不是镇民而是外来者。",
+      "如果你发现了你是酒鬼，尝试着逆向推理你所获取的信息。例如，如果你曾认为你是共情者并且获取到了信息\"0\"，你就要怀疑自己邻座中至少存在一名邪恶玩家。又或者，你曾以为自己是个调查员，你可以假设自己所得知的两名玩家都不是爪牙。",
+      "时刻记得酒鬼会收到的是不可靠的信息，而不是绝对错误的信息。在大多数情况下，你会收到错误的信息，但是说书人偶尔也会告诉你正确的信息。（例如，酒鬼守鸦人在死亡后选择查验自己的角色，说书人会告诉他，他是守鸦人。因为不论说其他什么答案，他都会意识到自己其实是个酒鬼。）当其他答案都能明显地证明你是个酒鬼时，说书人可能就会告诉你真的信息。\n然而，要记住像猎手、僧侣、镇长这样的角色，如果他们的真实角色是酒鬼的话，是无法影响游戏的。比如一个酒鬼猎手是无法杀死任何玩家的，他们的能力总是会无效。",
+      "然而，要记住像猎手、僧侣、镇长这样的角色，如果他们的真实角色是酒鬼的话，是无法影响游戏的。比如一个酒鬼猎手是无法杀死任何玩家的，他们的能力总是会无效。"
+    ]
+  }
 }

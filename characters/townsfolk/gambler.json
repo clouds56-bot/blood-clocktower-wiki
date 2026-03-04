@@ -2,13 +2,16 @@
   "id": "gambler",
   "type": "townsfolk",
   "name": {
-    "en": "Gambler"
+    "en": "Gambler",
+    "cn": "赌徒"
   },
   "ability": {
-    "en": "Each night*, choose a player & guess their character: if you guess wrong, you die."
+    "en": "Each night*, choose a player & guess their character: if you guess wrong, you die.",
+    "cn": "每个夜晚*，你要选择一名玩家并猜测该玩家的角色：如果你猜错了，你会死亡。"
   },
   "flavor_text": {
-    "en": "\"Heads, I win. Tails, you lose.\""
+    "en": "\"Heads, I win. Tails, you lose.\"",
+    "cn": "“正面，我赢。\n反面，你输。”"
   },
   "editions": [
     "bad_moon_rising"
@@ -18,8 +21,8 @@
   "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
-    "The Gambler points to the Minstrel player, then to the Minstrel icon. This guess is correct, so the Gambler remains alive, but is killed by the Demon tonight anyway.",
-    "The Devil's Advocate is bluffing as the Pacifist. That night, the Gambler points to the Devil's Advocate player, then to the Pacifist icon. This guess is wrong, so the Gambler dies."
+    "赌徒指向吟游诗人玩家，然后指向吟游诗人图标。本次猜测正确，因此赌徒依然存活，但是当晚他还是被恶魔杀死了。",
+    "魔鬼代言人正试图伪装成和平主义者。当晚，赌徒指向魔鬼代言人玩家，然后指向和平主义者图标。本次猜测错误，因此赌徒死亡。"
   ],
   "tips": {
     "en": [
@@ -29,10 +32,19 @@
       "There's a difference between taking a well reasoned gamble and throwing caution to the wind entirely and leaving it all up to Lady Luck. Using your ability to try and guess evil characters can be like this. Even if you have very strong suspicions that someone is evil, you still have to guess if they are a Minion or a Demon, and then you have four options in each category! The odds are not really in your favor. With that said...get it right, and you've hit the jackpot.",
       "Deliberately die to prove you are the Gambler. This can seem counter-intuitive, but if you have a few nights of confirming players and you want to dispel any suspicions of your reliability, predict your own death (preferably in private to someone you trust), and then that night, choose wrong. Dying in this way makes it very likely you are who you claim, and can be trusted",
       "If you don't have any idea who to guess, you can guess yourself. Since you know for certain you are the Gambler, your ability will definitely not kill you that night, guaranteeing that you aren't responsible for your death. This is also useful if you suspect that you may be targeted by a wily Demon or Assassin in the night - if you choose yourself and still die, there's no ambiguity about the fact that you were targeted!"
+    ],
+    "cn": [
+      "这是一个高风险，高回报的角色。你得到的信息不容易被影响，但你随时可能付出你生命，多么刺激！",
+      "你的最强用途之一，就是用你的能力去确认其他善良玩家的角色。得知几个玩家及其角色将大大有助于建立信任，例如可以大概率去确认：一个玩家没有被处决成功，是一个和平主义者正在发挥作用，或者自称侍女的玩家没有在说谎。",
+      "选择你最想知道角色的善良玩家。你的能力意味着很难活到最后一天，所以在你的运气用完之前，尽量使你的信息更有价值。这可能意味着为了确认像驱魔人或侍臣这样的强大角色，而赌上自己的性命去信任这名玩家，这会在关键时刻善良阵营大有裨益。",
+      "是很谨慎地进行一场有充分理由的赌博，还是将这一切都留给幸运女神，这两种玩法是有区别的。你的确可以尝试猜测邪恶的角色，但是即使你非常强烈地怀疑某人是邪恶的，你仍然必须猜测他们是哪种爪牙和恶魔，爪牙和恶魔都有四种！这赔率对你并不有利。话虽如此...如果你猜对了，那恭喜你获得头等奖。",
+      "你可以故意死去，以证明你是赌徒。这似乎有悖常理，但如果你有几个已经确认过的玩家，你想消除对自己可靠性的任何怀疑，那你可以预言你自己的死亡（最好是私下里告诉你信任的人），然后那天晚上，选择猜测错误。以这种方式死去，你会很容易获得信任。",
+      "如果你不知道该猜谁，你可以猜自己。既然你肯定知道自己是赌徒，那么你的能力绝对不会在那天晚上杀死你，从而保证你的猜测不对自己的死负责。如果你怀疑自己可能在夜间被狡猾的恶魔或刺客盯上，这也很有用——如果你选择猜测自己并且仍然死亡，那你肯定是被邪恶势力盯上了！"
     ]
   },
   "how_to_run": {
-    "en": "Each night except the first, wake the Gambler. They point at any player, then point at any character icon on their character sheet. Put the Gambler to sleep. If the chosen player is a different character from the chosen character icon, the Gambler dies—mark them with the DEAD reminder."
+    "en": "Each night except the first, wake the Gambler. They point at any player, then point at any character icon on their character sheet. Put the Gambler to sleep. If the chosen player is a different character from the chosen character icon, the Gambler dies—mark them with the DEAD reminder.",
+    "cn": "除了首个夜晚以外的每个夜晚，唤醒赌徒。让赌徒指向任意一名玩家，然后指向角色列表上的任意一个角色图标。让赌徒重新入睡。如果所选的玩家的角色和所选角色图标不同，赌徒死亡——将“死亡”提示标记放置到赌徒的角色标记旁。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Gambler",
   "image": "assets/tokens/gambler.png"

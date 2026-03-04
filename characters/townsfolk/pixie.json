@@ -2,13 +2,16 @@
   "id": "pixie",
   "type": "townsfolk",
   "name": {
-    "en": "Pixie"
+    "en": "Pixie",
+    "cn": "小精灵"
   },
   "ability": {
-    "en": "You start knowing 1 in-play Townsfolk. If you were mad that you were this character, you gain their ability when they die."
+    "en": "You start knowing 1 in-play Townsfolk. If you were mad that you were this character, you gain their ability when they die.",
+    "cn": "在你的首个夜晚，你会得知一个在场的镇民角色。如果你“疯狂”地证明你是该角色，当他死亡时你获得该角色的能力。"
   },
   "flavor_text": {
-    "en": "\"Round and round the garden, go.\n\t\t\t\tLittle girls run to and fro.\n\t\t\t\tLittle boys climb up the tree.\n\t\t\t\tWhich of these should Pixie be?\n\t\t\t\tLadies smile and go to town. \n\t\t\t\tLords with axe chop forest down.\n\t\t\t\tWhat’s yours is mine. What’s mine, divine.\n\t\t\t\tSilly little Pixie, me.\""
+    "en": "\"Round and round the garden, go.\n\t\t\t\tLittle girls run to and fro.\n\t\t\t\tLittle boys climb up the tree.\n\t\t\t\tWhich of these should Pixie be?\n\t\t\t\tLadies smile and go to town. \n\t\t\t\tLords with axe chop forest down.\n\t\t\t\tWhat’s yours is mine. What’s mine, divine.\n\t\t\t\tSilly little Pixie, me.\"",
+    "cn": "“绕着花园转圈圈，女孩跑得疯癫癫。男孩树上荡秋千，\n小精灵在谁心间？淑女微笑小镇边，贵族抡斧树长眠。\n容貌相似难分辨，谜底揭晓圣光现：小精灵呀是神仙。”"
   },
   "editions": [
     "experimental"
@@ -17,10 +20,30 @@
   "other_nights": false,
   "jinxes": [],
   "examples": [
-    "Amy is the Pixie, and knows that the Washerwoman is in play. For three days, Amy claims that the Washerwoman player is lying, because she is the Washerwoman. The Washerwoman is executed. That night, Amy gains the Washerwoman ability, and learns that one of two people is the Monk.",
-    "Doug is the Drunk Pixie. He learns that the Lycanthrope is in play. There is no Lycanthrope in play, but a Minion bluffs as the Lycanthrope. The Minion dies. The Storyteller wakes Doug and Doug chooses a player to “attack” each night, but they do not die because Doug does not have the Lycanthrope ability.",
-    "On the first day, the Pixie player claims to be the Soldier. The real Soldier also claims to be the Soldier. The Pixie player doesn’t dispute this. When the Soldier dies, the Pixie player does not gain the Soldier ability, as the Storyteller feels that the Pixie did not really pretend to be the Soldier."
+    "小米是小精灵，得知将军在场。在三天时间里，小米一直声称将军玩家在说谎，因为她才是将军。将军玩家被处决。当晚，小米获得了将军的能力，并且从现在起每个夜晚都会开始获得信息。",
+    "道哥是酒鬼并以为自己是小精灵。他得知半兽人在场。实际上半兽人不在场，但恐惧之灵伪装成了半兽人。随后恐惧之灵死亡。说书人假装道哥获得了半兽人的能力，每个夜晚都唤醒他并让他选择一名存活玩家。这些被选择的玩家不会死亡，因为道哥没有获得半兽人的能力。",
+    "在第一个白天，小精灵玩家声称自己是士兵。真正的士兵也声称自己是士兵。小精灵玩家对此没有进行争辩。当士兵死亡时，小精灵玩家没有获得士兵的能力，因为说书人认为小精灵玩家没有“疯狂”地证明自己是士兵。"
   ],
   "source_url": "https://wiki.bloodontheclocktower.com/Pixie",
-  "image": "assets/tokens/pixie.png"
+  "image": "assets/tokens/pixie.png",
+  "how_to_run": {
+    "cn": "在为首个夜晚做准备时，将小精灵的“疯狂”标记放置在一个镇民角色标记旁。\n在首个夜晚，唤醒小精灵。对他展示标记了“疯狂”的镇民角色标记。让小精灵重新入睡。\n如果标记了“疯狂”的玩家死亡，并且你认为小精灵玩家曾足够“疯狂”地证明自己是这个角色，那么使用“获得能力”标记替换“疯狂”标记。小精灵现在获得了这个镇民的能力，并且会在这个镇民的夜晚行动顺序时机被唤醒以使用能力。\n有关小精灵以及疯狂机制的更多设计理念，请参考阅读：疯狂规则如何运作？——疯狂的小精灵"
+  },
+  "tips": {
+    "cn": [
+      "尽可能地为你所得知在场的镇民疯狂。宣称你是那个角色。给出那个角色应当给出的信息。宣称使用了你的能力。宣称，大声并且反复地宣称，另一名玩家在说谎。有必要的话用任何手段杀死他们。一旦做到这一切，你就能获得那个角色的能力——这完全值得！",
+      "从第一天，第一分钟开始就为这个临摹角色疯狂，并在接下来的每天中都继续演下去。这将在说服团队你是这个角色这件事上起重要作用，并且可以让说书人明白你的疯狂。",
+      "在几天内完全不要对你的临摹角色彻底疯狂。不要提任何关于角色的事。然后，在你认为可以处决这名玩家时，对此角色疯狂。如果说书人看到你“已经”疯狂于临摹角色，并且你的疯狂促使临摹角色被处决，他们很可能会给予你小精灵的疯狂奖励——当此玩家死亡时获得此玩家的能力。",
+      "一旦你获得了临摹角色的能力，你就可以安全地作为小精灵公开现身。你现在已经锁定住了这个新能力，所以你可以随意地使用它。并让临摹角色（以及团队）知道你一直都是小精灵。对那位被你当成替罪羊的倒霉善良玩家进行一些道歉也是很有必要的。;)",
+      "如果你承认你是小精灵，那将被当作“没有对你的临摹角色疯狂”，并且几乎肯定会导致你无法获得临摹的能力。最好别这样说。",
+      "如果你可以与被临摹的玩家进行一次私聊，并告诉他们你是小精灵，那么他们可能会同意处决自己。但是要注意……如果说书人无意中听到你宣称是小精灵，那么你不再“疯狂”并不会获得角色能力。类似地，如果你告知的玩家是邪恶的，然后转而告诉说书人你说了什么，那么你不再“疯狂”并不会获得角色能力。",
+      "疯狂时要先发制人。说书人希望看到你做出真诚的努力来说服团队你是一个你并不是的角色。",
+      "在第一天基于你将扮演的角色调整你的小精灵策略。如果你被展示了调查员那么就尽快杀死他们，这样你们两个就都能尽早获得你们的信息。如果你被展示了送葬者，那么就等到他得知了至少一名被处决玩家的角色后（再尝试杀了他），这样你们两个就都能证实信息并互相信任。如果你被展示了贤者，那就先伪装成不同的角色，然后再转为贤者，让你的贤者伪装看起来变得可信。小精灵的策略数量和可用的角色一样多。",
+      "你知道一个角色在场，但并不知道哪名玩家是。当他们死后，你有能力确定他们是他们宣称的角色。如果一名玩家死亡，而你没有获得临摹的能力，那么死亡的人并不是你知道的角色。真正的你知道的在场角色仍然存活。",
+      "别忘记限次能力角色与进场能力角色，比如女裁缝或图书管理员可能已经使用了他们的能力。通过处决他们（假设你已经成功地对他们的角色“疯狂”），你不仅能确认他们是他们所宣称的角色，还能再次使用他们的能力，获得新的信息。",
+      "你可以测试小精灵看看他们是否在说真话。如果你是小精灵宣称的角色，但你还没有透露你是谁，保持沉默并尽力让自己被杀。当你死后，小精灵将获得新的能力，因此小精灵应当会大声说出这件事。如果你死亡，但那名宣称是小精灵的玩家并没有宣称获得了新能力，那他们很可能不是小精灵因为他们不知道你已经死亡。",
+      "当小精灵在剧本中时，不要太过怀疑宣称同一角色的两名玩家。只要他们把角色玩得好，就很可能是两名善良玩家。当然邪恶玩家知道这一点，并可能会以伪装来对峙。无论这两名玩家都是善良的（并且其中之一是小精灵）还是其中有一名邪恶玩家在对峙，可能最好还是处决其中一名玩家。希望你们能处决掉邪恶玩家或是那个能给予小精灵额外能力的善良玩家。",
+      "在游戏早期就说你是小精灵，故意排除你获得能力的可能性，也仍然能帮上忙。你在游戏开始时就知道一个特定的善良角色在场。这是有用的信息。告诉团队你知道的能帮助确认那名玩家是善良的。团队会知道你是小精灵，因此在这局游戏中没必要再去疯狂。"
+    ]
+  }
 }

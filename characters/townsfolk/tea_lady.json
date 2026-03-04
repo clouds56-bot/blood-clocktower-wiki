@@ -2,13 +2,16 @@
   "id": "tea_lady",
   "type": "townsfolk",
   "name": {
-    "en": "Tea Lady"
+    "en": "Tea Lady",
+    "cn": "茶艺师"
   },
   "ability": {
-    "en": "If both your alive neighbors are good, they can't die."
+    "en": "If both your alive neighbors are good, they can't die.",
+    "cn": "如果与你邻近的两名存活的玩家是善良的，他们不会死亡。"
   },
   "flavor_text": {
-    "en": "\"If you are cold, tea will warm you. If you are too heated, tea will cool you. If you are depressed, tea will cheer you. If you are excited, tea will calm you.\""
+    "en": "\"If you are cold, tea will warm you. If you are too heated, tea will cool you. If you are depressed, tea will cheer you. If you are excited, tea will calm you.\"",
+    "cn": "“若你感到寒冷，茶能使你温暖。\n若你感到愤怒，茶能使你冷静。\n若你感到沮丧，茶能使你振奋。\n若你感到激动，茶能使你镇定。”"
   },
   "editions": [
     "bad_moon_rising"
@@ -17,9 +20,21 @@
   "other_nights": false,
   "jinxes": [],
   "examples": [
-    "The Tea Lady starts the game neighbouring the Mastermind and the good Goon. The Mastermind is executed and dies. Now, the Tea Lady's alive neighbours are the good Goon and the Courtier. The Demon attacks the Courtier, but the Courtier remains alive. Later, the Goon turns evil, and the Demon attacks the Courtier again. This time, the Courtier dies.",
-    "The Tea Lady's alive neighbours are a good Matron and a good Judge. The Matron is exiled but remains alive."
+    "茶艺师在游戏开始时的邻近玩家是主谋和善良的莽夫。主谋被处决且死亡。现在，茶艺师邻近的存活玩家是善良的莽夫和侍臣。恶魔攻击了侍臣，但侍臣依然存活。之后，莽夫转变为邪恶的，并且恶魔再次攻击侍臣。这一次，侍臣死亡。",
+    "茶艺师邻近的存活玩家是善良的女舍监和善良的法官。女舍监被流放，但依然存活。"
   ],
   "source_url": "https://wiki.bloodontheclocktower.com/Tea_Lady",
-  "image": "assets/tokens/tea_lady.png"
+  "image": "assets/tokens/tea_lady.png",
+  "how_to_run": {
+    "cn": "如果茶艺师邻近的两名存活玩家都是善良的，将茶艺师的“不会死亡”提示标记放置到这两名玩家的角色标记旁。如果茶艺师邻近的两名存活玩家中有任何一个是邪恶的，移除这些提示标记。根据这个条件在整局游戏中随时更新这些提示标记（例如一名玩家的阵营改变了）。\n如果一名标有“不会死亡”的玩家将要死去，该玩家依然存活。如果一名标有“不会死亡”的玩家被处决，宣布该玩家被处决但依然存活。（不要说明原因。）"
+  },
+  "tips": {
+    "cn": [
+      "茶艺师是一个强大的保护者，但自己很脆弱。什么时候、向谁坦白你的角色，对善良方的策略非常重要。立即公开角色，可以帮助你的邻居免受处决（即最好的情况：两个邻居都是善良的），但会使你暴露于邪恶团队。保持安静或谨慎行事会使确认信息变得更加困难，但你会活得更久，并且可能会诱骗恶魔瞄准受了你保护的邻居，从而浪费宝贵的杀戮。很难说这些策略哪种对哪种错——自己判断哪种策略最适合你所在的游戏！",
+      "处决你的邻居！如果你的两个邻居都很是善良的，他们就不会死。测试这一点的最快和最简单的方法是处决他们——如果他们没有死，那么很有可能是你的能力拯救了他们。警惕那些通常免疫处决的角色（例如水手、弄臣），因为他们会搅浑水。你还应该小心魔鬼代言人，他也可能起欺骗你，让你觉得一个邪恶的邻居是好人，因为他们的能力可以与你的处决时间相吻合。最后，请注意和平主义者——当他们还活着的时候，说书人可能会选择放过任何善良的处决者，你也可能误以为能力发动了。",
+      "你也可以选择不那么主动——你可以什么也不透露，等着看结果如何！恶魔不知道你是谁的话，可以给你带来一些安全感，同时你邻居的角色，也可能对局势有益。例如，如果你有两个好邻居，恶魔在晚上袭击他们毫无影响。对于其他情况，如果你的邻居死亡，说明你至少有一个邪恶的邻居，并且一旦你想到嫌疑人就可以选择告诉大家。 （尤其是对像僵怖这样的角色，他们可能会选择提前“假死”，但如果没有意识到你是他们的邻居，他们这样做就很危险！）",
+      "与邻居建立信任。甚至在他们被确认是好人之前，都应该鼓励他们配合你——毕竟，如果他们能证明他们都是善良的，那么你可以相信你的能力会发挥作用并保护他们。召集优秀团队比而花时间杀死邻居来证明他们的阵营更重要。",
+      "无论你使用哪种策略，每次邻居死亡时都可以切换策略，特别是如果你认为邻居是邪恶的时候。你的能力延伸到最接近的活着的玩家，所以每次你失去一个邻座玩家，你就会获得一个玩家阵营，而这一次你可能会有两个好邻居！但请注意——随着游戏的进行，你获得邪恶邻居的机会会越来越高。在最后的日子里，你可以优先假设你身边的人是邪恶的，除非你有强有力的证据证明他们是善良的。"
+    ]
+  }
 }

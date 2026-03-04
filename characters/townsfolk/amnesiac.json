@@ -2,13 +2,16 @@
   "id": "amnesiac",
   "type": "townsfolk",
   "name": {
-    "en": "Amnesiac"
+    "en": "Amnesiac",
+    "cn": "失忆者"
   },
   "ability": {
-    "en": "You do not know what your ability is. Each day, privately guess what it is: you learn how accurate you are."
+    "en": "You do not know what your ability is. Each day, privately guess what it is: you learn how accurate you are.",
+    "cn": "你不知道你的能力是什么。每个白天你可以找说书人猜测一次，你会得知你的猜测有多准确。"
   },
   "flavor_text": {
-    "en": "\"Wait. What. Who? Oh, ok. Wait. What?\""
+    "en": "\"Wait. What. Who? Oh, ok. Wait. What?\"",
+    "cn": "“等下，你说了啥？谁？哦，没事了。等下，你说了啥？”"
   },
   "editions": [
     "experimental"
@@ -18,9 +21,9 @@
   "artist": "Anica Kelsen",
   "jinxes": [],
   "examples": [
-    "Make the Amnesiac’s ability guessable, so that the Amnesiac can figure out what their ability is over time. Learning a piece of information each night, or a power that affects the game in a way that the Amnesiac notices, are both good ideas.\n\n\nIf the Amnesiac guesses their ability, but the wording is different, still tell them they guessed correctly.\n\n\nYou can make the Amnesiac’s ability slightly better than a normal Townsfolk’s ability. Not knowing what it is, the player will need to work harder to receive its full benefit.",
-    "Each night, the Amnesiac wakes and is prompted to point at two players. The Storyteller shakes their head on the first night, and nods on the second. The Amnesiac guesses “Am I learning if both players are Minions?” The Storyteller says “Hot” because their ability is that they detect if either of the two players are a Minion.",
-    "Each night, the Amnesiac learns a number. The Amnesiac is learning how many of their living neighbours are Townsfolk."
+    "每个夜晚，失忆者均被唤醒且在说书人的提示下指向了两名玩家。在第一个夜晚，说书人对他点头。在第二个夜晚，说书人对他摇头。失忆者猜测：“我的能力是能够得知我选择的这两名玩家均为爪牙？”说书人告诉他：“接近”，因为失忆者的能力是得知这两名玩家之中是否有爪牙。",
+    "每个夜晚，失忆者均得知了一个数字。实际上，失忆者得知的是与他邻近的存活镇民玩家的数量。",
+    "每个夜晚，失忆者均被展示了一个角色标记。实际上，失忆者得知的是不在场的角色。"
   ],
   "tips": {
     "en": [
@@ -30,10 +33,23 @@
       "When guessing the nature of your ability, keep in mind the various mechanical hooks of the game your ability might relate to, such as…\nCharacters: Who is a particular character? Who is a particular type such as Minion or Outsider? Does the character name start or end with a particular letter? Is the character in a certain position on the script page?\nPowers: Are you making players drunk? Can you publicly choose players and do something to them? Did you give information to another player at night? Do you change or swap characters or alignments? Are you preventing or causing deaths?\nPhysical arrangement: Who’s sitting next to whom? Who’s sitting across from whom? Who nominated today? Who voted today?\nSocial behavior: Who is winning? Who is lying? Who is correct?Characters: Who is a particular character? Who is a particular type such as Minion or Outsider? Does the character name start or end with a particular letter? Is the character in a certain position on the script page?Powers: Are you making players drunk? Can you publicly choose players and do something to them? Did you give information to another player at night? Do you change or swap characters or alignments? Are you preventing or causing deaths?Physical arrangement: Who’s sitting next to whom? Who’s sitting across from whom? Who nominated today? Who voted today?Social behavior: Who is winning? Who is lying? Who is correct?",
       "Feel free to ask for the town’s help in trying to figure out your ability. If you can’t figure out what 1,3,1,2,1 means, perhaps your allies can.",
       "Remember that your Storyteller tried to make your ability reasonable to guess. If theories seem so outlandish that you don’t believe the Storyteller would make it your ability, it may be worth discounting them on those merits."
+    ],
+    "cn": [
+      "多数时候，失忆者的能力是获取信息的能力，但也并非绝对如此。失忆者的能力往往比一般的镇民能力更强大（因为存在无法猜中的风险），这让你的能力更显得有用，前提是你能猜测正确。",
+      "当你拜访说书人进行猜测时，问题可以具体也可以宽泛，但是一般建议玩家从宽泛的问题入手，例如“我的能力与外来者有关吗？”，然后再层层深入，例如“我会得知我选择的玩家角色是否以L字母开头？”。",
+      "大多数失忆者的能力会在夜晚唤醒你并让你选择一名玩家，尝试在每个夜晚选择不同的玩家，根据获得的不同结果推断自己的真实能力。",
+      "在你猜测你的能力时，记得你的能力可能与游戏的任何机制相关联，例如：\n角色：是得知谁是特定角色吗？是得知谁是特定角色类型，例如外来者或爪牙吗？是得知角色名字是不是以特定的字母开头或结尾吗？是得知角色在剧本页面中的位置吗？\n效果：是让其他玩家醉酒吗？能公开选择玩家并对他产生什么效果吗？能在晚上向其他玩家提供信息吗？能改变或交换玩家的角色或阵营吗？能阻止或制造玩家的死亡吗？\n场面：是得知谁和谁相邻而坐吗？是得知谁和谁相对而坐吗？是得知谁今天提名了吗？是得知谁今天投票了吗？\n社交：是得知谁迈向胜利吗？是得知谁在撒谎吗？是得知谁的信息正确吗？",
+      "角色：是得知谁是特定角色吗？是得知谁是特定角色类型，例如外来者或爪牙吗？是得知角色名字是不是以特定的字母开头或结尾吗？是得知角色在剧本页面中的位置吗？",
+      "效果：是让其他玩家醉酒吗？能公开选择玩家并对他产生什么效果吗？能在晚上向其他玩家提供信息吗？能改变或交换玩家的角色或阵营吗？能阻止或制造玩家的死亡吗？",
+      "场面：是得知谁和谁相邻而坐吗？是得知谁和谁相对而坐吗？是得知谁今天提名了吗？是得知谁今天投票了吗？",
+      "社交：是得知谁迈向胜利吗？是得知谁在撒谎吗？是得知谁的信息正确吗？",
+      "随时向大家寻求帮助来揭示你的能力，如果你无法理解你获得的诸如1,3,1,2,1这样的信息代表什么，或许你的盟友可以。",
+      "请记住，说书人一定是试图让你的能力可以很合理地被推理出来，如果你发现你的能力奇怪到开始让你怀疑说书人会不会将其作为你的能力，那就应该基于这一原则重新进行猜测。"
     ]
   },
   "how_to_run": {
-    "en": "During setup, decide what ability the Amnesiac player has. During the game, treat that player as if they had that ability, waking them when needed, prompting them to choose players when needed, or whatever else is appropriate. Use the Amnesiac’s ? reminders if you need to."
+    "en": "During setup, decide what ability the Amnesiac player has. During the game, treat that player as if they had that ability, waking them when needed, prompting them to choose players when needed, or whatever else is appropriate. Use the Amnesiac’s ? reminders if you need to.",
+    "cn": "在进行游戏设置时，决定失忆者玩家的能力是什么。在游戏过程中，将那名玩家视作具有该能力一样，在需要的时候将他唤醒，在需要的时候提示他选择玩家，或者进行任何其他恰当的操作。如有需要，使用失忆者的“？”提示标记来进行标注。\n每个白天，失忆者都可以私下进行一次关于自身能力的猜测。使用“无关”、“有关”、“接近”、“完美”来回答他的猜测。\n在决定失忆者的能力时，让这一能力容易被猜测，这样失忆者就可以随着时间的推移而逐渐弄清楚他的能力具体是什么。每个夜晚得知一条信息，或以失忆者能够注意到的方式影响游戏的能力，都是关于失忆者能力的不错的主意。\n如果失忆者猜到了他的能力，但使用了与你预想不同的措辞，仍然应该告诉他猜对了。\n你可以让失忆者的能力比普通镇民的能力稍微强力一些。这是因为在不知道具体能力是什么的前提下，玩家需要更加努力才能从自己的能力中获益。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Amnesiac",
   "image": "assets/tokens/amnesiac.png"

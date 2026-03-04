@@ -2,13 +2,16 @@
   "id": "riot",
   "type": "demon",
   "name": {
-    "en": "Riot"
+    "en": "Riot",
+    "cn": "暴乱"
   },
   "ability": {
-    "en": "On day 3, Minions become Riot & nominees die but nominate an alive player immediately. This must happen."
+    "en": "On day 3, Minions become Riot & nominees die but nominate an alive player immediately. This must happen.",
+    "cn": "在第三个白天，所有爪牙会变成暴乱，当天被提名的玩家会立即死亡且必须再次提名一名存活的玩家。"
   },
   "flavor_text": {
-    "en": "\"Larga vida a la revolución! Mi revolucion!\""
+    "en": "\"Larga vida a la revolución! Mi revolucion!\"",
+    "cn": "“革命万岁！我的革命！”（西班牙语）"
   },
   "editions": [
     "experimental"
@@ -17,8 +20,11 @@
   "other_nights": false,
   "jinxes": [],
   "examples": [
-    "Alex nominates Lewis. Lewis dies and nominates Ben. Ben dies and nominates Marianna. Marianna dies and nominates Lachlan. Lachlan dies. All Riot players are dead. Good wins."
+    "在第三天，一名暴乱玩家被提名。他死亡并提名失忆者，失忆者死亡并提名巡山人，巡山人死亡并提名一名暴乱玩家。游戏立即结束，因为所有暴乱都死亡了。"
   ],
   "source_url": "https://wiki.bloodontheclocktower.com/Riot",
-  "image": "assets/tokens/riot.png"
+  "image": "assets/tokens/riot.png",
+  "how_to_run": {
+    "cn": "在第一个白天，把“第一个白天”标记放置在魔典中央。在第二个白天，把“第二个白天”标记放置在魔典中央。在第三个白天，把“第三个白天”放置在魔典中央。\n在第三个夜晚，唤醒每个爪牙。向他展示“你是”信息标记和暴乱的角色标记，然后让他重新入睡。可以在此时或第三个白天，把所有爪牙角色标记替换成暴乱的角色标记。\n在第三天，每当一名玩家被提名时，这名玩家死亡。立即宣告他死亡并添加帷幕标记。告诉他必须再次提名。公开倒数“3... 2... 1...”，如果他在倒数结束前提名，为新的被提名者重复这个流程（他死亡，可以继续提名，等等），直到所有暴乱死亡或只有两名玩家存活。宣布哪个阵营获胜。\n在第三天，如果没有玩家提名，或者被提名的玩家没有及时发起提名，由说书人来提名一名玩家——那名玩家死亡并且需要立刻发起提名。"
+  }
 }

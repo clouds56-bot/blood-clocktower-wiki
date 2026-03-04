@@ -2,13 +2,16 @@
   "id": "snake_charmer",
   "type": "townsfolk",
   "name": {
-    "en": "Snake Charmer"
+    "en": "Snake Charmer",
+    "cn": "舞蛇人"
   },
   "ability": {
-    "en": "Each night, choose an alive player: a chosen Demon swaps characters & alignments with you & is then poisoned."
+    "en": "Each night, choose an alive player: a chosen Demon swaps characters & alignments with you & is then poisoned.",
+    "cn": "每个夜晚，你要选择一名存活的玩家：如果你选中了恶魔，你和他交换角色和阵营，然后他中毒。"
   },
   "flavor_text": {
-    "en": "\"Effendi... I am but a humble man, but my pipe is golden and a single tune will tame the wildest djinn, Inshallah. They say that greed hangs more men than rope. But not I, Effendi... not I.\""
+    "en": "\"Effendi... I am but a humble man, but my pipe is golden and a single tune will tame the wildest djinn, Inshallah. They say that greed hangs more men than rope. But not I, Effendi... not I.\"",
+    "cn": "“这位老爷……虽然我的烟斗是金色的，虽然我只要一首曲子就能驯服最狂野的灯神，但我只是一个卑贱的舞蛇人罢了，哎……听天由命吧。俗话说，人心不足蛇吞象。但不是我，这位老爷……真的不是我。”"
   },
   "editions": [
     "sects_violets"
@@ -17,11 +20,25 @@
   "other_nights": true,
   "jinxes": [],
   "examples": [
-    "In the strange situation that the Snake Charmer is evil, or the Demon good, swap their alignments as appropriate.",
-    "The Snake Charmer chooses a player who is the Pit-Hag, so nothing happens. The Snake Charmer simply goes to sleep. The next night, the Snake Charmer chooses themself, so nothing happens.",
-    "The Snake Charmer chooses a player who is the Vigormortis. The Snake Charmer immediately becomes the evil Vigormortis, and the Vigormortis becomes the good Snake Charmer and gets poisoned.",
-    "The Pit-Hag turns themself into the Snake Charmer. Then, the Snake Charmer chooses a player who is the Fang Gu. The Snake Charmer becomes the Fang Gu, while the Fang Gu becomes the Snake Charmer and gets poisoned. Both remain evil."
+    "舞蛇人选择的玩家是麻脸巫婆，无事发生。下个夜晚，舞蛇人选择他自己，依旧无事发生。",
+    "舞蛇人选择的玩家是亡骨魔。舞蛇人立即变成邪恶的亡骨魔，曾经是亡骨魔的玩家变成善良的舞蛇人并中毒。",
+    "麻脸巫婆把自己变成了舞蛇人。然后，舞蛇人——原本为麻脸巫婆——选择了方古玩家。舞蛇人变成了方古，方古变成了中毒的舞蛇人。但两者仍然邪恶。"
   ],
   "source_url": "https://wiki.bloodontheclocktower.com/Snake_Charmer",
-  "image": "assets/tokens/snake_charmer.png"
+  "image": "assets/tokens/snake_charmer.png",
+  "how_to_run": {
+    "cn": "每个夜晚，唤醒舞蛇人。让他指向任意一名存活玩家。\n如果被选择的玩家不是恶魔，则无事发生。让舞蛇人重新入睡。\n如果被选择的玩家是恶魔，旧的舞蛇人变为新的（邪恶）恶魔，并且旧的恶魔变为新的（善良）舞蛇人。在魔典中交换舞蛇人和恶魔的角色标记。在新的舞蛇人角色标记旁放置“中毒”提示标记。唤醒新的恶魔并依次向他展示“你是”信息标记、向下的大拇指、 ”你是”信息标记、然后是恶魔的角色标记。（这代表该玩家现在是邪恶的恶魔。）让新恶魔重新入睡。唤醒新的舞蛇人并依次向他展示“你是”信息标记、向上的大拇指、“你是”信息标记、然后是舞蛇人的角色标记。（这代表该玩家现在是善良的舞蛇人。）让新舞蛇人重新入睡。\n在舞蛇人属于邪恶阵营，或者恶魔属于善良阵营的特殊情况下，依旧相应地交换他们的阵营。"
+  },
+  "tips": {
+    "cn": [
+      "舞蛇人存在双重可能性。在任何可能的时候，你可能变为邪恶转而开始背叛你的队伍。而在此之前，你是一名善良玩家，你的信息也极其有用（知道谁不是恶魔与知道谁是恶魔同样重要！）。不像其他玩家，你并不为了你的队伍，而是为了你自己，或者说为游戏结束时你所在的阵营。",
+      "谨慎一点；只选择少数玩家来确认不是恶魔。瞄准那些你认为会存活一段时间的玩家-如果在最后一天还活着的玩家中有你知道不是恶魔的，那么你们将从3选一变为2选1！一旦你对自己收集到的信息感到满足了（或者你并不想再冒险了），请记住你可以在晚上选择自己来避免成为恶魔！",
+      "大胆一点；选择尽可能多的玩家，你确认不是恶魔的玩家越多，你就越强大！这种方法会提高你成为恶魔的概率，但如果你整局游戏都是善良阵营，那么你将拥有强大的力量来对抗邪恶阵营。然而如果你变邪恶了……我相信如果你这么做的话你也不会担心遇到这样的情况不是吗？",
+      "不要告诉任何人你是舞蛇人，除非你确信你自己不会变为恶魔。即使你小心翼翼，你仍然有可能一不小心变为邪恶阵营。被你偷走恶魔角色的玩家现在是善良阵营，他会提供大量所发生的信息，如果此时有任何人知道你是舞蛇人，你会面临巨大的麻烦。尝试不揭露自己的角色直到死亡，或者你决定不再选择新的玩家。",
+      "请牢记每个你选择的玩家如果没有使你交换角色，那么他不是恶魔。在验证恶魔时，你比占卜师更加精确……只要你能够让团队相信你。",
+      "如果你一直是善良阵营，在最后请说出你的信息——如果你一直隐藏你的信息那只会对善良阵营造成伤害！如果你变邪恶了……不要承认自己是舞蛇人，而是先抓紧找个角色伪装吧。",
+      "突然变为恶魔会让人很震惊，所以你要为这个可能性做好准备。准备一个角色，即便最坏的情况发生了，你也可以马上声明自己是恶魔但被舞蛇人给交换了。只要你足够快且气势汹汹，那么可怜的恶魔将很难跟上你的步调来证明你才是邪恶的那一个。",
+      "那么如果你是恶魔但是变成了舞蛇人该怎么办？不必烦恼——你现在属于善良阵营，依然有着足够清晰的方式获得胜利。你有几个选择——立即告知大家你现在属于新的阵营，暴露你的爪牙，然后用你邪恶的能力来追捕新的恶魔吧……或者你也可以什么都不说直到几天后。如果这样，你的爪牙们仍然会相信你是恶魔然后去运用他们的能力寻找和对抗新的恶魔。同时在这期间你也可以悄悄的告诉一两个善良阵营的玩家让其成为你秘密找寻恶魔计划的伙伴。"
+    ]
+  }
 }

@@ -2,13 +2,16 @@
   "id": "mathematician",
   "type": "townsfolk",
   "name": {
-    "en": "Mathematician"
+    "en": "Mathematician",
+    "cn": "数学家"
   },
   "ability": {
-    "en": "Each night, you learn how many players' abilities worked abnormally (since dawn) due to another character's ability."
+    "en": "Each night, you learn how many players' abilities worked abnormally (since dawn) due to another character's ability.",
+    "cn": "每个夜晚，你会得知有多少名玩家的能力因为其他角色的能力而未正常生效。（从上个黎明到你被唤醒时）"
   },
   "flavor_text": {
-    "en": "\"Any consistent formal system x, within which a certain amount of elementary arithmetic can be carried out is incomplete; that is, there are statements of the language of x which can neither be proved nor disproved in x. Ergo, you are drunk.\""
+    "en": "\"Any consistent formal system x, within which a certain amount of elementary arithmetic can be carried out is incomplete; that is, there are statements of the language of x which can neither be proved nor disproved in x. Ergo, you are drunk.\"",
+    "cn": "“任何连续的，且能进行定量初等运算的形式系统X，都具有不完全性。也就是说，在这个形式系统X内存在一些命题，这些命题既不能被证明为真，也不能被证明为否。所以，你喝醉了。”"
   },
   "editions": [
     "sects_violets"
@@ -18,9 +21,9 @@
   "artist": "John Grist",
   "jinxes": [],
   "examples": [
-    "The poisoned Oracle learns that two dead players are evil, when three dead players are actually evil. All other character abilities work normally. Later that night, the Mathematician learns a \"1\".",
-    "The poisoned Snake Charmer chooses a Townsfolk player, and nothing happens. The drunk Juggler gets correct information. The Savant learns two pieces of true information. Later that night, the Mathematician learns a \"1\" because the Snake Charmer and Juggler's abilities worked as normal, whilst one of the Savant's facts was true when it should have been false.",
-    "A Vortox is in play. Five good players got false information. The Witch is drunk, and when their cursed player nominated, nothing happened. Even though six abilities worked abnormally, the Mathematician learns a \"4\" due to the Vortox's ability."
+    "中毒的神谕者得知有两名死亡玩家是邪恶的，但是事实上有三名死亡玩家是邪恶的。所有其他能力正常生效。数学家得知了“1”。",
+    "中毒的舞蛇人选择了镇民玩家并且无事发生。醉酒的杂耍艺人得知了正确信息。中毒的博学者得知了两条正确信息。当晚，数学家得知了“1”，因为舞蛇人和杂耍艺人的能力没有出现异常，但博学者得知的其中一条信息原本应该是错误的。",
+    "涡流在游戏中。五名善良玩家得知了错误信息。女巫醉酒了，当被女巫诅咒的玩家发起提名时，该玩家没有死亡。虽然有六名玩家的角色能力都没有正常生效，但是数学家由于涡流的能力，得知了“3”。"
   ],
   "tips": {
     "en": [
@@ -32,10 +35,21 @@
       "Getting a read of '1' is also fantastic - this means only one ability didn't work as intended, and if you can figure out who that is, everyone else can trust their information is reliable for that day and night.",
       "If you're getting a read of '2' or more, your town might be in trouble. This is a very good sign that multiple sources of poisoning or ability malfunctions are afoot in the town... or that maybe you're the one who is poisoned.",
       "Unlike other townsfolk, the Mathematician doesn't need to be shy in coming out. Not only is your information most useful when shared, but even one night of it is incredibly powerful when it comes to helping the town. Compared to a Flowergirl or a Juggler, you're also just not as much of a threat."
+    ],
+    "cn": [
+      "你的信息是很有用的，但前提是你得弄清楚其他人都做了什么。和你的队友们沟通，得到他们的信息，尽可能找到谁的信息不正确或能力没有正常生效——这将对善良阵营有着巨大的帮助。一些类似于钟表匠、卖花女孩、女裁缝和神谕者等等的角色会需要你的帮助来确保他们的信息是正确的。",
+      "注意你的信息可能会受到游戏进程改变，如果你得到的信息突然变化，请保持警惕。如果刚刚心上人被处决了，那么你得到的数值很可能在夜晚增加。又或者，如果你之前得到的信息是\"0\"然后突然变成了\"2\"，那么你可以怀疑是麻脸巫婆创造出了一名诺-达鲺。",
+      "务必和说书人确认你的能力所观测的是什么异常情况。在梦殒春宵中，你通常会观测善良玩家的能力因为邪恶角色导致的改变，例如诺-达鲺和涡流。然而，你也同样会观测这些情况，如心上人死后，哲学家选择了在场的一个角色，或者中毒的舞蛇人选择了一个恶魔但无事发生。",
+      "当心涡流！和其他人一样，所有你的信息将会是错误的。如果你得到一个很小的数字，但是看起来有很多人的信息都错误了，那么你可以怀疑有涡流在场。特别是当其他人似乎得到错误信息的时候而你得到的信息是\"0\"那么你可以认为你中毒了或者涡流在场。",
+      "得到\"0\"的信息是非常棒的，因为这意味着没有人会获得错误信息或者会发生能力异常。每个人都可以相信他们在白天和夜晚所获得的信息。",
+      "得到\"1\"的信息也是很不错，这意味着只有一个能力没有达到预期结果。如果你们可以找出是那一个是什么，那么其他人就可以相信他们在那天的能力是有效的。",
+      "如果你得到的信息是\"2\"或者更大，那么你们可能将面临麻烦。这说明了你们之中有很多能力出现了异常……或者你中毒了。",
+      "与其他镇民不同，数学家可以不必害怕站出来说明自己的角色。不仅仅因为你的信息要分享出来才最有用，而且即便你只能提供一晚上的信息也是相当有价值的。何况你对邪恶阵营的威胁相比卖花女孩与杂耍艺人等角色要小的多。"
     ]
   },
   "how_to_run": {
-    "en": "Each time a character's ability works abnormally due to another character's ability, mark them with an ABNORMAL reminder."
+    "en": "Each time a character's ability works abnormally due to another character's ability, mark them with an ABNORMAL reminder.",
+    "cn": "每当一名玩家的角色能力由于其他角色的能力而未正常生效时，在该玩家的角色标记旁放置“未正常生效”提示标记。\n每个夜晚，唤醒数学家。对他用手势比划数字（0，1，2 等），这个数字等同于魔典中\"未正常生效\"提示标记的数量。让数学家重新入睡。移除所有\"未正常生效\" 提示标记。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Mathematician",
   "image": "assets/tokens/mathematician.png"

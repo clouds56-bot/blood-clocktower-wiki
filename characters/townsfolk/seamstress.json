@@ -2,13 +2,16 @@
   "id": "seamstress",
   "type": "townsfolk",
   "name": {
-    "en": "Seamstress"
+    "en": "Seamstress",
+    "cn": "女裁缝"
   },
   "ability": {
-    "en": "Once per game, at night, choose 2 players (not yourself): you learn if they are the same alignment."
+    "en": "Once per game, at night, choose 2 players (not yourself): you learn if they are the same alignment.",
+    "cn": "每局游戏限一次，在夜晚时，你可以选择除你以外的两名玩家：你会得知他们是否为同一阵营。"
   },
   "flavor_text": {
-    "en": "\"Did you hear that stranger in the cashmere coat put the word on our young Belle? And she said yes? Well, that's nothing compared to what Harry and that juggler got up to at the fair! The things I could say if I was a tattletale... my, yes.\""
+    "en": "\"Did you hear that stranger in the cashmere coat put the word on our young Belle? And she said yes? Well, that's nothing compared to what Harry and that juggler got up to at the fair! The things I could say if I was a tattletale... my, yes.\"",
+    "cn": "“你听到那个穿羊绒大衣的家伙对我们小贝尔说什么了吗？他说……‘好’？哎，行吧，和哈利还有那个杂耍艺人那一出相比，这算不了什么。说什么？我可不说，我又不是什么长舌妇。”"
   },
   "editions": [
     "sects_violets"
@@ -17,10 +20,24 @@
   "other_nights": true,
   "jinxes": [],
   "examples": [
-    "During the first night, the Seamstress chooses two players, who are the Barber and the Clockmaker. Because they are both good, the Seamstress learns a \"yes.”",
-    "During the first three nights, the Seamstress chooses not to use their ability. During the fourth night, they choose two players, who are the Fang Gu and the Sweetheart. The Seamstress learns a \"no.”",
-    "The Pit-Hag turns the Mathematician into the Witch, who remains good. Later that night, the Seamstress chooses the two players, the Witch and the Town Crier. The Seamstress learns a \"yes\" because they are both good."
+    "在第一个夜晚，女裁缝选择了两名玩家，他们是理发师和钟表匠。因为他俩都是善良的，女裁缝得知“是”。",
+    "在前三个夜晚，女裁缝选择不使用他的能力。在第四个夜晚，她选择了两名玩家，他们分别是方古和心上人，女裁缝得知“否”。",
+    "麻脸巫婆把数学家变成了女巫，女巫仍然是善良的。当晚，女裁缝选择了两名玩家，他们是女巫和城镇公告员。女裁缝得知“是”，因为他们是善良的。"
   ],
   "source_url": "https://wiki.bloodontheclocktower.com/Seamstress",
-  "image": "assets/tokens/seamstress.png"
+  "image": "assets/tokens/seamstress.png",
+  "how_to_run": {
+    "cn": "每个夜晚，唤醒女裁缝。她要么摇头不使用能力，要么指向另两名玩家。\n如果她摇头，无事发生。让女裁缝重新入睡。\n如果她指向两名玩家，要么点头代表是（表示这些玩家是同一阵营），要么摇头代表否（表示这些玩家不是同一阵营）。让女裁缝重新入睡。在女裁缝使用能力后，为她放置“失去能力”提示标记，并从夜晚顺序表上移除她的夜晚标记。"
+  },
+  "tips": {
+    "cn": [
+      "你可以过几天再使用你的能力。虽然这有一定的风险，你很可能在这段时间内死亡，但是如果你等待一段时间，你就会对当前局势有一定的了解，比如大家都说自己是什么角色以及你觉得谁可疑。这也意味着随着处决以及恶魔击杀玩家，只有更少的活着的玩家供你选择。",
+      "尽快的使用你的能力！你只有一次机会，如果你在还没使用时就死去了，你肯定会为此自责。即使在首夜随机选两个玩家也比到时候一个都选不了好。",
+      "一个常见的女裁缝易犯的错误是没有记住你辨识的是是否是同一阵营——而不是是否是\"善良\"阵营。这也就意味着，如果你足够幸运直接选择了两名邪恶玩家，那你依然会得到信息\"是\"。虽然你更有可能是选到两名善良玩家，但是如果你并不确定，你可以尝试协同其他玩家的信息（如钟表匠），来看看是否关联到你的信息。你也可以在你还没有揭露他们是同一阵营时观察这两名玩家，看看他们是否相互串通或包庇。",
+      "如果你有一个很信任的玩家（不管活着还是死了），你可以参照他来确认其他玩家的阵营。如果你得知他们属于不同阵营，那么你可以确信另一个玩家会是邪恶的那一个。这在处理棘手的镜像双子时尤其有效。",
+      "把能力用在那些你不太了解的人身上！得知两名玩家是否同一阵营是非常强力的，这可以帮助大家决定是否相信他们是某一角色以及是否相信他们的所作所为。",
+      "把能力用在那些对游戏有重要影响的角色身上。弄清楚博学者或者卖花女孩是否可信要比弄清楚理发师是否可信要更有效。",
+      "一般情况下，不要选择那些你的邻座玩家。如果你坐在诺-达鲺旁边，他们会使你中毒并且会非常赞同你的观点。通过选择离你更远的玩家，虽然你仍然可能因为中毒得到错误信息，但是至少你可以知道他们之中没有恶魔来搅局。"
+    ]
+  }
 }

@@ -2,13 +2,16 @@
   "id": "sage",
   "type": "townsfolk",
   "name": {
-    "en": "Sage"
+    "en": "Sage",
+    "cn": "博学者"
   },
   "ability": {
-    "en": "If the Demon kills you, you learn that it is 1 of 2 players."
+    "en": "If the Demon kills you, you learn that it is 1 of 2 players.",
+    "cn": "每个白天，你可以私下询问说书人以得知两条信息：一个是正确的，一个是错误的。"
   },
   "flavor_text": {
-    "en": "\"These mountainous tomes guard the secret, I am sure of it! Twixt word and word, it lies in wait. More candles, boy! More ink! These notes may look arcane, but the infernal puzzle is revealing itself.\""
+    "en": "\"These mountainous tomes guard the secret, I am sure of it! Twixt word and word, it lies in wait. More candles, boy! More ink! These notes may look arcane, but the infernal puzzle is revealing itself.\"",
+    "cn": "“地上有七十二根火柴……今天的太阳落得更早，月亮还是按时升起……一块破布……庄园里的邪恶之物……三个又三个……我们相信的事物和他真正看到的不一样……绿光代表镁……残留物，但是图案不太对……地上有七十二根火柴……”"
   },
   "editions": [
     "sects_violets"
@@ -17,11 +20,28 @@
   "other_nights": false,
   "jinxes": [],
   "examples": [
-    "If the Sage dies early, you will probably want to show the Sage two alive players, which lets the evil team still have a slim chance of winning. If the Sage dies on the final night, feel free to show one alive and one dead player.",
-    "During the second night, the Demon kills the Sage. The Storyteller points at two players, one of whom is the Demon.",
-    "During the final night, the Demon kills the Sage, who is drunk because of the Sweetheart. The Storyteller points at a dead player and one of the remaining three alive players. This information is incorrect.",
-    "The Pit-Hag creates a Demon. Because the Pit-Hag ability says that \"all deaths tonight are arbitrary,” the Storyteller decides that the old Demon dies, and the Sage dies. Because the Sage died due to the Pit-Hag, not the Demon, the Sage does not wake to learn anything tonight"
+    "博学者得知“所有戴眼镜的玩家都是善良的”以及“坐在黑色沙发上的玩家之一是爪牙”。",
+    "博学者得知“舞蛇人存在于游戏中”和“昨晚每个玩家都得到了真实的信息”。",
+    "博学者得知“恶魔是女性玩家”和“小八属于邪恶阵营”。",
+    "博学者得知“小文和小米属于同一个阵营”和“只有一名外来者在场”。"
   ],
   "source_url": "https://wiki.bloodontheclocktower.com/Sage",
-  "image": "assets/tokens/sage.png"
+  "image": "assets/tokens/sage.png",
+  "how_to_run": {
+    "cn": "每个白天仅限一次，如果博学者要求与你进行私聊，请和他一起离开玩家围成的圆圈，保证你们的私聊不会被偷听。然后以耳语的方式告知博学者一真一假两条信息。（如果你无法立刻想出两条信息，要么多想一会儿，要么让博学者几分钟后再来找你。）\n保证你提供的信息有用并且与游戏有关。避免提供恶魔是谁这种信息，否则可能导致游戏快速结束。如果你无法决定告知博学者什么信息，你可以选择提供类似于镇民能力能够获取的信息。"
+  },
+  "tips": {
+    "cn": [
+      "在每天你可以得到一条真信息和一条假信息。最简单的运用方式就是选择一条你认为是真信息的然后去推理。例如，说书人告诉你a)有畸形秀演员在场b)你的邻座都是善良的，而现在没有证据表明畸形秀演员在场，那么你只需要假设你的邻座确实都是善良的。有可能这是错误的，但是你必须要做出一个\"最好的假设\"。",
+      "在某些情况下，你的其中一条信息会被证实是正确的，那么另一条就是错误的。或者其中一条被证实是错误，则另一条就会是正确的。这将为你让你得知大量信息。例如，如果你得知a)有一个金发玩家是爪牙b)有三个外来者在场，如果大量证据表明爪牙已经死去了（而死去的玩家中没有金发玩家），那么你可以大胆认为场上确实有三个外来者。",
+      "有些时候你可以尝试去验证你其中一条的真假，这同样会给你带来很多信息。例如，如果你得知a)恶魔穿着衬衫或b)坐在黑色沙发上的玩家都是善良的。那么你可以故意去处决所有穿着衬衫的玩家，而如果游戏仍然继续，恶魔仍然在夜里行动，那么你就知道恶魔没有穿衬衫，所以所有坐在黑色沙发上的玩家就都是善良的。",
+      "如果你能判断你哪条信息是错的，那么假信息就和真信息一样有用。当你在颠倒真假信息时，注意不要犯逻辑错误。例如，你得知\"女巫昨晚选择了一名善良玩家\"，如果你认为这条信息是错的，那么相反的信息并不一定是\"女巫昨晚选择了一名邪恶玩家\"，因为也许并没有女巫在场，又或者女巫已经死了。你唯一能够知道的是所有善良玩家昨晚都没有被女巫诅咒所以可以放心提名。",
+      "每一天你可以得到两条信息。要立刻分辨出哪一条是真信息可能不太容易，但随着游戏进行，你可以将后续的信息与之前的信息对比，从而得出具体的结论。例如，如果你在第一天得知a)有舞蛇人在场或b)所有戴帽子的玩家是善良的。然后在第三天，你得知a)有一个新的玩家在昨晚成为了恶魔b)爪牙已经死了，那么这些信息就有所交互。如果你假设恶魔已经被舞蛇人换了，那么你就可以推断至少有一个戴帽子的玩家是邪恶的，并且爪牙仍然还活着。",
+      "告诉大家你在每天得到的信息，可以让大家帮助你记住。一旦游戏不断推进，你可能很难记住说书人说的所有信息。毕竟，你需要成为一名真正的博学者！告诉大家你的信息以确保这些信息不会被遗忘。或者，如果你有很好的记忆力（或者你能悄悄的写下来，又或者说书人允许你写下来做记录），那么你可以保持低调，然后在后续一次性揭露你的爆炸信息。",
+      "为了获得更多信息，你需要尽可能的多活几天。你可以装作是那些恶魔不太愿意去攻击的对象，如：贤者、钟表匠或者已经使用能力的女裁缝等，或者你也可以保持沉默。你活的越久，你能得到的信息就越多。但是也不要藏的太久……你需要适当的早些告诉大家你的信息，来帮助大家处决邪恶玩家，否则由于女巫、洗脑师或者畸形秀演员等能力，你们之中会有越来越多的人死去。如果有镜像双子或者涡流在场，那么利用你的信息对大家进行纠正将会尤其的有用。",
+      "注意说书人使用的词汇——如果你做了小小的变更有可能会出现截然不同的结果。由于对说书人而言如果博学者在游戏中将会非常困难，因为他们需要编造一些对你有用但又不能对邪恶阵营太过不公平的信息，所以说书人通常会非常谨慎的给出信息。要准确的记住说书人给出的信息，以免产生混淆。例如，如果说书人说\"所有爪牙都坐在蓝色沙发上\"而你告诉大家\"蓝色沙发上的玩家都是爪牙\"，那么你就犯了一个逻辑错误。又或者，如果说书人说\"恶魔戴着眼镜\"，而你告诉大家\"恶魔就是戴眼镜的人\"，请注意，这里的说法略微不同——如果恶魔在你不注意的情况下摘下眼镜，而你一直告诉大家恶魔戴着眼镜，你就错了。",
+      "每一天都要去找说书人，以尽可能的获取更多的信息。随着你每天都去找说书人，你就会得到更多的信息，当然恶魔也更有可能去杀你。博学者对于恶魔而言是一个非常危险的角色，所以如果恶魔看见你在每天都去找说书人，那么即使你没有说明你自己的角色，恶魔也可能会在晚上攻击你。",
+      "你也可以在前期不去找说书人。这样会导致你获取更少的信息，但同时更容易存活。而你在当时获取的信息有可能会更有价值。在通常情况下，如果只有3、4、5名玩家存活时，你的信息会更有用，因为它会指向更少的玩家。例如，在12人存活时，得知两名玩家中有一个是爪牙是比较简单的，但是如果只有3个玩家存活，那就会变得非常简单。"
+    ]
+  }
 }

@@ -2,13 +2,16 @@
   "id": "bounty_hunter",
   "type": "townsfolk",
   "name": {
-    "en": "Bounty Hunter"
+    "en": "Bounty Hunter",
+    "cn": "赏金猎人"
   },
   "ability": {
-    "en": "You start knowing 1 evil player. If the player you know dies, you learn another evil player tonight. [1 Townsfolk is evil]"
+    "en": "You start knowing 1 evil player. If the player you know dies, you learn another evil player tonight. [1 Townsfolk is evil]",
+    "cn": "在你的首个夜晚，你会得知一名邪恶玩家。\n每当你得知的玩家死亡，你会在当晚得知另一名邪恶玩家。[会有一名镇民转变为邪恶阵营]"
   },
   "flavor_text": {
-    "en": "\"Alone, I walk these streets, paved with the sick stench of corruption. Its thickness worms its way into my nostrils, unbidden, burning with revulsion. And anticipation. The illness of this wretched place grows each night. And I... I am the cure.\""
+    "en": "\"Alone, I walk these streets, paved with the sick stench of corruption. Its thickness worms its way into my nostrils, unbidden, burning with revulsion. And anticipation. The illness of this wretched place grows each night. And I... I am the cure.\"",
+    "cn": "“我一个人在这铺满腐败恶臭的街道上行走着。邪恶不请自来，在我的鼻腔里蠕动，将厌恶点燃，将期待烧光。这个令人不悦的地方一天比一天更加病态。而我……我会是这些罪恶的解药。”"
   },
   "editions": [
     "experimental"
@@ -18,9 +21,9 @@
   "artist": "Marianna Carr",
   "jinxes": [],
   "examples": [
-    "Alex is the Bounty Hunter, Ben is the Harpy, and Abdallah is the Tea Lady. During setup, the Storyteller decides that Abdallah will be the Evil Tea Lady. On the first night, Alex learns Ben. On day 3, Ben is executed. That night, Alex learns Abdallah.",
-    "On the first night, the Bounty Hunter learns Julian, who is the evil Baron. When Julian dies, the Poisoner targets the Bounty Hunter. That night, the Bounty Hunter learns Evin, who is the good Magician.",
-    "Lachlan is the Drunk who thinks he is the Bounty Hunter. No evil Townsfolk was added at setup, because the Bounty Hunter is not in play. On the first night, Lachlan learns Marianna, who is the good  Empath. When Marianna dies, Lachlan learns Doug, who is the good Flowergirl."
+    "小艾是赏金猎人，大本是鹰身女妖，小黑是茶艺师。设置调整阶段，说书人决定小黑成为邪恶的茶艺师。首个夜晚，小艾得知了大本。第三个白天，大本死于处决。当晚，小艾得知了小黑。",
+    "首个夜晚，赏金猎人得知了邪恶的男爵小朱。某晚小朱死亡时，赏金猎人因投毒者的能力中毒，当晚赏金猎人得知了善良的魔术师小艾。",
+    "小兰是以为自己是赏金猎人的酒鬼。由于赏金猎人不在场，没有镇民被转变为邪恶阵营。首个夜晚，小兰得知了善良的共情者小明。随后小明死亡，小兰得知了善良的卖花女孩道哥。"
   ],
   "tips": {
     "en": [
@@ -32,10 +35,21 @@
       "If you are staying concealed, you still need to get your targets executed. So you’ll want to be either getting someone else to claim your information for you or claiming your information privately to get people on board with executing your targets – you’ll need plenty of votes, especially if you’ve seen a Minion that the evil team won’t want to be voting on.",
       "Your information is, unfortunately, very fragile when poisoned – you will almost always learn a good player rather than an evil one and you may not want to get that player executed… If you think you’ve been spotted by an evil team and are just going to be poisoned consistently because you absolutely trust your latest target, maybe this is a time to accept that you’re not going to get any more good information and accept death if people don’t trust you… Or maybe you can discuss with that player and see if they’re willing to die to get you another bit of info that might not be poisoned this time. Or you can turn your attentions to hunting down that pesky Poisoner or Widow that’s messing with your info and hope the Demon kills your current target at night to get you some juicy new info!",
       "Pay attention to what evil characters are on the script – you don’t want to lead the town on a crusade to execute your target only to find out that they were a Goblin or Boomdandy that’s just won the game for the evil team!"
+    ],
+    "cn": [
+      "这确实很简单是吧？你知道谁是邪恶玩家，而且是从第一天开始！连调查员的信息都没这么强！你应该立即告诉大家你的角色，尽快处决那名卑鄙的邪恶玩家就可以获得更多关于残忍恶魔的信息，最终找到隐藏在你们之间的那个恶魔。",
+      "你知道谁是邪恶玩家，但是他们不知道你知道。在暗处耐心等待，观察邪恶玩家在和谁交流，关注他们是否一开始没有伪装却在一次谈话后开始如此做，抑或是显得非常迷茫无助，不知道该和谁说话。前一种情况可以向你暴露其他的邪恶玩家，后一种情况可能是被你能力变为邪恶的可怜镇民。无论是哪种情况，都可以帮助你更了解谁可能是邪恶的。如果你让他们被处决，并且得知了一名他们曾与之交流的玩家，那就是证明你正确的更多证据！",
+      "一旦你公开赏金猎人角色，你就会是恶魔在夜晚袭击的首要目标，所以你要斟酌时机小心地公开你的信息。过早现身可能会导致你在获得全部潜在信息前被杀；过晚现身你可能无法说服足够多玩家处决你的目标来获得更多信息。如果你打算通过处决整个邪恶阵营来寻找到恶魔是谁，你获得的信息多寡实质上便左右了游戏。但这需要你同时推进大量处决和保持自己存活，因此大家对于你的了解必须恰到好处。",
+      "要牢记你在游戏中创造了一个邪恶镇民！这不仅意味着邪恶阵营将会额外多出一票和每天一次的提名机会，更是意味着如果他们需要的话，有一个白送的角色可以用来伪装。更糟糕的是，这些镇民有充分的理由在自己的信息上撒谎，这是一个你必须警惕的误导信息来源。最后要注意的是，当游戏进入最后三人的决战回合时，一名额外的邪恶玩家意味着你需要额外的善良阵营票来让邪恶阵营不能仅靠邪恶阵营的票数就击败你们。",
+      "也许你可以去主动接触那些你在夜晚锁定的邪恶玩家，并试着说服他们你也是邪恶阵营！如果那名玩家是因为你的能力所创造的邪恶镇民，他们并不知道其他的邪恶玩家，如果你扮演邪恶玩家，他们可能会信任你。但是，如果那名玩家是爪牙，你可能会引起他们对被赏金猎人发现的警觉，他们可以会告知恶魔杀了你，所以谨慎使用这个策略！",
+      "即使你打算保持隐蔽，仍然要努力在白天处决你的目标。你也许想要让一名其他玩家代你宣告信息，或是私下宣告信息来拉人入伙以处决你的目标——你可能需要得到大部分玩家的投票，尤其是当你看到的是邪恶阵营不希望被投票的爪牙。",
+      "非常不幸的是，你的信息在中毒时非常不可靠——在你中毒的情况下，你几乎总是会得知一名善良玩家而不是邪恶玩家，你可能并不希望那名玩家被处决。如果你认为你已经被邪恶阵营发现并且持续对你下毒，因为目标玩家绝对值得你信任，那也许只能接受现状：你将无法再获得良好信息并且失去人们的信任而死亡。或者你可以试图与那位玩家讨论是否愿意牺牲自己来换取下一夜可能准确的信息，又或者你可以想办法将目光转移到寻找那些隐藏在暗处，扰乱你视线的投毒者和寡妇，并祈祷恶魔可能会晚上杀死你当前的目标来为你提供一些新信息。",
+      "注意剧本上的邪恶角色——你不会希望带领团队奋斗并处决了目标玩家，却发现他们是炸弹人或者哥布林而令邪恶阵营获胜。"
     ]
   },
   "how_to_run": {
-    "en": "During setup, turn one Townsfolk character token upside down, to represent that they are evil. Mark one evil player with the KNOW reminder."
+    "en": "During setup, turn one Townsfolk character token upside down, to represent that they are evil. Mark one evil player with the KNOW reminder.",
+    "cn": "在设置调整阶段，将一名镇民的角色标记倒转放置，表示该玩家是邪恶阵营。将“得知”提示标记放置在一名邪恶玩家的角色标记旁。\n在首个夜晚，唤醒赏金猎人。指向放置“得知”提示标记的玩家，然后让赏金猎人重新入睡。\n每当放置“得知”提示标记的玩家死亡时，将“得知”提示标记放置在一名新的邪恶玩家的角色标记旁。当晚，唤醒赏金猎人，指向放置“得知”提示标记的玩家，然后让赏金猎人重新入睡。\n特别注意：由于赏金猎人会增加一名额外的邪恶玩家，在剧本中加入赏金猎人和其他任何潜在的具有阵营转换能力的角色时需要格外小心——一旦游戏中多于一名玩家能够转变为邪恶，邪恶阵营就能非常容易地获得大多数的投票，即使是邪恶阵营的玩家也不会特别喜欢这一点。我们测试过同时存在赏金猎人和这些角色（莽夫、灵言师、方古、政客和异教领袖）在一个剧本时，一点也不有趣......"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Bounty_Hunter",
   "image": "assets/tokens/bounty_hunter.png"

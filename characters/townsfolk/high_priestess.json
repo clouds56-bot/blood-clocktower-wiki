@@ -2,13 +2,16 @@
   "id": "high_priestess",
   "type": "townsfolk",
   "name": {
-    "en": "High Priestess"
+    "en": "High Priestess",
+    "cn": "女祭司"
   },
   "ability": {
-    "en": "Each night, learn which player the Storyteller believes you should talk to most."
+    "en": "Each night, learn which player the Storyteller believes you should talk to most.",
+    "cn": "每个夜晚，你会得知一名说书人认为你最应该与其交流的玩家。"
   },
   "flavor_text": {
-    "en": "“There is life behind the personality that uses personalities as masks. There are times when life puts off the mask and deep answers to deep.”"
+    "en": "“There is life behind the personality that uses personalities as masks. There are times when life puts off the mask and deep answers to deep.”",
+    "cn": "“在人性的背后，存在着以人性为面具的生活。某些时候生活会摘下面具，以深刻的答案应对深刻的问题。”"
   },
   "editions": [
     "experimental"
@@ -18,8 +21,8 @@
   "artist": "Chloe McDougall",
   "jinxes": [],
   "examples": [
-    "On the first night, the High Priestess learns Julian. Julian is the Chef and has useful information to share. On the second night, the High Priestess is shown Marianna. Marianna is the Goblin and the Storyteller thinks that the High Priestess would benefit most from talking to Marianna to find this out as early as possible. On the third night, the High Priestess is shown Doug. Doug is the Drunk whose information is wrong and harming the good team.",
-    "For three nights in a row, the High Priestess learns Sarah. Sarah is the Saint and the good team are trying to execute her. On the last night, the High Priestess learns Lewis. Lewis is the Imp, and his story is clashing with several good players."
+    "在首个夜晚，女祭司得知了小佳。小佳是厨师且有有用的信息需要分享。在第二个夜晚，女祭司得知了小明。小明是哥布林，但是说书人认为女祭司如果和小明交流并尽早发现小明是邪恶玩家会更容易获益。在第三个夜晚，女祭司得知了道哥。道哥是酒鬼，但是得知了错误信息，并且正对善良阵营造成不良的影响。",
+    "连续三个夜晚，女祭司都得知了小美。小美是圣徒，但善良阵营正打算处决她。在最后一夜，女祭司得知了小莱，小莱是小恶魔，他编造的谎话与好几个善良玩家的信息产生了冲突。"
   ],
   "tips": {
     "en": [
@@ -33,10 +36,23 @@
       "If the good team is winning, the Storyteller will likely be directing you to players to reinforce that winning strategy. If not, they may be pointing you to contradictory information to try to draw your attention to alternate views and encourage you to abandon your previously strongly held views. How do you feel the game is going for the good team? Consider your information in this context at all times!",
       "Did the Storyteller give you the same player twice in a row? Most likely what the ST wanted you to get from that conversation didn’t happen, so try again with an open mind!",
       "At the end of the day, the High Priestess is a great value-add even if you don’t work out exactly why the Storyteller sent you to any given player. Even if all you do is just go and talk to your given player each day and never work out why, you’re talking to the people the Storyteller recommends and that can only turn out usefully for the good team."
+    ],
+    "cn": [
+      "每天都尽快地与说书人指示的玩家交谈——说书人认为他对于你来说是最重要的交流对象，所以你应该立即与他联系以获得信任，并根据他的信息来决定你在首个白天的发言和行动。",
+      "不要立即与你得知的玩家交谈。相反地，去观察他与谁交谈，看看你是否能从他的行为和互动中获得为什么需要与他交谈的线索。比如说，如果他特别希望与几名特定的玩家交谈，他可能是洗衣妇或占卜师，这个推测也许能够让你决定以什么方式接触他。或者，他可能看起来有些不知所措，直到与某些特定玩家交谈后才安心下来，那么他有可能是刚刚得到伪装的爪牙。",
+      "告诉你得知的玩家，你是女祭司并且在昨晚得知的玩家是他，看看他能不能想到什么充分理由可能是他被你得知的原因。虽然你的信息可能非常模糊，但你得知的玩家有可能依据他的角色能力获得的信息来构建一条清晰的逻辑线，然后为你以及善良阵营提供更广阔的视野。",
+      "不要告诉你得知的玩家，你是女祭司。说书人也许不是想让你与那名玩家分享信息，而只是认为他可能对你有所帮助。",
+      "在首个夜晚，你得知的玩家很可能要么就是已经获得信息的善良玩家，所以他能与你分享信息；要么就是一名爪牙玩家，所以你也许能够在他没有获得伪装时获得他的状态信息或者给他挖坑。",
+      "随着游戏的进行，说书人很有可能会给你指出那些还没有完全分享自己信息的玩家，甚至是那些还没说出自己角色的玩家；或是给你指出死亡的玩家，他们需要得知你已经收集但是还没分享的其他信息；或是给你指出邪恶玩家，一旦他们陷入与你的对话，而不是与他们的邪恶队友或者是他们正在洗头的玩家，他们就无法推进邪恶阵营的游戏进度。",
+      "在游戏后期，说书人很有可能会给你指出那些逻辑准确的善良玩家，以鼓励你把自己的思路转变到他们的思路上，并增强他们对于团队的信心；或是给你指出恶魔玩家，这样你就可以从他的论点中找出漏洞并进行反驳。",
+      "如果善良阵营正在占据上风，说书人给你指出的玩家很有可能会加强你们的获胜策略。如果邪恶阵营正在占据上风，说书人给你指出的玩家会与你的信息相互矛盾，以此来试图引起你对不同观点的关注，进而鼓励你放弃之前你曾强烈支持的观点。你觉得游戏正在往对善良阵营有利的方向发展吗？随时运用上述观点去考虑你的信息！",
+      "说书人是不是连续两次给你指出同一名玩家？很有可能是他想让你从对话中获得的信息而你没有获得，所以用开放的心态再尝试进行一次对话吧！",
+      "归根结底，就算你没有弄清楚说书人为什么要给你指示那些特定玩家，女祭司仍然是具有强大增幅作用的角色。即使你每天做的事情只是与你得知的玩家交谈，并且一直都没弄清楚为什么这样做，与说书人推荐的玩家交谈这个行为只会对善良阵营有帮助。"
     ]
   },
   "how_to_run": {
-    "en": "Each night, wake the High Priestess. Point to a player. Put the High Priestess to sleep."
+    "en": "Each night, wake the High Priestess. Point to a player. Put the High Priestess to sleep.",
+    "cn": "每个夜晚，唤醒女祭司。指向一名玩家。随后让女祭司重新入睡。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/High_Priestess",
   "image": "assets/tokens/high_priestess.png"

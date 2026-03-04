@@ -2,13 +2,16 @@
   "id": "fortune_teller",
   "type": "townsfolk",
   "name": {
-    "en": "Fortune Teller"
+    "en": "Fortune Teller",
+    "cn": "占卜师"
   },
   "ability": {
-    "en": "Each night, choose 2 players: you learn if either is a Demon. There is a good player that registers as a Demon to you."
+    "en": "Each night, choose 2 players: you learn if either is a Demon. There is a good player that registers as a Demon to you.",
+    "cn": "每个夜晚，你要选择两名玩家：你会得知他们之中是否有恶魔。\n会有一名善良玩家始终被你的能力当作恶魔。"
   },
   "flavor_text": {
-    "en": "\"I sense great evil in your soul! But... that could just be your perfume. I am allergic to Elderberry.\""
+    "en": "\"I sense great evil in your soul! But... that could just be your perfume. I am allergic to Elderberry.\"",
+    "cn": "“我在你的灵魂中感受到了庞大的恶意！\n但……那可能只是你的香水味道。我对接骨木汁过敏。”"
   },
   "editions": [
     "trouble_brewing"
@@ -18,10 +21,10 @@
   "artist": "John Grist",
   "jinxes": [],
   "examples": [
-    "The Fortune Teller chooses the Monk and the Undertaker and learns a 'no'.",
-    "The Fortune Teller chooses the Imp and the Empath, and learns a 'yes'.",
-    "The Fortune Teller chooses an alive Butler and a dead Imp, and learns a 'yes'.",
-    "The Fortune Teller chooses themselves and a Saint. The Saint is the Red Herring. The Fortune Teller learns a 'yes'."
+    "占卜师选择了镇长与送葬者，并得知了“否”。",
+    "占卜师选择了小恶魔与共情者，并得知了“是”。",
+    "占卜师选择了一名存活的小恶魔与一名死亡的小恶魔，并得知了“是”。",
+    "占卜师选择了自己与作为“干扰项”的圣徒。占卜师得知了“是”。"
   ],
   "tips": {
     "en": [
@@ -35,10 +38,21 @@
       "You can choose yourself as one of the two players. Since you know you are not the Demon, this enables you to get a read on one specific player. Beware though, the Storyteller can make you your own false positive, so this may not always be effective.",
       "Be aware of the Recluse, who may register as the Demon to you. This is not the same as the Red Herring.",
       "Claiming to be a character that the Demon would not want to kill, such as the Saint, Soldier, or Ravenkeeper can help you survive longer, allowing you some much needed time to gain useful information."
+    ],
+    "cn": [
+      "得到\"没有恶魔\"的信息要比你得到\"有恶魔\"的信息更有用。\"没有恶魔\"意味着你所选择的两位玩家都不是恶魔，这能帮助你缩小恶魔的嫌疑范围。",
+      "你可以用你已经验证的非恶魔玩家帮助你找到恶魔。在你得到信息\"有恶魔\"的两位中选择一位，再从你已经确认不是恶魔的两位中选择一位，查验这两位看看会得到什么结果。如果你得到了\"有恶魔\"，那你已经可以假设你找到恶魔了；如果你得到了信息\"没有恶魔\"，那你没选择的另外一位就是恶魔了。",
+      "你只有有限的夜晚去收集信息。花大量时间集中在一到两个玩家身上会让你整场获得的信息都不多。由于这个原因，一个行之有效的方法就是去广撒网并且查验尽可能多的玩家。在你获得大量信息之后，就可以开始重点着手于你所怀疑的玩家了。",
+      "如果你在你所怀疑的玩家身上得到了\"有恶魔\"，确认究竟是哪位玩家让你得到了\"有\"就是你接下来的目标，特别是如果那个玩家到游戏后期还活着的时候。",
+      "你的\"干扰项\"玩家在游戏开始就会被确定下来并且不会再更改（在《暗流涌动》里来说，一定是这样的），因此你不会因为你的能力得到一个以上的错误信息。记住，你的误认可以是任何人，包括你自己。得到一个\"有恶魔\"的信息并不能一定找到恶魔。",
+      "你可以选择查验你自己和另一位玩家。因为你已经知道自己不是恶魔了，这样你就能去确认某一位玩家的角色。尽管是这样你也还是要小心，说书人可能让你自己作为那个\"干扰项\"，因此这个方法并不总是行之有效的。",
+      "当心陌客，他可能会被你当做恶魔。这和\"干扰项\"不是一回事。",
+      "公开说自己是一个恶魔不是那么愿意攻击的角色，像圣徒，管家，士兵或守鸦人这类的角色能让你活得更久，这样你就有更多的时间来获取有用的信息了。"
     ]
   },
   "how_to_run": {
-    "en": "While preparing the first night, put the Fortune Teller's RED HERRING reminder token by any good character token, marking that player as the Red Herring."
+    "en": "While preparing the first night, put the Fortune Teller's RED HERRING reminder token by any good character token, marking that player as the Red Herring.",
+    "cn": "在为首个夜晚进行准备时，将占卜师的“干扰项”提示标记放置在任意善良角色标记旁，标记那名玩家为“干扰项”。\n每个夜晚，唤醒占卜师。让占卜师指向任意两名玩家。如果这两名玩家中任意一名是恶魔或“干扰项”，对占卜师点头表示“是”。否则，摇头表示“否”。让占卜师重新入睡。\n在小型游戏中（指汀西维尔模式），我们建议你在某些情况下将占卜师本人作为“干扰项”，以使占卜师能通过这种方式得到更多信息。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Fortune_Teller",
   "image": "assets/tokens/fortune_teller.png"

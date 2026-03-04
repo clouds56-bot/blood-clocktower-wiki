@@ -2,13 +2,16 @@
   "id": "grandmother",
   "type": "townsfolk",
   "name": {
-    "en": "Grandmother"
+    "en": "Grandmother",
+    "cn": "祖母"
   },
   "ability": {
-    "en": "You start knowing a good player & their character. If the Demon kills them, you die too."
+    "en": "You start knowing a good player & their character. If the Demon kills them, you die too.",
+    "cn": "在你的首个夜晚，你会得知一名善良玩家和他的角色。\n如果恶魔杀死了他，你也会死亡。"
   },
   "flavor_text": {
-    "en": "\"Take a jacket if you go outside, dearie. And your thermos. And your scarf. I have a weak heart, you know. Whatever would I do if you caught cold...or worse?\""
+    "en": "\"Take a jacket if you go outside, dearie. And your thermos. And your scarf. I have a weak heart, you know. Whatever would I do if you caught cold...or worse?\"",
+    "cn": "“我的小心肝呀，如果你要出门，记得加件外套。这是你的保温杯。这是你的围巾。你知道我心脏不太好。要是你感冒了，或者有个三长两短，我该怎么办？”"
   },
   "editions": [
     "bad_moon_rising"
@@ -18,9 +21,9 @@
   "artist": "John Grist",
   "jinxes": [],
   "examples": [
-    "During the first night, the Grandmother wakes and learns that Julian, their Grandchild, is the Professor. Three nights later, Julian is killed by the Demon, so the Grandmother dies too.",
-    "The Grandmother knows that Lewis, their Grandchild, is the Gambler. Lewis gambles and dies because of it. The Grandmother remains alive.",
-    "The Grandmother knows that Sarah, their Grandchild, is the Tinker. Sarah is killed by the Demon, but the Grandmother is drunk because of the Sailor, so the Grandmother remains alive."
+    "在首个夜晚，祖母被唤醒并得知自己的孙子小佳是教授。三个夜晚后，小佳被恶魔杀死，因此祖母也一同死亡。",
+    "祖母得知自己的孙子小莱是赌徒。小莱进行赌博且因此而死亡。祖母依然存活。",
+    "祖母得知自己的孙子小美是修补匠。小美被恶魔杀死，但祖母因为水手的能力而处于醉酒状态，因此祖母依然存活。"
   ],
   "tips": {
     "en": [
@@ -32,10 +35,24 @@
       "If you and your grandchild are the only ones to die at night, you probably died because of your ability. If you suspect this is the case, make sure to let the good team know, as otherwise two deaths at night is an early indicator that the deadly Shabaloth or Po is lurking, when in fact the Zombuul or Pukka are still very viable options.",
       "Don't talk to your grandchild right away. Whispering together, especially in the early days of the game, will attract both good and evil attention, and a Demon may just pick you two off on suspicion that you're Grandmother and grandchild.",
       "Reveal to the group that you are the Grandmother, but without saying which player your grandchild is. For example, you can simply say \"I am the Grandmother, I know there is an Exorcist in the Town\", or something similar. This lets the group know that you are a Townsfolk character, and also lets them know to expect an Exorcist to reveal themselves at some stage"
+    ],
+    "cn": [
+      "保护你心爱的孙子！他们绝对是善良的，这一点在黯月初升剧本中非常珍贵（除非你第一夜就中毒或者醉酒，那你可能错认孙子的角色，甚至误以为某个邪恶玩家是你的孙子，而不知道你的真孙子是谁，但是你的真孙子一定是善良的）。此外，如果他们被恶魔杀死，你也会死--也算是你保护他额外的动力吧！",
+      "和你的孙子对话，和他们花言巧语，让他们信任你！不像洗衣妇等角色，你的信息非常绝对，因为你只知道一个玩家和他们的角色-让他们先承认他们是谁没有好处，除非你强烈地怀疑你醉酒了。当你有机会的时候，表露出你很了解他们，你们会从一开始就建立很多信任。",
+      "不要向任何人透露你孙子的角色！如果邪恶的团队知道你们的关系，他们绝对会想杀了你的孙子，并带走你的生命作为一个奖赏。保守秘密以保证你们的生命的安全。",
+      "向几个玩家透露你的角色和你的孙子。这有两个好处——如果这些人值得信任，他们会知道反过来信任你和你的孙子。但是，如果你和你的孙子突然死了呢？你可以极大地怀疑这些玩家——有可能其中一个其实就是恶魔！（注意：如果你怀疑你在和邪恶的玩家对话，你不必告诉他们谁是你真正的孙子...）",
+      "使用你的信息，有许多方法可以与善良阵营玩家建立信任！\n鼓励有保护能力的角色来保护你的孙子。如果你知道一名玩家是旅店老板，可以让他保护孙子，或者你的孙子和茶艺师很临近，试着让你的孙子和茶艺师邻座，这样你的孙子就可以在晚上得到保护，保证你们两个的安全。\n同样，你可以警告像水手和驱魔人这样的玩家，他们有的会让你的孙子醉酒，或者只是在善良阵营玩家身上浪费他们的能力。\n最后，你可以鼓励赌徒和侍女在你或你的孙子身上使用他们的能力，当你们的信息一致时，让你们可以彼此信任！",
+      "鼓励有保护能力的角色来保护你的孙子。如果你知道一名玩家是旅店老板，可以让他保护孙子，或者你的孙子和茶艺师很临近，试着让你的孙子和茶艺师邻座，这样你的孙子就可以在晚上得到保护，保证你们两个的安全。",
+      "同样，你可以警告像水手和驱魔人这样的玩家，他们有的会让你的孙子醉酒，或者只是在善良阵营玩家身上浪费他们的能力。",
+      "最后，你可以鼓励赌徒和侍女在你或你的孙子身上使用他们的能力，当你们的信息一致时，让你们可以彼此信任！",
+      "如果只有你和你的孙子在晚上死去，你很可能是因为你的能力而死的。如果你怀疑是这种情况，一定要让善良阵营玩家知道，否则在晚上两个玩家的死亡就像是沙巴洛斯或珀潜伏的迹象，而事实上僵怖或普卡仍非常可能存在。",
+      "不要一开始就和你的孙子窃窃私语，尤其是在游戏的早期，这会吸引所有玩家的注意，恶魔可能会怀疑你们是祖母和孙子，就把你们两个干掉。",
+      "向团队透露你是祖母，但不要说你的孙子是哪个玩家。比如你可以简单的说“我就是祖母，我知道镇上有个驱魔人”，或者类似的话。这让团队知道你是一个镇民角色，也让他们知道并期待一个驱魔人会在之后现身。"
     ]
   },
   "how_to_run": {
-    "en": "When preparing the first night, choose a Grandchild by marking any good character with the GRANDCHILD reminder."
+    "en": "When preparing the first night, choose a Grandchild by marking any good character with the GRANDCHILD reminder.",
+    "cn": "在为首个夜晚进行准备时，通过将“孙子”提示标记放置到任意一个善良角色的角色标记旁来选择一名“孙子”。\n在首个夜晚，唤醒祖母，向其展示标有“孙子”的角色标记，然后指向该名“孙子”玩家，然后让祖母重新入睡。\n如果恶魔杀死了“孙子”，祖母死亡——将“死亡”提示标记放置到祖母的角色标记旁。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Grandmother",
   "image": "assets/tokens/grandmother.png"

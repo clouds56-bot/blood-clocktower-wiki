@@ -2,13 +2,16 @@
   "id": "librarian",
   "type": "townsfolk",
   "name": {
-    "en": "Librarian"
+    "en": "Librarian",
+    "cn": "图书管理员"
   },
   "ability": {
-    "en": "You start knowing that 1 of 2 players is a particular Outsider. (Or that zero are in play.)"
+    "en": "You start knowing that 1 of 2 players is a particular Outsider. (Or that zero are in play.)",
+    "cn": "在你的首个夜晚，你会得知两名玩家和一个外来者角色：这两名玩家之一是该角色（或者你会得知没有外来者在场）。"
   },
   "flavor_text": {
-    "en": "\"Certainly madam, under normal circumstances, you may borrow the Codex Malificarium from the library vaults. However, you do not seem to be a member.\""
+    "en": "\"Certainly madam, under normal circumstances, you may borrow the Codex Malificarium from the library vaults. However, you do not seem to be a member.\"",
+    "cn": "“毫无疑问，这位女士，在通常情况下，你可以从图书馆的馆藏中借阅《凶恶药典》。\n然而，你看起来不像是会员。”"
   },
   "editions": [
     "trouble_brewing"
@@ -18,9 +21,9 @@
   "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
-    "Benjamin is the Saint, and Filip is the Baron. The Librarian learns that either Benjamin or Filip is the Saint.",
-    "There are no Outsiders in this game. The Librarian learns a '0'.",
-    "Abdallah is the Drunk, who thinks they are the Monk, and Douglas is the Undertaker. The Librarian learns that either Abdallah or Douglas is the Drunk. (This happens because the Librarian learns the true character. The Drunk is Abdallah’s true character, not the Monk.)"
+    "小八是圣徒，小莱是男爵。图书管理员得知要么小八是圣徒，要么小莱是圣徒。",
+    "说书人决定将陌客当作一名爪牙而不是外来者。现在场上没有其他外来者了。图书管理员得知了“0”。",
+    "小黑是酒鬼，且以为自己是僧侣。道哥是送葬者。图书管理员得知要么小黑是酒鬼，要么道哥是酒鬼。酒鬼是小黑的实际角色，即使他以为自己是僧侣。"
   ],
   "tips": {
     "en": [
@@ -34,10 +37,22 @@
       "Alternatively, you can deliberately give false information about who the Drunk is - the Demon is less likely to attack a player they think is the Drunk, which means that you can protect players who are sober and getting information while getting the Imp to target the actual Drunk instead.",
       "If you see two players as the Drunk, remember that you might be the real drunk!",
       "Giving away your information freely will mean that the other player can trust you, but not that you can necessarily trust them - it is always possible they are an evil player simply agreeing with you to shore up their own bluff. In turn, asking the player to reveal to you means you can trust them, but not that they can trust you. Try to find a middle ground where it's reasonable that both of you knew the information. For example, you could share a small list of characters they could potentially be, and get them to pick from the list who they are."
+    ],
+    "cn": [
+      "找出两位玩家当中哪一位是你所知道的那位外来者非常重要。这位玩家虽说是外来者，但也是善良阵营的玩家。虽说他的能力有可能对善良阵营产生不利影响，但是他肯定会站在善良阵营的角度投票，而且你也能确定他不是恶魔。",
+      "如果你获取到的信息是\"0\"，这将非常有用，但是你要首先保证你没有醉酒或是中毒。这条信息不但排除了场上外来者的存在，还帮你排除了场上出现男爵的可能。现在如果有任何人宣称自己是外来者，你就有理由怀疑他是个邪恶阵营的玩家。你也可以设个圈套撒谎说场上有外来者，这样就可能会有爪牙或者恶魔去伪装这类角色。",
+      "你会在游戏的第一晚获得信息。尽早公布信息将有助于你确定善良角色，而且也能用你的信息来证实其他镇民（像占卜师或是守鸦人）的信息。",
+      "如果你在游戏的后期还没有公布你的信息（且你得知的那个角色仍然存活），你就可以在最后一天或者临近最后一天的时候选择公布。这样的话，你知晓的那位玩家就可以被排除恶魔嫌疑了，善良阵营的玩家也可以将他们的怀疑对象减少一位。",
+      "与其被处决，圣徒这样的角色宁可死在晚上。外来者一般不是恶魔的首要击杀对象，因此你可以通过你的信息让外来者先被杀死，这样可以保护一个更强大的角色（如共情者或占卜师）免受侵害。",
+      "如果你所得知的两名玩家里有酒鬼，你应该早点说出来，尤其是在酒鬼以为自己是个能够获取信息的角色时。知晓\"他们的信息可能有误\"这一点本身也是一条信息。",
+      "又或者，你可以故意给出谁是酒鬼的错误信息。因为恶魔通常不太愿意去攻击一个酒鬼，这样你就能够保护一个正常的能获取信息的镇民，而恶魔就有可能去攻击那个真正的酒鬼。",
+      "不加顾虑地给出你的信息可能会让其他人相信你，但是这不代表你也需要相信他们。总可能有邪恶阵营的玩家来对你表示赞成，但他们做这些只是为了让自己伪装得更加善良。",
+      "相反的，要求其他玩家对你表明自身意味着你能够相信他们，但不代表他们会相信你。在这种情况下，你可以试着去找一个平衡点，让你们两个的信息都看起来比较合理。例如，你可以给出一个可能在场的角色范围，然后让他们从这些角色中选自己是哪一个。"
     ]
   },
   "how_to_run": {
-    "en": "While preparing the first night, put the Librarian's OUTSIDER reminder token by any Outsider character token, and put the Librarian's WRONG reminder token by any other character token."
+    "en": "While preparing the first night, put the Librarian's OUTSIDER reminder token by any Outsider character token, and put the Librarian's WRONG reminder token by any other character token.",
+    "cn": "在为首个夜晚进行准备时，将图书管理员的“外来者”提示标记放置在任意一个外来者角色标记旁，然后将图书管理员的“错误”提示标记放置在任意其他角色标记旁。\n在首个夜晚里，唤醒图书管理员，并指向标记有“外来者”和“错误”的玩家。将有“外来者”的玩家的角色标记展示给图书管理员。或者，如果说书人由于场上无外来者而未放置这两个标记，则对图书管理员展示手势“0”。让图书管理员重新入睡。在说书人方便的时候，移除图书管理员的提示标记。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Librarian",
   "image": "assets/tokens/librarian.png"

@@ -2,13 +2,16 @@
   "id": "balloonist",
   "type": "townsfolk",
   "name": {
-    "en": "Balloonist"
+    "en": "Balloonist",
+    "cn": "气球驾驶员"
   },
   "ability": {
-    "en": "Each night, you learn a player of a different character type than last night. [+0 or +1 Outsider]"
+    "en": "Each night, you learn a player of a different character type than last night. [+0 or +1 Outsider]",
+    "cn": "每个夜晚，你会得知一名与上个夜晚得知的玩家角色类型不同的玩家。[+0~1外来者]"
   },
   "flavor_text": {
-    "en": "\"More heat! Higher! Higher! Più alto! Ahhh... it is so beautiful from up here, don't you agree? Can you see the children fishing by the river, under the willow? Can you see the  glint of the sun on the circus tent-poles? What's this? An old man, alone, passed out in the vineyard? Less heat! Lower! Lower! Vai più in basso!\""
+    "en": "\"More heat! Higher! Higher! Più alto! Ahhh... it is so beautiful from up here, don't you agree? Can you see the children fishing by the river, under the willow? Can you see the  glint of the sun on the circus tent-poles? What's this? An old man, alone, passed out in the vineyard? Less heat! Lower! Lower! Vai più in basso!\"",
+    "cn": "“再来点热量！高点！高点！再高点！啊~从这上面往下看，风景真美，你说呢？你能看见孩子们在河边柳树下钓鱼吗？你能看到马戏团帐篷杆上反射的阳光吗？这是什么？一位老人孤身一人在葡萄园里昏倒了？少来点热量！低点！低点！再低点！”"
   },
   "editions": [
     "experimental"
@@ -18,8 +21,8 @@
   "artist": "Anica Kelsen",
   "jinxes": [],
   "examples": [
-    "Abdallah is the Vizier, Lewis is the High Priestess, and Sarah is the Politician. On the first night, the Balloonist learns Abdallah. On the second night, the Balloonist learns Lewis. On the third night, the Balloonist learns Sarah.",
-    "Julian is the Nightwatchman, Alex is the Sailor, and Lachlan is the Puzzlemaster. On the first night, the Balloonist learns Julian. On the second night, the Poisoner chooses the Balloonist. Because the Balloonist is poisoned, the Storyteller chooses to show the Balloonist another Townsfolk, and the Balloonist learns Alex. On the third night, the Balloonist is sober and healthy, and learns Lachlan, who is a different character type to Alex."
+    "小艾是维齐尔，小莱是女祭司，小美是政客。首个夜晚，气球驾驶员得知了小艾。第二个夜晚，气球驾驶员得知了小莱。第三个夜晚，气球驾驶员得知了小美。",
+    "小朱是守夜人，小艾是士兵，小兰是解谜大师。首个夜晚，气球驾驶员得知了小朱。第二个夜晚，投毒者选择了气球驾驶员。由于气球驾驶员中毒了，说书人决定让气球驾驶员得知了另一个镇民小艾。第三个夜晚，气球驾驶员恢复了健康清醒并得知与小艾不同角色类型的小兰。"
   ],
   "tips": {
     "en": [
@@ -33,10 +36,23 @@
       "Look for other characters that detect character type, like the Librarian and the Town Crier. If you know someone is definitely an Outsider, or cannot be a Minion, this narrows down your information and makes you even more powerful.",
       "Unless there are characters like the Drunk or the Cerenovus on the script, if you learn two players in a row who are both claiming Townsfolk, it’s extremely likely that one of them is evil. Treat this information just as you would a Seamstress who learned that two players are on opposite teams!",
       "Pay attention to what’s on the script. A Damsel is very unlikely to tell you they are an Outsider while they’re alive, and the Mutant quite literally can’t! Just because you learned two players claiming to be Townsfolk in a row, that doesn’t mean one of them has to be evil. Uniquely, if the Demon is a Vortox, then every player you learn must be the same character type as the previous player."
+    ],
+    "cn": [
+      "多留心外来者的发言吧！你可能在开局时悄悄地增加了一名外来者——如果你听到有人声称自己是狂热者、告密者或月之子，这些信息不仅能帮你证明自己，还能让你更清晰地梳理夜晚所得的信息。",
+      "每天和昨晚你得知的那位玩家进行讨论，听听他们说自己是什么角色；将他们的说法和你前天获得的信息做个对照，看看是否合情合理。",
+      "别急着立刻公开你的信息。不妨等等——等到局势更清晰、善良玩家更愿意说实话、邪恶玩家已经选好自己的伪装时再出手。毕竟，若邪恶玩家知道获得了他们的信息，那他们也许会故意假扮外来者，掩人耳目。",
+      "选一个你信得过的玩家，每天都把你掌握的信息告诉他。这能帮你在善良阵营中保留信誉，让大家相信你从未说谎。",
+      "为了活得久一点，可以适当隐藏身份。比如声称自己是报丧女妖或农夫，让邪恶玩家觉得你价值不高，不会优先杀你。你活得越久，积累的信息就越有分量。",
+      "当你积累了好几晚的信息，不妨挑一个你最信任的玩家作为“锚点”——如果你在第三夜认到了筑梦师，且十分信任他，那你就能推断出第二晚和第四晚得知的玩家不太可能是镇民。",
+      "注意剧本中是否存在互动干扰类型的角色，比如间谍和陌客。他们可能会被你当作其他类型的角色。实际上，如果你的说书人坏的有些特别（就是特别的坏），他可以每个夜晚都让你看到陌客（请不要这样做！）。",
+      "留意那些也会判断角色类型的角色，比如图书管理员或城镇公告员。如果你能确认某人一定是外来者，或绝不可能是爪牙，那么你的信息就能变得更加精准和强大。",
+      "除非剧本中存在酒鬼、洗脑师等角色，否则如果你连续两晚得知的玩家都声称自己是镇民，那极有可能其中一位就是邪恶玩家。这样的信息就和女裁缝得知这两名玩家不属于同一阵营差不多。",
+      "仔细看看角色列表上有哪些角色。落难少女大概率不会在存活的时候主动承认自己是外来者，而畸形秀演员甚至根本不能说自己是外来者！所以，即使你连续两晚得知的都是自称镇民的玩家，也不一定说明其中一定有邪恶玩家。尤其当恶魔是涡流时，你每晚得知的玩家的角色类型就都一样！"
     ]
   },
   "how_to_run": {
-    "en": "During setup, you may add an Outsider."
+    "en": "During setup, you may add an Outsider.",
+    "cn": "在设置调整阶段，你可以额外增加一名外来者。\n在为首个夜晚进行准备时，将“得知”提示标记放置在任意一名玩家的角色标记旁。之后每个夜晚的准备阶段，将“得知”提示标记放置在一名与当前放置着该提示标记的角色类型不同的玩家角色标记旁。\n每个夜晚，唤醒气球驾驶员。指向被放置“得知”提示标记的玩家。然后让气球驾驶员入睡。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Balloonist",
   "image": "assets/tokens/balloonist.png"

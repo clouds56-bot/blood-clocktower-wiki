@@ -2,13 +2,16 @@
   "id": "philosopher",
   "type": "townsfolk",
   "name": {
-    "en": "Philosopher"
+    "en": "Philosopher",
+    "cn": "哲学家"
   },
   "ability": {
-    "en": "Once per game, at night, choose a good character: gain that ability. If this character is in play, they are drunk."
+    "en": "Once per game, at night, choose a good character: gain that ability. If this character is in play, they are drunk.",
+    "cn": "每局游戏限一次，在夜晚时，你可以选择一个善良角色：你获得该角色的能力。\n如果这个角色在场，他醉酒。"
   },
   "flavor_text": {
-    "en": "\"If anything is real, beer is real. Drink, for tomorrow we may die.\""
+    "en": "\"If anything is real, beer is real. Drink, for tomorrow we may die.\"",
+    "cn": "“如果你要说什么事情是最真实的？我想是啤酒。痛快喝吧，说不定我们明天就要死了。”"
   },
   "editions": [
     "sects_violets"
@@ -17,10 +20,25 @@
   "other_nights": true,
   "jinxes": [],
   "examples": [
-    "During the first night, the Philosopher chooses to gain the Dreamer's ability. They gain the Dreamer's ability from now on and act when the Dreamer normally acts.",
-    "During the third night, the Philosopher chooses to gain the Clockmaker's ability. That night, they learn the distance from the Demon to their nearest Minion.",
-    "An Artist is in play. The Philosopher chooses to gain the Artist's ability. The original Artist becomes drunk. Later, the Philosopher dies, so the original Artist becomes sober again. (The original Artist would also become sober if the Philosopher became drunk.)"
+    "哲学家选择获得筑梦师能力。从现在起，他将在筑梦师应该行动时进行行动。",
+    "在第三个夜晚，哲学家选择获得钟表匠的能力。当晚，他得知了恶魔与爪牙之间的最近的距离。",
+    "哲学家选择获得了艺术家的能力，但场上已经有一名艺术家。那名艺术家玩家醉酒。在那之后，哲学家死亡，艺术家玩家恢复清醒。（如果哲学家醉酒或者变成了新的角色，原来那个因哲学家而醉酒的玩家也会恢复清醒。）"
   ],
   "source_url": "https://wiki.bloodontheclocktower.com/Philosopher",
-  "image": "assets/tokens/philosopher.png"
+  "image": "assets/tokens/philosopher.png",
+  "how_to_run": {
+    "cn": "每个夜晚，唤醒哲学家。他要么摇头不使用能力，要么指向角色列表上一个镇民或外来者图标。让哲学家重新入睡。\n如果他指向的是不在场的角色，将哲学家角色标记更换为他所选的角色标记，并放置“是哲学家”提示标记。\n如果他指向的是一个已在场的角色，该角色醉酒，在角色标记旁放置“醉酒”提示标记。（现在，你可以把被选择角色的相关提示标记给哲学家使用了。）如果哲学家死亡，醉酒的玩家将恢复清醒，此时需要移除“醉酒”提示标记。\n（由于实体标记的操作方式在两种情况下不同，再加上哲学家的能力是会对对应的角色进行动态检测，因此建议说书人还应该以其他方式对此进行记录，这里提供一个参考处理方式：如果对应角色在场，互换哲学家和那个角色的标记，并在哲学家角色标记旁标记醉酒，在换来的角色标记旁标记“是哲学家”。这样也能应对在哲学家选择了一个不在场的角色，但随后该角色又再次在场的情况。）"
+  },
+  "tips": {
+    "cn": [
+      "哲学家最强大之处就是他的能力非常广泛，多才多艺。你可以模仿列表中的任何善良角色！尝试去了解队伍缺少什么或者谁对于对抗当前的邪恶势力更有效。每一个镇民都是可以选择的选项：",
+      "你也可以选择外来者的能力，比如理发师或者呆瓜。通常来说这肯定不如成为其他镇民更有用，但也许有这样一点理由你可以这样考虑：",
+      "尽早的去使用你的能力通常对你更有用-你越早使用，就可以通过你的能力获得更多信息以及对游戏产生影响。这也意味着即使恶魔杀死了你，但你的功效已经发挥了。肯定没有人会想在自己还是哲学家的时候就死去。",
+      "选择靠后时间再去使用能力可能会冒很大风险，但是却给了你更多的时间去考虑去获得哪个角色的能力。你可以有更好的主意去获得谁的能力，因为你知道了你们在对抗哪种恶魔，以及哪个角色对于现在的好人阵营能带来更有用的帮助。例如，你怀疑恶魔是亡骨魔，那么你可以选择神谕者。如果你们对于镜像双子难以把握，你可以选择女裁缝。或者你需要一个直接的答案？那么你可以选择艺术家。",
+      "在决定发动能力前尽可能获取信息。由于你选择一个角色后如果这个角色在场则会使他醉酒。所以了解有哪些角色在场可以让你在不影响队友的情况获取能力。",
+      "如果有玩家是类似神谕者或筑梦师这类每晚提供信息的角色，那么你可以秘密的去选择这些角色。由于他们会因你醉酒，所以他们的信息应该会和你不同，或者表现的有明显的变化。如果他们的信息依然没有改变，那么他们几乎肯定是邪恶的。",
+      "你可以完全不必理会这些建议，去选择那些你喜欢的角色吧！舞蛇人？冲冲冲！",
+      "有时候，可以故意选择在场的角色。这确保了即使恶魔杀死了你们其中一个，你们依然可以获得对应角色的信息。这也意味着善良玩家更不愿意去处决你。例如，如果镜像双子在场，而你们担心城镇公告员无法活过当晚，你可以利用你的能力获取城镇公告员的能力。这样即使你死了，真正的城镇公告员也可以获得信息。这是双赢的。"
+    ]
+  }
 }

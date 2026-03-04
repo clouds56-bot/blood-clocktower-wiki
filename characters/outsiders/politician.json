@@ -2,13 +2,16 @@
   "id": "politician",
   "type": "outsider",
   "name": {
-    "en": "Politician"
+    "en": "Politician",
+    "cn": "政客"
   },
   "ability": {
-    "en": "If you were the player most responsible for your team losing, you change alignment & win, even if dead."
+    "en": "If you were the player most responsible for your team losing, you change alignment & win, even if dead.",
+    "cn": "如果你是对你的阵营落败负最大责任的人，你转变阵营并获胜，即使你已死亡。"
   },
   "flavor_text": {
-    "en": "\"I'm glad you asked that question. Truly, I am. But I think the REAL question here is...\""
+    "en": "\"I'm glad you asked that question. Truly, I am. But I think the REAL question here is...\"",
+    "cn": "“我很高兴你提出了这个问题。是的，我真的很高兴。但我仍然认为，问题的核心应该是在于……”"
   },
   "editions": [
     "experimental"
@@ -17,10 +20,31 @@
   "other_nights": false,
   "jinxes": [],
   "examples": [
-    "The Politician has been trying to execute the Demon all game, without success. With just three players alive, the Politician convinces the group to not execute, since someone is claiming to be the Mayor. There is no execution, and evil wins because a Minion was bluffing as the Mayor. The Politician wins too.",
-    "On the final day, the Politician votes for the Empath, and tells the group that the Empath is evil. The Saint is executed instead. The Storyteller judges that the good team lost due to their own actions as a group, not just the bad advice of the Politician. Good loses, and the Politician loses.",
-    "The Politician, believing that evil is winning, bluffs as the Atheist. The Storyteller is executed. Evil wins, and the Politician wins too."
+    "政客在整局游戏中都在尝试处决恶魔，但没有成功。在只剩三名玩家存活时，政客说服玩家们不要进行处决，因为有人宣称自己是镇长。当天没有处决发生，但邪恶阵营获胜，因为有爪牙伪装成了镇长。政客也一同获胜。",
+    "在最后一天，政客为共情者投出了一票，并说服玩家们相信共情者是邪恶玩家。然而圣徒被处决了。说书人判断善良阵营的落败是善良阵营的集体决定导致的，而非听信了政客的糟糕的建议。善良阵营落败，政客也一同落败。",
+    "政客认为邪恶阵营正占据优势，因此声称自己是无神论者。说书人被处决。邪恶阵营获胜，政客也一同获胜。",
+    "在最后一天，政客使得处决投票造成了平票的情况。在当晚，恶魔杀死了一名玩家，邪恶阵营获胜。政客也一同获胜。"
   ],
   "source_url": "https://wiki.bloodontheclocktower.com/Politician",
-  "image": "assets/tokens/politician.png"
+  "image": "assets/tokens/politician.png",
+  "how_to_run": {
+    "cn": "当游戏结束时，考量政客玩家在本局游戏中所造成的影响，是否导致了某一方阵营获胜。如果政客在他的对立阵营获胜中做出了最重要的贡献，他转变阵营并与原本对应阵营的其他玩家一同获胜。在其他情况下，政客保留原本的阵营且按照常规的胜负条件来判断政客玩家的胜负。\n请注意政客仅会在游戏结束时才转变阵营，因此即使善良的政客在为邪恶阵营出力，他也依然会被当作是善良阵营。\n政客在游戏过程中中毒醉酒与否无关紧要，但在游戏结束时仍然中毒醉酒则会影响他的能力触发。如果他在游戏结束时处于中毒或醉酒状态，那么无论他在游戏过程中为对立阵营做出了多么显著的贡献，他都无法触发自己的能力来转变阵营并获胜。"
+  },
+  "tips": {
+    "cn": [
+      "从第一天开始以伪装现身，并且坚持。不要偏离你的宣称，不要改变你的故事，保持一贯性，作好假信息的静态来源，成为善良阵营能力拼凑真相的永久障碍。宣称自己是一个得知军团在场的艺术家，并迫使善良阵营将这点纳入考虑。",
+      "尽你所能伪装得极端并荒谬！如果善良阵营相信你，那你的伪装越离谱，你就越可能成为那个对落败负有最大责任的玩家！假装成无神论者！假装圣徒是你的镜像双子！宣称你被舞蛇所魅惑，然后转变成了呆瓜！用你疯狂的密谋主宰游戏，尽可能地传播错误信息。如果善良阵营相信你，你可以为邪恶阵营锁定胜利。即使他们没有，你所带来的浩劫也足以让善良阵营落败。",
+      "安静而稳妥地进行伪装。尽你所能确保没有人怀疑你是政客，然后在最后的最后提供一条关键的误导信息。在最后一天带着一条错误的女裁缝信息现身，将一名善良玩家污蔑为邪恶的，然后拥抱胜利。",
+      "编造一些假信息，并以此对一名特定玩家穷追猛打。假装是调查员、占卜师或赏金猎人并将一名其他玩家设为邪恶。如果他们是善良的，这可能是邪恶阵营获胜的决定性因素。即便你意外地被恶魔杀了，无论如何你还是赢了。",
+      "注意特殊胜利能力角色。尝试触发这些能力。如果你能谋划出对哥布林、善良双子或利维坦游戏中的第二名善良玩家进行的处决，那你一定能确保你的胜利。",
+      "确保说书人能看到你的努力。成为善良阵营失败的次要因素并不能达成你的目的。确保说书人知道你是对你们阵营落败负有最大责任的玩家。",
+      "不要在外来者计数上捣乱。如果游戏中只有一名外来者在场，而其他某人宣称是陌客，不要挑战他们。保持隐蔽把善良阵营蒙在鼓里——简单来说，关于外来者人数的错误信息就足以赢得游戏。",
+      "如果善良阵营看起来正朝着胜利前行，那就现身。要记得你也可以和善良阵营一起获胜。你所能提供的信息——哪些邪恶玩家支持你的邪恶计划，谁对你宣称和他角色相同有反应，乃至你是一个外来者——都可能是赢得游戏所需要的信息。",
+      "尝试将那些能探查阵营（但不包含角色）的角色纳入你的谋划中。说服女裁缝检查你和一名确信善良的玩家，或是让月之子在死后选择你。记住，你被当作善良阵营——让他们亲眼确认这点可以让他们信任你的欺诈宣称。",
+      "让那些拥有强大限次能力的角色将能力消耗在你身上。说服猎手射击你，指名贞洁者或是说服教授试着复活你。让他们把强大的能力用在政客身上，削减他们收集信息和取得进展上花费的努力。",
+      "在最后一天的投票中拉平票。即使你已经死亡。这很卑鄙但很管用！如果善良阵营在最后一天不处决，之后恶魔在当晚杀人，邪恶阵营就会获胜。政客想以这种方式获胜的话，你必须是投下关键一票的玩家——如果善良阵营意外地平票，你还是落败了。你的能力要求“如果你是负有最大责任的玩家”。",
+      "如果你认为其他存活的玩家都是邪恶的，那就不要在最后一天提名。这将阻止恶魔被提名。",
+      "如果剧本上有政客，但你不是政客，那就要非常小心你信任的人。政客可能在场并在竭尽全力从中作梗，但他仍然被当作善良玩家。仅仅因为某个人在女裁缝、共情者或贵族这样的角色面前表现得善良，也并不意味着你可以信任他们。即使你确信没有人醉酒或中毒。"
+    ]
+  }
 }
