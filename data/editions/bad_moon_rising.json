@@ -1,0 +1,153 @@
+{
+  "id": "bad_moon_rising",
+  "name": {
+    "en": "Bad Moon Rising",
+    "cn": "黯月初升"
+  },
+  "description": {
+    "en": "The sun is swallowed by a jagged horizon as another winter's day surrenders to the night. Flecks of orange and red decay into deeper browns, the forest transforming in silent anticipation of the coming snow.",
+    "cn": "冬日的暮色渐近，太阳被盘陀的天际线所吞噬，橙红的枫叶被黑色斑点逐渐侵蚀，森林无声地期待着雪花将至。"
+  },
+  "characters": {
+    "townsfolk": [
+      "chambermaid",
+      "courtier",
+      "exorcist",
+      "fool",
+      "gambler",
+      "gossip",
+      "grandmother",
+      "innkeeper",
+      "minstrel",
+      "pacifist",
+      "professor",
+      "sailor",
+      "tea_lady"
+    ],
+    "outsiders": [
+      "goon",
+      "lunatic",
+      "moonchild",
+      "tinker"
+    ],
+    "minions": [
+      "assassin",
+      "devil_s_advocate",
+      "godfather",
+      "mastermind"
+    ],
+    "demons": [
+      "po",
+      "pukka",
+      "shabaloth",
+      "zombuul"
+    ]
+  },
+  "min_players": null,
+  "max_players": null,
+  "night_order": {
+    "first_night": [
+      {
+        "number": 1,
+        "character": "lunatic",
+        "type": "outsiders"
+      },
+      {
+        "number": 2,
+        "character": "sailor",
+        "type": "townsfolk"
+      },
+      {
+        "number": 3,
+        "character": "courtier",
+        "type": "townsfolk"
+      },
+      {
+        "number": 4,
+        "character": "godfather",
+        "type": "minions"
+      },
+      {
+        "number": 5,
+        "character": "devil_s_advocate",
+        "type": "minions"
+      },
+      {
+        "number": 6,
+        "character": "pukka",
+        "type": "demons"
+      },
+      {
+        "number": 7,
+        "character": "grandmother",
+        "type": "townsfolk"
+      },
+      {
+        "number": 8,
+        "character": "chambermaid",
+        "type": "townsfolk"
+      }
+    ],
+    "other_nights": [
+      {
+        "number": 1,
+        "character": "innkeeper",
+        "type": "townsfolk"
+      },
+      {
+        "number": 2,
+        "character": "gambler",
+        "type": "townsfolk"
+      },
+      {
+        "number": 3,
+        "character": "exorcist",
+        "type": "townsfolk"
+      },
+      {
+        "number": 4,
+        "character": "zombuul",
+        "type": "demons"
+      },
+      {
+        "number": 5,
+        "character": "shabaloth",
+        "type": "demons"
+      },
+      {
+        "number": 6,
+        "character": "po",
+        "type": "demons"
+      },
+      {
+        "number": 7,
+        "character": "assassin",
+        "type": "minions"
+      },
+      {
+        "number": 8,
+        "character": "professor",
+        "type": "townsfolk"
+      },
+      {
+        "number": 9,
+        "character": "gossip",
+        "type": "townsfolk"
+      },
+      {
+        "number": 10,
+        "character": "tinker",
+        "type": "outsiders"
+      },
+      {
+        "number": 11,
+        "character": "moonchild",
+        "type": "outsiders"
+      }
+    ]
+  },
+  "source_url": {
+    "en": "https://wiki.bloodontheclocktower.com/Bad_Moon_Rising",
+    "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E9%BB%AF%E6%9C%88%E5%88%9D%E5%8D%87"
+  }
+}

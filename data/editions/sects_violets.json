@@ -1,0 +1,163 @@
+{
+  "id": "sects_violets",
+  "name": {
+    "en": "Sects & Violets",
+    "cn": "梦殒春宵"
+  },
+  "description": {
+    "en": "Vibrant spring gives way to a warm and inviting summer. Flowers of every description blossom as far as the eye can see, tenderly nurtured in public gardens and window boxes overlooking the lavish promenade. Birds sing, artists paint, and philosophers ponder life's greatest mysteries inside a bustling tavern as a circus pitches its endearingly ragged tent on the edge of town.",
+    "cn": "生机勃勃的春天已然过去，温暖迷人的夏天悄然来临。园丁在公园和窗栏上精心培育，让百花齐放，一望无际。鸟儿在歌唱，艺术家们拿起了画笔，哲学家在熙熙攘攘的酒馆里思索人生的终极奥秘，城镇周围搭建起老旧的帐篷预示着马戏团即将开启。"
+  },
+  "characters": {
+    "townsfolk": [
+      "artist",
+      "clockmaker",
+      "dreamer",
+      "flowergirl",
+      "juggler",
+      "mathematician",
+      "oracle",
+      "philosopher",
+      "sage",
+      "savant",
+      "seamstress",
+      "snake_charmer",
+      "town_crier"
+    ],
+    "outsiders": [
+      "barber",
+      "klutz",
+      "mutant",
+      "sweetheart"
+    ],
+    "minions": [
+      "cerenovus",
+      "evil_twin",
+      "pit_hag",
+      "witch"
+    ],
+    "demons": [
+      "fang_gu",
+      "no_dashii",
+      "vigormortis",
+      "vortox"
+    ]
+  },
+  "min_players": null,
+  "max_players": null,
+  "night_order": {
+    "first_night": [
+      {
+        "number": 1,
+        "character": "philosopher",
+        "type": "townsfolk"
+      },
+      {
+        "number": 2,
+        "character": "snake_charmer",
+        "type": "townsfolk"
+      },
+      {
+        "number": 3,
+        "character": "evil_twin",
+        "type": "minions"
+      },
+      {
+        "number": 4,
+        "character": "witch",
+        "type": "minions"
+      },
+      {
+        "number": 5,
+        "character": "cerenovus",
+        "type": "minions"
+      },
+      {
+        "number": 6,
+        "character": "clockmaker",
+        "type": "townsfolk"
+      },
+      {
+        "number": 7,
+        "character": "dreamer",
+        "type": "townsfolk"
+      },
+      {
+        "number": 8,
+        "character": "seamstress",
+        "type": "townsfolk"
+      },
+      {
+        "number": 9,
+        "character": "mathematician",
+        "type": "townsfolk"
+      }
+    ],
+    "other_nights": [
+      {
+        "number": 1,
+        "character": "pit_hag",
+        "type": "minions"
+      },
+      {
+        "number": 2,
+        "character": "fang_gu",
+        "type": "demons"
+      },
+      {
+        "number": 3,
+        "character": "vigormortis",
+        "type": "demons"
+      },
+      {
+        "number": 4,
+        "character": "no_dashii",
+        "type": "demons"
+      },
+      {
+        "number": 5,
+        "character": "vortox",
+        "type": "demons"
+      },
+      {
+        "number": 6,
+        "character": "barber",
+        "type": "outsiders"
+      },
+      {
+        "number": 7,
+        "character": "sweetheart",
+        "type": "outsiders"
+      },
+      {
+        "number": 8,
+        "character": "savant",
+        "type": "townsfolk"
+      },
+      {
+        "number": 9,
+        "character": "flowergirl",
+        "type": "townsfolk"
+      },
+      {
+        "number": 10,
+        "character": "town_crier",
+        "type": "townsfolk"
+      },
+      {
+        "number": 11,
+        "character": "oracle",
+        "type": "townsfolk"
+      },
+      {
+        "number": 12,
+        "character": "juggler",
+        "type": "townsfolk"
+      }
+    ]
+  },
+  "source_url": {
+    "en": "https://wiki.bloodontheclocktower.com/Sects_%26_Violets",
+    "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%A2%A6%E6%AE%92%E6%98%A5%E5%AE%B5"
+  }
+}

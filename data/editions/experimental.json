@@ -1,0 +1,89 @@
+{
+  "id": "experimental",
+  "name": {
+    "en": "Experimental Characters",
+    "cn": "实验性角色"
+  },
+  "description": null,
+  "characters": {
+    "townsfolk": [
+      "acrobat",
+      "alchemist",
+      "alsaahir",
+      "amnesiac",
+      "atheist",
+      "balloonist",
+      "banshee",
+      "bounty_hunter",
+      "cannibal",
+      "choirboy",
+      "cult_leader",
+      "engineer",
+      "general",
+      "high_priestess",
+      "huntsman",
+      "king",
+      "knight",
+      "lycanthrope",
+      "magician",
+      "nightwatchman",
+      "noble",
+      "pixie",
+      "poppy_grower",
+      "preacher",
+      "princess",
+      "village_idiot"
+    ],
+    "outsiders": [
+      "damsel",
+      "golem",
+      "hatter",
+      "heretic",
+      "hermit",
+      "ogre",
+      "plague_doctor",
+      "politician",
+      "puzzlemaster",
+      "snitch",
+      "zealot"
+    ],
+    "minions": [
+      "boffin",
+      "boomdandy",
+      "fearmonger",
+      "goblin",
+      "harpy",
+      "marionette",
+      "mezepheles",
+      "organ_grinder",
+      "psychopath",
+      "summoner",
+      "vizier",
+      "widow",
+      "wizard",
+      "wraith",
+      "xaan"
+    ],
+    "demons": [
+      "al_hadikhia",
+      "kazali",
+      "legion",
+      "leviathan",
+      "lil_monsta",
+      "lleech",
+      "lord_of_typhon",
+      "ojo",
+      "riot",
+      "yaggababble"
+    ]
+  },
+  "min_players": null,
+  "max_players": null,
+  "night_order": {
+    "first_night": [],
+    "other_nights": []
+  },
+  "source_url": {
+    "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E5%AE%9E%E9%AA%8C%E6%80%A7%E8%A7%92%E8%89%B2"
+  }
+}

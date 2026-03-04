@@ -1,0 +1,125 @@
+{
+  "id": "trouble_brewing",
+  "name": {
+    "en": "Trouble Brewing",
+    "cn": "暗流涌动"
+  },
+  "description": {
+    "en": "Clouds roll in over Ravenswood Bluff, engulfing this sleepy town and its superstitious inhabitants in foreboding shadow. Freshly-washed clothes dance eerily on lines strung between cottages. Chimneys cough plumes of smoke into the air. Exotic scents waft through cracks in windows and under doors, as hidden cauldrons lay bubbling. An unusually warm Autumn breeze wraps around vine-covered walls and whispers ominously to those brave enough to walk the cobbled streets.",
+    "cn": "乌云在鸦木布拉夫的天空中翻滚着，让这个沉睡中的小镇和迷信的居民们笼罩在不祥的阴影之中。刚洗过的衣物在屋舍间的细绳上诡异地起舞。烟囱向外吐出滚滚的浓烟。"
+  },
+  "characters": {
+    "townsfolk": [
+      "chef",
+      "empath",
+      "fortune_teller",
+      "investigator",
+      "librarian",
+      "mayor",
+      "monk",
+      "ravenkeeper",
+      "slayer",
+      "soldier",
+      "undertaker",
+      "virgin",
+      "washerwoman"
+    ],
+    "outsiders": [
+      "butler",
+      "drunk",
+      "recluse",
+      "saint"
+    ],
+    "minions": [
+      "baron",
+      "poisoner",
+      "scarlet_woman",
+      "spy"
+    ],
+    "demons": [
+      "imp"
+    ]
+  },
+  "min_players": null,
+  "max_players": null,
+  "night_order": {
+    "first_night": [
+      {
+        "number": 1,
+        "character": "spy",
+        "type": "minions"
+      },
+      {
+        "number": 2,
+        "character": "poisoner",
+        "type": "minions"
+      },
+      {
+        "number": 3,
+        "character": "washerwoman",
+        "type": "townsfolk"
+      },
+      {
+        "number": 4,
+        "character": "librarian",
+        "type": "townsfolk"
+      },
+      {
+        "number": 5,
+        "character": "investigator",
+        "type": "townsfolk"
+      },
+      {
+        "number": 6,
+        "character": "chef",
+        "type": "townsfolk"
+      },
+      {
+        "number": 7,
+        "character": "empath",
+        "type": "townsfolk"
+      },
+      {
+        "number": 8,
+        "character": "fortune_teller",
+        "type": "townsfolk"
+      },
+      {
+        "number": 9,
+        "character": "butler",
+        "type": "outsiders"
+      }
+    ],
+    "other_nights": [
+      {
+        "number": 1,
+        "character": "monk",
+        "type": "townsfolk"
+      },
+      {
+        "number": 2,
+        "character": "scarlet_woman",
+        "type": "minions"
+      },
+      {
+        "number": 3,
+        "character": "imp",
+        "type": "demons"
+      },
+      {
+        "number": 4,
+        "character": "ravenkeeper",
+        "type": "townsfolk"
+      },
+      {
+        "number": 5,
+        "character": "undertaker",
+        "type": "townsfolk"
+      }
+    ]
+  },
+  "source_url": {
+    "en": "https://wiki.bloodontheclocktower.com/Trouble_Brewing",
+    "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8"
+  }
+}
