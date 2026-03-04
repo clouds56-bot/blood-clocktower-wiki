@@ -29,7 +29,10 @@ export function stripLangFromPath(pathname: string) {
 }
 
 export function getLangFromUrl(url: URL) {
-  const [, lang] = url.pathname.split('/');
+  // Remove base path from pathname before detecting language
+  // e.g., '/blood-clocktower-wiki/en/characters/' -> '/en/characters/'
+  const pathname = url.pathname.replace(/^\/[^\/]+/, '');
+  const [, lang] = pathname.split('/');
   if (lang in languages) return lang as keyof typeof languages;
   return defaultLang;
 }
