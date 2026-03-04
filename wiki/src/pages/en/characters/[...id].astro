@@ -1,0 +1,107 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { useTranslations, getLangFromUrl } from '../../../i18n/utils';
+
+export async function getStaticPaths() {
+  const characters = await getCollection('characters');
+  return characters.map(char => ({
+    params: { id: char.id },
+    props: { char }
+  }));
+}
+
+const { char } = Astro.props;
+const data = char.data;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<BaseLayout title={`${data.name?.[lang] || data.name?.en || data.id} | Wiki`}>
+  <div class="mb-6">
+    <a href="/cn/characters" class="text-indigo-600 hover:underline">{t('char.back')}</a>
+  </div>
+
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
+    <header class="mb-6">
+      <div class="flex items-baseline gap-4 mb-2">
+        <h1 class="text-4xl font-extrabold text-indigo-900">{data.name?.[lang] || data.name?.en}</h1>
+        {lang === 'cn' && data.name?.en && <span class="text-xl text-slate-500">{data.name.en}</span>}
+        {lang === 'en' && data.name?.cn && <span class="text-xl text-slate-500">{data.name.cn}</span>}
+      </div>
+      <div class="flex gap-2 text-sm font-medium">
+        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full capitalize">
+          {data.type}
+        </span>
+        {data.editions && data.editions.map((edition: string) => (
+          <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-full">
+            {edition.replace('_', ' ')}
+          </span>
+        ))}
+      </div>
+    </header>
+
+    {data.ability?.[lang] && (
+      <div class="mb-8 p-4 bg-slate-50 rounded-lg border-l-4 border-indigo-400">
+        <h2 class="font-bold text-lg mb-2 text-slate-800">{t('char.ability')}</h2>
+        <p class="text-lg text-slate-700 leading-relaxed">{data.ability?.[lang]}</p>
+        {data.ability?.[lang === 'en' ? 'cn' : 'en'] && (
+          <p class="mt-2 text-slate-600">{data.ability?.[lang === 'en' ? 'cn' : 'en']}</p>
+        )}
+      </div>
+    )}
+
+    {data.flavor_text?.[lang] && (
+      <blockquote class="italic text-slate-500 mb-8 border-l-4 border-slate-300 pl-4 py-1">
+        "{data.flavor_text?.[lang]}"
+        {data.flavor_text?.[lang === 'en' ? 'cn' : 'en'] && (
+          <div class="mt-1">{data.flavor_text?.[lang === 'en' ? 'cn' : 'en']}</div>
+        )}
+      </blockquote>
+    )}
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {data.tips?.[lang] && data.tips?.[lang].length > 0 && (
+        <section>
+          <h2 class="text-2xl font-bold mb-4 text-slate-800 border-b pb-2">{t('char.tips')}</h2>
+          <ul class="space-y-4">
+            {data.tips?.[lang].map((tip: string) => (
+              <li class="flex gap-3 text-slate-700">
+                <span class="text-indigo-400 mt-1">✦</span>
+                <span>{tip}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {data.examples?.[lang] && data.examples?.[lang].length > 0 && (
+        <section>
+          <h2 class="text-2xl font-bold mb-4 text-slate-800 border-b pb-2">{t('char.examples')}</h2>
+          <ul class="space-y-4">
+            {data.examples?.[lang].map((ex: string) => (
+              <li class="bg-slate-50 p-3 rounded border border-slate-200 text-slate-700 text-sm">
+                {ex}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </div>
+
+    {data.how_to_run?.[lang] && (
+      <section class="mt-8 pt-6 border-t border-slate-200">
+        <h2 class="text-2xl font-bold mb-4 text-slate-800">{t('char.how_to_run')}</h2>
+        <p class="text-slate-700">{data.how_to_run?.[lang]}</p>
+      </section>
+    )}
+    
+    {data.source_url && (
+      <div class="mt-10 text-sm text-slate-500 text-right">
+        <a href={data.source_url} target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 underline">
+          {t('char.view_official')}
+        </a>
+      </div>
+    )}
+  </div>
+</BaseLayout>

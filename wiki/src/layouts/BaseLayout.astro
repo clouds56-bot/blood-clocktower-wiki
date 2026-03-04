@@ -1,29 +1,57 @@
 ---
 import 'uno.css';
+import { languages, getLangFromUrl, useTranslations, getBasePath, stripLangFromPath } from '../i18n/utils';
+import LanguagePicker from '../components/LanguagePicker.astro';
 
 interface Props {
   title?: string;
 }
 
 const { title = "Blood on the Clocktower — Wiki" } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const base = getBasePath(lang);
+const pathBase = stripLangFromPath(Astro.url.pathname);
+const canonicalUrl = `${Astro.url.origin}${base}${pathBase === '/' ? '' : pathBase}`;
+const alternateLangs = Object.keys(languages);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
+    <link rel="canonical" href={canonicalUrl} />
+    {alternateLangs.map((code) => (
+      <link
+        rel="alternate"
+        hrefLang={code}
+        href={`${Astro.url.origin}${getBasePath(code as keyof typeof languages)}${pathBase === '/' ? '' : pathBase}`}
+      />
+    ))}
+    <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'zh_CN'} />
+    {alternateLangs
+      .filter((code) => code !== lang)
+      .map((code) => (
+        <meta
+          property="og:locale:alternate"
+          content={code === 'en' ? 'en_US' : 'zh_CN'}
+        />
+      ))}
   </head>
   <body class="min-h-screen bg-slate-50 text-slate-900 font-sans">
     <header class="bg-indigo-900 text-white p-4 shadow-md">
       <div class="max-w-4xl mx-auto flex items-center justify-between">
-        <a href="/" class="text-xl font-bold tracking-tight hover:text-indigo-200 transition">
-          BotC Wiki
-        </a>
+        <div class="flex items-center gap-4">
+          <a href={`${base}/`} class="text-xl font-bold tracking-tight hover:text-indigo-200 transition">
+            BotC Wiki
+          </a>
+          <LanguagePicker />
+        </div>
         <nav class="flex gap-4">
-          <a href="/characters" class="hover:text-indigo-200 transition">Characters</a>
-          <a href="/rules" class="hover:text-indigo-200 transition">Rules</a>
+          <a href={`${base}/characters`} class="hover:text-indigo-200 transition">{t('nav.characters')}</a>
+          <a href={`${base}/rules`} class="hover:text-indigo-200 transition">{t('nav.rules')}</a>
         </nav>
       </div>
     </header>
@@ -34,7 +62,7 @@ const { title = "Blood on the Clocktower — Wiki" } = Astro.props;
 
     <footer class="bg-slate-200 text-slate-600 text-center p-4 text-sm mt-8">
       <div class="max-w-4xl mx-auto">
-        Unofficial Blood on the Clocktower Wiki. Data sourced from official wikis.
+        {t('footer.text')}
       </div>
     </footer>
   </body>
