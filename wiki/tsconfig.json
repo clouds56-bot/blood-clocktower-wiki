@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
+    "resolveJsonModule": true,
+    "types": ["astro/client"]
+  },
+  "include": ["src", "astro.config.mjs", "uno.config.ts"]
+}
