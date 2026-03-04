@@ -9,7 +9,12 @@ const rules = defineCollection({
   loader: glob({ pattern: "**/*.json", base: "../data/rules" })
 });
 
+const editions = defineCollection({
+  loader: glob({ pattern: "**/*.json", base: "../data/editions" })
+});
+
 export const collections = {
   characters,
-  rules
+  rules,
+  editions
 };

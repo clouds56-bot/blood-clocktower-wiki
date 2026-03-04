@@ -1,0 +1,69 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getLangFromUrl, useTranslations, getBasePath } from '../../../i18n/utils';
+
+const editions = await getCollection('editions');
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const base = getBasePath(lang);
+
+const getCharCount = (edition: any) => {
+  const chars = edition.data.characters || {};
+  const townsfolk = chars.townsfolk?.length || 0;
+  const outsiders = chars.outsiders?.length || 0;
+  const minions = chars.minions?.length || 0;
+  const demons = chars.demons?.length || 0;
+  return { townsfolk, outsiders, minions, demons, total: townsfolk + outsiders + minions + demons };
+};
+---
+
+<BaseLayout title={`${t('editions.title')} | Wiki`}>
+  <div class="mb-8">
+    <p class="uppercase tracking-[0.4em] text-xs text-[color:var(--ink-200)]">剧本列表</p>
+    <h1 class="font-display text-4xl sm:text-5xl mt-3 mb-3 text-[color:var(--ink-50)]">
+      {t('editions.title')}
+    </h1>
+    <p class="text-base sm:text-lg text-[color:var(--ink-200)] max-w-2xl">
+      {t('editions.subtitle')}
+    </p>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {editions.map(edition => {
+      const name = edition.data.name?.[lang] || edition.data.name?.en || edition.id;
+      const description = edition.data.description?.[lang] || edition.data.description?.en || '';
+      const counts = getCharCount(edition);
+      
+      return (
+        <a
+          href={`${base}/editions/${edition.id}`}
+          class="edition-card group block surface-panel rounded-2xl overflow-hidden hover:-translate-y-1 transition-all duration-300"
+        >
+          <div class="p-6">
+            <h2 class="font-display text-2xl sm:text-3xl text-[color:var(--ink-50)] mb-3">
+              {name}
+            </h2>
+            <p class="text-sm text-[color:var(--ink-200)] line-clamp-3 mb-4 leading-relaxed">
+              {description}
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs uppercase tracking-widest">
+              <span class="px-3 py-1 rounded-full border border-[rgba(90,162,255,0.4)] text-[color:var(--accent-blue)]">
+                {counts.townsfolk} 镇民
+              </span>
+              <span class="px-3 py-1 rounded-full border border-[rgba(90,162,255,0.4)] text-[color:var(--accent-blue)]">
+                {counts.outsiders} 外来者
+              </span>
+              <span class="px-3 py-1 rounded-full border border-[rgba(255,90,90,0.4)] text-[color:var(--accent-red)]">
+                {counts.minions} 爪牙
+              </span>
+              <span class="px-3 py-1 rounded-full border border-[rgba(255,90,90,0.4)] text-[color:var(--accent-red)]">
+                {counts.demons} 恶魔
+              </span>
+            </div>
+          </div>
+        </a>
+      )
+    })}
+  </div>
+</BaseLayout>
