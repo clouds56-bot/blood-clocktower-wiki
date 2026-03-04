@@ -4,7 +4,8 @@ import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const base = `/${lang}`;
+import { getBasePath } from '../../i18n/utils';
+const base = getBasePath(lang);
 ---
 
 <BaseLayout title={`${t('home.title')} | Wiki`}>

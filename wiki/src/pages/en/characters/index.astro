@@ -1,47 +1,19 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CharacterList from '../../../components/CharacterList.astro';
 import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
 
 const characters = await getCollection('characters');
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const base = `/${lang}`;
-
-// Group characters by type
-const byType = characters.reduce((acc, char) => {
-  const type = char.data.type || 'unknown';
-  if (!acc[type]) acc[type] = [];
-  acc[type].push(char);
-  return acc;
-}, {} as Record<string, any[]>);
-
-const typesOrder = ['townsfolk', 'outsider', 'minion', 'demon', 'traveller', 'fabled'];
-const sortedTypes = Object.keys(byType).sort((a, b) => {
-  const idxA = typesOrder.indexOf(a);
-  const idxB = typesOrder.indexOf(b);
-  if (idxA === -1 && idxB === -1) return a.localeCompare(b);
-  if (idxA === -1) return 1;
-  if (idxB === -1) return -1;
-  return idxA - idxB;
-});
 ---
 
 <BaseLayout title={`${t('nav.characters')} | Wiki`}>
-  <h1 class="text-4xl font-bold mb-6 text-indigo-900">{t('nav.characters')}</h1>
+  <div class="mb-8">
+    <h1 class="text-4xl font-bold mb-4 text-indigo-900">{t('nav.characters')}</h1>
+    <p class="text-lg text-slate-600">Browse and search all Blood on the Clocktower characters.</p>
+  </div>
   
-  {sortedTypes.map(type => (
-    <div class="mb-10">
-      <h2 class="text-2xl font-bold mb-4 capitalize border-b pb-2 text-slate-800">{type}</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {byType[type].map((char: any) => (
-          <a href={`${base}/characters/${char.id}`} class="block p-4 bg-white rounded-lg shadow-sm border border-slate-200 hover:border-indigo-400 hover:shadow-md transition">
-            <h3 class="font-bold text-lg text-indigo-800">{char.data.name?.[lang] || char.data.name?.en || char.id}</h3>
-            {lang === 'en' && char.data.name?.cn && <p class="text-sm text-slate-500">{char.data.name.cn}</p>}
-            {lang === 'cn' && char.data.name?.en && <p class="text-sm text-slate-500">{char.data.name.en}</p>}
-          </a>
-        ))}
-      </div>
-    </div>
-  ))}
+  <CharacterList characters={characters} lang={lang} />
 </BaseLayout>

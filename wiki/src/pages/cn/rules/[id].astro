@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+import { getLangFromUrl, useTranslations, getBasePath } from '../../../i18n/utils';
 
 export async function getStaticPaths() {
   const rules = await getCollection('rules');
@@ -19,7 +19,7 @@ const t = useTranslations(lang);
 
 <BaseLayout title={`${rule.id} | Wiki`}>
   <div class="mb-6">
-    <a href="/cn/rules" class="text-indigo-600 hover:underline">{t('rules.back')}</a>
+    <a href={`${getBasePath('cn')}/rules`} class="text-indigo-600 hover:underline">{t('rules.back')}</a>
   </div>
 
   <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-8">

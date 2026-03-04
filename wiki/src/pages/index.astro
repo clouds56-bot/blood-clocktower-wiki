@@ -1,14 +1,18 @@
 ---
+import { getBasePath } from '../i18n/utils';
+
+// Redirect to the English home under the correct base (supports GitHub Pages)
+const redirectUrl = `${getBasePath('en')}/`;
 ---
 
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="0; url=/en/" />
-    <link rel="canonical" href="/en/" />
+    <meta http-equiv="refresh" content={`0; url=${redirectUrl}`} />
+    <link rel="canonical" href={redirectUrl} />
     <title>Redirecting...</title>
   </head>
   <body>
-    <p>Redirecting to <a href="/en/">/en/</a></p>
+    <p>Redirecting to <a href={redirectUrl}>{redirectUrl}</a></p>
   </body>
 </html>

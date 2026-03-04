@@ -6,7 +6,12 @@ export const languages = {
 export const defaultLang = 'en';
 
 export function getBasePath(lang: keyof typeof languages) {
-  return `/${lang}`;
+  // Use Vite/Astro base when available (e.g. GitHub Pages). Normalize it so
+  // we don't end up with double slashes. When BASE_URL is not set (local
+  // dev), this becomes an empty string and the result is `/en` as before.
+  const rawBase = (import.meta.env.BASE_URL ?? '') as string;
+  const normalizedBase = rawBase.replace(/\/$/, '');
+  return `${normalizedBase}/${lang}`;
 }
 
 export function stripLangFromPath(pathname: string) {
