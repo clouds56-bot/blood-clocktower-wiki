@@ -1,0 +1,15 @@
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+
+const characters = defineCollection({
+  loader: glob({ pattern: "**/*.json", base: "../data/characters" })
+});
+
+const rules = defineCollection({
+  loader: glob({ pattern: "**/*.json", base: "../data/rules" })
+});
+
+export const collections = {
+  characters,
+  rules
+};

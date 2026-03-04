@@ -1,0 +1,41 @@
+---
+import 'uno.css';
+
+interface Props {
+  title?: string;
+}
+
+const { title = "Blood on the Clocktower — Wiki" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen bg-slate-50 text-slate-900 font-sans">
+    <header class="bg-indigo-900 text-white p-4 shadow-md">
+      <div class="max-w-4xl mx-auto flex items-center justify-between">
+        <a href="/" class="text-xl font-bold tracking-tight hover:text-indigo-200 transition">
+          BotC Wiki
+        </a>
+        <nav class="flex gap-4">
+          <a href="/characters" class="hover:text-indigo-200 transition">Characters</a>
+          <a href="/rules" class="hover:text-indigo-200 transition">Rules</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto p-6 min-h-[calc(100vh-140px)]">
+      <slot />
+    </main>
+
+    <footer class="bg-slate-200 text-slate-600 text-center p-4 text-sm mt-8">
+      <div class="max-w-4xl mx-auto">
+        Unofficial Blood on the Clocktower Wiki. Data sourced from official wikis.
+      </div>
+    </footer>
+  </body>
+</html>

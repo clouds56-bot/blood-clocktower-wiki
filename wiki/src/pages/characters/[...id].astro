@@ -1,0 +1,99 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const characters = await getCollection('characters');
+  return characters.map(char => ({
+    params: { id: char.id },
+    props: { char }
+  }));
+}
+
+const { char } = Astro.props;
+const data = char.data;
+---
+
+<BaseLayout title={`${data.name?.en || data.id} | Blood on the Clocktower Wiki`}>
+  <div class="mb-6">
+    <a href="/characters" class="text-indigo-600 hover:underline">&larr; Back to Characters</a>
+  </div>
+
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
+    <header class="mb-6">
+      <div class="flex items-baseline gap-4 mb-2">
+        <h1 class="text-4xl font-extrabold text-indigo-900">{data.name?.en}</h1>
+        {data.name?.cn && <span class="text-xl text-slate-500">{data.name.cn}</span>}
+      </div>
+      <div class="flex gap-2 text-sm font-medium">
+        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full capitalize">
+          {data.type}
+        </span>
+        {data.editions && data.editions.map((edition: string) => (
+          <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-full">
+            {edition.replace('_', ' ')}
+          </span>
+        ))}
+      </div>
+    </header>
+
+    {data.ability?.en && (
+      <div class="mb-8 p-4 bg-slate-50 rounded-lg border-l-4 border-indigo-400">
+        <h2 class="font-bold text-lg mb-2 text-slate-800">Ability</h2>
+        <p class="text-lg text-slate-700 leading-relaxed">{data.ability.en}</p>
+        {data.ability?.cn && <p class="mt-2 text-slate-600">{data.ability.cn}</p>}
+      </div>
+    )}
+
+    {data.flavor_text?.en && (
+      <blockquote class="italic text-slate-500 mb-8 border-l-4 border-slate-300 pl-4 py-1">
+        "{data.flavor_text.en}"
+        {data.flavor_text?.cn && <div class="mt-1">{data.flavor_text.cn}</div>}
+      </blockquote>
+    )}
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {data.tips?.en && data.tips.en.length > 0 && (
+        <section>
+          <h2 class="text-2xl font-bold mb-4 text-slate-800 border-b pb-2">Tips & Tricks</h2>
+          <ul class="space-y-4">
+            {data.tips.en.map((tip: string) => (
+              <li class="flex gap-3 text-slate-700">
+                <span class="text-indigo-400 mt-1">✦</span>
+                <span>{tip}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {data.examples?.en && data.examples.en.length > 0 && (
+        <section>
+          <h2 class="text-2xl font-bold mb-4 text-slate-800 border-b pb-2">Examples</h2>
+          <ul class="space-y-4">
+            {data.examples.en.map((ex: string) => (
+              <li class="bg-slate-50 p-3 rounded border border-slate-200 text-slate-700 text-sm">
+                {ex}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </div>
+
+    {data.how_to_run?.en && (
+      <section class="mt-8 pt-6 border-t border-slate-200">
+        <h2 class="text-2xl font-bold mb-4 text-slate-800">How to Run</h2>
+        <p class="text-slate-700">{data.how_to_run.en}</p>
+      </section>
+    )}
+    
+    {data.source_url && (
+      <div class="mt-10 text-sm text-slate-500 text-right">
+        <a href={data.source_url} target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 underline">
+          View on Official Wiki
+        </a>
+      </div>
+    )}
+  </div>
+</BaseLayout>
