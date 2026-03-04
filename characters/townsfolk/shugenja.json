@@ -20,11 +20,17 @@
   "other_nights": false,
   "artist": "Chloe McDougall",
   "jinxes": [],
-  "examples": [
-    "阴阳师得知了占卜师、莽夫、洗脑师和痢蛭。其中莽夫和洗脑师在场。",
-    "阴阳师得知了士兵、送葬者、女巫和灵言师。小黑是陌客，被阴阳师当作女巫。小明是间谍，被阴阳师当作送葬者。",
-    "第三个夜晚，麻脸巫婆将猎手变成了阴阳师。当晚方古攻击了畸形秀演员，老方古死亡，畸形秀演员变成了新的方古。随后，阴阳师得知了钟表匠、畸形秀演员、麻脸巫婆和方古。其中麻脸巫婆和方古在场。"
-  ],
+  "examples": {
+    "en": [
+      "The Organ Grinder is 2 steps away from the Shugenja in a clockwise direction. The Fearmonger is 3 steps away from the Shugenja in an anti-clockwise direction. The Shugenja wakes and learns that the closest evil player is in a clockwise direction.",
+      "The Marionette is 1 step away from the Shugenja in  a clockwise direction. The Widow is 1 step away from the Shugenja in an anti-clockwise direction. The Shugenja wakes and the Storyteller chooses to tell the Shugenja that the closest evil player is in a clockwise direction."
+    ],
+    "cn": [
+      "阴阳师得知了占卜师、莽夫、洗脑师和痢蛭。其中莽夫和洗脑师在场。",
+      "阴阳师得知了士兵、送葬者、女巫和灵言师。小黑是陌客，被阴阳师当作女巫。小明是间谍，被阴阳师当作送葬者。",
+      "第三个夜晚，麻脸巫婆将猎手变成了阴阳师。当晚方古攻击了畸形秀演员，老方古死亡，畸形秀演员变成了新的方古。随后，阴阳师得知了钟表匠、畸形秀演员、麻脸巫婆和方古。其中麻脸巫婆和方古在场。"
+    ]
+  },
   "tips": {
     "en": [
       "In general, it’s usually worth assuming that your information isn’t arbitrary due to equidistance as this is far less likely than to actually get one direction or the other. Obviously it’s worth bearing this potential in mind, but initially it’s usually best to assume your information is good and work on that basis.",

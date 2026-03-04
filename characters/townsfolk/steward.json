@@ -20,11 +20,17 @@
   "other_nights": false,
   "artist": "Chloe McDougall",
   "jinxes": [],
-  "examples": [
-    "管家选择小黑成为他的主人。明天，如果小黑在一次处决中举手投票了，那么管家也可以一同参与投票。否则，管家无法举手投票。",
-    "当前正处于一次提名的流程中。管家和他的主人一同举手投票。轮到说书人开始计票时，管家的主人在最后一秒放下了自己的手。管家此时也必须立刻放下自己的手。",
-    "管家死了。因为死亡的玩家没有任何能力，因此管家可以使用他的投票标记在任何时候投票。"
-  ],
+  "examples": {
+    "en": [
+      "The Steward learns that Alex is good. Alex is the Undertaker.",
+      "The Pit-Hag turns the Poppy Grower into the Steward.\nThat night, the Steward learns that Abdallah is good. Abdallah is the Spy, and is registering as good."
+    ],
+    "cn": [
+      "管家选择小黑成为他的主人。明天，如果小黑在一次处决中举手投票了，那么管家也可以一同参与投票。否则，管家无法举手投票。",
+      "当前正处于一次提名的流程中。管家和他的主人一同举手投票。轮到说书人开始计票时，管家的主人在最后一秒放下了自己的手。管家此时也必须立刻放下自己的手。",
+      "管家死了。因为死亡的玩家没有任何能力，因此管家可以使用他的投票标记在任何时候投票。"
+    ]
+  },
   "tips": {
     "en": [
       "You know a player who is neither the Demon or a Minion. This is great info! You can trust they are acting with good intent for your team and the only thing that can mess with their information is drunkenness and poisoning. Work together to solve the game using your information combined.",

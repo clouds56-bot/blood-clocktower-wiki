@@ -20,10 +20,16 @@
   "other_nights": false,
   "artist": "Chloe McDougall",
   "jinxes": [],
-  "examples": [
-    "道哥、小莱和小米都是村夫，道哥醉酒。在夜晚时，他们都选择了卡扎力小艾。道哥得知小艾是善良玩家。小莱和小米得知小艾是邪恶玩家。",
-    "小八和小明是村夫，小明醉酒。小美是邪恶玩家，并且伪装成村夫。小八选择了小美并得知她是邪恶玩家。小明选择了异端分子并得知他是善良玩家。小美声称自己选择了小八并得知他是邪恶玩家。"
-  ],
+  "examples": {
+    "en": [
+      "Doug, Lewis, and Amy are all Village Idiots. Doug is drunk. At night, they all choose Evin, the Kazali. Doug learns that Evin is good. Lewis and Amy learn that Evin is evil.",
+      "Ben and Marianna are Village Idiots. Marianna is drunk. Sarah is evil, and bluffing as the Village Idiot. Ben chooses Sarah and learns that she is evil. Marianna chooses the Heretic player and learns that they are good. Sarah claims to have chosen Ben and learnt that he is evil."
+    ],
+    "cn": [
+      "道哥、小莱和小米都是村夫，道哥醉酒。在夜晚时，他们都选择了卡扎力小艾。道哥得知小艾是善良玩家。小莱和小米得知小艾是邪恶玩家。",
+      "小八和小明是村夫，小明醉酒。小美是邪恶玩家，并且伪装成村夫。小八选择了小美并得知她是邪恶玩家。小明选择了异端分子并得知他是善良玩家。小美声称自己选择了小八并得知他是邪恶玩家。"
+    ]
+  },
   "tips": {
     "en": [
       "Find your fellow idiots. The easiest way for you to find out which of you is drunk is to compare your information and spot where there are agreements and disagreements. And, if you’re the only Village Idiot out there, you know you’re sober!",

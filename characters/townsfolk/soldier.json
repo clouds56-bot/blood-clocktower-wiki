@@ -20,11 +20,18 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "小恶魔攻击了士兵。士兵没有死亡，因此当晚无人死亡。",
-    "投毒者让士兵中毒，然后小恶魔攻击了士兵。士兵死亡，因为他在处于中毒状态时失去了能力。",
-    "小恶魔攻击了镇长。说书人选择由士兵来代替镇长死亡。然而，因为士兵无法被恶魔杀死，当晚无人死亡。\n（备注：这个例子只是作为解释镇长的能力逻辑用，在实际游戏中，你很少会遇到需要非得士兵或者是其他无法死去的玩家代替镇长死亡的情况，因此通过镇长的能力造成夜晚无人死亡的操作不建议频繁发生。具体可以看镇长条目下“运作方式”里的设计师建议）"
-  ],
+  "examples": {
+    "en": [
+      "The Imp attacks the Soldier. The Soldier does not die, so nobody dies that night.",
+      "The Poisoner poisons the Soldier, then the Imp attacks the Soldier. The Soldier dies, since they have no ability.",
+      "The Imp attacks the Soldier. The Soldier dies, because they are actually the Drunk."
+    ],
+    "cn": [
+      "小恶魔攻击了士兵。士兵没有死亡，因此当晚无人死亡。",
+      "投毒者让士兵中毒，然后小恶魔攻击了士兵。士兵死亡，因为他在处于中毒状态时失去了能力。",
+      "小恶魔攻击了镇长。说书人选择由士兵来代替镇长死亡。然而，因为士兵无法被恶魔杀死，当晚无人死亡。\n（备注：这个例子只是作为解释镇长的能力逻辑用，在实际游戏中，你很少会遇到需要非得士兵或者是其他无法死去的玩家代替镇长死亡的情况，因此通过镇长的能力造成夜晚无人死亡的操作不建议频繁发生。具体可以看镇长条目下“运作方式”里的设计师建议）"
+    ]
+  },
   "tips": {
     "en": [
       "If the Demon attacks you, nobody dies this night. This has two benefits. Firstly, since no good player has died at night, there are more players alive than there ought to have been, allowing the good team more time to execute. Secondly, no death of a night time supports your claim that you are indeed the Soldier.",

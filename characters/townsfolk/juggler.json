@@ -20,10 +20,17 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "第一个白天，杂耍艺人猜测小明是城镇公告员，小兰是诺-达鲺，小黑是贤者。当晚，杂耍艺人得知“2”，这代表他猜对了两个。",
-    "第四个夜晚，博学者变成了杂耍艺人。下个白天，新的杂耍艺人猜测小八是麻脸巫婆，小八是女巫，小米是麻脸巫婆。当晚，杂耍艺人得知“1”。"
-  ],
+  "examples": {
+    "en": [
+      "If the Juggler is guessing too fast, prompt them to slow down.\n\n\nIf an evil player is bluffing as the Juggler, it can help their bluff if you pretend to move tokens around the Grimoire as they make their fake guesses.",
+      "During the first day, the Juggler guesses that Alex is the Town Crier, Mia is the No Dashii, and Julian is the Sage. That night, the Juggler learns a \"2,\" meaning two of those guesses were correct.",
+      "During the fourth night, the Savant gets turned into the Juggler. The next day, the new Juggler guesses that Benjamin is the Pit-Hag, that Benjamin is the Witch, and that Amy is the Pit-Hag. That night, the Juggler learns a \"1.”"
+    ],
+    "cn": [
+      "第一个白天，杂耍艺人猜测小明是城镇公告员，小兰是诺-达鲺，小黑是贤者。当晚，杂耍艺人得知“2”，这代表他猜对了两个。",
+      "第四个夜晚，博学者变成了杂耍艺人。下个白天，新的杂耍艺人猜测小八是麻脸巫婆，小八是女巫，小米是麻脸巫婆。当晚，杂耍艺人得知“1”。"
+    ]
+  },
   "tips": {
     "en": [
       "Try to guess as many good characters as you can! The more good characters you are able to name and confirm, the more good players you'll have in the town that you can trust. This also helps protect you and other information gathering characters from the Demon - you might be a prime target alone, but the Demon will have to choose very carefully if a Savant, Flowergirl and yourself are out and active.",

@@ -20,11 +20,18 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "洗衣妇提名了贞洁者。洗衣妇被处决，并且投票终止。",
-    "以为自己是厨师的酒鬼提名了贞洁者。酒鬼仍然存活，并且贞洁者失去了他的能力。因为酒鬼是一名外来者而不是镇民。接下来玩家可以选择投票是否处决贞洁者。",
-    "一名已死亡的玩家提名了贞洁者。然而已死亡玩家无法发起提名。说书人宣布这次提名无效。贞洁者不会因此失去他的能力。"
-  ],
+  "examples": {
+    "en": [
+      "The Washerwoman nominates the Virgin. The Washerwoman is immediately executed and the day ends.",
+      "The Drunk, who thinks they are the Chef, nominates the Virgin. The Drunk remains alive, and the Virgin loses their ability. Players may now vote on whether or not to execute the Virgin. (This happens because the Drunk is not a Townsfolk.)",
+      "A dead player nominates the Virgin. The dead, however, cannot nominate. The Storyteller declares that the nomination does not count. The Virgin does not lose their ability."
+    ],
+    "cn": [
+      "洗衣妇提名了贞洁者。洗衣妇被处决，并且投票终止。",
+      "以为自己是厨师的酒鬼提名了贞洁者。酒鬼仍然存活，并且贞洁者失去了他的能力。因为酒鬼是一名外来者而不是镇民。接下来玩家可以选择投票是否处决贞洁者。",
+      "一名已死亡的玩家提名了贞洁者。然而已死亡玩家无法发起提名。说书人宣布这次提名无效。贞洁者不会因此失去他的能力。"
+    ]
+  },
   "tips": {
     "en": [
       "You are one of the few Townsfolk in the game that can be absolutely confirmed as good. If a player is executed for nominating you, that is absolute and undeniable proof that you are the Virgin.",

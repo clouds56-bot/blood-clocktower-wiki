@@ -20,12 +20,20 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "没有邪恶玩家相邻而坐。厨师得知了“0”。",
-    "小恶魔与男爵相邻而坐。在另一侧，投毒者与红唇女郎相邻而坐。厨师得知了“2”。",
-    "邪恶的替罪羊坐在小恶魔与红唇女郎的中间。在另一侧，投毒者与男爵相邻而坐。厨师得知了“3”。",
-    "陌客坐在小恶魔与投毒者的中间。厨师得知了“1”。此时，陌客在“小恶魔-陌客”这一对里被当作了邪恶阵营，但在“投毒者-陌客”这一对里被当作了善良阵营。\n（备注：这个例子只是想举例说明厨师对阵营的探查是分多次进行，且陌客能在不同的能力不同的时间点下被视为不同的阵营或角色。在实际游戏中，因为厨师这样的多次探查能力非常少见，因此如果想采用这种给“1”的信息方式，建议说书人应该提前告知玩家，否则应该默认这种情况下要么得知“0”，要么得知“2”。在陌客的范例中，也可以看到实际上对这个例子以及“1”的结果避而不提。）"
-  ],
+  "examples": {
+    "en": [
+      "No evil players are sitting next to each other. The Chef learns a '0'.",
+      "The Imp is sitting next to the Baron. Across the circle, the Poisoner is sitting next to the Scarlet Woman. The Chef learns a '2'.",
+      "An evil Scapegoat is sitting between the Imp and a Minion. Across the circle, two other Minions are sitting next to each other. The Chef learns a '3'.",
+      "The Recluse is sitting between the Imp and the Poisoner. The Chef learns a '1'. Here, the Recluse is registering as evil for the Imp-Recluse pair, but as good for the Poisoner-Recluse pair."
+    ],
+    "cn": [
+      "没有邪恶玩家相邻而坐。厨师得知了“0”。",
+      "小恶魔与男爵相邻而坐。在另一侧，投毒者与红唇女郎相邻而坐。厨师得知了“2”。",
+      "邪恶的替罪羊坐在小恶魔与红唇女郎的中间。在另一侧，投毒者与男爵相邻而坐。厨师得知了“3”。",
+      "陌客坐在小恶魔与投毒者的中间。厨师得知了“1”。此时，陌客在“小恶魔-陌客”这一对里被当作了邪恶阵营，但在“投毒者-陌客”这一对里被当作了善良阵营。\n（备注：这个例子只是想举例说明厨师对阵营的探查是分多次进行，且陌客能在不同的能力不同的时间点下被视为不同的阵营或角色。在实际游戏中，因为厨师这样的多次探查能力非常少见，因此如果想采用这种给“1”的信息方式，建议说书人应该提前告知玩家，否则应该默认这种情况下要么得知“0”，要么得知“2”。在陌客的范例中，也可以看到实际上对这个例子以及“1”的结果避而不提。）"
+    ]
+  },
   "tips": {
     "en": [
       "At the start of the game, your information is not very useful by itself, but can be extremely helpful when combined with the information of your allies. If you can find an Empath, or Fortune Teller, then knowing who is Good or Evil, or who is or is not the Demon, can be very powerful. This is because you know something about their neighbours too. Even learning about a Washerwoman's, Librarian's or Investigator's information can be great. For example, if you know that Evil players are sitting next to each other, and the Investigator says that either player A or player B is a Minion, you know that a neighbour of player A or B is more likely to be Evil.",

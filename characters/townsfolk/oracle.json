@@ -20,10 +20,16 @@
   "other_nights": true,
   "artist": "John Grist",
   "jinxes": [],
-  "examples": [
-    "第一个白天，卖花女孩被处决。当晚，恶魔杀死了杂耍艺人。神谕者被唤醒并得知“0”，因为所有死亡玩家都是善良的。",
-    "游戏进行到一半，七名玩家死亡。其中五名是善良的，两名是邪恶的。并且在白天，一名邪恶旅行者被流放了。当晚，恶魔杀死了他的一名爪牙。神谕者醒来并得知了“4”，因为四名死亡玩家是邪恶的。"
-  ],
+  "examples": {
+    "en": [
+      "During the first day, the Flowergirl is executed. That night, the Demon kills the Juggler. The Oracle wakes and learns a \"0,” because all dead players are good.",
+      "Halfway through the game, seven players are dead. Five of them are good and two of them are evil. During the day, an evil Traveller is Exiled. That night, the Demon kills one of it's Minions. The Oracle wakes and learns a \"4,” because four dead players are evil."
+    ],
+    "cn": [
+      "第一个白天，卖花女孩被处决。当晚，恶魔杀死了杂耍艺人。神谕者被唤醒并得知“0”，因为所有死亡玩家都是善良的。",
+      "游戏进行到一半，七名玩家死亡。其中五名是善良的，两名是邪恶的。并且在白天，一名邪恶旅行者被流放了。当晚，恶魔杀死了他的一名爪牙。神谕者醒来并得知了“4”，因为四名死亡玩家是邪恶的。"
+    ]
+  },
   "tips": {
     "en": [
       "So long as you are getting a \"0\", you can trust that all the dead players are good, and can therefore work with them and use their information.",

@@ -8,8 +8,8 @@ const fs = require('fs');
 const path = require('path');
 const cheerio = require('cheerio');
 
-// Load character config
-const CONFIG_PATH = path.join(__dirname, '..', 'config', 'characters.json');
+// Load character config (moved to `data/`)
+const CONFIG_PATH = path.join(__dirname, '..', 'data', 'characters.json');
 const CHARACTERS = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8')).characters;
 
 const BASE_URL = 'https://wiki.bloodontheclocktower.com';
@@ -334,7 +334,7 @@ async function scrapeAllCharacters() {
 
   // Save summary
   fs.writeFileSync(
-    path.join(__dirname, '..', 'scrape-results.json'),
+    path.join(__dirname, '..', 'data', 'scrape-results.json'),
     JSON.stringify(results, null, 2)
   );
 

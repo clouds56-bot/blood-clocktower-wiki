@@ -20,11 +20,18 @@
   "other_nights": true,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "教授选择了一名声称自己是茶艺师的已死亡玩家。该玩家实际上是疯子。无人被复活。",
-    "教授复活了祖母，祖母得知了一名善良玩家的角色。在黎明，所有玩家都得知这名祖母玩家复活了，但是并不知道该玩家是祖母。",
-    "醉酒的教授选择复活吟游诗人。教授不得而知的是，当晚沙巴洛斯反刍了吟游诗人，他现在已经是存活状态。说书人摇头表示不行，因为教授必须选择一名已死亡的玩家。教授改为选择了已死亡的弄臣。因为教授醉酒，无事发生，并且教授不能再次使用自己的能力。"
-  ],
+  "examples": {
+    "en": [
+      "The Professor chooses a dead player who is claiming to be the Tea Lady. The player is actually the Lunatic. Nobody is resurrected.",
+      "The Professor resurrects the Grandmother, who learns a good player’s character. At dawn, all players learn the Grandmother player is alive, but not that the player is the Grandmother.",
+      "The drunk Professor chooses to resurrect the Minstrel. Unbeknownst to the Professor, the Minstrel was regurgitated by the Shabaloth and is now alive. The Storyteller shakes their head no, because the Professor must choose a dead player. The Professor chooses the dead Fool instead. Nothing happens because the Professor is drunk, and the Professor cannot use their ability again."
+    ],
+    "cn": [
+      "教授选择了一名声称自己是茶艺师的已死亡玩家。该玩家实际上是疯子。无人被复活。",
+      "教授复活了祖母，祖母得知了一名善良玩家的角色。在黎明，所有玩家都得知这名祖母玩家复活了，但是并不知道该玩家是祖母。",
+      "醉酒的教授选择复活吟游诗人。教授不得而知的是，当晚沙巴洛斯反刍了吟游诗人，他现在已经是存活状态。说书人摇头表示不行，因为教授必须选择一名已死亡的玩家。教授改为选择了已死亡的弄臣。因为教授醉酒，无事发生，并且教授不能再次使用自己的能力。"
+    ]
+  },
   "tips": {
     "en": [
       "Use your ability as early as you possibly can! Evil players will really not want to keep you around, so getting your ability to trigger as soon as possible will give you an edge. Additionally, it is more likely that players who die early in the game will be good Townsfolk, since they are in the majority and evil will be protecting each other.",

@@ -20,11 +20,18 @@
   "other_nights": true,
   "artist": "Chloe McDougall",
   "jinxes": [],
-  "examples": [
-    "首个夜晚，半兽人因为寡妇而中毒了。在第二个夜晚，杂技演员选择了中毒的半兽人，杂技演员死亡。",
-    "杂技演员选择了清醒健康的街头风琴手。街头风琴手选择“醉酒”。现在杂技演员选择的街头风琴手醉酒了。杂技演员死亡。",
-    "杂技演员选择了酒鬼。杂技演员死亡。"
-  ],
+  "examples": {
+    "en": [
+      "The Sailor chooses the Assassin, and the Storyteller makes the Sailor drunk. The Acrobat chooses the Sailor, and dies because the Sailor is drunk.",
+      "The Acrobat chooses the Tinker, who is sober and healthy. Nothing happens.",
+      "The Acrobat chooses the Preacher. Later that night, the Pukka poisons the Preacher. The Acrobat dies, because the Preacher is no longer healthy."
+    ],
+    "cn": [
+      "首个夜晚，半兽人因为寡妇而中毒了。在第二个夜晚，杂技演员选择了中毒的半兽人，杂技演员死亡。",
+      "杂技演员选择了清醒健康的街头风琴手。街头风琴手选择“醉酒”。现在杂技演员选择的街头风琴手醉酒了。杂技演员死亡。",
+      "杂技演员选择了酒鬼。杂技演员死亡。"
+    ]
+  },
   "how_to_run": {
     "en": "Each night except the first, wake the Acrobat. They point to a player. Put the Acrobat to sleep.",
     "cn": "除首个夜晚以外的每个夜晚，唤醒杂技演员。让杂技演员指向一名玩家。将“被选择”提示标记放置到所选玩家的角色标记旁。让杂技演员重新入睡。\n如果被选择的玩家在当晚任何时刻醉酒或中毒，杂技演员死亡——在杂技演员的角色标记旁放置“死亡”提示标记并放置帷幕标记。"

@@ -20,10 +20,16 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "茶艺师在游戏开始时的邻近玩家是主谋和善良的莽夫。主谋被处决且死亡。现在，茶艺师邻近的存活玩家是善良的莽夫和侍臣。恶魔攻击了侍臣，但侍臣依然存活。之后，莽夫转变为邪恶的，并且恶魔再次攻击侍臣。这一次，侍臣死亡。",
-    "茶艺师邻近的存活玩家是善良的女舍监和善良的法官。女舍监被流放，但依然存活。"
-  ],
+  "examples": {
+    "en": [
+      "The Tea Lady starts the game neighbouring the Mastermind and the good Goon. The Mastermind is executed and dies. Now, the Tea Lady's alive neighbours are the good Goon and the Courtier. The Demon attacks the Courtier, but the Courtier remains alive. Later, the Goon turns evil, and the Demon attacks the Courtier again. This time, the Courtier dies.",
+      "The Tea Lady's alive neighbours are a good Matron and a good Judge. The Matron is exiled but remains alive."
+    ],
+    "cn": [
+      "茶艺师在游戏开始时的邻近玩家是主谋和善良的莽夫。主谋被处决且死亡。现在，茶艺师邻近的存活玩家是善良的莽夫和侍臣。恶魔攻击了侍臣，但侍臣依然存活。之后，莽夫转变为邪恶的，并且恶魔再次攻击侍臣。这一次，侍臣死亡。",
+      "茶艺师邻近的存活玩家是善良的女舍监和善良的法官。女舍监被流放，但依然存活。"
+    ]
+  },
   "tips": {
     "en": [
       "The Tea Lady is a powerful protector, but is vulnerable themselves. Deciding when and who you should reveal to will decide the strategies that you implement for each game moving forward. Revealing right away can help you coordinate executions on your neighbours early (best case scenario: confirming two good players), but will expose you to the evil team. Staying quiet or playing cautiously can make it harder to confirm information, but you will survive longer and could trick the demon into targeting your protected neighbours, wasting a precious kill. There's no right or wrong way to play - judge for yourself which strategy will play out best for the game you are in!",

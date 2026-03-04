@@ -20,12 +20,20 @@
   "other_nights": true,
   "artist": "John Grist",
   "jinxes": [],
-  "examples": [
-    "在第二个夜晚，工程师选择让恶魔变成痢蛭。原本为小恶魔的小莱现在变成了痢蛭。",
-    "在第一个夜晚，工程师将男爵变成了炸弹人。仍然会有额外的两名外来者在场。",
-    "在场的爪牙为恐惧之灵和精神病患者，他们制造了相当大的混乱。工程师选择让灵言师和间谍在场。说书人决定将恐惧之灵变成了灵言师，将精神病患者变成了间谍。",
-    "在场的爪牙为间谍、刺客和女巫。工程师选择让间谍、刺客和灵言师在场。因此，女巫变成了灵言师。"
-  ],
+  "examples": {
+    "en": [
+      "On the second night, the Engineer chooses that the Demon is a Lleech. Lewis, who was the Imp, is now the Lleech.",
+      "On the first night, the Engineer changes the Baron into the Boomdandy. There are still an extra two Outsiders in play.",
+      "The Fearmonger and the Psychopath are in play, and causing havoc. The Engineer chooses that the Mezepheles and the Spy are in play. The Storyteller chooses to change the Fearmonger into the Mezepheles and the Psychopath into the Spy.",
+      "The Spy, Assassin, and Witch are in play. The Engineer chooses that the Spy, Assassin and Mezepheles are in play. The Witch turns into the Mezepheles."
+    ],
+    "cn": [
+      "在第二个夜晚，工程师选择让恶魔变成痢蛭。原本为小恶魔的小莱现在变成了痢蛭。",
+      "在第一个夜晚，工程师将男爵变成了炸弹人。仍然会有额外的两名外来者在场。",
+      "在场的爪牙为恐惧之灵和精神病患者，他们制造了相当大的混乱。工程师选择让灵言师和间谍在场。说书人决定将恐惧之灵变成了灵言师，将精神病患者变成了间谍。",
+      "在场的爪牙为间谍、刺客和女巫。工程师选择让间谍、刺客和灵言师在场。因此，女巫变成了灵言师。"
+    ]
+  },
   "tips": {
     "en": [
       "If you are the Engineer, you can broadly accomplish one of four things: deciding which Minions are in play, deciding which Minions are not in play, deciding which Demon is in play, deciding which Demon is not in play.",

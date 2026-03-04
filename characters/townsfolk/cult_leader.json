@@ -20,10 +20,17 @@
   "other_nights": true,
   "artist": "Anica Kelsen",
   "jinxes": [],
-  "examples": [
-    "异教领袖的邻近玩家是农夫和魔术师。在首个夜晚，异教领袖的阵营保持善良不变。随后魔术师被处决并死亡，异教领袖的邻近存活玩家现在是农夫和提线木偶。说书人决定让异教领袖转为邪恶阵营。在下一个夜晚，即使异教领袖的邻近存活玩家没有发生变化，仍然是农夫和提线木偶，说书人决定让异教领袖转为善良阵营。",
-    "异教领袖是邪恶阵营的。他提议所有玩家加入他的教派，但只有一半的善良玩家举手加入。无事发生。在当晚，异教领袖转为了善良阵营。在下一个白天，异教领袖提议所有玩家加入他的教派。邪恶玩家都没有举手，但所有的善良玩家举手了。游戏结束，善良阵营获胜，因为此时异教领袖是善良的。"
-  ],
+  "examples": {
+    "en": [
+      "On day 3, the good Cult Leader’s living neighbors are the good Town Crier and the evil Goblin. The Cult Leader requests to form a cult, and all good players vote to join the cult. The game ends and the good team wins!",
+      "The Cult Leader neighbors the No Dashii. On day 2, the Cult Leader attempts to form a cult. All players vote to join the cult, but a cult is not formed, because the Cult Leader is poisoned.",
+      "The Cult Leader’s living neighbors are the evil Poisoner and the good Fortune Teller. The Poisoner chooses the Cult Leader, and the Kazali kills the Fortune Teller. The Cult Leader’s living neighbors are now the evil Poisoner and the evil Wizard. While the Cult Leader’s living neighbors are both evil, the Cult Leader doesn’t turn evil, because they cannot change alignment while poisoned."
+    ],
+    "cn": [
+      "异教领袖的邻近玩家是农夫和魔术师。在首个夜晚，异教领袖的阵营保持善良不变。随后魔术师被处决并死亡，异教领袖的邻近存活玩家现在是农夫和提线木偶。说书人决定让异教领袖转为邪恶阵营。在下一个夜晚，即使异教领袖的邻近存活玩家没有发生变化，仍然是农夫和提线木偶，说书人决定让异教领袖转为善良阵营。",
+      "异教领袖是邪恶阵营的。他提议所有玩家加入他的教派，但只有一半的善良玩家举手加入。无事发生。在当晚，异教领袖转为了善良阵营。在下一个白天，异教领袖提议所有玩家加入他的教派。邪恶玩家都没有举手，但所有的善良玩家举手了。游戏结束，善良阵营获胜，因为此时异教领袖是善良的。"
+    ]
+  },
   "tips": {
     "en": [
       "Come out as the Cult Leader early, as your chances of being good are much higher early in the game. It is true that on the first night you can turn evil, but this will probably not be the case. However, that being said, the town may be hesitant to gun for a Cult Leader win on the first day as this feels like a cheap win and they won't have much evidence either way about your alignment.",

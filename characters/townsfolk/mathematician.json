@@ -20,11 +20,18 @@
   "other_nights": false,
   "artist": "John Grist",
   "jinxes": [],
-  "examples": [
-    "中毒的神谕者得知有两名死亡玩家是邪恶的，但是事实上有三名死亡玩家是邪恶的。所有其他能力正常生效。数学家得知了“1”。",
-    "中毒的舞蛇人选择了镇民玩家并且无事发生。醉酒的杂耍艺人得知了正确信息。中毒的博学者得知了两条正确信息。当晚，数学家得知了“1”，因为舞蛇人和杂耍艺人的能力没有出现异常，但博学者得知的其中一条信息原本应该是错误的。",
-    "涡流在游戏中。五名善良玩家得知了错误信息。女巫醉酒了，当被女巫诅咒的玩家发起提名时，该玩家没有死亡。虽然有六名玩家的角色能力都没有正常生效，但是数学家由于涡流的能力，得知了“3”。"
-  ],
+  "examples": {
+    "en": [
+      "The poisoned Oracle learns that two dead players are evil, when three dead players are actually evil. All other character abilities work normally. Later that night, the Mathematician learns a \"1\".",
+      "The poisoned Snake Charmer chooses a Townsfolk player, and nothing happens. The drunk Juggler gets correct information. The Savant learns two pieces of true information. Later that night, the Mathematician learns a \"1\" because the Snake Charmer and Juggler's abilities worked as normal, whilst one of the Savant's facts was true when it should have been false.",
+      "A Vortox is in play. Five good players got false information. The Witch is drunk, and when their cursed player nominated, nothing happened. Even though six abilities worked abnormally, the Mathematician learns a \"4\" due to the Vortox's ability."
+    ],
+    "cn": [
+      "中毒的神谕者得知有两名死亡玩家是邪恶的，但是事实上有三名死亡玩家是邪恶的。所有其他能力正常生效。数学家得知了“1”。",
+      "中毒的舞蛇人选择了镇民玩家并且无事发生。醉酒的杂耍艺人得知了正确信息。中毒的博学者得知了两条正确信息。当晚，数学家得知了“1”，因为舞蛇人和杂耍艺人的能力没有出现异常，但博学者得知的其中一条信息原本应该是错误的。",
+      "涡流在游戏中。五名善良玩家得知了错误信息。女巫醉酒了，当被女巫诅咒的玩家发起提名时，该玩家没有死亡。虽然有六名玩家的角色能力都没有正常生效，但是数学家由于涡流的能力，得知了“3”。"
+    ]
+  },
   "tips": {
     "en": [
       "Your information is valuable, but only if you know what the rest of the town is doing. Get chatty with your fellow players and find out what their information is - figuring out who has an ability that isn't working correctly will help out the good team a lot. Characters like the Clockmaker, Flowergirl, Seamstress, and Oracle (among others) will need your help making sure their information should be acted upon!",

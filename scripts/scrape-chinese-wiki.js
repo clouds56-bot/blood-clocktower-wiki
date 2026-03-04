@@ -10,7 +10,8 @@ const cheerio = require('cheerio');
 
 const BASE_URL = 'https://clocktower-wiki.gstonegames.com/index.php?title';
 const CACHE_DIR = path.join(__dirname, '..', '.cache', 'html-cn');
-const MAPPING_PATH = path.join(__dirname, '..', 'config', 'characters.json');
+// Mapping moved to `data/characters.json`
+const MAPPING_PATH = path.join(__dirname, '..', 'data', 'characters.json');
 const CHARACTERS_DIR = path.join(__dirname, '..', 'characters');
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
@@ -305,7 +306,7 @@ function printSummary(results) {
     results.skipped.forEach(s => console.log(`  - ${s.type}/${s.id}: ${s.reason}`));
   }
   
-  const summaryPath = path.join(__dirname, '..', 'scrape-results-cn.json');
+  const summaryPath = path.join(__dirname, '..', 'data', 'scrape-results-cn.json');
   fs.writeFileSync(summaryPath, JSON.stringify(results, null, 2));
   console.log(`\n📄 Summary saved to: ${summaryPath}`);
 }

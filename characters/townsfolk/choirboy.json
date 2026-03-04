@@ -20,10 +20,16 @@
   "other_nights": false,
   "artist": "John Grist",
   "jinxes": [],
-  "examples": [
-    "小恶魔攻击了共情者，共情者死亡。下一个夜晚，小恶魔攻击了被僧侣保护的国王，国王没有死亡。再下一个夜晚，小恶魔攻击了国王，此时僧侣没有保护国王，国王死亡。唱诗男孩被说书人唤醒，并得知了一名恶魔玩家。",
-    "沙巴洛斯杀死了国王。醉酒的唱诗男孩被唤醒，并得知了角色为食人族的玩家是恶魔。"
-  ],
+  "examples": {
+    "en": [
+      "The Imp attacks the Empath. The Empath dies. The next night, the Imp attacks the King, who is protected by the Monk. The King lives. The next night, the Imp attacks the King, who is no longer protected by the Monk. The King dies. The Choirboy is woken by the Storyteller and learns which player is the Imp.",
+      "The Shabaloth kills the King. The drunk Choirboy wakes and wrongly learns that the General is the Demon."
+    ],
+    "cn": [
+      "小恶魔攻击了共情者，共情者死亡。下一个夜晚，小恶魔攻击了被僧侣保护的国王，国王没有死亡。再下一个夜晚，小恶魔攻击了国王，此时僧侣没有保护国王，国王死亡。唱诗男孩被说书人唤醒，并得知了一名恶魔玩家。",
+      "沙巴洛斯杀死了国王。醉酒的唱诗男孩被唤醒，并得知了角色为食人族的玩家是恶魔。"
+    ]
+  },
   "tips": {
     "en": [
       "The Choirboy is an ambush for the Demon. Not knowing whether you’re in the game or not is going to make the Demon act much more cautiously around the King. The Demon however has a dilemma, if they let the King stay alive for too long, then they are going to get really good information at a crucial moment in the game. Try to survive as long as you can to keep the pressure on the Demon.",

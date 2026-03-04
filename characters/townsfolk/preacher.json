@@ -20,10 +20,17 @@
   "other_nights": true,
   "artist": "John Grist",
   "jinxes": [],
-  "examples": [
-    "小艾是传教士。第一个夜晚，传教士选择了恐惧之灵。恐惧之灵失去能力并得知被传教士选中。第二个夜晚，传教士选择了猎手。无事发生，因为猎手不是爪牙。第三个夜晚，传教士选择了珀。无事发生，因为珀不是爪牙。第四个夜晚，传教士选择了投毒者。投毒者失去能力，并得知被传教士选中。",
-    "传教士之前已经选择了间谍、圣徒、酒鬼和哥布林。间谍和哥布林失去能力，所以间谍每晚都不能查看魔典，而哥布林不能通过被处决而获胜。随后传教士醉酒，间谍和哥布林能力恢复。间谍当晚可以查看魔典，哥布林被处决会获胜。传教士清醒后，间谍和哥布林再次失去能力。随后间谍死亡，传教士死亡。哥布林能力恢复，但间谍无法再查看魔典，因为他已经死亡了。"
-  ],
+  "examples": {
+    "en": [
+      "The Preacher points to Alex, who is the Engineer. Nothing happens.",
+      "The Preacher points to Lachlan, who is the Cerenovus. Lachlan wakes to learn that he has been preached, and is not woken to use his ability.",
+      "Doug is the Preacher. He points to Marianna, who is the Pit-Hag. Marianna wakes to learn that she has been preached, and is not woken to use her ability. The following night, the Poisoner points to Doug. Because Doug is now poisoned, Marianna wakes to use her ability."
+    ],
+    "cn": [
+      "小艾是传教士。第一个夜晚，传教士选择了恐惧之灵。恐惧之灵失去能力并得知被传教士选中。第二个夜晚，传教士选择了猎手。无事发生，因为猎手不是爪牙。第三个夜晚，传教士选择了珀。无事发生，因为珀不是爪牙。第四个夜晚，传教士选择了投毒者。投毒者失去能力，并得知被传教士选中。",
+      "传教士之前已经选择了间谍、圣徒、酒鬼和哥布林。间谍和哥布林失去能力，所以间谍每晚都不能查看魔典，而哥布林不能通过被处决而获胜。随后传教士醉酒，间谍和哥布林能力恢复。间谍当晚可以查看魔典，哥布林被处决会获胜。传教士清醒后，间谍和哥布林再次失去能力。随后间谍死亡，传教士死亡。哥布林能力恢复，但间谍无法再查看魔典，因为他已经死亡了。"
+    ]
+  },
   "tips": {
     "en": [
       "The Preacher’s ability can turn Minion abilities off. They learn this but will get it back as soon as you’re dead. While you don’t know whether you’ve successfully hit a Minion or not, watch your targets carefully the next day and see if their behaviour changes. If they do, and they suddenly seem more enthusiastic for executions, then you’ve probably got a Minion.",

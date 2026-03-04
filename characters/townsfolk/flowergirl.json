@@ -20,11 +20,19 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "今天白天有一项提名。很多玩家投票，被提名的玩家被处决。但恶魔没有参与投票。那天晚上，卖花女孩得知了“否”。",
-    "今天白天共有三项提名。恶魔在第二次提名投票，没有人被处决。那天晚上，卖花女孩得知了“是”。",
-    "今天白天没有提名。白天有一名旅行者被流放了，流放时所有玩家都举手表示赞成。那天晚上，卖花女孩得知的信息是“否”，因为赞成流放不是投票。"
-  ],
+  "examples": {
+    "en": [
+      "If you forget whether the Demon voted or not, wake the Demon at night and ask by showing them the DID YOU VOTE TODAY? info token. They must answer honestly, then go to sleep.",
+      "There was one nomination today. Lots of players voted, the player was executed, but the Demon did not vote. That night, the Flowergirl learns that the Demon did not vote today.",
+      "There were three nominations today. The Demon voted during the second nomination. Nobody was executed. That night, the Flowergirl learns that the Demon voted today.",
+      "There were no nominations today. A Traveller was exiled, and all players raised their hand to support the exile. That night, the Flowergirl learns that the Demon did not vote today. (Exiles are never affected by abilities.)"
+    ],
+    "cn": [
+      "今天白天有一项提名。很多玩家投票，被提名的玩家被处决。但恶魔没有参与投票。那天晚上，卖花女孩得知了“否”。",
+      "今天白天共有三项提名。恶魔在第二次提名投票，没有人被处决。那天晚上，卖花女孩得知了“是”。",
+      "今天白天没有提名。白天有一名旅行者被流放了，流放时所有玩家都举手表示赞成。那天晚上，卖花女孩得知的信息是“否”，因为赞成流放不是投票。"
+    ]
+  },
   "tips": {
     "en": [
       "Pay attention! You need to keep track of who votes each day, or your information isn't going to be very helpful. Evil players can and will lie about whether they voted or not, so you can't rely on polling the group about who voted if you forget, either. Your information narrows the demon's location down every time you receive it, so make sure it's useful.",

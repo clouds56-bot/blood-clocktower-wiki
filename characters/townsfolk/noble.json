@@ -20,11 +20,18 @@
   "other_nights": false,
   "artist": "Caitlin Murphy",
   "jinxes": [],
-  "examples": [
-    "贵族得知了小明、小艾和小黑。小明和小艾是善良玩家，小黑是邪恶玩家。",
-    "贵族得知了道哥、小兰和小八。道哥是共情者。小兰是圣徒。小八是陌客，但被贵族当作了邪恶阵营。",
-    "第三个夜晚，麻脸巫婆把小艾变成了贵族。小艾得知了小文、小美和小佳中有一名邪恶玩家。小美是邪恶的间谍，但被当作善良阵营。与此同时小佳是珀，同样也是邪恶玩家。"
-  ],
+  "examples": {
+    "en": [
+      "The Noble is shown Marianna, Alex, and Abdallah. Marianna and Abdallah are good, and Alex is evil.",
+      "The Noble learns Doug, Lachlan and Ben. Doug is the Chambermaid. Lachlan is the Barber. Ben is the Recluse, who has registered as evil to the Noble.",
+      "On the third night, the Pit-Hag turns Amy into the Noble. Amy learns that 1 of Evin, Sarah, or Julian is evil. However, Sarah is the evil Spy and has registered as good, and Julian is the Po, who is also evil."
+    ],
+    "cn": [
+      "贵族得知了小明、小艾和小黑。小明和小艾是善良玩家，小黑是邪恶玩家。",
+      "贵族得知了道哥、小兰和小八。道哥是共情者。小兰是圣徒。小八是陌客，但被贵族当作了邪恶阵营。",
+      "第三个夜晚，麻脸巫婆把小艾变成了贵族。小艾得知了小文、小美和小佳中有一名邪恶玩家。小美是邪恶的间谍，但被当作善良阵营。与此同时小佳是珀，同样也是邪恶玩家。"
+    ]
+  },
   "tips": {
     "en": [
       "Come out with your information right away. If you tell the group that you are the Noble, and which three players you learned, the group can use this information.",

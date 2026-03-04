@@ -20,11 +20,19 @@
   "other_nights": true,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "驱魔人选择了沙巴洛斯。沙巴洛斯当晚不会杀人。在黎明，说书人宣布当晚无人死亡。",
-    "驱魔人选择了普卡。普卡当晚不会被唤醒来发动攻击，但是因为普卡在前一个夜晚的攻击，仍然会有一名玩家死亡。",
-    "珀选择不攻击任何人。在下一个夜晚，驱魔人选择了珀。珀当晚不会被唤醒进行攻击。再下一个夜晚，驱魔人选择了刺客。刺客仍然可以在当晚发动攻击，并且珀选择攻击三名玩家，因为珀在上次选择时（两天前）没有选择任何玩家。"
-  ],
+  "examples": {
+    "en": [
+      "A Demon chosen by the Exorcist will not wake to use their Demon ability, but will still wake if they need to due to other characters’ abilities. This may be relevant if using the Exorcist with characters from other editions.",
+      "The Exorcist chooses the Shabaloth. The Shabaloth does not kill tonight. At dawn, the Storyteller declares that nobody died that night.",
+      "The Exorcist chooses the Pukka. The Pukka does not wake to attack tonight, but a player still dies because of the Pukka’s attack during the previous night.",
+      "The Po chooses to attack no one. The next night, the Exorcist chooses the Po. The Po does not wake to act tonight. The next night, the Exorcist chooses the Assassin. The Assassin can still attack tonight, and the Po chooses three players to attack, because the Po's last choice was no one."
+    ],
+    "cn": [
+      "驱魔人选择了沙巴洛斯。沙巴洛斯当晚不会杀人。在黎明，说书人宣布当晚无人死亡。",
+      "驱魔人选择了普卡。普卡当晚不会被唤醒来发动攻击，但是因为普卡在前一个夜晚的攻击，仍然会有一名玩家死亡。",
+      "珀选择不攻击任何人。在下一个夜晚，驱魔人选择了珀。珀当晚不会被唤醒进行攻击。再下一个夜晚，驱魔人选择了刺客。刺客仍然可以在当晚发动攻击，并且珀选择攻击三名玩家，因为珀在上次选择时（两天前）没有选择任何玩家。"
+    ]
+  },
   "tips": {
     "en": [
       "If you choose a player at night, and there are no deaths that night, you may have found the Demon! Either tell the group publicly who you are and who you have chosen the following day, so that the group can know what you know, or wait for a night or two  and choose the same player again, just to be sure. Sometimes, no deaths can occur at night for other reasons, but if you choose the same player multiple times, and each time there is no death at night, you can be fairly certain that you have found the Demon.",

@@ -20,9 +20,14 @@
   "other_nights": false,
   "artist": "John Grist",
   "jinxes": [],
-  "examples": [
-    "小佳是利维坦，小美是魔术师。爪牙们被唤醒后，得知要么小佳是恶魔，要么小美是恶魔。小佳得知恐惧之灵玩家，刺客玩家和魔术师玩家（小美）都是爪牙。"
-  ],
+  "examples": {
+    "en": [
+      "The Minions wake to learn that either the Leviathan player or the Magician player is the Demon. The Leviathan player learns that the Fearmonger player, the Assassin player, and the Magician player are the Minions."
+    ],
+    "cn": [
+      "小佳是利维坦，小美是魔术师。爪牙们被唤醒后，得知要么小佳是恶魔，要么小美是恶魔。小佳得知恐惧之灵玩家，刺客玩家和魔术师玩家（小美）都是爪牙。"
+    ]
+  },
   "tips": {
     "en": [
       "Look as evil as you can. Make poor decisions on who to nominate. Vote haphazardly. Say that trustworthy players are untrustworthy, or vice versa. The evil players think that you might be evil, so if you act more evil than the others, they may believe that you are the evil player, and the Magician is elsewhere.",

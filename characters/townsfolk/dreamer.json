@@ -20,12 +20,21 @@
   "other_nights": true,
   "artist": "Caitlin Murphy",
   "jinxes": [],
-  "examples": [
-    "筑梦师选择一名玩家，该玩家是畸形秀演员。筑梦师得知该玩家是畸形秀演员或洗脑师。",
-    "筑梦师选择了一名获得了卖花女孩能力的哲学家。筑梦师得知该玩家要么是哲学家，要么是亡骨魔。",
-    "在白天，镜像双子和艺术家都声称自己是艺术家。在那天晚上，筑梦师选择了镜像双子。如果说书人想帮助善良阵营，他可以给筑梦师展示这两个角色：镜像双子和心上人。反之，他可以给筑梦师镜像双子和艺术家这两个角色。",
-    "筑梦师选择了一名玩家，他的真实角色是涡流。因为涡流的能力效果，筑梦师获得的信息必须是错误的。所以筑梦师得到这个玩家的角色是神谕者或诺-达鲺。"
-  ],
+  "examples": {
+    "en": [
+      "If the Dreamer chooses an evil player, you can help the evil team if you show the Dreamer the good character that this evil player is bluffing as, or if you show a more secretive character such as the Snake Charmer, Sage, Mutant, or Klutz.",
+      "The Dreamer chooses a player who is the Mutant. The Dreamer learns that this player is either the Mutant or the Cerenovus.",
+      "The Dreamer chooses a player who was the Philosopher but gained the Flowergirl ability earlier that night. The Dreamer learns that this player is either the Philosopher or the Vigormortis.",
+      "Today, both the Evil Twin and the Artist claimed to be the Artist. That night, the Dreamer chooses the player who is the Evil Twin. If the Storyteller wanted to help the good team, they could show the Evil Twin and the Sweetheart. But the Storyteller decides to help evil, so they show the Evil Twin and the Artist to the Dreamer.",
+      "The Dreamer chooses a player who is the Vortox. The Dreamer's information must be false because the Vortox is in play, so the Dreamer learns that this player is either the Oracle or the No Dashii."
+    ],
+    "cn": [
+      "筑梦师选择一名玩家，该玩家是畸形秀演员。筑梦师得知该玩家是畸形秀演员或洗脑师。",
+      "筑梦师选择了一名获得了卖花女孩能力的哲学家。筑梦师得知该玩家要么是哲学家，要么是亡骨魔。",
+      "在白天，镜像双子和艺术家都声称自己是艺术家。在那天晚上，筑梦师选择了镜像双子。如果说书人想帮助善良阵营，他可以给筑梦师展示这两个角色：镜像双子和心上人。反之，他可以给筑梦师镜像双子和艺术家这两个角色。",
+      "筑梦师选择了一名玩家，他的真实角色是涡流。因为涡流的能力效果，筑梦师获得的信息必须是错误的。所以筑梦师得到这个玩家的角色是神谕者或诺-达鲺。"
+    ]
+  },
   "tips": {
     "en": [
       "Every time you choose a player, you learn a potential evil character that they could be. Pay close attention to these, because they give you a surprising amount of information even if they are wrong. For example, any player who registers as a Minion cannot be a Demon, so you can exclude them from your list of potential suspects.",

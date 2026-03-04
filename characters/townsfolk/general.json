@@ -20,11 +20,18 @@
   "other_nights": true,
   "artist": "Caitlin Murphy",
   "jinxes": [],
-  "examples": [
-    "有五名善良玩家和三名爪牙存活。即使现在恶魔玩家备受猜疑，极大可能会成为下一个处决对象，但此外红唇女郎在场且被认为是善良玩家。说书人给出了拇指向下的手势。",
-    "善良阵营拥有了大量的信息，也确信了自己获得的信息的真伪。只有一名爪牙死亡。说书人给出了拇指向上的手势。",
-    "珀的玩家是一名老手玩家，且与爪牙之间的协调分工十分默契。僧侣在每个夜晚都保护了博学者，善良阵营也对谁是善良玩家有较为清晰的判断。然而，珀极大可能会在明晚杀死三名玩家，所以很难确信哪一方究竟会赢。说书人给出了大拇指水平指向一侧的手势。"
-  ],
+  "examples": {
+    "en": [
+      "There are 5 good players alive and 4 evil players alive. Even though the Demon is very suspicious and will probably be executed next, there is a Scarlet Woman in play, who is very trustworthy. The Storyteller gives a thumbs down.",
+      "The Good team has a lot of information, and believes that their false information is indeed false. The only Minion is dead. The Storyteller gives a thumbs up.",
+      "The Po is a very experienced player and is coordinating well with the Minions. The Monk is successfully protecting the Savant each night and the good team have correctly identified several good players. However, the Po will probably kill 3 times tomorrow night, so it is anyone’s game. The Storyteller gives a thumbs to the side."
+    ],
+    "cn": [
+      "有五名善良玩家和三名爪牙存活。即使现在恶魔玩家备受猜疑，极大可能会成为下一个处决对象，但此外红唇女郎在场且被认为是善良玩家。说书人给出了拇指向下的手势。",
+      "善良阵营拥有了大量的信息，也确信了自己获得的信息的真伪。只有一名爪牙死亡。说书人给出了拇指向上的手势。",
+      "珀的玩家是一名老手玩家，且与爪牙之间的协调分工十分默契。僧侣在每个夜晚都保护了博学者，善良阵营也对谁是善良玩家有较为清晰的判断。然而，珀极大可能会在明晚杀死三名玩家，所以很难确信哪一方究竟会赢。说书人给出了大拇指水平指向一侧的手势。"
+    ]
+  },
   "tips": {
     "en": [
       "Keep in mind that your role interacts with the personal opinion of the Storyteller. This opinion will inevitably be influenced by more than just mechanics. Does your group of players include someone who is widely regarded as a very cunning evil player? Perhaps you have someone in your game who is considerably more experienced than others? What are the strategies and tactics that your Storyteller considers to be most effective? These things, and many more, can and will influence your information each night.",

@@ -20,12 +20,20 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "镇长今天被处决。当晚，送葬者被展示了镇长标记。",
-    "以为自己是贞洁者的酒鬼今天被处决。送葬者被展示了酒鬼标记，因为送葬者得知的是玩家实际角色，而不是玩家以为的那个角色。",
-    "间谍被处决。两名旅行者被流放。在当晚，送葬者被展示了管家标记，因为此时间谍被当作了管家，且流放并不是处决。",
-    "今天白天没有人被处决。当晚，送葬者没有被唤醒。"
-  ],
+  "examples": {
+    "en": [
+      "The Mayor is executed today. That night, the Undertaker is shown the Mayor token.",
+      "The Drunk, who thinks they are the Virgin, is executed today. At night, the Undertaker is shown the Drunk token, because the Undertaker learns a player's true character, as opposed to the one they believe they are.",
+      "The Spy is executed. Two Travellers are exiled. That night, the Undertaker is shown the Butler token, because the Spy is registering as the Butler, and because the exiles are not executions.",
+      "Nobody was executed today. That night, the Undertaker does not wake."
+    ],
+    "cn": [
+      "镇长今天被处决。当晚，送葬者被展示了镇长标记。",
+      "以为自己是贞洁者的酒鬼今天被处决。送葬者被展示了酒鬼标记，因为送葬者得知的是玩家实际角色，而不是玩家以为的那个角色。",
+      "间谍被处决。两名旅行者被流放。在当晚，送葬者被展示了管家标记，因为此时间谍被当作了管家，且流放并不是处决。",
+      "今天白天没有人被处决。当晚，送葬者没有被唤醒。"
+    ]
+  },
   "tips": {
     "en": [
       "The more players that are executed, the more information you get. It's to your benefit to facilitate as many executions as you can. The good team's main method for killing evil players is execution as they are far less likely to die at night, so every execution is a chance to hit the Demon. If you don't, you'll at least arrive on the final day knowing a lot more about your fellow players and their roles.",

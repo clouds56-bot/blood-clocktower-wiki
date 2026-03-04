@@ -20,11 +20,18 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "小米是男爵，小佳是镇长。调查员得知要么小米是男爵，要么小佳是男爵。",
-    "小兰是间谍，小莱是投毒者。调查员得知要么小兰是间谍，要么小莱是间谍。",
-    "小文是陌客，小明是小恶魔。调查员得知要么小文是投毒者，要么小明是投毒者。此时，陌客被当作了一名爪牙——在这个例子里，被当作了投毒者。"
-  ],
+  "examples": {
+    "en": [
+      "Amy is the Baron, and Julian is the Mayor. The Investigator learns that either Amy or Julian is the Baron.",
+      "Angelus is the Spy, and Lewis is the Poisoner. The Investigator learns that either Angelus or Lewis is the Spy.",
+      "Brianna is the Recluse, and Marianna is the Imp. The Investigator learns that either Brianna or Marianna is the Poisoner. (This happens because the Recluse is registering as a Minion—in this case, the Poisoner.)"
+    ],
+    "cn": [
+      "小米是男爵，小佳是镇长。调查员得知要么小米是男爵，要么小佳是男爵。",
+      "小兰是间谍，小莱是投毒者。调查员得知要么小兰是间谍，要么小莱是间谍。",
+      "小文是陌客，小明是小恶魔。调查员得知要么小文是投毒者，要么小明是投毒者。此时，陌客被当作了一名爪牙——在这个例子里，被当作了投毒者。"
+    ]
+  },
   "tips": {
     "en": [
       "Tell the group what your information is as soon as possible on the first day. You probably won't be able to determine which of the two players is the Minion, but if you are believed, then the good team will probably have enough time to execute both players, guaranteeing that a Minion is dead on the final day.",

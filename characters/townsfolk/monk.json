@@ -20,11 +20,18 @@
   "other_nights": true,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "僧侣保护了占卜师。小恶魔攻击了占卜师。今晚没有人死亡。",
-    "僧侣保护了镇长。小恶魔攻击了镇长。镇长的“会有其他玩家死亡”的能力不会被触发，因为小恶魔的能力对镇长无效。今晚没有人死亡。",
-    "僧侣保护了小恶魔。小恶魔选择在当晚自杀，但无事发生。小恶魔仍然存活，并且也没有新的小恶魔被创造出来。"
-  ],
+  "examples": {
+    "en": [
+      "The Monk protects the Fortune Teller. The Imp attacks the Fortune Teller. No deaths occur tonight.",
+      "The Monk protects the Mayor, and the Imp attacks the Mayor. The Mayor's \"another player dies\" ability does not trigger, because the Mayor is safe from the Imp. Nobody dies tonight.",
+      "The Monk protects the Imp . The Imp chooses to kill themself tonight, but nothing happens. The Imp stays alive and a new Imp is not created."
+    ],
+    "cn": [
+      "僧侣保护了占卜师。小恶魔攻击了占卜师。今晚没有人死亡。",
+      "僧侣保护了镇长。小恶魔攻击了镇长。镇长的“会有其他玩家死亡”的能力不会被触发，因为小恶魔的能力对镇长无效。今晚没有人死亡。",
+      "僧侣保护了小恶魔。小恶魔选择在当晚自杀，但无事发生。小恶魔仍然存活，并且也没有新的小恶魔被创造出来。"
+    ]
+  },
   "tips": {
     "en": [
       "Your goal is to keep valuable good players alive and stall the Demon's mayhem. Try to predict who the Demon may target each night based on the available information in the game and how the players are acting. Every Demon is different, and figuring out the methodology of yours can enable you to save more than one player.",

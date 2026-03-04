@@ -20,11 +20,18 @@
   "other_nights": true,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "在第一个夜晚，女裁缝选择了两名玩家，他们是理发师和钟表匠。因为他俩都是善良的，女裁缝得知“是”。",
-    "在前三个夜晚，女裁缝选择不使用他的能力。在第四个夜晚，她选择了两名玩家，他们分别是方古和心上人，女裁缝得知“否”。",
-    "麻脸巫婆把数学家变成了女巫，女巫仍然是善良的。当晚，女裁缝选择了两名玩家，他们是女巫和城镇公告员。女裁缝得知“是”，因为他们是善良的。"
-  ],
+  "examples": {
+    "en": [
+      "During the first night, the Seamstress chooses two players, who are the Barber and the Clockmaker. Because they are both good, the Seamstress learns a \"yes.”",
+      "During the first three nights, the Seamstress chooses not to use their ability. During the fourth night, they choose two players, who are the Fang Gu and the Sweetheart. The Seamstress learns a \"no.”",
+      "The Pit-Hag turns the Mathematician into the Witch, who remains good. Later that night, the Seamstress chooses the two players, the Witch and the Town Crier. The Seamstress learns a \"yes\" because they are both good."
+    ],
+    "cn": [
+      "在第一个夜晚，女裁缝选择了两名玩家，他们是理发师和钟表匠。因为他俩都是善良的，女裁缝得知“是”。",
+      "在前三个夜晚，女裁缝选择不使用他的能力。在第四个夜晚，她选择了两名玩家，他们分别是方古和心上人，女裁缝得知“否”。",
+      "麻脸巫婆把数学家变成了女巫，女巫仍然是善良的。当晚，女裁缝选择了两名玩家，他们是女巫和城镇公告员。女裁缝得知“是”，因为他们是善良的。"
+    ]
+  },
   "tips": {
     "en": [
       "Wait a couple of days before using your ability. This has some risk attached because you can obviously be killed in that time, but waiting will give you an idea of the layout of the game, who is claiming what, and who you find suspicious. It also means there is a smaller pool of alive players to choose from since there will have been executions and demon kills.",

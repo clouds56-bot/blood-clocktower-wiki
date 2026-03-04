@@ -20,10 +20,16 @@
   "other_nights": false,
   "artist": "Chloe McDougall",
   "jinxes": [],
-  "examples": [
-    "小明是涡流，小黑是炼金术士。骑士得知了小明和小黑。由于涡流的能力，骑士的信息必须是错误的，所以他得知的玩家里必须要包含恶魔。",
-    "小努是送葬者，小清是小恶魔，小Z是占卜师。骑士得知了小努和小Z。"
-  ],
+  "examples": {
+    "en": [
+      "Lewis is the Undertaker, Doug is the Imp and Ben is the Fortune Teller. The Knight learns Lewis and Ben.",
+      "Marianna is the Vortox and Abdallah is the Alchemist. The Knight learns Marianna and Abdallah. The Knight must learn Marianna and Abdallah because the Knight's information must be false due to the Vortox ability and therefore include the Demon."
+    ],
+    "cn": [
+      "小明是涡流，小黑是炼金术士。骑士得知了小明和小黑。由于涡流的能力，骑士的信息必须是错误的，所以他得知的玩家里必须要包含恶魔。",
+      "小努是送葬者，小清是小恶魔，小Z是占卜师。骑士得知了小努和小Z。"
+    ]
+  },
   "tips": {
     "en": [
       "You know the two players you learnt aren’t the Demon. If both of them survive to the final three, you know two players that aren’t the Demon and therefore know who the Demon is and can win the game with your information!",

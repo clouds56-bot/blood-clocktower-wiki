@@ -20,11 +20,19 @@
   "other_nights": true,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "已经过去了四个夜晚，侍臣都被唤醒但没有使用自己的能力。在第五个夜晚，侍臣使沙巴洛斯醉酒。从今晚起的三个夜晚，沙巴洛斯能够行动，但是无法杀死任何人。",
-    "侍臣在醉酒时使用了自己的能力。无事发生，但侍臣再也不会被唤醒了。",
-    "侍臣使主谋醉酒。珀被处决而主谋依然存活。游戏结束，善良阵营获胜。"
-  ],
+  "examples": {
+    "en": [
+      "In other editions, there can be multiple copies of the same character in play. The Courtier only makes one of them drunk.",
+      "For four nights, the Courtier wakes but does not use their ability. During the fifth night, they make the Shabaloth drunk. For the next three nights, the Shabaloth acts but cannot kill anybody.",
+      "The Courtier uses their ability while drunk. Nothing happens, but they are not woken again.",
+      "The Courtier makes the Mastermind drunk. The Po is executed while the Mastermind still lives. The game ends and good wins."
+    ],
+    "cn": [
+      "已经过去了四个夜晚，侍臣都被唤醒但没有使用自己的能力。在第五个夜晚，侍臣使沙巴洛斯醉酒。从今晚起的三个夜晚，沙巴洛斯能够行动，但是无法杀死任何人。",
+      "侍臣在醉酒时使用了自己的能力。无事发生，但侍臣再也不会被唤醒了。",
+      "侍臣使主谋醉酒。珀被处决而主谋依然存活。游戏结束，善良阵营获胜。"
+    ]
+  },
   "tips": {
     "en": [
       "The Courtier is unique in that you choose a character, not a player. This means you select an actual role, and if they exist in your game they will be drunk. This is different from the Poisoner, who chooses a player to be poisoned regardless of who they are. Thanks to this, you have some different strategies available to you!",

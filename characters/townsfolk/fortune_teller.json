@@ -20,12 +20,20 @@
   "other_nights": false,
   "artist": "John Grist",
   "jinxes": [],
-  "examples": [
-    "占卜师选择了镇长与送葬者，并得知了“否”。",
-    "占卜师选择了小恶魔与共情者，并得知了“是”。",
-    "占卜师选择了一名存活的小恶魔与一名死亡的小恶魔，并得知了“是”。",
-    "占卜师选择了自己与作为“干扰项”的圣徒。占卜师得知了“是”。"
-  ],
+  "examples": {
+    "en": [
+      "The Fortune Teller chooses the Monk and the Undertaker and learns a 'no'.",
+      "The Fortune Teller chooses the Imp and the Empath, and learns a 'yes'.",
+      "The Fortune Teller chooses an alive Butler and a dead Imp, and learns a 'yes'.",
+      "The Fortune Teller chooses themselves and a Saint. The Saint is the Red Herring. The Fortune Teller learns a 'yes'."
+    ],
+    "cn": [
+      "占卜师选择了镇长与送葬者，并得知了“否”。",
+      "占卜师选择了小恶魔与共情者，并得知了“是”。",
+      "占卜师选择了一名存活的小恶魔与一名死亡的小恶魔，并得知了“是”。",
+      "占卜师选择了自己与作为“干扰项”的圣徒。占卜师得知了“是”。"
+    ]
+  },
   "tips": {
     "en": [
       "Getting a 'no' is often more useful than getting a 'yes'. A 'no' means that neither of the two players is the Demon, which narrows down the number of players you have to inspect.",

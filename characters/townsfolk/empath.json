@@ -20,11 +20,16 @@
   "other_nights": true,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "共情者与两名善良玩家相邻——士兵与僧侣。共情者得知了“0”。",
-    "下一天，士兵被处决。在那一晚，僧侣被小恶魔杀死。共情者现在会探查与士兵和僧侣相邻的玩家——图书管理员与邪恶的枪手。共情者得知了“1”。",
-    "在最后一夜里，只有三名玩家存活：共情者，小恶魔与男爵。不论谁坐在何处，共情者均会得知“2”。"
-  ],
+  "examples": {
+    "en": [
+      "The Empath neighbours two good players—a Soldier and a Monk . The Empath learns a '0'. \n\n\t\t\t\tThe next day, the Soldier is executed. That night, the Monk is killed by the Imp. The Empath now detects the players sitting next to the Soldier and the Monk, which are a Librarian and an evil Gunslinger. The Empath now learns a '1'.\n\n\t\t\t\tThere are only three players left alive: the Empath, the Imp, and the Baron. No matter who is seated where, the Empath learns a '2'."
+    ],
+    "cn": [
+      "共情者与两名善良玩家相邻——士兵与僧侣。共情者得知了“0”。",
+      "下一天，士兵被处决。在那一晚，僧侣被小恶魔杀死。共情者现在会探查与士兵和僧侣相邻的玩家——图书管理员与邪恶的枪手。共情者得知了“1”。",
+      "在最后一夜里，只有三名玩家存活：共情者，小恶魔与男爵。不论谁坐在何处，共情者均会得知“2”。"
+    ]
+  },
   "tips": {
     "en": [
       "You get information based on the state of the game when you wake up (after the Demon has killed that night). This means that if one of your neighbours died in the night, you immediately start to learn about the next living player.",

@@ -20,11 +20,18 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "今天白天，仅有一名镇民玩家发起提名。当晚，城镇公告员得知了“否”。",
-    "今天白天，有四名玩家发起提名。其中两名玩家是爪牙。有很多玩家投票，但无人被处决，当晚，城镇公告员得知了“是”。",
-    "一名爪牙流放了一名旅行者。当晚，城镇公告员得知了“否”，因为发起流放不是提名。"
-  ],
+  "examples": {
+    "en": [
+      "If you forget whether a Minion made a nomination or not, wake each Minion at night and ask by showing them the DID YOU NOMINATE TODAY? info token. They must answer honestly, then go to sleep.",
+      "Today, four players nominated. Two of them were Minions. Many players voted, but there was no execution. That night, the Town Crier learns a “yes.”",
+      "A Minion called for the exile of a Traveller, who was exiled. That night, the Town Crier learns a “no.” (Exiles are never affected by character abilities.)"
+    ],
+    "cn": [
+      "今天白天，仅有一名镇民玩家发起提名。当晚，城镇公告员得知了“否”。",
+      "今天白天，有四名玩家发起提名。其中两名玩家是爪牙。有很多玩家投票，但无人被处决，当晚，城镇公告员得知了“是”。",
+      "一名爪牙流放了一名旅行者。当晚，城镇公告员得知了“否”，因为发起流放不是提名。"
+    ]
+  },
   "tips": {
     "en": [
       "Pay attention to who is doing the nominating! This seems obvious, but your information only matters if you know who nominated to correspond with the info you get each night. Evil players will definitely lie to you if you rely on the town to remember on your behalf, and there's a lot of info flying around in general, which can lead to good players simply forgetting after a few days.",

@@ -20,11 +20,18 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "猎手选择了小恶魔。小恶魔死亡，并且善良阵营获胜！",
-    "猎手选择了陌客。陌客死亡，因为陌客此时被当作了小恶魔，但游戏继续。",
-    "小恶魔谎称自己是猎手。他对红唇女郎宣布使用了猎手的能力。无事发生。"
-  ],
+  "examples": {
+    "en": [
+      "The Slayer chooses the Imp. The Imp dies, and good wins!",
+      "The Slayer chooses the Recluse. The Storyteller decides that the Recluse registers as the Imp, so the Recluse dies, but the game continues.",
+      "The Imp is bluffing as the Slayer. They declare that they use their Slayer ability on the Scarlet Woman. Nothing happens."
+    ],
+    "cn": [
+      "猎手选择了小恶魔。小恶魔死亡，并且善良阵营获胜！",
+      "猎手选择了陌客。陌客死亡，因为陌客此时被当作了小恶魔，但游戏继续。",
+      "小恶魔谎称自己是猎手。他对红唇女郎宣布使用了猎手的能力。无事发生。"
+    ]
+  },
   "tips": {
     "en": [
       "Using your ability late in the game is far more effective than using it early in the game. When fewer people are alive, there is a greater chance that you will select the Demon and win the game. Also, if fewer than five players are alive, then the Scarlet Woman cannot become the Demon after you kill it.",

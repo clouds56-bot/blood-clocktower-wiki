@@ -20,11 +20,18 @@
   "other_nights": false,
   "artist": "Anica Kelsen",
   "jinxes": [],
-  "examples": [
-    "每个夜晚，失忆者均被唤醒且在说书人的提示下指向了两名玩家。在第一个夜晚，说书人对他点头。在第二个夜晚，说书人对他摇头。失忆者猜测：“我的能力是能够得知我选择的这两名玩家均为爪牙？”说书人告诉他：“接近”，因为失忆者的能力是得知这两名玩家之中是否有爪牙。",
-    "每个夜晚，失忆者均得知了一个数字。实际上，失忆者得知的是与他邻近的存活镇民玩家的数量。",
-    "每个夜晚，失忆者均被展示了一个角色标记。实际上，失忆者得知的是不在场的角色。"
-  ],
+  "examples": {
+    "en": [
+      "Make the Amnesiac’s ability guessable, so that the Amnesiac can figure out what their ability is over time. Learning a piece of information each night, or a power that affects the game in a way that the Amnesiac notices, are both good ideas.\n\n\nIf the Amnesiac guesses their ability, but the wording is different, still tell them they guessed correctly.\n\n\nYou can make the Amnesiac’s ability slightly better than a normal Townsfolk’s ability. Not knowing what it is, the player will need to work harder to receive its full benefit.",
+      "Each night, the Amnesiac wakes and is prompted to point at two players. The Storyteller shakes their head on the first night, and nods on the second. The Amnesiac guesses “Am I learning if both players are Minions?” The Storyteller says “Hot” because their ability is that they detect if either of the two players are a Minion.",
+      "Each night, the Amnesiac learns a number. The Amnesiac is learning how many of their living neighbours are Townsfolk."
+    ],
+    "cn": [
+      "每个夜晚，失忆者均被唤醒且在说书人的提示下指向了两名玩家。在第一个夜晚，说书人对他点头。在第二个夜晚，说书人对他摇头。失忆者猜测：“我的能力是能够得知我选择的这两名玩家均为爪牙？”说书人告诉他：“接近”，因为失忆者的能力是得知这两名玩家之中是否有爪牙。",
+      "每个夜晚，失忆者均得知了一个数字。实际上，失忆者得知的是与他邻近的存活镇民玩家的数量。",
+      "每个夜晚，失忆者均被展示了一个角色标记。实际上，失忆者得知的是不在场的角色。"
+    ]
+  },
   "tips": {
     "en": [
       "Most, though not all, Amnesiac abilities are information abilities of some kind or another, and they are usually more powerful than your average Townsfolk ability (due to the risk that you might not guess it). This makes your ability especially useful, should you figure it out.",

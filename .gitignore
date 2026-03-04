@@ -1,29 +1,8 @@
-# Dependencies
-node_modules/
-package-lock.json
-
-# Build outputs
-dist/
-build/
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Logs
-*.log
-npm-debug.log*
-
-# Environment
-.env
-.env.local
-
-# Temporary
-*.tmp
 .cache/
+node_modules/
+data/scrape-results.json
+data/scrape-results-cn.json
+assets/tokens/
+dist/
+wiki/node_modules/
+wiki/dist/

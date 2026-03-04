@@ -20,10 +20,16 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "守鸦人被小恶魔杀死，然后被唤醒以选择一名玩家。经过一番深思熟虑后，他选择了小八。小八是共情者，而守鸦人得知了这一消息。",
-    "小恶魔杀死了镇长。镇长并没有死亡，而是由守鸦人通过镇长的能力代替镇长死亡。守鸦人被唤醒并选择了已死亡的陌客道哥。守鸦人得知道哥是红唇女郎，因为陌客此时被当作了红唇女郎。"
-  ],
+  "examples": {
+    "en": [
+      "The Ravenkeeper is killed by the Imp, and then wakes to choose a player. After some deliberation, they choose Benjamin. Benjamin is the Empath, and the Ravenkeeper learns this.",
+      "The Imp attacks the Mayor. The Mayor doesn't die, but the Ravenkeeper dies instead, due to the Mayor's ability. The Ravenkeeper is woken and chooses Douglas, who is a dead Recluse. The Ravenkeeper learns that Douglas is the Scarlet Woman, since the Recluse registered as a Minion."
+    ],
+    "cn": [
+      "守鸦人被小恶魔杀死，然后被唤醒以选择一名玩家。经过一番深思熟虑后，他选择了小八。小八是共情者，而守鸦人得知了这一消息。",
+      "小恶魔杀死了镇长。镇长并没有死亡，而是由守鸦人通过镇长的能力代替镇长死亡。守鸦人被唤醒并选择了已死亡的陌客道哥。守鸦人得知道哥是红唇女郎，因为陌客此时被当作了红唇女郎。"
+    ]
+  },
   "tips": {
     "en": [
       "If the Demon knows you are the Ravenkeeper, they are very unlikely to kill you. It is to your benefit to bluff as a character who is a constant threat to the evil team, such as the Empath, Fortune Teller, Slayer, or Undertaker. Even bluffing as a good character that tends to be trusted by the good team (such as Chef or Washerwoman) can make you look like a trusted good player in the eyes of the Demon, and attract their attention at night.",

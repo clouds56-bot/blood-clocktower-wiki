@@ -20,12 +20,21 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "理发师死了。恶魔本来想要交换钟表匠和杂耍艺人，但随后决定什么都不做。",
-    "理发师死了。恶魔交换了存活的神谕者和死亡的理发师。现在，有一名存活的理发师和一名死亡的神谕者。",
-    "理发师死了。涡流与一名存活的女巫交换角色。",
-    "理发师死了。亡骨魔与死去的心上人交换角色。曾经的亡骨魔现在是邪恶的心上人，游戏本该因此结束，但是由于在先前的夜晚里麻脸巫婆创造了一名善良恶魔，游戏继续。"
-  ],
+  "examples": {
+    "en": [
+      "If a good player becomes a Minion or Demon, or an evil player becomes a Townsfolk or Outsider, you may wish to remind them that their alignment has not changed.",
+      "The Barber dies. The Demon considers swapping the Clockmaker and the Juggler, but then does nothing.",
+      "The Barber dies. The Demon swaps the alive Snake Charmer with the dead Barber. Now, there is an alive Barber and a dead Snake Charmer.",
+      "The Barber dies. The Vortox swaps themself with an alive Witch.",
+      "The Barber dies. The Vigormortis swaps themself with a dead Sweetheart. The old Vigormortis is now the evil Sweetheart. Because the Pit-Hag created a good Demon during the previous night, the game continues."
+    ],
+    "cn": [
+      "理发师死了。恶魔本来想要交换钟表匠和杂耍艺人，但随后决定什么都不做。",
+      "理发师死了。恶魔交换了存活的神谕者和死亡的理发师。现在，有一名存活的理发师和一名死亡的神谕者。",
+      "理发师死了。涡流与一名存活的女巫交换角色。",
+      "理发师死了。亡骨魔与死去的心上人交换角色。曾经的亡骨魔现在是邪恶的心上人，游戏本该因此结束，但是由于在先前的夜晚里麻脸巫婆创造了一名善良恶魔，游戏继续。"
+    ]
+  },
   "tips": {
     "en": [
       "Don't die! Your death will immediately give the evil team a massive advantage - they have a wealth of options available to them with your swapping ability, and will definitely utilize them to undermine the good team as much as possible.",

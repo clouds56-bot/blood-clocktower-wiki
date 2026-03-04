@@ -6,12 +6,10 @@
     "cn": "心上人"
   },
   "ability": {
-    "en": "When you die, 1 player is drunk from now on.",
-    "cn": "当你死亡时，会有一名玩家开始醉酒。"
+    "en": "When you die, 1 player is drunk from now on."
   },
   "flavor_text": {
-    "en": "\"I will never forget her. Never.\"",
-    "cn": "“我永远也忘不掉她……永远……”"
+    "en": "\"I will never forget her. Never.\""
   },
   "editions": [
     "sects_violets"
@@ -20,11 +18,14 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "心上人死了。数学家现在醉酒了，并可能在夜晚获得错误信息。",
-    "心上人死了。畸形秀演员现在醉酒了。畸形秀演员现在可以安全地透露自己的角色，然而他不知道这一点。",
-    "心上人死了。恶魔现在醉酒了，所以他的攻击无法杀死任何人。"
-  ],
+  "examples": {
+    "en": [
+      "You will almost always want to make a Townsfolk drunk, which will hurt the good team, but if evil is winning quite convincingly, you can make an Outsider, Minion, or even the Demon drunk.",
+      "The Sweetheart dies. The Mathematician is now drunk, and may get false information at night.",
+      "The Sweetheart dies. The Mutant is now drunk. The Mutant may safely come out as the Mutant, but they do not know this.",
+      "The Sweetheart dies. The Demon is now drunk, so their attack at night won’t kill anyone."
+    ]
+  },
   "tips": {
     "en": [
       "Don't die! Your death will immediately cause a fellow villager to become drunk, rendering their ability and any information they gain from that point on will be unreliable. While it is possible for an evil player to become drunk via this method, you are an Outsider and your ability hinders the Good Team - you should always assume that a fellow good player has been afflicted.",
@@ -33,19 +34,10 @@
       "Try and figure out who has become drunk after you die. Even in death, you can be useful - figuring out who has unreliable information as a result of you also means that you can determine who does not have unreliable information.",
       "Beware the Witch and the Cerenovus! The Demon isn't the only way that you can die - a haphazard nomination or careless madness can see you die just as easily as if the Demon kills you. If you know either of these Minions are in play, avoid attracting their ire, or else tread carefully.",
       "Die late in the game if you must. Depending on the state of the game (e.g. Who is alive), the drunkenness you inflict on the game may have minimal or no impact. For example if the only character claims alive are a poisoned Snake Charmer, Juggler, and Klutz and yourself, then your death is safer than earlier in the game, where you might have messed up the ability of an Oracle or Town Crier."
-    ],
-    "cn": [
-      "尽量保证自己不要死亡。你死后会立即导致一个玩家醉酒，使得他们的能力和获得的信息变得不可靠。虽然也有可能有邪恶玩家因此醉酒，但是你是外来者，而你的能力通常是影响善良阵营玩家——所以你总是应该假设你会影响那些善良阵营的同伴们。",
-      "你可以伪装成一个恶魔不想攻击的目标。为了增加你的生存概率，你可以声明你是那些恶魔不想去触碰的角色——可以是那些恶魔会尽量避开的贤者，或者说是像艺术家和杂耍艺人这样的已经使用了能力的角色。恶魔如果认为你的优先级较低，就会去选择其他目标，这样也会使你避免死亡（需要注意的是，你可以秘密的向一两个人透露你的真实角色，这样他们就不会被你的任何可能不是真信息的\"信息\"所干扰）。",
-      "如果你死了，请立即公开你的角色。因为你的能力是在你死后生效，知道你是心上人对于善良阵营的玩家来说非常重要。如果你即将被处决，这样做也同样值得——即使你公开之后，恶魔就可能会考虑杀害你，或者从那些有威胁的角色进行击杀，例如哲学家这样的更危险的角色。",
-      "尝试去找出谁在你死后醉酒了。即使死了，你也是有用的——如果能找到那名信息由于你变得不可靠的玩家，那么也意味着你们可以知道谁的信息没有因为你而受到影响。",
-      "小心女巫和洗脑师！恶魔不是唯一可以击杀你的人——一次偶然的提名或者表现的不好很有可能你会在恶魔杀死你之前死去。如果你知道这两个爪牙中的任何一个在场，避免引起他们的注意，总之要小心行事。",
-      "如果必要的话，尽可能活的更久一些。根据游戏的状况（例如还有谁活着），你所造成的醉酒可能会影响很小或者没有影响。例如，如果现在还活着的人是中毒的舞蛇人、杂耍艺人、呆瓜和你，那么现在你的死亡比起游戏早期死后可能干扰神谕者、城镇公告员这样的能力的角色更安全。"
     ]
   },
   "how_to_run": {
-    "en": "If the Sweetheart dies, you choose any one player to become drunk - mark this player with the DRUNK reminder. The Sweetheart does not lose this ability when dead.",
-    "cn": "如果心上人死亡，你选择任一玩家醉酒，为他放置“醉酒”提示标记。心上人在死亡时不会失去该能力。\n你在选择醉酒玩家时通常都应该选择镇民，这样可以给善良阵营制造些麻烦。但如果邪恶阵营优势巨大，你也可以让外来者，爪牙甚至恶魔醉酒。"
+    "en": "If the Sweetheart dies, you choose any one player to become drunk - mark this player with the DRUNK reminder. The Sweetheart does not lose this ability when dead."
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Sweetheart"
 }

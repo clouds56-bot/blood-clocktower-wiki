@@ -20,11 +20,18 @@
   "other_nights": false,
   "artist": "John Grist",
   "jinxes": [],
-  "examples": [
-    "在首个夜晚，祖母被唤醒并得知自己的孙子小佳是教授。三个夜晚后，小佳被恶魔杀死，因此祖母也一同死亡。",
-    "祖母得知自己的孙子小莱是赌徒。小莱进行赌博且因此而死亡。祖母依然存活。",
-    "祖母得知自己的孙子小美是修补匠。小美被恶魔杀死，但祖母因为水手的能力而处于醉酒状态，因此祖母依然存活。"
-  ],
+  "examples": {
+    "en": [
+      "During the first night, the Grandmother wakes and learns that Julian, their Grandchild, is the Professor. Three nights later, Julian is killed by the Demon, so the Grandmother dies too.",
+      "The Grandmother knows that Lewis, their Grandchild, is the Gambler. Lewis gambles and dies because of it. The Grandmother remains alive.",
+      "The Grandmother knows that Sarah, their Grandchild, is the Tinker. Sarah is killed by the Demon, but the Grandmother is drunk because of the Sailor, so the Grandmother remains alive."
+    ],
+    "cn": [
+      "在首个夜晚，祖母被唤醒并得知自己的孙子小佳是教授。三个夜晚后，小佳被恶魔杀死，因此祖母也一同死亡。",
+      "祖母得知自己的孙子小莱是赌徒。小莱进行赌博且因此而死亡。祖母依然存活。",
+      "祖母得知自己的孙子小美是修补匠。小美被恶魔杀死，但祖母因为水手的能力而处于醉酒状态，因此祖母依然存活。"
+    ]
+  },
   "tips": {
     "en": [
       "Protect your beloved grandchild! They are almost certainly good, and that is a certainty that is rare and precious in Bad Moon Rising. Also, if they're killed by the Demon, you will die too - extra motivation!",

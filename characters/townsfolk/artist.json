@@ -20,12 +20,21 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "艺术家问：“恶魔坐在棕色椅子上吗？”说书人回答：“不是”，因为此时恶魔坐在黑色椅子上。",
-    "艺术家问：“大壮是镜像双子吗？”说书人回答，“是的”，因为此时大壮是镜像双子。",
-    "艺术家问：“有多少爪牙活着？”说书人回答：“我无法用’是，不是，或者我不知道’来回答。请再问一个问题。”",
-    "艺术家问：“我们快要赢了吗？”说书人回答：“我不知道。”因为此时即使所有爪牙都死了，还是有很多善良的玩家相信恶魔是好人。"
-  ],
+  "examples": {
+    "en": [
+      "Like the Savant, evil players bluffing as the Artist may request a private chat with you and pretend to ask a question. To help them bluff, you can pretend to give an answer by nodding or shaking your head.",
+      "The Artist asks, \"Is the Demon sitting in a brown chair?\" The Storyteller answers, \"No,” because the Demon is in a black chair.",
+      "The Artist asks, \"Is David the Evil Twin?” and the Storyteller answers, \"Yes,” because David is.",
+      "The Artist asks, \"How many Minions are alive?” and the Storyteller says, \"Please ask another question. I cannot answer that with a yes, no, or I don't know.\"",
+      "The Artist asks, \"Are we winning?” and the Storyteller answers, \"I don't know,” because even though all the Minions are dead, many good players trust the Demon."
+    ],
+    "cn": [
+      "艺术家问：“恶魔坐在棕色椅子上吗？”说书人回答：“不是”，因为此时恶魔坐在黑色椅子上。",
+      "艺术家问：“大壮是镜像双子吗？”说书人回答，“是的”，因为此时大壮是镜像双子。",
+      "艺术家问：“有多少爪牙活着？”说书人回答：“我无法用’是，不是，或者我不知道’来回答。请再问一个问题。”",
+      "艺术家问：“我们快要赢了吗？”说书人回答：“我不知道。”因为此时即使所有爪牙都死了，还是有很多善良的玩家相信恶魔是好人。"
+    ]
+  },
   "tips": {
     "en": [
       "Ask your question as soon as you can on the first day! Between the demon and the Pit-Hag, you risk losing your question every day that you do not use it. Using it right away negates this risk. There are a lot of questions you can ask knowing nothing else about the game that will give you a great head-start on detecting where evil is hidden in the town.",

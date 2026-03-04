@@ -20,12 +20,20 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "博学者得知“所有戴眼镜的玩家都是善良的”以及“坐在黑色沙发上的玩家之一是爪牙”。",
-    "博学者得知“舞蛇人存在于游戏中”和“昨晚每个玩家都得到了真实的信息”。",
-    "博学者得知“恶魔是女性玩家”和“小八属于邪恶阵营”。",
-    "博学者得知“小文和小米属于同一个阵营”和“只有一名外来者在场”。"
-  ],
+  "examples": {
+    "en": [
+      "If the Sage dies early, you will probably want to show the Sage two alive players, which lets the evil team still have a slim chance of winning. If the Sage dies on the final night, feel free to show one alive and one dead player.",
+      "During the second night, the Demon kills the Sage. The Storyteller points at two players, one of whom is the Demon.",
+      "During the final night, the Demon kills the Sage, who is drunk because of the Sweetheart. The Storyteller points at a dead player and one of the remaining three alive players. This information is incorrect.",
+      "The Pit-Hag creates a Demon. Because the Pit-Hag ability says that \"all deaths tonight are arbitrary,” the Storyteller decides that the old Demon dies, and the Sage dies. Because the Sage died due to the Pit-Hag, not the Demon, the Sage does not wake to learn anything tonight"
+    ],
+    "cn": [
+      "博学者得知“所有戴眼镜的玩家都是善良的”以及“坐在黑色沙发上的玩家之一是爪牙”。",
+      "博学者得知“舞蛇人存在于游戏中”和“昨晚每个玩家都得到了真实的信息”。",
+      "博学者得知“恶魔是女性玩家”和“小八属于邪恶阵营”。",
+      "博学者得知“小文和小米属于同一个阵营”和“只有一名外来者在场”。"
+    ]
+  },
   "tips": {
     "en": [
       "Get killed by the Demon. Do it. By any means, and as quickly as possible. If the Demon kills you, you get fantastic information, so do whatever you can to make it happen. Pretend to be a character the Demon would want to kill, such as a Flowergirl or a Savant, or stay silent. Unlike the Ravenkeeper, who benefits more so when the Demon attacks them later in the game, you benefit most when the Demon attacks you earlier in the game. If the Demon attacks you on the first or second night (or in the first half of the game), then you will have enough days left to execute both suspects you learn might be the Demon.",

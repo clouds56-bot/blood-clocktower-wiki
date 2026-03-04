@@ -20,11 +20,18 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "小文是厨师，小米是守鸦人。洗衣妇得知要么小文是厨师，要么小米是厨师。",
-    "小佳是小恶魔，小艾是贞洁者。洗衣妇得知要么小佳是贞洁者，要么小艾是贞洁者。",
-    "小明是间谍，小美是红唇女郎。洗衣妇得知他俩其中一人是守鸦人。此时，间谍被当作了一名镇民——在这个例子里，被当作了守鸦人。"
-  ],
+  "examples": {
+    "en": [
+      "Evin is the Chef, and Amy is the Ravenkeeper. The Washerwoman learns that either Evin or Amy is the Chef.",
+      "Julian is the Imp, and Alex is the Virgin. The Washerwoman learns that either Julian or Alex is the Virgin.",
+      "Marianna is the Spy, and Sarah is the Scarlet Woman. The Washerwoman learns that one of them is the Ravenkeeper. Here, the Spy is registering as a Townsfolk—in this case, the Ravenkeeper."
+    ],
+    "cn": [
+      "小文是厨师，小米是守鸦人。洗衣妇得知要么小文是厨师，要么小米是厨师。",
+      "小佳是小恶魔，小艾是贞洁者。洗衣妇得知要么小佳是贞洁者，要么小艾是贞洁者。",
+      "小明是间谍，小美是红唇女郎。洗衣妇得知他俩其中一人是守鸦人。此时，间谍被当作了一名镇民——在这个例子里，被当作了守鸦人。"
+    ]
+  },
   "tips": {
     "en": [
       "The Washerwoman is deceptively powerful. Even though you don't gain information on the evil players, you can confirm the identity of a good player. This player should be your focus for the game, because if they have great information, then you have that information too. If they have a useful ability that they choose to use, you can help them use it wisely.",

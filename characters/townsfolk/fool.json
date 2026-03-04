@@ -20,11 +20,18 @@
   "other_nights": false,
   "artist": "Anica Kelsen",
   "jinxes": [],
-  "examples": [
-    "在首个白天，弄臣被处决但依然存活。在第四个白天，弄臣再次被处决。这一次，他死亡。",
-    "恶魔攻击了弄臣，但他依然存活。当晚无人死亡。在下一个白天，弄臣被法官处决并且死亡。",
-    "恶魔攻击了弄臣，但他被茶艺师保护。弄臣依然存活，且保留着自己的能力。之后，在茶艺师死亡后，恶魔攻击了弄臣，但他被旅店老板保护。弄臣依然存活，且保留着自己的能力。之后，在旅店老板死亡后，恶魔攻击了弄臣，他依旧存活但使用了自己的能力，所以弄臣下一次再被攻击时，就会死亡。"
-  ],
+  "examples": {
+    "en": [
+      "On the first day, the Fool is executed but remains alive. On the fourth day, the Fool is executed again. This time, they die.",
+      "The Demon attacks the Fool, who remains alive. Nobody dies that night. The next day, the Fool is executed by the Judge, and dies.",
+      "The Demon attacks the Fool, who is protected by the Tea Lady. The Fool remains alive and keeps their ability. Later, after the Tea Lady has died, the Demon attacks the Fool, who is now protected by the Innkeeper. The Fool remains alive and keeps their ability. Later, after the Innkeeper has died, the Demon attacks the Fool, who remains alive again but uses their ability, so next time they will die."
+    ],
+    "cn": [
+      "在首个白天，弄臣被处决但依然存活。在第四个白天，弄臣再次被处决。这一次，他死亡。",
+      "恶魔攻击了弄臣，但他依然存活。当晚无人死亡。在下一个白天，弄臣被法官处决并且死亡。",
+      "恶魔攻击了弄臣，但他被茶艺师保护。弄臣依然存活，且保留着自己的能力。之后，在茶艺师死亡后，恶魔攻击了弄臣，但他被旅店老板保护。弄臣依然存活，且保留着自己的能力。之后，在旅店老板死亡后，恶魔攻击了弄臣，他依旧存活但使用了自己的能力，所以弄臣下一次再被攻击时，就会死亡。"
+    ]
+  },
   "tips": {
     "en": [
       "The Fool is one of a few characters that can breathe a little easy in Bad Moon Rising, as their ability spares them (at least once) from the pile up of deaths. This doesn't mean that you should rest on your laurels, however - a proactive Fool can drive the evil team mad with bluffs, protecting their good teammates, and wasting a precious demon kill with their power. Who will get the last laugh? That's up to you!",

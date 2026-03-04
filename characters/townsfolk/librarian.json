@@ -20,11 +20,18 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "小八是圣徒，小莱是男爵。图书管理员得知要么小八是圣徒，要么小莱是圣徒。",
-    "说书人决定将陌客当作一名爪牙而不是外来者。现在场上没有其他外来者了。图书管理员得知了“0”。",
-    "小黑是酒鬼，且以为自己是僧侣。道哥是送葬者。图书管理员得知要么小黑是酒鬼，要么道哥是酒鬼。酒鬼是小黑的实际角色，即使他以为自己是僧侣。"
-  ],
+  "examples": {
+    "en": [
+      "Benjamin is the Saint, and Filip is the Baron. The Librarian learns that either Benjamin or Filip is the Saint.",
+      "There are no Outsiders in this game. The Librarian learns a '0'.",
+      "Abdallah is the Drunk, who thinks they are the Monk, and Douglas is the Undertaker. The Librarian learns that either Abdallah or Douglas is the Drunk. (This happens because the Librarian learns the true character. The Drunk is Abdallah’s true character, not the Monk.)"
+    ],
+    "cn": [
+      "小八是圣徒，小莱是男爵。图书管理员得知要么小八是圣徒，要么小莱是圣徒。",
+      "说书人决定将陌客当作一名爪牙而不是外来者。现在场上没有其他外来者了。图书管理员得知了“0”。",
+      "小黑是酒鬼，且以为自己是僧侣。道哥是送葬者。图书管理员得知要么小黑是酒鬼，要么道哥是酒鬼。酒鬼是小黑的实际角色，即使他以为自己是僧侣。"
+    ]
+  },
   "tips": {
     "en": [
       "It is vital to figure out early which of the two players is the one you have information about. The player that you know is good even if they are an Outsider - while their ability may be detrimental to the good team, they are a guaranteed good vote and also one player who you know for sure is definitely not the Demon.",

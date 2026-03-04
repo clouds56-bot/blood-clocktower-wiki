@@ -1,0 +1,10 @@
+
+{
+  "characters": {
+    "_note": "This file was moved from config/characters.json — populate by copying the original contents here or run the migration script.",
+    "townsfolk": {},
+    "outsiders": {},
+    "minions": {},
+    "demons": {}
+  }
+}

@@ -20,11 +20,18 @@
   "other_nights": false,
   "artist": "John Grist",
   "jinxes": [],
-  "examples": [
-    "半兽人攻击了将军，将军死亡。当晚的稍晚时分，小恶魔攻击了失忆者，失忆者没有死亡，因为今晚小恶魔无法造成死亡。",
-    "半兽人攻击了农夫，农夫死亡，一名善良玩家变成了农夫。上个夜晚因普卡而中毒的魔术师今晚不会死亡，因为今晚普卡无法造成死亡。",
-    "狂热者由于半兽人的能力被当作邪恶阵营。半兽人攻击了教父，教父没有死亡，因为教父是邪恶的。下一个夜晚，半兽人攻击了狂热者，狂热者没有死亡，因为半兽人把狂热者当作了邪恶玩家。当晚，亡骨魔攻击了半兽人，半兽人死亡。"
-  ],
+  "examples": {
+    "en": [
+      "The Lycanthrope attacks the General. The General dies. Later that night, the Imp attacks the Amnesiac. The Amnesiac does not die, because the Imp cannot kill tonight.",
+      "The Lycanthrope attacks the Farmer. The Farmer dies, and another good player becomes a Farmer. The Magician was poisoned by the Pukka last night but does not die tonight, because the Pukka cannot kill tonight.",
+      "The Lycanthrope attacks the Godfather. The Godfather does not die, because the Godfather is evil. The Lycanthrope attacks the Zealot, who is registering as evil due to the Lycanthrope’s ability. The Zealot does not die. The Demon attacks the Lycanthrope and the Lycanthrope dies."
+    ],
+    "cn": [
+      "半兽人攻击了将军，将军死亡。当晚的稍晚时分，小恶魔攻击了失忆者，失忆者没有死亡，因为今晚小恶魔无法造成死亡。",
+      "半兽人攻击了农夫，农夫死亡，一名善良玩家变成了农夫。上个夜晚因普卡而中毒的魔术师今晚不会死亡，因为今晚普卡无法造成死亡。",
+      "狂热者由于半兽人的能力被当作邪恶阵营。半兽人攻击了教父，教父没有死亡，因为教父是邪恶的。下一个夜晚，半兽人攻击了狂热者，狂热者没有死亡，因为半兽人把狂热者当作了邪恶玩家。当晚，亡骨魔攻击了半兽人，半兽人死亡。"
+    ]
+  },
   "tips": {
     "en": [
       "Try to identify good players whose death will not cause a catastrophic loss of utility to the good team. By killing them and identifying them as good, you can begin to build a circle of trust among your allies.",

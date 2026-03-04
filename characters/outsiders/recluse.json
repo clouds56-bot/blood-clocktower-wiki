@@ -6,12 +6,10 @@
     "cn": "陌客"
   },
   "ability": {
-    "en": "You might register as evil & as a Minion or Demon, even if dead.",
-    "cn": "你可能会被当作邪恶阵营、爪牙角色或恶魔角色，即使你已死亡。"
+    "en": "You might register as evil & as a Minion or Demon, even if dead."
   },
   "flavor_text": {
-    "en": "\"Garn git ya darn grub ya mitts ofma lorn yasee. Grr. Natsy pikkins yonder southwise ye begittin afta ya! Git! Me harvy no so widda licks and demmons no be fightin' hadsup ne'er ma kin. Git, assay!\"",
-    "cn": "“侬康康窝咦锅惹，咋锅就怼窝恁锅粗暴。介样叭行。麻绳添酒嘿料，泥滴燕绳恨舔没，窝这哈圆酿泥料！侬晓得伐！窝叭象载康岛泥鸟，辣过饿魔阔能揍载窝家边乱晃。呔！窝揍斯弄个以斯！”"
+    "en": "\"Garn git ya darn grub ya mitts ofma lorn yasee. Grr. Natsy pikkins yonder southwise ye begittin afta ya! Git! Me harvy no so widda licks and demmons no be fightin' hadsup ne'er ma kin. Git, assay!\""
   },
   "editions": [
     "trouble_brewing"
@@ -20,13 +18,15 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "猎手对陌客使用了自己的能力。说书人决定让陌客被当作小恶魔，因此陌客死亡。猎手认为他刚刚杀死了小恶魔。",
-    "坐在陌客与僧侣之间的共情者得知自己与一名邪恶玩家邻近。下一个夜晚，共情者得知与其邻近的玩家中没有邪恶玩家。",
-    "调查员得知，要么陌客是红唇女郎，要么圣徒是红唇女郎。",
-    "陌客被处决了。送葬者得知小恶魔被处决。",
-    "陌客坐在小恶魔与一名邪恶的旅行者之间。因为对厨师展示“2”这样的信息会过于暴露邪恶玩家，说书人改为给出厨师正确的信息——“0”。"
-  ],
+  "examples": {
+    "en": [
+      "The Slayer uses their ability on the Recluse. The Storyteller decides that the Recluse registers as the Imp, so the Recluse dies. The Slayer believes that they just killed the Imp.",
+      "The Empath, who neighbours the Recluse and the Monk, learns she is neighbouring one evil player. The next night, the Empath learns they are neighbouring no evil players.",
+      "The Investigator learns that either the Recluse or the Saint is the Scarlet Woman.",
+      "The Recluse is executed. The Undertaker learns that the Imp was executed.",
+      "The Recluse neighbours the Imp and an Evil Traveller. Because showing a \"2\" to the Chef might be too revealing, the Chef learns true information, a \"0,” instead."
+    ]
+  },
   "tips": {
     "en": [
       "Tell everyone that you are the Recluse as soon as possible! This way, much of the good players' misinformation can be accounted for, such as that from the Chef, Empath or Investigator. Characters that get further information, like the Fortune Teller and Ravenkeeper will know not to choose you. However, if the group knows that you are the Recluse, they may want to execute you anyway.",
@@ -36,19 +36,10 @@
       "Don't get Slayed! The Slayer will usually kill you if they select you, and this will make it look like you are the Demon and a Scarlet Woman is in play. This is not helpful to your team, and should be avoided at all costs. Similarly, avoid getting executed, since an Undertaker will usually learn that you are a Minion or Demon, confusing the good team even further.",
       "Registering as evil can sometimes be quite helpful. Players who say that you are evil can often be trusted, and information like the Chef or Empath can be downright useful in helping you detect other evil players... if you can convince the group that you are not actually evil.",
       "If the players are incredibly suspicious of you, and very much want to execute you, it is best to accept your fate before the final day happens. You can even vote for yourself to make sure you are executed. If the group thinks you are evil, then dying before the final day at least confirms that you are not the Demon, and will turn the good team's attention to other players. Dying on the second last day is safe. Dying on the last day means game over for you."
-    ],
-    "cn": [
-      "尽可能早地告诉所有人你是陌客。这样可以解释大多数玩家获得的错误信息，例如厨师、共情者或者调查员。类似占卜师和守鸦人这样能继续获得信息的玩家就知道不用选择你作为验证对象了。然而，即便大家知道你是陌客，他们也有可能想去处决你。",
-      "你也可以直到最后一天都对自己的角色闭口不谈。如果你能找出哪些其他玩家是外来者，或者你之前曾被误认为了哪些角色（但愿没有很多），这时你可能可以说服大家自己实际上是外来者。因为善良阵营玩家经常会想要去杀死陌客，但从整体上来看这并不会给团队带来增益，因此保持存活从某种意义上说也是在帮助队伍获胜。",
-      "你通常会被当作邪恶玩家——留意那些说你是善良角色的人。如果你挨着共情者坐但是他说他两侧都是善良玩家，或是占卜师说你不是恶魔，他们都有可能是在说谎，因为他们是邪恶阵营的。",
-      "别被猎杀了！如果猎手选择你，他通常是能够杀死你的，这样会让你看起来像个恶魔且红唇女郎在场。这对团队没有帮助，因此需要极力避免。同样也要避免被处决，因为送葬者通常会把你认作爪牙或恶魔，这会让善良阵营更加迷惑。",
-      "被当作邪恶阵营有时候也会有些帮助。说你是邪恶阵营玩家的那个人通常会被大家所信任，厨师或是共情者的信息将有助于你找到其他邪恶玩家...如果你能说服大家相信你实际上并非邪恶阵营的话。",
-      "如果其他玩家极其怀疑你，并且非常想处决你，在最后一天来临之前你最好坦然接受你的命运。你甚至可以给自己投出一票来确保自己被处决。如果大家认为你是邪恶的，死在最后一天之前至少能够确认你不是恶魔，并让善良阵营的注意力转移到其他玩家身上。死在倒数第二天也是安全的，但死在最后一天也就意味着你输了。"
     ]
   },
   "how_to_run": {
-    "en": "Each time the Recluse is targeted by an ability that detects or affects evil characters, choose which character and alignment the Recluse registers as. (Do whatever is appropriate, such as showing an evil character token, nodding, giving finger signals, or allowing an ability to work that would normally only affect evil, Minion, or Demon players.)",
-    "cn": "每当因游戏规则或角色能力的效果要探查或影响玩家的阵营或角色，且陌客因此被选中为目标时，由你决定陌客被当作哪种角色和哪种阵营。（做出任何合适的举动，例如展示一个邪恶角色标记，点头，给出手势，或允许一项通常只针对邪恶阵营，爪牙或恶魔角色的能力对陌客生效。）"
+    "en": "Each time the Recluse is targeted by an ability that detects or affects evil characters, choose which character and alignment the Recluse registers as. (Do whatever is appropriate, such as showing an evil character token, nodding, giving finger signals, or allowing an ability to work that would normally only affect evil, Minion, or Demon players.)"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Recluse"
 }

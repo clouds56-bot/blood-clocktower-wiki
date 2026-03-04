@@ -20,11 +20,20 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "第二个夜晚，恶魔杀死了贤者。说书人为贤者指出了两名玩家，其中一名是恶魔。",
-    "在最后一夜，恶魔杀死了醉酒的贤者。说书人为贤者指出了一名死亡玩家和剩下的一名存活善良玩家，没有给他正确信息。",
-    "麻脸巫婆创造了一名恶魔。因为麻脸巫婆的能力，当晚由说书人来选择杀死谁。说书人决定旧恶魔死亡，贤者也死亡，且当晚这些恶魔选择攻击的目标中没有贤者。因为贤者死于麻脸巫婆，而非恶魔，所以贤者不会醒来也不会得知任何信息。"
-  ],
+  "examples": {
+    "en": [
+      "Keep the information you give helpful and related to the game. Avoid saying who exactly the Demon is, or it could be a very short game. If you need help on choosing what to say, give information similar to what Townsfolk abilities would provide.",
+      "The Savant learns that \"All players wearing glasses are good\" and that \"One player sitting on the black couch is a Minion.\"",
+      "The Savant learns that \"A Snake Charmer is in play\" and \"Everybody got true information last night.\"",
+      "The Savant learns that \"The Demon is a woman\" and \"Benjamin is evil.\"",
+      "The Savant learns that \"Evin and Amy are the same alignment\" and \"There is one Outsider in play.\""
+    ],
+    "cn": [
+      "第二个夜晚，恶魔杀死了贤者。说书人为贤者指出了两名玩家，其中一名是恶魔。",
+      "在最后一夜，恶魔杀死了醉酒的贤者。说书人为贤者指出了一名死亡玩家和剩下的一名存活善良玩家，没有给他正确信息。",
+      "麻脸巫婆创造了一名恶魔。因为麻脸巫婆的能力，当晚由说书人来选择杀死谁。说书人决定旧恶魔死亡，贤者也死亡，且当晚这些恶魔选择攻击的目标中没有贤者。因为贤者死于麻脸巫婆，而非恶魔，所以贤者不会醒来也不会得知任何信息。"
+    ]
+  },
   "tips": {
     "en": [
       "Each day, you will receive one true piece of information, and one false piece of information. The easiest way to utilize this is to pick which piece of information you believe to be true, and run with it. For example, if the Storyteller tells you that either a) a Mutant is in-play, or b) both your neighbours are good, and there is no evidence that a Mutant is in-play, then just assume that both your neighbours are good. You might be wrong, but you've made a \"best guess\", which is something.",

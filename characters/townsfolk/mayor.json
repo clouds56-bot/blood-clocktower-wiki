@@ -20,10 +20,18 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "小恶魔攻击了镇长。说书人选择由守鸦人代替镇长死亡。下一个白天，只有三名玩家存活。当天没有任何人为处决而发起提名。善良阵营获胜。",
-    "包含两名旅行者在内的五名玩家存活。两名旅行者都被流放了，并且剩余玩家的处决投票数量打平。因为投票数量打平意味着这些玩家都不会被处决，善良阵营获胜。"
-  ],
+  "examples": {
+    "en": [
+      "We recommend you keep the Mayor alive until the final day, since it is most fun for the players that way. On rare occasions, if the group is overwhelmingly convinced early in the game that the Mayor is the Mayor, let the Mayor die so that evil has a chance to win. \n\n\nIn TROUBLE BREWING, the Mayor’s phrase “your team wins” will always mean “good wins” because the Mayor is always good. In other editions, an evil Mayor means “evil wins” instead.",
+      "The Imp attacks the Mayor. The Storyteller chooses that the Ravenkeeper dies instead.",
+      "There are three players alive. There are no nominations for execution today. Good wins.",
+      "There are five players alive, including two Travellers. Both Travellers are exiled, and the vote is tied between the remaining players. Because a tied vote means neither player is executed, good wins."
+    ],
+    "cn": [
+      "小恶魔攻击了镇长。说书人选择由守鸦人代替镇长死亡。下一个白天，只有三名玩家存活。当天没有任何人为处决而发起提名。善良阵营获胜。",
+      "包含两名旅行者在内的五名玩家存活。两名旅行者都被流放了，并且剩余玩家的处决投票数量打平。因为投票数量打平意味着这些玩家都不会被处决，善良阵营获胜。"
+    ]
+  },
   "tips": {
     "en": [
       "Your power activates on the final day, when just three players are alive. You may not know who the Demon is, but you can definitely win by not executing. Do whatever you can to convince the group that you are the Mayor. Everything. If the good team believes you, they will either not nominate anybody, or will deliberately tie votes so that no execution occurs.",

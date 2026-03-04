@@ -20,10 +20,16 @@
   "other_nights": false,
   "artist": "Anica Kelsen",
   "jinxes": [],
-  "examples": [
-    "道哥、小莱和小米都是村夫，道哥醉酒。在夜晚时，他们都选择了卡扎力小艾。道哥得知小艾是善良玩家。小莱和小米得知小艾是邪恶玩家。",
-    "小八和小明是村夫，小明醉酒。小美是邪恶玩家，并且伪装成村夫。小八选择了小美并得知她是邪恶玩家。小明选择了异端分子并得知他是善良玩家。小美声称自己选择了小八并得知他是邪恶玩家。"
-  ],
+  "examples": {
+    "en": [
+      "Julian is the Farmer. The Demon kills him at night. Evin is the Fearmonger, and Sarah is the Alchemist. Sarah becomes the Farmer that night. Evin could not become the Farmer, because he is evil.",
+      "On the 2nd night, the Farmer dies. The Choirboy becomes the Farmer. On the 3rd night, the new Farmer dies, and the Heretic becomes a Farmer. There is now no Heretic and no Choirboy in play, and three Farmers in play, two of which are dead."
+    ],
+    "cn": [
+      "道哥、小莱和小米都是村夫，道哥醉酒。在夜晚时，他们都选择了卡扎力小艾。道哥得知小艾是善良玩家。小莱和小米得知小艾是邪恶玩家。",
+      "小八和小明是村夫，小明醉酒。小美是邪恶玩家，并且伪装成村夫。小八选择了小美并得知她是邪恶玩家。小明选择了异端分子并得知他是善良玩家。小美声称自己选择了小八并得知他是邪恶玩家。"
+    ]
+  },
   "tips": {
     "en": [
       "If you die at night, play it cool and wait for somebody to approach you as the new Farmer that has been created.",

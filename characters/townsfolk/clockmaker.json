@@ -20,11 +20,18 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "方古坐在麻脸巫婆旁边。钟表匠得知了“1”。",
-    "诺-达鲺顺时针方向依次坐着筑梦师、舞蛇人，然后是镜像双子。诺-达鲺逆时针方依次坐着畸形秀演员、心上人、哲学家、贤者，然后是女巫。因为女巫与恶魔的距离为五，而镜像双子与恶魔的距离为三，所以钟表匠得知了“3”。",
-    "方古与两名旅行者相邻，一善一恶。洗脑师与其中一名旅行者相邻。在第一个晚上，钟表匠得知了“2”，因为邪恶的旅行者不是爪牙。"
-  ],
+  "examples": {
+    "en": [
+      "The Fang Gu is sitting next to the Pit-Hag. During the first night, the Clockmaker learns a \"1\".",
+      "Clockwise from the No Dashii sits the Dreamer, the Snake Charmer, then the Evil Twin. Counterclockwise from the No Dashii sits the Mutant, the Sweetheart, the Philosopher, the Sage, then the Witch. Because the Witch is five steps away from the Demon, and the Evil Twin is three steps away from the Demon, the Clockmaker learns a \"3\" during the first night.",
+      "The Fang Gu neighbours two Travellers, one good and one evil. Neighboring one of these Travellers is a Cerenovus. During the first night, the Clockmaker learns a \"2\", because evil Travellers are not Minions."
+    ],
+    "cn": [
+      "方古坐在麻脸巫婆旁边。钟表匠得知了“1”。",
+      "诺-达鲺顺时针方向依次坐着筑梦师、舞蛇人，然后是镜像双子。诺-达鲺逆时针方依次坐着畸形秀演员、心上人、哲学家、贤者，然后是女巫。因为女巫与恶魔的距离为五，而镜像双子与恶魔的距离为三，所以钟表匠得知了“3”。",
+      "方古与两名旅行者相邻，一善一恶。洗脑师与其中一名旅行者相邻。在第一个晚上，钟表匠得知了“2”，因为邪恶的旅行者不是爪牙。"
+    ]
+  },
   "tips": {
     "en": [
       "You don't have to give your information out immediately; wait a couple of days so that you can observe the other players and see if you uncover anything suspicious while the evil team thinks the pressure is off.",

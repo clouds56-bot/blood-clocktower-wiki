@@ -6,12 +6,10 @@
     "cn": "魔像"
   },
   "ability": {
-    "en": "You may only nominate once per game. When you do, if the nominee is not the Demon, they die.",
-    "cn": "每局游戏你只能发起提名一次。当你发起提名时，如果被你提名的玩家不是恶魔，他死亡。"
+    "en": "You may only nominate once per game. When you do, if the nominee is not the Demon, they die."
   },
   "flavor_text": {
-    "en": "\"Golem help? Golem smash! Golem help.\"",
-    "cn": "“要魔像帮忙？魔像来碾碎！魔像帮了忙。”"
+    "en": "\"Golem help? Golem smash! Golem help.\""
   },
   "editions": [
     "experimental"
@@ -20,10 +18,13 @@
   "other_nights": false,
   "artist": "Anica Kelsen",
   "jinxes": [],
-  "examples": [
-    "魔像提名了罂粟种植者。罂粟种植者死亡。魔像在这局游戏中不能再提名了。",
-    "魔像提名了陌客，说书人决定让陌客被当作是恶魔。无事发生，随后说书人开始了对陌客的处决投票。魔像在这局游戏中不能再提名了。"
-  ],
+  "examples": {
+    "en": [
+      "If the Golem accidentally nominates when they shouldn’t, you can either accept or not accept the nomination. It is best to not accept the nomination—as long as you think that this won’t confirm that a Golem is in play. To keep things fair, also do this for players bluffing as the Golem, reminding them that the Golem cannot nominate more than once.",
+      "The Golem nominates the Poppy Grower. The Poppy Grower dies. The Golem may not nominate again this game.",
+      "The Golem nominates the Recluse. The Recluse registers as the Demon. Nothing happens, and the Storyteller begins counting votes for the Recluse to be executed. The Golem may not nominate again this game."
+    ]
+  },
   "tips": {
     "en": [
       "If you want to prove that you are the Golem, nominate a player that you know is not the Demon. That player will die, and the good team now has faith that you are the Golem. This strategy has comes with a significant drawback though - the loss of the nominating power of two good players. Before nominating this way, ask yourself \"Is it worth it?\"",
@@ -32,19 +33,10 @@
       "If you have nominated already, pay attention to how many players are still alive. Also keep in mind how many evil players may still be alive. If the game gets to the point where only three players are alive, including you, and both the other players are evil, the good team won't be able to win because there is nobody able to nominate the Demon. Similarly, if there are four players alive, including you, and the only other good player nominates a non-Demon player, the good team will not be able to win. It isn't very detrimental to not be able to nominate early in the game, but it can be a significant hinderance on the final day.",
       "If you can, save your ability for the final day. If there are only two other players alive, you have a fifty percent chance of picking the Demon, and learning who the Demon is. If you accidentally choose a non-Demon player and lose the game, at least the game was lost due to a good player acting with a fifty percent chance of winning, and not an evil team outvoting the good team. A good player deciding the fate of the game, is generally better than leaving things to a democratic vote.",
       "Consider not nominating at all. Whilst this is less fun (boo!), sometimes it is best to keep players alive (yay!)."
-    ],
-    "cn": [
-      "如果你想证明你是魔像，提名一名你确定不是恶魔的玩家。那名玩家会死亡，善良阵营会相信你是魔像。然而这个策略有一个非常明显的缺点，那就是失去了两名善良玩家的提名权。在以这种方式提名之前，问问自己“这值得吗？”",
-      "如果你想查明一名玩家是否是恶魔，请提名他们。如果他们没有死亡，你就会知道他们是恶魔。你可能很难说服善良阵营你是魔像，因为你的提名与来自一名邪恶玩家的提名并无法区分，但是你自己能知道真相。这有重大意义。",
-      "如果你想从游戏中移除一个爪牙，请耐心等待并只在你认为你已经查明了谁是爪牙时才提名。爪牙仍然可以死于你的能力，这可能格外有用。和其他外来者不同，魔像的能力完全可以用来帮助善良阵营。",
-      "如果你已经提名，注意还有多少玩家仍存活。还要谨记多少邪恶玩家可能仍然存活。如果游戏到了只有三名玩家存活的时机，其中包括你和另外两名邪恶玩家，那么善良阵营将无法获胜，因为没有人能提名恶魔。同样的如果包括你在内的四名玩家还存活，而仅存的另一名善良玩家提名了一名非恶魔玩家，那么善良阵营将无法获胜。在游戏早期无法提名不会太不利，但是在最后一天可能会成为重大缺陷。",
-      "如果可以的话，把你的能力留到最后一天。如果只有另外两名玩家存活，你有一半机会选择到恶魔并知道恶魔是谁。如果你意外地选择了非恶魔玩家而落败，至少游戏落败是因为善良玩家进行了一次五五开的选择而不是邪恶阵营投票超过了善良阵营。一个善良玩家决定游戏命运通常会好于把事情交给一次民主投票。",
-      "考虑一直不提名。虽然这可能会比较无聊（嘘！），但有时候最好还是让玩家存活（耶！）。"
     ]
   },
   "how_to_run": {
-    "en": "If the Golem nominates a non-Demon, that player dies, then the vote continues as normal. Mark the Golem with the MAY NOT NOMINATE reminder.",
-    "cn": "如果魔像提名了一名非恶魔玩家，那名玩家死亡，投票会继续正常进行。使用“无法提名”标记标记魔像。\n如果魔像提名了一名恶魔玩家，投票继续正常进行。（不要说明原因）使用“无法提名”标记标记魔像。\n如果魔像意外地在无法提名的时候这么做了，你可以接受或拒绝这项提名。最好来说是拒绝这项提名，前提是这不会证明是否真的有魔像在场。为了让游戏变得更加公平，即使玩家是在伪装成魔像，也应该提醒他们不能进行多于一次的提名。"
+    "en": "If the Golem nominates a non-Demon, that player dies, then the vote continues as normal. Mark the Golem with the MAY NOT NOMINATE reminder."
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Golem"
 }

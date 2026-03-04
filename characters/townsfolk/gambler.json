@@ -20,10 +20,16 @@
   "other_nights": true,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "赌徒指向吟游诗人玩家，然后指向吟游诗人图标。本次猜测正确，因此赌徒依然存活，但是当晚他还是被恶魔杀死了。",
-    "魔鬼代言人正试图伪装成和平主义者。当晚，赌徒指向魔鬼代言人玩家，然后指向和平主义者图标。本次猜测错误，因此赌徒死亡。"
-  ],
+  "examples": {
+    "en": [
+      "The Gambler points to the Minstrel player, then to the Minstrel icon. This guess is correct, so the Gambler remains alive, but is killed by the Demon tonight anyway.",
+      "The Devil's Advocate is bluffing as the Pacifist. That night, the Gambler points to the Devil's Advocate player, then to the Pacifist icon. This guess is wrong, so the Gambler dies."
+    ],
+    "cn": [
+      "赌徒指向吟游诗人玩家，然后指向吟游诗人图标。本次猜测正确，因此赌徒依然存活，但是当晚他还是被恶魔杀死了。",
+      "魔鬼代言人正试图伪装成和平主义者。当晚，赌徒指向魔鬼代言人玩家，然后指向和平主义者图标。本次猜测错误，因此赌徒死亡。"
+    ]
+  },
   "tips": {
     "en": [
       "The Gambler is a high risk, high reward character. You get reliable information that can't be easily tainted, but you put your life on the line to do it. What a thrill!",

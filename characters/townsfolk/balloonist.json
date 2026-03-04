@@ -20,10 +20,16 @@
   "other_nights": false,
   "artist": "Anica Kelsen",
   "jinxes": [],
-  "examples": [
-    "小艾是维齐尔，小莱是女祭司，小美是政客。首个夜晚，气球驾驶员得知了小艾。第二个夜晚，气球驾驶员得知了小莱。第三个夜晚，气球驾驶员得知了小美。",
-    "小朱是守夜人，小艾是士兵，小兰是解谜大师。首个夜晚，气球驾驶员得知了小朱。第二个夜晚，投毒者选择了气球驾驶员。由于气球驾驶员中毒了，说书人决定让气球驾驶员得知了另一个镇民小艾。第三个夜晚，气球驾驶员恢复了健康清醒并得知与小艾不同角色类型的小兰。"
-  ],
+  "examples": {
+    "en": [
+      "Abdallah is the Vizier, Lewis is the High Priestess, and Sarah is the Politician. On the first night, the Balloonist learns Abdallah. On the second night, the Balloonist learns Lewis. On the third night, the Balloonist learns Sarah.",
+      "Julian is the Nightwatchman, Alex is the Sailor, and Lachlan is the Puzzlemaster. On the first night, the Balloonist learns Julian. On the second night, the Poisoner chooses the Balloonist. Because the Balloonist is poisoned, the Storyteller chooses to show the Balloonist another Townsfolk, and the Balloonist learns Alex. On the third night, the Balloonist is sober and healthy, and learns Lachlan, who is a different character type to Alex."
+    ],
+    "cn": [
+      "小艾是维齐尔，小莱是女祭司，小美是政客。首个夜晚，气球驾驶员得知了小艾。第二个夜晚，气球驾驶员得知了小莱。第三个夜晚，气球驾驶员得知了小美。",
+      "小朱是守夜人，小艾是士兵，小兰是解谜大师。首个夜晚，气球驾驶员得知了小朱。第二个夜晚，投毒者选择了气球驾驶员。由于气球驾驶员中毒了，说书人决定让气球驾驶员得知了另一个镇民小艾。第三个夜晚，气球驾驶员恢复了健康清醒并得知与小艾不同角色类型的小兰。"
+    ]
+  },
   "tips": {
     "en": [
       "Pay attention to Outsider claims! You might have added an extra Outsider, so if you hear players claiming to be the Zealot, the Snitch, and the Moonchild, this can help you prove you are what you claim to be. Plus, knowing where the Outsiders are makes it easier to decipher your information.",

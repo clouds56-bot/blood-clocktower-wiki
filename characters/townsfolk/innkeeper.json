@@ -20,11 +20,18 @@
   "other_nights": true,
   "artist": "John Grist",
   "jinxes": [],
-  "examples": [
-    "旅店老板保护了弄臣和侍女。说书人选择让弄臣醉酒。明天，当弄臣被处决时，他会死亡，即使他还没有使用自己的能力。",
-    "旅店老板保护了刺客和珀。说书人选择让刺客醉酒。当晚的后续时段中，刺客使用了自己的能力，但是无事发生。",
-    "旅店老板保护了他自己和和平主义者。说书人选择让旅店老板醉酒。当晚，恶魔攻击了和平主义者，和平主义者死亡。"
-  ],
+  "examples": {
+    "en": [
+      "The Innkeeper protects the Fool and the Chambermaid. The Storyteller chooses that the Fool becomes drunk. Tomorrow, when the Fool is executed, they die, even though they hadn’t used their ability yet.",
+      "The Innkeeper protects the Assassin and the Po. The Storyteller chooses that the Assassin becomes drunk. Later that night, the Assassin uses their ability, but nothing happens.",
+      "The Innkeeper protects themself and the Pacifist. The Storyteller chooses that the Innkeeper becomes drunk. The Pacifist is attacked by the Demon tonight and dies."
+    ],
+    "cn": [
+      "旅店老板保护了弄臣和侍女。说书人选择让弄臣醉酒。明天，当弄臣被处决时，他会死亡，即使他还没有使用自己的能力。",
+      "旅店老板保护了刺客和珀。说书人选择让刺客醉酒。当晚的后续时段中，刺客使用了自己的能力，但是无事发生。",
+      "旅店老板保护了他自己和和平主义者。说书人选择让旅店老板醉酒。当晚，恶魔攻击了和平主义者，和平主义者死亡。"
+    ]
+  },
   "tips": {
     "en": [
       "Your ability is powerful and when used effectively you can stall the evil team and keep your fellow good team safe. The price of your ability is steep, however - anyone protected by you becomes unreliable as they may be drunk for the night that they survive. Coordinating with your fellow good players to find ideal targets to protect is absolutely vital - some characters (such as the Pacifist and the Exorcist) become stronger the longer they survive, and you can enable that.",

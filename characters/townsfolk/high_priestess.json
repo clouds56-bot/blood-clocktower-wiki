@@ -20,10 +20,16 @@
   "other_nights": true,
   "artist": "Chloe McDougall",
   "jinxes": [],
-  "examples": [
-    "在首个夜晚，女祭司得知了小佳。小佳是厨师且有有用的信息需要分享。在第二个夜晚，女祭司得知了小明。小明是哥布林，但是说书人认为女祭司如果和小明交流并尽早发现小明是邪恶玩家会更容易获益。在第三个夜晚，女祭司得知了道哥。道哥是酒鬼，但是得知了错误信息，并且正对善良阵营造成不良的影响。",
-    "连续三个夜晚，女祭司都得知了小美。小美是圣徒，但善良阵营正打算处决她。在最后一夜，女祭司得知了小莱，小莱是小恶魔，他编造的谎话与好几个善良玩家的信息产生了冲突。"
-  ],
+  "examples": {
+    "en": [
+      "On the first night, the High Priestess learns Julian. Julian is the Chef and has useful information to share. On the second night, the High Priestess is shown Marianna. Marianna is the Goblin and the Storyteller thinks that the High Priestess would benefit most from talking to Marianna to find this out as early as possible. On the third night, the High Priestess is shown Doug. Doug is the Drunk whose information is wrong and harming the good team.",
+      "For three nights in a row, the High Priestess learns Sarah. Sarah is the Saint and the good team are trying to execute her. On the last night, the High Priestess learns Lewis. Lewis is the Imp, and his story is clashing with several good players."
+    ],
+    "cn": [
+      "在首个夜晚，女祭司得知了小佳。小佳是厨师且有有用的信息需要分享。在第二个夜晚，女祭司得知了小明。小明是哥布林，但是说书人认为女祭司如果和小明交流并尽早发现小明是邪恶玩家会更容易获益。在第三个夜晚，女祭司得知了道哥。道哥是酒鬼，但是得知了错误信息，并且正对善良阵营造成不良的影响。",
+      "连续三个夜晚，女祭司都得知了小美。小美是圣徒，但善良阵营正打算处决她。在最后一夜，女祭司得知了小莱，小莱是小恶魔，他编造的谎话与好几个善良玩家的信息产生了冲突。"
+    ]
+  },
   "tips": {
     "en": [
       "Talk to the person the Storyteller gives you as soon as possible every day – the Storyteller believes they’re the most important person for you to talk to, so you should get hold of them immediately in order to try to gain trust and use their information to dictate how you should approach the rest of your day.",

@@ -21,11 +21,19 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "在白天，造谣者说：“我是造谣者。我的公开声明是：恶魔戴着帽子。”恶魔没有戴帽子。当晚，没有玩家因造谣者的能力而死亡。",
-    "与造谣者邻近的玩家分别是善良的旅行者和和平主义者。在白天，醉酒的造谣者说：“我的两个邻近玩家都是善良的。”在黄昏，醉酒的造谣者恢复清醒。当晚，侍女死亡。",
-    "在白天，造谣者发表了一个正确的声明。当晚，造谣者被恶魔杀死。造谣者失去了自己的能力，因此不会有任何人因为他正确的声明而死亡。"
-  ],
+  "examples": {
+    "en": [
+      "When choosing a player to die due to the Gossip ability, we recommend that you choose a character that will actually die, not one protected from death by an ability (like the Fool or Tea Lady). The Gossip gains knowledge when their statement caused a death. This is more helpful to the good team, and more fun for everyone.",
+      "During the day, the Gossip says, \"I am the Gossip. My public statement is: The Demon is wearing a hat.\" The Demon is not wearing a hat. That night, nobody dies due to the Gossip’s ability.",
+      "The Gossip neighbours a good Traveller and the Pacifist. During the day, the drunk Gossip says, \"Both my neighbours are good.\" At dusk, the drunk Gossip becomes sober. That night, the Chambermaid dies.",
+      "During the day, the Gossip makes a true statement. That night, the Gossip is killed by the Demon. They lose their ability, so their statement does not kill anyone tonight."
+    ],
+    "cn": [
+      "在白天，造谣者说：“我是造谣者。我的公开声明是：恶魔戴着帽子。”恶魔没有戴帽子。当晚，没有玩家因造谣者的能力而死亡。",
+      "与造谣者邻近的玩家分别是善良的旅行者和和平主义者。在白天，醉酒的造谣者说：“我的两个邻近玩家都是善良的。”在黄昏，醉酒的造谣者恢复清醒。当晚，侍女死亡。",
+      "在白天，造谣者发表了一个正确的声明。当晚，造谣者被恶魔杀死。造谣者失去了自己的能力，因此不会有任何人因为他正确的声明而死亡。"
+    ]
+  },
   "tips": {
     "en": [
       "Get over your fear of death! A lot of Gossips will be tentative about using their ability, since they're worried about causing a death accidentally. While it's true you should be cautious with any ability that could cause death, the potential gain in information more than makes up for the risk. Use your ability every day!",

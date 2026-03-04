@@ -20,11 +20,18 @@
   "other_nights": false,
   "artist": "Marianna Carr",
   "jinxes": [],
-  "examples": [
-    "小艾是赏金猎人，大本是鹰身女妖，小黑是茶艺师。设置调整阶段，说书人决定小黑成为邪恶的茶艺师。首个夜晚，小艾得知了大本。第三个白天，大本死于处决。当晚，小艾得知了小黑。",
-    "首个夜晚，赏金猎人得知了邪恶的男爵小朱。某晚小朱死亡时，赏金猎人因投毒者的能力中毒，当晚赏金猎人得知了善良的魔术师小艾。",
-    "小兰是以为自己是赏金猎人的酒鬼。由于赏金猎人不在场，没有镇民被转变为邪恶阵营。首个夜晚，小兰得知了善良的共情者小明。随后小明死亡，小兰得知了善良的卖花女孩道哥。"
-  ],
+  "examples": {
+    "en": [
+      "Alex is the Bounty Hunter, Ben is the Harpy, and Abdallah is the Tea Lady. During setup, the Storyteller decides that Abdallah will be the Evil Tea Lady. On the first night, Alex learns Ben. On day 3, Ben is executed. That night, Alex learns Abdallah.",
+      "On the first night, the Bounty Hunter learns Julian, who is the evil Baron. When Julian dies, the Poisoner targets the Bounty Hunter. That night, the Bounty Hunter learns Evin, who is the good Magician.",
+      "Lachlan is the Drunk who thinks he is the Bounty Hunter. No evil Townsfolk was added at setup, because the Bounty Hunter is not in play. On the first night, Lachlan learns Marianna, who is the good  Empath. When Marianna dies, Lachlan learns Doug, who is the good Flowergirl."
+    ],
+    "cn": [
+      "小艾是赏金猎人，大本是鹰身女妖，小黑是茶艺师。设置调整阶段，说书人决定小黑成为邪恶的茶艺师。首个夜晚，小艾得知了大本。第三个白天，大本死于处决。当晚，小艾得知了小黑。",
+      "首个夜晚，赏金猎人得知了邪恶的男爵小朱。某晚小朱死亡时，赏金猎人因投毒者的能力中毒，当晚赏金猎人得知了善良的魔术师小艾。",
+      "小兰是以为自己是赏金猎人的酒鬼。由于赏金猎人不在场，没有镇民被转变为邪恶阵营。首个夜晚，小兰得知了善良的共情者小明。随后小明死亡，小兰得知了善良的卖花女孩道哥。"
+    ]
+  },
   "tips": {
     "en": [
       "This is pretty simple, right? You know who an evil player is, right off the bat on day 1! Not even the Investigator info is this strong! You should tell everyone about it immediately and get that filthy scoundrel of an evil player executed as soon as possible so you can get more information on other dastardly fiends around town and work your way closer to finding out who the Demon is!",

@@ -20,11 +20,19 @@
   "other_nights": true,
   "artist": "Aidan Roberts",
   "jinxes": [],
-  "examples": [
-    "舞蛇人选择的玩家是麻脸巫婆，无事发生。下个夜晚，舞蛇人选择他自己，依旧无事发生。",
-    "舞蛇人选择的玩家是亡骨魔。舞蛇人立即变成邪恶的亡骨魔，曾经是亡骨魔的玩家变成善良的舞蛇人并中毒。",
-    "麻脸巫婆把自己变成了舞蛇人。然后，舞蛇人——原本为麻脸巫婆——选择了方古玩家。舞蛇人变成了方古，方古变成了中毒的舞蛇人。但两者仍然邪恶。"
-  ],
+  "examples": {
+    "en": [
+      "In the strange situation that the Snake Charmer is evil, or the Demon good, swap their alignments as appropriate.",
+      "The Snake Charmer chooses a player who is the Pit-Hag, so nothing happens. The Snake Charmer simply goes to sleep. The next night, the Snake Charmer chooses themself, so nothing happens.",
+      "The Snake Charmer chooses a player who is the Vigormortis. The Snake Charmer immediately becomes the evil Vigormortis, and the Vigormortis becomes the good Snake Charmer and gets poisoned.",
+      "The Pit-Hag turns themself into the Snake Charmer. Then, the Snake Charmer chooses a player who is the Fang Gu. The Snake Charmer becomes the Fang Gu, while the Fang Gu becomes the Snake Charmer and gets poisoned. Both remain evil."
+    ],
+    "cn": [
+      "舞蛇人选择的玩家是麻脸巫婆，无事发生。下个夜晚，舞蛇人选择他自己，依旧无事发生。",
+      "舞蛇人选择的玩家是亡骨魔。舞蛇人立即变成邪恶的亡骨魔，曾经是亡骨魔的玩家变成善良的舞蛇人并中毒。",
+      "麻脸巫婆把自己变成了舞蛇人。然后，舞蛇人——原本为麻脸巫婆——选择了方古玩家。舞蛇人变成了方古，方古变成了中毒的舞蛇人。但两者仍然邪恶。"
+    ]
+  },
   "tips": {
     "en": [
       "The Snake Charmer exists in a state of duality. At any given moment, you may turn evil and begin betraying your team. Until that happens, though, you are good and playing for the good team, and your information is incredibly useful (knowing who isn't a demon is just as important as knowing who the demon is!). Unlike the other players, you are not playing so much for a team but for yourself, and for the team that you want to end up on.",

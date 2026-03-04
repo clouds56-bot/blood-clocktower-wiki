@@ -20,10 +20,16 @@
   "other_nights": false,
   "artist": "John Grist",
   "jinxes": [],
-  "examples": [
-    "巡山人在第一个夜晚被唤醒，但没有使用自己的能力。在第二个夜晚，巡山人选择了角色为落难少女的玩家。落难少女变成了贵族，并因此在当晚得知了三名玩家，且其中有一名是邪恶的。",
-    "巡山人选择了小兰。小兰是唱诗男孩，因此无事发生。巡山人不会在此后的夜晚因为自己的能力被唤醒了。"
-  ],
+  "examples": {
+    "en": [
+      "The Huntsman is woken on the 1st night, but does not use their ability. On the second night, the Huntsman chooses the Damsel player. The Damsel becomes the Undertaker and learns which player died today.",
+      "The Huntsman chooses Lachlan. Lachlan is the General, so nothing happens. The Huntsman is no longer woken at night."
+    ],
+    "cn": [
+      "巡山人在第一个夜晚被唤醒，但没有使用自己的能力。在第二个夜晚，巡山人选择了角色为落难少女的玩家。落难少女变成了贵族，并因此在当晚得知了三名玩家，且其中有一名是邪恶的。",
+      "巡山人选择了小兰。小兰是唱诗男孩，因此无事发生。巡山人不会在此后的夜晚因为自己的能力被唤醒了。"
+    ]
+  },
   "tips": {
     "en": [
       "Find the Damsel ASAP. You have one shot and you’re racing against either you or them dying before you can find them! This can be more important in smaller games as the chances of either player dying early is higher, but also your chances of being correct with a blind pick is higher. On the first night of a small game, you're often better off just taking a punt tonight rather than gambling you both survive to tomorrow and the Damsel gets an ability they can use that night.",

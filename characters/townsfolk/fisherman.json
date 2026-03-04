@@ -20,11 +20,19 @@
   "other_nights": false,
   "artist": "Anica Kelsen",
   "jinxes": [],
-  "examples": [
-    "水手选择了驱魔人，于是说书人决定让驱魔人醉酒。在这个夜晚，水手被沙巴洛斯攻击。水手依然存活。在下一个白天，水手被处决，但依然存活。",
-    "在白天，造谣者发表了一个公开声明，他以为是错误的，但其实是正确的。在当晚，造谣者的能力将会杀死一名玩家。水手让自己醉酒了，于是说书人决定让水手死亡。",
-    "水手选择了主谋，但是说书人决定让水手醉酒。在下一个白天，水手要求处决自己来“证明自己是水手”，但是因为他醉酒，所以死亡了。"
-  ],
+  "examples": {
+    "en": [
+      "It is best to give the Fisherman advice on what to DO, not just information about what IS. This makes the Fisherman more fun and unique.\n\nEg. Saying “You should execute that player” or “Keep this player alive” or “find out who is drunk” or “change your thinking entirely” or “ignore the Minions” or “trust this player” are much more interesting than saying “this player is evil” or “the Demon is a No Dashii”.",
+      "The Fisherman visits the Storyteller and learns that “You shouldn’t trust Ben”. Ben is the poisoned Empath, and is unknowingly spreading false information.",
+      "The Fisherman learns “Keep the players claiming to be Outsiders alive”. These players are secretly the Klutz and the Fearmonger. The Storyteller believes that keeping these players alive is more likely to end up with good executing the Demon.",
+      "On the final day, the Fisherman learns to “kill Lewis”. The Fisherman is drunk, and Lewis is a Townsfolk. The Storyteller gave bad (“false”) advice to the Fisherman."
+    ],
+    "cn": [
+      "水手选择了驱魔人，于是说书人决定让驱魔人醉酒。在这个夜晚，水手被沙巴洛斯攻击。水手依然存活。在下一个白天，水手被处决，但依然存活。",
+      "在白天，造谣者发表了一个公开声明，他以为是错误的，但其实是正确的。在当晚，造谣者的能力将会杀死一名玩家。水手让自己醉酒了，于是说书人决定让水手死亡。",
+      "水手选择了主谋，但是说书人决定让水手醉酒。在下一个白天，水手要求处决自己来“证明自己是水手”，但是因为他醉酒，所以死亡了。"
+    ]
+  },
   "tips": {
     "en": [
       "Ask yourself why you got the advice you got. Even if it’s something you didn’t expect, or that sends you down a totally different path than the one you were following, remember that the Storyteller knows all. They are in the best position to give you advice that will help you win.",

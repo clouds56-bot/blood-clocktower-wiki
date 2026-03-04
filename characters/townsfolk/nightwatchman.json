@@ -20,11 +20,18 @@
   "other_nights": true,
   "artist": "Chloe McDougall",
   "jinxes": [],
-  "examples": [
-    "小兰是守夜人。小兰选择了小黑，小黑得知了小兰是守夜人。",
-    "小明是醉酒的守夜人。她选择了小米，小米没有被唤醒，也不会得知小明是守夜人。因为醉酒的守夜人不具有能力。",
-    "小八是守夜人且涡流在场。小八选择了道哥，道哥得知了小美是守夜人。虽然守夜人具有能力，但因为涡流在场，道哥会因此得知错误信息。"
-  ],
+  "examples": {
+    "en": [
+      "Lachlan is the Nightwatchman. He chooses Abdallah. Abdallah learns that Lachlan is the Nightwatchman.",
+      "Marianna is the drunk Nightwatchman. She chooses Amy. Amy does not wake, and does not learn that Marianna is the Nightwatchman, because the Nightwatchman has no ability.",
+      "Ben is the Nightwatchman and Vortox is in play. Ben chooses Sarah. Sarah learns that Lewis is the Nightwatchman. Even though the Nightwatchman has their ability, the information is false."
+    ],
+    "cn": [
+      "小兰是守夜人。小兰选择了小黑，小黑得知了小兰是守夜人。",
+      "小明是醉酒的守夜人。她选择了小米，小米没有被唤醒，也不会得知小明是守夜人。因为醉酒的守夜人不具有能力。",
+      "小八是守夜人且涡流在场。小八选择了道哥，道哥得知了小美是守夜人。虽然守夜人具有能力，但因为涡流在场，道哥会因此得知错误信息。"
+    ]
+  },
   "tips": {
     "en": [
       "As the Nightwatchman, the two most important questions for you to ask yourself are \"When should I use my ability?\" and \"On whom should I use my ability?\"",

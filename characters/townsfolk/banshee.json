@@ -20,11 +20,19 @@
   "other_nights": false,
   "artist": "Chloe McDougall",
   "jinxes": [],
-  "examples": [
-    "卡扎力杀死了报丧女妖。所有玩家都得知报丧女妖死亡。在下一个白天，报丧女妖提名了村夫并投了两票，然后又提名了恐惧之灵并投了两票，然后又在对修行者的提名中投了两票。在下下个白天，报丧女妖没有发起提名，但在对卡扎力的提名中投了两票。",
-    "报丧女妖中毒了。随后奥赫杀死了报丧女妖。无人得知报丧女妖死亡，并且在接下来的游戏时间里，报丧女妖无法发起提名，且只有最后一票。",
-    "半兽人杀死了报丧女妖。报丧女妖没有获得自己死亡后的能力，她的死讯也没有被宣告。"
-  ],
+  "examples": {
+    "en": [
+      "If all good players are dead, the game continues. Good can still win due to the Banshee being able to nominate.",
+      "The Kazali kills the Banshee. All players learn that the Banshee has died. Tomorrow, the Banshee nominates the Village Idiot and votes twice, then nominates the Fearmonger and votes twice, then votes twice when the Shugenja is nominated. The next day, the Banshee doesn’t nominate at all, but votes twice for the Kazali.",
+      "The Banshee is poisoned. The Ojo kills the Banshee. Nobody learns that the Banshee has died, and for the rest of the game, the Banshee may not nominate, and has just one vote.",
+      "The Lycanthrope kills the Banshee. The Banshee does not gain their additional powers and is not announced."
+    ],
+    "cn": [
+      "卡扎力杀死了报丧女妖。所有玩家都得知报丧女妖死亡。在下一个白天，报丧女妖提名了村夫并投了两票，然后又提名了恐惧之灵并投了两票，然后又在对修行者的提名中投了两票。在下下个白天，报丧女妖没有发起提名，但在对卡扎力的提名中投了两票。",
+      "报丧女妖中毒了。随后奥赫杀死了报丧女妖。无人得知报丧女妖死亡，并且在接下来的游戏时间里，报丧女妖无法发起提名，且只有最后一票。",
+      "半兽人杀死了报丧女妖。报丧女妖没有获得自己死亡后的能力，她的死讯也没有被宣告。"
+    ]
+  },
   "tips": {
     "en": [
       "Get killed by the Demon, by any method that works for you!",

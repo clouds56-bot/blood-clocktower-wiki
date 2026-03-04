@@ -20,10 +20,16 @@
   "other_nights": false,
   "artist": "Chloe McDougall",
   "jinxes": [],
-  "examples": [
-    "公主提名了传教士。传教士被处决并死亡了。当晚，涡流选择了小精灵，小精灵没有死亡。城镇公告员得知白天有爪牙提名，因为涡流的能力让他获得了错误信息。",
-    "第四个夜晚，麻脸巫婆把筑梦师变成了公主。在白天，公主提名了狂热者并处决了他。当晚，卡扎力选择了公主，公主没有死亡。"
-  ],
+  "examples": {
+    "en": [
+      "The Princess nominates the Preacher. The Preacher is executed, and dies. That night, the Vortox chooses the Pixie, who does not die. The Town Crier learns that a Minion nominated today, which is false information due to the Vortox.",
+      "On night 4, the Pit-Hag turns the Dreamer into the Princess. That day, the Princess nominates the Zealot, who is executed. That night, the Kazali chooses the Princess, who does not die."
+    ],
+    "cn": [
+      "公主提名了传教士。传教士被处决并死亡了。当晚，涡流选择了小精灵，小精灵没有死亡。城镇公告员得知白天有爪牙提名，因为涡流的能力让他获得了错误信息。",
+      "第四个夜晚，麻脸巫婆把筑梦师变成了公主。在白天，公主提名了狂热者并处决了他。当晚，卡扎力选择了公主，公主没有死亡。"
+    ]
+  },
   "tips": {
     "en": [
       "Demand attention from your loyal subj- I mean, fellow players! If you want to be the one who nominates and executes a player, let everyone know your plan in advance so they’ll vote with you & help you achieve your goal.On your 1st day, try to find a player who doesn’t mind being executed. Nominate them and keep it casual, bluffing as if you are not the Princess. Claim you’ve nominated because you think the player is good Cannibal food, or because they would like their role confirmed by an Undertaker.Don’t use your ability. Stay quiet, wait, and see if a different player tries to claim that they are the Princess.Can you use your ability without killing a player? Look for reasons someone might not die to execution, like a Tea Lady or a Sailor.Be kind! Pushing to get someone killed on the first day can be socially tricky. Remember Rule 4: Kill with grace and die with dignity.Be honest and forthcoming. The more socially good you seem, the more people will believe you and choose to go forward with your plan."

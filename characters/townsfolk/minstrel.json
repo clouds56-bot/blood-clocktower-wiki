@@ -20,11 +20,18 @@
   "other_nights": false,
   "artist": "John Grist",
   "jinxes": [],
-  "examples": [
-    "在首个白天，和平主义者死亡。当晚，玩家们正常行动，因为和平主义者不是爪牙。在第二个白天，法官处决了教父。当晚，所有人都醉酒，包括恶魔，因此无人死亡。在第三个白天，魔鬼代言人醉酒了，受到魔鬼代言人保护的一名爪牙玩家被处决并死亡。因为有爪牙因处决而死去，吟游诗人又一次让所有人醉酒。",
-    "刺客被处决，因此吟游诗人让所有人醉酒。在下一个白天，教父被处决，因此吟游诗人让所有人再次醉酒。恶魔两个夜晚都没办法成功发起攻击。在下一个白天，获得主谋能力的学徒被流放了，因此当晚所有人都再次恢复清醒，因为吟游诗人的能力不会因旅行者被流放而触发。",
-    "在白天，刺客死亡，因此吟游诗人让所有人醉酒。在下一个白天，僵怖被处决且第一次死亡。善良阵营获胜，因为僵怖醉酒，因而没有任何能力。"
-  ],
+  "examples": {
+    "en": [
+      "During the first day, the Pacifist dies. That night, players act as normal, because the Pacifist is not a Minion. During the second day, the Judge executes the Godfather. That night, everyone is drunk, including the Demon, so nobody dies. During the third day, a Minion who is protected by the Devil's Advocate is executed and dies, because the Devil's Advocate is drunk. Again, since a Minion died during the day, the Minstrel makes everyone drunk.",
+      "The Assassin is executed, so the Minstrel makes everyone drunk. The next day, the Godfather is executed, so the Minstrel makes everyone drunk again. The Demon could not kill on either night. The next day, the evil Apprentice Mastermind is exiled, so that night everyone becomes sober again, because the Minstrel ability doesn't trigger from a Traveller being exiled.",
+      "During the day, the Assassin dies, so the Minstrel makes everyone drunk. The following day, the Zombuul is executed and dies for the first time. Good wins, because the Zombuul is drunk and so has no ability."
+    ],
+    "cn": [
+      "在首个白天，和平主义者死亡。当晚，玩家们正常行动，因为和平主义者不是爪牙。在第二个白天，法官处决了教父。当晚，所有人都醉酒，包括恶魔，因此无人死亡。在第三个白天，魔鬼代言人醉酒了，受到魔鬼代言人保护的一名爪牙玩家被处决并死亡。因为有爪牙因处决而死去，吟游诗人又一次让所有人醉酒。",
+      "刺客被处决，因此吟游诗人让所有人醉酒。在下一个白天，教父被处决，因此吟游诗人让所有人再次醉酒。恶魔两个夜晚都没办法成功发起攻击。在下一个白天，获得主谋能力的学徒被流放了，因此当晚所有人都再次恢复清醒，因为吟游诗人的能力不会因旅行者被流放而触发。",
+      "在白天，刺客死亡，因此吟游诗人让所有人醉酒。在下一个白天，僵怖被处决且第一次死亡。善良阵营获胜，因为僵怖醉酒，因而没有任何能力。"
+    ]
+  },
   "tips": {
     "en": [
       "At first glance, the Minstrel does not seem that powerful, but in actuality you gain some of the most reliable information in the game. After any day with an execution, you know with confidence that if anyone dies at night, the recent executee is not a Minion. Since an executed Demon typically ends the game (Zombuul and Mastermind aside), you can in fact be reasonably confident that they are actually good!",

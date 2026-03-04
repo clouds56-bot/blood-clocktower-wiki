@@ -20,11 +20,19 @@
   "other_nights": false,
   "artist": "Chloe McDougall",
   "jinxes": [],
-  "examples": [
-    "戏法师猜测了四名善良玩家。无事发生。",
-    "戏法师猜测道哥是恶魔，小八和小美是爪牙。实际上道哥确实是恶魔，小八和小美也确实是爪牙。善良阵营立刻获胜。",
-    "醉酒的戏法师猜测道哥是恶魔，小八和小美是爪牙。实际上道哥确实是恶魔，小八和小美也确实是爪牙。无事发生，游戏继续。在下一个白天，恢复清醒的戏法师猜测小八是恶魔，道哥和小美是爪牙。无事发生，游戏继续。"
-  ],
+  "examples": {
+    "en": [
+      "Optional rule: like the Juggler and the Gossip, the Storyteller may limit the number of players that make an Alsaahir guess to three players per day. Only use this optional rule if so many players are bluffing as the Alsaahir that the game slows down and ceases to be fun.",
+      "The Alsaahir guesses four good players. Nothing happens.",
+      "The Alsaahir guesses that Doug is the Demon, and Ben and Sarah are Minions. Doug is the Demon, and Ben and Sarah are Minions. Good wins immediately.",
+      "The drunk Alsaahir guesses that Doug is the Demon, and Ben and Sarah are Minions. Doug is the Demon, and Ben and Sarah are Minions. Nothing happens and the game continues. The next day, the sober Alsaahir guesses that Ben is the Demon and Doug and Sarah are Minions. Nothing happens and the game continues."
+    ],
+    "cn": [
+      "戏法师猜测了四名善良玩家。无事发生。",
+      "戏法师猜测道哥是恶魔，小八和小美是爪牙。实际上道哥确实是恶魔，小八和小美也确实是爪牙。善良阵营立刻获胜。",
+      "醉酒的戏法师猜测道哥是恶魔，小八和小美是爪牙。实际上道哥确实是恶魔，小八和小美也确实是爪牙。无事发生，游戏继续。在下一个白天，恢复清醒的戏法师猜测小八是恶魔，道哥和小美是爪牙。无事发生，游戏继续。"
+    ]
+  },
   "tips": {
     "en": [
       "Make a guess every day! Every guess you make narrows down who the Demon and Minion players are.",
