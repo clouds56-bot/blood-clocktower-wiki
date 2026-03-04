@@ -59,12 +59,13 @@ const resolveImageSrc = (c: any) => {
   const imgField = c.data?.image;
   // Get the pure ID, ignoring directories (e.g. townsfolk/alchemist -> alchemist)
   const id = c.data?.id || c.id.split('/').pop();
-  let p = imgField || `data/assets/tokens/${id}.png`;
+  let p = imgField || `assets/tokens/${id}.png`;
 
   const hasExt = /\.\w{2,5}$/.test(p);
   let candidate = hasExt ? p : `${p}.png`;
 
-  candidate = candidate.replace(/^\/*assets\//, 'data/assets/');
+  // Normalize any legacy "data/assets/" prefixes to the new "assets/" public path
+  candidate = candidate.replace(/^\/*data\/assets\//, 'assets/');
   return getAssetUrl(candidate);
 };
 ---

@@ -8,7 +8,8 @@ const path = require('path');
 
 const REPO_ROOT = path.join(__dirname, '..');
 const SRC_ASSETS = path.join(REPO_ROOT, 'assets');
-const DEST_PUBLIC = path.join(REPO_ROOT, '..', 'wiki', 'public', 'data', 'assets');
+// Copy into wiki/public/assets (simpler path than public/data/assets)
+const DEST_PUBLIC = path.join(REPO_ROOT, '..', 'wiki', 'public', 'assets');
 
 function copyDir(src, dest) {
   if (!fs.existsSync(src)) return;
@@ -26,7 +27,7 @@ function copyDir(src, dest) {
 }
 
 try {
-  console.log('→ Copying data/assets → wiki/public/data/assets');
+  console.log('→ Copying data/assets → wiki/public/assets');
   if (!fs.existsSync(SRC_ASSETS)) {
     console.warn(`Source assets not found: ${SRC_ASSETS}`);
     process.exit(0);

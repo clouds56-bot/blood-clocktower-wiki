@@ -30,7 +30,7 @@ const t = useTranslations(lang);
             {
               (() => {
                 const id = data.id || char.id.split('/').pop();
-                const imgField = data.image ? data.image.replace(/^\/+/, '') : `data/assets/tokens/${id}.png`;
+                const imgField = data.image ? data.image.replace(/^\/+/, '') : `assets/tokens/${id}.png`;
                 const src = getAssetUrl(imgField);
                 return <img src={src} alt={data.name?.[lang] || data.id} class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'" />;
               })()
