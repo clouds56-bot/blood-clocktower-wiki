@@ -18,6 +18,23 @@ export function getBasePath(lang: keyof typeof languages) {
   return `${prefix}/${lang}`;
 }
 
+export function stripBase(pathname: string) {
+  const rawBase = (import.meta.env.BASE_URL ?? '') as string;
+  const normalizedBase = rawBase.replace(/\/$/, '');
+
+  if (normalizedBase === '' || normalizedBase === '/') {
+    return pathname;
+  }
+
+  // Remove base prefix if pathname starts with it
+  // e.g., /blood-clocktower-wiki/en/characters → /en/characters
+  if (pathname.startsWith(normalizedBase)) {
+    return pathname.slice(normalizedBase.length);
+  }
+
+  return pathname;
+}
+
 export function stripLangFromPath(pathname: string) {
   const parts = pathname.split('/');
   const maybeLang = parts[1];

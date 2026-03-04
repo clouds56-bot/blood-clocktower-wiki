@@ -1,8 +1,8 @@
 ---
-import { languages, getLangFromUrl, getBasePath, stripLangFromPath } from '../i18n/utils';
+import { languages, getLangFromUrl, getBasePath, stripLangFromPath, stripBase } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
-const routeBase = stripLangFromPath(Astro.url.pathname);
+const routeBase = stripLangFromPath(stripBase(Astro.url.pathname));
 ---
 
 <div class="flex gap-2 text-sm font-medium items-center ml-4 border-l border-[rgba(215,180,106,0.35)] pl-4">
