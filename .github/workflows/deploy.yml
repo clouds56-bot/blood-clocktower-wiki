@@ -34,6 +34,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Copy assets (prebuild)
+        # Ensure token images are available in wiki/public before building
+        run: node data/scripts/copy-assets-to-public.js
+
       - name: Build wiki
         env:
           SITE_URL: "https://clouds56-bot.github.io"
