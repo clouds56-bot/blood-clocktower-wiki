@@ -72,5 +72,6 @@
     "en": "Each night, wake the Poisoner. They point at any player. The chosen player becomes poisoned—put the POISONED reminder token by the chosen player's character token. Put the Poisoner to sleep. (This poisoned player wakes and acts normally. They have no ability, but they think they do. If their ability would give them information, you can give false information to them if you wish. See “Drunkenness and Poisoning” in the rulebook.)",
     "cn": "每个夜晚，唤醒投毒者。让投毒者指向任意一名玩家。被选择的玩家中毒——将“中毒”提示标记放置在被选择的玩家角色标记旁。让投毒者重新入睡。（这名中毒的玩家会照常被唤醒并行动。他失去了能力，但他认为自己还拥有能力。如果他的能力会获取信息，你可以按你的意愿来给出错误的信息。参考规则书中的“醉酒与中毒”部分。）\n每到黄昏时，中毒玩家会恢复健康——移除他的中毒提示标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Poisoner"
+  "source_url": "https://wiki.bloodontheclocktower.com/Poisoner",
+  "image": "assets/tokens/poisoner.png"
 }

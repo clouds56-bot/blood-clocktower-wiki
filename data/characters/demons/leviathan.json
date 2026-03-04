@@ -70,5 +70,6 @@
     "en": "Immediately after dawn on the first day, declare that the Leviathan is in play. Mark the Leviathan with the DAY 1 reminder. At the beginning of each following day, mark the Leviathan with DAY 2, then DAY 3, then DAY 4, then DAY 5 reminders. If a day ends and the Leviathan is marked with the DAY 5 reminder, declare that evil wins.",
     "cn": "在第一天黎明后，立即宣布利维坦在场。将“第一天”提示标记放置在利维坦的角色标记旁。在接下来的每一个白天开始时，将“第二天”、“第三天”、“第四天”、“第五天”提示标记依次替换放置在利维坦的角色标记旁。如果一个白天结束并且利维坦的角色标记旁有“第五天”提示标记，则宣布邪恶阵营获胜。\n如果一名善良玩家被处决，将“善良被处决”提示标记放置在他的角色标记旁。\n如果一名善良玩家被处决并且已经有一名玩家的角色标记旁放置了“善良被处决”提示标记，则宣布邪恶阵营获胜。\n对于新手玩家，每天宣布利维坦在场，并说明今天是哪一天，这很有帮助的。在第一个白天，宣布“利维坦在场。这是第一天。” 在第二个白天，宣布“利维坦在场。现在是第二天。” 诸如此类。这可以帮助玩家们记住他们面对的是什么恶魔，并避免因忘记计算天数而意外落败。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Leviathan"
+  "source_url": "https://wiki.bloodontheclocktower.com/Leviathan",
+  "image": "assets/tokens/leviathan.png"
 }

@@ -58,5 +58,6 @@
     "en": "While setting up the game, before putting character tokens in the bag, add one extra Outsider character token and remove one Townsfolk character token.",
     "cn": "在初始设置时，将角色标记放入盲抽袋前，把一个镇民角色标记替换为一个外来者角色标记。\n除首个夜晚外的每个夜晚，唤醒方古。让他指向一名玩家。让方古重新入睡。\n如果被选择的玩家不是外来者，为那名玩家放置“死亡”提示标记。\n如果被选择的玩家是外来者，且“限一次”提示标记已经被放置在魔典中，也为那名玩家放置“死亡”标记。\n如果被选择的玩家是外来者，且“限一次”提示标记不在魔典中，在原来的方古旁放置“死亡”提示标记。唤醒被选择的外来者。依次向他展示“你是”信息标记、向下的大拇指、方古角色标记。用多出的方古标记替换他的角色标记，且他转为邪恶阵营。让新方古重新入睡。把“限一次”标记放在魔典中心。（与“每局游戏限一次”能力不同，这个标记在接下来的游戏中始终留在那里，即使方古死亡或改变角色。）"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Fang_Gu"
+  "source_url": "https://wiki.bloodontheclocktower.com/Fang_Gu",
+  "image": "assets/tokens/fang_gu.png"
 }

@@ -58,5 +58,6 @@
     "en": "Each night, wake the Philosopher. They either shake their head no or point at any Townsfolk icon or any Outsider icon on their character sheet. Put the Philosopher to sleep.",
     "cn": "每个夜晚，唤醒哲学家。他要么摇头不使用能力，要么指向角色列表上一个镇民或外来者图标。让哲学家重新入睡。\n如果他指向的是不在场的角色，将哲学家角色标记更换为他所选的角色标记，并放置“是哲学家”提示标记。\n如果他指向的是一个已在场的角色，该角色醉酒，在角色标记旁放置“醉酒”提示标记。（现在，你可以把被选择角色的相关提示标记给哲学家使用了。）如果哲学家死亡，醉酒的玩家将恢复清醒，此时需要移除“醉酒”提示标记。\n（由于实体标记的操作方式在两种情况下不同，再加上哲学家的能力是会对对应的角色进行动态检测，因此建议说书人还应该以其他方式对此进行记录，这里提供一个参考处理方式：如果对应角色在场，互换哲学家和那个角色的标记，并在哲学家角色标记旁标记醉酒，在换来的角色标记旁标记“是哲学家”。这样也能应对在哲学家选择了一个不在场的角色，但随后该角色又再次在场的情况。）"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Philosopher"
+  "source_url": "https://wiki.bloodontheclocktower.com/Philosopher",
+  "image": "assets/tokens/philosopher.png"
 }

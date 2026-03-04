@@ -58,5 +58,6 @@
     "en": "If the Sage was killed by the Demon, wake the Sage. Point at two players, one who is the Demon that killed the Sage. Put the Sage to sleep.",
     "cn": "每个白天仅限一次，如果博学者要求与你进行私聊，请和他一起离开玩家围成的圆圈，保证你们的私聊不会被偷听。然后以耳语的方式告知博学者一真一假两条信息。（如果你无法立刻想出两条信息，要么多想一会儿，要么让博学者几分钟后再来找你。）\n保证你提供的信息有用并且与游戏有关。避免提供恶魔是谁这种信息，否则可能导致游戏快速结束。如果你无法决定告知博学者什么信息，你可以选择提供类似于镇民能力能够获取的信息。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Sage"
+  "source_url": "https://wiki.bloodontheclocktower.com/Sage",
+  "image": "assets/tokens/sage.png"
 }

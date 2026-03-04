@@ -47,5 +47,6 @@
     "en": "Each night, wake the Organ Grinder. The Organ Grinder either nods or shakes their head. If they nod their head, mark them with the DRUNK reminder. Put the Organ Grinder to sleep.",
     "cn": "每个夜晚，唤醒街头风琴手点头或摇头。街头风琴手如果点头：放置“醉酒”提示标记；如果摇头：不放置“醉酒”提示标记。让街头风琴手重新入睡。\n当一名玩家被提名后开始投票时，如果街头风琴手是清醒的，要求所有玩家闭上双眼。如果有玩家询问原因，那么告诉他们街头风琴手在场。秘密无声地进行票数的统计。在那之后，不要告诉大家有多少玩家投了票，也不告诉大家被提名者是否“即将被处决”。如果被提名者有足够被处决的票数，标记那名玩家“即将被处决”。告诉所有玩家可以睁开眼睛了，并继续处理接下来可能会有的提名。\n当一天的所有提名都结束时，宣布当前被标记了“即将被处决”的玩家被处决（并死亡，或因为其他原因没有死亡）。\n黄昏时，移除街头风琴手的醉酒提示标记。\n玩家不允许使用任何手段或方式来决定谁来投票，例如触碰或是声响。投票必须是秘密进行的。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Organ_Grinder"
+  "source_url": "https://wiki.bloodontheclocktower.com/Organ_Grinder",
+  "image": "assets/tokens/organ_grinder.png"
 }

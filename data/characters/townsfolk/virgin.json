@@ -68,5 +68,6 @@
     "en": "If the first player to ever nominate the Virgin is a Townsfolk, immediately declare that the nominating player is executed. That player dies—put a shroud on their character token in the Grimoire. The Virgin loses their ability—put the Virgin's NO ABILITY reminder token by the Virgin token. End the nomination process and proceed to the night phase. (No one else can be executed today.)",
     "cn": "如果首次提名贞洁者的玩家是镇民，立即宣布那名发起提名的玩家被处决。那名玩家死亡——在魔典中将帷幕标记放置在其角色标记上。贞洁者失去他的能力——将贞洁者的“失去能力”提示标记放置在其角色标记旁。终止提名流程并推进至夜晚阶段。（今天白天没有其他人能被处决。）\n如果首次提名贞洁者的玩家不是镇民，照常继续进行投票。贞洁者失去他的能力——将贞洁者的“失去能力”提示标记放置在其角色标记旁。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Virgin"
+  "source_url": "https://wiki.bloodontheclocktower.com/Virgin",
+  "image": "assets/tokens/virgin.png"
 }

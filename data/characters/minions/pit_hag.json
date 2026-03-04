@@ -71,5 +71,6 @@
     "en": "Each night except the first, wake the Pit-Hag. They point at any player and any character icon on their character sheet. Put the Pit-Hag to sleep.",
     "cn": "除首夜外的每个夜晚，唤醒麻脸巫婆。让她指向一名玩家和角色列表上的一个角色图标。让麻脸巫婆重新入睡。\n如果她选择的角色在场，无事发生。\n如果她选择的角色不在场，则唤醒所选玩家。依次向他展示“你是”信息标记、他的新角色标记，然后让他重新入睡。用新角色标记替换他的旧角色标记。（你可能需要倒置角色标记，表示玩家阵营与该角色原本阵营相反。同样你可能也需要通过手势来提醒玩家，他的阵营没有改变。）\n如果有玩家因此变成恶魔，你能在当晚杀死任意数量的玩家或阻止被恶魔攻击的玩家死亡来平衡游戏。由你选择且未被恶魔选择的玩家的死亡视为被麻脸巫婆杀死。\n如果麻脸巫婆将恶魔变成另一种恶魔，最好是让今晚无人死亡，以此来提示善良阵营恶魔的角色发生了变化。你可以在唤醒恶魔并让他选择攻击目标后，再决定无人死亡。如果麻脸巫婆创造了新的邪恶恶魔，最好杀死老恶魔和一名其他玩家，以此提示善良阵营恶魔玩家已经改变了。如果麻脸巫婆创造了善良恶魔，最好杀死一个恶魔（如果是最后一夜），或让两个恶魔一同肆虐（如果不是最后一夜）但由于所有恶魔都死亡善良阵营才能获胜，所以请谨慎使用这种方法。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Pit-Hag"
+  "source_url": "https://wiki.bloodontheclocktower.com/Pit-Hag",
+  "image": "assets/tokens/pit_hag.png"
 }

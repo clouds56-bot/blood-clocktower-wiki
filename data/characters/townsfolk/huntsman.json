@@ -52,5 +52,6 @@
     "en": "While setting up the game, before putting character tokens in\nthe bag, if the Damsel is not already in play, remove a Townsfolk\ncharacter token and add the Damsel character token.",
     "cn": "在进行游戏设置，将角色标记放进盲抽袋之前，如果落难少女不在即将要放入盲抽袋的这些角色之中，那么移除一个镇民角色标记，并加入落难少女。\n每个夜晚，唤醒巡山人。他要么摇头不使用能力，要么指向一名玩家。\n如果他摇头，那么让巡山人重新入睡。\n如果他指向了一名玩家，让巡山人重新入睡。巡山人现在失去能力——将“失去能力”提示标记放置在巡山人旁，并从夜晚顺序表旁移除他的夜晚标记。如果他选中了落难少女，那么唤醒落难少女，对她展示“你是”信息标记和一个不在场的镇民角色标记，然后让落难少女重新入睡。落难少女现在拥有这个镇民的能力，因此将这个镇民角色标记替换落难少女角色标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Huntsman"
+  "source_url": "https://wiki.bloodontheclocktower.com/Huntsman",
+  "image": "assets/tokens/huntsman.png"
 }

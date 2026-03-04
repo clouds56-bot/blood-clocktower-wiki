@@ -65,5 +65,6 @@
     "en": "During the first night, wake the Ogre. The Ogre points to a player. Put the Ogre to sleep. If the Ogre pointed to an evil player, flip the Ogre's character token upside down to represent that the Ogre is evil.",
     "cn": "在首个夜晚，唤醒食人魔。让食人魔指向一名玩家。让食人魔重新入睡。如果食人魔指向了一名邪恶玩家，将食人魔的角色标记倒转放置，代表食人魔现在属于邪恶阵营。\n可选规则：使用“挚友”提示标记来标记被食人魔选择的玩家。食人魔始终与他所选择的玩家同一阵营。如果食人魔的挚友转变了阵营，食人魔也一同转变阵营，但食人魔不会得知自己的阵营发生变化。该可选规则仅在15人及以上的游戏中建议使用，以使得游戏中不会出现过多的邪恶玩家。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Ogre"
+  "source_url": "https://wiki.bloodontheclocktower.com/Ogre",
+  "image": "assets/tokens/ogre.png"
 }

@@ -78,5 +78,6 @@
     "en": "During setup, remove all Minion tokens and add Townsfolk or Outsider tokens.",
     "cn": "在进行游戏设置时，将角色标记放入盲抽袋前，移除所有的爪牙角色标记，并加入等量的镇民或外来者角色标记作为补充。\n在首个夜晚，分别依次唤醒位于堤丰之首两侧的，等同于常规游戏爪牙数量加一的玩家。分别对这些玩家展示一个不同的爪牙角色标记和朝下的大拇指，再让他们重新入睡。再用展示给他们的爪牙角色标记替换魔典中这些玩家的善良角色标记。然后再如常进行爪牙信息和恶魔信息步骤。\n在除首个夜晚以外的每个夜晚，唤醒堤丰之首。让他指向任意一名玩家。那名玩家死亡——用“死亡”提示标记标记那名玩家。让堤丰之首重新入睡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Lord_of_Typhon"
+  "source_url": "https://wiki.bloodontheclocktower.com/Lord_of_Typhon",
+  "image": "assets/tokens/lord_of_typhon.png"
 }

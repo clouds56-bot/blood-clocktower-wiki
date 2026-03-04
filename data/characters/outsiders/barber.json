@@ -61,5 +61,6 @@
     "en": "If the Barber dies, mark them with the HAIRCUTS TONIGHT reminder.",
     "cn": "如果理发师死亡，为他放置“今晚理发”提示标记。\n在理发师死亡的夜晚，唤醒一名恶魔玩家。向他展示“该角色的能力对你生效”信息标记，理发师角色标记。恶魔要么摇头，要么指向两名玩家。让恶魔重新入睡。移除“今晚理发”。\n如果恶魔指向两名玩家，交换那两名玩家的角色标记。然后分别单独唤醒两名被交换的玩家，并展示“你是”信息标记、新的角色标记，再让他们重新入睡。如果玩家的新角色标记与其所属阵营颜色不同，将其倒置以代表相反阵营。\n如果一名善良玩家变成爪牙或恶魔，或者是一名邪恶的玩家变成镇民或外来者，你可能需要提醒他阵营未改变。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Barber"
+  "source_url": "https://wiki.bloodontheclocktower.com/Barber",
+  "image": "assets/tokens/barber.png"
 }

@@ -64,5 +64,6 @@
     "en": "Each day, if the Gossip makes a definite, true public statement, put the Gossip’s DEAD reminder in the center of the left side of the Grimoire as a reminder to yourself to place it tonight.",
     "cn": "每个白天，如果造谣者发表了一个明确且正确的公开声明，将造谣者的“死亡”提示标记放置到魔典左侧的中央，来提醒自己当晚需要放置该标记。\n除了首个夜晚以外的每个夜晚，如果今天白天造谣者发表了一个明确且正确的公开声明，你选择任意一名玩家死亡——将“死亡”提示标记放置到该玩家的角色标记旁。\n在选择因造谣者能力而死亡的玩家时，我们推荐你选择能够死亡的角色，不要选择那些受到能力保护而无法死亡的角色（例如弄臣或茶艺师的能力）。当声明造成死亡时，造谣者才能得到更多信息。这对善良阵营更有帮助，也会让游戏更加有趣。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Gossip"
+  "source_url": "https://wiki.bloodontheclocktower.com/Gossip",
+  "image": "assets/tokens/gossip.png"
 }

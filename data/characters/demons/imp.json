@@ -76,5 +76,6 @@
     "en": "Each night except the first, wake the Imp. The Imp points at any player. Put the Imp to sleep. The chosen player dies—put the Imp's DEAD reminder by the chosen player's character token in the Grimoire and put a shroud on it.",
     "cn": "除首个夜晚以外的每个夜晚，唤醒小恶魔。让小恶魔指向任意一名玩家。让小恶魔重新入睡。被选择的玩家死亡——在那名玩家的角色标记旁放置小恶魔的“死亡”提示标记并放置帷幕标记。\n如果小恶魔选择在夜里自杀，用多出来的小恶魔标记替换一名存活的爪牙玩家的角色标记，让那名玩家的角色改变为小恶魔。唤醒新的小恶魔，向他展示“你是”信息标记，然后向他展示小恶魔角色标记。让新的小恶魔重新入睡。\n在黎明时，宣布有哪名玩家在夜晚死去。（不要说明死亡原因。）\n如果小恶魔选择在夜晚攻击一名已死亡的玩家，允许他这么做。当一个角色能力描述中提及“选择一名玩家”，意味着任何玩家——无论存活或是死亡——都能被选择。小恶魔可能在计划伪装成士兵，而这种情形下会让他的谎言看起来更加可信。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Imp"
+  "source_url": "https://wiki.bloodontheclocktower.com/Imp",
+  "image": "assets/tokens/imp.png"
 }

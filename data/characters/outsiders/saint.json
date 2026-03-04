@@ -51,5 +51,6 @@
     "en": "If the Saint dies by execution, declare that the game ends and evil wins.",
     "cn": "如果圣徒因处决而死亡，宣布游戏结束且邪恶阵营获胜。\n圣徒的能力中有特定的描述“你的阵营落败”。在《暗流涌动》里，这始终意味着“邪恶阵营获胜”，因为圣徒始终会是善良角色。在其他剧本中，可能会让角色改变阵营。如果一名邪恶的圣徒被处决，善良阵营获胜。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Saint"
+  "source_url": "https://wiki.bloodontheclocktower.com/Saint",
+  "image": "assets/tokens/saint.png"
 }

@@ -58,5 +58,6 @@
     "en": "Once per day, if the Savant requests a private chat with you, take them away from the circle so you cannot be overheard. Whisper two pieces of information, one true and one false, to the Savant. (If you cannot think of two straight away, either take your time or ask them to come back in a few minutes.)",
     "cn": "如果贤者被恶魔杀死，唤醒贤者。指向两名玩家，其中一名是杀死贤者的恶魔。让贤者重新入睡。\n如果贤者在游戏前期死亡，你可能会想给贤者展示两名存活玩家，因为这能让邪恶阵营仍然有微弱的获胜机会。如果贤者在游戏的最后一个夜晚死去，你可以指向一名存活玩家和一名已死亡的玩家。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Savant"
+  "source_url": "https://wiki.bloodontheclocktower.com/Savant",
+  "image": "assets/tokens/savant.png"
 }

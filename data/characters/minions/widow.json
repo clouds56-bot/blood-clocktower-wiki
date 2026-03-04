@@ -84,5 +84,6 @@
     "en": "While preparing the first night, mark a good player with the KNOW reminder.",
     "cn": "在为首个夜晚进行准备时，将寡妇的“得知”提示标记放置在任意一名善良玩家旁。\n在首个夜晚，唤醒寡妇并对她展示魔典。她可以按照自己意愿的时长来查看魔典。随后，让寡妇指向魔典上的一个角色标记，或一名玩家。使用寡妇的“中毒”提示标记标记那名玩家，他开始中毒。让寡妇重新入睡。\n然后唤醒那名被放置“得知”的善良玩家。对他展示寡妇角色标记，然后让这名玩家入睡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Widow"
+  "source_url": "https://wiki.bloodontheclocktower.com/Widow",
+  "image": "assets/tokens/widow.png"
 }

@@ -74,5 +74,6 @@
     "en": "Each night, wake the Harpy. The Harpy points to one player, then another player. Mark the first player with the MAD reminder and the second player with the 2ND reminder. Put the Harpy to sleep. Wake the player marked MAD. Show the THIS CHARACTER SELECTED YOU info token then the Harpy token, then point to the player marked 2ND. Put the player marked “Mad” to sleep.",
     "cn": "每个夜晚，唤醒鹰身女妖。让鹰身女妖指向一名玩家，再指向另一名玩家。用“疯狂”提示标记标记第一名玩家，并用“第二名”提示标记标记第二名玩家。让鹰身女妖重新入睡。唤醒标记了“疯狂”的玩家。对他展示“该角色的能力对你生效”信息标记，以及鹰身女妖的角色标记。然后指向标记了“第二名”的玩家。让这名玩家重新入睡。\n明天，如果标记了“疯狂”的玩家没有“疯狂”地证明标记了“第二名”的玩家是邪恶阵营，你可以杀死这两名玩家其中的一人或全部。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Harpy"
+  "source_url": "https://wiki.bloodontheclocktower.com/Harpy",
+  "image": "assets/tokens/harpy.png"
 }

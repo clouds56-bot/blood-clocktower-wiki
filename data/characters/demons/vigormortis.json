@@ -63,5 +63,6 @@
     "en": "While setting up the game, before putting the character tokens in the bag, remove one Outsider character token and add one Townsfolk character token. (If there are no Outsider tokens to remove, do not add a Townsfolk token.)",
     "cn": "在初始设置时，将角色标记放入盲抽袋前，把一个外来者角色标记替换为一个镇民角色标记。（如果没有可以移除的外来者标记，则不需要添加镇民标记。）\n除首个夜晚外的每个夜晚，唤醒亡骨魔。让亡骨魔指向一名玩家。让亡骨魔重新入睡。如果被选择的玩家不是爪牙，为那名玩家放置“死亡”提示标记。\n如果被选择的玩家是爪牙，为那名玩家放置“死亡”和“保留能力”提示标记。距离爪牙顺时针或逆时针最近的镇民玩家中毒，为该镇民玩家放置“中毒”提示标记。（顺时针和逆时针分别判断最近的一个镇民，并取这两个镇民的其中之一）"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Vigormortis"
+  "source_url": "https://wiki.bloodontheclocktower.com/Vigormortis",
+  "image": "assets/tokens/vigormortis.png"
 }

@@ -73,5 +73,6 @@
     "en": "Each night, wake the Cerenovus. They point at any player and at any Townsfolk or Outsider icon on their character sheet. Put the Cerenovus to sleep. Mark the chosen player with the MAD reminder. Wake this player, show them the THIS CHARACTER SELECTED YOU info token, then the Cerenovus token, then the character token of the character they are mad about being. Put that player to sleep.",
     "cn": "每个夜晚，唤醒洗脑师。让洗脑师指向一名玩家和角色列表上一个镇民或外来者图标。让洗脑师重新入睡。为这名玩家放置“疯狂”提示标记并唤醒这名玩家，依次向他展示“该角色的能力对你生效”信息标记、洗脑师的角色标记、他要疯狂证明的角色标记。让那名玩家重新入睡。\n在下一个白天或夜晚，如果被选择的玩家没有尽最大努力去说服其他玩家他是被选择的角色，你就可以处决他。向所有玩家宣布他的死亡。如果你在白天的常规处决前处决了他，则直接进入夜晚阶段。（每个白天最多一次处决。）"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Cerenovus"
+  "source_url": "https://wiki.bloodontheclocktower.com/Cerenovus",
+  "image": "assets/tokens/cerenovus.png"
 }

@@ -53,5 +53,6 @@
     "en": "If the Golem nominates a non-Demon, that player dies, then the vote continues as normal. Mark the Golem with the MAY NOT NOMINATE reminder.",
     "cn": "如果魔像提名了一名非恶魔玩家，那名玩家死亡，投票会继续正常进行。使用“无法提名”标记标记魔像。\n如果魔像提名了一名恶魔玩家，投票继续正常进行。（不要说明原因）使用“无法提名”标记标记魔像。\n如果魔像意外地在无法提名的时候这么做了，你可以接受或拒绝这项提名。最好来说是拒绝这项提名，前提是这不会证明是否真的有魔像在场。为了让游戏变得更加公平，即使玩家是在伪装成魔像，也应该提醒他们不能进行多于一次的提名。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Golem"
+  "source_url": "https://wiki.bloodontheclocktower.com/Golem",
+  "image": "assets/tokens/golem.png"
 }

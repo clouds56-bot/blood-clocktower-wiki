@@ -55,5 +55,6 @@
     "en": "If the Sweetheart dies, you choose any one player to become drunk - mark this player with the DRUNK reminder. The Sweetheart does not lose this ability when dead.",
     "cn": "如果心上人死亡，你选择任一玩家醉酒，为他放置“醉酒”提示标记。心上人在死亡时不会失去该能力。\n你在选择醉酒玩家时通常都应该选择镇民，这样可以给善良阵营制造些麻烦。但如果邪恶阵营优势巨大，你也可以让外来者，爪牙甚至恶魔醉酒。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Sweetheart"
+  "source_url": "https://wiki.bloodontheclocktower.com/Sweetheart",
+  "image": "assets/tokens/sweetheart.png"
 }

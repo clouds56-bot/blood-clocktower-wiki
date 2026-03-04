@@ -61,5 +61,6 @@
     "en": "During any day, the Artist can request a private chat with you. Take them away from the circle so you cannot be overheard. They will ask you a question. Whisper “Yes,” “No,” or “I don’t know,” to them, or if you cannot answer in one of these ways, prompt the Artist to ask again in a different way. The Artist loses their ability - mark them with the NO ABILITY reminder.",
     "cn": "在任何一个白天，艺术家都可以要求与你进行私聊。请和他一同离开玩家围成的圆圈以保证你们的私聊不会被偷听。艺术家会问你一个问题。你需要以耳语的方式回答他“是”、“不是”或“我不知道”。如果你不能用这三种答案进行回答，让他重新问一个问题。艺术家在使用他的能力之后，为他放置“失去能力”提示标记。\n与博学者一样，伪装成艺术家的邪恶玩家可能会要求与你私下聊天并假装提出问题。为了帮助他伪装角色，你可以通过点头或摇头来假装给出答案。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Artist"
+  "source_url": "https://wiki.bloodontheclocktower.com/Artist",
+  "image": "assets/tokens/artist.png"
 }

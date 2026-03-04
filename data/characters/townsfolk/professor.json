@@ -56,5 +56,6 @@
     "en": "Each night except the first, wake the Professor. The Professor either shakes their head no or points to a dead player. Put the Professor to sleep.",
     "cn": "除首夜以外的夜晚，唤醒教授。教授要么摇头表示不使用能力，要么指向一名已死亡的玩家。让教授重新入睡。\n如果教授选择了一名已死亡的镇民，所选玩家再次变成存活状态——将教授的“复活”提示标记放置到该玩家的角色标记旁，并移除其帷幕标记。（如果被复活的玩家其角色在当晚的后续时段中应该被唤醒，则照常唤醒。如果该玩家的角色只会在首个夜晚被唤醒，则立即唤醒该玩家来使用自己的能力。）黎明时，在宣布哪些玩家死亡后，宣布哪些玩家再次变成存活状态了。（不要说明原因。）教授失去自己的能力——将“失去能力”提示标记放置到教授的角色标记旁，并从夜晚顺序表上移除其夜晚标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Professor"
+  "source_url": "https://wiki.bloodontheclocktower.com/Professor",
+  "image": "assets/tokens/professor.png"
 }

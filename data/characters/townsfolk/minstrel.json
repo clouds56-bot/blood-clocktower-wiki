@@ -52,5 +52,6 @@
     "en": "During the day, if a Minion dies by execution, all other players except Travellers become drunk—put the Minstrel’s EVERYONE IS DRUNK reminder in the center of the left side of the Grimoire.",
     "cn": "在白天，如果一名爪牙玩家死于处决，除旅行者外的所有其他玩家都醉酒——将吟游诗人的“全员醉酒”提示标记放置到魔典左侧的中央。\n在下一天的黄昏，所有因吟游诗人醉酒的玩家恢复清醒——移除“全员醉酒”提示标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Minstrel"
+  "source_url": "https://wiki.bloodontheclocktower.com/Minstrel",
+  "image": "assets/tokens/minstrel.png"
 }

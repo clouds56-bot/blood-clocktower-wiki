@@ -54,5 +54,6 @@
     "en": "At any time, you may decide that the Tinker dies. If this is during the day, immediately declare that the Tinker has died. If this is during the night, mark the Tinker with the DEAD reminder and wait until dawn to declare which players died during the night. (Do not say how.)",
     "cn": "在任何时候，你都可以决定让修补匠死亡。如果是在白天，立即宣布修补匠刚刚死亡。如果是在夜晚，将“死亡”提示标记放置到修补匠的角色标记旁，等到黎明再宣布这个夜晚有哪些玩家死亡了。（不要说出修补匠的死亡原因。）\n虽然你可以在白天冷不丁地杀死修补匠，但是修补匠还是死在夜晚会更有意思，因为玩家们会想知道修补匠到底是因为自己的能力死亡的，还是因为别的什么原因。 \n你可以一直不杀死修补匠。这会让他看起来非常可疑。 \n如果杀死修补匠会导致游戏结束，那我们推荐你永远不要在这种情况下杀死他。游戏的获胜与否应当靠玩家自己的努力，而不是看说书人的脸色。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Tinker"
+  "source_url": "https://wiki.bloodontheclocktower.com/Tinker",
+  "image": "assets/tokens/tinker.png"
 }

@@ -61,5 +61,6 @@
     "en": "Each night, wake the Pukka. They point at any player. Put the Pukka to sleep. The chosen player is poisoned—mark them with a POISONED reminder.",
     "cn": "每个夜晚，唤醒普卡。让普卡指向任意一名玩家。让普卡重新入睡。所选玩家中毒——将“中毒”提示标记放置到该玩家的角色标记旁。\n除了首个夜晚以外的每个夜晚，其他标有普卡的“中毒”提示标记的玩家死亡——将“死亡”提示标记放置到这些玩家的角色标记旁，然后移除他们的“中毒”提示标记。\n被普卡杀死的玩家在死亡时仍然中毒。如果有来自其他剧本的角色，你可能需要将“中毒”标记保留在“死亡”标记旁，直到这些角色的死亡能力结算完毕。例如，如果普卡杀死了贤者，贤者可能会因为中毒效果而获得错误信息。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Pukka"
+  "source_url": "https://wiki.bloodontheclocktower.com/Pukka",
+  "image": "assets/tokens/pukka.png"
 }

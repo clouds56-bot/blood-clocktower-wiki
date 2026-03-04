@@ -67,5 +67,6 @@
     "en": "If a player dies by execution, put the Undertaker's DIED TODAY reminder token by the dead player's character token.",
     "cn": "如果一名玩家死于处决，将送葬者的“死于今日”提示标记放置在那名死亡玩家的角色标记旁。\n除首个夜晚以外的每个夜晚，如果当天有任何玩家死于处决，唤醒送葬者。向他展示被标记了“死于今日”的角色标记。让送葬者重新入睡。在说书人方便的时候，移除送葬者的提示标记。\n在《暗流涌动》里，每个白天只会有一场处决，且每次处决都会导致一名玩家死亡。在其他剧本中，每天可能会有多于一次的处决（在这种情形下由说书人决定向送葬者展示其中的哪一个角色标记），或发生了处决但并未导致死亡（在这种情形下送葬者不会得知任何消息）。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Undertaker"
+  "source_url": "https://wiki.bloodontheclocktower.com/Undertaker",
+  "image": "assets/tokens/undertaker.png"
 }

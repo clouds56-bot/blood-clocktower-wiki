@@ -60,5 +60,6 @@
     "en": "During the night, if the Demon attacks the Soldier, the Soldier remains alive. (At dawn, declare that no one died at night.)",
     "cn": "在夜晚时，如果恶魔攻击了士兵，士兵仍然存活。（在黎明时，宣布当晚没有人死亡。）\n在其他剧本中，恶魔可能会拥有除杀死以外的其他能力。士兵的保护能力同样可以阻止恶魔的其他有害效果，例如让士兵中毒或将士兵转变为邪恶阵营。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Soldier"
+  "source_url": "https://wiki.bloodontheclocktower.com/Soldier",
+  "image": "assets/tokens/soldier.png"
 }

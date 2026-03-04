@@ -72,5 +72,6 @@
     "en": "During the first night, wake the Lleech. They point at any player. That player is poisoned—mark them with the POISONED reminder. Put the Lleech to sleep.",
     "cn": "在首个夜晚，唤醒痢蛭。让痢蛭指向任意一名玩家。被他选择的玩家中毒——将“中毒”提示标记放置在被选择的玩家角色标记旁。让痢蛭重新入睡。\n除首个夜晚以外的每个夜晚，唤醒痢蛭。让痢蛭指向任意一名玩家。被选择的玩家死亡——在那名玩家的角色标记旁放置痢蛭的“死亡”提示标记并放置帷幕标记。让痢蛭重新入睡。\n如果痢蛭即将死去，但是被痢蛭的“中毒”提示标记的玩家仍然存活，痢蛭不会死亡。如果标记了痢蛭的“中毒”提示标记的玩家死亡，那么痢蛭死亡，善良阵营获胜。\n当向中毒的善良玩家提供错误信息时，请确保这个信息看起来是正确的。如果这名善良玩家认为这个信息是错误的，他会迅速处决自己并获胜。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Lleech"
+  "source_url": "https://wiki.bloodontheclocktower.com/Lleech",
+  "image": "assets/tokens/lleech.png"
 }

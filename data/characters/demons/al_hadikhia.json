@@ -70,5 +70,6 @@
     "en": "Each night except the first, wake the Al-Hadikhia. They may point at three players. If they do, mark these players with the 1, 2 and 3 reminders, in the order the Al-Hadikhia chose. Put the Al-Hadikhia to sleep. Wake the player marked 1 and say “The Al-Hadikhia has chosen” then the name of the player, then “Do you choose to live?” They either nod or shake their head. Put them to sleep. If they chose to live, remove their shroud (if any), and if they choose to die, add a shroud. Repeat for players marked 2 then 3. If all three players are alive (none of them have a shroud) then add a shroud to all three. They die. Declare that the time of silence has ended.",
     "cn": "除首个夜晚外的每个夜晚，唤醒哈迪寂亚。哈迪寂亚要么摇头表示不选择任何人，要么指向任意三名玩家。让哈迪寂亚重新入睡。如果哈迪寂亚没有选择任何人，直接跳过并结束哈迪寂亚的行动，夜晚继续进行。如果哈迪寂亚选择了三名玩家，将这三名被选择的玩家依照哈迪寂亚的选择顺序依次放置“1”、“2”、“3”提示标记。\n根据哈迪寂亚的选择顺序，唤醒第一名玩家。对所有玩家宣布“哈迪寂亚选择了某某某”（玩家的名字），然后询问“你是否想要活着？”那名玩家需要给出自己的选择：点头代表活着，摇头代表死去。让那名玩家重新入睡。如果玩家选择了“活着”，那么如果该玩家已死亡，移除该玩家在魔典中的帷幕标记。如果玩家选择了“死去”，那么如果该玩家存活，在魔典中为该玩家放置帷幕标记（在哈迪寂亚能够杀死该玩家的情况下）。\n分别为第二名和第三名玩家进行同样的结算。\n如果在结算完这三名玩家的选择后，这三名玩家全部处于存活状态，那么在这些玩家的角色标记上放置帷幕标记。他们现在都死亡。\n在黎明时，如常宣布生死状态的改变情况：宣布黄昏时存活但黎明时死亡的玩家死亡，宣布黄昏时死亡但黎明时存活的玩家复活。让这些玩家在城镇广场面板上更新自己的生命标记和投票标记状态。\n如有必要，你可以让所有玩家在哈迪寂亚的能力生效期间保持安静。这也包含了通过语言之外的方式发出的声音。这样可以阻止玩家向他人传递自己选择了存活与否的信号。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Al-Hadikhia"
+  "source_url": "https://wiki.bloodontheclocktower.com/Al-Hadikhia",
+  "image": "assets/tokens/al_hadikhia.png"
 }

@@ -59,5 +59,6 @@
     "en": "If the Demon dies and there were five or more alive players immediately before the Demon died, replace the Scarlet Woman token with a spare Imp token, changing that player's character from the Scarlet Woman into the Imp. (They are now the Demon and have the Imp's ability. If they die, good wins.)",
     "cn": "如果恶魔死亡，且在恶魔死前有五名或更多的存活玩家，在魔典中用闲置的小恶魔标记替换红唇女郎的标记，也意味着那名玩家的角色从红唇女郎变成了小恶魔。（她现在是恶魔，且具有恶魔的能力。如果她死亡，善良阵营获胜。）\n在当晚，唤醒新的小恶魔，向她展示“你是”信息标记，然后向她展示小恶魔角色标记。\n在《暗流涌动》里，只有一种恶魔——小恶魔。在其他剧本中，可能会有多种不同的恶魔。如果红唇女郎变成了恶魔，她一定会变成与刚死去的恶魔同一种类的恶魔，并获得这种恶魔的能力。当这种情况发生时，使用红唇女郎的“是恶魔”提示标记标记红唇女郎现在是恶魔，并参照对应的恶魔介绍里的“运作方式”来进行相关操作。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Scarlet_Woman"
+  "source_url": "https://wiki.bloodontheclocktower.com/Scarlet_Woman",
+  "image": "assets/tokens/scarlet_woman.png"
 }

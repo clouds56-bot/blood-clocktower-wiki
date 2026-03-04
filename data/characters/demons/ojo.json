@@ -63,5 +63,6 @@
     "en": "Each night except the first, wake the Ojo. The Ojo player points to a character icon on their character sheet. If that character is in play, that player dies—mark them with the “Dead” reminder. If that character is not in play, choose any player. That player dies—mark them with the “Dead” reminder. Put the Ojo to sleep.",
     "cn": "除首个夜晚以外的每个夜晚，唤醒奥赫。让奥赫指向角色列表上的一个角色标记。如果被选择的角色在场，对应的玩家死亡——使用“死亡”提示标记标记那名玩家。如果被选择的角色不在场，那么改为你来选择任意一名玩家，那名玩家死亡——使用“死亡”提示标记标记那名玩家。让奥赫重新入睡。\n如果奥赫所在的剧本包含能够在同一个夜晚进行多次杀戮的恶魔，例如沙巴洛斯，并且奥赫选择了一个不在场的角色，你可以杀死超过一名玩家。这可以帮助奥赫伪装成另一种恶魔。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Ojo"
+  "source_url": "https://wiki.bloodontheclocktower.com/Ojo",
+  "image": "assets/tokens/ojo.png"
 }

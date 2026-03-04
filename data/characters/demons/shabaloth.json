@@ -62,5 +62,6 @@
     "en": "Each night except the first, wake the Shabaloth. They point at any two players, one at a time. Put the Shabaloth to sleep. In the order chosen, each chosen player dies—mark them with DEAD reminders.",
     "cn": "除了首个夜晚以外的每个夜晚，唤醒沙巴洛斯。让沙巴洛斯依次指向任意两名玩家，每次一名。让沙巴洛斯重新入睡。按照选择的顺序，每名所选玩家依次死亡——将“死亡”提示标记放置到这些玩家的角色标记旁。\n之后的每个夜晚，在唤醒沙巴洛斯前，你可以选择一个标有沙巴洛斯的“死亡”标记的角色，该角色再次变成存活——将“死亡”标记替换成沙巴洛斯的“复活”标记，并移除其帷幕标记。如果正常情况下该玩家会被唤醒，则在当晚的后续时段中照常唤醒。如果该玩家只在首个夜晚被唤醒，则现在就唤醒该玩家让他使用自己的能力。黎明时，在宣布哪些玩家死亡后，宣布哪些玩家复活了。（不要说明原因。）\n因为沙巴洛斯不能反刍自己——角色在死亡时没有能力——最好只是让沙巴洛斯偶尔进行反刍。每局游戏一次，或者两次，通常已经足够了。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Shabaloth"
+  "source_url": "https://wiki.bloodontheclocktower.com/Shabaloth",
+  "image": "assets/tokens/shabaloth.png"
 }

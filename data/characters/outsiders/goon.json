@@ -54,5 +54,6 @@
     "en": "At night, if a player chooses to use their ability on the Goon and nobody is marked with the Goon’s DRUNK reminder, this player immediately becomes drunk—mark them with the DRUNK reminder. Finish resolving this player’s ability and put them to sleep. If this player’s alignment is different from the Goon’s alignment, rotate the Goon’s character token—right side up for good, upside-down for evil—to match this player’s alignment, then wake the Goon, give them a thumbs-up or a thumbs-down (indicating their new alignment), then put the Goon to sleep.",
     "cn": "在夜晚，如果一名玩家用自己的能力选择了莽夫，并且莽夫的“醉酒”提示标记未激活，那么该玩家立即醉酒——将“醉酒”标记放置到该玩家角色标记旁。完成该玩家的能力结算并让他重新入睡。如果该玩家与莽夫阵营不同，旋转莽夫的角色标记（正向放置代表善良，颠倒放置代表邪恶）以符合他的阵营，然后唤醒莽夫，对他做出拇指手势（指明他的新阵营），然后让莽夫重新入睡。\n在下一个黄昏，因莽夫而醉酒的玩家恢复清醒——移除莽夫的“醉酒”提示标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Goon"
+  "source_url": "https://wiki.bloodontheclocktower.com/Goon",
+  "image": "assets/tokens/goon.png"
 }

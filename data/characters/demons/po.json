@@ -53,5 +53,6 @@
     "en": "Each night except the first, wake the Po. They either shake their head no or point at any player. Put the Po to sleep. If they shook their head no, mark the Po with the 3 ATTACKS reminder. If they chose a player, that player dies—mark them with a DEAD reminder.",
     "cn": "除了首个夜晚以外的每个夜晚，唤醒珀。珀要么摇头表示不选择任何人，要么指向任意一名玩家。让珀重新入睡。如果珀没有选择任何人，将“攻击三次”提示标记放置到珀的角色标记旁。如果珀选择了一名玩家，该玩家死亡——将“死亡”提示标记放置到该玩家的角色标记旁。\n如果唤醒珀行动时标有“攻击三次”，让珀依次指向三名玩家，每次一名。按照选择的顺序，每名所选玩家依次死亡——将“死亡”提示标记放置到这些玩家的角色标记旁。移除“攻击三次”提示标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Po"
+  "source_url": "https://wiki.bloodontheclocktower.com/Po",
+  "image": "assets/tokens/po.png"
 }

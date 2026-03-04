@@ -66,5 +66,6 @@
     "en": "While the Vortox is alive, you must give false information whenever a Townsfolk ability prompts you to give information.",
     "cn": "只要涡流存活，每当有镇民因为能力需要你提供信息，你就必须提供错误信息。\n除首个夜晚外的每个夜晚，唤醒涡流。让涡流指向一名玩家，将该玩家杀死。该玩家死亡，在他角色标记旁放置“死亡”提示标记。让涡流重新入睡。\n每个黄昏，如果今天白天没有玩家被处决，游戏结束，邪恶阵营获胜。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Vortox"
+  "source_url": "https://wiki.bloodontheclocktower.com/Vortox",
+  "image": "assets/tokens/vortox.png"
 }

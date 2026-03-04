@@ -55,5 +55,6 @@
     "en": "Each night, wake the Preacher. They point to a player. Put the Preacher to sleep. If the Preacher choose a Minion, mark that Minion with a NO ABILITY reminder, wake the Minion and show them the THIS CHARACTER SELECTED YOU info token then the Preacher token, then put them to sleep.",
     "cn": "每个夜晚，唤醒传教士并让他选择一名玩家。如果他选中一名爪牙，在那名爪牙的角色标记旁放置“失去能力”提示标记。让传教士重新入睡。如可能，则唤醒今晚被传教士选中的爪牙，向他展示“该角色的能力对你生效”信息标记以及传教士角色标记。让这名爪牙重新入睡。\n在传教士存活期间，所有被标记“失去能力”的爪牙不会拥有能力。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Preacher"
+  "source_url": "https://wiki.bloodontheclocktower.com/Preacher",
+  "image": "assets/tokens/preacher.png"
 }

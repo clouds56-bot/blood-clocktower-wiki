@@ -55,5 +55,6 @@
     "en": "Each night except the first, wake the Assassin. They either shake their head no or point at any player. Put the Assassin to sleep.",
     "cn": "除了首个夜晚以外的每个夜晚，唤醒刺客。刺客要么摇头表示不使用能力，要么指向任意一名玩家。让刺客重新入睡。\n如果刺客选择了玩家，该玩家死亡——将“死亡”提示标记放置到该玩家的角色标记旁。本次死亡不能通过任何方式来防止（除非刺客没有了能力，例如醉酒或中毒）。刺客失去自己的能力——将“失去能力”提示标记放置到刺客的角色标记旁，并从夜晚顺序表上移除其夜晚标记。（刺客不会再被唤醒。）"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Assassin"
+  "source_url": "https://wiki.bloodontheclocktower.com/Assassin",
+  "image": "assets/tokens/assassin.png"
 }

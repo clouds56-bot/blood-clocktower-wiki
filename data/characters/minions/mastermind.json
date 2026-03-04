@@ -62,5 +62,6 @@
     "en": "If the Demon is executed and dies, and the game would end, continue playing the game. (Add a shroud as normal. Do not say that the Demon has died.)",
     "cn": "如果恶魔死于处决且游戏即将结束，继续进行游戏。（如常添加帷幕标记。不要说出恶魔已经死了。）\n明天，如果一名善良玩家被处决，宣布游戏结束且邪恶阵营获胜，但是如果一名邪恶玩家被处决，或没有玩家被处决，宣布游戏结束且善良阵营获胜。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Mastermind"
+  "source_url": "https://wiki.bloodontheclocktower.com/Mastermind",
+  "image": "assets/tokens/mastermind.png"
 }

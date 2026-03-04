@@ -72,5 +72,6 @@
     "en": "If the game ends and the evil team would have won, declare that the good team wins and the evil team loses.",
     "cn": "如果游戏结束且邪恶阵营即将获胜，宣布善良阵营获胜，邪恶阵营落败。\n如果游戏结束且善良阵营即将获胜，宣布邪恶阵营获胜，善良阵营落败。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Heretic"
+  "source_url": "https://wiki.bloodontheclocktower.com/Heretic",
+  "image": "assets/tokens/heretic.png"
 }

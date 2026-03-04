@@ -66,5 +66,6 @@
     "en": "While setting up the game, remove any two Townsfolk character tokens and add any two Outsider character tokens. (If you add the Drunk, remember to follow its setup instructions as well.) These Outsider tokens go into the bag instead of the Townsfolk tokens.",
     "cn": "在游戏设置时，移除任意两个镇民角色标记，并添加任意两个外来者角色标记。（如果你添加了酒鬼，请记得同样需要依照酒鬼的初始设置方法进行设置步骤。）这些外来者角色标记会作为镇民角色标记的替代放入盲抽袋中。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Baron"
+  "source_url": "https://wiki.bloodontheclocktower.com/Baron",
+  "image": "assets/tokens/baron.png"
 }

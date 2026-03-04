@@ -67,5 +67,6 @@
     "en": "When the first night has ended, declare that the Vizier is in play, and which player it is.",
     "cn": "当首个夜晚结束时，对所有玩家宣布维齐尔在场，并告知是哪一名玩家。\n如果一次提名的投票统计结束，且至少有一名善良玩家参与投票，且维齐尔宣布被提名者被处决，那么那名玩家被处决并死亡。今天白天不会再发生更多的提名，投票和处决了。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Vizier"
+  "source_url": "https://wiki.bloodontheclocktower.com/Vizier",
+  "image": "assets/tokens/vizier.png"
 }

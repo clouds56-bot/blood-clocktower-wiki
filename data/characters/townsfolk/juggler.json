@@ -59,5 +59,6 @@
     "en": "During the first day, if the Juggler declares that they are using their ability, then you enter the circle, holding the Grimoire. The Juggler can make up to five guesses, each of any one player and any one character. For each correct guess, mark the Juggler with a CORRECT reminder. (Make sure the players don’t see how many reminders you’re placing.)",
     "cn": "在第一个白天，如果杂耍艺人声明使用他的能力，你需要拿着魔典进入玩家围成的圆圈内。杂耍艺人最多可以做出五次猜测，每次猜测选择一名玩家和一个角色。对于每个正确的猜测，放置一枚“猜测正确”提示标记在杂耍艺人角色标记旁。（确保其他玩家不会看到你放置了几枚提示标记。）\n当晚，唤醒杂耍艺人。对他用手势比划等同于“猜测正确”提示标记的数量（0，1，2 等）。让杂耍艺人重新入睡。在稍后说书人方便的时候，移除所有“猜测正确”提示标记以及杂耍艺人的夜晚标记。\n如果杂耍艺人猜的太快，让他放慢速度。 \n如果邪恶玩家伪装成杂耍艺人，在他假装进行猜测时，你可以在魔典中假装四处移动标记来协助他进行伪装。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Juggler"
+  "source_url": "https://wiki.bloodontheclocktower.com/Juggler",
+  "image": "assets/tokens/juggler.png"
 }

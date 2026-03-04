@@ -69,5 +69,6 @@
     "en": "Each night, wake the Fearmonger. They point at any player. Put the Fearmonger to sleep. Mark the chosen player with the FEAR reminder. If the Fearmonger chose a player who wasn’t already marked with the FEAR reminder, declare that “The Fearmonger has chosen a player.” (This informs the group that the Fearmonger is alive and has chosen a new player.)",
     "cn": "每个夜晚，唤醒恐惧之灵。让他指向任意一名玩家。让恐惧之灵重新入睡。在被恐惧之灵选择的玩家的角色标记旁放置“恐惧”提示标记。如果恐惧之灵此次选择的玩家在选择前没有放置“恐惧”提示标记，则宣布“恐惧之灵选择了一名玩家”。（这会告诉所有玩家恐惧之灵现在存活并且选择了新的目标。）\n如果恐惧之灵提名并因此处决了一名标记有“恐惧”的玩家，宣布游戏结束以及哪一方阵营获得了胜利。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Fearmonger"
+  "source_url": "https://wiki.bloodontheclocktower.com/Fearmonger",
+  "image": "assets/tokens/fearmonger.png"
 }

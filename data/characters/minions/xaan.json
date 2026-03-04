@@ -71,5 +71,6 @@
     "en": "While setting up the game, before putting character tokens in the bag, add or remove any number of Outsider tokens, including zero. Remove any unnecessary Xaan reminders.",
     "cn": "在游戏设置时，加入或移除任意数量的外来者角色标记，也可以不变。确认角色标记的总数量和玩家数量匹配。移除所有不需要使用的限的提示标记。\n在首个夜晚，把“第一晚”提示标记放置在限的角色标记旁。在第二个夜晚，把“第二晚”提示标记替换“第一晚”提示标记。在第三个夜晚，把“第三晚”提示标记替换“第二晚”提示标记……在和初始外来者数量等同的那个夜晚，把“大限将至”提示标记放置在魔典中央，并在下个黄昏移除。当“大限将至”提示标记被放置时，所有镇民玩家中毒。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Xaan"
+  "source_url": "https://wiki.bloodontheclocktower.com/Xaan",
+  "image": "assets/tokens/xaan.png"
 }

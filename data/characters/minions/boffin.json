@@ -72,5 +72,6 @@
     "en": "While setting up the game, before putting character tokens in the bag, make any changes that are indicated in brackets on the Demon's two character abilities. Afterwards, place this second character token by the Demon character token.",
     "cn": "在进行游戏设置时，将角色标记放入盲抽袋前，决定好恶魔获得的角色能力，并为恶魔本身和获得的角色能力做出相应的设置调整。在将角色标记收回并放入魔典后，将恶魔获得的能力对应的角色标记放置在恶魔的角色标记旁。\n在首个夜晚，唤醒科学怪人和恶魔。对他们展示“该角色的能力对你生效”信息标记，然后是科学怪人的角色标记，再是恶魔获得能力的那个善良角色标记。在展示后将这个善良角色标记放回到恶魔的角色标记旁。\n按照恶魔具有这个善良角色的能力一样来进行运作，同时恶魔还具有自己本身的能力。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Boffin"
+  "source_url": "https://wiki.bloodontheclocktower.com/Boffin",
+  "image": "assets/tokens/boffin.png"
 }

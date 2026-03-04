@@ -36,5 +36,6 @@
     "en": "During the setup phase, remove the Demon and add a Townsfolk.",
     "cn": "在设置阶段，将恶魔角色标记移除，并加入一个镇民角色标记。\n在为首个夜晚做准备时，将召唤师的“第一晚”提示标记放置在召唤师角色标记旁。在为第二个夜晚做准备时，将召唤师的“第二晚”提示标记放置在召唤师角色标记旁。在为第三个夜晚做准备时，将召唤师的“第三晚”提示标记放置在召唤师角色标记旁。\n在首个夜晚，对召唤师展示三个不在场的善良角色，作为他的伪装。\n在夜晚时，如果召唤师旁放置了“第三晚”提示标记，唤醒召唤师。让他指向一名玩家，和角色列表上的一个恶魔图标。让召唤师重新入睡。唤醒被召唤师选择的玩家。对他展示“你是”信息标记，和恶魔角色标记。再对他展示“你是”信息标记，和朝下的大拇指。用那个恶魔角色标记替换他的角色标记，并让新恶魔重新入睡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Summoner"
+  "source_url": "https://wiki.bloodontheclocktower.com/Summoner",
+  "image": "assets/tokens/summoner.png"
 }

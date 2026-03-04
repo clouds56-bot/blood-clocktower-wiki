@@ -54,5 +54,6 @@
     "en": "When the Plague Doctor dies, place a Minion character token in the centre of the left side of the Grimoire and mark this with the Plague Doctor’s STORYTELLER ABILITY reminder. Or, mark an in-play Minion with the STORYTELLER ABILITY reminder. If applicable, add a night token to the night sheet.",
     "cn": "当瘟疫医生死亡时，将一个不在场的爪牙角色标记放置在魔典左侧的正中位置，并用瘟疫医生的“说书人能力”标记标记该爪牙角色；或直接用该标记标记一个在场的爪牙角色。如可能，在夜晚顺序表旁添加相应的夜晚标记用以提示。\n当此爪牙角色的能力将要执行相关行动时，由说书人来为该能力做出一系列的选择。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Plague_Doctor"
+  "source_url": "https://wiki.bloodontheclocktower.com/Plague_Doctor",
+  "image": "assets/tokens/plague_doctor.png"
 }

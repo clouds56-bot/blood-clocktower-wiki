@@ -56,5 +56,6 @@
     "en": "Each night, wake the Seamstress. They either shake their head no or point at any two players except themself.",
     "cn": "每个夜晚，唤醒女裁缝。她要么摇头不使用能力，要么指向另两名玩家。\n如果她摇头，无事发生。让女裁缝重新入睡。\n如果她指向两名玩家，要么点头代表是（表示这些玩家是同一阵营），要么摇头代表否（表示这些玩家不是同一阵营）。让女裁缝重新入睡。在女裁缝使用能力后，为她放置“失去能力”提示标记，并从夜晚顺序表上移除她的夜晚标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Seamstress"
+  "source_url": "https://wiki.bloodontheclocktower.com/Seamstress",
+  "image": "assets/tokens/seamstress.png"
 }

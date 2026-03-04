@@ -63,5 +63,6 @@
     "en": "Each night, turn the Cult Leader character token right side up (if both alive neighbors are good) or upside down (if both alive neighbors are evil) or either (if one alive neighbor is good and the other alive neighbor is evil). If the Cult Leader's alignment changes, wake the Cult Leader and give a thumbs up or a thumbs down, then put the Cult Leader to sleep. If the Cult Leader’s alignment doesn’t change, do not wake them.",
     "cn": "每个夜晚，为异教领袖指定一名与他邻近的存活玩家。异教领袖的阵营现在变成了那名玩家的阵营。根据异教领袖当前的阵营，调整他的角色标记的放置情况（如果是善良阵营，常规放置；如果是邪恶阵营，倒转放置）。\n如果因此使得异教领袖的阵营发生了改变，唤醒异教领袖。对他展示“你是”信息标记，然后用大拇指朝向对应的方向来告诉他当前的阵营。让异教领袖重新入睡。\n在每个白天，任意玩家都可以宣传自己是异教领袖，并提议所有玩家加入他的教派。每名玩家在每个白天最多只能提议一次。\n如果有人发起了提议，使用与提名投票相似的统计方式，从该玩家开始顺时针统计所有人是否愿意加入教派。但注意，这不是一次提名，与提名和投票相关的能力不会生效，统计的结果也不会造成处决。\n如果发起提议的玩家是异教领袖，检查此次提议是否使得所有的善良玩家都同意加入（包括已死亡的玩家在内）。如果是，那么异教领袖的阵营立即获胜。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Cult_Leader"
+  "source_url": "https://wiki.bloodontheclocktower.com/Cult_Leader",
+  "image": "assets/tokens/cult_leader.png"
 }

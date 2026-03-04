@@ -50,5 +50,6 @@
     "en": "If both alive neighbours of the Tea Lady are good, mark those neighbours’ character tokens with the Tea Lady’s CANNOT DIE reminders. If either alive neighbour of the Tea Lady is evil, remove these reminders. Update these reminders immediately based on this condition throughout the entire game (such as if a player’s alignment changes).",
     "cn": "如果茶艺师邻近的两名存活玩家都是善良的，将茶艺师的“不会死亡”提示标记放置到这两名玩家的角色标记旁。如果茶艺师邻近的两名存活玩家中有任何一个是邪恶的，移除这些提示标记。根据这个条件在整局游戏中随时更新这些提示标记（例如一名玩家的阵营改变了）。\n如果一名标有“不会死亡”的玩家将要死去，该玩家依然存活。如果一名标有“不会死亡”的玩家被处决，宣布该玩家被处决但依然存活。（不要说明原因。）"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Tea_Lady"
+  "source_url": "https://wiki.bloodontheclocktower.com/Tea_Lady",
+  "image": "assets/tokens/tea_lady.png"
 }

@@ -62,5 +62,6 @@
     "en": "While preparing the first night, put the Fortune Teller's RED HERRING reminder token by any good character token, marking that player as the Red Herring.",
     "cn": "在为首个夜晚进行准备时，将占卜师的“干扰项”提示标记放置在任意善良角色标记旁，标记那名玩家为“干扰项”。\n每个夜晚，唤醒占卜师。让占卜师指向任意两名玩家。如果这两名玩家中任意一名是恶魔或“干扰项”，对占卜师点头表示“是”。否则，摇头表示“否”。让占卜师重新入睡。\n在小型游戏中（指汀西维尔模式），我们建议你在某些情况下将占卜师本人作为“干扰项”，以使占卜师能通过这种方式得到更多信息。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Fortune_Teller"
+  "source_url": "https://wiki.bloodontheclocktower.com/Fortune_Teller",
+  "image": "assets/tokens/fortune_teller.png"
 }

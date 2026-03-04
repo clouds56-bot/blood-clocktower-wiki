@@ -66,5 +66,6 @@
     "en": "Each time you wake an evil player at night, first wake the Wraith. When you put that evil player to sleep, put the Wraith to sleep.",
     "cn": "每当你要在夜晚唤醒一名邪恶玩家时，先唤醒亡魂。当你让这名邪恶玩家重新入睡时，也让亡魂入睡。\n如果亡魂在存活时失去自己的能力，私下告知他不能在当晚睁眼，也不要在唤醒其他邪恶玩家时唤醒他。\n可选规则：每局游戏限一次，如果一名玩家“疯狂”地证明你是亡魂，他死亡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Wraith"
+  "source_url": "https://wiki.bloodontheclocktower.com/Wraith",
+  "image": "assets/tokens/wraith.png"
 }

@@ -54,5 +54,6 @@
     "en": "At any time (even at night), if you believe that the Mutant is mad about being an Outsider, then you can decide to execute the Mutant. Declare this to the group. They die - mark them with a shroud.",
     "cn": "在游戏里的任何时间点（包括夜晚），如果你认为畸形秀演员“疯狂”地证明了他是一名外来者，那么你就可以决定处决畸形秀演员。向所有人宣布他被处决。并在魔典中为他放置帷幕标记。\n如果这次处决发生在白天的常规处决之前，则直接进入到夜晚阶段。（每个白天最多能进行一次处决。）"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Mutant"
+  "source_url": "https://wiki.bloodontheclocktower.com/Mutant",
+  "image": "assets/tokens/mutant.png"
 }

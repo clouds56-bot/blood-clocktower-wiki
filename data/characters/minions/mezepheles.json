@@ -83,5 +83,6 @@
     "en": "While setting up the game, write a single word on a piece of paper or on a phone or other device. During the first night, wake the Mezepheles, show the written word, then put them to sleep.",
     "cn": "在为首个夜晚做准备时，用纸条或手机便签或其他便捷的设备写下一个词语。在首个夜晚，唤醒灵言师，对他展示你写下的词语，然后让灵言师重新入睡。\n当你首次听到有善良玩家说出这个关键词时，使用灵言师的“转为邪恶”提示标记标记那名玩家。\n每个夜晚，如果有玩家被标记了“转为邪恶”提示标记，将他唤醒。对他展示“你是”信息标记和朝下的大拇指。让他重新入睡。将他的角色标记倒转放置。（这会表示他现在是邪恶阵营了。）灵言师失去能力——将灵言师的“失去能力”提示标记放置在灵言师角色标记旁，然后将他的夜晚标记从夜晚顺序表旁移除。\n请选择绝对不会无意被说出的非常见词语。你甚至可以杜撰一个词语。灵言师角色的乐趣在于他需要在私下让一名善良玩家转为邪恶的同时承担一定的风险，而不是让一名善良玩家在意料之外转变阵营。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Mezepheles"
+  "source_url": "https://wiki.bloodontheclocktower.com/Mezepheles",
+  "image": "assets/tokens/mezepheles.png"
 }

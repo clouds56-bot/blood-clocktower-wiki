@@ -53,5 +53,6 @@
     "en": "When the Klutz player is declared dead, they must declare that they are the Klutz and then point at any player. (Give them time.) If they choose an evil player, the game ends and the evil team wins. If they choose a good player, the game continues.",
     "cn": "当呆瓜玩家被宣布死亡时，他必须宣布他是呆瓜，然后选择一名存活玩家（给他足够的时间）。如果他选择了一名邪恶玩家，游戏结束，邪恶阵营获胜。如果他选择了一名善良玩家，游戏继续。\n在特殊情况下，当属于邪恶阵营的呆瓜选择了一名邪恶玩家也会导致游戏结束，并且改为善良阵营获胜。\n如果呆瓜玩家没有意识到他必须在死亡时选择一名玩家，私下提醒他。新手玩家可能不明白他的角色如何运作。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Klutz"
+  "source_url": "https://wiki.bloodontheclocktower.com/Klutz",
+  "image": "assets/tokens/klutz.png"
 }

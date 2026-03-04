@@ -77,5 +77,6 @@
     "en": "Each night, wake the Spy and show them the Grimoire for as long as they need. Put the Spy to sleep.",
     "cn": "每个夜晚，唤醒间谍并让他按自己意愿的时长来查看魔典。让间谍重新入睡。\n每当因游戏规则或角色能力的效果要探查或影响玩家的阵营或角色，且间谍因此被选中为目标时，由你决定间谍被当作哪种角色和哪种阵营。（做出任何合适的举动，例如展示一个善良角色标记，点头，给出手势，或允许一项通常只针对善良阵营，镇民或外来者角色的能力对间谍生效。）"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Spy"
+  "source_url": "https://wiki.bloodontheclocktower.com/Spy",
+  "image": "assets/tokens/spy.png"
 }

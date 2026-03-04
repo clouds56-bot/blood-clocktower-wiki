@@ -57,5 +57,6 @@
     "en": "Each night except the first, wake the Exorcist. They point at any player. Mark the chosen player’s character token with the CHOSEN reminder. Put the Exorcist to sleep.",
     "cn": "除了首个夜晚以外的每个夜晚，唤醒驱魔人。让驱魔人指向任意一名玩家。（如果驱魔人指向上一夜选择过的玩家，摇头表示否定，并让他指向另一名玩家。）将“被选择”提示标记放置到所选玩家的角色标记旁。让驱魔人重新入睡。\n如果驱魔人选择了恶魔，唤醒恶魔。向恶魔展示“该角色的能力对你生效”信息标记以及驱魔人角色标记，然后指向驱魔人玩家。并让恶魔重新入睡。当晚的后续时段中，不要因为恶魔的自身能力唤醒恶魔。\n被驱魔人选中的恶魔不会被唤醒来使用自己的能力，但是如果有需要的话，仍然会因其他角色的能力被再次唤醒。在将驱魔人与来自其他剧本的角色一同使用时，这一点可以提供参考。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Exorcist"
+  "source_url": "https://wiki.bloodontheclocktower.com/Exorcist",
+  "image": "assets/tokens/exorcist.png"
 }

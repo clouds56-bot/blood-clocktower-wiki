@@ -56,5 +56,6 @@
     "en": "Each night, wake the Butler. They point at any player. Mark this player with the MASTER reminder token. Put the Butler to sleep.",
     "cn": "每个夜晚，唤醒管家。让管家指向除自己外的任意一名玩家。用“主人”提示标记来标记这名玩家。让管家重新入睡。\n在一次提名中，管家只能在主人举手投票，或主人的投票已经被统计时，才能举手投票。\n如果管家不小心进行了违规投票，仍统计管家的票。因为如果不这么做，实际的总票数会比原本的总票数少，因此所有玩家都会知道谁是管家，这对邪恶阵营来说非常不公平。人总会犯错。继续进行游戏，并在稍后私下提示管家。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Butler"
+  "source_url": "https://wiki.bloodontheclocktower.com/Butler",
+  "image": "assets/tokens/butler.png"
 }

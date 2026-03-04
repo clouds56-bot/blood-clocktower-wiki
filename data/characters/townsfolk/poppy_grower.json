@@ -67,5 +67,6 @@
     "en": "During the first night, wake the Demon. Show the THESE CHARACTERS ARE NOT IN PLAY info token, then any three good character tokens that are not in play. Then, put the Demon to sleep. Do not do the Minion Info and Demon Info steps.",
     "cn": "在首个夜晚，唤醒恶魔。对他展示“这些角色不在场”信息标记以及三个不在场的善良角色标记。然后，让恶魔重新入睡。不要进行“爪牙信息”和“恶魔信息”步骤。\n如果罂粟种植者死亡，将“唤醒邪恶”提示标记放置在罂粟种植者的角色标记旁。在当晚，唤醒爪牙并让他们通过眼神接触来互认。对他们展示“他是恶魔”信息标记，然后指向恶魔玩家。让这些爪牙重新入睡。随后唤醒恶魔，对他展示“他们是你的爪牙”信息标记，然后指向所有爪牙。让恶魔重新入睡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Poppy_Grower"
+  "source_url": "https://wiki.bloodontheclocktower.com/Poppy_Grower",
+  "image": "assets/tokens/poppy_grower.png"
 }

@@ -48,5 +48,6 @@
     "en": "During the first night, wake the Shugenja. If the closest evil player is in a clockwise direction, point your finger horizontally in that direction. If the closest evil player is in an anti-clockwise direction, point your finger horizontally in that direction. If the two closest evil players are equidistant, point your finger horizontally in either direction. Put the Shugenja to sleep.",
     "cn": "在为首个夜晚进行准备时，决定要为阴阳师提供的四个角色分别是什么。这四个角色需要满足其中两个是善良角色，而另两个是邪恶角色，且正好只有两个角色在场。将阴阳师的“在场”提示标记放置到那两个在场的角色标记旁，将另两个不在场的角色标记放置在魔典的角落里，并用“不在场”提示标记标记这两个角色。\n在首个夜晚，唤醒阴阳师，向阴阳师展示这四个提示标记所对应的角色标记。让阴阳师重新入睡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Shugenja"
+  "source_url": "https://wiki.bloodontheclocktower.com/Shugenja",
+  "image": "assets/tokens/shugenja.png"
 }

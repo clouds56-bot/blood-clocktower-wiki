@@ -59,5 +59,6 @@
     "en": "Each night, wake the Snake Charmer. They point at any player.",
     "cn": "每个夜晚，唤醒舞蛇人。让他指向任意一名存活玩家。\n如果被选择的玩家不是恶魔，则无事发生。让舞蛇人重新入睡。\n如果被选择的玩家是恶魔，旧的舞蛇人变为新的（邪恶）恶魔，并且旧的恶魔变为新的（善良）舞蛇人。在魔典中交换舞蛇人和恶魔的角色标记。在新的舞蛇人角色标记旁放置“中毒”提示标记。唤醒新的恶魔并依次向他展示“你是”信息标记、向下的大拇指、 ”你是”信息标记、然后是恶魔的角色标记。（这代表该玩家现在是邪恶的恶魔。）让新恶魔重新入睡。唤醒新的舞蛇人并依次向他展示“你是”信息标记、向上的大拇指、“你是”信息标记、然后是舞蛇人的角色标记。（这代表该玩家现在是善良的舞蛇人。）让新舞蛇人重新入睡。\n在舞蛇人属于邪恶阵营，或者恶魔属于善良阵营的特殊情况下，依旧相应地交换他们的阵营。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Snake_Charmer"
+  "source_url": "https://wiki.bloodontheclocktower.com/Snake_Charmer",
+  "image": "assets/tokens/snake_charmer.png"
 }

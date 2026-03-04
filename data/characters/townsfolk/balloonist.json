@@ -60,5 +60,6 @@
     "en": "During setup, you may add an Outsider.",
     "cn": "在设置调整阶段，你可以额外增加一名外来者。\n在为首个夜晚进行准备时，将“得知”提示标记放置在任意一名玩家的角色标记旁。之后每个夜晚的准备阶段，将“得知”提示标记放置在一名与当前放置着该提示标记的角色类型不同的玩家角色标记旁。\n每个夜晚，唤醒气球驾驶员。指向被放置“得知”提示标记的玩家。然后让气球驾驶员入睡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Balloonist"
+  "source_url": "https://wiki.bloodontheclocktower.com/Balloonist",
+  "image": "assets/tokens/balloonist.png"
 }

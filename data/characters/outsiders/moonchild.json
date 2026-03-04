@@ -55,5 +55,6 @@
     "en": "When you declare that the Moonchild’s player has died, the Moonchild chooses any alive player. If the chosen player is good, mark their character token with the DEAD reminder. Tonight, the player marked with the Moonchild’s DEAD reminder dies.",
     "cn": "当你宣布月之子玩家死亡时，月之子需要选择任意一名存活玩家。如果所选玩家是善良的，将“死亡”提示标记放置到该玩家的角色标记旁。当晚，标有月之子的“死亡”提示标记的玩家死亡。\n如果月之子没有意识到自己必须在死亡时选择一名玩家，私下提醒该玩家。新手玩家可能没有弄清楚自己的角色是如何运作的。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Moonchild"
+  "source_url": "https://wiki.bloodontheclocktower.com/Moonchild",
+  "image": "assets/tokens/moonchild.png"
 }

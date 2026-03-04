@@ -61,5 +61,6 @@
     "en": "Each night, wake the Empath. Show them fingers (0, 1, or 2) equaling the number of evil players neighbouring the Empath. Put the Empath to sleep.",
     "cn": "每个夜晚，唤醒共情者。为共情者用手势比划与他邻近的邪恶玩家数量（0，1，或2）。让共情者重新入睡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Empath"
+  "source_url": "https://wiki.bloodontheclocktower.com/Empath",
+  "image": "assets/tokens/empath.png"
 }

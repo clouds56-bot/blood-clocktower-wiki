@@ -54,5 +54,6 @@
     "en": "During the first night, wake a Minion. Show the THESE CHARACTERS ARE NOT IN PLAY info token, then show three not-in-play character tokens. Put the Minion to sleep. Repeat this process until all Minions have learnt three not-in-play characters.",
     "cn": "在首个夜晚，唤醒一名爪牙。对他展示“这些角色不在场”信息标记，然后对他展示三个不在场的善良角色标记。让这名爪牙重新入睡。重复此流程，直到所有爪牙都得知了三个不在场角色。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Snitch"
+  "source_url": "https://wiki.bloodontheclocktower.com/Snitch",
+  "image": "assets/tokens/snitch.png"
 }

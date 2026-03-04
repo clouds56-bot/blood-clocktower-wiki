@@ -59,5 +59,6 @@
     "en": "During setup, before giving the bag to the players, remove all evil character tokens and add Townsfolk or Outsider character tokens to match the player count.",
     "cn": "在进行游戏设置，将盲抽袋给玩家进行角色抽取之前，将所有的邪恶角色标记移除，并加入镇民和外来者角色标记，直至盲抽袋中的角色标记总数等同于玩家人数。\n你可以在你认为合适的时候打破规则。如果你需要，你可以随意使用邪恶角色的相关提示标记。\n无神论者是一个非常复杂的角色，仅建议十分熟练的说书人尝试。在游戏的规则熟知和储备之上，这个角色还需要你对游戏乐趣与公平性有正确的判断。你的目的是为所有玩家创造一局有趣的游戏，所以你应该仅仅在给出适当的错误信息，或是模拟邪恶角色在场时的行为时打破规则。如果你能够让玩家相信无神论者并不在场，或者至少让他们探讨这种可能性，那么你就做得很好了。\n避免随意创造规则或是改变游戏的获胜条件。乐趣至上，玩家需要知道如果无神论者在场，他们如何才能获胜。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Atheist"
+  "source_url": "https://wiki.bloodontheclocktower.com/Atheist",
+  "image": "assets/tokens/atheist.png"
 }

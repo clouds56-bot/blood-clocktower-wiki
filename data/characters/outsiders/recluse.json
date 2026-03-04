@@ -59,5 +59,6 @@
     "en": "Each time the Recluse is targeted by an ability that detects or affects evil characters, choose which character and alignment the Recluse registers as. (Do whatever is appropriate, such as showing an evil character token, nodding, giving finger signals, or allowing an ability to work that would normally only affect evil, Minion, or Demon players.)",
     "cn": "每当因游戏规则或角色能力的效果要探查或影响玩家的阵营或角色，且陌客因此被选中为目标时，由你决定陌客被当作哪种角色和哪种阵营。（做出任何合适的举动，例如展示一个邪恶角色标记，点头，给出手势，或允许一项通常只针对邪恶阵营，爪牙或恶魔角色的能力对陌客生效。）"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Recluse"
+  "source_url": "https://wiki.bloodontheclocktower.com/Recluse",
+  "image": "assets/tokens/recluse.png"
 }

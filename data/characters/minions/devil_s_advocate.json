@@ -58,5 +58,6 @@
     "en": "Each night, wake the Devil’s Advocate. They point at any player. Put the Devil’s Advocate to sleep. Mark the chosen player with the SURVIVES EXECUTION reminder.",
     "cn": "每个夜晚，唤醒魔鬼代言人。让魔鬼代言人指向任意一名玩家。如果魔鬼代言人选择了他上一夜曾选择的玩家或已死亡的玩家，提醒他更换目标。让魔鬼代言人重新入睡。将“处决不死”提示标记放置到该玩家的角色标记旁。\n如果标有“处决不死”的玩家被处决，宣布该玩家被处决但依然存活。（不要说明原因。）"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Devil%27s_Advocate"
+  "source_url": "https://wiki.bloodontheclocktower.com/Devil%27s_Advocate",
+  "image": "assets/tokens/devil_s_advocate.png"
 }

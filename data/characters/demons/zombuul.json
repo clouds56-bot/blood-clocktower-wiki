@@ -52,5 +52,6 @@
     "en": "The first time the Zombuul would die, they remain alive. Declare that they died, but do not add a shroud to the Zombuul. (Flip the life token on the Town Square, as normal.) From now on, the\nZombuul registers as dead.",
     "cn": "当僵怖首次死亡后，他依然存活。宣布僵怖已经死亡，但是不要在魔典中给僵怖添加帷幕标记。（如常将城镇广场上他的生命标记翻面。）从现在起，僵怖被当作已死亡。\n每个白天，如果有玩家死亡，将“死于今日”提示标记放置到该玩家的角色标记旁。（如果僵怖因处决而“死亡”，会被当作已死亡，因此要给僵怖放置“死于今日”提示标记。）\n除了首个夜晚以外的每个夜晚，如果有任何玩家标有“死于今日”，不要唤醒僵怖。\n除了首个夜晚以外的每个夜晚，如果没有玩家标有“死于今日”，唤醒僵怖。让僵怖指向任意一名玩家。让僵怖重新入睡。所选玩家死亡——将“死亡”提示标记放置到该玩家的角色标记旁。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Zombuul"
+  "source_url": "https://wiki.bloodontheclocktower.com/Zombuul",
+  "image": "assets/tokens/zombuul.png"
 }

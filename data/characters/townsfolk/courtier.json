@@ -57,5 +57,6 @@
     "en": "Each night, wake the Courtier. They either shake their head no or point at any character icon on their character sheet. Put the Courtier to sleep.",
     "cn": "每个夜晚，唤醒侍臣。侍臣要么摇头表示不使用能力，要么指向角色列表上的任意一个角色图标。让侍臣重新入睡。\n如果侍臣使用了能力且该角色在场，对应的玩家当晚醉酒，持续三天三夜。将侍臣的“醉酒1”放置到该玩家的角色标记旁。在下一夜，将“醉酒1”替换成“醉酒2”。再下一夜，将“醉酒2”替换成“醉酒3”。再下一夜的黄昏，移除“醉酒3”，且侍臣失去能力。将“失去能力”提示标记放置到侍臣角色标记旁，并从夜晚顺序表上移除其夜晚标记。\n在侍臣选择了角色使其醉酒后，在本局游戏的剩余时段内不再唤醒侍臣。\n在其他的剧本中，场上可能会出现多个相同角色。侍臣只能让他选择的角色所对应的玩家其中之一醉酒。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Courtier"
+  "source_url": "https://wiki.bloodontheclocktower.com/Courtier",
+  "image": "assets/tokens/courtier.png"
 }

@@ -65,5 +65,6 @@
     "en": "While preparing the first night, mark any player with the\nPuzzlemaster’s DRUNK reminder. This player is drunk.",
     "cn": "在为首个夜晚做准备时，选择任意一名玩家，并在这名玩家的角色标记旁放置解谜大师的“醉酒”提示标记。该玩家醉酒。\n在游戏中的任意时间里，解谜大师都可以公开或私下找你猜测醉酒的玩家。如果他猜测的玩家，其角色标记旁有解谜大师的“醉酒”提示标记，私下告诉解谜大师谁是恶魔。如果他猜测的玩家，其角色标记旁没有解谜大师的“醉酒”提示标记，告诉解谜大师一名非恶魔玩家是恶魔。（不要告诉解谜大师他猜测结果是否正确。）不论上述哪种情况发生，使用解谜大师的“已猜测”提示标记放置在解谜大师的角色标记旁。\n仅在你有充足的理由的情况下，才让解谜大师的能力使爪牙或恶魔醉酒。绝大多数情况下，让镇民醉酒都是较为优先的选择。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Puzzlemaster"
+  "source_url": "https://wiki.bloodontheclocktower.com/Puzzlemaster",
+  "image": "assets/tokens/puzzlemaster.png"
 }

@@ -76,5 +76,6 @@
     "en": "Once per day, before you have called for nominations, the Psychopath may publicly choose a player. That player dies.",
     "cn": "每个白天限一次，在你宣布开始提名之前，精神病患者可以公开选择一名玩家。那名玩家死亡。\n如果精神病患者被处决，他需要与提名他的玩家进行猜拳。如果精神病患者在猜拳中输了，那么他死亡。如果精神病患者在猜拳中平局或获胜，他会仍然存活。不论猜拳是哪种结果，白天阶段会随即结束，因为每个白天只会有一次处决发生。\n如果精神病患者因为提名自己或是某些角色的能力效果而被处决，那么他会改为和你进行猜拳。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Psychopath"
+  "source_url": "https://wiki.bloodontheclocktower.com/Psychopath",
+  "image": "assets/tokens/psychopath.png"
 }

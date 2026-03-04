@@ -54,5 +54,6 @@
     "en": "Each night, wake the Sailor. They point at any player. Put the Sailor to sleep. Either the Sailor or this chosen player becomes drunk—mark them with the DRUNK reminder.",
     "cn": "每个夜晚，唤醒水手。让水手指向任意一名存活玩家。让水手重新入睡。水手或他选择的玩家两者之一会进入醉酒状态——将“醉酒”提示标记放置到该玩家的角色标记旁。\n如果清醒的水手将要死亡，他会依然存活。如果清醒的水手被处决，宣布该玩家被处决但依然存活。（不要说明原因。）"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Sailor"
+  "source_url": "https://wiki.bloodontheclocktower.com/Sailor",
+  "image": "assets/tokens/sailor.png"
 }

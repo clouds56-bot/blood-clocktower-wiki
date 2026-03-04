@@ -58,5 +58,6 @@
     "en": "While setting up the game, before putting the character tokens in the bag, either remove one Townsfolk and add one Outsider or remove one Outsider and add one Townsfolk.",
     "cn": "在设置游戏时，将角色标记放进盲抽袋之前，要么移除一个镇民并加入一个外来者，要么移除一个外来者并加入一个镇民。\n在首个夜晚，唤醒教父。向教父展示所有在场的外来者的角色标记。让教父重新入睡。\n如果一名外来者在白天死亡，将“死于今日”提示标记放置到该玩家的角色标记旁。当晚，唤醒教父。让教父指向任意一名玩家。让教父重新入睡。所选玩家死亡——将“死亡”提示标记放置到该玩家的角色标记旁。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Godfather"
+  "source_url": "https://wiki.bloodontheclocktower.com/Godfather",
+  "image": "assets/tokens/godfather.png"
 }

@@ -72,5 +72,6 @@
     "en": "While setting up the game, choose a Good Twin by marking any good character with the TWIN reminder. During the first night, wake both Twins. Let them make eye contact. Point at the Evil Twin, then show the Evil Twin token to the Good Twin. Point at the Good Twin, then show the Good Twin’s character token to the Evil Twin. Put them both to sleep.",
     "cn": "初始设置时，在一名善良玩家的角色标记旁放置“对立双子”提示标记以表示他是与镜像双子阵营对立的双子。\n在首个夜晚，同时唤醒两名双子。指向邪恶双子，并对善良双子展示邪恶双子的角色标记。指向善良双子，并对邪恶双子展示善良双子的角色标记。让他们重新入睡。\n只要两个双子都存活，善良阵营就无法获胜。如果善良的双子被处决，邪恶阵营获胜。\n如果麻脸巫婆在最后一夜创造了一个镜像双子，你可以选择恶魔或一名死亡的玩家作为对立双子，这样的话，善良玩家仍然有机会获胜。\n选择旅行者作为对立双子通常不是好主意。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Evil_Twin"
+  "source_url": "https://wiki.bloodontheclocktower.com/Evil_Twin",
+  "image": "assets/tokens/evil_twin.png"
 }

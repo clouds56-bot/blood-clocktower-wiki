@@ -50,5 +50,6 @@
     "en": "Each night except the first, wake the Oracle. Show fingers (0, 1, 2, etc.) equaling the number of dead evil players. Then, put the Oracle to sleep.",
     "cn": "除了第一个夜晚的每个夜晚，唤醒神谕者。对他用手势比划已死亡的邪恶玩家的数量 (0，1，2等）。让神谕者重新入睡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Oracle"
+  "source_url": "https://wiki.bloodontheclocktower.com/Oracle",
+  "image": "assets/tokens/oracle.png"
 }

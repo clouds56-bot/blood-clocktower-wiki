@@ -69,5 +69,6 @@
     "en": "When the game ends, if good lost and you feel that this was significantly due to the words and actions of the Politician player, declare that the Politician turns evil and wins too.",
     "cn": "当游戏结束时，考量政客玩家在本局游戏中所造成的影响，是否导致了某一方阵营获胜。如果政客在他的对立阵营获胜中做出了最重要的贡献，他转变阵营并与原本对应阵营的其他玩家一同获胜。在其他情况下，政客保留原本的阵营且按照常规的胜负条件来判断政客玩家的胜负。\n请注意政客仅会在游戏结束时才转变阵营，因此即使善良的政客在为邪恶阵营出力，他也依然会被当作是善良阵营。\n政客在游戏过程中中毒醉酒与否无关紧要，但在游戏结束时仍然中毒醉酒则会影响他的能力触发。如果他在游戏结束时处于中毒或醉酒状态，那么无论他在游戏过程中为对立阵营做出了多么显著的贡献，他都无法触发自己的能力来转变阵营并获胜。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Politician"
+  "source_url": "https://wiki.bloodontheclocktower.com/Politician",
+  "image": "assets/tokens/politician.png"
 }

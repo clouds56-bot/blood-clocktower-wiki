@@ -80,5 +80,6 @@
     "en": "If the Goblin claims to be the Goblin when nominated (and before voting begins), declare that this player has claimed to be the Goblin, so that all the group hears. Put the CLAIMED reminder by the Goblin token.",
     "cn": "如果哥布林在被提名后，投票开始前宣称自己是哥布林，复述他的发言以便让所有玩家都能清楚听见。将“已宣称”提示标记放置在哥布林的角色标记旁。\n如果哥布林在被处决时带有“已宣称”标记，宣布邪恶阵营获胜。\n如果一名不是哥布林的玩家宣称自己是哥布林，如常进行相关操作。向所有玩家宣布他宣称自己是哥布林，并假装在魔典中移动提示标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Goblin"
+  "source_url": "https://wiki.bloodontheclocktower.com/Goblin",
+  "image": "assets/tokens/goblin.png"
 }

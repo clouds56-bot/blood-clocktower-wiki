@@ -61,5 +61,6 @@
     "en": "If the Ravenkeeper died tonight, wake them. They point at any player. Show the chosen player's character token to the Ravenkeeper. Put the Ravenkeeper to sleep.",
     "cn": "如果守鸦人在夜晚死去，唤醒他。让守鸦人指向任意一名玩家。对守鸦人展示那名玩家的角色标记。让守鸦人重新入睡。\n我们建议你阻止甚至禁止玩家在夜晚谈论他们当晚正在进行的操作。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Ravenkeeper"
+  "source_url": "https://wiki.bloodontheclocktower.com/Ravenkeeper",
+  "image": "assets/tokens/ravenkeeper.png"
 }

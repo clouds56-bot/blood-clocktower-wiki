@@ -61,5 +61,6 @@
     "en": "During each nomination, if there are 5 or more players alive, the Zealot must raise their hand to vote.",
     "cn": "在每次提名中，如果当前有五名或更多玩家存活，狂热者必须举手投票。\n如果狂热者不小心忘记了投票，不要统计他的票。因为如果你统计了票数，实际总票数会比原本总票数多，因此所有玩家都会知道谁是狂热者，这对邪恶阵营来说非常不公平。人总会犯错。继续进行游戏，并在稍后私下提示狂热者。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Zealot"
+  "source_url": "https://wiki.bloodontheclocktower.com/Zealot",
+  "image": "assets/tokens/zealot.png"
 }

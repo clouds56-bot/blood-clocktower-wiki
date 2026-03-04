@@ -53,5 +53,6 @@
     "en": "If the Hatter dies, mark them with the TEA PARTY TONIGHT reminder.",
     "cn": "如果帽匠死亡，在其角色标记旁放置“今晚茶会”提示标记。\n在当晚，一同唤醒所有爪牙和恶魔。对他们展示“该角色的能力对你生效”信息标记，然后展示帽匠角色标记。每名以此被唤醒的玩家可以选择摇头或指向角色列表上与自己当前角色类型相同的一个角色。如果一名玩家在做出自己的选择后会使得自己的角色与一名其他玩家选择的角色相同，对他摇头示意他重新选择。在选择完成后让他重新入睡。移除“今晚茶会”提示标记。根据这些玩家的选择，在魔典上执行相应的角色变化操作。\n可选规则：如果帽匠死亡，允许恶魔变成爪牙，且（仅）一名爪牙变成恶魔。这可能会在邪恶阵营内制造一些混乱，因为他们可能会尝试在夜晚用手势交流由谁来成为恶魔。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Hatter"
+  "source_url": "https://wiki.bloodontheclocktower.com/Hatter",
+  "image": "assets/tokens/hatter.png"
 }

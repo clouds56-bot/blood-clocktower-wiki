@@ -65,5 +65,6 @@
     "en": "Each night, wake the Witch. They point at any player. Put the Witch to sleep. Mark the chosen player with the CURSED reminder.",
     "cn": "每个夜晚，唤醒女巫。让她指向一名玩家。让女巫重新入睡。在被选择的玩家角色标记旁放置“被诅咒”提示标记。下个白天，如果被标记为“被诅咒”的玩家发起了提名，立即宣布他死亡。（提名正常进行）"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Witch"
+  "source_url": "https://wiki.bloodontheclocktower.com/Witch",
+  "image": "assets/tokens/witch.png"
 }

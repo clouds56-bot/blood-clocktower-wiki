@@ -58,5 +58,6 @@
     "en": "While setting up the game, before putting the character tokens in the bag, replace zero, one or two Townsfolk tokens with Village Idiot tokens. While preparing the first night, mark one Village Idiot with the DRUNK reminder.",
     "cn": "在游戏设置时，将角色标记放入盲抽袋之前，使用额外的村夫角色标记替换掉其中的0~2个镇民角色标记。在为首个夜晚做准备时，（如果有超过一名村夫在场，）将村夫的“醉酒”提示标记放置到其中一个村夫角色标记旁。\n每个夜晚，唤醒任意一名村夫。让他指向一名玩家。对他给出拇指向上或向下的手势。让他重新入睡。重复这个操作，直到所有村夫玩家都进行了夜晚行动。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Village_Idiot"
+  "source_url": "https://wiki.bloodontheclocktower.com/Village_Idiot",
+  "image": "assets/tokens/village_idiot.png"
 }

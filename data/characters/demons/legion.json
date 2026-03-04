@@ -71,5 +71,6 @@
     "en": "During the first night, during the Demon Info step, let all Legion players make eye contact. (You may want to point to the non-Legion players so that Legion knows who they are.)",
     "cn": "在首个夜晚，恶魔信息步骤中，唤醒所有军团进行互认。（你可以通过指向所有非军团玩家，来让军团玩家明白谁是谁。）\n除了首个夜晚以外的每个夜晚，你可以决定让一名玩家死亡。\n当统计投票时，如常大声唱票。如果投票统计足以让被提名的玩家“即将被处决”但只有邪恶玩家参与投票，宣布本次投票票数为零票。\n你应该在大多数夜晚都杀死一名军团。在夜晚杀死善良玩家通常都不太公平。你的目的是进入游戏的最后一天只剩三名玩家存活的场面——其中有两名善良玩家和一名军团玩家。在最后一天，如果玩家没有成功进行处决，那么在当晚杀死一名善良玩家并使得邪恶阵营获胜。\n如果玩家尝试通过强制安排投票的方式来“检测总票数是否为零票”，那么你可以改为照常宣布票数，但在魔典中使用军团的“即将被处决”提示标记秘密记录真正“即将被处决”的玩家，并在提名阶段结束后处决这名玩家。这会使得有军团存在的游戏变得更加神秘而富有挑战性。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Legion"
+  "source_url": "https://wiki.bloodontheclocktower.com/Legion",
+  "image": "assets/tokens/legion.png"
 }
