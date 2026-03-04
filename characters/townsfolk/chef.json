@@ -2,13 +2,16 @@
   "id": "chef",
   "type": "townsfolk",
   "name": {
-    "en": "Chef"
+    "en": "Chef",
+    "cn": "厨师"
   },
   "ability": {
-    "en": "You start knowing how many pairs of evil players there are."
+    "en": "You start knowing how many pairs of evil players there are.",
+    "cn": "在你的首个夜晚，你会得知场上邻座的邪恶玩家有多少对。"
   },
   "flavor_text": {
-    "en": "\"This evening's reservations seem odd. Never before has Mrs Mayweather kept company with that scamp from Hudson Lane. Yet, tonight, they have a table for two. Strange.\""
+    "en": "\"This evening's reservations seem odd. Never before has Mrs Mayweather kept company with that scamp from Hudson Lane. Yet, tonight, they have a table for two. Strange.\"",
+    "cn": "“今晚的预约有些古怪。我从未见过梅威瑟太太此前跟那个哈德逊巷的流氓有过交情。\n然而今晚，他们订了一张双人桌。真奇怪。”"
   },
   "editions": [
     "trouble_brewing"
@@ -18,10 +21,10 @@
   "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
-    "No evil players are sitting next to each other. The Chef learns a '0'.",
-    "The Imp is sitting next to the Baron. Across the circle, the Poisoner is sitting next to the Scarlet Woman. The Chef learns a '2'.",
-    "An evil Scapegoat is sitting between the Imp and a Minion. Across the circle, two other Minions are sitting next to each other. The Chef learns a '3'.",
-    "The Recluse is sitting between the Imp and the Poisoner. The Chef learns a '1'. Here, the Recluse is registering as evil for the Imp-Recluse pair, but as good for the Poisoner-Recluse pair."
+    "没有邪恶玩家相邻而坐。厨师得知了“0”。",
+    "小恶魔与男爵相邻而坐。在另一侧，投毒者与红唇女郎相邻而坐。厨师得知了“2”。",
+    "邪恶的替罪羊坐在小恶魔与红唇女郎的中间。在另一侧，投毒者与男爵相邻而坐。厨师得知了“3”。",
+    "陌客坐在小恶魔与投毒者的中间。厨师得知了“1”。此时，陌客在“小恶魔-陌客”这一对里被当作了邪恶阵营，但在“投毒者-陌客”这一对里被当作了善良阵营。\n（备注：这个例子只是想举例说明厨师对阵营的探查是分多次进行，且陌客能在不同的能力不同的时间点下被视为不同的阵营或角色。在实际游戏中，因为厨师这样的多次探查能力非常少见，因此如果想采用这种给“1”的信息方式，建议说书人应该提前告知玩家，否则应该默认这种情况下要么得知“0”，要么得知“2”。在陌客的范例中，也可以看到实际上对这个例子以及“1”的结果避而不提。）"
   ],
   "tips": {
     "en": [
@@ -34,10 +37,21 @@
       "Getting a \"2\" can mean that there are two separate pairs of Evil players, or three Evil players sitting in a row. Remember that Evil Travellers count, and this can give you valuable information about their neighbours.",
       "The Spy might not register as an Evil player for your information, giving you an incorrect count. Similarly, the Recluse might register as an Evil player for your information. For you to be able to trust your information, you will need to do what you can to reveal the existence of a Spy or a Recluse as soon as possible. Simply asking the group if anybody is the Recluse is sometimes enough. Finding out that a Spy  is in play may require you to use your intuition and to pay attention to which players are dying at night. If it looks like the Demon is killing far too efficiently, then a Spy may be helping them.",
       "If the game is a Teensyville game (any game with just five or six players), then the Demon and Minion won't know each other, and will be desperately trying to find out who each other are. Giving false Chef information to the group can trick the Evil players into trusting the wrong people. For example, saying that Evil players are sitting next to each other, when you know that they are not, means that the Demon may reveal themselves to a Good neighbour accidentally, or that a Minion will not vote for their Good neighbour's execution and will vote for the Demon's execution instead."
+    ],
+    "cn": [
+      "在游戏开始，单看你自己的信息并不是非常有用，但如果你将你的信息与你队友的信息相结合，就会变得非常有用了。如果你能找到共情者或者占卜师，随后知道了一名玩家的阵营，或是知道了一名玩家是否为恶魔后，你的信息就开始发挥作用了。这是因为你在得知一名玩家阵营的同时，也知道了他周围的人的阵营。就算是将你的信息与洗衣妇，图书管理员或调查员的信息相结合也会很有用。例如，如果你知道至少有一对邪恶玩家挨着坐，调查员还说玩家A和玩家B中有一个爪牙，那你就可以知道A或B的相邻玩家里很有可能会有邪恶阵营的玩家。",
+      "你的信息随着游戏的进行将会变得越来越有用，所以在关键的时刻记得对善良阵营重申你的信息。当只剩下三名玩家存活时，你肯定知道这里面至少有一位邪恶玩家，因此在这个时候你所掌握的信息——场上邪恶玩家是否邻座——将决定游戏的最终结果。记得在这个节点让你的队伍仔细思考你的信息。",
+      "得到信息\"0\"意味着没有邪恶玩家邻座；记得在白天寻找有哪些窃窃私语的玩家。他们有可能是邪恶阵营，但也有可能只是善良阵营的玩家在进行秘密交流。",
+      "如果你知道邪恶玩家不邻座，并且确信某位玩家是邪恶阵营的，那与他相邻的玩家肯定就是善良阵营的。因此，如果你和邪恶阵营的玩家中间隔了一个玩家，那中间这位玩家肯定也是善良的。",
+      "得到信息\"1\"或更多意味着场上的邪恶玩家是坐在一起的。注意那些窃窃私语并且形成微妙同盟关系的玩家。",
+      "得到信息\"2\"意味着场上邪恶阵营是两两一对分开座的，也有可能是三位邪恶阵营玩家连在一起。记住，邪恶的旅行者也会被算进去，这将帮助你判断他们邻座的玩家阵营的好坏。",
+      "间谍可能不会被当作是邪恶阵营，你可能因此会获得错误的数字。类似的，陌客也有可能被你当作邪恶阵营。为了确保你信息的准确性，你需要用尽一切方法去尽快找到在场的间谍或陌客。对于陌客来说，有时候你只需要直接在场上问有没有人是这个角色就足够了。而找出场上的间谍就需要用到你的直觉了。你还需要去注意哪些玩家在夜晚被杀害了。如果你觉得恶魔的杀戮效率太高，那就表示可能有间谍在帮助他。",
+      "如果这局游戏是汀西维尔模式（只有5-6位玩家的模式），恶魔和爪牙不会互相知道彼此是谁，并且会竭尽所能的去试图找到对方。故意给团队一个错误信息能够让邪恶阵营的玩家找错队友。例如，在你知道场上邪恶玩家不相邻的情况下，说场上邪恶玩家是邻座的。这样场上的恶魔就可能会一不小心向他的善良阵营邻座透露自己的恶魔角色，又或者爪牙可能不会投票将自己善良阵营的邻座处决，并偶然投票处决了恶魔。"
     ]
   },
   "how_to_run": {
-    "en": "During the first night, wake the Chef. Show the Chef fingers (0, 1, 2, etc.) equaling the number of pairs of neighboring evil players. Put the Chef to sleep."
+    "en": "During the first night, wake the Chef. Show the Chef fingers (0, 1, 2, etc.) equaling the number of pairs of neighboring evil players. Put the Chef to sleep.",
+    "cn": "在首个夜晚里，唤醒厨师。为厨师用手势比划场上互为邻座的邪恶玩家有多少对（0，1，2，等等）。让厨师重新入睡。"
   },
   "source_url": "https://wiki.bloodontheclocktower.com/Chef",
   "image": "assets/tokens/chef.png"

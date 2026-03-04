@@ -1,0 +1,45 @@
+{
+  "success": [
+    {
+      "englishId": "chef",
+      "chineseName": "厨师",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "washerwoman",
+      "chineseName": "洗衣妇",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "imp",
+      "chineseName": "小恶魔",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    }
+  ],
+  "failed": [],
+  "skipped": []
+}
