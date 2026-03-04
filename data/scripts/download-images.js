@@ -147,6 +147,25 @@ async function downloadAllImages() {
       continue;
     }
 
+    // If token file already exists on disk, skip downloading it
+    const outputPath = path.join(TOKENS_DIR, `${characterId}.png`);
+    if (fs.existsSync(outputPath)) {
+      console.log(`    ⏭️  Skipped (file exists)`);
+      // If JSON missing an image path, set it to the existing file
+      if (!data.image) {
+        const jsonUpdated = updateCharacterJson(jsonPath, outputPath);
+        if (jsonUpdated) {
+          console.log(`    ✅ JSON updated with existing image path`);
+        } else {
+          console.log(`    ⚠️  Failed to update JSON with existing image`);
+          results.failed.push({ characterId, error: 'JSON update failed' });
+        }
+      }
+      results.skipped.push(characterId);
+      await delay(100);
+      continue;
+    }
+
     // Fetch wiki page to find image URL
     try {
       const urlParam = wikiUrl.split('/').pop();
@@ -160,8 +179,6 @@ async function downloadAllImages() {
         continue;
       }
 
-      // Download image
-      const outputPath = path.join(TOKENS_DIR, `${characterId}.png`);
       console.log(`    📥 Downloading: ${imageUrl}`);
       const success = await downloadImage(imageUrl, outputPath);
 
