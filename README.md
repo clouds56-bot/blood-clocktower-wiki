@@ -72,3 +72,9 @@ Each character is stored as a JSON file with the following structure:
 
 Character data sourced from the [Blood on the Clocktower Wiki](https://wiki.bloodontheclocktower.com/).
 Blood on the Clocktower is © The Pandemonium Institute.
+
+## Demo
+
+The site is published to GitHub Pages. View the live demo at:
+
+- https://clouds56-bot.github.io/blood-clocktower-wiki/
