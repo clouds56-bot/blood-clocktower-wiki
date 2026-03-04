@@ -67,6 +67,43 @@ async function fetchWithCache(url, urlParam) {
 /**
  * Parse wiki HTML to extract character data using cheerio
  */
+function extractExamplesEnglish($) {
+  // Find Examples/Example header and collect content until next H2
+  const header = $('h2:contains("Examples"), h2:contains("Example")').first();
+  const arr = [];
+
+  if (header.length > 0) {
+    header.nextUntil('h2').each(function() {
+      const el = $(this);
+      if (el.is('ul') || el.is('ol')) {
+        el.find('li').each(function() {
+          const t = $(this).text().trim();
+          if (t) arr.push(t);
+        });
+      } else if (el.is('p') || el.is('pre')) {
+        const t = el.text().trim();
+        if (t) arr.push(t);
+      } else if (el.find('li').length > 0) {
+        // catch nested lists
+        el.find('li').each(function() {
+          const t = $(this).text().trim();
+          if (t) arr.push(t);
+        });
+      }
+    });
+  }
+
+  // Fallback: older pages / scraped markup might use .example class
+  if (arr.length === 0) {
+    $('.example').each(function() {
+      const t = $(this).text().trim();
+      if (t) arr.push(t);
+    });
+  }
+
+  return arr;
+}
+
 function parseCharacterPage(html, characterId, charData, type) {
   const $ = cheerio.load(html);
 
@@ -147,14 +184,9 @@ function parseCharacterPage(html, characterId, charData, type) {
     }
   });
 
-  // Extract examples
-  const examples = [];
-  $('.example').each(function() {
-    const exampleText = $(this).text().trim();
-    if (exampleText) {
-      examples.push(exampleText);
-    }
-  });
+  // Extract examples (English). Return as a language-keyed object (en).
+  const examplesArr = extractExamplesEnglish($);
+  const examples = examplesArr && examplesArr.length > 0 ? { en: examplesArr } : undefined;
 
   // Extract tips from "Tips & Tricks" section
   const tips = { en: [] };
@@ -203,7 +235,7 @@ function parseCharacterPage(html, characterId, charData, type) {
     other_nights: otherNights,
     artist: artist,
     jinxes,
-    examples: examples.length > 0 ? examples : undefined,
+    examples: examples,
     tips: tips.en.length > 0 ? tips : undefined,
     how_to_run: howToRun ? { en: howToRun } : undefined,
     source_url: `${BASE_URL}/${charData.en_url_param || charData.en.replace(/ /g, '_')}`

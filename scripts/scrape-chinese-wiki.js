@@ -146,7 +146,15 @@ function mergeChineseData(englishId, type, chineseData) {
   }
   
   if (chineseData.examples && chineseData.examples.length > 0) {
-    existing.examples = chineseData.examples;
+    // Preserve existing examples if present. Convert legacy array to i18n object.
+    if (Array.isArray(existing.examples)) {
+      existing.examples = { en: existing.examples };
+    } else if (!existing.examples) {
+      existing.examples = {};
+    }
+
+    // Set Chinese examples under the cn key
+    existing.examples.cn = chineseData.examples;
   }
   
   if (chineseData.how_to_run && chineseData.how_to_run.cn) {

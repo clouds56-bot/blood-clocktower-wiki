@@ -79,8 +79,23 @@
       }
     },
     "examples": {
-      "type": "array",
-      "items": { "type": "string" }
+      "oneOf": [
+        {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        {
+          "type": "object",
+          "description": "Language-keyed examples, e.g. { en: [...], cn: [...] }",
+          "patternProperties": {
+            "^[a-z]{2,3}$": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
     },
     "tips": {
       "type": "object",
@@ -102,7 +117,7 @@
         "ja": { "type": "string" }
       }
     },
-    "source_url_cn": { "type": "string", "format": "uri", "description": "Chinese wiki URL - ONLY if page exists" }
+    "source_url_cn": { "type": "string", "format": "uri", "description": "Chinese wiki URL - ONLY if page exists" },
     "image": { "type": "string" },
     "source_url": { "type": "string", "format": "uri" }
   }
