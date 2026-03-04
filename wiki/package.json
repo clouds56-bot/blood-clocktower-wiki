@@ -4,8 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predev": "node ../data/scripts/copy-assets-to-public.js",
     "dev": "astro dev",
+    "prebuild": "node ../data/scripts/copy-assets-to-public.js",
     "build": "astro build",
+    "prepreview": "node ../data/scripts/copy-assets-to-public.js",
     "preview": "astro preview"
   },
   "devDependencies": {
