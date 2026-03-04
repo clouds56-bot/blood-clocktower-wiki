@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Blood on the Clocktower Edition",
+  "type": "object",
+  "required": ["id", "name", "characters"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "URL-safe edition ID (lowercase, underscores)"
+    },
+    "name": {
+      "type": "object",
+      "properties": {
+        "en": { "type": "string" },
+        "cn": { "type": "string" }
+      },
+      "required": ["en"]
+    },
+    "description": {
+      "type": "object",
+      "properties": {
+        "en": { "type": "string" },
+        "cn": { "type": "string" }
+      }
+    },
+    "characters": {
+      "type": "object",
+      "properties": {
+        "townsfolk": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Array of character IDs"
+        },
+        "outsiders": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Array of character IDs"
+        },
+        "minions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Array of character IDs"
+        },
+        "demons": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Array of character IDs"
+        }
+      }
+    },
+    "min_players": {
+      "type": "number",
+      "description": "Minimum player count for this edition"
+    },
+    "max_players": {
+      "type": "number",
+      "description": "Maximum player count for this edition"
+    },
+    "night_order": {
+      "type": "object",
+      "properties": {
+        "first_night": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "number": { "type": "number" },
+              "character": { "type": "string" },
+              "type": { "type": "string", "enum": ["townsfolk", "outsider", "minion", "demon"] }
+            },
+            "required": ["number", "character", "type"]
+          }
+        },
+        "other_nights": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "number": { "type": "number" },
+              "character": { "type": "string" },
+              "type": { "type": "string", "enum": ["townsfolk", "outsider", "minion", "demon"] }
+            },
+            "required": ["number", "character", "type"]
+          }
+        }
+      }
+    },
+    "source_url": {
+      "type": "object",
+      "properties": {
+        "en": { "type": "string", "format": "uri" },
+        "cn": { "type": "string", "format": "uri" }
+      }
+    }
+  }
+}

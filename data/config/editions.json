@@ -1,0 +1,28 @@
+{
+  "editions": {
+    "trouble_brewing": {
+      "en": "Trouble Brewing",
+      "cn": "暗流涌动",
+      "en_url_param": "Trouble_Brewing",
+      "cn_url_param": "暗流涌动"
+    },
+    "bad_moon_rising": {
+      "en": "Bad Moon Rising",
+      "cn": "黯月初升",
+      "en_url_param": "Bad_Moon_Rising",
+      "cn_url_param": "黯月初升"
+    },
+    "sects_violets": {
+      "en": "Sects & Violets",
+      "cn": "梦殒春宵",
+      "en_url_param": "Sects_%26_Violets",
+      "cn_url_param": "梦殒春宵"
+    },
+    "experimental": {
+      "en": "Experimental Characters",
+      "cn": "实验性角色",
+      "en_url_param": null,
+      "cn_url_param": "实验性角色"
+    }
+  }
+}

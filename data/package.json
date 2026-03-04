@@ -9,6 +9,7 @@
   "scripts": {
     "scrape": "node scripts/scrape-wiki.js",
     "scrape:cn": "node scripts/scrape-chinese-wiki.js",
+    "scrape:editions": "node scripts/scrape-editions.js",
     "download-images": "node scripts/download-images.js",
     "test": "echo \"No tests\" && exit 0"
   },
