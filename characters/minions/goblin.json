@@ -18,18 +18,28 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Anica Kelsen",
   "jinxes": [],
   "examples": [
     "小黑是哥布林。小艾提名了小黑，随后小黑宣称自己是哥布林。投票随后被统计，小黑“即将被处决”。随后又有一些其他的提名被发起，但最终小黑被处决了。邪恶阵营获胜。",
     "小莱是艺术家，但在被提名时宣称自己是哥布林。小莱被处决，游戏继续。",
     "道哥是哥布林。他在前面几天都宣称自己是哥布林，但在最新的一天里没有这么做。他被处决了。游戏继续。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Goblin",
-  "image": "assets/tokens/goblin.png",
-  "how_to_run": {
-    "cn": "如果哥布林在被提名后，投票开始前宣称自己是哥布林，复述他的发言以便让所有玩家都能清楚听见。将“已宣称”提示标记放置在哥布林的角色标记旁。\n如果哥布林在被处决时带有“已宣称”标记，宣布邪恶阵营获胜。\n如果一名不是哥布林的玩家宣称自己是哥布林，如常进行相关操作。向所有玩家宣布他宣称自己是哥布林，并假装在魔典中移动提示标记。"
-  },
   "tips": {
+    "en": [
+      "The Goblin has one job, and one job only - get the town to call their bluff and execute them! If you can successfully get the town to take you out, the ends justify the means!",
+      "Claim to be the Goblin! You’re mostly giving away your alignment and character when you do so, so perhaps best to wait until you’re actually under threat of execution, but afterwards, go for it! You have no ability without doing so and it is sure to throw good off their game.",
+      "In order to be executed to win, you’ll need to make yourself look like the Demon in spite of your public claim. Try doing Demon-y behaviours at the start of the game to encourage this.",
+      "By the nature of having to claim publicly, the Goblin is a noisier Minion than some - lean into that by being as shifty as possible. Spread outright lies about townsfolk (\"I've heard of two other Fortune Teller claims, so I think you're probably just lying!\"), make multiple character claims to different people (\"What, I never claimed Dreamer to Alan; I've been the Chambermaid the whole time!\") and just generally cause as much chaos as you possibly can (\"Everyone knows there's 3 Outsiders in this game, so we have to have a Huntsman!\"). What are they gonna do about it? Execute you?",
+      "If you lean too much into chaos and then claim Goblin, people will probably believe that you're the Goblin, which is terrible, because they probably won't execute you and they'll stop listening to your helpful tips! It can be prudent to be sneaky and subtle instead, holding a powerful character bluff up as the reason you don't want to be killed by the town - claiming Goblin will cause some friction with the town, but it's just words until they follow through on the execution, and lots of characters have a great reason to not want to die. Undertaker, Savant, or Cannibal all are useful examples of characters desiring to prolong their life as long as possible, even if the town finds them dodgy.",
+      "Don't forget that for your ability to count, you must make a public claim each time you're nominated! The Goblin is not affected by madness like their cousin the Cerenovus - you look the Townsfolk right in the eye and dare them to follow through on their threats.",
+      "Try to convince the town that you are a Demon! In nearly all cases, Minions are hindrances that don't have to be executed - if a suspected evil Minion claims Goblin, the town will probably back off. If they suspect you're the *Demon*, however, they have no choice but to attempt to execute you at some point! Encourage your evil teammates to condemn you with their bluffs, and make your bluff believable... perhaps TOO believable?",
+      "Encourage other players to claim Goblin, whether they're good or evil! Other evil Minions like the Poisoner can use the claim to extend their life (and anyone can say it, a Goblin doesn't have to be in play to make the claim!), while good players can use the Goblin to fend off accusations for a day or two in order to ensure they get just a little more information... or even look like a character desperate to live in order to attract a Demon kill! The benefit of this for an actual Goblin is that if everyone in town is claiming Goblin like it's a fun new fashionable trend, it'll lull the group into a false sense of security when it's finally *your* turn to claim Goblin while up on the chopping block!",
+      "Trying to get the town to execute you for benign reasons (e.g. to have your ability checked by an Undertaker) will clash with you then making a Goblin claim. Don't be discouraged though - it can work out if the town thinks you're not on board with their reasoning to kill you, and are just claiming Goblin to make it difficult. The looks on their faces when you win that way will be incredibly satisfying!",
+      "Beware of the Chef and the Clockmaker, and others of their ilk! If the town believes you are a Goblin, they can use your presence to track down your Demon! (Alternatively in larger games, you can deliberately invoke this if you are far from the other evil team members, making the town waste time executing your neighbours instead of your Demon!)",
+      "The Goblin is ultimately a very social minion, so keeping your finger on the pulse of the town is essential - in nearly all cases, you want to sway them to think differently about you than they are. If town thinks you're good, they have very little reason to execute you - try to \"slip up\" a couple of times and give them reason to be suspicious! Similarly if they think you're evil and you don't deny it, the town might write you off as a Goblin completely - starting putting extra effort into convincing them you're good! It's all about getting yourself to that sweet spot of \"claimed Goblin, but we don't believe it and we're going to execute anyway\". All the chaos caused along the way is just a fun bonus!",
+      "If you’re a different evil character, especially the Demon, claim to be the Goblin! When left with no other recourse it is an excellent backup plan to hopefully scare the good team off of executing you, at least for a day or two."
+    ],
     "cn": [
       "哥布林有一件事情，并且只有一件事情要做——让小镇卸下他的伪装并处决他！只要你能成功地让小镇解决你，那就可以不择手段！",
       "宣称你是哥布林！当你这样做时，你几乎是完全透露了你的阵营和角色，所以也许最好等到你确实面临处决的威胁时才这么做，但那之后就放手一搏吧！如果你不这么做，你就没有任何能力，而这么做能让你把善良阵营踢出局。",
@@ -57,5 +67,10 @@
       "以哥布林的名义让自己免于被处决。如果你真的不想被处决，那么就在你被提名时宣称是哥布林。你可以告诉团队你宣称哥布林只是为了让他们不处决你，然后直接宣称你真正的角色。有时候，欺骗善良阵营一小段时间是值得的，这样你就可以多存活几天。如果你每天都能得到重要信息，比如博学者或者卖花女孩，那么这种方案效果会很棒，但对那些还有能力可用的角色也很棒，比如猎手或者镇长。",
       "如果其他方案都行不通，那就处决宣称是哥布林的玩家。他们可能有望、可能、大概在撒谎。如果你处决了一名宣称是哥布林的玩家而游戏仍在继续，那他们就不是哥布林！整个团队现在都知道了一些有用的信息！这太棒了！"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "If the Goblin claims to be the Goblin when nominated (and before voting begins), declare that this player has claimed to be the Goblin, so that all the group hears. Put the CLAIMED reminder by the Goblin token.",
+    "cn": "如果哥布林在被提名后，投票开始前宣称自己是哥布林，复述他的发言以便让所有玩家都能清楚听见。将“已宣称”提示标记放置在哥布林的角色标记旁。\n如果哥布林在被处决时带有“已宣称”标记，宣布邪恶阵营获胜。\n如果一名不是哥布林的玩家宣称自己是哥布林，如常进行相关操作。向所有玩家宣布他宣称自己是哥布林，并假装在魔典中移动提示标记。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Goblin"
 }

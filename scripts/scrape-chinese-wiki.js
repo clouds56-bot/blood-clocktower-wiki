@@ -10,7 +10,7 @@ const cheerio = require('cheerio');
 
 const BASE_URL = 'https://clocktower-wiki.gstonegames.com/index.php?title';
 const CACHE_DIR = path.join(__dirname, '..', '.cache', 'html-cn');
-const MAPPING_PATH = path.join(__dirname, '..', 'config', 'character-mapping.json');
+const MAPPING_PATH = path.join(__dirname, '..', 'config', 'characters.json');
 const CHARACTERS_DIR = path.join(__dirname, '..', 'characters');
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
@@ -150,9 +150,10 @@ function mergeChineseData(englishId, type, chineseData) {
 }
 
 async function scrapeCharacter(type, englishId, mapping) {
-  const url = `${BASE_URL}=${encodeURIComponent(mapping.url_param)}`;
-  const html = await fetchWithCache(url, mapping.url_param);
-  const chineseData = parseChinesePage(html, mapping.url_param);
+  const urlParam = mapping.cn_url_param || mapping.cn;
+  const url = `${BASE_URL}=${encodeURIComponent(urlParam)}`;
+  const html = await fetchWithCache(url, urlParam);
+  const chineseData = parseChinesePage(html, urlParam);
   const merged = mergeChineseData(englishId, type, chineseData);
   
   return {

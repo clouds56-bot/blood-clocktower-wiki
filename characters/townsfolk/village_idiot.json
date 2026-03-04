@@ -2,7 +2,8 @@
   "id": "village_idiot",
   "type": "townsfolk",
   "name": {
-    "en": "Village Idiot"
+    "en": "Village Idiot",
+    "cn": "村中白痴"
   },
   "ability": {
     "en": "Each night, choose a player: you learn their alignment. [+0 to +2 Village Idiots. 1 of the extras is drunk]"
@@ -15,11 +16,27 @@
   ],
   "first_night": true,
   "other_nights": false,
+  "artist": "Chloe McDougall",
   "jinxes": [],
   "examples": [
     "Doug, Lewis, and Amy are all Village Idiots. Doug is drunk. At night, they all choose Evin, the Kazali. Doug learns that Evin is good. Lewis and Amy learn that Evin is evil.",
     "Ben and Marianna are Village Idiots. Marianna is drunk. Sarah is evil, and bluffing as the Village Idiot. Ben chooses Sarah and learns that she is evil. Marianna chooses the Heretic player and learns that they are good. Sarah claims to have chosen Ben and learnt that he is evil."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Village_Idiot",
-  "image": "assets/tokens/village_idiot.png"
+  "tips": {
+    "en": [
+      "Find your fellow idiots. The easiest way for you to find out which of you is drunk is to compare your information and spot where there are agreements and disagreements. And, if you’re the only Village Idiot out there, you know you’re sober!",
+      "Collaborate with other Village Idiots to all choose the same player. This can help determine which of you is drunk (if one person’s information differs), or whether there are multiple people bluffing as Village Idiots (if all information is the same).",
+      "If there are exactly two of you and you haven't been able to work out who’s drunk, make sure to choose different players so you still get information. Two Village Idiots always choosing the same player won’t get any useful information.",
+      "Remember that there being three Village Idiot claims doesn’t prove any of you good. Be aware of evil players bluffing, as long as there aren’t too many Village Idiots as a result, one of your compatriots could be evil and trying to make you look drunk when you’re not!",
+      "Ignore the other Village Idiots, and assume that your information is correct. If all Village Idiots do this, the net effect will most likely be positive.",
+      "Execute the Village Idiot that you think is drunk (in case they are actually evil).",
+      "If a player is confirmed or strongly believed to be good or evil, choose them to determine whether you are the drunk VI or not.",
+      "Be aware that the Storyteller may still give correct information to the drunk Village Idiot in order to prevent you becoming too powerful.",
+      "Wait a while before revealing you are a Village Idiot. If three or more other players claim to be a Village Idiot, you’ll know at least one of them is lying."
+    ]
+  },
+  "how_to_run": {
+    "en": "While setting up the game, before putting the character tokens in the bag, replace zero, one or two Townsfolk tokens with Village Idiot tokens. While preparing the first night, mark one Village Idiot with the DRUNK reminder."
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Village_Idiot"
 }

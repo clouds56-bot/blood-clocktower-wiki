@@ -47,6 +47,5 @@
     "en": "Each dawn, mark the Flowergirl with the DEMON NOT VOTED reminder, and remove the DEMON VOTED reminder, if any.",
     "cn": "每个黎明，在卖花女孩角色标记旁放置“恶魔未投票”提示标记，并移除“恶魔已投票”提示标记（如果有）。\n每个白天，如果恶魔在任何处决中投票，则将“恶魔未投票”提示标记替换为“恶魔已投票”提示标记。\n除首个夜晚以外的每个夜晚，唤醒卖花女孩。 如果卖花女孩被标记为“恶魔未投票”，摇头告知否。如果卖花女孩被标记为“恶魔已投票”，点头告知是。让卖花女孩重新入睡。\n如果你忘记了恶魔是否在白天投票，在夜晚唤醒恶魔，并向他展示“你今天投票了吗？”信息标记。他必须诚实回答，然后重新入睡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Flowergirl",
-  "image": "assets/tokens/flowergirl.png"
+  "source_url": "https://wiki.bloodontheclocktower.com/Flowergirl"
 }

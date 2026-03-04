@@ -44,6 +44,5 @@
     "en": "While setting up the game, before putting character tokens in the bag, if the King is not already in play, remove a Townsfolk character token and add the King character token.",
     "cn": "在进行游戏设置，将角色标记放进盲抽袋之前，如果国王不在即将要放入盲抽袋的这些角色之中，那么移除一个镇民角色标记，并加入国王。\n除首个夜晚之外的每个夜晚，如果恶魔杀死了国王，在让恶魔重新入睡后唤醒唱诗男孩。对他指向一名恶魔玩家。然后让唱诗男孩重新入睡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Choirboy",
-  "image": "assets/tokens/choirboy.png"
+  "source_url": "https://wiki.bloodontheclocktower.com/Choirboy"
 }

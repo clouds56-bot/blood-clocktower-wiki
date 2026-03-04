@@ -46,6 +46,5 @@
     "en": "Each night except the first, wake the Gambler. They point at any player, then point at any character icon on their character sheet. Put the Gambler to sleep. If the chosen player is a different character from the chosen character icon, the Gambler dies—mark them with the DEAD reminder.",
     "cn": "除了首个夜晚以外的每个夜晚，唤醒赌徒。让赌徒指向任意一名玩家，然后指向角色列表上的任意一个角色图标。让赌徒重新入睡。如果所选的玩家的角色和所选角色图标不同，赌徒死亡——将“死亡”提示标记放置到赌徒的角色标记旁。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Gambler",
-  "image": "assets/tokens/gambler.png"
+  "source_url": "https://wiki.bloodontheclocktower.com/Gambler"
 }

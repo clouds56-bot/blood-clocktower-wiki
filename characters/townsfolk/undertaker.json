@@ -18,6 +18,7 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
     "镇长今天被处决。当晚，送葬者被展示了镇长标记。",
@@ -25,12 +26,21 @@
     "间谍被处决。两名旅行者被流放。在当晚，送葬者被展示了管家标记，因为此时间谍被当作了管家，且流放并不是处决。",
     "今天白天没有人被处决。当晚，送葬者没有被唤醒。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Undertaker",
-  "image": "assets/tokens/undertaker.png",
-  "how_to_run": {
-    "cn": "如果一名玩家死于处决，将送葬者的“死于今日”提示标记放置在那名死亡玩家的角色标记旁。\n除首个夜晚以外的每个夜晚，如果当天有任何玩家死于处决，唤醒送葬者。向他展示被标记了“死于今日”的角色标记。让送葬者重新入睡。在说书人方便的时候，移除送葬者的提示标记。\n在《暗流涌动》里，每个白天只会有一场处决，且每次处决都会导致一名玩家死亡。在其他剧本中，每天可能会有多于一次的处决（在这种情形下由说书人决定向送葬者展示其中的哪一个角色标记），或发生了处决但并未导致死亡（在这种情形下送葬者不会得知任何消息）。"
-  },
   "tips": {
+    "en": [
+      "The more players that are executed, the more information you get. It's to your benefit to facilitate as many executions as you can. The good team's main method for killing evil players is execution as they are far less likely to die at night, so every execution is a chance to hit the Demon. If you don't, you'll at least arrive on the final day knowing a lot more about your fellow players and their roles.",
+      "You do not learn the identity of Travellers; they are exiled, not executed. The only exception to this is the Scapegoat, since they are explicitly executed by their character ability. However, you do not learn their alignment, only their character.",
+      "Executing someone when you don't know their identity can lend credence to your claim as the Undertaker. Alternatively, executing someone who has come out and is claiming a particular character allows you to confirm their story, as you will learn what character they are. Both are great ways to build trust with your fellow good team members.",
+      "Good candidates for early executions are characters like the Washerwoman and the Librarian, as confirming their identity allows you to also confirm other good players. Executing the Investigator or Chef doesn't confirm any other players, but still does mean you can trust their powerful information and perhaps quickly execute the troublesome Poisoner.",
+      "Executing a character like the Fortune Teller may mean they don't get any more information, but you can confirm them and everything they've said up until that point. If they die during the night, they can no longer be confirmed.",
+      "Coming out early opens you up to risks of death or poisoning. Waiting to reveal your information until a critical moment can maximise the amount of information you receive. Make sure to come out before the end of the game!",
+      "Coming out as soon as possible is a good choice if you've learned something critical, such as the identity of the Demon. If you are shown that the executed player was the Imp, it is very likely that a Scarlet Woman just took over as the Demon!",
+      "If an executed player is the Drunk, you will see the Drunk character token, not the Townsfolk they thought they were.",
+      "If you see that a player is a good character, you can trust them, and claim what you are to them. Then, when you eventually reveal yourself as the Undertaker, the executed players will be able to back you up.",
+      "If you see an evil character token, it is typically unwise to be truthful with the player who was just executed. You may still want to claim to be the Undertaker and pretend to back up their bluff, so that the Imp and Poisoner might avoid you in future nights.",
+      "A player who dies because of the Virgin is considered executed and will react to your ability, so you will learn who they are that night.",
+      "Beware the Spy and the Recluse! They will likely register to you as good and evil characters respectively, as their abilities continue to function even when they are dead."
+    ],
     "cn": [
       "被处决的玩家越多，你得到的信息就越多。尽可能多地促成处决将让你获益匪浅。善良阵营击杀邪恶阵营玩家的主要手段就是处决，因为邪恶阵营玩家基本不会死在晚上，因此每一次处决都是攻击恶魔的机会。即使你没有找到恶魔，你也至少要活到游戏的最后一天，这样你将会知道更多关于你队友以及其角色信息。",
       "你不会得知旅行者的角色。他们会因为流放而死亡，但不会因为处决而死亡。对于这一点来说唯一一个例外就是替罪羊，因为他确实会因为他的角色能力被处决。然而，你不会得知他的阵营，只能得知他的角色，而他的角色人尽皆知。",
@@ -44,5 +54,10 @@
       "当心间谍和陌客！他们有可能相应地被你当做善良角色和邪恶角色，因为他们的能力在他们死后也依然生效。",
       "如果你认为有送葬者在场，你可以通过某种方法测试一下。你可以撒谎说自己是某个其他角色，然后再让自己被处决。这样送葬者将会知道你的真实角色，并且能够告诉团队你到底是谁，因而证实他之前说的就是真话。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "If a player dies by execution, put the Undertaker's DIED TODAY reminder token by the dead player's character token.",
+    "cn": "如果一名玩家死于处决，将送葬者的“死于今日”提示标记放置在那名死亡玩家的角色标记旁。\n除首个夜晚以外的每个夜晚，如果当天有任何玩家死于处决，唤醒送葬者。向他展示被标记了“死于今日”的角色标记。让送葬者重新入睡。在说书人方便的时候，移除送葬者的提示标记。\n在《暗流涌动》里，每个白天只会有一场处决，且每次处决都会导致一名玩家死亡。在其他剧本中，每天可能会有多于一次的处决（在这种情形下由说书人决定向送葬者展示其中的哪一个角色标记），或发生了处决但并未导致死亡（在这种情形下送葬者不会得知任何消息）。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Undertaker"
 }

@@ -18,18 +18,24 @@
   ],
   "first_night": false,
   "other_nights": true,
+  "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
     "舞蛇人选择的玩家是麻脸巫婆，无事发生。下个夜晚，舞蛇人选择他自己，依旧无事发生。",
     "舞蛇人选择的玩家是亡骨魔。舞蛇人立即变成邪恶的亡骨魔，曾经是亡骨魔的玩家变成善良的舞蛇人并中毒。",
     "麻脸巫婆把自己变成了舞蛇人。然后，舞蛇人——原本为麻脸巫婆——选择了方古玩家。舞蛇人变成了方古，方古变成了中毒的舞蛇人。但两者仍然邪恶。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Snake_Charmer",
-  "image": "assets/tokens/snake_charmer.png",
-  "how_to_run": {
-    "cn": "每个夜晚，唤醒舞蛇人。让他指向任意一名存活玩家。\n如果被选择的玩家不是恶魔，则无事发生。让舞蛇人重新入睡。\n如果被选择的玩家是恶魔，旧的舞蛇人变为新的（邪恶）恶魔，并且旧的恶魔变为新的（善良）舞蛇人。在魔典中交换舞蛇人和恶魔的角色标记。在新的舞蛇人角色标记旁放置“中毒”提示标记。唤醒新的恶魔并依次向他展示“你是”信息标记、向下的大拇指、 ”你是”信息标记、然后是恶魔的角色标记。（这代表该玩家现在是邪恶的恶魔。）让新恶魔重新入睡。唤醒新的舞蛇人并依次向他展示“你是”信息标记、向上的大拇指、“你是”信息标记、然后是舞蛇人的角色标记。（这代表该玩家现在是善良的舞蛇人。）让新舞蛇人重新入睡。\n在舞蛇人属于邪恶阵营，或者恶魔属于善良阵营的特殊情况下，依旧相应地交换他们的阵营。"
-  },
   "tips": {
+    "en": [
+      "The Snake Charmer exists in a state of duality. At any given moment, you may turn evil and begin betraying your team. Until that happens, though, you are good and playing for the good team, and your information is incredibly useful (knowing who isn't a demon is just as important as knowing who the demon is!). Unlike the other players, you are not playing so much for a team but for yourself, and for the team that you want to end up on.",
+      "Play cautiously; select only a few players to confirm as not the demon. Aim for players you expect to survive for a while - if you have players alive on the final day who are not the demon, then that can bring your odds down from 1 in 3 to 1 in 2! Once you reach a point where you're satisfied with the information gathered (or you just don't want to risk it anymore), keep in mind that you can always choose yourself at night to safely avoid becoming the demon!",
+      "Play recklessly! Select as many players as you can - the more you have confirmed as not the demon, the more powerful you are! This method increases your odds of being the demon, but if you remain good for the entire game, you'll have a TON of powerful information to utilize against the evil team. And if you turn evil... well, it probably doesn't bother you that much if you're taking such big risks.",
+      "Don't tell anyone you're the Snake Charmer unless you are sure that you are not going to be the demon. Even when playing carefully, there's always the chance you will flip to evil with one unlucky pick. The demon you just stole from is now good and has a large incentive to reveal what happened to them - if anyone knows you are the Snake Charmer when the demon claims to have turned good, you are going to be in trouble. Try to avoid revealing until you're dead, OR when you're no longer choosing new players each night.",
+      "Remember that every player you pick who doesn't swap you is not the demon! You are more accurate than a Fortune Teller when it comes to detecting demons... providing you can get the good team to trust you.",
+      "If you stay good, come out with your information eventually - sitting on your information all game will only hurt the good team! If you have become evil... don't admit to being the Snake Charmer, and instead come up with a different bluff on the fly.",
+      "Becoming the demon unexpectedly can be a shock, so try to be ready for the possibility at any time. Have a bluff ready, or if worst comes to worst, just claim that you were the demon and were just snake charmed. Get in fast and aggressive enough, and the poor demon you just suckered out of their ability will be scrambling to catch up and prove you as the evil one.",
+      "So you were the demon, and you've just become the Snake Charmer? Never fret - you're playing for the good team now, and a path to victory is still clear. You have a few options - reveal your new alignment, snitch on your minions, and start a demon hunt with all of your evil knowledge...  or say nothing for a few days. This way, your minions will still trust you and you can use their powers to hunt out and undermine the new demon. Secretly telling one or two good players in the meantime can also grant you allies in your stealthy demon hunt."
+    ],
     "cn": [
       "舞蛇人存在双重可能性。在任何可能的时候，你可能变为邪恶转而开始背叛你的队伍。而在此之前，你是一名善良玩家，你的信息也极其有用（知道谁不是恶魔与知道谁是恶魔同样重要！）。不像其他玩家，你并不为了你的队伍，而是为了你自己，或者说为游戏结束时你所在的阵营。",
       "谨慎一点；只选择少数玩家来确认不是恶魔。瞄准那些你认为会存活一段时间的玩家-如果在最后一天还活着的玩家中有你知道不是恶魔的，那么你们将从3选一变为2选1！一旦你对自己收集到的信息感到满足了（或者你并不想再冒险了），请记住你可以在晚上选择自己来避免成为恶魔！",
@@ -40,5 +46,10 @@
       "突然变为恶魔会让人很震惊，所以你要为这个可能性做好准备。准备一个角色，即便最坏的情况发生了，你也可以马上声明自己是恶魔但被舞蛇人给交换了。只要你足够快且气势汹汹，那么可怜的恶魔将很难跟上你的步调来证明你才是邪恶的那一个。",
       "那么如果你是恶魔但是变成了舞蛇人该怎么办？不必烦恼——你现在属于善良阵营，依然有着足够清晰的方式获得胜利。你有几个选择——立即告知大家你现在属于新的阵营，暴露你的爪牙，然后用你邪恶的能力来追捕新的恶魔吧……或者你也可以什么都不说直到几天后。如果这样，你的爪牙们仍然会相信你是恶魔然后去运用他们的能力寻找和对抗新的恶魔。同时在这期间你也可以悄悄的告诉一两个善良阵营的玩家让其成为你秘密找寻恶魔计划的伙伴。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "Each night, wake the Snake Charmer. They point at any player.",
+    "cn": "每个夜晚，唤醒舞蛇人。让他指向任意一名存活玩家。\n如果被选择的玩家不是恶魔，则无事发生。让舞蛇人重新入睡。\n如果被选择的玩家是恶魔，旧的舞蛇人变为新的（邪恶）恶魔，并且旧的恶魔变为新的（善良）舞蛇人。在魔典中交换舞蛇人和恶魔的角色标记。在新的舞蛇人角色标记旁放置“中毒”提示标记。唤醒新的恶魔并依次向他展示“你是”信息标记、向下的大拇指、 ”你是”信息标记、然后是恶魔的角色标记。（这代表该玩家现在是邪恶的恶魔。）让新恶魔重新入睡。唤醒新的舞蛇人并依次向他展示“你是”信息标记、向上的大拇指、“你是”信息标记、然后是舞蛇人的角色标记。（这代表该玩家现在是善良的舞蛇人。）让新舞蛇人重新入睡。\n在舞蛇人属于邪恶阵营，或者恶魔属于善良阵营的特殊情况下，依旧相应地交换他们的阵营。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Snake_Charmer"
 }

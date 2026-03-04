@@ -18,18 +18,32 @@
   ],
   "first_night": false,
   "other_nights": true,
+  "artist": "Marianna Carr",
   "jinxes": [],
   "examples": [
     "洗衣妇得知要么小黑是守鸦人，要么道哥是守鸦人。小黑是僧侣，道哥是被当作守鸦人的间谍。",
     "间谍坐在小恶魔与共情者之间。厨师得知了“1”因为间谍此时被当作邪恶阵营。当夜稍晚时分，共情者得知了“0”，因为间谍此时被当作善良阵营。",
     "间谍提名了贞洁者且被贞洁者的能力处决，因为说书人选择让间谍被当作一个镇民角色。在当晚，送葬者得知白天死去的是酒鬼，因为间谍现在被当作了酒鬼。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Spy",
-  "image": "assets/tokens/spy.png",
-  "how_to_run": {
-    "cn": "每个夜晚，唤醒间谍并让他按自己意愿的时长来查看魔典。让间谍重新入睡。\n每当因游戏规则或角色能力的效果要探查或影响玩家的阵营或角色，且间谍因此被选中为目标时，由你决定间谍被当作哪种角色和哪种阵营。（做出任何合适的举动，例如展示一个善良角色标记，点头，给出手势，或允许一项通常只针对善良阵营，镇民或外来者角色的能力对间谍生效。）"
-  },
   "tips": {
+    "en": [
+      "If you're reading this having just pulled the Spy token this tip won't help you, but if you're about to play your first game, ask your Storyteller to show you an example of a grimoire, so you're prepared when they wake you up.",
+      "Providing your memory is good, you start the game knowing everything! All characters in play and who they are will be laid out in the Grimoire. Use this information to help the evil team pick good bluffs and take out high priority targets.",
+      "It isn't necessary to memorise everything. Some important things to remember can be:\nA character that isn't in play, for you to bluff (perhaps more than one, in case you get chance to talk to a fellow minion), and any information you might need to support your bluff.\nSome people the Imp should kill or your Poisoner poison, like the Slayer or Undertaker\nSome people the Imp should definitely not kill, like the Ravenkeeper or Soldier\nAny reminder tokens you think will be importantA character that isn't in play, for you to bluff (perhaps more than one, in case you get chance to talk to a fellow minion), and any information you might need to support your bluff.Some people the Imp should kill or your Poisoner poison, like the Slayer or UndertakerSome people the Imp should definitely not kill, like the Ravenkeeper or SoldierAny reminder tokens you think will be important",
+      "Take your time! The Storyteller will show you the Grimoire for as long as you need.",
+      "In the Grimoire, you will not only see who everyone is, but the Storyteller reminder tokens. These will allow you to identify who is a Drunk, who your Poisoner targeted, who the Fortune Teller red herring is, who the Demon killed,  who the Washerwoman/Librarian is getting their read on, and the alignment of any Travellers. Remember that you may register as good for a  Washerwoman or Librarian; if you see this in the Grimoire, you can lean into that bluff early on.",
+      "Choosing a good bluff for yourself is easy, because you know all characters that are not in play.",
+      "You also have access to information that is hard to guess or obtain as an evil player, like player's characters. This makes you an especially potent Washerwoman, Undertaker or Ravenkeeper, since all of these characters learn that sort of information. You can gain the trust of good players by being able to name their character, especially if they haven't revealed yet, or if they are bluffing as something else.",
+      "Bluffing as the Librarian or the Investigator and selecting powerful characters (like the Empath, Ravenkeeper or Mayor) to mark as the Drunk or as an evil Minion will let you undermine these players. As the Spy, you can do this before they come out, which lends credibility to your claim compared to other evil players doing the same type of bluff.",
+      "You can provide support to your Demon and other Minions (like the Poisoner) by secretly giving them powerful characters to target early on, neutralizing them before they pose a serious threat for the evil team. In general, you are going to want to have a lot of secret conversations with fellow evil players to communicate the information that you have; prepare a solid alibi to explain why you were whispering.",
+      "You will usually register as a good player to characters like the Empath, Chef, and Undertaker. Thanks to this, you will be able to gain the trust of good players much more easily than the other evil characters. This also makes you a great candidate to become the Demon in the later game. Encourage the Imp to pass on their Demonhood to you once you are well established!",
+      "You are the only evil player that can activate the Virgin ability. Players who die this way are usually the most trusted characters in the game. Deliberately giving false information and then sacrificing yourself on a Virgin can give you a platform to confuse and mislead the good team. Similarly if you know an Undertaker is in play, you can allow yourself to be executed, so when you register as good to them, they will trust you and your information. This can also be a great way to undermine an undesirable execution (for example, your Demon) - you will die and your execution will take priority over the existing vote.",
+      "The Spy is particularly effective for bluffs that require more than one player. For example, you can claim to be the Washerwoman, Librarian or Ravenkeeper and back up your Demon's character claim. (You should probably let your Demon know you're going to do this!)",
+      "You will often register as good, which is great if you are sitting near an Empath, or if a Chef is in play. This will help you with your goal of infiltrating the good team and getting them to trust you.",
+      "You can telegraph possible bluffs to other evil players, without needing to have a private conversation with them. Like talking about \"stars\" or \"jewels\" in order to let a partner know that you are strong in diamonds in a game of bridge, you can use subtleties of language to hint to your allies what characters they can bluff as. Or, sometimes, just tell them directly. For example, if you publicly say, \"I won't say who, but somebody told me that David is the Monk\", then David might realise what you are doing, and start bluffing as the Monk.",
+      "Make sure the Storyteller knows what you are claiming to be - this will enable them to back up your bluff to other players. For example, if you are bluffing as the Butler and you are executed, the Storyteller will know to show the Undertaker the Butler token.",
+      "You won't always register as good. Sometimes the town will see you as evil - and that's okay! The last thing you want is for your Demon to be executed because you're too well trusted."
+    ],
     "cn": [
       "在游戏开始你将知道所有信息，尽可能记住他们并提供给队友！所有在场的玩家及他们对应的角色都会被放置在魔典中。使用这些信息帮助邪恶阵营队友挑选善良角色做伪装，以及消灭高优先级的目标。",
       "在魔典中，你不止能够看到谁是谁，还能看到说书人在他们角色标记旁放置的提示标记。这将让你能够看出谁是酒鬼，投毒者对哪名玩家下了毒，谁是占卜师的误导项，恶魔杀了谁以及洗衣妇或是图书管理员获取到了谁的信息。记得你可能会被洗衣妇或图书管理员当作善良角色，如果你在魔典里面看到了这些，尽早去猜测并伪装成那个角色。",
@@ -51,5 +65,10 @@
       "送葬者或守鸦人可能会得到信息：某名玩家是间谍。这通常是说书人在说谎，你应该带着怀疑的态度审视这条信息。",
       "如果间谍在场的话，小恶魔会更倾向于自杀并期望能把恶魔血脉传给间谍，因为间谍更能融入到小镇当中去。如果在夜晚发生了任何无意义的死亡，你都应该注意这一点。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "Each night, wake the Spy and show them the Grimoire for as long as they need. Put the Spy to sleep.",
+    "cn": "每个夜晚，唤醒间谍并让他按自己意愿的时长来查看魔典。让间谍重新入睡。\n每当因游戏规则或角色能力的效果要探查或影响玩家的阵营或角色，且间谍因此被选中为目标时，由你决定间谍被当作哪种角色和哪种阵营。（做出任何合适的举动，例如展示一个善良角色标记，点头，给出手势，或允许一项通常只针对善良阵营，镇民或外来者角色的能力对间谍生效。）"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Spy"
 }

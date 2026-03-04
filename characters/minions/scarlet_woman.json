@@ -18,18 +18,21 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Marianna Carr",
   "jinxes": [],
   "examples": [
     "有七名玩家存活：小恶魔，红唇女郎，两名镇民，三名旅行者。小恶魔被处决，因此游戏结束且善良阵营获胜，因为旅行者不计算在红唇女郎的能力里。",
     "有五名玩家存活：小恶魔，红唇女郎，男爵，两名镇民。小恶魔被处决。红唇女郎变成了小恶魔，且游戏继续。",
     "小兰是红唇女郎。占卜师选择了小兰和小美，并得知了“否”。随后，小恶魔死亡，因此小兰变成了小恶魔。占卜师再次选择了小兰和小美，并得知了“是”。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Scarlet_Woman",
-  "image": "assets/tokens/scarlet_woman.png",
-  "how_to_run": {
-    "cn": "如果恶魔死亡，且在恶魔死前有五名或更多的存活玩家，在魔典中用闲置的小恶魔标记替换红唇女郎的标记，也意味着那名玩家的角色从红唇女郎变成了小恶魔。（她现在是恶魔，且具有恶魔的能力。如果她死亡，善良阵营获胜。）\n在当晚，唤醒新的小恶魔，向她展示“你是”信息标记，然后向她展示小恶魔角色标记。\n在《暗流涌动》里，只有一种恶魔——小恶魔。在其他剧本中，可能会有多种不同的恶魔。如果红唇女郎变成了恶魔，她一定会变成与刚死去的恶魔同一种类的恶魔，并获得这种恶魔的能力。当这种情况发生时，使用红唇女郎的“是恶魔”提示标记标记红唇女郎现在是恶魔，并参照对应的恶魔介绍里的“运作方式”来进行相关操作。"
-  },
   "tips": {
+    "en": [
+      "The Scarlet Woman is at her strongest when you co-ordinate with the Demon and figure out a strategy that you both like, since the Demon can safely die. Maybe you accuse the Demon of being evil, and the Demon does everything possible to make the good team think they are indeed evil? This makes you look very good, and trustworthy. Maybe the Demon kills themselves of a night time and claims to be the Ravenkeeper, saying that you are the character you say you are. Maybe the Demon accuses you of being evil, but does so unconvincingly, so that you look good by comparison. Maybe you and the Demon both claim to be the same character, such as the Mayor? After all, \"one of you must be the Mayor\", right? It doesn't matter which one of you dies, since the game continues with a living Demon either way.",
+      "In the early game, staying alive is more important for you compared to other Minions. Whist it doesn't really matter if the Baron, or Poisoner dies early (since they can often cause a lot of disruption early in the game), you will need to survive until the end of the game if you intend to become the Demon at some point. Waiting, listening, then claiming to be a character that you know is not in play often achieves this best.",
+      "Timing is important. Remember that if fewer than five players are alive when the Demon dies, the game is over and good wins. If your Demon has a lot of heat on them, and you think that they won't survive to the final day, take action and get your Demon killed while five or more players are still alive... before it's too late.",
+      "Whilst you are the Scarlet Woman, you will not register as the Demon. So, if you can get yourself confirmed as such by good characters, such as the Slayer or the Fortune Teller, then become the Demon at a later stage, then the good team will be very confused about the identity of the real Demon, as their information won't add up.",
+      "If the Demon is playing well, and seems to be trusted by the good team, there is no need to use your ability. You can play the normal Minion role of spreading false information, breeding distrust among the good players and generally being troublesome whilst ignoring your character ability."
+    ],
     "cn": [
       "当你与恶魔合作且找到了一个你们俩都认同的策略时，红唇女郎将发挥她最大的作用，因为恶魔可以安全地死掉。或许你可以公开指出邪恶阵营的恶魔，然后恶魔再尽最大努力让大家相信他确实邪恶。这会让你看起来非常善良且值得信赖。或许恶魔可以在晚上自杀然后宣称自己是守鸦人，并因此证实你此前的伪装。或许恶魔可以指控你为邪恶，但说辞并不那么让人信服，这样相比之下你看起来就会更加善良。或许你和恶魔可以同时说自己是某个相同的角色，比如镇长。不管怎么说，\"你们两个中间肯定有个镇长\"，没错吧？你们哪个死了都无所谓，不管怎样游戏都会继续，因为总会有一个恶魔存活。",
       "与其他爪牙不同，在游戏前期你更需要\"活下来\"。像男爵和投毒者就算很早就死了也无所谓（因为前期他们就会带来很多麻烦）。但你如果打算在某个时刻变为恶魔，就需要活到游戏最后。等待，仔细倾听然后声称自己是某个你确信不在场的角色，这样通常能够达到最令人满意的效果。",
@@ -44,5 +47,10 @@
       "与其他爪牙不同，红唇女郎可能会大胆地将矛头指向自己的恶魔，并且可能会故意处决恶魔来让自己看起来更加善良。如果你怀疑某位玩家是红唇女郎，时刻关注她一直在针对谁，以及矛头是否突然转变；如果她原本一直在针对某一位玩家，但在存活玩家少于5人时突然调转了矛头，那之前那个被针对的玩家很有可能就是恶魔。",
       "红唇女郎通常是作为一个备用计划，而不是攻略首领的第二阶段。如果恶魔能够很好地融入小镇且没有受到太多质疑，红唇女郎就可以表现得更像个一般的爪牙，并且更随意地牺牲自己。如果你发现红唇女郎表现得太过明显，那就需要怀疑那个之前很受大家信任的玩家了。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "If the Demon dies and there were five or more alive players immediately before the Demon died, replace the Scarlet Woman token with a spare Imp token, changing that player's character from the Scarlet Woman into the Imp. (They are now the Demon and have the Imp's ability. If they die, good wins.)",
+    "cn": "如果恶魔死亡，且在恶魔死前有五名或更多的存活玩家，在魔典中用闲置的小恶魔标记替换红唇女郎的标记，也意味着那名玩家的角色从红唇女郎变成了小恶魔。（她现在是恶魔，且具有恶魔的能力。如果她死亡，善良阵营获胜。）\n在当晚，唤醒新的小恶魔，向她展示“你是”信息标记，然后向她展示小恶魔角色标记。\n在《暗流涌动》里，只有一种恶魔——小恶魔。在其他剧本中，可能会有多种不同的恶魔。如果红唇女郎变成了恶魔，她一定会变成与刚死去的恶魔同一种类的恶魔，并获得这种恶魔的能力。当这种情况发生时，使用红唇女郎的“是恶魔”提示标记标记红唇女郎现在是恶魔，并参照对应的恶魔介绍里的“运作方式”来进行相关操作。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Scarlet_Woman"
 }

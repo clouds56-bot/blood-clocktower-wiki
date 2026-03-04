@@ -18,6 +18,7 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
     "博学者得知“所有戴眼镜的玩家都是善良的”以及“坐在黑色沙发上的玩家之一是爪牙”。",
@@ -25,12 +26,13 @@
     "博学者得知“恶魔是女性玩家”和“小八属于邪恶阵营”。",
     "博学者得知“小文和小米属于同一个阵营”和“只有一名外来者在场”。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Sage",
-  "image": "assets/tokens/sage.png",
-  "how_to_run": {
-    "cn": "每个白天仅限一次，如果博学者要求与你进行私聊，请和他一起离开玩家围成的圆圈，保证你们的私聊不会被偷听。然后以耳语的方式告知博学者一真一假两条信息。（如果你无法立刻想出两条信息，要么多想一会儿，要么让博学者几分钟后再来找你。）\n保证你提供的信息有用并且与游戏有关。避免提供恶魔是谁这种信息，否则可能导致游戏快速结束。如果你无法决定告知博学者什么信息，你可以选择提供类似于镇民能力能够获取的信息。"
-  },
   "tips": {
+    "en": [
+      "Get killed by the Demon. Do it. By any means, and as quickly as possible. If the Demon kills you, you get fantastic information, so do whatever you can to make it happen. Pretend to be a character the Demon would want to kill, such as a Flowergirl or a Savant, or stay silent. Unlike the Ravenkeeper, who benefits more so when the Demon attacks them later in the game, you benefit most when the Demon attacks you earlier in the game. If the Demon attacks you on the first or second night (or in the first half of the game), then you will have enough days left to execute both suspects you learn might be the Demon.",
+      "Reveal your information immediately if the Demon does kill you. The sooner the good team knows that you are the Sage, and that you know 1 of two players is the Demon, then the sooner you can figure out who the Demon is. If you wait until the final day to reveal your information (in the way that a Fortune Teller might wait until the final day to reveal that 1 or 2 still-living players are not the Demon), then you may still only know that the Demon is 1 of 2 players. Also, in this case, you will have to convince the good team that you are the Sage, and you may not have enough time left to do so.",
+      "You can simply come out publicly as the Sage, in order to survive until the final day. If you believe that the group trusts you, telling the group that you are the Sage can be a great way to get the Demon to leave you alone, so that other players are killed at night, and other players are executed during the day. Having other players believe that you are good is crucial for this strategy to work. Surviving until the final day means that evil can not automatically win by having all 3 players alive be evil, and it also means that the good team is choosing between 2 players to execute, not 3.",
+      "If you die at night but didn't get any information, this is also great news! While you didn't get to find out who the Demon is, you know that the only way you can die at night but not be killed by the Demon is if you were killed by the Pit-Hag's arbitrary deaths, so you can confirm that to town."
+    ],
     "cn": [
       "在每天你可以得到一条真信息和一条假信息。最简单的运用方式就是选择一条你认为是真信息的然后去推理。例如，说书人告诉你a)有畸形秀演员在场b)你的邻座都是善良的，而现在没有证据表明畸形秀演员在场，那么你只需要假设你的邻座确实都是善良的。有可能这是错误的，但是你必须要做出一个\"最好的假设\"。",
       "在某些情况下，你的其中一条信息会被证实是正确的，那么另一条就是错误的。或者其中一条被证实是错误，则另一条就会是正确的。这将为你让你得知大量信息。例如，如果你得知a)有一个金发玩家是爪牙b)有三个外来者在场，如果大量证据表明爪牙已经死去了（而死去的玩家中没有金发玩家），那么你可以大胆认为场上确实有三个外来者。",
@@ -43,5 +45,10 @@
       "每一天都要去找说书人，以尽可能的获取更多的信息。随着你每天都去找说书人，你就会得到更多的信息，当然恶魔也更有可能去杀你。博学者对于恶魔而言是一个非常危险的角色，所以如果恶魔看见你在每天都去找说书人，那么即使你没有说明你自己的角色，恶魔也可能会在晚上攻击你。",
       "你也可以在前期不去找说书人。这样会导致你获取更少的信息，但同时更容易存活。而你在当时获取的信息有可能会更有价值。在通常情况下，如果只有3、4、5名玩家存活时，你的信息会更有用，因为它会指向更少的玩家。例如，在12人存活时，得知两名玩家中有一个是爪牙是比较简单的，但是如果只有3个玩家存活，那就会变得非常简单。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "If the Sage was killed by the Demon, wake the Sage. Point at two players, one who is the Demon that killed the Sage. Put the Sage to sleep.",
+    "cn": "每个白天仅限一次，如果博学者要求与你进行私聊，请和他一起离开玩家围成的圆圈，保证你们的私聊不会被偷听。然后以耳语的方式告知博学者一真一假两条信息。（如果你无法立刻想出两条信息，要么多想一会儿，要么让博学者几分钟后再来找你。）\n保证你提供的信息有用并且与游戏有关。避免提供恶魔是谁这种信息，否则可能导致游戏快速结束。如果你无法决定告知博学者什么信息，你可以选择提供类似于镇民能力能够获取的信息。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Sage"
 }

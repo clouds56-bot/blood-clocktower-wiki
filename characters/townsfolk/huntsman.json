@@ -2,7 +2,8 @@
   "id": "huntsman",
   "type": "townsfolk",
   "name": {
-    "en": "Huntsman"
+    "en": "Huntsman",
+    "cn": "猎人"
   },
   "ability": {
     "en": "Once per game, at night, choose a living player: the Damsel, if chosen, becomes a not-in-play Townsfolk. [+the Damsel]"
@@ -34,6 +35,5 @@
   "how_to_run": {
     "en": "While setting up the game, before putting character tokens in\nthe bag, if the Damsel is not already in play, remove a Townsfolk\ncharacter token and add the Damsel character token."
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Huntsman",
-  "image": "assets/tokens/huntsman.png"
+  "source_url": "https://wiki.bloodontheclocktower.com/Huntsman"
 }

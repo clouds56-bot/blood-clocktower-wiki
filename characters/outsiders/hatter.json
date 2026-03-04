@@ -18,18 +18,21 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Aidan Roberts, Chloe McDougall, Steven Medway",
   "jinxes": [],
   "examples": [
     "帽匠死亡了。奥赫选择变成了诺-达鲺，魔鬼代言人选择变成了红唇女郎。",
     "亡骨魔杀死了麻脸巫婆，后来他又杀死了帽匠。恶魔和爪牙都选择不改变自己的角色，因此亡骨魔让麻脸巫婆保留能力的效果仍然继续生效。",
     "刺客杀死了一名玩家。帽匠被处决了。当晚，刺客选择变成了主谋。主谋摇头想保留自己的角色，但说书人对他摇头，因为主谋角色已经被其他玩家选择了。说书人示意主谋重新选择，主谋选择了刺客。随后新的刺客使用自己的能力杀死了一名玩家。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Hatter",
-  "image": "assets/tokens/hatter.png",
-  "how_to_run": {
-    "cn": "如果帽匠死亡，在其角色标记旁放置“今晚茶会”提示标记。\n在当晚，一同唤醒所有爪牙和恶魔。对他们展示“该角色的能力对你生效”信息标记，然后展示帽匠角色标记。每名以此被唤醒的玩家可以选择摇头或指向角色列表上与自己当前角色类型相同的一个角色。如果一名玩家在做出自己的选择后会使得自己的角色与一名其他玩家选择的角色相同，对他摇头示意他重新选择。在选择完成后让他重新入睡。移除“今晚茶会”提示标记。根据这些玩家的选择，在魔典上执行相应的角色变化操作。\n可选规则：如果帽匠死亡，允许恶魔变成爪牙，且（仅）一名爪牙变成恶魔。这可能会在邪恶阵营内制造一些混乱，因为他们可能会尝试在夜晚用手势交流由谁来成为恶魔。"
-  },
   "tips": {
+    "en": [
+      "Don’t die! As soon as you die, the evil team gets to power up to become the exact combination they think will be most effective, regardless of the prior game balance. And that could be overpowering if the evil team can do it with impunity when they want to.",
+      "Die as early as possible! The sooner you die, the less time the evil team have to work out which characters are going to be most effective against the characters arrayed on the good team. It also increases the odds that you are confirmed by later Minion/Demon activity contradicting the early indications, helping town work out the Outsider count.",
+      "Mid-game is the worst time for you to die. Just as the good team are getting to grips with their information and tracking down evil players, your ability can completely switch that information around and make it incredibly hard to parse, just when you need it most to narrow down between the smaller group of candidates remaining.",
+      "The day after you die, tell everyone that you were the Hatter! They need to adjust their choices accordingly to adjust to a potential change of characters on the evil team, whether that’s night choices or nominations and voting choices to hunt the Demon effectively.",
+      "After you die, try to see if you can spot what the Minions/Demons have changed to based on game state changes from the early game. Maybe some people’s information has gone weird when it was previously reliable, maybe a suspected evil player is suddenly much happier to die, maybe there was an extra death you can’t explain. Any clues you can garner about your new evil team are even more crucial than they would ordinarily be, with the reduced time available to work out your new evil team."
+    ],
     "cn": [
       "避免死亡！一旦你死亡，邪恶团队就能相互联系并定下他们认为最强力的角色组合，打破之前游戏的平衡局势。并且，如果邪恶团队能在他们需要的时候无需代价就能完成此事，这会导致压倒性的局面。",
       "尽早死亡！你死得越早，邪恶团队越是不够时间去确定哪些邪恶角色能够最有效地对抗善良玩家。同时因为这样会导致爪牙和恶魔角色在后续表现的迹象与游戏早期存在矛盾，这种做法能够增加你被确证的概率，并且因此帮助大家确认在场的外来者数量。",
@@ -37,5 +40,10 @@
       "在你死后的第二天告诉所有人，你就是帽匠！不管是夜晚能力的选择还是提名和投票的决定，他们都需要相应地调整自己的思路来应对邪恶团队潜在的角色变换，以便有效地猎杀恶魔。",
       "在你死后，对比此时与游戏初期所发生的局势变化，你可以试试看根据这些信息找出爪牙和恶魔角色发生了什么改变。也许有些玩家原本可靠的信息变得奇怪，也许会有邪恶玩家候选人突然变得乐于去死，也许场上会出现你们无法解释的额外死亡。你们在帽匠死后获得的任何关于新出现的邪恶角色的信息，甚至比在通常游戏对局中更重要，因为你们用来分析邪恶角色的时间已经被缩短了。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "If the Hatter dies, mark them with the TEA PARTY TONIGHT reminder.",
+    "cn": "如果帽匠死亡，在其角色标记旁放置“今晚茶会”提示标记。\n在当晚，一同唤醒所有爪牙和恶魔。对他们展示“该角色的能力对你生效”信息标记，然后展示帽匠角色标记。每名以此被唤醒的玩家可以选择摇头或指向角色列表上与自己当前角色类型相同的一个角色。如果一名玩家在做出自己的选择后会使得自己的角色与一名其他玩家选择的角色相同，对他摇头示意他重新选择。在选择完成后让他重新入睡。移除“今晚茶会”提示标记。根据这些玩家的选择，在魔典上执行相应的角色变化操作。\n可选规则：如果帽匠死亡，允许恶魔变成爪牙，且（仅）一名爪牙变成恶魔。这可能会在邪恶阵营内制造一些混乱，因为他们可能会尝试在夜晚用手势交流由谁来成为恶魔。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Hatter"
 }

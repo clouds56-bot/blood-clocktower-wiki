@@ -18,18 +18,30 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "John Grist",
   "jinxes": [],
   "examples": [
     "在第一个白天，小米宣称自己是精神病患者，并选择了小文。小文死亡。",
     "精神病患者选择攻击水手。水手没有醉酒，因此没有死亡。今天精神病患者无法再次使用他的能力了。",
     "精神病患者被理发师提名并因此被处决。在猜拳中，理发师出了石头，精神病患者也出了石头，因此精神病患者仍然存活。在下一个白天，圣徒提名并处决了精神病患者。圣徒出了布而精神病患者出了剪刀，因此精神病患者仍然存活。在下一个白天，理发师再次提名并处决了精神病患者。理发师出了石头而精神病患者出了剪刀，精神病患者死亡。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Psychopath",
-  "image": "assets/tokens/psychopath.png",
-  "how_to_run": {
-    "cn": "每个白天限一次，在你宣布开始提名之前，精神病患者可以公开选择一名玩家。那名玩家死亡。\n如果精神病患者被处决，他需要与提名他的玩家进行猜拳。如果精神病患者在猜拳中输了，那么他死亡。如果精神病患者在猜拳中平局或获胜，他会仍然存活。不论猜拳是哪种结果，白天阶段会随即结束，因为每个白天只会有一次处决发生。\n如果精神病患者因为提名自己或是某些角色的能力效果而被处决，那么他会改为和你进行猜拳。"
-  },
   "tips": {
+    "en": [
+      "Reveal yourself publicly on the first day, or as early as possible, and start killing immediately. Even if you kill players that are not ideal, like players that have already used their ability, it is still helpful. If the good team is executing a player per day, and you and the Demon are killing two players per \"day\", then you still have the advantage, regardless of which players are dying. The good team may want to execute you immediately, particularly in a large game, but if it takes them a few days to do so, it should still be worth it.",
+      "Wait on revealing yourself until the perfect opportunity. Depending on the script, there may be some extremely dangerous Townsfolk in play. Sacrificing a day or three of activity might be worth it, to make a surprise attack on a particularly powerful character, such as the Lycanthrope, King, or the Cult Leader. Even if you only kill this one player before you die, that could be enough to save the game for the evil team.",
+      "Wait on revealing yourself until the very end of the game. If you can survive until the final three players, you can kill a player and win the game before the final day of nominations occur. Or, if there are four or five players alive, you can kill a player at that point, and force the good team to execute the Demon that day or face a loss that night.",
+      "Be aware that even though you are very powerful Minion, you have a significant downside - that the good team knows which player is a Minion. The good team knows one player that they don't need to execute to win the game. Also, characters that gain information about Minions can be particularly powerful, such as the Noble, Clockmaker, or Balloonist.",
+      "Kill yourself if necessary. Towards the end of the game, it is often more useful for you to be dead (and one step closer to evil winning due to just two players alive) than alive and known to not be the Demon. You can use your ability to die, or even publicly announce that you are willing to die by the Demon to achieve this end.",
+      "Gain as much information as you can while you are alive. Listen in on private conversations, pay attention to which good players are which characters, and which players are planning what. Talk to everyone. You don't even need to talk to your own evil team, but you can if you want. Even though you may be annoying to the good players, the more information you have will mean you know who to attack each day.",
+      "Soak up some executions at the appropriate time. Early on in the game, it is usually best if the players are executing other players, since the chance of them executing the Demon is low. Later in the game, it is usually best if the good team is executing you, because the chance of otherwise executing the Demon is high. If you can convince the good players to execute you at the times when the Demon is suspicious, the odds favour you. If you can convince the good team to avoid executing you at the times when the Demon is trusted, then you gain the benefit of a good player executed and a good player dying due to the Psychopath each day.",
+      "When there are just four or five players alive, think carefully about who to attack. A savvy good team will realise that going to the night phase with a living Psychopath and just four players alive will mean certain doom the following day, when you attack a player before nominations.",
+      "Don't be afraid to die, but try to live as long as possible. In a large game, a lucky good team that executes the Psychopath on the first day has removed and confirmed a Minion with a lot of time to spare. This is not helpful, and not very fun for you.",
+      "You can never reveal that you are the Psychopath, and just wait to be executed. The roshambo part of your ability will still activate, even if the good team has no idea that you are the Psychopath. This wastes an execution for the day, and will still allow you to attack a player the following day. As long as you don't lose roshambo, of course.",
+      "If there are characters that swap the Demons on the script, it can sometimes be useful to obviously not use your ability during the day, even if the good team knows for a fact that you are the Psychopath. For example, if an Imp, Fang Gu, or Pit-Hag are on the script, you can trick the good team into executing you as they may think that you no longer have your ability.",
+      "Learn some Roshambo (Paper-Rock-Scissors) psychology. Unlike normal, you don't need to win. Either winning or drawing is ok for you. Instead of trying to figure out what your roshambo opponent is going to do (a one in three chance), all you need to do is figure out what they are not going to do (a two in three chance). If you think they are not going to guess rock, guess scissors. If you think they are not going to guess scissors, guess paper. If you think that they are not going to guess paper, guess rock.",
+      "Every so often, kill an evil player. If the good team correctly assumes that you only kill good players, that is giving them too much information. Killing an evil player to make them look good might be worth it.",
+      "An evil player can nominate you, and deliberately lose roshambo. However, if the good team knows this, then they can just execute that evil player the following day. This is sometimes, but rarely, worth it."
+    ],
     "cn": [
       "在第一天或尽可能早表明角色，并立即开始杀戮。就算杀死的玩家不是那么理想，比如已经使用过能力的玩家，还是有帮助的。如果善良阵营每天处决一名玩家，而你和恶魔每天杀死两名玩家，那么无论死亡的是谁，你仍然有优势。尤其是在多人的场次中，善良阵营可能想立即处决你，但如果他们需要几天时间来实现处决，那对你来说还是值得的。",
       "等待完美的机会再表明角色。有的剧本可能会有一些（对邪恶阵营）极其危险的镇民，为了对这些特别强大的角色(例如半兽人、国王或异教领袖)发动突然袭击，隐藏几天是值得的。即使你杀死了这个玩家后马上就死亡，也足以为邪恶阵营挽救游戏。",
@@ -53,5 +65,10 @@
       "如果团队的策略是让精神病患者活着并找到恶魔，请对你更强大的角色能力保持沉默，以尽可能少向精神病患者提供信息。与你信任的玩家（或任何除精神病患者之外的玩家，真的）交谈，并秘密整理你的信息。精神病患者可能会随时偷听你们私聊，所以要小心，并随时小声私聊。或者，为了消除精神病患者干扰，如果您是一个不介意死亡的角色，请公开装作精神病患者想要杀死的角色，例如赏金猎人或渔夫。或者，如果你是一个绝对不想死的角色，就公开谎称是一个精神病患者懒得碰的角色，比如厨师或告密者。",
       "当提名开始时，尽早提名精神病患者。如果提名成功，那将是你和精神病患者猜拳，你至少确定你属于善良阵营。警惕其他过于着急提名精神病患者的玩家，因为他们可能是提名精神病患者的邪恶玩家，目的是故意输掉猜拳。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "Once per day, before you have called for nominations, the Psychopath may publicly choose a player. That player dies.",
+    "cn": "每个白天限一次，在你宣布开始提名之前，精神病患者可以公开选择一名玩家。那名玩家死亡。\n如果精神病患者被处决，他需要与提名他的玩家进行猜拳。如果精神病患者在猜拳中输了，那么他死亡。如果精神病患者在猜拳中平局或获胜，他会仍然存活。不论猜拳是哪种结果，白天阶段会随即结束，因为每个白天只会有一次处决发生。\n如果精神病患者因为提名自己或是某些角色的能力效果而被处决，那么他会改为和你进行猜拳。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Psychopath"
 }

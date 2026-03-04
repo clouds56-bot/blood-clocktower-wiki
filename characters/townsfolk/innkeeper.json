@@ -45,6 +45,5 @@
     "en": "Each night except the first, wake the Innkeeper. They point at any two players. Put the Innkeeper to sleep. Mark the two chosen players with SAFE reminders. One of the chosen players becomes drunk—mark them with the DRUNK reminder. The players marked SAFE cannot die tonight.",
     "cn": "除了首个夜晚以外的每个夜晚，唤醒旅店老板。让旅店老板指向任意两名玩家。让旅店老板重新入睡。将“不会死亡”提示标记放置到所选的两个角色标记旁。所选玩家其中一人醉酒——将“醉酒”提示标记放置到该玩家的角色标记旁。标有“不会死亡”的玩家当晚不会死亡。\n在黎明，移除“不会死亡”提示标记。\n在黄昏，移除“醉酒”提示标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Innkeeper",
-  "image": "assets/tokens/innkeeper.png"
+  "source_url": "https://wiki.bloodontheclocktower.com/Innkeeper"
 }

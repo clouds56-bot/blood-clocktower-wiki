@@ -1,5 +1,5 @@
 {
-  "id": "lil'_monsta",
+  "id": "lil_monsta",
   "type": "demon",
   "name": {
     "en": "Lil' Monsta",
@@ -18,16 +18,23 @@
   ],
   "first_night": true,
   "other_nights": false,
+  "artist": "Chloe McDougall",
   "jinxes": [],
   "examples": [
     "投毒者和寡妇一同被唤醒。他们先是互相指着对方，然后又分别指着自己，再是一同指向了寡妇。现在由寡妇来照看小怪宝。在下一个夜晚，他们一同指向了投毒者，因此改为由投毒者来照看小怪宝。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Lil%27_Monsta",
-  "image": "assets/tokens/lil'_monsta.png",
-  "how_to_run": {
-    "cn": "在游戏开始前，请确保所有玩家都理解了小怪宝的能力。如有必要，你需要指出照看小怪宝的玩家并不会因此使得自己的角色和阵营发生变化。但照看小怪宝的玩家在照看期间内，在各种意义上都会是恶魔。\n（可选规则：你可以让照看小怪宝的玩家真真正正地拿着小怪宝的角色标记并秘密地藏好它。如果你选择使用这一条规则，也需要对所有玩家做出解释，并让所有玩家熟知小怪宝的角色标记是什么样子的。某些玩家可能没有方便藏匿小怪宝的口袋或者钱包之类的东西，而在游戏过程中暴露了自己持有的小怪宝角色标记会显而易见地表明你自己是恶魔。但同时需要注意的是，告知玩家在这种情况下强行搜查一名玩家的口袋，或是胁迫一名玩家展示自己手里握着的东西是不被允许的行为。同时你也需要声明，不小心失去了对小怪宝角色标记的控制，例如丢失或者给与其他玩家，都会导致自己没有成功照料好小怪宝，并因此使得小怪宝立即死亡。使用保管实物的方式来运作小怪宝的机制可能会带来一定的乐趣，但是你需要考虑到采取这一规则时可能对玩家带来的各方面的影响。）\n在游戏设置时，不要将小怪宝角色标记放入盲抽袋，而是额外添加一个爪牙角色标记。在游戏的首个夜晚，跳过爪牙信息和恶魔信息阶段。\n每个夜晚，在轮到小怪宝行动时，唤醒所有爪牙玩家。他们需要各自用手指向一名玩家，以此来安静地共同决定由谁来照看小怪宝。（爪牙不能在这个阶段用手势比划来交流其他信息。）\n（如果使用了可选规则：当照看小怪宝的玩家发生变化时，你需要从上一名照看小怪宝的玩家手里拿去小怪宝角色标记，并交给新的照看小怪宝的玩家。如果原本的玩家或是新的玩家不是爪牙，你需要先让所有爪牙玩家重新入睡后再执行这些操作。）\n唤醒新的照看小怪宝的玩家，对他展示“该角色的能力对你生效”信息标记和小怪宝角色标记。让该玩家重新入睡。在该玩家的角色标记旁放置小怪宝的“是恶魔”提示标记。\n随后，如果不是在首个夜晚，你需要为小怪宝的能力做出决定，并让一名玩家死亡。使用“死亡”提示标记来标记那名玩家，并放置帷幕标记。不要扮演一个无所不知的恶魔来进行杀戮，相反，你需要在某些时候做出能够帮助处于劣势的阵营的决定。\n照看小怪宝的玩家在游戏规则和玩家能力的交互上会被判定为是恶魔，这包含了游戏胜利的条件。但这名玩家的角色不是小怪宝，也不会获得小怪宝的能力，在他照看小怪宝的时候自己的角色和阵营也不会因此发生变化。\n你可能需要在夜晚利用小怪宝的能力杀死一到两名爪牙。如果在最后一天仍有两名及以上的爪牙存活，那么这对于善良阵营而言非常不公平，因为任意一个爪牙都有可能照顾小怪宝但善良玩家完全不知道是谁在照顾。为了避免这种情况以使得游戏对善良方更公平，请在游戏过程中杀死爪牙（有必要的话）以保证最后一天只剩一名爪牙存活。"
-  },
   "tips": {
+    "en": [
+      "One of the huge strengths of Lil’ Monsta is that the evil team begins with one extra Minion ability in play! Since the good team won’t be expecting that extra Minion, maximize your Minion abilities to wreak havoc on the town. An extra Poisoner, Witch, or even a Godfather can severely tip the tide for evil before good even knows what hit them!",
+      "Good players will be on the lookout for how many Minions appear to be operating in the town - one more than expected will give away that Lil’ Monsta is scurrying around! If you want to keep the good team in the dark about which Demon is in play, be cautious about how you use abilities that have obvious tells, like the Cerenovus or the Assassin.",
+      "Because the Demon is a helpless baby, any Minion can hold the Demon to keep them safe during the day. The obvious advantage of this is that you can shuffle the baby around to hide it from devious Demon detectors like the Flowergirl or the Fortune Teller, making their information inconsistent and difficult to follow! Moving the baby almost every night means that a different player registers as the Demon every night, creating mass confusion for the town.",
+      "Keep the baby safe by placing them with your most reliable and least suspicious Minion. Keeping them in one location decreases the odds that the town will be able to detect them - you don’t need to throw the baby from Minion to Minion if they’re perfectly safe where they are!",
+      "Any player can babysit Lil’ Monsta. If the majority of Minions agree, you can hand the baby off to anyone in town. Generally speaking, it’s not great to hand the baby off to a good player - if they believe it, they might try to get themselves executed in order to end the game in a good team win!",
+      "If you have an ally outside of your Minion team (perhaps an evil Townsfolk due to the Bounty Hunter, or a power-hungry Politician), they can make an excellent babysitter, especially if the town hasn’t noticed their alignment shift! It’s fine if all of your Minions die, as long as the baby continues to thrive. Dead Minions still wake up every night to choose who babysits Lil’ Monsta. A Traveller can be a great option in the early game, if you’re confident they’re evil - just make sure they don’t get exiled, because if they do, your baby’s going with them…",
+      "When deciding who is babysitting each night, you can only communicate with body language. If someone really, really wants the baby, it’s often a good idea to give it to them - trust your evil teammates have a plan you don’t know! Maybe they’re a Spy or Widow who knows which good characters are out of play. And if someone really doesn’t want the baby, don’t force it on them - they might suspect they’re about to come under fire, and want to keep the baby safe.",
+      "If your group is playing with the optional rule where you physically hold the Lil’ Monsta token, be sure to hide it well! If a good player spots you holding the token, that’ll be difficult to explain without saying, “Oh, this is just my tiny Demon child that I’m babysitting today for our evil cult!”",
+      "Since the Storyteller chooses who dies each night, they may kill some evil players this way. However, the Storyteller will never kill the player who is babysitting Lil’ Monsta! Towards the end of the game, give the baby to the evil player you most want alive, so they’re guaranteed to make it to the final day."
+    ],
     "cn": [
       "小怪宝的巨大优势之一是，邪恶阵营一开始就拥有一个额外的爪牙能力，而善良的队伍根本不知道这一点！最大化你的爪牙能力搞破坏 - 一个额外的投毒者、女巫甚至教父可以在善良阵营搞清什么发生在他们身上之前就为邪恶阵营掌控局势！阅读有趣的爪牙策略，准备好让他们尽快进入状态！",
       "镇民们会关注有多少爪牙在场——比预期多的一个的话肯定会暴露出小怪宝正在他们的脚下乱窜！如果你想让好的团队对他们需要担心的恶魔保持悬念，请谨慎使用具有明显暗示的能力，例如洗脑师和刺客……至少在您设法说服他们之前。",
@@ -46,5 +53,10 @@
       "如果你作为善良玩家在晚上突然被唤醒并给予了这个宝宝，那就大声喊出来吧！这个孩子不是你的，你不应该违背自己的意愿去照看它！如果没有魔鬼代言人或异端分子，您可能希望立即处决自己并通过处决恶魔来赢得比赛！确保绝对每个人都知道这个宝宝是一个威胁，并向人们展示标记以明确证明你拥有它，现在应该毫无疑问地处决你。",
       "请记住，在小怪宝的局中，选择谁死的不是邪恶阵营。说书人控制着谁死亡，说书人的优先级和邪恶阵营是不一样的。如果洗衣妇和贵族在晚上死了，但赏金猎人和教授没有死，尽管他们在城里相对有名，也许只是说书人选择不杀他们。另外，如果你不能处决他们，说书人通常需要杀死至少一名邪恶玩家，以避免最后三个邪恶玩家太多，所以不一定要相信那些死在晚上的玩家，因为他们中的一些人很可能是邪恶的。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "During setup, remove Lil’ Monsta and add a Minion token. On the first night, skip the MINION INFO and DEMON INFO steps.",
+    "cn": "在游戏开始前，请确保所有玩家都理解了小怪宝的能力。如有必要，你需要指出照看小怪宝的玩家并不会因此使得自己的角色和阵营发生变化。但照看小怪宝的玩家在照看期间内，在各种意义上都会是恶魔。\n（可选规则：你可以让照看小怪宝的玩家真真正正地拿着小怪宝的角色标记并秘密地藏好它。如果你选择使用这一条规则，也需要对所有玩家做出解释，并让所有玩家熟知小怪宝的角色标记是什么样子的。某些玩家可能没有方便藏匿小怪宝的口袋或者钱包之类的东西，而在游戏过程中暴露了自己持有的小怪宝角色标记会显而易见地表明你自己是恶魔。但同时需要注意的是，告知玩家在这种情况下强行搜查一名玩家的口袋，或是胁迫一名玩家展示自己手里握着的东西是不被允许的行为。同时你也需要声明，不小心失去了对小怪宝角色标记的控制，例如丢失或者给与其他玩家，都会导致自己没有成功照料好小怪宝，并因此使得小怪宝立即死亡。使用保管实物的方式来运作小怪宝的机制可能会带来一定的乐趣，但是你需要考虑到采取这一规则时可能对玩家带来的各方面的影响。）\n在游戏设置时，不要将小怪宝角色标记放入盲抽袋，而是额外添加一个爪牙角色标记。在游戏的首个夜晚，跳过爪牙信息和恶魔信息阶段。\n每个夜晚，在轮到小怪宝行动时，唤醒所有爪牙玩家。他们需要各自用手指向一名玩家，以此来安静地共同决定由谁来照看小怪宝。（爪牙不能在这个阶段用手势比划来交流其他信息。）\n（如果使用了可选规则：当照看小怪宝的玩家发生变化时，你需要从上一名照看小怪宝的玩家手里拿去小怪宝角色标记，并交给新的照看小怪宝的玩家。如果原本的玩家或是新的玩家不是爪牙，你需要先让所有爪牙玩家重新入睡后再执行这些操作。）\n唤醒新的照看小怪宝的玩家，对他展示“该角色的能力对你生效”信息标记和小怪宝角色标记。让该玩家重新入睡。在该玩家的角色标记旁放置小怪宝的“是恶魔”提示标记。\n随后，如果不是在首个夜晚，你需要为小怪宝的能力做出决定，并让一名玩家死亡。使用“死亡”提示标记来标记那名玩家，并放置帷幕标记。不要扮演一个无所不知的恶魔来进行杀戮，相反，你需要在某些时候做出能够帮助处于劣势的阵营的决定。\n照看小怪宝的玩家在游戏规则和玩家能力的交互上会被判定为是恶魔，这包含了游戏胜利的条件。但这名玩家的角色不是小怪宝，也不会获得小怪宝的能力，在他照看小怪宝的时候自己的角色和阵营也不会因此发生变化。\n你可能需要在夜晚利用小怪宝的能力杀死一到两名爪牙。如果在最后一天仍有两名及以上的爪牙存活，那么这对于善良阵营而言非常不公平，因为任意一个爪牙都有可能照顾小怪宝但善良玩家完全不知道是谁在照顾。为了避免这种情况以使得游戏对善良方更公平，请在游戏过程中杀死爪牙（有必要的话）以保证最后一天只剩一名爪牙存活。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Lil%27_Monsta"
 }

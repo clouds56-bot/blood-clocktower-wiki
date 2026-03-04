@@ -18,18 +18,24 @@
   ],
   "first_night": true,
   "other_nights": false,
+  "artist": "Chloe McDougall",
   "jinxes": [],
   "examples": [
     "国王被提名了。有五名玩家投票，维齐尔没有使用他的能力。炸弹人被提名了，有八名玩家投票。维齐尔使用了他的能力，炸弹人立即被处决。",
     "恶魔得到了7票，处于“即将被处决”状态。维齐尔提名了理发师小八。两名邪恶玩家和一名善良玩家投了票。维齐尔宣布使用能力处决了小八。恶魔今天得以幸存了。",
     "维齐尔被提名并处决了，但没有因此死亡。当晚，恶魔杀死了维齐尔。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Vizier",
-  "image": "assets/tokens/vizier.png",
-  "how_to_run": {
-    "cn": "当首个夜晚结束时，对所有玩家宣布维齐尔在场，并告知是哪一名玩家。\n如果一次提名的投票统计结束，且至少有一名善良玩家参与投票，且维齐尔宣布被提名者被处决，那么那名玩家被处决并死亡。今天白天不会再发生更多的提名，投票和处决了。"
-  },
   "tips": {
+    "en": [
+      "To state the obvious – execute people! At the end of the day your ability is to execute whoever you feel like executing, so there’s no point not using it. Execute with abandon, execute with joy, execute with whimsy!",
+      "Don’t always execute! Good players will be reading into your execution choices and denials as a source of information, so the players you choose not to execute are often just as important as those you do choose to execute.",
+      "Who votes when you execute is easy to comprehend information for the good team too. If you execute with only one vote, that player is confirmed to be good and you can’t expect to have an opportunity to vote on them later as good players don’t have an incentive to put even a single vote on them.",
+      "Everyone knows who you are so don’t obviously talk to your evil team – you don’t need a bluff because everyone knows who you are so you can’t really claim anything else most of the time, so there’s only so much you need to talk to your fellow evils anyway.",
+      "Talk to everyone! Even good players should appreciate a chance to see how you’re thinking and try to get a social read on your plans and you can talk to your evil team in the process to catch up with them too.",
+      "Trust your social reads and the hints dropped in town square – these are probably the main way you’re going to get information!",
+      "Whispering to your fellow evil players at night if they’re sat next to you is one of the only ways you can talk to your compatriots to get any information and learn what’s happening from an evil perspective, without throwing shade on them by extension.",
+      "You need cover and a strategy for why you don’t execute any given player – at some point you’ll need to not execute if your Demon gets voted on so having set up plausible deniability beforehand as to certain people aren’t being executed is important."
+    ],
     "cn": [
       "显然——你的能力就是处决别人！归根结底，你的能力就是处决任何你想要处决的人，所以不去使用这个能力是没有意义的。放下顾虑去处决，带着愉悦去处决，随心所欲地去处决！",
       "不要总是去处决！善良玩家将会把你选择处决或不选择处决的行为解读成一种信息，所以那些你选择不去处决的玩家常常和你选择处决的玩家一样重要。",
@@ -49,5 +55,10 @@
       "向维齐尔窃窃私语或者“不小心”透露一些信息可能会推迟他的强制处决——要记住，当所有人都知道维齐尔是邪恶玩家时，他只能掌握那些他设法弄清楚的公聊信息，因此如果你设计“泄露”一些可以影响维齐尔强制处决的信息让维齐尔无意中听到，你就能完全误导他对游戏局势的影响。",
       "需要非常具有目的性地选择你要投票的玩家。每次维齐尔选择进行强制处决，这会给你们带来信息，但每次他选择不进行处决，这也会带来一点信息。设法操纵维齐尔去处决特定玩家会给你们带来大量信息，这些信息不一定是他们想披露给你们的。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "When the first night has ended, declare that the Vizier is in play, and which player it is.",
+    "cn": "当首个夜晚结束时，对所有玩家宣布维齐尔在场，并告知是哪一名玩家。\n如果一次提名的投票统计结束，且至少有一名善良玩家参与投票，且维齐尔宣布被提名者被处决，那么那名玩家被处决并死亡。今天白天不会再发生更多的提名，投票和处决了。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Vizier"
 }

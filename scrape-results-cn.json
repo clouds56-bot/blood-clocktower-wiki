@@ -1,8 +1,798 @@
 {
   "success": [
     {
+      "englishId": "acrobat",
+      "chineseName": "杂技演员",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "alchemist",
+      "chineseName": "炼金术士",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "amnesiac",
+      "chineseName": "失忆者",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "artist",
+      "chineseName": "艺术家",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "atheist",
+      "chineseName": "无神论者",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "balloonist",
+      "chineseName": "气球驾驶员",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "banshee",
+      "chineseName": "报丧女妖",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "bounty_hunter",
+      "chineseName": "赏金猎人",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "cannibal",
+      "chineseName": "食人族",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "chambermaid",
+      "chineseName": "侍女",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
       "englishId": "chef",
       "chineseName": "厨师",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "choirboy",
+      "chineseName": "唱诗男孩",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "clockmaker",
+      "chineseName": "钟表匠",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "courtier",
+      "chineseName": "侍臣",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "dreamer",
+      "chineseName": "筑梦师",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "empath",
+      "chineseName": "共情者",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "engineer",
+      "chineseName": "工程师",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "exorcist",
+      "chineseName": "驱魔人",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "farmer",
+      "chineseName": "村夫",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "fisherman",
+      "chineseName": "水手",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "flowergirl",
+      "chineseName": "卖花女孩",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "fool",
+      "chineseName": "弄臣",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "fortune_teller",
+      "chineseName": "占卜师",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "gambler",
+      "chineseName": "赌徒",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "general",
+      "chineseName": "将军",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "gossip",
+      "chineseName": "造谣者",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "grandmother",
+      "chineseName": "祖母",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "high_priestess",
+      "chineseName": "女祭司",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "innkeeper",
+      "chineseName": "旅店老板",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "investigator",
+      "chineseName": "调查员",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "juggler",
+      "chineseName": "杂耍艺人",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "king",
+      "chineseName": "国王",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "knight",
+      "chineseName": "骑士",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "librarian",
+      "chineseName": "图书管理员",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "magician",
+      "chineseName": "魔术师",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "mathematician",
+      "chineseName": "数学家",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "mayor",
+      "chineseName": "镇长",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "minstrel",
+      "chineseName": "吟游诗人",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "monk",
+      "chineseName": "僧侣",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "nightwatchman",
+      "chineseName": "守夜人",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "noble",
+      "chineseName": "贵族",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "oracle",
+      "chineseName": "神谕者",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "pacifist",
+      "chineseName": "和平主义者",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "philosopher",
+      "chineseName": "哲学家",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "pixie",
+      "chineseName": "小精灵",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "preacher",
+      "chineseName": "传教士",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "princess",
+      "chineseName": "公主",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "professor",
+      "chineseName": "教授",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "ravenkeeper",
+      "chineseName": "守鸦人",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "sage",
+      "chineseName": "博学者",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "sailor",
+      "chineseName": "水手",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "savant",
+      "chineseName": "贤者",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "seamstress",
+      "chineseName": "女裁缝",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "shugenja",
+      "chineseName": "阴阳师",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "slayer",
+      "chineseName": "猎手",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "snake_charmer",
+      "chineseName": "舞蛇人",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "soldier",
+      "chineseName": "士兵",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "steward",
+      "chineseName": "管家",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "tea_lady",
+      "chineseName": "茶艺师",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "town_crier",
+      "chineseName": "城镇公告员",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "undertaker",
+      "chineseName": "送葬者",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "virgin",
+      "chineseName": "贞洁者",
       "fieldsExtracted": [
         "name",
         "ability",
@@ -27,6 +817,603 @@
       "success": true
     },
     {
+      "englishId": "barber",
+      "chineseName": "理发师",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "butler",
+      "chineseName": "管家",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "damsel",
+      "chineseName": "落难少女",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "drunk",
+      "chineseName": "酒鬼",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "golem",
+      "chineseName": "魔像",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "hatter",
+      "chineseName": "帽匠",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "heretic",
+      "chineseName": "异端分子",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "hermit",
+      "chineseName": "隐士",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "klutz",
+      "chineseName": "呆瓜",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "lunatic",
+      "chineseName": "疯子",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "moonchild",
+      "chineseName": "月之子",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "ogre",
+      "chineseName": "食人魔",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "plague_doctor",
+      "chineseName": "瘟疫医生",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "politician",
+      "chineseName": "政客",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "puzzlemaster",
+      "chineseName": "解谜大师",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "recluse",
+      "chineseName": "陌客",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "saint",
+      "chineseName": "圣徒",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "snitch",
+      "chineseName": "告密者",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "sweetheart",
+      "chineseName": "心上人",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "tinker",
+      "chineseName": "修补匠",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "zealot",
+      "chineseName": "狂热者",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "assassin",
+      "chineseName": "刺客",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "baron",
+      "chineseName": "男爵",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "boffin",
+      "chineseName": "科学怪人",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "boomdandy",
+      "chineseName": "街头风琴手",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "devil_s_advocate",
+      "chineseName": "魔鬼代言人",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "fearmonger",
+      "chineseName": "恐惧之灵",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "goblin",
+      "chineseName": "哥布林",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "godfather",
+      "chineseName": "教父",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "harpy",
+      "chineseName": "鹰身女妖",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "marionette",
+      "chineseName": "镜像双子",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "mastermind",
+      "chineseName": "主谋",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "mezepheles",
+      "chineseName": "提线木偶",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "pit_hag",
+      "chineseName": "麻脸巫婆",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "poisoner",
+      "chineseName": "投毒者",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "psychopath",
+      "chineseName": "精神病患者",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "scarlet_woman",
+      "chineseName": "红唇女郎",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "spy",
+      "chineseName": "间谍",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "summoner",
+      "chineseName": "灵言师",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "vizier",
+      "chineseName": "维齐尔",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "widow",
+      "chineseName": "寡妇",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "witch",
+      "chineseName": "女巫",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "wizard",
+      "chineseName": "巫师",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "wraith",
+      "chineseName": "亡魂",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "al_hadikhia",
+      "chineseName": "奥赫",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "fang_gu",
+      "chineseName": "方古",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
       "englishId": "imp",
       "chineseName": "小恶魔",
       "fieldsExtracted": [
@@ -38,8 +1425,244 @@
         "tips"
       ],
       "success": true
+    },
+    {
+      "englishId": "kazali",
+      "chineseName": "卡扎力",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "legion",
+      "chineseName": "军团",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "leviathan",
+      "chineseName": "利维坦",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "lil_monsta",
+      "chineseName": "小怪宝",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "lleech",
+      "chineseName": "痢蛭",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "lord_of_typhon",
+      "chineseName": "堤丰之首",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "no_dashii",
+      "chineseName": "诺-达鲺",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "po",
+      "chineseName": "珀",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "riot",
+      "chineseName": "暴乱",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "shabaloth",
+      "chineseName": "亡骨魔",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "vortox",
+      "chineseName": "涡流",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
+    },
+    {
+      "englishId": "yaggababble",
+      "chineseName": "牙噶巴卜",
+      "fieldsExtracted": [
+        "name",
+        "ability",
+        "flavor_text",
+        "examples",
+        "how_to_run",
+        "tips"
+      ],
+      "success": true
     }
   ],
-  "failed": [],
+  "failed": [
+    {
+      "type": "townsfolk",
+      "id": "alsaahir",
+      "error": "HTTP 404: Not Found"
+    },
+    {
+      "type": "townsfolk",
+      "id": "cult_leader",
+      "error": "HTTP 404: Not Found"
+    },
+    {
+      "type": "townsfolk",
+      "id": "huntsman",
+      "error": "HTTP 404: Not Found"
+    },
+    {
+      "type": "townsfolk",
+      "id": "lycanthrope",
+      "error": "HTTP 404: Not Found"
+    },
+    {
+      "type": "townsfolk",
+      "id": "poppy_grower",
+      "error": "HTTP 404: Not Found"
+    },
+    {
+      "type": "townsfolk",
+      "id": "village_idiot",
+      "error": "HTTP 404: Not Found"
+    },
+    {
+      "type": "outsiders",
+      "id": "goon",
+      "error": "HTTP 404: Not Found"
+    },
+    {
+      "type": "outsiders",
+      "id": "mutant",
+      "error": "HTTP 404: Not Found"
+    },
+    {
+      "type": "minions",
+      "id": "cerenovus",
+      "error": "HTTP 404: Not Found"
+    },
+    {
+      "type": "minions",
+      "id": "evil_twin",
+      "error": "HTTP 404: Not Found"
+    },
+    {
+      "type": "minions",
+      "id": "organ_grinder",
+      "error": "HTTP 404: Not Found"
+    },
+    {
+      "type": "minions",
+      "id": "xaan",
+      "error": "HTTP 404: Not Found"
+    },
+    {
+      "type": "demons",
+      "id": "ojo",
+      "error": "HTTP 404: Not Found"
+    },
+    {
+      "type": "demons",
+      "id": "pukka",
+      "error": "HTTP 404: Not Found"
+    },
+    {
+      "type": "demons",
+      "id": "vigormortis",
+      "error": "HTTP 404: Not Found"
+    },
+    {
+      "type": "demons",
+      "id": "zombuul",
+      "error": "HTTP 404: Not Found"
+    }
+  ],
   "skipped": []
 }

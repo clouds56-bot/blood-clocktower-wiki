@@ -18,6 +18,7 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Anica Kelsen",
   "jinxes": [],
   "examples": [
     "涡流杀死了贤者。贤者得知了两名玩家，他们都不是恶魔。",
@@ -26,12 +27,15 @@
     "麻脸巫婆将杂耍艺人变成女巫。杂耍艺人得知他现在是善良女巫，因为这个信息来自于玩家的角色变化，而非镇民的能力。",
     "涡流在场。今天白天，一名玩家因为女巫能力死亡，两个旅行者被流放，进行了五次提名，但没有人被处决。邪恶阵营胜利。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Vortox",
-  "image": "assets/tokens/vortox.png",
-  "how_to_run": {
-    "cn": "只要涡流存活，每当有镇民因为能力需要你提供信息，你就必须提供错误信息。\n除首个夜晚外的每个夜晚，唤醒涡流。让涡流指向一名玩家，将该玩家杀死。该玩家死亡，在他角色标记旁放置“死亡”提示标记。让涡流重新入睡。\n每个黄昏，如果今天白天没有玩家被处决，游戏结束，邪恶阵营获胜。"
-  },
   "tips": {
+    "en": [
+      "As a Demon, you have two significant strengths - forcing the good team to execute (or else!), and forcing all Townsfolk information to be false. This deadly combination makes you the scariest Demon on the list - even the potential of your presence will have your enemies shaking in their boots. Beware though - you are far from invulnerable, and if the good team know you're in play with any degree of certainty, then they can start to unravel the falsehoods caused by your ability and will have your evil team packing in no time!",
+      "Give true information to mask the existence of your Vortox ability. A lot of information in Sects & Violets is binary, and it can hard to reliably confirm your existence unless the good team is willing to expend some very powerful abilities (such as the Artist or the Juggler). This means it can be hard to confirm as true OR false right away. Mixing in true/provable information as part of your bluff will help you look trustworthy and confuse the good team about whether a Vortox is in play.",
+      "If the good team has already cottoned onto the idea of a Vortox, don't despair - simply tailor your bluff to give obviously false info instead, allowing you to blend into the confused good players who are also getting false information! People will be more inclined to trust you if you are also being 'harmed' by the Vortox power.",
+      "It's extremely difficult to pull off, but you might be able to convince the group there's no Vortox, and get them not to execute a player to prove it. This will usually require a very powerful bluff like the Artist or the Dreamer, who can detect the false information forced upon them more reliably than other abilities. Only push for this if you really think the good team will buy it - most groups will be wary about giving up an execution, especially if any information seems confusing or unreliable. With that said, it is extremely satisfying to pull off a win that way!",
+      "Get a read of the group before coming out with your bluff - you may change strategy based on their behavior. Jumping in with a strong bluff that has true information may backfire on you if the group comes to find out you're in play and starts seeking out anyone who doesn't fit that narrative!",
+      "Signal to your Minions which Demon you are - they may also be bluffing as information gathering characters, and knowing that your ability is affecting the town is important, since they may want to adjust their bluffs to account for that."
+    ],
     "cn": [
       "作为一个恶魔，你有两个非常明显的优势——迫使善良阵营进行处决（否则直接结束游戏！）以及迫使所有镇民的信息为假。这种致命的组合让你成为名单上最可怕的恶魔——即使谈及你是否存在也会让你的敌人战战兢兢。不过要小心——你不是无懈可击的，如果善良阵营玩家知道你在场发挥了作用，那么他们可以通过获取的错误信息反向推测，并在很短的时间内将你的邪恶阵营统统打包处决掉！",
       "提供真实信息来掩盖你涡流能力的存在。在梦殒春宵中，很多信息都是两面性的，除非善良阵营愿意使用一些非常强大的能力（例如艺术家或者杂耍艺人），否则很难准确地确认你是否在场。这意味着很难马上确认是真是假。混入真实/可以证明的信息来扰乱局势，将让你看起来非常值得信任，且能让善良阵营对涡流是否在场感到困惑。",
@@ -48,5 +52,10 @@
       "要小心诺-达鲺、哲学家和心上人——多亏了他们的能力能导致中毒或者醉酒，有些人能得到错误的信息。如果你认为你得到了错误的信息，试着找出这个来源是影响着整场游戏还是仅仅只是影响了你。",
       "并非所有能接收信息的角色都能被涡流影响。比如，舞蛇人将会得知谁不是恶魔这是因为他的能力带来的副作用效果。正因为如此，他们的信息在涡流在场时会被认为是真实的。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "While the Vortox is alive, you must give false information whenever a Townsfolk ability prompts you to give information.",
+    "cn": "只要涡流存活，每当有镇民因为能力需要你提供信息，你就必须提供错误信息。\n除首个夜晚外的每个夜晚，唤醒涡流。让涡流指向一名玩家，将该玩家杀死。该玩家死亡，在他角色标记旁放置“死亡”提示标记。让涡流重新入睡。\n每个黄昏，如果今天白天没有玩家被处决，游戏结束，邪恶阵营获胜。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Vortox"
 }

@@ -2,7 +2,8 @@
   "id": "goon",
   "type": "outsider",
   "name": {
-    "en": "Goon"
+    "en": "Goon",
+    "cn": "打手"
   },
   "ability": {
     "en": "Each night, the 1st player to choose you with their ability is drunk until dusk. You become their alignment."
@@ -15,6 +16,7 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Caitlin Murphy",
   "jinxes": [],
   "examples": [
     "The Courtier chooses the Goon. The Goon turns good, and the Courtier becomes drunk.",
@@ -22,6 +24,17 @@
     "The Chambermaid chooses the Goon and the Minstrel, and learns a \"1\" because the Chambermaid is drunk.",
     "The Tea Lady neighbours the good Goon and the Tinker. The Tinker is executed, but does not die. The next day, the Goon is evil. The Tinker is executed again and dies."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Goon",
-  "image": "assets/tokens/goon.png"
+  "tips": {
+    "en": [
+      "The Goon is in an interesting position compared to other players, as you can never be quite sure what team you'll be playing for until the very end. It is to your advantage to sit quietly, bluff as something else, and see how the game unfolds - your alignment switches will give you a ton of info, and you'll be in a good position to aid your team near the end of the game... no matter what side you're on.",
+      "Alternatively, and especially if you turn evil early - just come out! Letting both teams know you're in play can get them to fight for your allegiance, which is always entertaining. This also has the effect of letting players on both sides know that targeting you is a bad option... if that's something you'd like to get across. Note that this can be risky if you have a bloodthirsty town keen for executions - they could simply kill you for the crime of maybe being evil. You can try to stay their hand though - point out that once you're dead, your alignment is locked in since you will lose your ability, but if they let you live? Well, they can always turn you good again!",
+      "It is unlikely that you will die at night. Thanks to your powerful ability, other character's abilities will malfunction before they even get close - this is true even of the Pukka, who malfunctions before they can poison you. (Beware the Assassin though, who trumps you - the evil team can remove you if you annoy them too much!)",
+      "As you approach the end of the game, the alignment you currently are is probably the team you will be winning or losing with. If you are good, this means it is time to help - reveal who you are and give out your information! If your alignment switched on certain nights, that can be indications of when abilities failed, and can expose evil players using your silence as a safe space to bluff in. Once you do this, you'll really want to get the demon ASAP - the evil team could flip you if there's another night or two, and if that's the case you could very well hand the good team what they need to win and then not get to enjoy it.",
+      "If you are evil near the end of the game, it is time to sow some chaos (if you haven't been already!). While you have the option of revealing as the Goon and claiming to be good, this is not remotely your only option - you can bluff as anything you like to create confusion, or even just to keep up the facade that you are good when you are in fact a secret fourth evil vote. Trying to find the other evil players may be a good idea at this point too, so you can be sure you're coordinating with the right bunch of dastardly ne'er-do-wells."
+    ]
+  },
+  "how_to_run": {
+    "en": "At night, if a player chooses to use their ability on the Goon and nobody is marked with the Goon’s DRUNK reminder, this player immediately becomes drunk—mark them with the DRUNK reminder. Finish resolving this player’s ability and put them to sleep. If this player’s alignment is different from the Goon’s alignment, rotate the Goon’s character token—right side up for good, upside-down for evil—to match this player’s alignment, then wake the Goon, give them a thumbs-up or a thumbs-down (indicating their new alignment), then put the Goon to sleep."
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Goon"
 }

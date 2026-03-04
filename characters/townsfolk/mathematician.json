@@ -51,6 +51,5 @@
     "en": "Each time a character's ability works abnormally due to another character's ability, mark them with an ABNORMAL reminder.",
     "cn": "每当一名玩家的角色能力由于其他角色的能力而未正常生效时，在该玩家的角色标记旁放置“未正常生效”提示标记。\n每个夜晚，唤醒数学家。对他用手势比划数字（0，1，2 等），这个数字等同于魔典中\"未正常生效\"提示标记的数量。让数学家重新入睡。移除所有\"未正常生效\" 提示标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Mathematician",
-  "image": "assets/tokens/mathematician.png"
+  "source_url": "https://wiki.bloodontheclocktower.com/Mathematician"
 }

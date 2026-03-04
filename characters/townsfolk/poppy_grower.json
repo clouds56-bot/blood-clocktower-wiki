@@ -2,7 +2,8 @@
   "id": "poppy_grower",
   "type": "townsfolk",
   "name": {
-    "en": "Poppy Grower"
+    "en": "Poppy Grower",
+    "cn": "罂粟花农"
   },
   "ability": {
     "en": "Minions & Demons do not know each other. If you die, they learn who each other are that night."
@@ -15,12 +16,30 @@
   ],
   "first_night": true,
   "other_nights": false,
+  "artist": "Z. Benetatos",
   "jinxes": [],
   "examples": [
     "The Imp, the Poisoner and the Witch are in play. On the first night, the Imp wakes to learn 3 not-in-play characters, but does not learn which players are the Minions. The Poisoner and the Witch do not wake to learn who each other are, and do not learn who the Demon is.",
     "The Poppy Grower is executed, and dies. That night, the Shabaloth learns which players are the Minions. The Godfather and the Baron wake, make eye contact, and learn which player is the Shabaloth.",
     "The Poppy Grower is the Drunk. On the 1st night, the evil players learn who each other are, as normal. On the fourth night, the Demon kills the Poppy Grower. The Demons and Minions do not wake to learn who each other are again because the Poppy Grower is the Drunk."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Poppy_Grower",
-  "image": "assets/tokens/poppy_grower.png"
+  "tips": {
+    "en": [
+      "Keep it secret keep it safe. The Poppy Grower's biggest strength is the paranoia they create by denying the evil team their greatest strength.",
+      "Come out ridiculously loudly, because someone boldly claiming to be a Poppy Grower so fiercely is just weird, that it is going to make the evil team second guess who you are. They might leave you alive because it seems like you're a character trying to get killed like the Farmer. Additionally, the Demon may not wish to ‘confirm’ that you’re the Poppy Grower by killing you.",
+      "As the Poppy Grower, you are essentially single-handedly responsible for the evil team's lack of ability to coordinate. Take special notice of any two players who are claiming to be the same character. One of them is possibly a Minion, because they haven’t obtained their bluffs from the Demon.",
+      "On the first day, pay attention to who mingles and who keeps quietly to themselves. Minions, being cut off from the rest of their team, will be extra cautious because they will have no information to start with. Specifically, watch for players' body language as they're likely to unconsciously communicate their anxiety and isolation. Be suspicious of those players who are last to reveal their character, as they might be Minions.",
+      "You are likely to be seen by the evil team as an important target for death in the night. Be very careful about who you share your role with.",
+      "Each day, share your role with one new player. If you die at night early in the game, it's a good chance that one of the people you confided with is actually the Demon specifically, and not a Minion, because a Minion would have no easy way of communicating who you are to the Demon. Of course, nothing stops the Minion from revealing you publicly, but at least you're taking a definite Minion down with you.",
+      "As Poppy Grower, you can pretend to be an evil player to deceive evil players into thinking you are too. Go around secretly to various players and let them know you know a Poppy Grower is in play as code that you're an \"evil player\". They might bite and confide in you.",
+      "If you die, watch for sudden changes of behaviour. The evil team has suddenly gained a lot of information and can coordinate better. This can include:\nPlayers who previously weren't voting, start voting\nPlayers who were voting strongly for one player suddenly change their target\nPlayers who come out shortly after you die (who have likely just received a bluff from the Demon).Players who previously weren't voting, start votingPlayers who were voting strongly for one player suddenly change their targetPlayers who come out shortly after you die (who have likely just received a bluff from the Demon).",
+      "If you don't come out after you die, the evil team knows exactly who you are but the good team does not. This means that the players who are paying you a little bit too much attention might actually be the evil team trying to hide their actions from you.",
+      "If you can manage to arrange being drunk or poisoned when you die, the evil team do not learn who each other are. While this can be incredibly tricky to pull off as there are not many good characters that can make you intentionally drunk, it has a massive payoff.",
+      "Come out on the final day, if you’re still alive."
+    ]
+  },
+  "how_to_run": {
+    "en": "During the first night, wake the Demon. Show the THESE CHARACTERS ARE NOT IN PLAY info token, then any three good character tokens that are not in play. Then, put the Demon to sleep. Do not do the Minion Info and Demon Info steps."
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Poppy_Grower"
 }

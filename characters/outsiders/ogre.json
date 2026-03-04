@@ -18,17 +18,27 @@
   ],
   "first_night": true,
   "other_nights": false,
+  "artist": "Chloe McDougall",
   "jinxes": [],
   "examples": [
     "在首个夜晚，食人魔选择了召唤师。食人魔转变为邪恶阵营，并在游戏的余下时间里一直都是邪恶阵营。",
     "在首个夜晚，食人魔选择了报丧女妖。食人魔保持善良阵营不变。在第三个夜晚，灵言师将报丧女妖转变为邪恶阵营。食人魔仍然是善良阵营。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Ogre",
-  "image": "assets/tokens/ogre.png",
-  "how_to_run": {
-    "cn": "在首个夜晚，唤醒食人魔。让食人魔指向一名玩家。让食人魔重新入睡。如果食人魔指向了一名邪恶玩家，将食人魔的角色标记倒转放置，代表食人魔现在属于邪恶阵营。\n可选规则：使用“挚友”提示标记来标记被食人魔选择的玩家。食人魔始终与他所选择的玩家同一阵营。如果食人魔的挚友转变了阵营，食人魔也一同转变阵营，但食人魔不会得知自己的阵营发生变化。该可选规则仅在15人及以上的游戏中建议使用，以使得游戏中不会出现过多的邪恶玩家。"
-  },
   "tips": {
+    "en": [
+      "The Ogre is in an interesting position compared to other players, as you do not learn your starting alignment, but you do know whose team you’re playing for. It is to your advantage to tell your friend that you’ve picked them early, and be honest with them, so they believe you. If you’re having this conversation publicly, your aim is to convince the group that you are aligned with your friend; if you’re having this conversation privately, your aim is to scheme together and come up with a game plan.",
+      "If your friend does not believe you, be persistent. Assure them that you’re telling the truth, and seek out characters that detect alignment, such as the Empath, to make your argument even more compelling.",
+      "It can be fun (and useful) to tell your friend the truth, and lie to everyone else. If you are good, and the evil team doesn’t know who your friend is, evil may be more likely to leave your friend alone. If you are evil, and the good team doesn’t know who your friend is, good players may find it more difficult to explain what’s happening in the game.",
+      "Instead of telling your friend that you’ve chosen them, it can be useful to just watch them for a few days. You might be able to identify their (and your) alignment by seeing who they speak to, who they vote for, and who they seem to trust.",
+      "Vote the same as your friend! If your friend is evil, they will vote in a way that helps your team; if your friend is good, they are likely to vote in a way that they believe helps your team.",
+      "Never vote for your friend. They may be good. They may be evil. You don’t know. But either way, if they die, you have just killed a teammate.",
+      "Tell multiple people that you’ve picked them, to see how they react and to hide where your true friend lies. Since you don’t know what team you’re playing for, it can’t hurt to be a little chaotic… right?",
+      "If your friend starts acting funny, and there are alignment-changing characters on the script, assume the worst - your friend may have joined the enemy! If you’re concerned that your friend no longer shares your alignment, you may want to limit how much you share with them, and look for other sources of information, like an Empath or an Artist, that can help verify your - or their - current alignment.",
+      "If all else fails, assume that you are good (the odds are in your favour).",
+      "If someone is claiming to be the Ogre, the person they are claiming to have picked is almost always a good player. Either that player is really a good Ogre who is aligned with the friend, or that player is evil and bluffing Ogre, in which case they are more likely to have picked a good player as their imaginary friend.",
+      "Get your friend to reveal everything they know - you don’t get information, so you’ll have to rely on other characters to share crucial information in the game. The only information that you will be close to sure of will come from your friend, so treat them well and request that they tell you everything that they know. Let them know that the more that they tell you, the more convinced you are that they are good, and the more that you will be able to help the good team. If your friend is evil and tells you everything that they know, then even better.",
+      "If you are good and a player claims to be your Ogre, it is usually best to tell them what you know. Either they are good, and deserve to know what you know, or they are evil, and know the most important information about who is who already. Lie, or don’t tell your Ogre anything, if you want to test to see if they are really the Ogre."
+    ],
     "cn": [
       "与其他玩家相比，食人魔处在一个有趣的位置。因为你不知道你的阵营，但你清楚自己要为谁而战。在游戏初期就告诉你的朋友，你选择了他，这对你有利。并且向他表示忠诚，让他能够相信你。如果你想让玩家们相信你与你的朋友利益一致，你可以公开进行这种对话；如果你想与你的朋友密谋并制定游戏计划，你可以私下进行这种对话。",
       "如果你的朋友不相信你，你要保持耐心。向他保证你说的都是实话，并利用好那些可以探查阵营信息的角色，比如厨师，让你的观点更具有说服力。",
@@ -43,5 +53,10 @@
       "让你的朋友向你透露他得知的所有事情——因为你无法获得信息，所以你必须依靠其他角色与你分享游戏中的关键信息。在游戏中，只有来自朋友的信息是你最能够信任的，因此好好对待你的朋友并请求他说出自己所知的一切。让他意识到，他告诉给你的越多，你越能确信他是善良的，然后你能够更好地帮助善良阵营。如果你的朋友是邪恶的，并向你透露一切，那就更好了。",
       "如果你是善良玩家，同时有其他玩家声称自己是食人魔并过来找你，通常来说最好告诉他你知道的一切。他要么是善良玩家，那么他值得知道这一切；要么是邪恶玩家，那么他早已得知关于各个玩家身份的最关键内容。如果你想测试他是否是真的食人魔，你可以撒谎，或者不告诉他任何事情。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "During the first night, wake the Ogre. The Ogre points to a player. Put the Ogre to sleep. If the Ogre pointed to an evil player, flip the Ogre's character token upside down to represent that the Ogre is evil.",
+    "cn": "在首个夜晚，唤醒食人魔。让食人魔指向一名玩家。让食人魔重新入睡。如果食人魔指向了一名邪恶玩家，将食人魔的角色标记倒转放置，代表食人魔现在属于邪恶阵营。\n可选规则：使用“挚友”提示标记来标记被食人魔选择的玩家。食人魔始终与他所选择的玩家同一阵营。如果食人魔的挚友转变了阵营，食人魔也一同转变阵营，但食人魔不会得知自己的阵营发生变化。该可选规则仅在15人及以上的游戏中建议使用，以使得游戏中不会出现过多的邪恶玩家。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Ogre"
 }

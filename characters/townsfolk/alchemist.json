@@ -29,6 +29,5 @@
     "en": "During the first night, wake the Alchemist. Show the YOU ARE info token then the character token of a Minion. Put the Alchemist to sleep. If the Alchemist has a not-in-play Minion ability, mark the Alchemist with the IS THE ALCHEMIST reminder and swap the Alchemist token with this Minion token and turn it upside down. (This shows they are still good.)",
     "cn": "在游戏的首个夜晚，唤醒炼金术士。向炼金术士展示“你是”信息标记，然后展示一个爪牙的角色标记。让炼金术士入睡。如果炼金术士获得了一个不在场爪牙的能力，将炼金术士的角色标记替换为刚刚展示的爪牙角色标记并倒置（以标记他仍然是善良阵营），并放置“是炼金术士”提示标记。\n炼金术士拥有该爪牙的能力。他会像一名爪牙一样使用这项能力，并在每晚该爪牙通常会被唤醒以使用能力时被唤醒。\n如果炼金术士在使用能力时需要做出选择，你可以要求他重新选择。如果这是在白天，请直接用言语提出。如果是在夜晚，请摇头，指向角色卡上的炼金术士能力文本，等待炼金术士重新选择。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Alchemist",
-  "image": "assets/tokens/alchemist.png"
+  "source_url": "https://wiki.bloodontheclocktower.com/Alchemist"
 }

@@ -18,16 +18,15 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Lachlan Bastiaen",
   "jinxes": [],
   "examples": [
     "在首个夜晚，亡魂眯着眼关注哪些善良玩家睁眼了。在第二个夜晚，亡魂偷偷睁眼看到了道格被唤醒并指向了两名玩家。在第三个夜晚，亡魂和恶魔一同被唤醒，亡魂认为道格是占卜师，他指向了角色列表并用手势让恶魔杀死了道格。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Wraith",
-  "image": "assets/tokens/wraith.png",
-  "how_to_run": {
-    "cn": "每当你要在夜晚唤醒一名邪恶玩家时，先唤醒亡魂。当你让这名邪恶玩家重新入睡时，也让亡魂入睡。\n如果亡魂在存活时失去自己的能力，私下告知他不能在当晚睁眼，也不要在唤醒其他邪恶玩家时唤醒他。\n可选规则：每局游戏限一次，如果一名玩家“疯狂”地证明你是亡魂，他死亡。"
-  },
   "tips": {
+    "en": [
+      "Look at everything! You’re far more powerful than a Spy or Widow, because you can learn how good players are using their abilities. Wake up with the Fortune Teller and see who they pick, or wake up with the Nightwatchman to find out who’s confirming them. But be careful - if you get caught, the good team might want to execute you as soon as they can.Communicate as much as possible with your evil teammates at night. Waking when other evil players do is one of the most powerful parts of your ability, because you can coordinate how your teammates use their abilities. Ask the Demon to show you the bluffs on the first night of the game. Let the No Dashii know who is Witch cursed, so they kill someone else. Point the Poisoner towards a good player you’ve seen waking multiple nights in a row.If you have a pen and paper, you can write something down and hold it up so your teammates can read it. Or, hold up your phone to show notes to your fellow evil players. If you’re playing online, use the Wraith’s built-in messaging feature to send private messages to other players during the night.You are the strategic leader of your team! Take advantage of the information you gain from waking with your evil teammates and use it liberally. Each night, give your evil teammates recommendations on who to target and who to frame.Avoid private chats with your evil teammates during the day. You can coordinate with them at night, so use the day to get information from good players.If you think other good players suspect you as being evil or being the Wraith, have lots of private chats with the same 1 or 2 good players, to make them look suspicious.Do most of your peeking early on in the game, when you can gain the most information (since the majority of good players are alive and using their abilities). As the game goes on, it may be better to keep your eyes closed, especially if you’ve evaded being caught so far! If you are caught, everyone will know you’re the Wraith, and late in the game, that also means you’re not a Demon candidate.Listen carefully during the night phase. Pay attention to recognizable cues such as footsteps from the Storyteller, or players shifting in their seats or stopping mid-sentence. This can help you figure out what’s happening at night and when it might be best to sneak a peek at the town.Keep your eyes open while the Storyteller is walking around, and close your eyes just before a player wakes to receive information. You’ll be able to deduce which good players are which characters based on their waking patterns, and while you won’t know what information they receive, you also have no risk of being seen waking at night.If you get caught, own it. So what if a good player knows you’re the Wraith? That doesn’t tell them who your Demon is. If multiple players know you are evil, be shameless about it. Join private conversations during the day, and be as chaotic as you please.Take a selfie, for posterity."
+    ],
     "cn": [
       "关注正在发生的所有事情！你远比间谍和寡妇更强大，因为你能知道善良玩家们正在怎样使用他们的能力——不论是唤醒了占卜师选择了谁，还是唤醒了守夜人让谁得知了他在场。但是要小心，如果你被发现了，善良阵营可能会尽快把你处决掉。",
       "在夜晚尽可能地多跟你的邪恶队友沟通。你能够在其他邪恶玩家醒来的时候一同醒来，这是你能力最强大的一环，因为你们可以协调彼此的能力使用。比如，在游戏的首个夜晚，让恶魔在夜里告诉你三个不在场的角色伪装；告诉诺-达鲺谁中了女巫的诅咒，让他去攻击别人；又或者指引投毒者去选择一个你看见连续几晚都被唤醒的好人。\n如果你有笔和纸，你可以写下来信息让同伴看见，或者用手机屏幕展示文字内容给其他邪恶玩家。如果你在线上游玩，使用专属的亡魂夜间私聊功能与队友私下交流。",
@@ -56,5 +55,10 @@
       "说书人将手机交给投毒者。投毒者发短信说：“嗨，我是 Sam。你看到 Josh 昨晚有没有被唤醒吗？”",
       "说书人收回手机后再次发短信说：“我是说书人”，然后再继续夜晚流程。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "Each time you wake an evil player at night, first wake the Wraith. When you put that evil player to sleep, put the Wraith to sleep.",
+    "cn": "每当你要在夜晚唤醒一名邪恶玩家时，先唤醒亡魂。当你让这名邪恶玩家重新入睡时，也让亡魂入睡。\n如果亡魂在存活时失去自己的能力，私下告知他不能在当晚睁眼，也不要在唤醒其他邪恶玩家时唤醒他。\n可选规则：每局游戏限一次，如果一名玩家“疯狂”地证明你是亡魂，他死亡。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Wraith"
 }

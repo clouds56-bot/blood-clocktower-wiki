@@ -18,17 +18,25 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "John Grist",
   "jinxes": [],
   "examples": [
     "有七名玩家存活。狂热者在对戏法师、召唤师、食人魔和报丧女妖的提名中都参与了投票。在下一个白天，有五名玩家存活。狂热者在对瘟疫医生和女祭司的提名中都参与了投票。在下一个白天，只有三名玩家存活。狂热者在对牙噶巴卜的提名中参与了投票，但没有在对女祭司的提名中投票。",
     "有九名玩家存活。狂热者死亡了。在这之后，他在三个白天都没有投票，并在只有三名玩家存活时使用自己的投票标记在对农夫提名中进行了投票。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Zealot",
-  "image": "assets/tokens/zealot.png",
-  "how_to_run": {
-    "cn": "在每次提名中，如果当前有五名或更多玩家存活，狂热者必须举手投票。\n如果狂热者不小心忘记了投票，不要统计他的票。因为如果你统计了票数，实际总票数会比原本总票数多，因此所有玩家都会知道谁是狂热者，这对邪恶阵营来说非常不公平。人总会犯错。继续进行游戏，并在稍后私下提示狂热者。"
-  },
   "tips": {
+    "en": [
+      "VOTE!!!!",
+      "Actively take part in conversations about who should be nominated. While you must vote on every nomination, you can gain agency over executions by convincing other players to nominate people you'd prefer to vote on.",
+      "Pretend to be a character that benefits from other players' executions, like the Undertaker or the Cannibal. This might help create confusion amongst players - are you voting all the time because you're the Zealot, or do you just really want to see someone executed?",
+      "Tell everyone you are the Zealot. If other players are aware that you will be voting on every nomination, that will help them decide who they want to vote for.",
+      "Be aware that people might find you suspicious because you are voting on everything.",
+      "If a Traveller is joining the game, encourage them to play as the Bureaucrat or the Thief!",
+      "Work with your team to get the game to a day where fewer than 5 players live, so you can vote how you like.",
+      "If you are alive towards the end of the game, make the most of the final day! It's likely the first time in the game that you will have agency over your own votes.",
+      "If there is a Zealot on the script, watch votes very carefully to figure out if there is a Zealot in play.",
+      "If you are a character who wants to die in the night, vote on everything to convince the evil team that you are the Zealot."
+    ],
     "cn": [
       "投票！！！！！！",
       "积极参与关于应该提名谁的讨论。虽然你必须对每次提名进行投票，但你可以通过说服其他玩家提名你更愿意投票的人来掌控处决的主动权。",
@@ -41,5 +49,10 @@
       "如果剧本中有狂热者这个角色，要非常仔细地观察投票，来判断游戏中是否有狂热者参与。",
       "如果你是一个希望在夜晚被杀的角色，参与所有的投票，以说服邪恶阵营你是狂热者。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "During each nomination, if there are 5 or more players alive, the Zealot must raise their hand to vote.",
+    "cn": "在每次提名中，如果当前有五名或更多玩家存活，狂热者必须举手投票。\n如果狂热者不小心忘记了投票，不要统计他的票。因为如果你统计了票数，实际总票数会比原本总票数多，因此所有玩家都会知道谁是狂热者，这对邪恶阵营来说非常不公平。人总会犯错。继续进行游戏，并在稍后私下提示狂热者。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Zealot"
 }

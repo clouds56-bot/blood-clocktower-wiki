@@ -49,6 +49,5 @@
     "en": "Each night, wake the Nightwatchman. The Nightwatchman either shakes their head or points at any player. Put the Nightwatchman to sleep.",
     "cn": "每个夜晚，唤醒守夜人。如果他摇头不使用能力，让他重新入睡。如果他指向了一名玩家，让他重新入睡，并唤醒被他选择的玩家，对其展示“该角色的能力对你生效”提示标记，守夜人的角色标记，然后指向守夜人玩家，随后让该玩家重新入睡。使用守夜人的“失去能力”标记标记守夜人。守夜人的能力被使用，将守夜人的夜晚标记从夜晚顺序表旁移除，在此后的夜晚中，不要再唤醒守夜人。\n如果守夜人在选择玩家时醉酒中毒，在让他重新入睡后，不要唤醒他选择的玩家，并仍然使用“失去能力”标记守夜人，因为他使用了自己的“每局游戏限一次”的能力。\n如果涡流在场，在唤醒被守夜人选择的玩家时，需要对他指向一名除守夜人以外的玩家。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Nightwatchman",
-  "image": "assets/tokens/nightwatchman.png"
+  "source_url": "https://wiki.bloodontheclocktower.com/Nightwatchman"
 }

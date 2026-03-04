@@ -2,7 +2,8 @@
   "id": "organ_grinder",
   "type": "minion",
   "name": {
-    "en": "Organ Grinder"
+    "en": "Organ Grinder",
+    "cn": "手摇风琴师"
   },
   "ability": {
     "en": "All players keep their eyes closed when voting and the vote tally is secret. Each night, choose if you are drunk until dusk."
@@ -15,11 +16,28 @@
   ],
   "first_night": false,
   "other_nights": true,
+  "artist": "Chloe McDougall",
   "jinxes": [],
   "examples": [
     "Players are not allowed to use other methods to determine who is voting, such as touch or sound. It is a secret.",
     "There are 8 players alive. The Noble is nominated. All players close eyes to vote and the Noble gets 5 votes. The Imp is nominated. All players close eyes to vote and the Imp gets 7 votes. The Pixie is nominated. All players close eyes to vote and the Pixie gets 4 votes. After nominations close, the Storyteller declares that Doug (the Imp) is executed and dies, and that good has won."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Organ_Grinder",
-  "image": "assets/tokens/organ_grinder.png"
+  "tips": {
+    "en": [
+      "Consider carefully if you ever want to get yourself executed. Bearing in mind that when you die, it’s likely you’ll be outed as the Organ Grinder because votes will suddenly become open. Maybe you think your Demon might be executed instead if you don’t get enough votes yourself? Maybe your Demon is the one leading the charge against you and getting executed at their behest will convince town that they’re most likely good?",
+      "Consider when you’re going to claim to have voted - you can’t afford to claim too wildly about when you’ve voted and when you haven’t, as the good team will work out that something is awry when the votes claimed don’t line up with actual executions. It’s often best to only lie about who you’ve voted for at crux moments so you can hide among the masses.",
+      "Don’t feel the need to vote for people you don’t want executed in order to blend in. No-one knows who you’re voting for, so you never need to vote for an evil player in the entire game if you don’t want to!",
+      "Try to create situations where there are lots of nominations in a day. The good team will struggle to try and keep track of all the votes that happen and which ones they did and didn't vote on which will give Evil players to bluff being confused as well.",
+      "Lie with abandon about when you’ve voted! No-one can know for sure who’s the one lying among the group, you’re only one vote among several that had to vote a given way for anyone to be executed, so you can just say whatever you like about voting to suit your agenda.",
+      "Remember that you don’t know who’s been voted for and put on the block either. Be wary of any nomination of your Demon as you can never know if there was actually a groundswell of support for their execution that you hadn’t expected and they might now be on the block.",
+      "Coordinate votes with your evil team - while you don’t have a majority in votes, the good team not being able to coordinate as easily means that uniting together behind certain nominations might allow you to swing executions in your favour, especially if your whole team is alive in the mid-game.",
+      "Be wary of endgame. If the game goes to a final three and the good team are pretty certain that you are the Organ Grinder, then they’ve got a 50/50 between the other two living players as to which is the Demon. Do your best to continue to obfuscate that fact in the endgame - you very much need to still be a viable Demon candidate in final three or your chances aren’t great! This might be a good reason to vote for yourself on the penultimate day - yes your ability goes out of play, but it’s an execution on someone who isn’t your Demon and it leaves three Demon candidates on the final day, not just two.",
+      "Control the narrative. Try to organize the entire town to execute people you think would be good to execute. The good team’s only hope of executing is by working together as they can't see who is voting for what, so try to get them voting on the same page as you.",
+      "Promise dead players you will vote with them and then don't do so. Any ghost votes that get used and wasted early or mid-game on anyone that's not the Demon are a success for you."
+    ]
+  },
+  "how_to_run": {
+    "en": "Each night, wake the Organ Grinder. The Organ Grinder either nods or shakes their head. If they nod their head, mark them with the DRUNK reminder. Put the Organ Grinder to sleep."
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Organ_Grinder"
 }

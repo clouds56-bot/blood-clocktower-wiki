@@ -18,23 +18,36 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
     "第二个夜晚，恶魔杀死了贤者。说书人为贤者指出了两名玩家，其中一名是恶魔。",
     "在最后一夜，恶魔杀死了醉酒的贤者。说书人为贤者指出了一名死亡玩家和剩下的一名存活善良玩家，没有给他正确信息。",
     "麻脸巫婆创造了一名恶魔。因为麻脸巫婆的能力，当晚由说书人来选择杀死谁。说书人决定旧恶魔死亡，贤者也死亡，且当晚这些恶魔选择攻击的目标中没有贤者。因为贤者死于麻脸巫婆，而非恶魔，所以贤者不会醒来也不会得知任何信息。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Savant",
-  "image": "assets/tokens/savant.png",
-  "how_to_run": {
-    "cn": "如果贤者被恶魔杀死，唤醒贤者。指向两名玩家，其中一名是杀死贤者的恶魔。让贤者重新入睡。\n如果贤者在游戏前期死亡，你可能会想给贤者展示两名存活玩家，因为这能让邪恶阵营仍然有微弱的获胜机会。如果贤者在游戏的最后一个夜晚死去，你可以指向一名存活玩家和一名已死亡的玩家。"
-  },
   "tips": {
+    "en": [
+      "Each day, you will receive one true piece of information, and one false piece of information. The easiest way to utilize this is to pick which piece of information you believe to be true, and run with it. For example, if the Storyteller tells you that either a) a Mutant is in-play, or b) both your neighbours are good, and there is no evidence that a Mutant is in-play, then just assume that both your neighbours are good. You might be wrong, but you've made a \"best guess\", which is something.",
+      "In some situations, one half of your information may be proved to be true, in which case, the other piece of information is false. Or, one half of your information is proved to be false, in which case the other half of your information must be true. This gives you multiple facts to work with. For example, if you learnt that either a) the Minion has blonde hair, or b) there are 3 Outsiders in play, and all evidence is pointing to the fact that the Minion is dead (and no dead players have blonde hair), you can safely assume that there are 3 Outsiders in play.",
+      "You can sometimes deliberately prove that one half of your information is true or false. Again, this gives you more facts as a result. For example, if you learn that either a) the Demon is wearing a collared shirt, or b) all players on the black couch are good. If you deliberately execute all players wearing collared shirts, and the game continues with the Demon still killing at night, then you know that the Demon was not wearing a collared shirt, and therefore that all players on the black couch are good.",
+      "False information is just as useful as true information, if you know it to be false. When mentally reversing a fact from false to true, be careful that you do not make a logical error. For example, if you learn that \"the Witch chose a good player last night\", and you come to believe that information is false, reversing this information to mean \"the Witch chose an evil player last night\" is not necessarily correct. There may be no Witch in play. Or the Witch might be dead. The reversal of \"the Witch chose a good player last night\" is \"all good players are free from the Witch's curse and may safely nominate\".",
+      "Each day, you will get two pieces of information. Whilst it may sometimes seem impossible to determine which of these pieces are true, as the game progresses, you can compare later information to earlier information, and this may lead to definite conclusions. For example, if on the 1st day, you learn that a) A Snake Charmer is in play, or b) all players wearing hats are good, then on the third day, you learn that either a) a new player became the Demon last night, or b) the Minion is dead; this information overlaps. If you assume that the Demon has been swapped by the Snake Charmer, you can deduce that at least one player wearing a hat was evil on day 1, and the Minion is still alive.",
+      "Tell the group your information each day so they can help you remember it all. It can be difficult to remember everything the Storyteller told you once the days start getting numerous. You need to be a Savant, after all! Telling the group can help make sure nothing is forgotten. Alternatively, if you have an excellent memory (or you can secretly write down the information without the storyteller catching you, or the Storyteller actually lets you write down information), staying quiet for a few days and revealing everything at once can be devastating.",
+      "To maximize the information that you receive, do whatever you can to survive as many days as possible. Bluff as a character that the Demon does not want to attack, such as the Sage, or the Clockmaker, or Seamstress, who has already used their ability, or simply stay quiet. The longer you survive, the more information you have to work with. Don't leave it too long though... with players dying left, right, and center, due to the Witch, Cerenovus, and Mutant, you may need to reveal your information earlier rather than later, to help the good team kill an evil player or two. This is particularly helpful if an Evil Twin or a Vortox is in-play, as you'll need to correct the good team's information with what you know.",
+      "Pay attention to the wording that the Storyteller uses - small changes can have drastically different consequences. Since the Savant can be a difficult character for Storytellers to have in a game, as they need to create information that is helpful to you, but not game-endingly unfair for the evil team, many Storytellers choose their words very carefully. Remember exactly what was said, to avoid confusion. For example, if the Storyteller says \"All minions are on the blue couch\", and you tell the group that \"all players on the blue couch are minions\", you have made a logical error. Or, if the Storyteller says \"The Demon is wearing glasses\", and you tell the group \"The Demon is someone who wears glasses.\", be aware that these statements are slightly different - if the Demon takes their glasses off without you noticing, and you keep telling the group that the Demon is wearing glasses, you will be in error.",
+      "Visit the Storyteller every day, to receive as much information as you can. The more days that you visit the Storyteller, the more you learn, but the more likely the Demon is to kill you at night. The Savant is often too dangerous a player for the Demon to keep alive, so if the Demon player sees you visiting the Storyteller each day, they may attack you at night, even if you have not publicly revealed that you are the Savant.",
+      "Wait a few days before visiting the Storyteller. While this will mean that you get less information overall, it may mean that you live longer and that any information that you do receive is more valuable. Typically, information you get when there are only 3, 4, or 5 players left alive will be more useful, because it refers to fewer players. For example, learning that 1 of 2 players is a Minion is handy when 12 players are alive, but it is VERY handy when just 3 players are alive."
+    ],
     "cn": [
       "让自己被恶魔杀死。随便用什么方式，越快越好。如果恶魔杀死了你，你可以得到非常棒的信息，所以尽你可能去让恶魔杀死你。你可以装作一个恶魔想要击杀的目标，比如卖花女孩或者博学者，或者保持沉默。和希望死的时间越晚越有利的守鸦人不同，你能从更早就死亡中获得更大收益。如果恶魔在前两晚（或前期）杀死了你，那么你们就有足够的时间去处决你得到的那两名可能是恶魔的玩家。",
       "如果恶魔杀死了你，那么立刻告诉大家你得到的信息。善良玩家越早知道了你是贤者，知道了两名玩家中有一个是恶魔，那么你们就越早可以指出谁是恶魔。如果你要等到最后一天再公开信息（正如占卜师可能会在最后一天只能证明活着的某一个两玩家不是恶魔一样），你也只能知道其中有一个是恶魔。而且，在这种情况下，你还需要让大家相信你是贤者，可能对你们而言已经没有足够的时间了。",
       "你也可以就直接公开说自己是贤者，为了活到最后一天。如果你认为大家可以相信你，就告诉大家你是贤者，那么恶魔也不会来杀你，而其他玩家会在白天被处决。但是要这么做，至关重要的是要让大家都相信你。活到最后就意味着邪恶方不能通过最后活着的三个玩家都是邪恶的来获胜，也意味着在最后三选一时变为二选一。",
       "如果你在夜晚死了但是没有获得信息，这也是个不错的消息！虽然你没有发现恶魔是谁，但是你知道了只有通过麻脸巫婆的方式导致你死亡才会使你没有得到信息，所以你可以将你确认的信息告诉大家。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "Once per day, if the Savant requests a private chat with you, take them away from the circle so you cannot be overheard. Whisper two pieces of information, one true and one false, to the Savant. (If you cannot think of two straight away, either take your time or ask them to come back in a few minutes.)",
+    "cn": "如果贤者被恶魔杀死，唤醒贤者。指向两名玩家，其中一名是杀死贤者的恶魔。让贤者重新入睡。\n如果贤者在游戏前期死亡，你可能会想给贤者展示两名存活玩家，因为这能让邪恶阵营仍然有微弱的获胜机会。如果贤者在游戏的最后一个夜晚死去，你可以指向一名存活玩家和一名已死亡的玩家。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Savant"
 }

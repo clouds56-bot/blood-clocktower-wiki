@@ -18,6 +18,7 @@
   ],
   "first_night": false,
   "other_nights": true,
+  "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
     "在前三个夜晚刺客被唤醒，但是选择不行动。在第四个夜晚，刺客选择杀死弄臣。尽管弄臣还拥有自己的能力，他仍然死亡并保持已死亡状态。",
@@ -25,12 +26,14 @@
     "吟游诗人在场。主谋被处决。当晚，刺客选择杀死月之子，但是月之子没有死亡，因为刺客因吟游诗人而醉酒。",
     "因侍臣而醉酒的刺客想要杀死莽夫。刺客已经失去能力，因此莽夫依然存活但转变为邪恶阵营。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Assassin",
-  "image": "assets/tokens/assassin.png",
-  "how_to_run": {
-    "cn": "除了首个夜晚以外的每个夜晚，唤醒刺客。刺客要么摇头表示不使用能力，要么指向任意一名玩家。让刺客重新入睡。\n如果刺客选择了玩家，该玩家死亡——将“死亡”提示标记放置到该玩家的角色标记旁。本次死亡不能通过任何方式来防止（除非刺客没有了能力，例如醉酒或中毒）。刺客失去自己的能力——将“失去能力”提示标记放置到刺客的角色标记旁，并从夜晚顺序表上移除其夜晚标记。（刺客不会再被唤醒。）"
-  },
   "tips": {
+    "en": [
+      "Few minions hold the power you have. Absolute control over life and death. No protection will keep players safe from your machinations (unless you get drunk - don't do that). Enjoy the terror you wield over the good team, and strike into their heart at the worst possible moment!",
+      "Kill players that your demon cannot get to. Is that Exorcist blocking your demon from acting? Not anymore. Is that Pacifist under the protection of a Innkeeper? Child's play. A smug Sailor causing you problems? Make this night their last. Nothing stops your blade, so you might as well take full advantage and go after the players that think they are untouchable.",
+      "Kill to confuse death count and mask the type of demon that is in play. If the players suspect a Zombuul, you can kill on a night the demon cannot, which will confuse things (especially since your ability can mimic the kill of a venomous Pukka). Another useful example is to cover for a charging Po - the good team won't see the extra deaths coming, making it extra devastating when unleashed.",
+      "Coordinate with your demon on who they would like you to kill. This is especially true of hungry demons like the Shabaloth and the Po who can kill multiple times per night, but it's nearly always worth discussing to avoid doubling up with them. Your extra kill is powerful, and it'll be a real bummer to 'lose' it because you and the demon both went after the same target.",
+      "If you don't know who to kill, or if you feel like being particularly tricky, you can kill yourself (or kill a fellow evil player) at night to make that evil player look like a good player. Since it is rare for an evil player to die at night, the good team will usually assume that any player that dies at night is good, trusting that player's information and basing their future strategy on that assumption. This is particularly damaging if you can undercut a good player's ability in the process. For example, if you know that an Innkeeper is protecting you at night, and you kill yourself, not only will you look good in the morning, but the Innkeeper will look like they are lying about protecting you."
+    ],
     "cn": [
       "很少有爪牙拥有你所拥有的力量，绝对掌控他人的生死。没有任何保护措施可以保护玩家免受您的袭击（无论如何，除非您喝醉了，别这样）。享受善良阵营对你的恐惧，并在最糟糕的时刻摧毁他们的心智！",
       "杀死你的恶魔无法杀死的玩家。那个驱魔人是在阻止你的恶魔行动吗？不会再阻止了。那个和平主义者是在旅店老板的保护下吗？小把戏罢了。一个自鸣得意的水手给你带来麻烦？让他不能见到明早的太阳。没有什么能阻止你的刀锋，所以你不妨充分利用，去袭击那些认为自己不会被选中的玩家。",
@@ -39,5 +42,10 @@
       "如果你不知道要杀谁，或者如果你觉得特别棘手，你可以在晚上杀死自己（或杀死一个邪恶的玩家），让那个邪恶的玩家看起来像一个善良玩家。由于邪恶的玩家很少会在晚上死去，所以善良阵营通常会假设任何在晚上死去的玩家都是好的，相信该玩家的信息并将他们的信息作为假设。如果你在这个过程中削弱了一个善良玩家的能力，这会非常有害——例如，如果你知道旅店老板在晚上保护你，然后你自杀了，你不仅早上看起来没有问题，而且旅店老板也会以为他们确实在保护你。",
       "别做梦了！刺客有机会杀死他们选择的任何玩家，而该玩家无法做任何事情来阻止死亡的发生。旅店老板保护不了他们，茶艺师也保护不了，弄臣、水手，甚至莽夫都会死在刺客手上。作为一名善良玩家，与刺客作战的最佳方式就是注意刺客何时袭击并在之后收拾残局。好消息是，刺客每场游戏只能杀死一名玩家，而教父通常可以杀死多名玩家。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "Each night except the first, wake the Assassin. They either shake their head no or point at any player. Put the Assassin to sleep.",
+    "cn": "除了首个夜晚以外的每个夜晚，唤醒刺客。刺客要么摇头表示不使用能力，要么指向任意一名玩家。让刺客重新入睡。\n如果刺客选择了玩家，该玩家死亡——将“死亡”提示标记放置到该玩家的角色标记旁。本次死亡不能通过任何方式来防止（除非刺客没有了能力，例如醉酒或中毒）。刺客失去自己的能力——将“失去能力”提示标记放置到刺客的角色标记旁，并从夜晚顺序表上移除其夜晚标记。（刺客不会再被唤醒。）"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Assassin"
 }

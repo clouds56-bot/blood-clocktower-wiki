@@ -18,17 +18,16 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Chloe McDougall",
   "jinxes": [],
   "examples": [
     "公主提名了传教士。传教士被处决并死亡了。当晚，涡流选择了小精灵，小精灵没有死亡。城镇公告员得知白天有爪牙提名，因为涡流的能力让他获得了错误信息。",
     "第四个夜晚，麻脸巫婆把筑梦师变成了公主。在白天，公主提名了狂热者并处决了他。当晚，卡扎力选择了公主，公主没有死亡。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Princess",
-  "image": "assets/tokens/princess.png",
-  "how_to_run": {
-    "cn": "在第一个白天，如果公主提名并处决了一名玩家，将“没有死亡”的提示标记放置在恶魔旁边。\n当晚，和平常一样唤醒恶魔并让他选择一名玩家，但他不会造成死亡。"
-  },
   "tips": {
+    "en": [
+      "Demand attention from your loyal subj- I mean, fellow players! If you want to be the one who nominates and executes a player, let everyone know your plan in advance so they’ll vote with you & help you achieve your goal.On your 1st day, try to find a player who doesn’t mind being executed. Nominate them and keep it casual, bluffing as if you are not the Princess. Claim you’ve nominated because you think the player is good Cannibal food, or because they would like their role confirmed by an Undertaker.Don’t use your ability. Stay quiet, wait, and see if a different player tries to claim that they are the Princess.Can you use your ability without killing a player? Look for reasons someone might not die to execution, like a Tea Lady or a Sailor.Be kind! Pushing to get someone killed on the first day can be socially tricky. Remember Rule 4: Kill with grace and die with dignity.Be honest and forthcoming. The more socially good you seem, the more people will believe you and choose to go forward with your plan."
+    ],
     "cn": [
       "吸引你忠心的臣民——呃，我是说，其他玩家的注意！如果你想成为那个发起提名和处决玩家的人，请提前告诉大家你的计划，好让他们配合你投票以达成目标。",
       "在你的第一天，找一名不介意被处决的玩家。提名他们的时候保持轻松，声称自己并不是公主。你可以说他其实可以成为食人族的“美味佳肴”，或者说送葬者可以获得重要的角色信息。",
@@ -37,5 +36,10 @@
       "尊重他人，享受游戏，玩得开心！在第一天强制处决其他人会让游戏变得尴尬和无趣。别忘了第四条规则：要以优雅的方式杀戮，也要以有尊严的方式死去。",
       "坦率和真诚地表达自己。你的行为举止越真心，越容易赢得大家的信任并支持你的计划。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "If the Princess nominates and executes a player, mark the Demon with the DOESN'T KILL reminder.",
+    "cn": "在第一个白天，如果公主提名并处决了一名玩家，将“没有死亡”的提示标记放置在恶魔旁边。\n当晚，和平常一样唤醒恶魔并让他选择一名玩家，但他不会造成死亡。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Princess"
 }

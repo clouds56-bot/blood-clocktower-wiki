@@ -46,6 +46,5 @@
     "en": "During the first night, wake the Demon. Show them the THIS PLAYER IS info token, then the King token, then point at the King player. Put the Demon to sleep.",
     "cn": "在首个夜晚时，唤醒恶魔。对他展示“这名玩家是”信息标记，然后展示国王角色标记，然后指向角色为国王的玩家。让恶魔重新入睡。\n当死亡玩家的数量大于或等于存活玩家的数量时，在夜晚顺序表的国王顺序旁添加一个夜晚标记。\n每个夜晚，如果夜晚顺序表的国王顺序旁有夜晚标记，那么唤醒国王。对他展示一个存活玩家的角色标记。让国王重新入睡。\n仔细思考你需要给国王展示哪一个角色标记。不要担心给出大量的信息。绝大多数国王都会在最后一天到来前死亡，而如果一名国王活到了最后一天，那么他通常都能够获胜，这也是没问题的。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/King",
-  "image": "assets/tokens/king.png"
+  "source_url": "https://wiki.bloodontheclocktower.com/King"
 }

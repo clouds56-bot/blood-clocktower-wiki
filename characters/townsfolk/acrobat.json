@@ -29,6 +29,5 @@
     "en": "Each night except the first, wake the Acrobat. They point to a player. Put the Acrobat to sleep.",
     "cn": "除首个夜晚以外的每个夜晚，唤醒杂技演员。让杂技演员指向一名玩家。将“被选择”提示标记放置到所选玩家的角色标记旁。让杂技演员重新入睡。\n如果被选择的玩家在当晚任何时刻醉酒或中毒，杂技演员死亡——在杂技演员的角色标记旁放置“死亡”提示标记并放置帷幕标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Acrobat",
-  "image": "assets/tokens/acrobat.png"
+  "source_url": "https://wiki.bloodontheclocktower.com/Acrobat"
 }

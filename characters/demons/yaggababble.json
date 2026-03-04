@@ -18,17 +18,29 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Lachlan Bastiaen",
   "jinxes": [],
   "examples": [
     "牙噶巴卜的秘密短语是“这很可疑”。他在第一个白天说了一次。当晚有一名玩家死亡。在下一个白天，他说出这段短语总共三次。当晚总共有三名玩家死亡。",
     "牙噶巴卜在今天白天说出了秘密短语总共两次。女巫在场。异端分子在发起提名时死亡了，即使他没有被女巫诅咒。魔像提名了恶魔，然后魔像也死亡了。这两名玩家都是被牙噶巴卜的能力杀死的。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Yaggababble",
-  "image": "assets/tokens/yaggababble.png",
-  "how_to_run": {
-    "cn": "在为首个夜晚做准备时，用纸条或手机便签或其他便捷的设备写下一段短语。\n在首个夜晚，唤醒牙噶巴卜，对他展示这段短语，然后让他重新入睡。\n每当牙噶巴卜在白天公开说出这段短语时，将一枚“死亡”提示标记放入魔典左侧的中央位置，用以提示你需要在今晚放置这个标记。\n每个夜晚，你需要选择是否将放入魔典中央的“死亡”提示标记放置在一名玩家的角色标记旁。如果你这么做，那么同时为放置了提示标记的角色标记上再放置帷幕标记。这些玩家死亡。\n尽量选择朴实的短语。如果恶魔获得的是不太常见的短语，他要么很容易被发现，要么就很少说出来。如果恶魔获得的是常见的短语，他可能会每天都把这句话说出来一次或者多次。"
-  },
   "tips": {
+    "en": [
+      "Say your phrase as often as you can! It's how you get kills, after all, you can really charge up your ability by getting a bunch of kills every single night.",
+      "Be sparing, around once per day, with how often you say it to conceal the phrase from the town, you don’t want to be giving yourself away by making your phrase really obvious. Once a day is a good benchmark, though, to still be able to mimic other Demons.",
+      "Make sure that when you say your phrase, the Storyteller can hear you – if they don’t hear you it’s not going to do anything but possibly still out you for saying it too often.",
+      "Share the phrase with your Minions - they can give you conversational segues to bring up your phrase and make everything seem more natural rather than forced.",
+      "Trust your ST to reward you for the risk of saying it a lot - you can possibly take the risk of squeezing a few extra utterings to get an extra couple of kills if it’ll drive you to endgame that much sooner.",
+      "If your ST isn’t rewarding you for saying the phrase multiple times, don’t bother. You can say your phrase once per day and still be a very effective Demon.",
+      "Your Minions can choose their own odd phrases to repeat themselves as well to make it seem like they might be the Demon in the late game.",
+      "Say your phrases when there are fewer people around – if fewer people hear it then fewer people can draw the link of how many times you might have said your phrase.",
+      "Pay attention to any phrases that any good players say more than once and draw attention to those. The more candidates there are for Yaggababble phrases, the more your own phrase can hide.",
+      "If the Storyteller gives you an unusual phrase that you’re unsure how to get into conversation, you can request a more common one on the first day.",
+      "Make sure you’re confident that you are saying the exact phrase you were given – don't reword the phrase or the Storyteller might not give the kills to you.",
+      "Say phrases that are similar in concept to your actual phrase, to muddy the waters and convince the group that you’re trying to get across an overall idea, not just repeat a single phrase.",
+      "Pick a secondary phrase that you say that doesn’t match your kills. This might make you look like a Minion that’s trying to cover for a Yaggababble.",
+      "Try to mix up the emphasis and rhythm of your phrase so it’s less recognisable as the same phrase."
+    ],
     "cn": [
       "尽可能频繁地说出你的短语！这就是你的攻击方式，至少你可以每天都为你那大杀四方的能力补充弹药！",
       "注意每天只说出这段短语一次左右。你说出来的频率决定了你的短语的曝光程度，你肯定不愿意因为短语过于明显而让自己暴露了。每天一次是一个比较合适的参考次数，你依然有能力去伪装成是其他的恶魔在场。",
@@ -48,5 +60,10 @@
       "小心那些爪牙，他们可能会重复说出一些短语，来借此掩盖牙噶巴卜的短语。任何过于频繁地说出同一段话的玩家都应该受到怀疑！",
       "当说书人在认真聆听玩家的发言时，注意观察哪些玩家有刻意发言的冲动。牙噶巴卜会希望自己在说出短语时，说书人能够听到他的发言，所以会在说书人在场时有一定的发言欲望。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "During setup, write a phrase on a piece of paper, or on a phone.",
+    "cn": "在为首个夜晚做准备时，用纸条或手机便签或其他便捷的设备写下一段短语。\n在首个夜晚，唤醒牙噶巴卜，对他展示这段短语，然后让他重新入睡。\n每当牙噶巴卜在白天公开说出这段短语时，将一枚“死亡”提示标记放入魔典左侧的中央位置，用以提示你需要在今晚放置这个标记。\n每个夜晚，你需要选择是否将放入魔典中央的“死亡”提示标记放置在一名玩家的角色标记旁。如果你这么做，那么同时为放置了提示标记的角色标记上再放置帷幕标记。这些玩家死亡。\n尽量选择朴实的短语。如果恶魔获得的是不太常见的短语，他要么很容易被发现，要么就很少说出来。如果恶魔获得的是常见的短语，他可能会每天都把这句话说出来一次或者多次。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Yaggababble"
 }

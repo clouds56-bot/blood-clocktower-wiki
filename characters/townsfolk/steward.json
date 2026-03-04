@@ -18,18 +18,20 @@
   ],
   "first_night": true,
   "other_nights": false,
+  "artist": "Chloe McDougall",
   "jinxes": [],
   "examples": [
     "管家选择小黑成为他的主人。明天，如果小黑在一次处决中举手投票了，那么管家也可以一同参与投票。否则，管家无法举手投票。",
     "当前正处于一次提名的流程中。管家和他的主人一同举手投票。轮到说书人开始计票时，管家的主人在最后一秒放下了自己的手。管家此时也必须立刻放下自己的手。",
     "管家死了。因为死亡的玩家没有任何能力，因此管家可以使用他的投票标记在任何时候投票。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Steward",
-  "image": "assets/tokens/steward.png",
-  "how_to_run": {
-    "cn": "每个夜晚，唤醒管家。让管家指向除自己外的任意一名玩家。用“主人”提示标记来标记这名玩家。让管家重新入睡。\n在一次提名中，管家只能在主人举手投票，或主人的投票已经被统计时，才能举手投票。\n如果管家不小心进行了违规投票，仍统计管家的票。因为如果不这么做，实际的总票数会比原本的总票数少，因此所有玩家都会知道谁是管家，这对邪恶阵营来说非常不公平。人总会犯错。继续进行游戏，并在稍后私下提示管家。"
-  },
   "tips": {
+    "en": [
+      "You know a player who is neither the Demon or a Minion. This is great info! You can trust they are acting with good intent for your team and the only thing that can mess with their information is drunkenness and poisoning. Work together to solve the game using your information combined.",
+      "Come out publicly straight away. If everyone knows that you two are both good, they can factor it into their worldbuilding and their ability choices straight away. Your info isn’t game-solving, but it’s helpful, so let people know about it.",
+      "Talk to the player you know and keep your information a secret to help keep them alive. If the Demon hears about your information and believes you, then the player you know is a risk for them to keep alive to the final three, so they’ll be wanting them dead at the first opportunity, so keeping your information quiet might help your player survive.",
+      "Once your information is known, make people take it into account in their worldbuilding! You know you’re good and that this one player is good, so any world involving either of you being evil must involve both of you being evil. Often, this will mean that building the world of you both being evil ends up in there needing to be too many evil players and you can sway arguments accordingly."
+    ],
     "cn": [
       "被你选为\"主人\"的那名玩家非常重要。你的投票依然按照正常的投票计数，只不过在你的主人不举手的情况下你不能投票。既然如此，你就需要仔细听场上玩家的发言，并且找出哪些玩家是善良阵营的。如果你的主人是邪恶的，你就只能在一些没用的时候投票。如果你的主人是善良的，你就可以投出有意义的一票。找到一个善良的主人，然后紧紧跟随他。",
       "如果你告诉你的主人你选择了他，他在投票时基本就会默认你也会跟着投。观察你的主人在何时希望你投票能够让你发现一些细节，帮助你判断他到底是善良的还是邪恶的。一个邪恶阵营的主人可能会鼓动你去投一个看起来比较可信的玩家。",
@@ -38,5 +40,10 @@
       "你可以选择一名死亡玩家作为你的主人。但是要小心一点——因为死亡玩家仅剩一票可用了，他可能暂时不会用这一票，这意味着你可能根本就没机会投票。",
       "如果其他玩家认为你是邪恶玩家，并且想要处决你，你通常能够通过承诺晚上去做他的管家来赢得他的信任。如果你让他今天不要提名你，并且答应在今晚选他做你的主人，对方经常是会同意并且让你保持存活的。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "While preparing the first night, put the KNOW reminder by any good character token.\nDuring the first night, wake the Steward. Point to the player marked KNOW. Put the Steward to sleep.",
+    "cn": "每个夜晚，唤醒管家。让管家指向除自己外的任意一名玩家。用“主人”提示标记来标记这名玩家。让管家重新入睡。\n在一次提名中，管家只能在主人举手投票，或主人的投票已经被统计时，才能举手投票。\n如果管家不小心进行了违规投票，仍统计管家的票。因为如果不这么做，实际的总票数会比原本的总票数少，因此所有玩家都会知道谁是管家，这对邪恶阵营来说非常不公平。人总会犯错。继续进行游戏，并在稍后私下提示管家。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Steward"
 }

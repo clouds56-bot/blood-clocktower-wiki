@@ -43,8 +43,8 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 /**
  * Fetch HTML with caching
  */
-async function fetchWithCache(url, characterId) {
-  const cacheFile = path.join(CACHE_DIR, `${characterId.toLowerCase().replace(/%27/g, "'")}.html`);
+async function fetchWithCache(url, urlParam) {
+  const cacheFile = path.join(CACHE_DIR, `${urlParam.replace(/%27/g, "'")}.html`);
   
   // Try to read from cache
   if (fs.existsSync(cacheFile)) {
@@ -53,6 +53,7 @@ async function fetchWithCache(url, characterId) {
   }
   
   // Fetch from remote
+  console.log(`  download ${url}`);
   const response = await fetch(url);
   const html = await response.text();
   
@@ -66,7 +67,7 @@ async function fetchWithCache(url, characterId) {
 /**
  * Parse wiki HTML to extract character data using cheerio
  */
-function parseCharacterPage(html, characterId, type) {
+function parseCharacterPage(html, characterId, charData, type) {
   const $ = cheerio.load(html);
 
   // Extract flavor text from the .flavour paragraph
@@ -192,9 +193,9 @@ function parseCharacterPage(html, characterId, type) {
   }
 
   return {
-    id: characterId.toLowerCase().replace(/%27/g, "'").replace(/_/g, '_'),
+    id: characterId,
     type: TYPE_MAPPING[type] || type,
-    name: { en: characterId.replace(/_/g, ' ').replace(/%27/g, "'") },
+    name: { en: charData.en, ...(charData.cn ? { cn: charData.cn } : {}) },
     ability: ability ? { en: ability } : null,
     flavor_text: flavorText ? { en: flavorText } : null,
     editions: editionsArray,
@@ -205,7 +206,7 @@ function parseCharacterPage(html, characterId, type) {
     examples: examples.length > 0 ? examples : undefined,
     tips: tips.en.length > 0 ? tips : undefined,
     how_to_run: howToRun ? { en: howToRun } : undefined,
-    source_url: `${BASE_URL}/${characterId}`
+    source_url: `${BASE_URL}/${charData.en_url_param || charData.en.replace(/ /g, '_')}`
   };
 }
 
@@ -255,15 +256,16 @@ async function scrapeAllCharacters() {
   };
 
   for (const [type, characters] of Object.entries(CHARACTERS)) {
-    console.log(`\n📦 Scraping ${type} (${characters.length} characters)...`);
+    console.log(`\n📦 Scraping ${type} (${Object.keys(characters).length} characters)...`);
 
-    for (const characterId of characters) {
-      const url = `${BASE_URL}/${characterId}`;
-      console.log(`  → ${characterId.replace(/_/g, ' ')}`);
+    for (const [characterId, charData] of Object.entries(characters)) {
+      const urlParam = charData.en_url_param || charData.en.replace(/ /g, '_');
+      const url = `${BASE_URL}/${urlParam}`;
+      console.log(`  → ${characterId} (${charData.en})`);
 
       try {
-        const html = await fetchWithCache(url, characterId);
-        const data = parseCharacterPage(html, characterId, type);
+        const html = await fetchWithCache(url, urlParam);
+        const data = parseCharacterPage(html, characterId, charData, type);
 
         // Validate before writing
         const validation = validateCharacterData(data);

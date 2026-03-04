@@ -18,17 +18,26 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
     "守鸦人被小恶魔杀死，然后被唤醒以选择一名玩家。经过一番深思熟虑后，他选择了小八。小八是共情者，而守鸦人得知了这一消息。",
     "小恶魔杀死了镇长。镇长并没有死亡，而是由守鸦人通过镇长的能力代替镇长死亡。守鸦人被唤醒并选择了已死亡的陌客道哥。守鸦人得知道哥是红唇女郎，因为陌客此时被当作了红唇女郎。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Ravenkeeper",
-  "image": "assets/tokens/ravenkeeper.png",
-  "how_to_run": {
-    "cn": "如果守鸦人在夜晚死去，唤醒他。让守鸦人指向任意一名玩家。对守鸦人展示那名玩家的角色标记。让守鸦人重新入睡。\n我们建议你阻止甚至禁止玩家在夜晚谈论他们当晚正在进行的操作。"
-  },
   "tips": {
+    "en": [
+      "If the Demon knows you are the Ravenkeeper, they are very unlikely to kill you. It is to your benefit to bluff as a character who is a constant threat to the evil team, such as the Empath, Fortune Teller, Slayer, or Undertaker. Even bluffing as a good character that tends to be trusted by the good team (such as Chef or Washerwoman) can make you look like a trusted good player in the eyes of the Demon, and attract their attention at night.",
+      "The Ravenkeeper gets some of the best information in Trouble Brewing. Think about whose character you would like to learn before each night falls. You won't want to make a hasty decision and choose wildly in the moment.",
+      "Choosing living players in usually more beneficial than choosing dead players. If you learn a living player is good, you know not to execute them. If you learn a living player is evil, you know you shouldn't trust them! However, every so often, confirming that a dead player is good can be an enormous help. For example, confirming that a dead Washerwoman, Librarian, Investigator or Chef is telling the truth can help you verify their information, or picking a dead player you have suspicions about can confirm that an evil player is dead. That might even back up the Investigator or Fortune Teller.",
+      "Beware of the Spy and the Recluse. If you believe a player is one of them, it is unlikely that you will learn their true character if you choose them, owing to their abilities to register as other characters.",
+      "If you learn a player is the Drunk, then not only do you know that they are good, you can be reasonably certain that any information they gave to the group is wrong.",
+      "Remember that you only get your information if you die at night. Getting killed during the day reveals nothing to you.",
+      "Sometimes, sitting quietly and refusing to give any information can give you the air of a powerful threat without actually having to provide any justification for your bluff.",
+      "You may want to tell the group that you are the Ravenkeeper first thing on the first day. This will almost guarantee that you are still alive on the final day, as the Demon will probably not kill you. This strategy means that you have more power in the late game (since living players may vote more than dead players), but you sacrifice the chance of gaining information by your death. Additionally, claiming Ravenkeeper is the sort of thing a Slayer or Undertaker might do early game, so it might just get you killed.",
+      "If you get to use your ability by dying at night, tell the group you are the Ravenkeeper the following day. Your information will be immediately useful.",
+      "If you see a good token, consider keeping that information private. If the Demon knows that you know that a player is good, that player becomes a much higher priority target, and you want the player you trust alive as long as possible.",
+      "If you have told nobody that you are the Ravenkeeper, and you are still alive late in the game, then it is probable that a Spy is in play, telling the Demon who to attack. If you notice this happening, pay attention to who is whispering to whom."
+    ],
     "cn": [
       "如果恶魔知道你是个守鸦人，他会非常不想杀你。伪装成一个对恶魔有持续威胁的角色会对你比较有帮助，比如共情者，占卜师，猎手，送葬者或者镇长。即便是伪装成一个可能被善良阵营相信的好角色（例如厨师或洗衣妇），也能够让你在恶魔眼里看起来更显眼，就可能在晚上吸引到恶魔的注意。",
       "在暗流涌动中，守鸦人的信息最为优质。在每个夜幕来临之前，想清楚你想知道哪位玩家的角色。你绝对不会想一瞬间去随便做个匆忙的决定。",
@@ -41,5 +50,10 @@
       "如果你在晚上通过死亡触发了能力，在接下来的白天告诉大家你是守鸦人的话，你的信息就能够立刻起作用。",
       "如果你没有告诉任何人你是守鸦人，并且还活到了最后一天，那就很可能有间谍在场。如果你意识到这种情况，注意哪些人在窃窃私语。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "If the Ravenkeeper died tonight, wake them. They point at any player. Show the chosen player's character token to the Ravenkeeper. Put the Ravenkeeper to sleep.",
+    "cn": "如果守鸦人在夜晚死去，唤醒他。让守鸦人指向任意一名玩家。对守鸦人展示那名玩家的角色标记。让守鸦人重新入睡。\n我们建议你阻止甚至禁止玩家在夜晚谈论他们当晚正在进行的操作。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Ravenkeeper"
 }

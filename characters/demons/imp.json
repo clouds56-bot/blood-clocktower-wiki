@@ -18,17 +18,27 @@
   ],
   "first_night": false,
   "other_nights": true,
+  "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
     "现在是第一夜。小恶魔得知小文和小美是爪牙。小恶魔还得知僧侣，厨师和图书管理员不在场。小恶魔谎称自己是厨师，并在稍晚时分谎称自己是镇长。最后，小恶魔被处决，且善良阵营获胜。",
     "在夜晚时，小恶魔被唤醒并选择了一名玩家，那名玩家死亡。在下一个夜晚，小恶魔选择让自己死亡。于是小恶魔死亡，并且投毒者变成了小恶魔。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Imp",
-  "image": "assets/tokens/imp.png",
-  "how_to_run": {
-    "cn": "除首个夜晚以外的每个夜晚，唤醒小恶魔。让小恶魔指向任意一名玩家。让小恶魔重新入睡。被选择的玩家死亡——在那名玩家的角色标记旁放置小恶魔的“死亡”提示标记并放置帷幕标记。\n如果小恶魔选择在夜里自杀，用多出来的小恶魔标记替换一名存活的爪牙玩家的角色标记，让那名玩家的角色改变为小恶魔。唤醒新的小恶魔，向他展示“你是”信息标记，然后向他展示小恶魔角色标记。让新的小恶魔重新入睡。\n在黎明时，宣布有哪名玩家在夜晚死去。（不要说明死亡原因。）\n如果小恶魔选择在夜晚攻击一名已死亡的玩家，允许他这么做。当一个角色能力描述中提及“选择一名玩家”，意味着任何玩家——无论存活或是死亡——都能被选择。小恶魔可能在计划伪装成士兵，而这种情形下会让他的谎言看起来更加可信。"
-  },
   "tips": {
+    "en": [
+      "There are many strategies for evil players, particularly the Imp, that are covered in more detail in Player Strategy section. Generally speaking, as the Demon, you want to look trustworthy, spread false information where possible, get your Minions to confirm that you are a good player, and sacrifice them when needed. Take a look at this section for more information.",
+      "Stay alive during the day at all costs. Even in games with three Minions, do not assume there is a Scarlet Woman in play. (However, if you talk to your Minion(s) and you learn that there is, then ignore this advice!)",
+      "If you are under suspicion, night time suicide is always an option. Killing yourself and passing the Demonhood to a Minion that is looking more trustworthy robs you of the support of their continued voting power, but survival is more important. You can also do this when there is no suspicion on you - people tend to trust players that die at night. Either way, if you die at night, giving false information to the good team the day after, such as claiming to be the Ravenkeeper, can change the course of the game.",
+      "Your Minions are pawns to be sacrificed! Kill them! Kill them all! You're the only one that matters!",
+      "At the beginning of the game, the Storyteller will give you three possible bluffs to choose from. You can bluff as whatever you want, of course, but these few bluffs are safe. Since the Imp can die at night, and pass the Demonhood to a Minion, both the more passive and the more aggressive bluffs can be useful. If you are new to the game, or don't quite understand how certain characters work, either ask the Storyteller for help, or bluff as a more passive character, such as the Soldier or the Recluse. If you are more adventurous, more high-risk high-reward bluffs such as the Fortune Teller or Undertaker can be risked.",
+      "A very bold strategy, to be employed on occasion when playing with players who are more familiar with the game, is to claim to be a character that you did not see as one of your bluffs. If you're bluffing as a character that's really in the game, then maybe the good team will assume that you're just a Baron who didn't learn any out of play characters, and kill the other players instead. Of course, they might decide that you're actually the Scarlet Woman and execute you just to be on the safe side.",
+      "When choosing who to kill, you generally want to kill powerful, troublesome, information-gathering Townsfolk sooner rather than later, such as the Empath, Undertaker, Monk or Slayer. Removing their information (or power) from the game early can help you later on. Every so often, deliberately keeping one of these Townsfolk alive until the final day can double-bluff the good players. They may ask this player \"If you are really the Fortune Teller, why are you still alive?\", and kill them.",
+      "Also, when deciding who to attack at night, you are best killing the more trusted players earlier rather than later. A Virgin that everybody knows is the Virgin will never be executed, which decreases your odds of being executed later on. A pair of Outsiders that everybody believes are actually Outsiders will need to disappear, because they will not be executed either. On the final day, you will want at least one other player, preferably two, to be looking more suspicious than you.",
+      "Send your Minions out on information-gathering missions. Gather as much information as you can about who is who. This will help you avoid attacking troublesome characters like the Ravenkeeper or the Soldier, and the problems that consequently follow.",
+      "Talk to your Minions! Co-ordinate with them, by helping them bluff. Agree that one of you will look as evil as possible, while the other one will take the Demonhood and survive to the end of the game. Find out what your Spy knows. Co-ordinate with your Poisoner so that you choose different players at night. Let your Baron run wild. Learn if your Scarlet Woman's plan is to kill you, or keep you alive.",
+      "There are lots of reasons why you should register as an evil Imp to good players. If this happens, don't despair! Maybe you can convince the group that Empath is drunk? Maybe you can argue that you are that Fortune Teller's \"red herring\"?",
+      "If you don't want to kill one night, you can choose a dead player instead. This can also help you bluff well as the Soldier or the Monk, as no death of a night-time makes it look like your Soldier or Monk ability triggered. If no one is dead after the first day, there are no dead players to 'sink' a kill into, but if you're committed to bluffing as one of those characters, just ask your Poisoner pick you!"
+    ],
     "cn": [
       "邪恶玩家有很多策略可以选择，尤其是小恶魔。一般来说，恶魔会希望自己看起来比较可信，且在可能的时候传递错误信息，让爪牙来证实你是一个善良阵营玩家，或者在需要的时候牺牲他们。这个章节中可以查看到更多信息。",
       "努力活过白天。就算场上有三名爪牙，你也没法保证红唇女郎在场。（然而，如果你已经与爪牙交流过并且确定她在场，就忽略这条建议吧！）",
@@ -55,5 +65,10 @@
       "他也可以伪装成猎手，假装\"猎杀\"他的爪牙，后面他自己再死掉。（他们也可以对真猎手耍这个把戏，让真猎手对爪牙使用能力，过后再把恶魔血脉传递给这个已经被证实非恶魔的爪牙。）",
       "他也可能在晚上故意谁都不杀，然后让爪牙去伪装成僧侣或者士兵。夜晚无人死亡会让大家会非常愿意相信士兵，这个爪牙也就成了一个非常理想的恶魔继承人。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "Each night except the first, wake the Imp. The Imp points at any player. Put the Imp to sleep. The chosen player dies—put the Imp's DEAD reminder by the chosen player's character token in the Grimoire and put a shroud on it.",
+    "cn": "除首个夜晚以外的每个夜晚，唤醒小恶魔。让小恶魔指向任意一名玩家。让小恶魔重新入睡。被选择的玩家死亡——在那名玩家的角色标记旁放置小恶魔的“死亡”提示标记并放置帷幕标记。\n如果小恶魔选择在夜里自杀，用多出来的小恶魔标记替换一名存活的爪牙玩家的角色标记，让那名玩家的角色改变为小恶魔。唤醒新的小恶魔，向他展示“你是”信息标记，然后向他展示小恶魔角色标记。让新的小恶魔重新入睡。\n在黎明时，宣布有哪名玩家在夜晚死去。（不要说明死亡原因。）\n如果小恶魔选择在夜晚攻击一名已死亡的玩家，允许他这么做。当一个角色能力描述中提及“选择一名玩家”，意味着任何玩家——无论存活或是死亡——都能被选择。小恶魔可能在计划伪装成士兵，而这种情形下会让他的谎言看起来更加可信。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Imp"
 }

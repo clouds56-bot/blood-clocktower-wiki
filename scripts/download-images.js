@@ -18,8 +18,8 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 /**
  * Fetch HTML with caching
  */
-async function fetchWithCache(url, characterId) {
-  const cacheFile = path.join(CACHE_DIR, `${characterId.toLowerCase().replace(/%27/g, "'")}.html`);
+async function fetchWithCache(url, urlParam) {
+  const cacheFile = path.join(CACHE_DIR, `${urlParam.replace(/%27/g, "'")}.html`);
   
   // Try to read from cache
   if (fs.existsSync(cacheFile)) {
@@ -149,7 +149,8 @@ async function downloadAllImages() {
 
     // Fetch wiki page to find image URL
     try {
-      const html = await fetchWithCache(wikiUrl, characterId);
+      const urlParam = wikiUrl.split('/').pop();
+      const html = await fetchWithCache(wikiUrl, urlParam);
       const imageUrl = extractImageUrl(html);
 
       if (!imageUrl) {

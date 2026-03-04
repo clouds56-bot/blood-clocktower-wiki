@@ -18,17 +18,20 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
     "茶艺师在游戏开始时的邻近玩家是主谋和善良的莽夫。主谋被处决且死亡。现在，茶艺师邻近的存活玩家是善良的莽夫和侍臣。恶魔攻击了侍臣，但侍臣依然存活。之后，莽夫转变为邪恶的，并且恶魔再次攻击侍臣。这一次，侍臣死亡。",
     "茶艺师邻近的存活玩家是善良的女舍监和善良的法官。女舍监被流放，但依然存活。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Tea_Lady",
-  "image": "assets/tokens/tea_lady.png",
-  "how_to_run": {
-    "cn": "如果茶艺师邻近的两名存活玩家都是善良的，将茶艺师的“不会死亡”提示标记放置到这两名玩家的角色标记旁。如果茶艺师邻近的两名存活玩家中有任何一个是邪恶的，移除这些提示标记。根据这个条件在整局游戏中随时更新这些提示标记（例如一名玩家的阵营改变了）。\n如果一名标有“不会死亡”的玩家将要死去，该玩家依然存活。如果一名标有“不会死亡”的玩家被处决，宣布该玩家被处决但依然存活。（不要说明原因。）"
-  },
   "tips": {
+    "en": [
+      "The Tea Lady is a powerful protector, but is vulnerable themselves. Deciding when and who you should reveal to will decide the strategies that you implement for each game moving forward. Revealing right away can help you coordinate executions on your neighbours early (best case scenario: confirming two good players), but will expose you to the evil team. Staying quiet or playing cautiously can make it harder to confirm information, but you will survive longer and could trick the demon into targeting your protected neighbours, wasting a precious kill. There's no right or wrong way to play - judge for yourself which strategy will play out best for the game you are in!",
+      "Execute your neighbours! If both your neighbours are good, they cannot die. The quickest and easiest way to test this is to execute - if they don't die, there's a good chance that it was your ability that saved them. Avoid characters who have immunity to execution normally (e.g. Sailor, Fool) as they will muddy the waters. You should also be cautious of the Devil's Advocate, who could mistakenly trick you into believing that an evil neighbour is actually good by timing their ability with your execution. Finally, be aware of the Pacifist - while they're alive, the storyteller may choose to spare any good executees, which is indistinguishable from your ability activating.",
+      "You can also choose not to be proactive at all - instead, reveal nothing and wait to see how it plays out! This gives you the security of the demon not knowing who you are for certain, which can grant advantages to you based on the composition of your neighbours. If you have two good neighbours for example, the demon might attack them at night in their ignorance. For any other scenario, you must have at least one evil neighbour, which you will know for sure if any of your neighbours die, and can then choose to reveal once you have a suspect in mind. (Particularly potent versus characters like the Zombuul, who might choose to 'die' early, not realizing that you are their neighbour and they should not be able to!)",
+      "Build trust with your neighbours. Even before they have been confirmed as good, you should be encouraging them to work with you - after all, if they can prove that they're both good, then you can trust that your ability will be active and protecting them. In smaller games where executions are more precious, this can be critical in helping you rally the good team without necessarily having to spend time killing your neighbours to prove they are good.",
+      "Whatever strategy you use, you can switch it up every time a neighbour dies, particularly if you believe that neighbour was the evil one. Your ability extends around to the closest living players, so every time you lose a player, you gain a player, and this time you may actually have two good neighbours! Beware though - as the game goes on, the chances of you acquiring an evil neighbour will get higher and higher. In the final days, you probably should assume that someone near you is evil unless you have strong evidence to the contrary."
+    ],
     "cn": [
       "茶艺师是一个强大的保护者，但自己很脆弱。什么时候、向谁坦白你的角色，对善良方的策略非常重要。立即公开角色，可以帮助你的邻居免受处决（即最好的情况：两个邻居都是善良的），但会使你暴露于邪恶团队。保持安静或谨慎行事会使确认信息变得更加困难，但你会活得更久，并且可能会诱骗恶魔瞄准受了你保护的邻居，从而浪费宝贵的杀戮。很难说这些策略哪种对哪种错——自己判断哪种策略最适合你所在的游戏！",
       "处决你的邻居！如果你的两个邻居都很是善良的，他们就不会死。测试这一点的最快和最简单的方法是处决他们——如果他们没有死，那么很有可能是你的能力拯救了他们。警惕那些通常免疫处决的角色（例如水手、弄臣），因为他们会搅浑水。你还应该小心魔鬼代言人，他也可能起欺骗你，让你觉得一个邪恶的邻居是好人，因为他们的能力可以与你的处决时间相吻合。最后，请注意和平主义者——当他们还活着的时候，说书人可能会选择放过任何善良的处决者，你也可能误以为能力发动了。",
@@ -36,5 +39,10 @@
       "与邻居建立信任。甚至在他们被确认是好人之前，都应该鼓励他们配合你——毕竟，如果他们能证明他们都是善良的，那么你可以相信你的能力会发挥作用并保护他们。召集优秀团队比而花时间杀死邻居来证明他们的阵营更重要。",
       "无论你使用哪种策略，每次邻居死亡时都可以切换策略，特别是如果你认为邻居是邪恶的时候。你的能力延伸到最接近的活着的玩家，所以每次你失去一个邻座玩家，你就会获得一个玩家阵营，而这一次你可能会有两个好邻居！但请注意——随着游戏的进行，你获得邪恶邻居的机会会越来越高。在最后的日子里，你可以优先假设你身边的人是邪恶的，除非你有强有力的证据证明他们是善良的。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "If both alive neighbours of the Tea Lady are good, mark those neighbours’ character tokens with the Tea Lady’s CANNOT DIE reminders. If either alive neighbour of the Tea Lady is evil, remove these reminders. Update these reminders immediately based on this condition throughout the entire game (such as if a player’s alignment changes).",
+    "cn": "如果茶艺师邻近的两名存活玩家都是善良的，将茶艺师的“不会死亡”提示标记放置到这两名玩家的角色标记旁。如果茶艺师邻近的两名存活玩家中有任何一个是邪恶的，移除这些提示标记。根据这个条件在整局游戏中随时更新这些提示标记（例如一名玩家的阵营改变了）。\n如果一名标有“不会死亡”的玩家将要死去，该玩家依然存活。如果一名标有“不会死亡”的玩家被处决，宣布该玩家被处决但依然存活。（不要说明原因。）"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Tea_Lady"
 }

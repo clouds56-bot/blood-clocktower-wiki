@@ -18,18 +18,23 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
     "今天白天，仅有一名镇民玩家发起提名。当晚，城镇公告员得知了“否”。",
     "今天白天，有四名玩家发起提名。其中两名玩家是爪牙。有很多玩家投票，但无人被处决，当晚，城镇公告员得知了“是”。",
     "一名爪牙流放了一名旅行者。当晚，城镇公告员得知了“否”，因为发起流放不是提名。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Town_Crier",
-  "image": "assets/tokens/town_crier.png",
-  "how_to_run": {
-    "cn": "每个黎明，在城镇公告员角色标记旁放置“爪牙未提名”提示标记，并移除“爪牙已提名”提示标记（如果有）。\n每个白天，如果有任何爪牙发起提名，则将“爪牙未提名”提示标记替换为“爪牙已提名”提示标记。\n除了第一个夜晚的每个夜晚都唤醒城镇公告员。如果城镇公告员被标记为“爪牙未提名”，摇头告知否。如果城镇公告员被标记为“爪牙已提名”，点头告知是。让城镇公告员重新入睡。然后移除“爪牙已提名”标记，如果有的话。\n如果你忘记了爪牙是否在白天提名，在夜晚分别单独唤醒每名爪牙玩家。每次唤醒一名玩家并对他展示“你今天提名了吗？”信息标记。他必须诚实回答，然后重新入睡。随后再唤醒下一名爪牙玩家。"
-  },
   "tips": {
+    "en": [
+      "Pay attention to who is doing the nominating! This seems obvious, but your information only matters if you know who nominated to correspond with the info you get each night. Evil players will definitely lie to you if you rely on the town to remember on your behalf, and there's a lot of info flying around in general, which can lead to good players simply forgetting after a few days.",
+      "Get different people to nominate each day. You become more powerful the more people you detect over the course of the game.",
+      "Unlike the Fortune Teller, getting a \"no\" doesn't tell you very much. A \"no\" might still be a Demon whom you very much want to execute. Value your \"yes\" instead - this tells you that you have definitively got a Minion, and you can work on getting them neutralized or executed.",
+      "Beware the Witch! They want nominations as much as you do, since it increases their chance of killing players. Try to guess who the Witch may have chosen (e.g., Players who are playing very aggressively or have already nominated a lot), and encourage different players to be the ones to nominate instead.",
+      "If you are faced with an Evil Twin, you can get just one of them to nominate and get a read on which one is actually the Minion! Just be sure to combine your information with other Townsfolk and rule out dangers like the Vortox or your ability malfunctioning; getting the wrong Twin is a game over!",
+      "You have a special synergy with the Flowergirl, who also has a vested interest in nominations and executions. While trying to get nominations, it can also help to pay attention to who is voting and when - it doesn't cost anything extra to help out your fellow good player, and it helps them avoid the risk of coming out to try and curry those votes themselves and exposing themselves to the demon.",
+      "If you learn that a particular player is a Minion early in the game, it is best to execute them. If you learn learn that a particular player is a Minion late in the game, then you may want to keep them alive, whilst you execute other players. After all, the aim of the game is to execute the Demon, not Minions."
+    ],
     "cn": [
       "注意每天都有谁发起了提名！这应该很容易理解，因为你在每晚得到的信息只有在知道有谁提名时才能有用。邪恶玩家可能会对你撒谎，而且每天会发生大量的事情，即便是善良玩家也可能会在几天后忘记提名的情况。",
       "尽可能多的让不同的人去提名，提名的人越多你就越能发挥自己的能力去推动游戏的进程。",
@@ -39,5 +44,10 @@
       "你和卖花女孩有着特别的协同作用，因为你们都是对于提名及处决投注精力的玩家。当你在关注谁提名时，同时也特别关注是谁投票了。这不仅可以毫不费力的帮助到你的队友，而且可以让他免除暴露自己给恶魔的风险。",
       "如果你在游戏早期发现了一个爪牙，那么你们最好是把他处决了。而如果你是在游戏后期发现一个爪牙。那么你们可能考虑留着他而去处决其他人。毕竟，游戏的目标是找到恶魔并处决，而不是爪牙。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "Each dawn, mark the Town Crier with the MINIONS NOT NOMINATED reminder, and remove the MINION NOMINATED reminder, if any.",
+    "cn": "每个黎明，在城镇公告员角色标记旁放置“爪牙未提名”提示标记，并移除“爪牙已提名”提示标记（如果有）。\n每个白天，如果有任何爪牙发起提名，则将“爪牙未提名”提示标记替换为“爪牙已提名”提示标记。\n除了第一个夜晚的每个夜晚都唤醒城镇公告员。如果城镇公告员被标记为“爪牙未提名”，摇头告知否。如果城镇公告员被标记为“爪牙已提名”，点头告知是。让城镇公告员重新入睡。然后移除“爪牙已提名”标记，如果有的话。\n如果你忘记了爪牙是否在白天提名，在夜晚分别单独唤醒每名爪牙玩家。每次唤醒一名玩家并对他展示“你今天提名了吗？”信息标记。他必须诚实回答，然后重新入睡。随后再唤醒下一名爪牙玩家。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Town_Crier"
 }

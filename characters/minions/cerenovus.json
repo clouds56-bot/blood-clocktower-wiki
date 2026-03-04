@@ -2,7 +2,8 @@
   "id": "cerenovus",
   "type": "minion",
   "name": {
-    "en": "Cerenovus"
+    "en": "Cerenovus",
+    "cn": "瑟勒诺弗斯"
   },
   "ability": {
     "en": "Each night, choose a player & a good character: they are \"mad\" they are this character tomorrow, or might be executed."
@@ -15,12 +16,31 @@
   ],
   "first_night": false,
   "other_nights": true,
+  "artist": "John Grist",
   "jinxes": [],
   "examples": [
     "The Cerenovus makes the Barber mad about being the Savant. Tomorrow, the Barber claims to be the Savant, talks to the Storyteller, and tells the group two facts that they made up. When asked whether they are mad, the Barber says \"no\" emphatically, so avoids being executed.",
     "The dead Artist is made mad about being the Sage. The next day, they say nothing about being the Sage. The Artist is executed.",
     "The Cerenovus makes the Flowergirl mad about being the Clockmaker. The Flowergirl says to the group that they are the Clockmaker and learned a \"2,” but hints privately to other players that they are mad. The Storyteller overhears this and executes the Flowergirl."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Cerenovus",
-  "image": "assets/tokens/cerenovus.png"
+  "tips": {
+    "en": [
+      "Madness is an infliction that can severely hinder the good team, and also a fine art - you can block a player from revealing information, force a player to change their story or double up with another good player, and even get your victim executed if they don't play along. When choosing who to make mad (and about what), think carefully about your preferred outcome!",
+      "Target players who have a lot to say. Most games will have those players who are running the show - maybe they've built up trust with other players and have some sway, or maybe they're just very sure they're right. Either way, forcing this sort of player to become mad will hinder them and their ability to coordinate with their allies... or sow seeds of doubt.",
+      "If a player is revealing a lot of important information, you can use your madness to neutralize them. The Flowergirl, Seamstress or Oracle will have a hard time revealing their game-changing info if you're forcing them to act as the Sweetheart. Track who people are listening to (publicly or privately) so you can focus on them.",
+      "One dastardly move that can really put the good team on the spot is to make them mad that they are a complicated character like the Savant, who receives a lot of information... close to the end of the game. Watching this player scramble to invent 3+ days of information is not only hilarious, but a great distraction for the good team.",
+      "When choosing who you make mad, try to be subtle or consistent. Players who are no longer mad will immediately reveal to the group that they were affected by you, and at that point on the good team will be on the lookout for loud, bold madness. A way to avoid this are to consistently choose the same player, making them mad every single day so they have no chance to reveal what you're doing to them, at the cost of restricting your movements to this one player. Another way is to pick subtle, plausible characters for your madness - for example, having someone reveal as an Outsider in a suspected Fang Gu game, or someone who has given inconsistent information reveal as a character like the Snake Charmer.",
+      "An advanced way to use madness is to build a consistent narrative. For example, you can force a player to reveal as the Sage.... but it'll lend a little credence to their forced bluff if you had them bluffing as a Dreamer the day before, just like a real Sage would. This allows you to undermine the real Sage without it necessarily coming off as just one of them being mad - the simple logical thread you have created will be something the other players find pleasing and want to hold onto. Another option for a consistent narrative is to feed into the story the evil team is trying to make - for example, if you're trying to convince them a Fang Gu is in play, make people mad they are Outsiders.",
+      "If the good team suspects that the Vortox is in play, they will be very reluctant to end the day without an execution. If they don't have any strong leads on potential evil, they may fall back to 'safe' executions - players who have used their abilities (such as the Clockmaker or Artist). Causing a more powerful character to become mad they are one of these characters can see the good team executing them without you having to lift a finger - and if they protest, they might break madness and be executed anyway!",
+      "Your ability can also affect dead players! Even if they are dead, they can still be executed should they break madness (meaning the good team does not get to execute someone of their choice instead, and the evil team gets a free night to act). If you know who your demon is going to kill, hit them with a madness about being the Barber, Sweetheart or Klutz for an extra fun distraction for the good team!",
+      "On paper, making someone mad that they are the Mutant seems like a fun trick. In reality, this madness doesn't help you - your target will be forced to reveal they are the Mutant, which obviously does nothing since they (probably) do not have the Mutant ability. The good team will know they are probably afflicted by madness, thus revealing you are in play!",
+      "Target evil players deliberately to make them look good. This has some risk associated with it since they can be executed if they don't play the madness effectively, but if the good team believes a player has been targeted by evil abilities, they'll be more likely to trust them. Just... probably warn your demon before you do it.",
+      "Your ability is obvious for the good team - madness is a very public affliction, so the good team will know you are in play pretty confidently after a few days. Keep this in mind if your evil team is bluffing that other minions are in existence; for example, in a one minion game, your demon could not have been shape-shifted by a Pit-Hag if someone died because of your madness, which will expose them as a liar!",
+      "This is an advanced tip, but a fun one: The Storyteller is the one who decides how sincere a player is when playing out a madness. This allows for some leniency for newer players, and conversely a difficulty spike for the experienced players who know the game well and understand how madness works. Targeting the latter will give you a better chance of seeing complicated and sincere madness getting played out, since more is expected of them - and it's as entertaining as it is effective!"
+    ]
+  },
+  "how_to_run": {
+    "en": "Each night, wake the Cerenovus. They point at any player and at any Townsfolk or Outsider icon on their character sheet. Put the Cerenovus to sleep. Mark the chosen player with the MAD reminder. Wake this player, show them the THIS CHARACTER SELECTED YOU info token, then the Cerenovus token, then the character token of the character they are mad about being. Put that player to sleep."
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Cerenovus"
 }

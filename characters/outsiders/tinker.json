@@ -18,6 +18,7 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
     "现在是第三个白天。突然，修补匠死亡了。",
@@ -25,12 +26,14 @@
     "茶艺师坐在修补匠和另一个善良玩家旁边，保护修补匠免于死亡。修补匠不会因为自己的能力而死亡。",
     "修补匠被恶魔攻击。修补匠因为旅店老板的保护而没有死亡。当晚的后续时段中，旅店老板死亡，因此说书人选择将修补匠也杀死。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Tinker",
-  "image": "assets/tokens/tinker.png",
-  "how_to_run": {
-    "cn": "在任何时候，你都可以决定让修补匠死亡。如果是在白天，立即宣布修补匠刚刚死亡。如果是在夜晚，将“死亡”提示标记放置到修补匠的角色标记旁，等到黎明再宣布这个夜晚有哪些玩家死亡了。（不要说出修补匠的死亡原因。）\n虽然你可以在白天冷不丁地杀死修补匠，但是修补匠还是死在夜晚会更有意思，因为玩家们会想知道修补匠到底是因为自己的能力死亡的，还是因为别的什么原因。 \n你可以一直不杀死修补匠。这会让他看起来非常可疑。 \n如果杀死修补匠会导致游戏结束，那我们推荐你永远不要在这种情况下杀死他。游戏的获胜与否应当靠玩家自己的努力，而不是看说书人的脸色。"
-  },
   "tips": {
+    "en": [
+      "The Storyteller holds your life in their hands and can snuff it out in an instant! Do not underestimate the petty tyranny that this power trip creates - don't give them a reason to kill you at a terribly inopportune time for the good team!",
+      "Reveal you're the Tinker after you die, particularly if you die at night. While you can be targeted by the demon (or a wily Assassin), the Storyteller can kill you at any time, and may have knocked you off at night to bolster the evil team. For example, if the demon has been blocked by the Exorcist, you might die instead to create the impression of the demon still acting. If the Exorcist player knows this, they can decide to block the same player again, as opposed to writing them off as not the demon. Your death can also create the impression of different demons - for example, your extra death could point to the existence of a Shabaloth, when the demon is in fact a Pukka.",
+      "Rarely, you will drop dead publicly - an unfortunate accident witnessed by all of the townsfolk. While this unexpected death might seem like a bummer, consider this upside - as a ghost, the whole town knows that you must be the Tinker, and therefore are good and can be trusted! Nobody else can die publicly during the day outside of an execution. Take advantage of this knowledge to get chatting to those who remain, and aid the town after death.",
+      "The Storyteller is always striving to create a balanced game where both good and evil have an equal chance of winning. This means that even though your death will usually seem random, it's probably serving some greater cosmic purpose. This also means that it is information if they choose not to kill you, especially as the town whittles down to three players remaining. If you remain standing close to the end of the game, start to think about why the Storyteller couldn't risk killing you off. Are you among the few good players left alive? (Or are they just screwing with you because they know you expect to die?)",
+      "Seriously though, be nice to the Storyteller. Most Storytellers will accept firstborns in exchange for leniency."
+    ],
     "cn": [
       "说书人将你的生命掌握在他手中，并且可以瞬间扼杀你！不要低估每一次看似不重要的突然死亡——不要给他机会在一个对善良阵营非常不利的时间杀死你！",
       "在你死后，要表明你是修补匠，尤其是当你在晚上死去的时候。虽然你可能会成为恶魔（或狡猾的刺客）的目标，但说书人可以随时杀死你，并且可能在晚上让你死亡以支持邪恶阵营。例如，如果恶魔被驱魔人挡住了，你可能会死去，以创造恶魔仍在行动的迹象，来保住恶魔。如果驱魔人玩家知道这一点，他们可以决定再次阻止同一玩家，而不是认为他们不是恶魔，从而忽略。你的死亡也可以造成是不同恶魔在场的假象——例如，你额外的死亡可能表明存在沙巴洛斯，而恶魔实际上可能是普卡。",
@@ -38,5 +41,10 @@
       "说书人一直在努力创造一个平衡的游戏，让善恶都有平等的获胜机会。这意味着即使你的死亡通常看起来是随机的，它也可能是为了某种更大的目的。这也意味着如果他选择不杀你，这就是一种信息，特别是当城镇减少到只剩下三名玩家时。如果你在游戏接近尾声时仍然站着，开始思考为什么说书人不冒险杀死你。你是少数几个还活着的善良玩家之一吗？（或者他们只是因为知道你会死而与你开玩笑？）",
       "不过说真的，对说书人好一点。大多数说书人会对新玩家宽容以待。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "At any time, you may decide that the Tinker dies. If this is during the day, immediately declare that the Tinker has died. If this is during the night, mark the Tinker with the DEAD reminder and wait until dawn to declare which players died during the night. (Do not say how.)",
+    "cn": "在任何时候，你都可以决定让修补匠死亡。如果是在白天，立即宣布修补匠刚刚死亡。如果是在夜晚，将“死亡”提示标记放置到修补匠的角色标记旁，等到黎明再宣布这个夜晚有哪些玩家死亡了。（不要说出修补匠的死亡原因。）\n虽然你可以在白天冷不丁地杀死修补匠，但是修补匠还是死在夜晚会更有意思，因为玩家们会想知道修补匠到底是因为自己的能力死亡的，还是因为别的什么原因。 \n你可以一直不杀死修补匠。这会让他看起来非常可疑。 \n如果杀死修补匠会导致游戏结束，那我们推荐你永远不要在这种情况下杀死他。游戏的获胜与否应当靠玩家自己的努力，而不是看说书人的脸色。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Tinker"
 }

@@ -2,7 +2,8 @@
   "id": "mutant",
   "type": "outsider",
   "name": {
-    "en": "Mutant"
+    "en": "Mutant",
+    "cn": "变异者"
   },
   "ability": {
     "en": "If you are \"mad\" about being an Outsider, you might be executed."
@@ -15,6 +16,7 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
     "Ten seconds into the first day, the Mutant says to the group that they’re the Mutant. The Storyteller declares that the Mutant is executed immediately. There is no nomination for an execution today, since there can be a maximum of one execution per day.",
@@ -22,6 +24,17 @@
     "The Mutant tells the group that they are a Townsfolk, but does not say which one. When questioned if they are the Mutant, they stay silent. After a minute or so of silence, the Storyteller executes the Mutant.",
     "The Mutant says they are the Oracle, gives some bogus Oracle information, then says \"By the way, I am definitely not the Mutant\" while giving a subtle wink. The Storyteller chooses to execute the Mutant immediately."
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Mutant",
-  "image": "assets/tokens/mutant.png"
+  "tips": {
+    "en": [
+      "Never admit to being the Mutant. Never even admit to being an Outsider. \"Admitting\", of course, is a tricky thing to define. In Blood On The Clocktower, the term \"mad\" is used instead. What this means, is that if you try to convince anybody that you are the Mutant, the Storyteller can (and should) execute you immediately. Or, if you try to convince the group that you are an Outsider, the Storyteller can (and should) execute you immediately. This is the judgement call of the Storyteller, and the Storyteller will make their decision based on what they think you are trying to do, not just the words you use. For example, if you tell the group that \"you might be the Mutant, but might not be\", then the Storyteller may judge that you are trying to convince the group that you are the Mutant, and execute you. Or, if the whole group is asking what your character is, and you stay silent, refusing to say who you are, then the Storyteller may judge that your silence is a way that you are trying to convince the group that you are the Mutant, and execute you.",
+      "Be proactive. Don't stay silent. As discussed above, Mutant players that stay silent the whole game tend to get executed by the Storyteller. If you talk, pick a Townsfolk to claim to be, and do your best to convince the group that you are a character other than the Mutant, then you almost certainly won't get executed. For example, if you spend the game convincing people that you are the Oracle, and give the best, most sensible sounding information that you can, you won't be executed. And, if the Demon kills you because they think you are a threat, then that's fine too! After all, if you die at night, it means that another good player (which, statistically speaking, would have been a Townsfolk character) doesn't die instead.",
+      "Deliberately coming out as the Mutant has some benefits and some drawbacks. On the one hand, if your execution goes off, you will be confirmed as a good player, and everyone will believe you. On the other hand, that's an execution that the good team don't get to dictate themselves, and if you go off too early in the day, you can block characters like the Savant. Artist and Juggler from using their abilities. Finally, the storyteller may simply choose not to execute you, which will leave you in an ambiguous state of unconfirmed despite not satisfying the madness of your ability... which will make you look especially evil.",
+      "Come out secretly to one or two players you trust. You're going to be bluffing as a townsfolk, which can look suspicious and cause problems for you down the line (especially if your information isn't adding up with what the other players are getting). Admitting the truth early on means that the people you trust will know to discount your information and protect you from accusations. (Additionally, knowing about your presence can be particularly important for determining if there is a Fang Gu around!)",
+      "Beware the Storyteller! They will be on the watch for you fulfilling your madness, and it won't take too much for them to execute you, thus denying the good team a chance at killing the Demon! Avoid mentioning your true identity within earshot of the Storyteller, but also be wary about revealing to suspected evil players - they can tell the Storyteller what you've said, and get you killed that way!"
+    ]
+  },
+  "how_to_run": {
+    "en": "At any time (even at night), if you believe that the Mutant is mad about being an Outsider, then you can decide to execute the Mutant. Declare this to the group. They die - mark them with a shroud."
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Mutant"
 }

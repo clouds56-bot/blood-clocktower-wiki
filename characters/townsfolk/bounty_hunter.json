@@ -51,6 +51,5 @@
     "en": "During setup, turn one Townsfolk character token upside down, to represent that they are evil. Mark one evil player with the KNOW reminder.",
     "cn": "在设置调整阶段，将一名镇民的角色标记倒转放置，表示该玩家是邪恶阵营。将“得知”提示标记放置在一名邪恶玩家的角色标记旁。\n在首个夜晚，唤醒赏金猎人。指向放置“得知”提示标记的玩家，然后让赏金猎人重新入睡。\n每当放置“得知”提示标记的玩家死亡时，将“得知”提示标记放置在一名新的邪恶玩家的角色标记旁。当晚，唤醒赏金猎人，指向放置“得知”提示标记的玩家，然后让赏金猎人重新入睡。\n特别注意：由于赏金猎人会增加一名额外的邪恶玩家，在剧本中加入赏金猎人和其他任何潜在的具有阵营转换能力的角色时需要格外小心——一旦游戏中多于一名玩家能够转变为邪恶，邪恶阵营就能非常容易地获得大多数的投票，即使是邪恶阵营的玩家也不会特别喜欢这一点。我们测试过同时存在赏金猎人和这些角色（莽夫、灵言师、方古、政客和异教领袖）在一个剧本时，一点也不有趣......"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Bounty_Hunter",
-  "image": "assets/tokens/bounty_hunter.png"
+  "source_url": "https://wiki.bloodontheclocktower.com/Bounty_Hunter"
 }

@@ -18,18 +18,22 @@
   ],
   "first_night": false,
   "other_nights": true,
+  "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
     "水手选择了驱魔人，于是说书人决定让驱魔人醉酒。在这个夜晚，水手被沙巴洛斯攻击。水手依然存活。在下一个白天，水手被处决，但依然存活。",
     "在白天，造谣者发表了一个公开声明，他以为是错误的，但其实是正确的。在当晚，造谣者的能力将会杀死一名玩家。水手让自己醉酒了，于是说书人决定让水手死亡。",
     "水手选择了主谋，但是说书人决定让水手醉酒。在下一个白天，水手要求处决自己来“证明自己是水手”，但是因为他醉酒，所以死亡了。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Sailor",
-  "image": "assets/tokens/sailor.png",
-  "how_to_run": {
-    "cn": "每个夜晚，唤醒水手。让水手指向任意一名存活玩家。让水手重新入睡。水手或他选择的玩家两者之一会进入醉酒状态——将“醉酒”提示标记放置到该玩家的角色标记旁。\n如果清醒的水手将要死亡，他会依然存活。如果清醒的水手被处决，宣布该玩家被处决但依然存活。（不要说明原因。）"
-  },
   "tips": {
+    "en": [
+      "If you chose a Townsfolk at night, you are probably sober. If you chose an Outsider, Minion, or Demon, you are probably drunk. The Sailor's ability to stay alive is extremely powerful, and the Storyteller will usually take every opportunity to make the good team pay for that by making Townsfolk drunk wherever possible, and by making you drunk whenever you choose a non-Townsfolk.",
+      "Pick players that you'd like to see drunk, such as players that you suspect of being evil, or Townsfolk that are currently less useful than others. A drunk Grandmother or Fool is probably going to be less harmful than a drunk Exorcist or Courtier.",
+      "Maximize your survivability by going out of your way to make other players drunk. If you keep choosing Townsfolk, particularly powerful Townsfolk, you can survive until the final day much more easily than other players.",
+      "Tell players who you have chosen at night so they know they might be drunk. This is crucial. For example, a drunk Innkeeper will need to know that it is possible that their ability didn't work the night when there were no deaths, or the drunk Chambermaid will need to know that their information might be false.",
+      "Communicate with other players to find good candidates to make drunk. You won't want to be hitting the bars with any old Tom, Dick, or Harry... you're the distinguished sort. If you can find out which players are which characters, you'll be able to work as a team better. Drunker, but better.",
+      "You can prove that you are the Sailor by deliberately getting executed. If you are sober, you won't die. From this point on, if the group is convinced that you are indeed the Sailor and not simply protected by the Devil's Advocate, then you should be able to stay alive until the final day, which gives the good team a drastically increased chance of finding the Demon. After all... they know it's not you."
+    ],
     "cn": [
       "显而易见...如果你在晚上选择了一个镇民，你很可能不会醉酒。如果你选择了一个外来者，爪牙，或恶魔，你可能醉酒。水手的生存能力非常强大，说书人通常会抓住一切机会让善良阵营玩家为水手的存活付出代价，只要有可能就会让镇民醉酒，而你选择了非镇民玩家就会让你醉酒。",
       "选择你想醉酒的玩家，比如你怀疑的邪恶玩家，或者是目前没有其他人有用的镇民。一个醉酒的祖母或一个醉酒的弄臣可能比一个醉酒的驱魔人或一个醉酒的侍臣危害要小。",
@@ -38,5 +42,10 @@
       "与其他玩家交流，寻找好的买醉对象。你不会想和你不清楚角色的玩家买醉的...你要喝就要找知晓的那几个。如果你能分辨出一些玩家的角色，你就能更好地为善良阵营团队工作。有些人，醉了会更好。",
       "你可以通过故意被处决来证明你就是那个水手。如果你没有醉酒，你就不会死。从这一点开始，如果团队确信你确实是水手，而不是简单地受到魔鬼代言人的保护，那么你应该能够活到最后一天，这使善良阵营的团队找到恶魔的机会大大增加。毕竟...他们知道恶魔不是你。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "Each night, wake the Sailor. They point at any player. Put the Sailor to sleep. Either the Sailor or this chosen player becomes drunk—mark them with the DRUNK reminder.",
+    "cn": "每个夜晚，唤醒水手。让水手指向任意一名存活玩家。让水手重新入睡。水手或他选择的玩家两者之一会进入醉酒状态——将“醉酒”提示标记放置到该玩家的角色标记旁。\n如果清醒的水手将要死亡，他会依然存活。如果清醒的水手被处决，宣布该玩家被处决但依然存活。（不要说明原因。）"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Sailor"
 }

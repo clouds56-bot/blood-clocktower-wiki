@@ -20,18 +20,23 @@
   ],
   "first_night": false,
   "other_nights": true,
+  "artist": "Anica Kelsen",
   "jinxes": [],
   "examples": [
     "亡骨魔杀死了女巫。下个白天，一名被女巫诅咒的玩家发起了提名，被诅咒的玩家死亡。",
     "亡骨魔杀死了镜像双子。与镜像双子邻近的是呆瓜和卖花女孩，贤者在呆瓜的另一侧。说书人选择让贤者中毒。下个白天，善良的双子被处决，邪恶阵营胜利。",
     "亡骨魔杀死了麻脸巫婆。麻脸巫婆将博学者变成女巫。女巫诅咒并杀死一名玩家之后，女巫被亡骨魔杀死。麻脸巫婆将死去的女巫变为神谕者，神谕者现在不再保留能力。麻脸巫婆将亡骨魔变成了涡流。麻脸巫婆现在也失去能力。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Shabaloth",
-  "image": "assets/tokens/shabaloth.png",
-  "how_to_run": {
-    "cn": "在初始设置时，将角色标记放入盲抽袋前，把一个外来者角色标记替换为一个镇民角色标记。（如果没有可以移除的外来者标记，则不需要添加镇民标记。）\n除首个夜晚外的每个夜晚，唤醒亡骨魔。让亡骨魔指向一名玩家。让亡骨魔重新入睡。如果被选择的玩家不是爪牙，为那名玩家放置“死亡”提示标记。\n如果被选择的玩家是爪牙，为那名玩家放置“死亡”和“保留能力”提示标记。距离爪牙顺时针或逆时针最近的镇民玩家中毒，为该镇民玩家放置“中毒”提示标记。（顺时针和逆时针分别判断最近的一个镇民，并取这两个镇民的其中之一）"
-  },
   "tips": {
+    "en": [
+      "The mighty Shabaloth is the deadliest Demon in Bad Moon Rising for its brutality and consistency. Neither the Pukka or Zombuul can match your multiple kills a night on their own, and while the Po can edge you out in numbers on a single night, you take back the crown thanks to their need to charge. The good team can and should rightfully panic when they suspect you are in play; only the accidental regurgitation of one of your victims will give them anything to counter you!",
+      "Kill aggressively, and don't give good team a chance to catch their breath. You are not the most... nuanced of Demons, but to be fair, nobody has ever pretended you are. Smash your way through the town like Godzilla on a good day, gobbling up any character claims who can't block you. The Chambermaid can't detect your bluff is phony if you've eaten them. With some clever picks and an ear to the ground about which players are protected at night, you can end this game in half the time of any other Demon.",
+      "Alternatively, you may want play a more low-key game. You might be a hideous, ever-hungry monster, but that doesn't mean you aren't capable of a little strategy. Deliberately choosing to hide your second kill can create some confusion about which Demon is in play - the good team will always be paranoid about which Demon is in play if they can't confirm it with any certainty, since relaxing for a moment is exactly when the Po can abruptly strike. This can be helpful for you since the strategies to handle the other Demons are very different to the strategies for dealing with you, and the poor good team will be caught flat-footed once you reveal yourself! It can also help you avoid the debilitating drunkenness of a Courtier (who will be on the lookout for any reliable tell of what Demon is in play)... until you can find them and eat them, anyway.",
+      "Did the mean old town execute your Minion? Just for the crime of worshiping an ever-hungry Demon who wants to devour them all? How cruel! How unfair! Luckily for them, you are a unique Demon among your brethren, as your saliva has healing properties. Eat up your Minion's corpse at night to try and get them brought back to life. You will be subject to the whims of the Storyteller... but maybe they'll take pity on you and give you back your beloved Minion, especially if the evil team is struggling. This has the added bonus of making your Minion look really good, since typically you only regurgitate good players.",
+      "Sometimes your acid re-flux will get the better of you (or the Storyteller will decide you're doing too well), and you'll vomit up a good player, restoring them to life unexpectedly. This can cause a number of issues for you - for one, unless you whip out an incredibly convincing Professor bluff, this will confirm that you are in play, which may be a problem depending on your strategy. More pressing is the fact that the reborn player will most likely be considered good, and other players will trust and believe them without much issue. The best way to counter this is pretty much just to kill them again immediately, preferably before they get a chance to use their ability to learn any new information about anything.",
+      "Bluff well, and do what you can to spread false information. It will probably become obvious fairly quickly that a Shabaloth is in-play, and whilst the Zombuul or Pukka disrupt the good team's information by their character ability alone, you have no such luxury.",
+      "If the good team doesn't know that you're in play, you can win by convincing the good team not to execute when there are just 4 players alive, killing 2 players that night and reducing the number of living players down to 2 unexpectedly. If you have an Assassin who hasn't used their ability but is still alive, or a foolish Gossip or Gambler who can be convinced to use their ability that night, you can even get this surprise win when there are 5 or 6 players left alive."
+    ],
     "cn": [
       "尽可能早的杀死你的爪牙。如果你在晚上杀死你的爪牙，他们会保留他们的能力。如果你的爪牙在白天死亡，跟正常玩家死亡一样失去他们的能力。亲手杀死你的爪牙们来确保在接下来的游戏当中他们的能力能够一直保留。女巫、麻脸巫婆或者洗脑师确保能够每晚行动对你的阵营获胜有着极大的帮助。不是让一个又一个的好人因为死亡失去能力（女巫和洗脑师），就是让他们变成另一个角色而失去能力（麻脸巫婆）。梦殒春宵中，在最后时刻到来之前任何可以减少善良阵营得到信息的方式，都是有帮助的。",
       "耐心的听取善良阵营的玩家暴露的信息。如果他们不怀疑你的爪牙，最好让他们都活着。每天你存活的爪牙可以用他们的投票帮助你避免被处决，这是非常有帮助的。在你认为善良阵营玩家可能会处决他们之前，杀死一名爪牙不是个好的选择。",
@@ -48,5 +53,10 @@
       "如果一个玩家看起来像得到了错误的信息，但大多数玩家都没有错误，此时存在游戏之中的恶魔要么可能是亡骨魔，要么可能是诺-达鲺。无论哪种方式，开始处决邻近得到假信息的镇民的玩家——要么可能处决了诺-达鲺，要么你会得知亡骨魔在场。",
       "当一个镇民突然开始获得假信息，他们通常是由于亡骨魔中毒了或者是心上人醉酒了。涡流和诺-达鲺是从游戏一开始就会让玩家获得假信息。如果你能确定一个获得真信息的镇民现在得到的是假信息，那么你也能确定在晚上死亡的玩家是一个爪牙。知道谁是爪牙是非常有用的，尤其是与场上的钟表匠、城镇公告员、筑梦师、女裁缝或者杂耍艺人的信息相结合。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "Each night except the first, wake the Shabaloth. They point at any two players, one at a time. Put the Shabaloth to sleep. In the order chosen, each chosen player dies—mark them with DEAD reminders.",
+    "cn": "在初始设置时，将角色标记放入盲抽袋前，把一个外来者角色标记替换为一个镇民角色标记。（如果没有可以移除的外来者标记，则不需要添加镇民标记。）\n除首个夜晚外的每个夜晚，唤醒亡骨魔。让亡骨魔指向一名玩家。让亡骨魔重新入睡。如果被选择的玩家不是爪牙，为那名玩家放置“死亡”提示标记。\n如果被选择的玩家是爪牙，为那名玩家放置“死亡”和“保留能力”提示标记。距离爪牙顺时针或逆时针最近的镇民玩家中毒，为该镇民玩家放置“中毒”提示标记。（顺时针和逆时针分别判断最近的一个镇民，并取这两个镇民的其中之一）"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Shabaloth"
 }

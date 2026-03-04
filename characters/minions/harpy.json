@@ -18,18 +18,28 @@
   ],
   "first_night": false,
   "other_nights": true,
+  "artist": "Chloe McDougall",
   "jinxes": [],
   "examples": [
     "鹰身女妖选择了僧侣和工程师。僧侣宣称自己是调查员且得知了工程师玩家，并且号召玩家处决他。有玩家质疑他的行为，他再次宣称工程师玩家在他的信息之下看起来非常邪恶，因此他避免了自己因为鹰身女妖的能力而死亡。",
     "鹰身女妖选择了神谕者和已死亡的炼金术士。神谕者宣称他信任炼金术士玩家，因为神谕者的信息说明了他并不是邪恶玩家。说书人宣布神谕者死亡。",
     "农夫被鹰身女妖选作了目标。因为他没有任何信息来明示或暗示另一名玩家是邪恶玩家，所以他与其他玩家一起合作分析现有信息来排除其他所有存活玩家是邪恶玩家的可能性，从而暗示他的目标玩家是恶魔。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Harpy",
-  "image": "assets/tokens/harpy.png",
-  "how_to_run": {
-    "cn": "每个夜晚，唤醒鹰身女妖。让鹰身女妖指向一名玩家，再指向另一名玩家。用“疯狂”提示标记标记第一名玩家，并用“第二名”提示标记标记第二名玩家。让鹰身女妖重新入睡。唤醒标记了“疯狂”的玩家。对他展示“该角色的能力对你生效”信息标记，以及鹰身女妖的角色标记。然后指向标记了“第二名”的玩家。让这名玩家重新入睡。\n明天，如果标记了“疯狂”的玩家没有“疯狂”地证明标记了“第二名”的玩家是邪恶阵营，你可以杀死这两名玩家其中的一人或全部。"
-  },
   "tips": {
+    "en": [
+      "Choose the same two players every night. The repeated effort of one good player to get another seen as evil can only help your team, misleading the good team into focusing on the wrong people. Plus, the consistent attention on their arguments might eventually cause the death of one or both players, without anyone knowing it was you who did this to them.",
+      "Choose the same first player every night. That player will have to keep switching who they say is evil and gain less and less credibility in the process, especially when no one else ever claims to be chosen by the Harpy.",
+      "Share the love and choose different players every night! People will know there’s a Harpy in play after the first day, but they can never be certain whether someone genuinely thinks another player is evil or whether it’s because of you. Your Demon might be able to slip under the radar or defend themselves by saying that the Fortune Teller who got a “Yes” on them is really just Harpy mad.",
+      "Choose a trusted dead player, and make them mad that a living player is evil. Arguments from dead players about who they’d like to execute often carry more weight, so you have better odds of getting the second player executed. Plus, the dead player can’t risk breaking madness unless they want the living player to die!",
+      "Choose a dead player as your second choice. It can be extremely difficult for players to make a genuine, good-faith argument that they believe a player who died early is actually evil. Or, if there’s a Vigormortis or Fang Gu on the script, the player you chose might convince the good team that the wrong Demon is in play.",
+      "Choosing evil players can help your team. If you only choose good players, the good team might start to believe that all selected players are good, and they’ll start executing into people that have never been selected by the Harpy.",
+      "Choosing evil players late in the game, especially on the final day, is usually not worthwhile. In most cases, it helps you and your Demon far more to have a good player pushing on another good player to distract from your Demon. It’s especially useful to choose at least one living player on the final day, because if both your choices are dead, the first player you chose can break madness with zero risk of death.",
+      "Choose your Demon! The Storyteller is unlikely to use your ability to kill the Demon, so you have good odds of getting through unscathed. However, if your Demon is your second choice, you risk the first player breaking madness, and good players might start to wonder why the Demon hasn’t died to that madness break.",
+      "If your team needs to speed up the game, choose yourself, and let the Storyteller in on your plan. If you want them to kill both you and your target, tell them in advance! If the Storyteller knows what you want to do, they’ll be more prepared to support your team.",
+      "Lie and say you were picked by the Harpy, and that’s why your voting has seemed weird. Voted on the Saint when you knew that’s what they were claiming? It makes sense if you were Harpy picked!",
+      "The best way to hide the Harpy’s existence is to choose yourself. While only one player at a time knows the Harpy ability is in effect, you yourself have the best chances to adhere to the madness subtly, and therefore deny that you were affected by the Harpy ability, making anyone who claims to be Harpy picked later look even more suspicious.",
+      "Sometimes, it can be worthwhile to claim that you were chosen by the Harpy when you targeted someone else. It puts you in direct conflict with the first player you chose, but can introduce confusion as to who was really picked. Plus, if you picked the same player again, it might even push them to get them and/or their target killed, which helps your team even more!"
+    ],
     "cn": [
       "每晚都选择相同的两名玩家。一名善良玩家努力让大家觉得另一名善良玩家是邪恶的这件事只会有益于你的阵营，这会误导善良阵营把焦点放在错误的玩家身上。若非如此，在没人得知是鹰身女妖做出选择的情况下，玩家们对这两名玩家各执一词的持续关注最终可能会导致他们因你的能力而死亡。这两种情况都对你的阵营有极大帮助！",
       "每晚都选择同样的第一名玩家。这名玩家将不得不持续切换他认为是邪恶的玩家，并在这个过程中越来越不受到大家信任，尤其是在没有其他玩家声称自己被鹰身女妖选择的情况下，这意味着会让这名玩家自己看起来是邪恶的。",
@@ -52,5 +62,10 @@
       "如果有新的玩家开始指控另一名玩家是邪恶的，并且你认为是鹰身女妖在发挥作用，可能你会想以比平时更温和的方式去要求他合理化他的指控，以避免他与另一名玩家都死亡的风险。",
       "如果你认为鹰身女妖在场，要么就把大家的注意力放在尝试找出善良玩家并杀死其他玩家的游戏方式上，要么只把注意力放在杀死恶魔并忽视其他邪恶玩家的游戏方式上。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "Each night, wake the Harpy. The Harpy points to one player, then another player. Mark the first player with the MAD reminder and the second player with the 2ND reminder. Put the Harpy to sleep. Wake the player marked MAD. Show the THIS CHARACTER SELECTED YOU info token then the Harpy token, then point to the player marked 2ND. Put the player marked “Mad” to sleep.",
+    "cn": "每个夜晚，唤醒鹰身女妖。让鹰身女妖指向一名玩家，再指向另一名玩家。用“疯狂”提示标记标记第一名玩家，并用“第二名”提示标记标记第二名玩家。让鹰身女妖重新入睡。唤醒标记了“疯狂”的玩家。对他展示“该角色的能力对你生效”信息标记，以及鹰身女妖的角色标记。然后指向标记了“第二名”的玩家。让这名玩家重新入睡。\n明天，如果标记了“疯狂”的玩家没有“疯狂”地证明标记了“第二名”的玩家是邪恶阵营，你可以杀死这两名玩家其中的一人或全部。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Harpy"
 }

@@ -18,18 +18,22 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
     "普卡杀死了月之子。在下一个白天，月之子选择了一名玩家，该玩家是驱魔人。当晚，驱魔人死亡。",
     "和平主义者在场。月之子被处决但依然存活。月之子无法选择玩家，因为月之子没有死亡。",
     "沙巴洛斯吞食了月之子。月之子选择了刺客，刺客依然存活。沙巴洛斯当晚再次吞食了月之子，并在下一夜将其反刍。几个夜晚后，沙巴洛斯又吞食了月之子。这一次，月之子选择了造谣者，造谣者死亡。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Moonchild",
-  "image": "assets/tokens/moonchild.png",
-  "how_to_run": {
-    "cn": "当你宣布月之子玩家死亡时，月之子需要选择任意一名存活玩家。如果所选玩家是善良的，将“死亡”提示标记放置到该玩家的角色标记旁。当晚，标有月之子的“死亡”提示标记的玩家死亡。\n如果月之子没有意识到自己必须在死亡时选择一名玩家，私下提醒该玩家。新手玩家可能没有弄清楚自己的角色是如何运作的。"
-  },
   "tips": {
+    "en": [
+      "Try to avoid dying if you can! Even though you're an Outsider, you are still a good player, and in Bad Moon Rising you don't always have a lot of good players to spare. This is especially true for you, since the extra player who dies thanks to your ability must be good, meaning you can't even hope to take someone evil out with you. Bluffing as something difficult to kill (like the Fool or Goon) to avoid the demon's attention is a good option, especially if you quietly reveal to good players your real ability so they don't turn around and execute you. Alternatively, you can just not admit anything to anyone until you absolutely must, keeping yourself safe that way!",
+      "DO die. This isn't always the best move (and should really only be attempted early in the game), but your ability is a pretty strong confirmation that a player is good. If they die, you can be confident they are telling the truth, which in turn means that you can trust their information. It's best to coordinate who you're going to choose before your death - some good players will be more comfortable with an early death compared to others. Asking for the town to execute you for the sake of gaining information is also a good way to build trust if you are dealing with suspicion - most evil players will not volunteer to die. A Zombuul or Devil's Advocate may throw a spanner in your works though!",
+      "On death, choose someone you think is good to inflict with your deadly curse. There's a couple of great reasons for this! Firstly, should they die: you know you can trust that they are good, and that any information they have is probably reliable. Secondly, if your ability activates and this person dies, it is likely that you are telling the truth. While the evil team can simulate your ability activating via the help of the Demon or Assassin, they will often just accept the free extra kill that you provided, leading to an unusual number of deaths. If the good team believes you, they can believe the person you killed, and from there start to piece information together to ferret out the evil team lurking among them!",
+      "On death, choose someone you suspect is evil. There's a couple of great reasons for this! Firstly, if you believe that the following night is going to see a lot of death (e.g., a Po has charged up), then the extra kill from your ability might be the one that pushes the game firmly in evil's favor. Secondly, should that player not die? You can now be reasonably confident that they are evil. The confirmation is not as drastic as confirming someone as good, but if you believe you are sober, then regard that player with a lot of suspicion moving forward - there's usually more than one clue that someone isn't who they claim to be.",
+      "When choosing the player you intend to pick, be aware that characters that \"cannot die\" or are protected at night will not die as a result of your ability. This includes characters like the Sailor and Fool, and players in the company of a Tea Lady or an Innkeeper. Try to have a good idea of who is who before you die, so you can choose around these character. Or, if you want to avoid an extra death, you can deliberately choose one of them, keeping the death toll from rising too dramatically.",
+      "If the Godfather is in play, they will get the chance to kill the same night that you die and curse someone. If you suspect a Godfather, be aware of this extra kill and plan your choice accordingly. Also be aware that they could choose to trick you into believing you killed a good player, but in fact it was an evil minion thrown under the bus to sow chaos and confusion in the afterlife!"
+    ],
     "cn": [
       "如果可以的话，尽量避免死亡！即使你是外来者，你仍然是一名善良玩家，在这个剧本中，并没有很多善良玩家是多余的。对你来说尤其如此，因你的能力额外死的玩家一定是好人，你甚至不能指望带走一个邪恶的人。用难以杀死的角色（比如弄臣或莽夫）来伪装以避开恶魔的注意是一个不错的选择，尤其是如果你悄悄地向善良的玩家表露你的角色，他们就不会轻易处决你。或者，在绝对必要之前，你可以不向任何人承认任何事情，从而保证自己的安全！",
       "也可以直接赴死。这并不总是最好的举动（实际上应该只在游戏的早期尝试），但你的能力强大到可以确认角色是否善良——如果他们死了，你可以确信他们说的是实话，也就是说可以信任他们的信息。最好在你死前协调好你要选择的人——有一些善良角色适合早逝。如果你正在怀疑某人，要求城镇处决你以获取信息也是建立信任的好方法 - 大多数邪恶的玩家不会自愿去死。不过，僵怖和魔鬼代言人可能会给你的分析添麻烦！",
@@ -38,5 +42,10 @@
       "在选择要杀死的玩家时，请注意“不会死”或在夜间受到保护的角色不会因你的能力而死亡。这包括像水手和弄臣这样的角色，以及受茶艺师或旅店老板保护的玩家。试着在你死之前对在场玩家角色有一个很好的了解，这样你就可以围绕这些角色进行选择。或者，如果你想避免额外的死亡，你可以刻意选择其中之一，避免死亡人数急剧上升。",
       "如果教父在场，他们将有机会在你死的同一晚杀死某人。如果你怀疑场上有教父，请注意这种额外的杀戮并相应地计划你的选择。另请注意，他们可能会选择欺骗你，让你相信你杀死了一名善良玩家，但实际上这是一个主动赴死的邪恶爪牙，在传播混乱的信息！"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "When you declare that the Moonchild’s player has died, the Moonchild chooses any alive player. If the chosen player is good, mark their character token with the DEAD reminder. Tonight, the player marked with the Moonchild’s DEAD reminder dies.",
+    "cn": "当你宣布月之子玩家死亡时，月之子需要选择任意一名存活玩家。如果所选玩家是善良的，将“死亡”提示标记放置到该玩家的角色标记旁。当晚，标有月之子的“死亡”提示标记的玩家死亡。\n如果月之子没有意识到自己必须在死亡时选择一名玩家，私下提醒该玩家。新手玩家可能没有弄清楚自己的角色是如何运作的。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Moonchild"
 }

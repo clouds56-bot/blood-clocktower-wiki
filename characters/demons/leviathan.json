@@ -18,17 +18,23 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Anica Kelsen",
   "jinxes": [],
   "examples": [
     "利维坦在场。在第一个白天，僧侣提名了贞洁者，僧侣被处决。在第二个白天，侍臣被处决。邪恶阵营获胜。",
     "利维坦在场。在第二个白天，红唇女郎被处决。在第三个白天，投毒者被处决。在第五个白天，士兵被处决。邪恶阵营获胜。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Leviathan",
-  "image": "assets/tokens/leviathan.png",
-  "how_to_run": {
-    "cn": "在第一天黎明后，立即宣布利维坦在场。将“第一天”提示标记放置在利维坦的角色标记旁。在接下来的每一个白天开始时，将“第二天”、“第三天”、“第四天”、“第五天”提示标记依次替换放置在利维坦的角色标记旁。如果一个白天结束并且利维坦的角色标记旁有“第五天”提示标记，则宣布邪恶阵营获胜。\n如果一名善良玩家被处决，将“善良被处决”提示标记放置在他的角色标记旁。\n如果一名善良玩家被处决并且已经有一名玩家的角色标记旁放置了“善良被处决”提示标记，则宣布邪恶阵营获胜。\n对于新手玩家，每天宣布利维坦在场，并说明今天是哪一天，这很有帮助的。在第一个白天，宣布“利维坦在场。这是第一天。” 在第二个白天，宣布“利维坦在场。现在是第二天。” 诸如此类。这可以帮助玩家们记住他们面对的是什么恶魔，并避免因忘记计算天数而意外落败。"
-  },
   "tips": {
+    "en": [
+      "Encourage the good team to execute early in the game. Since you are not able to kill players at night, being able to neutralise a very powerful character, such as the Fortune Teller or the Flowergirl, can be very helpful. Focus on removing characters that act every night, or only act once per game. There is little benefit to removing a character that only gets information on night one, or that has a once-per-game ability that has already been used.",
+      "Pay attention to which types of characters the group wants to execute. If the group wants to execute characters that act only once, because they consider that a safer execution, then don't bluff as a character that acts only once. If the group wants to execute characters that act each night, because that is what the Demon should be bluffing as in a Leviathan game, then bluff as a character that has already acted, or an Outsider. This will help you avoid the first execution.",
+      "If you don't know which character to bluff as, default to bluffing as a powerful character that would normally want to hide their identity. Since most players will still be alive on the final day, powerful good characters such as the Slayer, Chambermaid, Savant or Artist don't need to hide their identity for fear of the Demon killing them. The argument that \"You aren't the character you say you are, because the Demon would have killed that character before the final day\" makes no sense.",
+      "Bluff early. Since players can only die by execution, most of the good players will not be secretive. Players who remain silent are much more likely to be seen as evil, and not as good players who are hiding something.",
+      "Cast as much suspicion as possible on players that have abilities that detect the Demon. If good players can confirm good players, that is unhelpful, but not the end of the world. If good players can confirm Minions as Minions, that's not too bad, since an executed Minion isn't an executed Demon. But players that can confirm Demons are devastating. They need to be discredited.",
+      "If you are the Demon, choose bluffs that are unfalsifiable. In a normal game, being able to fall back to saying that your information is wrong \"because you might be drunk or poisoned\" might work, since the good team has many executions to figure out what is true and what isn't. When Leviathan is in play, and there are lots of players alive on the final day, the good team will often revert to the simplest explanation instead of figuring out the big picture - by executing the one player whose information seems to be wrong.",
+      "If you are a Minion, and a player has not been executed yet, do what you can to look like a good player. This allows you to survive as long as possible and spread misinformation. Being suspected of being evil and being executed is OK. But it is not helpful at all to be so suspected of being evil that after being executed, the good team executes again before the final day, confirming that at least one dead player is evil.",
+      "If you are a Minion, and a player has already been executed, do everything you can to look like a Demon. With only one execution remaining, every player that the good team thinks could possibly be the Demon is a player that might get executed on day five instead of the Demon, granting evil the win."
+    ],
     "cn": [
       "鼓励善良阵营早早开始处决。由于您无法在晚上杀死玩家，因此能够干掉非常强大的角色，例如占卜师或卖花女孩，会非常有帮助。专注于干掉每晚行动或每局游戏只行动一次的角色。干掉一个只在首夜获得信息的角色，或者每场游戏使用一次的能力且已经使用过的角色几乎没有什么好处。",
       "注意大家想要处决的角色类型。如果大家想要处决只有一次性能力的角色，因为他们认为这样做更安全，那么不要伪装成只有一次性能力的角色。如果团队想要处决每晚行动的角色，因为那是恶魔应该在利维坦局中常常伪装的角色，那你就伪装成已经行动的角色，或外来者。这将帮助您避免第一次就被处决。",
@@ -52,5 +58,10 @@
       "如果你想冒险，在最后一天之前处决两名玩家可以提供很棒的信息。如果两名玩家被处决并且游戏继续进行，那么你就知道其中至少有一个是爪牙。了解事实往往会滚雪球，并提供其他有用的信息，甚至100%确认或否认玩家的角色。但要注意……这个策略可能会在这个过程中输掉游戏。",
       "中毒是邪恶角色能力的结果。知道哪个恶魔在场意味着你知道哪些恶魔不在场。查看剧本中可能在场的爪牙，这将告诉你哪些角色（如果有）正在毒害玩家。这可能是至关重要的信息。关注哪些爪牙可能在游戏中，并从这一点开始分析。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "Immediately after dawn on the first day, declare that the Leviathan is in play. Mark the Leviathan with the DAY 1 reminder. At the beginning of each following day, mark the Leviathan with DAY 2, then DAY 3, then DAY 4, then DAY 5 reminders. If a day ends and the Leviathan is marked with the DAY 5 reminder, declare that evil wins.",
+    "cn": "在第一天黎明后，立即宣布利维坦在场。将“第一天”提示标记放置在利维坦的角色标记旁。在接下来的每一个白天开始时，将“第二天”、“第三天”、“第四天”、“第五天”提示标记依次替换放置在利维坦的角色标记旁。如果一个白天结束并且利维坦的角色标记旁有“第五天”提示标记，则宣布邪恶阵营获胜。\n如果一名善良玩家被处决，将“善良被处决”提示标记放置在他的角色标记旁。\n如果一名善良玩家被处决并且已经有一名玩家的角色标记旁放置了“善良被处决”提示标记，则宣布邪恶阵营获胜。\n对于新手玩家，每天宣布利维坦在场，并说明今天是哪一天，这很有帮助的。在第一个白天，宣布“利维坦在场。这是第一天。” 在第二个白天，宣布“利维坦在场。现在是第二天。” 诸如此类。这可以帮助玩家们记住他们面对的是什么恶魔，并避免因忘记计算天数而意外落败。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Leviathan"
 }

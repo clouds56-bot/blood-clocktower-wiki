@@ -18,18 +18,29 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
     "猎手选择了小恶魔。小恶魔死亡，并且善良阵营获胜！",
     "猎手选择了陌客。陌客死亡，因为陌客此时被当作了小恶魔，但游戏继续。",
     "小恶魔谎称自己是猎手。他对红唇女郎宣布使用了猎手的能力。无事发生。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Slayer",
-  "image": "assets/tokens/slayer.png",
-  "how_to_run": {
-    "cn": "在白天时，猎手可以宣布他想要使用他的能力。如果他这么做了，让猎手指向任意一名玩家。如果被选择的玩家是一名存活的恶魔，宣布那名玩家死亡——在魔典中那名玩家的角色标记上放置一枚帷幕标记。如果被选择的玩家不是一名存活的恶魔，宣布“无事发生”。在这两种情形下，猎手都会失去他的能力——将猎手的“失去能力”提示标记放置在猎手的角色标记旁。\n如果一名玩家谎称自己是猎手并想要使用自己的能力，如同他真的是猎手一样配合他进行表演——允许短暂的讨论时间，让他做出自己的决定，然后你装作在魔典中摆弄标记的样子，并说“无事发生”。\n如果猎手想要使用自己的能力，给与玩家一到两分钟的时间以讨论猎手应该选择谁。这会让玩家们觉得自己需要为胜利（或失败）负责任。但一定是由猎手来做出最终决断。"
-  },
   "tips": {
+    "en": [
+      "Using your ability late in the game is far more effective than using it early in the game. When fewer people are alive, there is a greater chance that you will select the Demon and win the game. Also, if fewer than five players are alive, then the Scarlet Woman cannot become the Demon after you kill it.",
+      "However, using your ability early in the game is better than not using your ability at all because you're dead. Most players will die before the final day arrives, so the odds that you'll also be dead by then are high. Make sure you use your ability before you die. The Demon will want to kill you as soon as possible, so it is usually best to wait, then claim to be the Slayer only on the day that you intend to use your ability.",
+      "Coordinate with the other good players to help you select which player to choose. When you tell the group that you are the Slayer, you may find that many players reveal who they are and what information they have, so that you can make the best decision about who to slay. You can make particular use of a Fortune Teller's info to find people who might be the Demon.",
+      "Most of the time, the player that you choose to slay will not be the Demon. This is still useful to do, since you now know a player that is definitely NOT the Demon. Knowing who the Demon isn't is almost as useful as knowing who the Demon is.",
+      "Sometimes, it can be useful to choose to slay a player, not because you think that they are the Demon, but because you just want to make sure that they are not. For example, if a player is claiming to be the Saint, and is about to be executed, you can prove that they are not the Demon by using your ability on them - if they don't die, you will probably want to execute somebody else instead!",
+      "An advanced strategy can be to try to influence the Demon's kills with your shot. If someone claims to be the Ravenkeeper, try to slay them. If they aren't the Imp, the real Demon will be forced to make a difficult choice: to kill them, and give them information, or to leave them alive late into the game with everyone knowing they aren't the Demon?",
+      "When you choose to use your ability, the Storyteller should allow a minute or so for the group to discuss who they think you should choose. They may give you advice, but it is always your decision. This period can be a good time to pretend to be \"about to choose\" a particular player... just so you can watch to see how much they sweat under pressure. If, for example, you really want to slay the player claiming to be the Mayor, you can tell the group that you are really keen to choose the player claiming Soldier, but secretly you want to see how the Soldier player reacts before making your final choice.",
+      "If you find a Monk in play, convince them to protect you every night. This way, you can publicly claim to be the Slayer, safe in the knowledge that the Demon can not kill you tonight. Whilst the Monk is alive, you know you will always be alive tomorrow, so are under no pressure to use your ability today. If the Monk dies at night, you are no longer safe, but if you die at night whilst the Monk is still alive, then you know the player is not actually the Monk.",
+      "Beware the Poisoner! If you publicly claim to be the Slayer, even if the Monk is protecting you, you are a prime target for poisoning.",
+      "Your ability may work on the Recluse, since the Recluse might register as the Demon. If your target dies, and claims to be the Recluse, then they might actually be the Recluse... or they could have been the Demon, but had a Scarlet Woman who is now the Demon.",
+      "You can use your ability at any time during the day. There's no need to rush. You can even use it with the day about to end. On the block? Take your shot. Even if you don't have a clue who the Demon is, it's better to have shot someone than to die unspent.",
+      "Remember that your ability only works on the Demon. A person surviving your shot does not prove that they are good, merely that they are not the Demon.",
+      "Be aware that the Imp may change players throughout the game. If you choose to slay a Minion early in the game, nothing will happen, but that same player may be the Imp by the end of the game."
+    ],
     "cn": [
       "在游戏后期使用你的能力要比你在游戏前期使用这个能力要有效得多。有更少的玩家存活，你就有更大的概率选中恶魔并赢得游戏。除此之外，如果少于五名玩家存活，红唇女郎也无法在你杀死恶魔之后变成新的恶魔。",
       "然而，在游戏前期用了你的能力也比到死都没用能力要好。大多数玩家会在最后一天到来之前死掉，因此你在最后一天也已经死了的概率还是挺高的。确保死之前把你的能力用掉。恶魔会想要尽快杀死你，因此在你想要使用能力之前，不要说你自己是猎手。",
@@ -41,5 +52,10 @@
       "你的能力对陌客也有效，因为陌客可能被当作恶魔。如果你的目标死亡，并且声称自己是陌客，他就可能真是陌客……当然也有可能他就是恶魔，同时场上的红唇女郎已经变成了新的恶魔。",
       "注意小恶魔可能会在整场游戏中变更玩家。如果你在游戏前期对爪牙使用能力，什么都不会发生，但是这名玩家在最后一天可能就是小恶魔。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "During the day, the Slayer can declare that they wish to use their ability. If so, the Slayer points at any player. If the chosen player is an alive Demon, declare that the chosen player dies—put a shroud on their character token in the Grimoire. If the chosen player is not an alive Demon, say \"Nothing happens.\" Either way, the Slayer loses their ability—put the Slayer's NO ABILITY reminder token by the Slayer token.",
+    "cn": "在白天时，猎手可以宣布他想要使用他的能力。如果他这么做了，让猎手指向任意一名玩家。如果被选择的玩家是一名存活的恶魔，宣布那名玩家死亡——在魔典中那名玩家的角色标记上放置一枚帷幕标记。如果被选择的玩家不是一名存活的恶魔，宣布“无事发生”。在这两种情形下，猎手都会失去他的能力——将猎手的“失去能力”提示标记放置在猎手的角色标记旁。\n如果一名玩家谎称自己是猎手并想要使用自己的能力，如同他真的是猎手一样配合他进行表演——允许短暂的讨论时间，让他做出自己的决定，然后你装作在魔典中摆弄标记的样子，并说“无事发生”。\n如果猎手想要使用自己的能力，给与玩家一到两分钟的时间以讨论猎手应该选择谁。这会让玩家们觉得自己需要为胜利（或失败）负责任。但一定是由猎手来做出最终决断。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Slayer"
 }

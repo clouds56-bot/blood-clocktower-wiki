@@ -18,17 +18,22 @@
   ],
   "first_night": false,
   "other_nights": false,
+  "artist": "Aidan Roberts",
   "jinxes": [],
   "examples": [
     "教父得知疯子和月之子在场，因此教父伪装成修补匠。在第三个白天，疯子死于处决。当晚，恶魔杀死了吟游诗人，同时教父杀死了和平主义者。",
     "修补匠被处决但依然存活，因为他受到了魔鬼代言人的保护。教父当晚不行动。在下一个白天，修补匠因自己的能力而死亡。当晚，恶魔杀死了一名玩家，同时教父杀死了自己来假装成一名善良玩家。"
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Godfather",
-  "image": "assets/tokens/godfather.png",
-  "how_to_run": {
-    "cn": "在设置游戏时，将角色标记放进盲抽袋之前，要么移除一个镇民并加入一个外来者，要么移除一个外来者并加入一个镇民。\n在首个夜晚，唤醒教父。向教父展示所有在场的外来者的角色标记。让教父重新入睡。\n如果一名外来者在白天死亡，将“死于今日”提示标记放置到该玩家的角色标记旁。当晚，唤醒教父。让教父指向任意一名玩家。让教父重新入睡。所选玩家死亡——将“死亡”提示标记放置到该玩家的角色标记旁。"
-  },
   "tips": {
+    "en": [
+      "The Godfather either adds or removes an Outsider from the normal game setup at the Storyteller's discretion. You can then kill these innocent good players for an extra kill at night... but only if you can convince the town to do your dirty work for you! Your ability is subtle, but powerful when abused in the right ways.",
+      "You start knowing which Outsiders are in play, which can help you and your evil team have an idea of what to expect. If you know there's a Lunatic for example, you can expect them not to come out for a while, and can bluff as an extra Outsider yourself. Alternatively if there is a Goon, you may want to seek them out and make an allegiance, turning them evil to join you instead of just getting them killed. This is reliable, powerful information - use it however best helps your team.",
+      "If there's one less outsider than expected, you can fill this gap with a bluff - while players will suspect you in the event of there being more or less outsiders than expected, they tend to overlook entirely if there are exactly as many outsiders as there's supposed to be. (This can also make it an exceptional bluff for your demon!)",
+      "If there's one more outsider in play than expected, it's probably best to try and convince the town that there isn't a Godfather in play, and that one of the outsiders is bluffing and secretly evil. This not only keeps up the ambiguity of the minion in play (meaning the terrifying Mastermind continues to be a possibility), but if they believe you, they might even start executing, giving you a free extra kill!",
+      "Get them Outsiders executed by any means necessary! Not only are you killing a good player and activating characters like the Moonchild, but you will get an extra kill that night. If you manage to time this well, your evil team can unleash a devastating counter-attack on the good team with your unexpected aid!",
+      "Coordinate with the demon when you have the chance to kill to maximize the amount of players that die. It can be a bummer to get a kill and then totally miss because the demon was going to kill them anyway. Plus, the more players who are dead in a single night, the more likely the good team are to just totally panic.",
+      "When you have a chance to kill, you can deliberately choose a dead player to mask your extra kill, hiding the fact that you are in play. This can be very useful if you are trying to push the narrative that no Godfather is in play - the good team typically stop killing Outsiders once they realize you're around, and this method keeps the shade firmly on them. Delaying gratification for a more deadly late game kill can be very satisfying!"
+    ],
     "cn": [
       "教父可以根据说书人判断在正常游戏设置中添加或删除外来者。然后，您可以在晚上杀死这些无辜的善良玩家以获得额外的杀戮……但前提是您可以说服城镇为您做肮脏的工作！你的能力是微妙的，但如果以正确的方式去滥用，就会变得强大。",
       "你开始知道哪些外来者在玩，这可以帮助你和你的邪恶团队了解会发生什么。例如，如果您知道有一个疯子，您可以期望他们暂时不会出现，并且可以自己作为一个额外的外来者伪装。或者，如果有一个莽夫，你可能想找到他们并使其归顺，让他们变得邪恶加入你，而不是仅仅让他们被杀。这是可靠、强大的信息——使用它可以最好地帮助您的团队。",
@@ -42,5 +47,10 @@
       "如果你怀疑是教父，那就永远不要杀死外来者。处决外来者会让你们失去一名善良玩家，然后当晚你将失去另外2个（或更多！）善良玩家，这可能是毁灭性的。",
       "在黯月初升中，知道哪些爪牙在场是获胜的关键。如果您不知道教父是否在场，并且处决了外来者，请特别注意当晚有多少玩家死亡。如果当晚有额外的玩家死亡，或者人数正常，您就会知道哪些爪牙在场。可能还有其他原因导致额外玩家在晚上死亡，例如赌徒、造谣者或修补匠，因此请先排除这些原因。"
     ]
-  }
+  },
+  "how_to_run": {
+    "en": "While setting up the game, before putting the character tokens in the bag, either remove one Townsfolk and add one Outsider or remove one Outsider and add one Townsfolk.",
+    "cn": "在设置游戏时，将角色标记放进盲抽袋之前，要么移除一个镇民并加入一个外来者，要么移除一个外来者并加入一个镇民。\n在首个夜晚，唤醒教父。向教父展示所有在场的外来者的角色标记。让教父重新入睡。\n如果一名外来者在白天死亡，将“死于今日”提示标记放置到该玩家的角色标记旁。当晚，唤醒教父。让教父指向任意一名玩家。让教父重新入睡。所选玩家死亡——将“死亡”提示标记放置到该玩家的角色标记旁。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Godfather"
 }
