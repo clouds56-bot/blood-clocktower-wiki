@@ -1,0 +1,78 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { defaultLang, useTranslations, getSupportedLangs, getBasePath } from '../../i18n/utils';
+
+const supportedLangCodes = getSupportedLangs().map(({ code }) => code);
+
+export function getStaticPaths() {
+  return getSupportedLangs().map(({ code }) => ({ params: { lang: code } }));
+}
+
+const { lang } = Astro.params;
+const validatedLang = lang && supportedLangCodes.includes(lang) ? lang : defaultLang;
+
+const { t } = useTranslations(validatedLang);
+const editions = await getCollection('editions');
+const base = getBasePath(validatedLang);
+
+const getCharCount = (edition: any) => {
+  const chars = edition.data.characters || {};
+  const townsfolk = chars.townsfolk?.length || 0;
+  const outsiders = chars.outsiders?.length || 0;
+  const minions = chars.minions?.length || 0;
+  const demons = chars.demons?.length || 0;
+  return { townsfolk, outsiders, minions, demons, total: townsfolk + outsiders + minions + demons };
+};
+---
+
+<BaseLayout title={`${t('home.title')} | Wiki`}>
+  <div class="text-center mb-12">
+    <h1 class="font-display text-5xl sm:text-6xl mb-6 text-[color:var(--ink-50)]">
+      {t('home.title')}
+    </h1>
+    <p class="text-lg sm:text-xl text-[color:var(--ink-200)] max-w-3xl mx-auto mb-8">
+      {t('home.subtitle')}
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href={`${base}/characters`} class="px-8 py-3 rounded-full bg-[color:var(--accent-gold)] text-[#1a141f] font-semibold hover:bg-[#e5c67a] transition">
+        {t('home.btn.characters')}
+      </a>
+      <a href={`${base}/rules`} class="px-8 py-3 rounded-full border border-[rgba(215,180,106,0.5)] text-[color:var(--ink-50)] font-semibold hover:bg-[rgba(215,180,106,0.1)] transition">
+        {t('home.btn.rules')}
+      </a>
+    </div>
+  </div>
+
+  <div class="mb-8">
+    <h2 class="font-display text-2xl sm:text-3xl text-[color:var(--ink-50)] mb-6">
+      {validatedLang === 'cn' ? '最近剧本' : 'Recent Editions'}
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {editions.slice(0, 3).map(edition => {
+        const name = edition.data.name?.[validatedLang] || edition.data.name?.en || edition.id;
+        const description = edition.data.description?.[validatedLang] || edition.data.description?.en || '';
+        const counts = getCharCount(edition);
+
+        return (
+          <a
+            href={`${base}/editions/${edition.id}`}
+            class="block surface-panel rounded-2xl p-6 hover:-translate-y-1 transition-all duration-300"
+          >
+            <h3 class="font-display text-xl sm:text-2xl text-[color:var(--ink-50)] mb-3">
+              {name}
+            </h3>
+            <p class="text-sm text-[color:var(--ink-200)] line-clamp-3 mb-4">
+              {description}
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs uppercase tracking-widest">
+              <span class="px-3 py-1 rounded-full border border-[rgba(90,162,255,0.4)] text-[color:var(--accent-blue)]">
+                {counts.townsfolk} {t('nav.characters')}
+              </span>
+            </div>
+          </a>
+        )
+      })}
+    </div>
+  </div>
+</BaseLayout>

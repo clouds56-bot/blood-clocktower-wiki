@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CharacterList from '../../../components/CharacterList.astro';
+import { defaultLang, useTranslations, getSupportedLangs } from '../../../i18n/utils';
+
+const supportedLangCodes = getSupportedLangs().map(({ code }) => code);
+
+export function getStaticPaths() {
+  return getSupportedLangs().map(({ code }) => ({ params: { lang: code } }));
+}
+
+const characters = await getCollection('characters');
+const { lang } = Astro.params;
+const validatedLang = lang && supportedLangCodes.includes(lang) ? lang : defaultLang;
+const { t } = useTranslations(validatedLang);
+---
+
+<BaseLayout title={`${t('nav.characters')} | Wiki`}>
+  <div class="mb-8">
+    <p class="uppercase tracking-[0.4em] text-xs text-[color:var(--ink-200)]">Grimoire Index</p>
+    <h1 class="font-display text-4xl sm:text-5xl mt-3 mb-3 text-[color:var(--ink-50)]">
+      {t('nav.characters')}
+    </h1>
+    <p class="text-base sm:text-lg text-[color:var(--ink-200)] max-w-2xl">
+      {validatedLang === 'cn'
+        ? '浏览和搜索血染钟楼的全部角色。'
+        : 'Browse and search all Blood on the Clocktower characters.'}
+    </p>
+  </div>
+
+  <CharacterList characters={characters} lang={validatedLang} />
+</BaseLayout>

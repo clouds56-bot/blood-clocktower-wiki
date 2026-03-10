@@ -1,19 +1,26 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { getLangFromUrl, useTranslations, getBasePath } from '../../../i18n/utils';
+import { defaultLang, getBasePath, getSupportedLangs, useTranslations } from '../../../i18n/utils';
+
+const supportedLangCodes = getSupportedLangs().map(({ code }) => code);
+
+export function getStaticPaths() {
+  return getSupportedLangs().map(({ code }) => ({ params: { lang: code } }));
+}
 
 const rules = await getCollection('rules');
-const lang = getLangFromUrl(Astro.url);
-const { t } = useTranslations(lang);
-const base = getBasePath(lang);
+const { lang } = Astro.params;
+const validatedLang = lang && supportedLangCodes.includes(lang) ? lang : defaultLang;
+const { t } = useTranslations(validatedLang);
+const base = getBasePath(validatedLang);
 ---
 
 <BaseLayout title={`${t('rules.title')} | Wiki`}>
   <h1 class="text-4xl font-bold mb-6 text-indigo-900">{t('rules.title')}</h1>
-  
+
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    {rules.map(rule => (
+    {rules.map((rule) => (
       <a href={`${base}/rules/${rule.id}`} class="block p-6 bg-white rounded-lg shadow-sm border border-slate-200 hover:border-indigo-400 hover:shadow-md transition">
         <h2 class="text-2xl font-bold mb-2 capitalize text-indigo-800">{rule.id.replace(/-/g, ' ')}</h2>
         <p class="text-slate-600">{rule.id.replace(/-/g, ' ')}</p>
