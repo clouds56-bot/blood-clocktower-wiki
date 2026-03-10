@@ -5,7 +5,7 @@ import { getLangFromUrl, useTranslations, getBasePath } from '../../../i18n/util
 
 const editions = await getCollection('editions');
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const { t } = useTranslations(lang);
 const base = getBasePath(lang);
 
 const getCharCount = (edition: any) => {

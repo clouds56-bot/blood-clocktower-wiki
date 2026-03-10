@@ -1,6 +1,6 @@
 ---
 import 'uno.css';
-import { languages, getLangFromUrl, useTranslations, getBasePath, stripLangFromPath } from '../i18n/utils';
+import { getLangFromUrl, useTranslations, getBasePath, stripLangFromPath, getSupportedLangs } from '../i18n/utils';
 import LanguagePicker from '../components/LanguagePicker.astro';
 
 interface Props {
@@ -8,35 +8,35 @@ interface Props {
 }
 
 const { title = "Blood on the Clocktower — Wiki" } = Astro.props;
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const base = getBasePath(lang);
+const langCode = getLangFromUrl(Astro.url);
+const { t, lang } = useTranslations(langCode);
+const base = getBasePath(langCode);
 const pathBase = stripLangFromPath(Astro.url.pathname);
 const canonicalUrl = `${Astro.url.origin}${base}${pathBase === '/' ? '' : pathBase}`;
-const alternateLangs = Object.keys(languages);
+const supportedLangs = getSupportedLangs();
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang.locale}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <link rel="canonical" href={canonicalUrl} />
-    {alternateLangs.map((code) => (
+    {supportedLangs.map((langConfig) => (
       <link
         rel="alternate"
-        hrefLang={code}
-        href={`${Astro.url.origin}${getBasePath(code as keyof typeof languages)}${pathBase === '/' ? '' : pathBase}`}
+        hrefLang={langConfig.code}
+        href={`${Astro.url.origin}${getBasePath(langConfig.code)}${pathBase === '/' ? '' : pathBase}`}
       />
     ))}
-    <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'zh_CN'} />
-    {alternateLangs
-      .filter((code) => code !== lang)
-      .map((code) => (
+    <meta property="og:locale" content={lang.ogLocale} />
+    {supportedLangs
+      .filter((langConfig) => langConfig.code !== langCode)
+      .map((langConfig) => (
         <meta
           property="og:locale:alternate"
-          content={code === 'en' ? 'en_US' : 'zh_CN'}
+          content={langConfig.ogLocale}
         />
       ))}
   </head>

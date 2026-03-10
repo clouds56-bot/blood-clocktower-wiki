@@ -1,20 +1,21 @@
 ---
-import { languages, getLangFromUrl, getBasePath, stripLangFromPath, stripBase } from '../i18n/utils';
+import { getLangFromUrl, getBasePath, stripLangFromPath, stripBase, getSupportedLangs } from '../i18n/utils';
 
-const lang = getLangFromUrl(Astro.url);
+const langCode = getLangFromUrl(Astro.url);
 const routeBase = stripLangFromPath(stripBase(Astro.url.pathname));
+const supportedLangs = getSupportedLangs();
 ---
 
 <div class="flex gap-2 text-sm font-medium items-center ml-4 border-l border-[rgba(215,180,106,0.35)] pl-4">
-  {Object.entries(languages).map(([l, label]) => {
-    const isCurrent = l === lang;
-    const href = `${getBasePath(l as keyof typeof languages)}${routeBase === '/' ? '' : routeBase}`;
+  {supportedLangs.map((langConfig) => {
+    const isCurrent = langConfig.code === langCode;
+    const href = `${getBasePath(langConfig.code)}${routeBase === '/' ? '' : routeBase}`;
     return (
       <a 
         href={href} 
         class={`transition ${isCurrent ? 'text-[color:var(--ink-50)] underline' : 'text-[color:var(--ink-200)] hover:text-[color:var(--accent-gold)]'}`}
       >
-        {label}
+        {langConfig.name}
       </a>
     );
   })}

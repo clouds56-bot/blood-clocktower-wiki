@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 const { rule } = Astro.props;
 const data = rule.data;
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const { t } = useTranslations(lang);
 ---
 
 <BaseLayout title={`${rule.id} | Wiki`}>

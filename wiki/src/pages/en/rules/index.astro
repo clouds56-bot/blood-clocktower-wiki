@@ -1,12 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+import { getLangFromUrl, useTranslations, getBasePath } from '../../../i18n/utils';
 
 const rules = await getCollection('rules');
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-import { getBasePath } from '../../../i18n/utils';
+const { t } = useTranslations(lang);
 const base = getBasePath(lang);
 ---
 

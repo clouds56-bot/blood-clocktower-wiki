@@ -6,7 +6,7 @@ import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
 
 const characters = await getCollection('characters');
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const { t } = useTranslations(lang);
 ---
 
 <BaseLayout title={`${t('nav.characters')} | Wiki`}>

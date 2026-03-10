@@ -7,7 +7,7 @@ export interface Props {
 }
 
 const { characters, lang } = Astro.props;
-const t = useTranslations(lang);
+const { t } = useTranslations(lang);
 const base = getBasePath(lang);
 
 const typesOrder = ['townsfolk', 'outsider', 'minion', 'demon', 'traveller', 'fabled'];

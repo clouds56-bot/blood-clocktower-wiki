@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 const { edition } = Astro.props;
 const data = edition.data;
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const { t } = useTranslations(lang);
 const base = getBasePath(lang);
 
 const characters = await getCollection('characters');
