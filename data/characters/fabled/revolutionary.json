@@ -43,5 +43,6 @@
     "experimental"
   ],
   "artist": "Aidan Roberts",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/9/94/Icon_revolutionary.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/9/94/Icon_revolutionary.png",
+  "image": "assets/tokens/revolutionary.png"
 }

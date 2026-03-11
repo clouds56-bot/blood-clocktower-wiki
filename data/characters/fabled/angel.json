@@ -49,5 +49,6 @@
     "experimental"
   ],
   "artist": "Aidan Roberts",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/c/ca/Icon_angel.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/c/ca/Icon_angel.png",
+  "image": "assets/tokens/angel.png"
 }

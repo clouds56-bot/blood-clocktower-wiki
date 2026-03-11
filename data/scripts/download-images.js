@@ -38,11 +38,39 @@ async function fetchWithCache(url, urlParam) {
   return html;
 }
 
+function pageSlugFromName(name) {
+  if (!name || typeof name !== 'string') return null;
+  return name.trim().replace(/\s+/g, '_').replace(/'/g, '%27');
+}
+
+function getCandidateWikiUrls(data) {
+  const urls = [];
+  if (typeof data.source_url === 'string' && data.source_url.startsWith(WIKI_BASE)) {
+    urls.push(data.source_url);
+  }
+
+  const enName = data && data.name && typeof data.name === 'object' ? data.name.en : null;
+  const slugFromName = pageSlugFromName(enName);
+  if (slugFromName) {
+    urls.push(`${WIKI_BASE}/${slugFromName}`);
+  }
+
+  const deduped = [];
+  const seen = new Set();
+  for (const url of urls) {
+    if (!seen.has(url)) {
+      seen.add(url);
+      deduped.push(url);
+    }
+  }
+  return deduped;
+}
+
 /**
  * Get all character JSON files
  */
 function getCharacterFiles() {
-  const types = ['townsfolk', 'outsiders', 'minions', 'demons', 'travellers', 'fabled'];
+  const types = ['townsfolk', 'outsiders', 'minions', 'demons', 'travellers', 'fabled', 'loric'];
   const files = [];
 
   for (const type of types) {
@@ -135,7 +163,7 @@ async function downloadAllImages() {
   for (const jsonPath of characterFiles) {
     const data = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
     const characterId = data.id;
-    const wikiUrl = data.source_url;
+    const candidateWikiUrls = getCandidateWikiUrls(data);
 
     console.log(`  → ${characterId}`);
 
@@ -168,9 +196,13 @@ async function downloadAllImages() {
 
     // Fetch wiki page to find image URL
     try {
-      const urlParam = wikiUrl.split('/').pop();
-      const html = await fetchWithCache(wikiUrl, urlParam);
-      const imageUrl = extractImageUrl(html);
+      let imageUrl = null;
+      for (const wikiUrl of candidateWikiUrls) {
+        const urlParam = wikiUrl.split('/').pop();
+        const html = await fetchWithCache(wikiUrl, urlParam);
+        imageUrl = extractImageUrl(html);
+        if (imageUrl) break;
+      }
 
       if (!imageUrl) {
         console.log(`    ⚠️  No image found`);

@@ -42,5 +42,6 @@
     "experimental"
   ],
   "artist": "Aidan Roberts",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/e/e5/Icon_fiddler.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/e/e5/Icon_fiddler.png",
+  "image": "assets/tokens/fiddler.png"
 }

@@ -76,5 +76,6 @@
     "experimental"
   ],
   "artist": "Chloe McDougall",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/f/f0/Icon_nightwatchman.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/f/f0/Icon_nightwatchman.png",
+  "image": "assets/tokens/nightwatchman.png"
 }

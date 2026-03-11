@@ -75,5 +75,6 @@
     "trouble_brewing"
   ],
   "artist": "Aidan Roberts",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/d/d5/Icon_chef.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/d/d5/Icon_chef.png",
+  "image": "assets/tokens/chef.png"
 }

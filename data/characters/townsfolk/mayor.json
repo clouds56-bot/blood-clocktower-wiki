@@ -71,5 +71,6 @@
       "reason": "The Mayor may choose to stop the riot. If they do so when only 1 Riot is alive, good wins. Otherwise, evil wins."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/a/a1/Icon_mayor.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/a/a1/Icon_mayor.png",
+  "image": "assets/tokens/mayor.png"
 }

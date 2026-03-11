@@ -72,5 +72,6 @@
     "experimental"
   ],
   "artist": "Chloe McDougall",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/1/11/Icon_shugenja.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/1/11/Icon_shugenja.png",
+  "image": "assets/tokens/shugenja.png"
 }

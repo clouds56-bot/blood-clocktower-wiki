@@ -105,7 +105,13 @@ function toLangKey(locale) {
   return locale;
 }
 
-function buildConfigFromTool(toolFiles) {
+function toConfigLangKey(locale) {
+  if (locale === 'es-419') return 'es';
+  if (locale === 'zh-hans') return 'zh-Hans';
+  return locale;
+}
+
+function buildConfigFromTool(toolFiles, wikiFiles) {
   const byType = {
     townsfolk: {},
     outsiders: {},
@@ -117,7 +123,7 @@ function buildConfigFromTool(toolFiles) {
   };
 
   for (const file of toolFiles) {
-    const locale = toLangKey(localeFromFile(file));
+    const locale = toConfigLangKey(localeFromFile(file));
     const rows = parseJsonl(file);
     for (const row of rows) {
       const id = row.id;
@@ -130,6 +136,44 @@ function buildConfigFromTool(toolFiles) {
       } else if (row.name) {
         byType[type][id][locale] = row.name;
       }
+    }
+  }
+
+  for (const file of wikiFiles) {
+    if (localeFromFile(file) !== 'cn') continue;
+    const rows = parseJsonl(file);
+    for (const row of rows) {
+      const id = row.id;
+      if (!id) continue;
+
+      let targetType = null;
+      for (const [type, chars] of Object.entries(byType)) {
+        if (chars[id]) {
+          targetType = type;
+          break;
+        }
+      }
+      if (!targetType) continue;
+
+      if (row.name) {
+        byType[targetType][id].cn = row.name;
+      }
+    }
+  }
+
+  for (const chars of Object.values(byType)) {
+    for (const item of Object.values(chars)) {
+      const zhHans = item['zh-Hans'];
+      const cn = item.cn || zhHans;
+
+      if (cn) {
+        item.cn = cn;
+      }
+      if (zhHans && cn && zhHans !== cn) {
+        item.zh = zhHans;
+      }
+
+      delete item['zh-Hans'];
     }
   }
 
@@ -324,7 +368,7 @@ function main() {
   }
 
   // b) generate config/characters.json from tool ids/names first
-  const config = buildConfigFromTool(toolFiles);
+  const config = buildConfigFromTool(toolFiles, wikiFiles);
   fs.writeFileSync(CONFIG_PATH, JSON.stringify(config, null, 2) + '\n', 'utf8');
   console.log(`✅ Wrote config mapping to ${CONFIG_PATH}`);
 

@@ -76,5 +76,6 @@
     "experimental"
   ],
   "artist": "Caitlin Murphy",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/9/99/Icon_general.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/9/99/Icon_general.png",
+  "image": "assets/tokens/general.png"
 }

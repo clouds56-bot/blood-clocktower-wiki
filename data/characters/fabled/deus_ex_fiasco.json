@@ -53,5 +53,6 @@
     "experimental"
   ],
   "artist": "Chlo MacDougal",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/7/71/Icon_deusexfiasco.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/7/71/Icon_deusexfiasco.png",
+  "image": "assets/tokens/deus_ex_fiasco.png"
 }

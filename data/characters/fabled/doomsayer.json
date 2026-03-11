@@ -43,5 +43,6 @@
     "experimental"
   ],
   "artist": "Aidan Roberts",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/8/8f/Icon_doomsayer.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/8/8f/Icon_doomsayer.png",
+  "image": "assets/tokens/doomsayer.png"
 }

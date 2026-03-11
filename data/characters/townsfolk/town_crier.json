@@ -70,5 +70,6 @@
     "sects_violets"
   ],
   "artist": "Aidan Roberts",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/e/ef/Icon_towncrier.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/e/ef/Icon_towncrier.png",
+  "image": "assets/tokens/town_crier.png"
 }
