@@ -1,120 +1,162 @@
-# Agent Instructions & Guidelines
+# AGENTS.md
 
-Our overarching goal is to create an interactive wiki website for Blood on the Clocktower. This repository contains data scraping scripts, schema configurations, and eventually the interactive web interface.
+This document is the operating guide for agentic coding assistants working in this repository.
+It reflects the current project structure, scripts, and conventions found in code.
 
-This file serves as the definitive guide for all agentic coding assistants (e.g., Cursor, GitHub Copilot, opencode, custom AI agents) operating within this repository. 
+## 1) Project Overview
 
-## 1. Project Overview & Structure
-- `data/`: scraping package and scraped data (characters, rules, assets, scripts)
-  - `data/scripts/` contains nodejs scraping scripts (CommonJS)
-  - `data/characters/`, `data/rules/`, `data/editions/` contain scraped JSON and content
-- `/specs/`: technical specifications, scraper rules, and data policies.
-- `/wiki/`: Astro frontend app (SSG) — dynamic `[lang]` routes are implemented under `wiki/src/pages/[lang]`.
-- `/assets/`: Downloaded images and media (mirrored into `wiki/public/assets` at build time)
+- Root: pnpm workspace with two packages: `data/` and `wiki/`.
+- `data/`: Node.js scraping/data pipeline package (`type` defaults to CommonJS).
+- `data/scripts/`: scraping and build pipelines.
+- `data/characters/`, `data/rules/`, `data/editions/`: generated/curated content.
+- `wiki/`: Astro static site (ESM, TypeScript enabled).
+- `wiki/src/pages/[lang]`: localized dynamic route pages.
+- `assets/`: downloaded media mirrored into `wiki/public/assets` by scripts.
+- `specs/`: technical notes, parser/scraper policies, and implementation specs.
 
-## 2. Build, Lint, and Test Commands
+## 2) Build, Run, Lint, and Test Commands
 
-This repository is organised as a small pnpm workspace with two packages:
+Run all commands from repo root unless noted.
 
-- `data/` — scraping utilities and scraped content (CommonJS Node scripts)
-- `wiki/` — Astro frontend app (ESM, TypeScript)
+### Setup
 
-Install dependencies (from the repo root):
+- Install dependencies: `pnpm install`
 
-- `pnpm install`
+### Data package (`data/`)
 
-Common commands (run from repo root):
+- Scrape English: `pnpm --filter data run scrape:en`
+- Scrape Chinese: `pnpm --filter data run scrape:cn`
+- Scrape tools: `pnpm --filter data run scrape:tool`
+- Scrape GitHub data: `pnpm --filter data run scrape:github`
+- Scrape tokens: `pnpm --filter data run scrape:token`
+- Scrape EN reminders: `pnpm --filter data run scrape:reminders:en`
+- Scrape CN reminders: `pnpm --filter data run scrape:reminders:cn`
+- Scrape glossary (EN+CN): `pnpm --filter data run scrape:glossary`
+- Build glossary: `pnpm --filter data run build:glossary`
+- Build characters: `pnpm --filter data run build:characters`
+- Build special outputs: `pnpm --filter data run build:special`
+- Full pipeline: `pnpm --filter data run scrape:all`
 
-- `pnpm --filter data run scrape:en` — Scrape English wiki (`data/scripts/pipeline/en.js`)
-- `pnpm --filter data run scrape:cn` — Scrape Chinese wiki (`data/scripts/pipeline/cn.js`)
-- `pnpm --filter data run scrape:all` — Run full scraping pipeline
-- `pnpm --filter wiki run dev` — Run Astro dev server for the frontend
-- `pnpm --filter wiki run build` — Build the static site into `wiki/dist`
-
-You can also run the scripts directly with node if you prefer:
+You can also run pipelines directly with Node when debugging:
 
 - `node data/scripts/pipeline/en.js`
 - `node data/scripts/pipeline/cn.js`
+- `node data/scripts/pipeline/build.js`
 
-### Testing
-We encourage writing tests for pure functions (e.g., parsing logic, data transformations). The project currently does not have a comprehensive test suite, but as we migrate toward test-driven development, standard Node testing practices apply.
-- **Run all tests**: `npm test` (or `node --test` for native Node.js testing).
-- **Run tests in watch mode**: `node --test --watch`
-- **Run a single test file**: `node --test <path-to-test-file>`
-- **Run a single test by name**: `node --test-name-pattern="<Test Name>" <path-to-test-file>` 
-  *Example*: `node --test-name-pattern="parseCharacterPage" tests/scrape-wiki.test.js`
+### Wiki package (`wiki/`)
 
-### Linting & Formatting
-Prefer Prettier with 2-space indentation and the project's TypeScript settings for `wiki/`.
+- Dev server: `pnpm --filter wiki run dev`
+- Build static site: `pnpm --filter wiki run build`
+- Preview build: `pnpm --filter wiki run preview`
 
-If ESLint/Prettier is added to the project:
-- **Lint**: `pnpm --filter wiki run lint` (if a lint script is added)
-- **Format**: `pnpm --filter wiki run format`
-- Agents should proactively run linting commands after editing code if these scripts exist in `package.json`.
+### Testing (important)
 
-## 3. Code Style Guidelines
+Current state:
 
-All agents must strictly adhere to the following coding standards to ensure consistency and maintainability.
+- `data/package.json` has `"test": "echo \"No tests\" && exit 0"`.
+- No test files are currently present in the repo.
 
-### Architecture & Frameworks
-- The current backend/scraping logic is vanilla Node.js (`type: "commonjs"`). Use standard built-in modules (`fs`, `path`) and `cheerio` for DOM parsing.
-- For the future frontend interactive wiki, prefer modern, standard frameworks (React, Vue, or Next.js), unless otherwise specified by the user. Prioritize static generation (SSG).
+Recommended Node test commands for newly added tests:
 
-### Imports & Exports
-- **Node.js Scripts**: Use CommonJS (`require` / `module.exports`) as currently established in the `scripts/` directory.
-- **Frontend/Shared**: If transitioning to a bundler or modern Node (`"type": "module"`), use ES Modules (`import` / `export`).
-- Keep imports organized: Built-in Node modules first, third-party packages second, internal project files third.
+- Run all tests (native runner): `node --test`
+- Run all tests in a file: `node --test path/to/file.test.js`
+- Run a single test by name: `node --test --test-name-pattern="parseCharacterPage" path/to/file.test.js`
+- Watch mode: `node --test --watch`
+
+If package scripts are added later, prefer package-level commands:
+
+- `pnpm --filter data run test`
+- `pnpm --filter wiki run test`
+
+### Linting and formatting
+
+Current state:
+
+- No ESLint/Prettier scripts are defined in current package.json files.
+- Type checking is available via TypeScript config in `wiki/`.
+
+If lint/format scripts are introduced, run them after edits.
+
+## 3) Code Style Guidelines
+
+Follow existing local patterns first; these rules apply when patterns are missing.
+
+### Language/module conventions
+
+- `data/` scripts: CommonJS (`require`, `module.exports`).
+- `wiki/` code: ESM/TypeScript (`import`, `export`).
+- Avoid mixing module systems in the same package unless required.
+
+### Imports
+
+- Order imports as: built-in modules, third-party packages, internal modules.
+- Keep import groups stable and avoid unused imports.
+- Prefer explicit relative paths for local modules.
 
 ### Formatting
-- **Indentation**: 2 spaces. No tabs.
-- **Quotes**: Use single quotes (`'`) for strings in JavaScript/TypeScript. Use double quotes (`"`) for JSON or HTML/JSX attributes.
-- **Semicolons**: Always use semicolons at the end of statements.
-- **Line Length**: Soft cap at 100 characters per line. Break down long method chains or complex conditions.
-- **Braces**: Use 1TBS (One True Brace Style). E.g., `if (condition) { ... } else { ... }`.
 
-### Naming Conventions
-- **Variables & Functions**: `camelCase` (e.g., `parseCharacterPage`, `htmlContent`).
-- **Constants**: `UPPER_SNAKE_CASE` (e.g., `BASE_URL`, `TYPE_MAPPING`).
-- **Classes & Components**: `PascalCase` (e.g., `CharacterCard`, `WikiScraper`).
-- **File Names**: 
-  - Scripts/Utilities: `kebab-case.js` (e.g., `scrape-editions.js`).
-  - Pipeline scripts: `pipeline/kebab-case.js` (e.g., `pipeline/en.js`).
-  - Components (if added): `PascalCase.tsx` (e.g., `CharacterCard.tsx`).
+- Indentation: 2 spaces; do not use tabs.
+- Semicolons: required.
+- Strings: single quotes in JS/TS; double quotes in JSON and markup attributes.
+- Line width: target ~100 chars; split long expressions cleanly.
+- Braces: 1TBS style (`if (...) { ... } else { ... }`).
 
-### Typing & Documentation
-- **TypeScript**: If `.ts` or `.tsx` files are introduced, strictly type all function parameters and return values. Avoid `any`.
-- **JSDoc**: For current plain JavaScript files, use JSDoc annotations to document function signatures, expected inputs, and complex logic.
-  ```javascript
-  /**
-   * Fetches HTML content with local file caching.
-   * @param {string} url - The URL to fetch.
-   * @param {string} urlParam - The sanitized parameter for cache naming.
-   * @returns {Promise<string>} The HTML content.
-   */
-  ```
+### Naming
 
-### Error Handling
-- Use `try...catch` blocks for asynchronous operations and I/O tasks (like network requests or file system operations).
-- Do not silently swallow errors. Log them informatively with context (e.g., `console.error('Failed to parse character:', characterId, error)`).
-- Provide fallback values or graceful degradation where appropriate, especially when scraping unstructured web content.
+- Variables/functions: `camelCase`.
+- Constants: `UPPER_SNAKE_CASE`.
+- Classes/components/types: `PascalCase`.
+- Script filenames: `kebab-case.js`.
+- Astro/TSX components: `PascalCase` filenames.
 
-### Code Organization & Comments
-- **Small, focused functions**: Break down large procedures into smaller, testable pure functions.
-- **Separate data from logic**: Keep configuration mappings outside of execution functions.
-- **Comments**: Add comments sparingly. Focus on *why* something is done, especially for complex scraping logic or Regex patterns, rather than *what* is done.
+### Types and documentation
 
-## 4. Git Conventions
-- **Commits**: Use conventional commits (e.g., `feat: add new character schema`, `fix: parser logic for outsiders`, `docs: update scraping policies`).
-- Do not commit changes unless explicitly requested.
-- Avoid committing secrets, cache folders (e.g., `.cache/html`), or raw downloaded node modules. Ensure `.gitignore` is respected.
+- In TypeScript, type function params and return values explicitly.
+- Avoid `any`; use unions, generics, or `unknown` + narrowing.
+- In JavaScript files with non-trivial logic, add focused JSDoc.
+- Document data transformation assumptions and schema edge cases.
 
-## 5. Copilot / Cursor / AI Agent System Rules
+### Error handling
 
-These apply to all AI models and agents working in this repository:
-1. **Never Assume File Contents**: Always use the `read` or `glob` tools to examine existing files before making edits. Do not assume the structure of a file.
-2. **Context First**: Rigorously adhere to existing project conventions when modifying code. Analyze surrounding code, tests, and configurations (like `package.json`) before employing new libraries.
-3. **Idiomatic Integration**: When editing, understand the local context (imports, functions/classes) to ensure your changes integrate naturally and idiomatically.
-4. **File Paths**: Before using any file system tool (e.g., `read` or `write`), you must construct the full absolute path for the file argument, anchored to the workspace root.
-5. **Interactive Commands**: Do not run interactive shell commands (like `git rebase -i` or `npm init` without `-y`) as they will hang the CLI environment.
-6. **Self-Verification**: When writing new logic, formulate an internal plan. Use output logs, debug statements, and tests as a self-verification loop to arrive at a solution.
-7. **Proactive Polishing**: If generating UI or prototypes, aim for a visually complete state with no missing logic. Use functional placeholders where necessary.
+- Wrap network and filesystem operations in `try...catch`.
+- Never silently swallow errors.
+- Log actionable context (`id`, URL, filename, operation).
+- Fail fast for corrupted inputs; use graceful fallback only when intentional.
+
+### Code organization
+
+- Prefer small, composable functions over long monolithic procedures.
+- Keep mapping/config objects separate from execution flow.
+- Minimize side effects and isolate I/O boundaries.
+- Add comments for non-obvious "why", not obvious "what".
+
+## 4) Agent Workflow Rules
+
+- Never assume file contents; inspect files before changing them.
+- Read relevant package configs before choosing commands.
+- Align with existing project conventions over personal preference.
+- Use absolute paths with file tools when required by the environment.
+- Avoid interactive shell commands in non-interactive sessions.
+- Verify changes with the narrowest useful command (build/test/typecheck).
+
+## 5) Git Conventions
+
+- Use Conventional Commits (`feat:`, `fix:`, `docs:`, `refactor:`, `chore:`).
+- Do not commit secrets, caches, or dependencies.
+- Respect `.gitignore` and generated output boundaries.
+- Keep commits focused and descriptive.
+
+## 6) Cursor/Copilot Rule Files
+
+Checked paths in this repository:
+
+- `.cursorrules`
+- `.cursor/rules/`
+- `.github/copilot-instructions.md`
+
+Current state:
+
+- No Cursor rule files were found.
+- No GitHub Copilot instruction file was found.
+
+If any of these files are added later, treat them as higher-priority agent instructions and update this document.
