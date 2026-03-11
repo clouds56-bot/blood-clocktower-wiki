@@ -7,8 +7,9 @@ const supportedLangCodes = getSupportedLangs().map(({ code }) => code);
 
 export async function getStaticPaths() {
   const rules = await getCollection('rules');
+  const genericRules = rules.filter(rule => rule.id !== 'glossary');
   return getSupportedLangs().flatMap(({ code }) =>
-    rules.map((rule) => ({
+    genericRules.map((rule) => ({
       params: { lang: code, id: rule.id },
       props: { rule },
     }))

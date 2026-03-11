@@ -2,6 +2,7 @@ export const cn = {
   'nav.characters': '角色',
   'nav.editions': '剧本',
   'nav.rules': '规则',
+  'nav.glossary': '术语',
   'home.title': '染血钟楼',
   'home.subtitle': '欢迎来到这款最棒的社交推理游戏的开源交互式维基。浏览角色、规则集并探索机制。',
   'home.btn.characters': '查看角色',
@@ -21,5 +22,7 @@ export const cn = {
   'editions.back': '← 返回剧本列表',
   'rules.back': '← 返回规则列表',
   'rules.title': '规则与设置',
+  'glossary.title': '术语表',
+  'glossary.learnMore': '了解更多',
   'footer.text': '非官方染血钟楼维基。数据来源于官方维基。',
 } as const;

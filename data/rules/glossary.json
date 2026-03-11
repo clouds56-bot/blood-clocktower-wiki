@@ -1,0 +1,1549 @@
+{
+  "title": {
+    "en": "Glossary",
+    "cn": "术语汇总"
+  },
+  "source": "wiki",
+  "generated_at": "2026-03-11T15:18:08.086Z",
+  "terms": [
+    {
+      "id": "ability",
+      "name": {
+        "en": "Ability",
+        "cn": "能力"
+      },
+      "description": {
+        "en": "The special power or penalty of a character, printed on its character token, the character sheet for the chosen edition, and the character almanac for the chosen edition. The definitive text of the ability is printed in the \"How to Run\" section of the character almanac. Characters have no ability when dead, drunk, or poisoned.",
+        "cn": "角色带有的特殊力量或惩罚，会出现在角色标记、对应剧本套装中的角色列表及角色详解中。角色能力的定义文本会显示在角色列表上，而角色详解则用于作为规则指引。当角色死亡、醉酒或中毒时，角色会失去能力。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "about_to_die",
+      "name": {
+        "en": "About to die",
+        "cn": "即将被处决"
+      },
+      "description": {
+        "en": "The player who has enough votes to be executed and more votes than any other player today.",
+        "cn": "指在一天的处决提名中得到足够的票数，且得到比其他玩家更多票数的玩家。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "alignment",
+      "name": {
+        "en": "Alignment",
+        "cn": "阵营"
+      },
+      "description": {
+        "en": "The team that a player is currently on. Alignment is either good or evil. If a player changes alignment, their character stays the same. If a player changes character, their alignment stays the same. Players know their own alignment.",
+        "cn": "玩家当前所属的队伍。阵营有善良与邪恶之分。如果玩家改变了阵营，他的角色会保留与之前一致。如果玩家改变了角色，他的阵营会保留与之前一致。玩家始终会得知其当前的阵营。“你的阵营”指代“你和与你同一阵营的所有其他玩家”。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E9%98%B5%E8%90%A5%E8%BD%AC%E5%8F%98"
+      }
+    },
+    {
+      "id": "alive",
+      "name": {
+        "en": "Alive",
+        "cn": "存活"
+      },
+      "description": {
+        "en": "A player that has not died. Alive players have their ability, may vote as many times as they wish, and may nominate players. As long as 3 or more players are alive, the game continues.",
+        "cn": "尚未死亡的玩家。存活玩家会具有他们的角色能力，能够在任意提名中参与投票，也可以对玩家发起提名。有三人以上的玩家存活时，游戏就会持续进行。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "alive_neighbours",
+      "name": {
+        "en": "Alive neighbours",
+        "cn": "与之邻近的存活玩家"
+      },
+      "description": {
+        "en": "The two alive players that are sitting closest-one clockwise, one counterclockwise-to the player in question, not including any dead players sitting between them.",
+        "cn": "两名在座次上与相关玩家距离最近的存活玩家——其中一名为顺时针距离最近，另一名为逆时针距离最近——不包括任何在这些玩家之间入座的已死亡玩家。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E9%82%BB%E8%BF%91"
+      }
+    },
+    {
+      "id": "ally",
+      "name": {
+        "en": "Ally",
+        "cn": "盟友"
+      },
+      "description": {
+        "en": "A player of the same alignment.",
+        "cn": "同一阵营的玩家。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "character",
+      "name": {
+        "en": "Character",
+        "cn": "角色"
+      },
+      "description": {
+        "en": "The role that a player plays, such as the Butler, as listed on the character sheet and character almanac for the chosen edition. Characters may be in play or not in play.",
+        "cn": "玩家扮演的对象，例如管家。角色会被罗列在对应剧本套装的角色列表及角色详解中。角色可能会有在场和不在场两种状态。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E8%A7%92%E8%89%B2%E5%8F%98%E5%8C%96"
+      }
+    },
+    {
+      "id": "character_sheet",
+      "name": {
+        "en": "Character sheet",
+        "cn": "角色列表"
+      },
+      "description": {
+        "en": "The sheets that list all of the possible characters and their abilities for the chosen edition.",
+        "cn": "一叠罗列出对应剧本中可能出现的所有角色及角色能力的纸张。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "character_token",
+      "name": {
+        "en": "Character token",
+        "cn": "角色标记"
+      },
+      "description": {
+        "en": "The large round token that each player gets at the start of the game that indicates their character. Players cannot look at each other's character tokens.",
+        "cn": "每名玩家在游戏开始时会拿到的表明自己角色的较大圆形标记。玩家之间不能互相查看对方的角色标记。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "choose",
+      "name": {
+        "en": "Choose",
+        "cn": "选择"
+      },
+      "description": {
+        "en": "This word in a character's ability indicates that their player decides something. If this word is absent, the Storyteller decides instead.",
+        "cn": "这一术语出现在角色能力描述中，表明对应的玩家需要做出一些决定。如果该术语在角色能力中未曾出现，则相应的决定由说书人做出。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "clocktower",
+      "name": {
+        "en": "Clocktower",
+        "cn": "染"
+      },
+      "description": {
+        "en": "Blood on the Clocktower, the world's greatest bluffing game!",
+        "cn": "《染·钟楼谜团》，世界上最棒的语言类游戏！"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "dawn",
+      "name": {
+        "en": "Dawn",
+        "cn": "黎明"
+      },
+      "description": {
+        "en": "The end of a night, just before the next day begins. Characters that act \"at dawn\" act after almost all other characters.",
+        "cn": "夜晚的结束时点，下一个白天开始之前。进行“在黎明时”相关行动的角色会在绝大多数其他玩家之后进行行动。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "day",
+      "name": {
+        "en": "Day",
+        "cn": "白天"
+      },
+      "description": {
+        "en": "The game phase in which players have their eyes open, talk with each other, and vote for an execution. Each day is followed by a night. Each night is followed by a day.",
+        "cn": "所有玩家睁眼，相互交谈，并为处决投票的阶段。每个白天阶段结束后，会进入夜晚阶段。每个夜晚阶段结束后，会进入白天阶段。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "dead",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      },
+      "description": {
+        "en": "A player that is not alive. Dead players may only vote once more during the game. When a player dies, their life token flips over, they gain a shroud in the Grimoire, they immediately lose their ability, and any persistent effects of their ability immediately end.",
+        "cn": "不再存活的玩家。已死亡玩家在余下的游戏中仅能参与最多一次投票。当一名玩家死亡后，玩家的生命标记会翻转，并获得一枚投票标记。在魔典中，该玩家的角色会获得帷幕标记，该玩家会立即失去角色能力，其角色能力所产生的任何持续性的效果也会立即终止。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "declare",
+      "name": {
+        "en": "Declare",
+        "cn": "宣布"
+      },
+      "description": {
+        "en": "State to the group so that everyone can hear you.",
+        "cn": "对玩家群体的声明，以便让所有人都能听到你的声音的行为。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "demon",
+      "name": {
+        "en": "Demon",
+        "cn": "恶魔"
+      },
+      "description": {
+        "en": "A type of character that begins evil. If the Demon dies, the good team wins. Demons usually kill players at night and have some other ability that harms the good team.",
+        "cn": "一种初始为邪恶阵营的角色类型。如果所有的恶魔均已死亡，善良阵营获胜。恶魔通常会在夜晚攻击玩家，且会有一些其他的危害善良阵营的能力。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%81%B6%E9%AD%94"
+      }
+    },
+    {
+      "id": "demon_info",
+      "name": {
+        "en": "Demon info",
+        "cn": "恶魔信息"
+      },
+      "description": {
+        "en": "Shorthand on the night sheet, representing the information that the Demon receives on the first night if there are 7 or more players. The Demon learns which players are the Minions, and learns 3 good characters that are not in play to help them bluff.",
+        "cn": "缩略词，出现在七人以上的游戏中夜晚顺序表上，代表恶魔玩家在首个夜晚时获得的信息。恶魔会得知哪些玩家是爪牙，且会得知三个不在场的善良角色，以助于恶魔进行伪装。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "demon_the",
+      "name": {
+        "en": "Demon, The",
+        "cn": "恶魔玩家"
+      },
+      "description": {
+        "en": "The player that has the Demon character. In a game with multiple Demons, each alive Demon player counts as \"The Demon\".",
+        "cn": "拥有恶魔角色的玩家。在一场有多个恶魔存在的游戏中，每名恶魔玩家存活与否都会被计入善良阵营获胜条件之中。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "drunk",
+      "name": {
+        "en": "Drunk",
+        "cn": "醉酒"
+      },
+      "description": {
+        "en": "A drunk player has no ability but thinks they do, and the Storyteller acts like they do. If their ability would give them information, the Storyteller may give them false information. Drunk players do not know they are drunk.",
+        "cn": "醉酒的玩家会失去能力，但会认为自己仍具有能力，说书人会做出这些玩家仍然具有能力的行为。如果醉酒玩家的角色能力会给他提供信息，说书人可能会给出错误信息。醉酒的玩家不会得知自己醉酒。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E9%86%89%E9%85%92"
+      }
+    },
+    {
+      "id": "dusk",
+      "name": {
+        "en": "Dusk",
+        "cn": "黄昏"
+      },
+      "description": {
+        "en": "The start of a night, just after the players close their eyes. Characters that act \"at dusk\" act before almost all other characters. Abilities that last \"until dusk\" end as soon as the players go to sleep.",
+        "cn": "夜晚的开始时点，在所有玩家闭眼之后。进行“在黄昏时”相关行动的角色会在绝大多数其他玩家之前进行行动。具有“持续至黄昏”的能力效果会在所有玩家闭眼后终止。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "each_night",
+      "name": {
+        "en": "Each night",
+        "cn": "每个夜晚"
+      },
+      "description": {
+        "en": "Every night phase.",
+        "cn": "每个夜晚阶段。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "each_night",
+      "name": {
+        "en": "Each night*",
+        "cn": "每个夜晚*"
+      },
+      "description": {
+        "en": "Shorthand on character sheets and tokens, meaning \"Every night phase except for the first night phase\".",
+        "cn": "位于角色列表和角色标记上的缩略词，指代“除第一个夜晚阶段之外的每个夜晚阶段”。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "edition",
+      "name": {
+        "en": "Edition",
+        "cn": "剧本套装"
+      },
+      "description": {
+        "en": "A scenario of Clocktower that contains a set of tokens, character sheets, and a character almanac. For example, Trouble Brewing. Each edition has a unifying theme, strategy, and tone.",
+        "cn": "《染》的多个剧本之一，包含一套角色标记、角色列表和一份角色详解。例如《暗流涌动》。每一个剧本套装都具有一个较为统一的主题、策略以及基调。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "evil",
+      "name": {
+        "en": "Evil",
+        "cn": "邪恶"
+      },
+      "description": {
+        "en": "The evil alignment. Minions and Demons (red characters) start as evil. Evil wins when just 2 players are alive, not including Travellers.",
+        "cn": "指邪恶阵营。所有的爪牙和恶魔（红色的角色）初始为邪恶。当仅有两名玩家存活时（旅行者的数量不计算在内），邪恶阵营获胜。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "evil_character",
+      "name": {
+        "en": "Evil character",
+        "cn": "邪恶角色"
+      },
+      "description": {
+        "en": "Minions and Demons.",
+        "cn": "爪牙和恶魔。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "execution",
+      "name": {
+        "en": "Execution",
+        "cn": "处决"
+      },
+      "description": {
+        "en": "The group decision to kill a player other than a Traveller during the day. There is a maximum of one execution per day, but there may be none. A nominated player is executed if they got votes equal to at least half the number of alive players, and more votes than any other nominated player.",
+        "cn": "在白天时玩家集体决定杀死一位非旅行者玩家的行为。每个白天最多能够进行一次处决，但也可以不进行处决。在一天的处决提名中得到至少等同于当前存活玩家数量一半的票数，且得到比其他被提名的玩家更多票数的玩家会被处决。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E5%A4%84%E5%86%B3"
+      }
+    },
+    {
+      "id": "exile",
+      "name": {
+        "en": "Exile",
+        "cn": "流放"
+      },
+      "description": {
+        "en": "The group decision to kill a Traveller during the day. There may be any number of exiles per day, including none. Any players may support an exile, even dead players without a vote token. Abilities cannot affect an exile decision in any way. Though an exile is similar to a vote for execution, the process is not a vote, and an exile is not an execution. See Vote and Execution.",
+        "cn": "在白天时玩家集体决定杀死一位旅行者玩家的行为。每个白天可以进行任意次数的流放，也可以不进行任何流放。任何玩家都可以支持流放，已死亡玩家也可以不消耗投票标记进行支持。角色能力不能以任何形式影响流放。即使流放与投票处决相似，但流放的流程不是投票，流放也不是处决。（参考投票与处决部分。）"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "fabled",
+      "name": {
+        "en": "Fabled",
+        "cn": "传奇角色"
+      },
+      "description": {
+        "en": "A type of character for the Storyteller. Fabled characters are neutral, chosen by the Storyteller publicly, and usually make the game fairer in strange situations.",
+        "cn": "一种说书人可用的角色类型。传奇角色均为中立，被说书人公开选择，且通常用于在少见的情形下让游戏变得更加公平。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2"
+      }
+    },
+    {
+      "id": "false_info",
+      "name": {
+        "en": "False info",
+        "cn": "错误信息"
+      },
+      "description": {
+        "en": "False information, such as a false statement, gesture, or character token. The Storyteller may give false information when an ability malfunctions, such as when the player is drunk or poisoned. See True info.",
+        "cn": "错误的信息，例如错误的陈述，手势，或角色标记。当一名角色被当作与之不同的角色或阵营时，或使用能力的角色醉酒或中毒时，说书人可以给出错误的信息。（参考正确信息部分。）"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "first_night",
+      "name": {
+        "en": "First night",
+        "cn": "首个夜晚"
+      },
+      "description": {
+        "en": "The night phase that begins the game. Some characters act only during the first night. Some characters act during each night except the first. Players may talk about their characters only after the first night.",
+        "cn": "游戏开始时的第一个夜晚阶段。有一些角色仅在首个夜晚进行行动。有一些角色在除首个夜晚以外的每个夜晚行动。玩家仅能在首个夜晚之后才能开始讨论与自己的角色有关的话题。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "good",
+      "name": {
+        "en": "Good",
+        "cn": "善良"
+      },
+      "description": {
+        "en": "The good alignment. Townsfolk and Outsiders (blue characters) start as good. Good wins if the Demon dies.",
+        "cn": "指善良阵营。所有的镇民和外来者（蓝色的角色）初始为善良。当所有的恶魔均已死亡时，善良阵营获胜。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "good_character",
+      "name": {
+        "en": "Good character",
+        "cn": "善良角色"
+      },
+      "description": {
+        "en": "Townsfolk and Outsiders.",
+        "cn": "镇民和外来者。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "grimoire",
+      "name": {
+        "en": "Grimoire",
+        "cn": "魔典"
+      },
+      "description": {
+        "en": "The box that stores the Clocktower pieces, held and updated by the Storyteller. Players cannot look in the Grimoire. The Grimoire shows the actual states of all the characters, such as who is alive or dead, who is poisoned, who is acting at night, etc.",
+        "cn": "用于存放钟楼配件的盒子，在游戏中会由说书人持有并实时更新。玩家无法查看魔典。魔典中会显示所有角色的实际状态，如哪些玩家存活，哪些玩家中毒，哪些玩家会在夜晚行动，等等。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "healthy",
+      "name": {
+        "en": "Healthy",
+        "cn": "健康"
+      },
+      "description": {
+        "en": "Not poisoned.",
+        "cn": "未中毒状态。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "info",
+      "name": {
+        "en": "Info",
+        "cn": "信息"
+      },
+      "description": {
+        "en": "Information.",
+        "cn": "玩家从说书人处获得的内容，如（对游戏内事实的）陈述，手势，或角色标记。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "info_token",
+      "name": {
+        "en": "Info token",
+        "cn": "信息标记"
+      },
+      "description": {
+        "en": "Rectangular tokens that give information and are sometimes shown to players at night. For example, the \"This is the Demon\" info token.",
+        "cn": "方形的标记，用于给出信息，会在夜晚的某些时候向玩家展示。例如，“这是恶魔”标记。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "in_play",
+      "name": {
+        "en": "In play",
+        "cn": "在场"
+      },
+      "description": {
+        "en": "A character that exists in the current game, either alive or dead.",
+        "cn": "指在当前游戏中存在的角色，可能存活或已死亡。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "leaf",
+      "name": {
+        "en": "Leaf",
+        "cn": "叶子"
+      },
+      "description": {
+        "en": "The small green and orange symbols on many character tokens that help the Storyteller run the game. Green leaves on the top show the number of reminder tokens to add to the Grimoire. A green leaf on the left shows that the character needs a night token on the first night. A green leaf on the right shows that the character needs a night token on each night except the first. An orange leaf means that the character setup is different than normal for this game.",
+        "cn": "在一些角色标记上出现的有颜色区分的记号，用于辅助说书人来进行游戏。顶侧的绿色叶子会显示该角色会添加进魔典的提示标记的数量。左侧的绿色叶子代表该角色需要一个夜晚标记用于首个夜晚。右侧的绿色叶子代表该角色需要一个夜晚标记用于其他夜晚。橙色的花瓣代表该角色会在游戏的常规初始设置上修改设置方式。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "life_token",
+      "name": {
+        "en": "Life token",
+        "cn": "生命标记"
+      },
+      "description": {
+        "en": "These tokens are placed on the Town Square, corresponding to the players' seating positions, and show which players are alive or dead. The parchment side shows that the player is alive, and the black side shows that the player is dead.",
+        "cn": "放置在小镇广场上的标记，每个标记对应一个玩家的座位，会展示有哪些玩家存活或已死亡。标记较亮的一面表示该玩家存活，较暗的一面表示该玩家已死亡。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "lose",
+      "name": {
+        "en": "Lose",
+        "cn": "落败"
+      },
+      "description": {
+        "en": "At the end of the game, one team will lose. Dead and alive players lose as a team. Evil loses when the Demon dies. Good loses when there are only two alive players, not including Travellers.",
+        "cn": "在一局游戏结束时，某一阵营会落败。如果某一阵营落败，该阵营内的所有玩家均会落败，不论这些玩家是否存活。当所有恶魔死亡时，邪恶阵营落败。当仅有两名玩家存活时（旅行者的数量不计算在内），善良阵营落败。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "mad",
+      "name": {
+        "en": "Mad",
+        "cn": "疯狂"
+      },
+      "description": {
+        "en": "A player who is \"mad\"  about something is trying to convince the group that something is true. Some players are instructed to be mad about something - if the Storyteller thinks that a player has not put effort to convince the group of the thing they are mad about, then a penalty may apply. Some players are instructed to not be mad about something - if the Storyteller thinks that a player has tried to convince the group of that thing, then a penalty may apply.",
+        "cn": "处于疯狂状态的玩家需要尝试向他人证明某件事情是正确的。一些玩家会被告知需要疯狂证明某事——如果说书人认为该玩家没有尝试向他人证明那件事情，可能会有相应的惩罚出现。一些玩家会被告知需要避免疯狂证明某事——如果说书人认为该玩家尝试向他人证明那件事情，可能会有相应的惩罚出现。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E7%96%AF%E7%8B%82"
+      }
+    },
+    {
+      "id": "might",
+      "name": {
+        "en": "Might",
+        "cn": "可能"
+      },
+      "description": {
+        "en": "Shorthand on character sheets and tokens. Something that \"might\" happen means the Storyteller chooses whether it happens or not.",
+        "cn": "在角色标记与角色列表上的缩略词。某件事情“可能”发生，代表由说书人来决定该事情是否发生。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "minion",
+      "name": {
+        "en": "Minion",
+        "cn": "爪牙"
+      },
+      "description": {
+        "en": "A type of character that begins evil. Minions have abilities that help the evil team. There are usually 1 to 3 Minions per game. The Traveller sheet lists the number of Minions in the current game.",
+        "cn": "一种初始为邪恶阵营的角色类型。爪牙拥有能协助邪恶阵营的能力。一局游戏中通常会有一至三名爪牙。旅行者列表中列举了不同游戏人数下的爪牙数量。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E7%88%AA%E7%89%99"
+      }
+    },
+    {
+      "id": "minion_info",
+      "name": {
+        "en": "Minion info",
+        "cn": "爪牙信息"
+      },
+      "description": {
+        "en": "Shorthand on the night sheet, representing the information that the Minions receive on the first night if there are 7 or more players. The Minions learn which other players are Minions, and which player the Demon is.",
+        "cn": "缩略词，出现在七人以上的游戏中夜晚顺序表上，代表爪牙玩家在首个夜晚时获得的信息。爪牙会得知还有哪些玩家是爪牙，以及得知哪位玩家是恶魔。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "neighbors",
+      "name": {
+        "en": "Neighbors",
+        "cn": "与之邻近的玩家"
+      },
+      "description": {
+        "en": "The two players, whether dead or alive, sitting one seat clockwise and counterclockwise from the player in question.",
+        "cn": "在座次上与相关玩家分别为顺时针和逆时针距离最近的两名玩家。例如：与之邻近的存活玩家为在顺时针和逆时针上距离最近的两名存活玩家，与之邻近的镇民玩家为在顺时针和逆时针上距离最近的两名镇民玩家。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E9%82%BB%E8%BF%91"
+      }
+    },
+    {
+      "id": "night",
+      "name": {
+        "en": "Night",
+        "cn": "夜晚"
+      },
+      "description": {
+        "en": "The game phase in which players close their eyes, and certain characters wake to act or receive information. The game begins with the night phase. Each day is followed by a night. Each night is followed by a day.",
+        "cn": "所有玩家闭眼，特定玩家会被唤醒以进行行动或获取信息的阶段。游戏会从夜晚阶段开始。每个夜晚阶段结束后，会进入白天阶段。每个白天阶段结束后，会进入夜晚阶段。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "night_sheet",
+      "name": {
+        "en": "Night sheet",
+        "cn": "夜晚顺序表"
+      },
+      "description": {
+        "en": "The sheet the Storyteller uses to know which characters act in which order at night. The night sheet has one side to use on the first night and one side to use on all other nights.",
+        "cn": "说书人用于知晓哪些角色会以哪种顺序进行行动的列表。夜晚顺序表的一面适用于首个夜晚，另一面适用于其他夜晚。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "night_token",
+      "name": {
+        "en": "Night token",
+        "cn": "夜晚标记"
+      },
+      "description": {
+        "en": "The tokens that the Storyteller puts next to the night sheet to indicate which characters may need to act tonight. Which night tokens are needed is indicated by the leaves on the left and right of each character token.",
+        "cn": "说书人放置在夜晚顺序表旁边，用于表示哪些角色需要进行夜晚行动的标记。角色标记上左右两侧的叶子显示了这些角色是否需要对应的夜晚标记。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "nomination",
+      "name": {
+        "en": "Nomination",
+        "cn": "提名"
+      },
+      "description": {
+        "en": "The act of declaring a group vote to execute a player, which is echoed by the Storyteller. Players may nominate once per day, and can be nominated once per day. Only alive players may nominate.",
+        "cn": "被说书人宣告的，玩家发起集体投票以处决一名玩家的行为。每名玩家每个白天能发起一次提名，每名玩家每个白天仅能被提名一次。只有存活玩家才可以发起提名。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%8F%90%E5%90%8D"
+      }
+    },
+    {
+      "id": "not_in_play",
+      "name": {
+        "en": "Not in play",
+        "cn": "不在场"
+      },
+      "description": {
+        "en": "A character that does not exist in the current game, but is on the character sheet.",
+        "cn": "指在当前游戏中不存在，但出现在角色列表上的角色。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "once_per_game",
+      "name": {
+        "en": "Once per game",
+        "cn": "每局游戏限一次"
+      },
+      "description": {
+        "en": "An ability that can be used only once. If a player dies before using their ability, or if they use their ability, even while drunk or poisoned, they cannot use their ability again.",
+        "cn": "一项玩家仅能使用一次的能力。如果一名玩家使用了这种能力，即使该玩家在使用能力时醉酒或中毒，该玩家也无法再次使用这种能力。如果一名玩家在未使用这种能力的情况下死亡，该玩家失去使用机会。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E9%99%90%E6%AC%A1%E8%83%BD%E5%8A%9B"
+      }
+    },
+    {
+      "id": "outsider",
+      "name": {
+        "en": "Outsider",
+        "cn": "外来者"
+      },
+      "description": {
+        "en": "A type of character that begins good. Outsiders have abilities that are unhelpful to the good team. The Traveller sheet lists how many Outsiders are in the current game.",
+        "cn": "一种初始为善良阵营的角色类型。外来者拥有对善良阵营无用的能力。旅行者列表中列举了不同游戏人数下的外来者数量。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E5%A4%96%E6%9D%A5%E8%80%85"
+      }
+    },
+    {
+      "id": "player",
+      "name": {
+        "en": "Player",
+        "cn": "玩家"
+      },
+      "description": {
+        "en": "Any person who has an in-play character, not including the Storyteller.",
+        "cn": "任何拥有一个在场角色的人，说书人不包括在内。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "poisoned",
+      "name": {
+        "en": "Poisoned",
+        "cn": "中毒"
+      },
+      "description": {
+        "en": "A poisoned player has no ability but thinks they do, and the Storyteller acts like they do. If their ability would give them information, the Storyteller may give them false information. Poisoned players do not know they are poisoned. See Drunk.",
+        "cn": "中毒的玩家会失去能力，但会认为自己仍具有能力，说书人会做出这些玩家仍然具有能力的行为。如果中毒玩家的角色能力会给他提供信息，说书人可能会给出错误信息。中毒的玩家不会得知自己中毒。（参考醉酒部分。）"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E4%B8%AD%E6%AF%92"
+      }
+    },
+    {
+      "id": "private",
+      "name": {
+        "en": "Private",
+        "cn": "私下"
+      },
+      "description": {
+        "en": "Anything whispered between two players, or between a player and the Storyteller, so that the other players do not hear it.",
+        "cn": "两名玩家之间，或一名玩家与说书人之间耳语的内容，以使其他玩家无法听到。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "public",
+      "name": {
+        "en": "Public",
+        "cn": "公开"
+      },
+      "description": {
+        "en": "Anything said or done in such a way that most players, including the Storyteller, are aware that it happened.",
+        "cn": "让绝大多数玩家及说书人知晓的内容或行为。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E5%85%AC%E5%BC%80%E8%A7%A6%E5%8F%91%E8%83%BD%E5%8A%9B"
+      }
+    },
+    {
+      "id": "register",
+      "name": {
+        "en": "Register",
+        "cn": "当作"
+      },
+      "description": {
+        "en": "A player that \"registers as\" a specific character or alignment counts as that character or alignment for game rule purposes, and for other player's abilities. For example, if a good player \"registers as evil\", they are still good (and win when good wins), but they count as evil to characters that detect evil. Registering as a character does not impart that character's ability.",
+        "cn": "具有“被当作”特定的角色或阵营的玩家会在游戏规则或其他玩家的能力中被当作对应的角色或阵营。例如，如果一名善良玩家“被当作邪恶阵营”，该玩家仍然是善良玩家（且会在善良阵营获胜时获胜），但该玩家会在其他探查邪恶阵营的效果作用时被当作邪恶。被当作某种角色并不会真正获取这种角色的能力。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E4%BA%92%E5%8A%A8%E5%B9%B2%E6%89%B0"
+      }
+    },
+    {
+      "id": "reminder_token",
+      "name": {
+        "en": "Reminder token",
+        "cn": "提示标记"
+      },
+      "description": {
+        "en": "The small tokens that help the Storyteller remember all sorts of things. Reminder tokens are specific to a certain character.",
+        "cn": "帮助说书人记录各种事情的小标记。每个提示标记都属于特定的角色。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "resurrected_regurgitated_reborn_raised",
+      "name": {
+        "en": "Resurrected / Regurgitated / Reborn / Raised",
+        "cn": "复活（起死回生/被反刍/重生/破坟）"
+      },
+      "description": {
+        "en": "A dead player becoming alive again. When this happens, the player gains their ability back, even if it was a \"once per game\" ability that had been used. If this ability functions on the first night only, it functions tonight.",
+        "cn": "一名已死亡玩家再次变为存活玩家的行为。当复活发生后，玩家会重新获得能力，即使是那些“每局游戏限一次”且该玩家已使用过的能力也会重新获得。如果该能力是仅在首个夜晚生效的能力，会在复活的当晚生效。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E5%A4%8D%E6%B4%BB"
+      }
+    },
+    {
+      "id": "rules_sheet",
+      "name": {
+        "en": "Rules sheet",
+        "cn": "规则解释"
+      },
+      "description": {
+        "en": "The sheet that is read out at the beginning of a game so that new players can learn the important rules. New players may instead read the sheet privately if they wish.",
+        "cn": "在一局游戏开始时需要念出的内容，以便让新手玩家能够得知重要规则。如果这些玩家愿意，他们也可以选择独自阅读这些规则。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "script",
+      "name": {
+        "en": "Script",
+        "cn": "剧本"
+      },
+      "description": {
+        "en": "A collection of characters, created via the Script Tool, that can be printed to make character sheets.",
+        "cn": "一套多个角色汇集成的列表，通过剧本工具生成，且能被打印并用作角色列表。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "script_tool",
+      "name": {
+        "en": "Script Tool",
+        "cn": "剧本工具"
+      },
+      "description": {
+        "en": "The online character list generator, which allows you to design scripts from any combination of character tokens you own. Use the Script Tool at script.bloodontheclocktower.com.",
+        "cn": "允许你自由组合你所拥有的角色标记并生成剧本的在线工具。官方中文剧本工具"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "setup_sheet",
+      "name": {
+        "en": "Setup sheet",
+        "cn": "初始设置表"
+      },
+      "description": {
+        "en": "The sheet that details what the Storyteller needs to do before beginning a game.",
+        "cn": "详细列举了说书人需要在一局游戏开始时做的事情的列表。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "shroud",
+      "name": {
+        "en": "Shroud",
+        "cn": "帷幕标记"
+      },
+      "description": {
+        "en": "The black and grey banner-shaped token used in the Grimoire to indicate that a player is dead.",
+        "cn": "黑色旗帜形状的标记，用于在魔典中表示一名玩家已死亡。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "sober",
+      "name": {
+        "en": "Sober",
+        "cn": "清醒"
+      },
+      "description": {
+        "en": "Not drunk.",
+        "cn": "未醉酒状态。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "start_knowing",
+      "name": {
+        "en": "Start knowing",
+        "cn": "在你的首个夜晚得知"
+      },
+      "description": {
+        "en": "Shorthand on character sheets and tokens. A character that \"starts knowing\" gains knowledge on the first night or, if such a character is created mid-game, at that point instead.",
+        "cn": "英文原文为缩略词，中文未缩略。“在你的首个夜晚得知”信息的角色会在首个夜晚获取信息，或者如果这种角色在游戏中途产生，则会在那个时间点下获取信息。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E8%BF%9B%E5%9C%BA%E8%83%BD%E5%8A%9B"
+      }
+    },
+    {
+      "id": "state",
+      "name": {
+        "en": "State",
+        "cn": "状态"
+      },
+      "description": {
+        "en": "A current property of a player. A player is always either drunk or sober, either poisoned or healthy, either alive or dead, and either mad or sane.",
+        "cn": "玩家当前所具有的特性。玩家总是会处于下述几项对立状态之中的一种：醉酒或清醒，中毒或健康，存活或死亡，善良或邪恶，疯狂或理智。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "storyteller",
+      "name": {
+        "en": "Storyteller",
+        "cn": "说书人"
+      },
+      "description": {
+        "en": "The person who runs the game. The Storyteller keeps the Grimoire, follows the rules of the game, and makes the final decision on what happens when a situation needs adjudication.",
+        "cn": "主持游戏的人。说书人会持有魔典，遵从游戏规则，且对需要进行判断的状况做出最终决定。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "team",
+      "name": {
+        "en": "Team",
+        "cn": "阵营"
+      },
+      "description": {
+        "en": "All players sharing an alignment. \"Your team\" means \"You and all other players that have the same alignment as you\".",
+        "cn": "玩家当前所属的队伍。阵营有善良与邪恶之分。如果玩家改变了阵营，他的角色会保留与之前一致。如果玩家改变了角色，他的阵营会保留与之前一致。玩家始终会得知其当前的阵营。“你的阵营”指代“你和与你同一阵营的所有其他玩家”。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E9%98%B5%E8%90%A5%E8%BD%AC%E5%8F%98"
+      }
+    },
+    {
+      "id": "think",
+      "name": {
+        "en": "Think",
+        "cn": "以为"
+      },
+      "description": {
+        "en": "A player who \"thinks\" they are a different character receives a character token that does not match their true character in the Grimoire. The Storyteller pretends to this player that they are this false character.",
+        "cn": "如果一名玩家以为自己是不同于原本角色的其他角色，该玩家会收到一个与魔典中他的实际角色不符的角色标记。说书人会做出虚假的行为让该玩家以为自己是这个错误的角色。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E8%AE%A4%E7%9F%A5%E8%A6%86%E7%9B%96"
+      }
+    },
+    {
+      "id": "tomorrow",
+      "name": {
+        "en": "Tomorrow",
+        "cn": "明天"
+      },
+      "description": {
+        "en": "The day phase and the night phase following the current night phase.",
+        "cn": "在当前夜晚阶段之后的下一个白天和夜晚阶段。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "townsfolk",
+      "name": {
+        "en": "Townsfolk",
+        "cn": "镇民"
+      },
+      "description": {
+        "en": "A type of good character. Townsfolk have abilities that help the good team. Usually, most in-play characters are Townsfolk. The Traveller sheet lists the number of Townsfolk in the current game.",
+        "cn": "一种初始为善良阵营的角色类型。镇民拥有能协助善良阵营的能力。通常来说，绝大多数在场角色都会是镇民。旅行者列表中列举了不同游戏人数下的镇民数量。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E9%95%87%E6%B0%91"
+      }
+    },
+    {
+      "id": "town_square",
+      "name": {
+        "en": "Town Square",
+        "cn": "城镇广场"
+      },
+      "description": {
+        "en": "The grey cardboard sheet in the center of the seats. The Town Square has the player's life tokens and vote tokens on it, and the Traveller sheet under it.",
+        "cn": "放置在游戏区域正中的紫色游戏面板。城镇广场上会有玩家的生命标记和投票标记，在下方会放置旅行者列表。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "traveller",
+      "name": {
+        "en": "Traveller",
+        "cn": "旅行者"
+      },
+      "description": {
+        "en": "A type of character for players who are late to join or who expect to leave early. The player chooses their character, and the Storyteller chooses their alignment. Travellers have great power, but may be exiled by the group.",
+        "cn": "一种为晚到或想要提前离开的玩家准备的角色类型。由玩家自己选择旅行者角色，然后由说书人来选择旅行者玩家的阵营。旅行者具有强大的能力，但能被玩家集体流放。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%97%85%E8%A1%8C%E8%80%85"
+      }
+    },
+    {
+      "id": "traveller_sheet",
+      "name": {
+        "en": "Traveller Sheet",
+        "cn": "旅行者列表"
+      },
+      "description": {
+        "en": "The sheet placed under the Town Square. It lists how many Outsiders and Minions are in the current game and what the Travellers' abilities are.",
+        "cn": "放置于小镇广场之下的列表。列举出了当前游戏中会有多少名镇民、外来者、爪牙和恶魔，且列举了所有旅行者的能力。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "true_info",
+      "name": {
+        "en": "True info",
+        "cn": "正确信息"
+      },
+      "description": {
+        "en": "True information, such as a true statement, gesture, or character token. The Storyteller must always give true information about the rules. See False info.",
+        "cn": "正确的信息，例如正确的陈述，手势，或角色标记。说书人必须始终给出关于游戏规则的正确信息。（参考错误信息部分。）"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "type",
+      "name": {
+        "en": "Type",
+        "cn": "角色类型"
+      },
+      "description": {
+        "en": "A class of character-Townsfolk, Outsider, Minion, Demon, Traveller, or Fabled.",
+        "cn": "用于区分不同种类的角色：镇民、外来者、爪牙、恶魔、旅行者、传奇角色或奇遇角色。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "vote",
+      "name": {
+        "en": "Vote",
+        "cn": "投票"
+      },
+      "description": {
+        "en": "Raising a hand when the Storyteller is counting the number of players in favor of an execution. Players may vote as many times as they want per day. A dead player may only vote once for the rest of the game. The votes are tallied clockwise, ending with the nominated player. The exile process, though similar, is not a vote. See Exile.",
+        "cn": "当说书人统计一次处决提名时，举手表示赞成这次处决的行为。每个白天玩家可以进行任意次数的投票。已死亡玩家在余下的游戏时间里只能进行一次投票。投票会以顺时针方向进行统计，并终止于当前被提名的玩家。流放流程，虽然与投票相似，但并不是投票。（参考流放部分。）"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%8A%95%E7%A5%A8"
+      }
+    },
+    {
+      "id": "vote_token",
+      "name": {
+        "en": "Vote token",
+        "cn": "投票标记"
+      },
+      "description": {
+        "en": "The round white circular token that is put on a player's life token when they die. When this dead player votes, they remove their vote token and cannot vote for the rest of the game.",
+        "cn": "当玩家死亡时，被放置于玩家生命标记之上的圆形标记。当已死亡玩家投票后，其投票标记会移除，且无法在余下的游戏时间里进行投票。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "wake",
+      "name": {
+        "en": "Wake",
+        "cn": "唤醒"
+      },
+      "description": {
+        "en": "A player opening their eyes at night. The Storyteller wakes a player by tapping twice on the knee or shoulder, and wakes all players by saying \"eyes open, everybody\" at dawn.",
+        "cn": "在夜晚阶段时玩家睁开眼睛的行为。说书人会在玩家的膝盖或肩膀上轻拍两下以唤醒一名玩家，或在黎明时宣布“所有人睁眼”以唤醒所有玩家。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    },
+    {
+      "id": "win",
+      "name": {
+        "en": "Win",
+        "cn": "获胜"
+      },
+      "description": {
+        "en": "At the end of the game, one team will win. Alive and dead players win as a team. Good wins when the Demon dies. Evil wins when there are only two alive players, not including Travellers.",
+        "cn": "在一局游戏结束时，某一阵营会获胜。如果某一阵营获胜，该阵营内的所有玩家均会获胜，不论这些玩家是否存活。当所有恶魔死亡时，善良阵营获胜。当仅有两名玩家存活时（旅行者的数量不计算在内），邪恶阵营获胜。"
+      },
+      "source_url": {
+        "en": "https://wiki.bloodontheclocktower.com/Glossary",
+        "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E6%9C%AF%E8%AF%AD%E6%B1%87%E6%80%BB"
+      },
+      "detail_url": {
+        "en": null,
+        "cn": null
+      }
+    }
+  ]
+}

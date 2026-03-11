@@ -1,0 +1,71 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { defaultLang, getSupportedLangs, useTranslations } from '../../../../i18n/utils';
+
+const supportedLangCodes = getSupportedLangs().map(({ code }) => code);
+
+export function getStaticPaths() {
+  return getSupportedLangs().map(({ code }) => ({ params: { lang: code } }));
+}
+
+const rules = await getCollection('rules');
+const { lang } = Astro.params;
+const validatedLang = lang && supportedLangCodes.includes(lang) ? lang : defaultLang;
+const { t } = useTranslations(validatedLang);
+
+const glossary = rules.find(rule => rule.id === 'glossary');
+const terms = Array.isArray(glossary?.data?.terms) ? glossary.data.terms : [];
+
+const sortedTerms = [...terms].sort((a: any, b: any) => {
+  const aName = (a?.name?.[validatedLang] || a?.name?.en || '') as string;
+  const bName = (b?.name?.[validatedLang] || b?.name?.en || '') as string;
+
+  if (validatedLang === 'cn') {
+    return aName.localeCompare(bName, 'zh-CN-u-co-pinyin');
+  }
+
+  return aName.localeCompare(bName, 'en');
+});
+---
+
+<BaseLayout title={`${t('glossary.title')} | Wiki`}>
+  <div class="mb-8">
+    <p class="uppercase tracking-[0.4em] text-xs text-[color:var(--ink-200)]">Lexicon</p>
+    <h1 class="font-display text-4xl sm:text-5xl mt-3 mb-3 text-[color:var(--ink-50)]">
+      {t('glossary.title')}
+    </h1>
+    <p class="text-base sm:text-lg text-[color:var(--ink-200)] max-w-2xl">
+      {validatedLang === 'cn'
+        ? '按术语浏览血染钟楼常用规则词汇。'
+        : 'Browse common Blood on the Clocktower terms and definitions.'}
+    </p>
+  </div>
+
+  <div class="surface-panel rounded-2xl p-6 sm:p-8">
+    <div class="space-y-6">
+      {sortedTerms.map((term: any) => {
+        const name = term?.name?.[validatedLang] || term?.name?.en || '';
+        const description = term?.description?.[validatedLang] || term?.description?.en || '';
+        const detailUrl = term?.detail_url?.[validatedLang] || term?.detail_url?.en || null;
+
+        return (
+          <article class="pb-6 border-b soft-divider last:border-b-0 last:pb-0">
+            <h2 class="font-display text-2xl text-[color:var(--ink-50)] mb-2">{name}</h2>
+            <p class="text-[color:var(--ink-200)] leading-relaxed">{description}</p>
+            {detailUrl && (
+              <a
+                href={detailUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-block mt-2 text-[color:var(--accent-gold)] hover:underline"
+              >
+                {t('glossary.learnMore')} ->
+              </a>
+            )}
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</BaseLayout>

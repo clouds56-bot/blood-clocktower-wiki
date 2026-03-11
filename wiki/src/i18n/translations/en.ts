@@ -2,6 +2,7 @@ export const en = {
   'nav.characters': 'Characters',
   'nav.editions': 'Editions',
   'nav.rules': 'Rules',
+  'nav.glossary': 'Glossary',
   'home.title': 'Blood on the Clocktower',
   'home.subtitle': 'Welcome to the open-source, interactive wiki for the greatest social deduction game. Browse characters, rule sets, and explore mechanics.',
   'home.btn.characters': 'View Characters',
@@ -21,5 +22,7 @@ export const en = {
   'editions.back': '← Back to Editions',
   'rules.back': '← Back to Rules',
   'rules.title': 'Rules & Setup',
+  'glossary.title': 'Glossary',
+  'glossary.learnMore': 'Learn more',
   'footer.text': 'Unofficial Blood on the Clocktower Wiki. Data sourced from official wikis.',
 } as const;
