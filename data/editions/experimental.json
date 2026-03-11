@@ -19,6 +19,8 @@
       "choirboy",
       "cult_leader",
       "engineer",
+      "farmer",
+      "fisherman",
       "general",
       "high_priestess",
       "huntsman",
@@ -32,6 +34,8 @@
       "poppy_grower",
       "preacher",
       "princess",
+      "shugenja",
+      "steward",
       "village_idiot"
     ],
     "outsider": [

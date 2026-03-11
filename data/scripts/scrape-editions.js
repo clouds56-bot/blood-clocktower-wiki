@@ -140,15 +140,88 @@ function parseChineseNightOrder($, cnToId) {
     other_nights: []
   };
 
+  const specialByImageName = {
+    dusk: 'dusk',
+    dawn: 'dawn',
+    mi: 'minioninfo',
+    minioninfo: 'minioninfo',
+    di: 'demoninfo',
+    demoninfo: 'demoninfo'
+  };
+
+  const normalizeImageName = value => {
+    if (!value) return null;
+    return value
+      .toLowerCase()
+      .replace(/\.[a-z0-9]+$/, '')
+      .replace(/[^a-z0-9]/g, '');
+  };
+
+  const normalizeCharacterIdFromImage = value => {
+    if (!value) return null;
+    return value
+      .toLowerCase()
+      .replace(/\.[a-z0-9]+$/, '')
+      .replace(/[^a-z0-9]+/g, '_')
+      .replace(/_+/g, '_')
+      .replace(/^_|_$/g, '');
+  };
+
+  const mapEntryId = $elem => {
+    const img = $elem.find('img').first();
+    if (img.length > 0) {
+      const src = img.attr('src') || '';
+      const fileFromSrc = src.split('/').pop() || '';
+      const fileName = fileFromSrc.replace(/^\d+px-/, '');
+      const imgName = normalizeImageName(fileName);
+
+      if (imgName && specialByImageName[imgName]) {
+        return specialByImageName[imgName];
+      }
+    }
+
+    const link = $elem.find('a[title]').filter(function() {
+      const title = $(this).attr('title') || '';
+      return title && title !== '暗流涌动' && title !== '黯月初升' && title !== '梦殒春宵';
+    }).first();
+
+    if (link.length > 0) {
+      const cnName = link.attr('title');
+      if (cnName && cnToId[cnName]) {
+        return cnToId[cnName].id;
+      }
+    }
+
+    const text = $elem.text().trim();
+    for (const [cnName, info] of Object.entries(cnToId)) {
+      if (text.startsWith(cnName) || text.includes(` ${cnName}`)) {
+        return info.id;
+      }
+    }
+
+    if (img.length > 0) {
+      const src = img.attr('src') || '';
+      const fileFromSrc = src.split('/').pop() || '';
+      const fileName = fileFromSrc.replace(/^\d+px-/, '');
+      const charIdFromImage = normalizeCharacterIdFromImage(fileName);
+      if (charIdFromImage) {
+        return charIdFromImage;
+      }
+    }
+
+    return null;
+  };
+
   const header = $('h2:contains("夜晚顺序表"), h3:contains("夜晚顺序表")').first();
   if (header.length === 0) return nightOrder;
 
   const section = header.nextUntil('h2, h3');
 
   let currentSection = null;
-  let firstNightOrder = 1;
-  let otherNightsOrder = 1;
-  const seen = new Set();
+  const seenPerSection = {
+    first_night: new Set(),
+    other_nights: new Set()
+  };
 
   section.each(function() {
     const $elem = $(this);
@@ -162,23 +235,12 @@ function parseChineseNightOrder($, cnToId) {
         currentSection = 'other_nights';
       }
     } else if (tagName === 'P' && currentSection) {
-      const link = $elem.find('a').first();
-      if (link.length === 0) return;
+      const entryId = mapEntryId($elem);
+      if (!entryId) return;
+      if (seenPerSection[currentSection].has(entryId)) return;
 
-      const cnName = link.attr('title');
-      if (!cnName) return;
-
-      const charInfo = cnToId[cnName];
-      if (charInfo && !seen.has(charInfo.id)) {
-        const entry = {
-          number: currentSection === 'first_night' ? firstNightOrder++ : otherNightsOrder++,
-          character: charInfo.id,
-          type: charInfo.type
-        };
-
-        nightOrder[currentSection].push(entry);
-        seen.add(charInfo.id);
-      }
+      nightOrder[currentSection].push(entryId);
+      seenPerSection[currentSection].add(entryId);
     }
   });
 

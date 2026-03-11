@@ -44,78 +44,33 @@
   "max_players": null,
   "night_order": {
     "first_night": [
-      {
-        "number": 1,
-        "character": "spy",
-        "type": "minion"
-      },
-      {
-        "number": 2,
-        "character": "poisoner",
-        "type": "minion"
-      },
-      {
-        "number": 3,
-        "character": "washerwoman",
-        "type": "townsfolk"
-      },
-      {
-        "number": 4,
-        "character": "librarian",
-        "type": "townsfolk"
-      },
-      {
-        "number": 5,
-        "character": "investigator",
-        "type": "townsfolk"
-      },
-      {
-        "number": 6,
-        "character": "chef",
-        "type": "townsfolk"
-      },
-      {
-        "number": 7,
-        "character": "empath",
-        "type": "townsfolk"
-      },
-      {
-        "number": 8,
-        "character": "fortune_teller",
-        "type": "townsfolk"
-      },
-      {
-        "number": 9,
-        "character": "butler",
-        "type": "outsider"
-      }
+      "spy",
+      "dusk",
+      "minioninfo",
+      "demoninfo",
+      "poisoner",
+      "washerwoman",
+      "librarian",
+      "investigator",
+      "chef",
+      "empath",
+      "fortune_teller",
+      "butler",
+      "dawn"
     ],
     "other_nights": [
-      {
-        "number": 1,
-        "character": "monk",
-        "type": "townsfolk"
-      },
-      {
-        "number": 2,
-        "character": "scarlet_woman",
-        "type": "minion"
-      },
-      {
-        "number": 3,
-        "character": "imp",
-        "type": "demon"
-      },
-      {
-        "number": 4,
-        "character": "ravenkeeper",
-        "type": "townsfolk"
-      },
-      {
-        "number": 5,
-        "character": "undertaker",
-        "type": "townsfolk"
-      }
+      "dusk",
+      "poisoner",
+      "monk",
+      "spy",
+      "scarlet_woman",
+      "imp",
+      "ravenkeeper",
+      "undertaker",
+      "empath",
+      "fortune_teller",
+      "butler",
+      "dawn"
     ]
   },
   "source_url": {

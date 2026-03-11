@@ -47,103 +47,41 @@
   "max_players": null,
   "night_order": {
     "first_night": [
-      {
-        "number": 1,
-        "character": "lunatic",
-        "type": "outsider"
-      },
-      {
-        "number": 2,
-        "character": "sailor",
-        "type": "townsfolk"
-      },
-      {
-        "number": 3,
-        "character": "courtier",
-        "type": "townsfolk"
-      },
-      {
-        "number": 4,
-        "character": "godfather",
-        "type": "minion"
-      },
-      {
-        "number": 5,
-        "character": "devil_s_advocate",
-        "type": "minion"
-      },
-      {
-        "number": 6,
-        "character": "pukka",
-        "type": "demon"
-      },
-      {
-        "number": 7,
-        "character": "grandmother",
-        "type": "townsfolk"
-      },
-      {
-        "number": 8,
-        "character": "chambermaid",
-        "type": "townsfolk"
-      }
+      "dusk",
+      "minioninfo",
+      "lunatic",
+      "demoninfo",
+      "sailor",
+      "courtier",
+      "godfather",
+      "devil_s_advocate",
+      "pukka",
+      "grandmother",
+      "chambermaid",
+      "dawn"
     ],
     "other_nights": [
-      {
-        "number": 1,
-        "character": "innkeeper",
-        "type": "townsfolk"
-      },
-      {
-        "number": 2,
-        "character": "gambler",
-        "type": "townsfolk"
-      },
-      {
-        "number": 3,
-        "character": "exorcist",
-        "type": "townsfolk"
-      },
-      {
-        "number": 4,
-        "character": "zombuul",
-        "type": "demon"
-      },
-      {
-        "number": 5,
-        "character": "shabaloth",
-        "type": "demon"
-      },
-      {
-        "number": 6,
-        "character": "po",
-        "type": "demon"
-      },
-      {
-        "number": 7,
-        "character": "assassin",
-        "type": "minion"
-      },
-      {
-        "number": 8,
-        "character": "professor",
-        "type": "townsfolk"
-      },
-      {
-        "number": 9,
-        "character": "gossip",
-        "type": "townsfolk"
-      },
-      {
-        "number": 10,
-        "character": "tinker",
-        "type": "outsider"
-      },
-      {
-        "number": 11,
-        "character": "moonchild",
-        "type": "outsider"
-      }
+      "dusk",
+      "sailor",
+      "innkeeper",
+      "courtier",
+      "gambler",
+      "devil_s_advocate",
+      "lunatic",
+      "exorcist",
+      "zombuul",
+      "pukka",
+      "shabaloth",
+      "po",
+      "assassin",
+      "godfather",
+      "professor",
+      "gossip",
+      "tinker",
+      "moonchild",
+      "grandmother",
+      "chambermaid",
+      "dawn"
     ]
   },
   "source_url": {

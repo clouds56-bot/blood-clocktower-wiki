@@ -9,10 +9,107 @@ const path = require('path');
 const cheerio = require('cheerio');
 
 const BASE_URL = 'https://wiki.bloodontheclocktower.com';
+const CN_BASE_URL = 'https://clocktower-wiki.gstonegames.com/index.php?title=';
 const EXTRACTED_DIR = path.join(__dirname, '..', '..', 'extracted');
 const INPUT_FILE = path.join(EXTRACTED_DIR, 'characters.wiki.en.jsonl');
 const OUTPUT_FILE = path.join(EXTRACTED_DIR, 'characters.token.jsonl');
 const CACHE_DIR = path.join(__dirname, '..', '..', '.cache', 'html');
+const TOKEN_ASSETS_DIR = path.join(__dirname, '..', '..', 'assets', 'tokens');
+
+const SPECIAL_TOKEN_PATTERNS = {
+  dusk: ['dusk.png'],
+  minioninfo: ['mi.png', 'minioninfo.png'],
+  demoninfo: ['di.png', 'demoninfo.png'],
+  dawn: ['dawn.png']
+};
+
+function toAbsoluteUrl(url, pageUrl) {
+  if (!url) return null;
+  if (url.startsWith('http://') || url.startsWith('https://')) return url;
+  if (url.startsWith('//')) return `https:${url}`;
+  if (url.startsWith('/')) {
+    return `${new URL(pageUrl).origin}${url}`;
+  }
+  return new URL(url, pageUrl).toString();
+}
+
+function toOriginalMediaWikiImageUrl(url) {
+  if (!url) return null;
+  return url.replace(/\/images\/thumb\/(.+?)\/\d+px-[^/]+$/i, '/images/$1');
+}
+
+async function downloadImage(url, outputPath) {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status} downloading ${url}`);
+  }
+
+  const data = Buffer.from(await response.arrayBuffer());
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  fs.writeFileSync(outputPath, data);
+}
+
+async function fetchSpecialTokenImageUrls() {
+  const pageUrl = `${CN_BASE_URL}${encodeURIComponent('暗流涌动')}`;
+  const response = await fetch(pageUrl);
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status} when fetching ${pageUrl}`);
+  }
+
+  const html = await response.text();
+  const $ = cheerio.load(html);
+  const urlsById = {};
+
+  $('#mw-content-text img').each(function() {
+    const src = $(this).attr('src') || '';
+    const dataSrc = $(this).attr('data-src') || '';
+    const srcset = $(this).attr('srcset') || '';
+    const candidates = [src, dataSrc]
+      .concat(srcset ? srcset.split(',').map(part => part.trim().split(' ')[0]) : [])
+      .filter(Boolean);
+
+    for (const candidate of candidates) {
+      const abs = toAbsoluteUrl(candidate, pageUrl);
+      const original = toOriginalMediaWikiImageUrl(abs);
+      const lower = (original || '').toLowerCase();
+
+      for (const [id, patterns] of Object.entries(SPECIAL_TOKEN_PATTERNS)) {
+        if (urlsById[id]) continue;
+        if (patterns.some(pattern => lower.includes(`/${pattern}`))) {
+          urlsById[id] = original;
+        }
+      }
+    }
+  });
+
+  return urlsById;
+}
+
+async function downloadSpecialTokenImages() {
+  console.log('\n📦 Downloading special token images...');
+  const urlsById = await fetchSpecialTokenImageUrls();
+
+  let downloaded = 0;
+  for (const id of Object.keys(SPECIAL_TOKEN_PATTERNS)) {
+    const outputPath = path.join(TOKEN_ASSETS_DIR, `${id}.png`);
+    if (fs.existsSync(outputPath)) {
+      console.log(`  ✓ ${id}.png already exists`);
+      continue;
+    }
+
+    const url = urlsById[id];
+    if (!url) {
+      console.warn(`  ⚠️ Could not locate image URL for ${id}`);
+      continue;
+    }
+
+    await downloadImage(url, outputPath);
+    downloaded += 1;
+    console.log(`  ↓ ${id}.png`);
+  }
+
+  console.log(`✅ Downloaded ${downloaded} special token images`);
+}
 
 function extractTokenUrl(html) {
   const $ = cheerio.load(html);
@@ -47,7 +144,7 @@ function extractTokenUrl(html) {
   return tokenUrl;
 }
 
-function main() {
+async function main() {
   if (!fs.existsSync(INPUT_FILE)) {
     console.error('Error: English JSONL not found. Run pipeline/en.js first.');
     process.exit(1);
@@ -84,6 +181,15 @@ function main() {
   const payload = allTokens.map(d => JSON.stringify(d)).join('\n');
   fs.writeFileSync(OUTPUT_FILE, payload, 'utf8');
   console.log(`\n✅ Wrote ${allTokens.length} token urls to ${OUTPUT_FILE}`);
+
+  try {
+    await downloadSpecialTokenImages();
+  } catch (error) {
+    console.warn(`⚠️ Failed to download special token images: ${error.message}`);
+  }
 }
 
-main();
+main().catch(error => {
+  console.error(`❌ ${error.message}`);
+  process.exit(1);
+});

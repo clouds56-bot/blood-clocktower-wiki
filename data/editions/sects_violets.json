@@ -47,113 +47,42 @@
   "max_players": null,
   "night_order": {
     "first_night": [
-      {
-        "number": 1,
-        "character": "philosopher",
-        "type": "townsfolk"
-      },
-      {
-        "number": 2,
-        "character": "snake_charmer",
-        "type": "townsfolk"
-      },
-      {
-        "number": 3,
-        "character": "evil_twin",
-        "type": "minion"
-      },
-      {
-        "number": 4,
-        "character": "witch",
-        "type": "minion"
-      },
-      {
-        "number": 5,
-        "character": "cerenovus",
-        "type": "minion"
-      },
-      {
-        "number": 6,
-        "character": "clockmaker",
-        "type": "townsfolk"
-      },
-      {
-        "number": 7,
-        "character": "dreamer",
-        "type": "townsfolk"
-      },
-      {
-        "number": 8,
-        "character": "seamstress",
-        "type": "townsfolk"
-      },
-      {
-        "number": 9,
-        "character": "mathematician",
-        "type": "townsfolk"
-      }
+      "dusk",
+      "minioninfo",
+      "demoninfo",
+      "philosopher",
+      "snake_charmer",
+      "evil_twin",
+      "witch",
+      "cerenovus",
+      "clockmaker",
+      "dreamer",
+      "seamstress",
+      "mathematician",
+      "dawn"
     ],
     "other_nights": [
-      {
-        "number": 1,
-        "character": "pit_hag",
-        "type": "minion"
-      },
-      {
-        "number": 2,
-        "character": "fang_gu",
-        "type": "demon"
-      },
-      {
-        "number": 3,
-        "character": "vigormortis",
-        "type": "demon"
-      },
-      {
-        "number": 4,
-        "character": "no_dashii",
-        "type": "demon"
-      },
-      {
-        "number": 5,
-        "character": "vortox",
-        "type": "demon"
-      },
-      {
-        "number": 6,
-        "character": "barber",
-        "type": "outsider"
-      },
-      {
-        "number": 7,
-        "character": "sweetheart",
-        "type": "outsider"
-      },
-      {
-        "number": 8,
-        "character": "savant",
-        "type": "townsfolk"
-      },
-      {
-        "number": 9,
-        "character": "flowergirl",
-        "type": "townsfolk"
-      },
-      {
-        "number": 10,
-        "character": "town_crier",
-        "type": "townsfolk"
-      },
-      {
-        "number": 11,
-        "character": "oracle",
-        "type": "townsfolk"
-      },
-      {
-        "number": 12,
-        "character": "juggler",
-        "type": "townsfolk"
-      }
+      "dusk",
+      "philosopher",
+      "snake_charmer",
+      "witch",
+      "cerenovus",
+      "pit_hag",
+      "fang_gu",
+      "vigormortis",
+      "no_dashii",
+      "vortox",
+      "barber",
+      "sweetheart",
+      "sage",
+      "dreamer",
+      "flowergirl",
+      "town_crier",
+      "oracle",
+      "seamstress",
+      "juggler",
+      "mathematician",
+      "dawn"
     ]
   },
   "source_url": {

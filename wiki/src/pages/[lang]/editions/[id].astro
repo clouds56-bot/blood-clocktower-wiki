@@ -52,6 +52,18 @@ const isGoodType = (type: string) =>
 
 const getCharacterPath = (type: string, id: string) => `${type}/${id}`;
 
+const resolveCharacterByNightOrderId = (entryId: string) => {
+  const direct = characterMap.get(entryId);
+  if (direct) return direct;
+
+  const bySuffix = Array.from(characterMap.values()).find((c) => {
+    const parts = c.id.split('/');
+    return parts[parts.length - 1] === entryId;
+  });
+
+  return bySuffix || null;
+};
+
 const resolveImageSrc = (c: any) => {
   const imgField = c.data?.image;
   const id = c.data?.id || c.id.split('/').pop();
@@ -147,18 +159,18 @@ const resolveImageSrc = (c: any) => {
           <div class="mb-6">
             <h3 class="font-display text-xl mb-4 text-[color:var(--ink-50)]">{t('editions.first_night')}</h3>
             <div class="space-y-2">
-              {data.night_order.first_night.map((item: any) => {
-                const fullCharId = getCharacterPath(item.type, item.character);
-                const char = characterMap.get(fullCharId) || characterMap.get(item.character);
-                const charName = char?.data.name?.[validatedLang] || char?.data.name?.en || item.character;
-                const typeLabel = getTypeLabel(item.type);
-                const isGood = isGoodType(item.type);
-                const charPath = char ? char.id : fullCharId;
+              {data.night_order.first_night.map((itemId: string, idx: number) => {
+                const char = resolveCharacterByNightOrderId(itemId);
+                const charType = char?.data?.type || 'special';
+                const charName = char?.data.name?.[validatedLang] || char?.data.name?.en || itemId;
+                const typeLabel = getTypeLabel(charType);
+                const isGood = isGoodType(charType);
+                const charPath = char ? char.id : getCharacterPath(charType, itemId);
 
                 return (
                   <div class="flex items-center gap-3 surface-panel rounded-xl p-3 border border-[rgba(215,180,106,0.2)]">
                     <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[color:var(--bg-700)] flex items-center justify-center text-sm font-semibold text-[color:var(--accent-gold)] border border-[rgba(215,180,106,0.4)]">
-                      {item.number}
+                      {idx + 1}
                     </div>
                     <div class="flex-1 min-w-0">
                       <a href={`${base}/characters/${charPath}`} class="text-[color:var(--ink-50)] hover:text-[color:var(--accent-gold)] transition font-medium">
@@ -179,18 +191,18 @@ const resolveImageSrc = (c: any) => {
           <div>
             <h3 class="font-display text-xl mb-4 text-[color:var(--ink-50)]">{t('editions.other_nights')}</h3>
             <div class="space-y-2">
-              {data.night_order.other_nights.map((item: any) => {
-                const fullCharId = getCharacterPath(item.type, item.character);
-                const char = characterMap.get(fullCharId) || characterMap.get(item.character);
-                const charName = char?.data.name?.[validatedLang] || char?.data.name?.en || item.character;
-                const typeLabel = getTypeLabel(item.type);
-                const isGood = isGoodType(item.type);
-                const charPath = char ? char.id : fullCharId;
+              {data.night_order.other_nights.map((itemId: string, idx: number) => {
+                const char = resolveCharacterByNightOrderId(itemId);
+                const charType = char?.data?.type || 'special';
+                const charName = char?.data.name?.[validatedLang] || char?.data.name?.en || itemId;
+                const typeLabel = getTypeLabel(charType);
+                const isGood = isGoodType(charType);
+                const charPath = char ? char.id : getCharacterPath(charType, itemId);
 
                 return (
                   <div class="flex items-center gap-3 surface-panel rounded-xl p-3 border border-[rgba(215,180,106,0.2)]">
                     <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[color:var(--bg-700)] flex items-center justify-center text-sm font-semibold text-[color:var(--accent-gold)] border border-[rgba(215,180,106,0.4)]">
-                      {item.number}
+                      {idx + 1}
                     </div>
                     <div class="flex-1 min-w-0">
                       <a href={`${base}/characters/${charPath}`} class="text-[color:var(--ink-50)] hover:text-[color:var(--accent-gold)] transition font-medium">
