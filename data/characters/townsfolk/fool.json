@@ -62,10 +62,10 @@
     ]
   },
   "url_param": "Fool",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/d/d9/Icon_fool.png",
   "editions": [
     "bad_moon_rising"
   ],
   "artist": "Anica Kelsen",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/d/d9/Icon_fool.png",
   "image": "assets/tokens/fool.png"
 }

@@ -337,16 +337,19 @@ function buildCombinedCharacters(toolFiles, wikiFiles, tokenFile) {
       if (row.jinxes) patch.jinxes = row.jinxes;
       if (row.source_url) patch.source_url = row.source_url;
       if (row.url_param) patch.url_param = row.url_param;
+      if (row.image_url) patch.image_url = row.image_url;
 
       combined.set(id, mergeInto(existing, patch));
     }
   }
 
-  // 3) Token rows (rename token_url to image_url for consistency)
+  // 3) Token rows
   for (const row of parseJsonl(tokenFile)) {
     if (!row.id || !combined.has(row.id)) continue;
     const existing = combined.get(row.id);
-    existing.image_url = row.token_url;
+    if (row.token_url) {
+      existing.image_url = row.token_url;
+    }
     
     // Check if image file exists and set relative path
     const imagePath = path.join(OUTPUT_DIR, '..', 'assets', 'tokens', `${row.id}.png`);

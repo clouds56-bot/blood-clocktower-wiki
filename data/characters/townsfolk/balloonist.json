@@ -76,6 +76,7 @@
     ]
   },
   "url_param": "Balloonist",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/c/cb/Icon_balloonist.png",
   "editions": [
     "experimental"
   ],
@@ -86,6 +87,5 @@
       "reason": "If the Marionette thinks that they are the Balloonist, an Outsider might have been added during setup."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/c/cb/Icon_balloonist.png",
   "image": "assets/tokens/balloonist.png"
 }

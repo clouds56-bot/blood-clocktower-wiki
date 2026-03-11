@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Copy data/assets into wiki/public so Astro will include token images
+ * Copy data/assets into wiki/public so Astro will include avatar images
  */
 
 const fs = require('fs');

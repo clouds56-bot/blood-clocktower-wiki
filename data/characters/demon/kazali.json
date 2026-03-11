@@ -73,6 +73,7 @@
     ]
   },
   "url_param": "Kazali",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/3/3c/Icon_kazali.png",
   "editions": [
     "experimental"
   ],
@@ -91,6 +92,5 @@
       "reason": "If the Summoner creates a second living Demon, deaths tonight are arbitrary."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/3/3c/Icon_kazali.png",
   "image": "assets/tokens/kazali.png"
 }

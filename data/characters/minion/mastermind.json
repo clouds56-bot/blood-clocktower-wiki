@@ -66,6 +66,7 @@
     ]
   },
   "url_param": "Mastermind",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/d/d5/Icon_mastermind.png",
   "editions": [
     "bad_moon_rising"
   ],
@@ -88,6 +89,5 @@
       "reason": "A Mastermind that has their ability keeps it if the Vigormortis dies."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/d/d5/Icon_mastermind.png",
   "image": "assets/tokens/mastermind.png"
 }

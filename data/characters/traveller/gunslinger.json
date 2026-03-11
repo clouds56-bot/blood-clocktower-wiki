@@ -70,10 +70,10 @@
     ]
   },
   "url_param": "Gunslinger",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/1/1c/Icon_gunslinger.png",
   "editions": [
     "experimental"
   ],
   "artist": "Aidan Roberts",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/1/1c/Icon_gunslinger.png",
   "image": "assets/tokens/gunslinger.png"
 }

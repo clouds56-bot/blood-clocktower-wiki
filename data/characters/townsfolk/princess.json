@@ -57,6 +57,7 @@
     ]
   },
   "url_param": "Princess",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/3/36/Icon_princess.png",
   "editions": [
     "experimental"
   ],
@@ -71,6 +72,5 @@
       "reason": "If the Cannibal nominated, executed, & killed the Princess today, the Demon doesn’t kill tonight."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/3/36/Icon_princess.png",
   "image": "assets/tokens/princess.png"
 }

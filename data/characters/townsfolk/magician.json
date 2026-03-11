@@ -66,6 +66,7 @@
     ]
   },
   "url_param": "Magician",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/9/93/Icon_magician.png",
   "editions": [
     "experimental"
   ],
@@ -100,6 +101,5 @@
       "reason": "After each execution, the living Magician may publicly guess a living player as the Wraith. If correct, the Demon must choose the Wraith tonight."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/9/93/Icon_magician.png",
   "image": "assets/tokens/magician.png"
 }

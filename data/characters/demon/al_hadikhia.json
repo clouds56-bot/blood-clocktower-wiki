@@ -80,6 +80,7 @@
     ]
   },
   "url_param": "Al-Hadikhia",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/1/18/Icon_alhadikhia.png",
   "editions": [
     "experimental"
   ],
@@ -98,6 +99,5 @@
       "reason": "If there would be two Demons, one of which was the Scarlet Woman, the Scarlet Woman becomes the Scarlet Woman again."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/1/18/Icon_alhadikhia.png",
   "image": "assets/tokens/al_hadikhia.png"
 }

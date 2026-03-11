@@ -69,6 +69,7 @@
     ]
   },
   "url_param": "Investigator",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/a/ad/Icon_investigator.png",
   "editions": [
     "trouble_brewing"
   ],
@@ -79,6 +80,5 @@
       "reason": "The Storyteller doesn't declare the Vizier is in play."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/a/ad/Icon_investigator.png",
   "image": "assets/tokens/investigator.png"
 }

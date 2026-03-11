@@ -9,11 +9,12 @@
     "scrape:tool": "node scripts/pipeline/tool.js",
     "scrape:github": "node scripts/pipeline/github.js",
     "scrape:token": "node scripts/pipeline/token.js",
+    "scrape:reminders:en": "node scripts/pipeline/reminders-en.js",
+    "scrape:reminders:cn": "node scripts/pipeline/reminders-cn.js",
     "build:special": "node scripts/pipeline/special.js",
     "build:characters": "node scripts/pipeline/build.js",
-    "scrape:all": "pnpm run scrape:tool && pnpm run scrape:github && pnpm run scrape:en && pnpm run scrape:cn && pnpm run scrape:token && pnpm run build:characters && pnpm run build:special && pnpm run download-images",
+    "scrape:all": "pnpm run scrape:tool && pnpm run scrape:github && pnpm run scrape:en && pnpm run scrape:cn && pnpm run scrape:token && pnpm run scrape:reminders:en && pnpm run scrape:reminders:cn && pnpm run build:characters && pnpm run build:special",
     "scrape:editions": "node scripts/scrape-editions.js",
-    "download-images": "node scripts/download-images.js",
     "test": "echo \"No tests\" && exit 0"
   },
   "dependencies": {

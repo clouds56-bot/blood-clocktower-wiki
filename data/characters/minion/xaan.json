@@ -87,10 +87,10 @@
     ]
   },
   "url_param": "Xaan",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/0/0c/Icon_xaan.png",
   "editions": [
     "experimental"
   ],
   "artist": "Steven Medway",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/0/0c/Icon_xaan.png",
   "image": "assets/tokens/xaan.png"
 }

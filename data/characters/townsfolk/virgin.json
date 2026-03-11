@@ -72,10 +72,10 @@
     ]
   },
   "url_param": "Virgin",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/d/d3/Icon_virgin.png",
   "editions": [
     "trouble_brewing"
   ],
   "artist": "Aidan Roberts",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/d/d3/Icon_virgin.png",
   "image": "assets/tokens/virgin.png"
 }

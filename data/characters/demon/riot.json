@@ -40,6 +40,7 @@
     ]
   },
   "url_param": "Riot",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/2/2d/Icon_riot.png",
   "editions": [
     "experimental"
   ],
@@ -94,6 +95,5 @@
       "reason": "If Riot nominates and executes the Soldier, good wins."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/2/2d/Icon_riot.png",
   "image": "assets/tokens/riot.png"
 }

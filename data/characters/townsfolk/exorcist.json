@@ -67,6 +67,7 @@
     ]
   },
   "url_param": "Exorcist",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/c/c2/Icon_exorcist.png",
   "editions": [
     "bad_moon_rising"
   ],
@@ -85,6 +86,5 @@
       "reason": "If the Exorcist chooses the Yaggababble, the Yaggababble does not kill tonight."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/c/c2/Icon_exorcist.png",
   "image": "assets/tokens/exorcist.png"
 }

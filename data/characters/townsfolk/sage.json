@@ -61,6 +61,7 @@
     ]
   },
   "url_param": "Sage",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/a/a0/Icon_sage.png",
   "editions": [
     "sects_violets"
   ],
@@ -79,6 +80,5 @@
       "reason": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Sage uses their ability but does not die."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/a/a0/Icon_sage.png",
   "image": "assets/tokens/sage.png"
 }

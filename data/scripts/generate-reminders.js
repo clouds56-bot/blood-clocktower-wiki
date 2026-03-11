@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const EN_TOKENS_PATH = path.join(__dirname, '../extracted/characters.github.en.jsonl');
-const CN_TOKENS_PATH = path.join(__dirname, '../extracted/tokens.wiki.cn.jsonl');
+const CN_TOKENS_PATH = path.join(__dirname, '../extracted/reminders.wiki.cn.jsonl');
 const TRANSLATION_PATH = path.join(__dirname, '../config/reminders.translation.cn.txt');
 const OUTPUT_REMINDERS_PATH = path.join(__dirname, '../config/reminders.json');
 

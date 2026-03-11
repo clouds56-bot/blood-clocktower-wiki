@@ -38,10 +38,10 @@
     ]
   },
   "url_param": "Sentinel",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/d/d4/Icon_sentinel.png",
   "editions": [
     "experimental"
   ],
   "artist": "Caitlin Murphy",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/d/d4/Icon_sentinel.png",
   "image": "assets/tokens/sentinel.png"
 }

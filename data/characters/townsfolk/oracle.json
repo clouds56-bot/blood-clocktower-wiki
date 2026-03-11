@@ -60,10 +60,10 @@
     ]
   },
   "url_param": "Oracle",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/b/bb/Icon_oracle.png",
   "editions": [
     "sects_violets"
   ],
   "artist": "John Grist",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/b/bb/Icon_oracle.png",
   "image": "assets/tokens/oracle.png"
 }

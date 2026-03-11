@@ -20,7 +20,7 @@ To add, remove, or update characters:
 1. Open `characters.json`
 2. Edit the appropriate character type array
 3. Save the file
-4. Run the scraper: `node scripts/scrape-wiki.js`
+4. Run the scraper: `node scripts/pipeline/en.js`
 
 **Important:** Character names must match the wiki URLs exactly:
 - Use underscores for spaces: `Bounty_Hunter`

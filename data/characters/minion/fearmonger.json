@@ -85,6 +85,7 @@
     ]
   },
   "url_param": "Fearmonger",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/1/11/Icon_fearmonger.png",
   "editions": [
     "experimental"
   ],
@@ -99,6 +100,5 @@
       "reason": "The Vizier wakes with the Fearmonger, learns who they choose and cannot choose to immediately execute that player."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/1/11/Icon_fearmonger.png",
   "image": "assets/tokens/fearmonger.png"
 }

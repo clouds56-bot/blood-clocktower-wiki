@@ -99,10 +99,10 @@
     ]
   },
   "url_param": "Mezepheles",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/f/f2/Icon_mezepheles.png",
   "editions": [
     "experimental"
   ],
   "artist": "Caitlin Murphy",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/f/f2/Icon_mezepheles.png",
   "image": "assets/tokens/mezepheles.png"
 }

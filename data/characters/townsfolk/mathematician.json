@@ -74,6 +74,7 @@
     ]
   },
   "url_param": "Mathematician",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/f/f1/Icon_mathematician.png",
   "editions": [
     "sects_violets"
   ],
@@ -96,6 +97,5 @@
       "reason": "The Mathematician might learn if the Marionette's ability yielded false info or failed to work properly."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/f/f1/Icon_mathematician.png",
   "image": "assets/tokens/mathematician.png"
 }

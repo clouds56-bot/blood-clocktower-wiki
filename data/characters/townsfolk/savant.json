@@ -69,10 +69,10 @@
     ]
   },
   "url_param": "Savant",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/d/d5/Icon_savant.png",
   "editions": [
     "sects_violets"
   ],
   "artist": "Aidan Roberts",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/d/d5/Icon_savant.png",
   "image": "assets/tokens/savant.png"
 }

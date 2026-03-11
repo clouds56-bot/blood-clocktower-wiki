@@ -73,6 +73,7 @@
     ]
   },
   "url_param": "Politician",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/a/a3/Icon_politician.png",
   "editions": [
     "experimental"
   ],
@@ -95,6 +96,5 @@
       "reason": "The Politician might register as evil to the Vizier."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/a/a3/Icon_politician.png",
   "image": "assets/tokens/politician.png"
 }

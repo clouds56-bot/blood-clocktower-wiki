@@ -12,7 +12,7 @@ const CACHE_DIR = path.join(__dirname, '..', '..', '.cache', 'html-cn');
 const CONFIG_FILE = path.join(__dirname, '..', '..', 'config', 'characters.json');
 const CN_CHARACTER_FILE = path.join(__dirname, '..', '..', 'extracted', 'characters.wiki.cn.jsonl');
 const OUTPUT_DIR = path.join(__dirname, '..', '..', 'extracted');
-const OUTPUT_FILE = path.join(OUTPUT_DIR, 'tokens.wiki.cn.jsonl');
+const OUTPUT_FILE = path.join(OUTPUT_DIR, 'reminders.wiki.cn.jsonl');
 
 function cleanText(text) {
   return (text || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -331,9 +331,10 @@ function main() {
   }
 
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-  fs.writeFileSync(OUTPUT_FILE, allTokens.map(row => JSON.stringify(row)).join('\n'), 'utf8');
+  const payload = allTokens.map(row => JSON.stringify(row)).join('\n');
+  fs.writeFileSync(OUTPUT_FILE, payload, 'utf8');
 
-  console.log(`✅ Wrote ${allTokens.length} reminder tokens to ${OUTPUT_FILE}`);
+  console.log(`✅ Wrote ${allTokens.length} reminders to ${OUTPUT_FILE}`);
 }
 
 if (require.main === module) {

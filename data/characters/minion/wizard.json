@@ -108,10 +108,10 @@
     ]
   },
   "url_param": "Wizard",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/b/b5/Icon_wizard.png",
   "editions": [
     "experimental"
   ],
   "artist": "Lachlan Bastiaen",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/b/b5/Icon_wizard.png",
   "image": "assets/tokens/wizard.png"
 }

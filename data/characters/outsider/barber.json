@@ -71,10 +71,10 @@
     ]
   },
   "url_param": "Barber",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/1/16/Icon_barber.png",
   "editions": [
     "sects_violets"
   ],
   "artist": "Aidan Roberts",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/1/16/Icon_barber.png",
   "image": "assets/tokens/barber.png"
 }

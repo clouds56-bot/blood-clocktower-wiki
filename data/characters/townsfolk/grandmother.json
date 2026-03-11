@@ -77,6 +77,7 @@
     ]
   },
   "url_param": "Grandmother",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/2/26/Icon_grandmother.png",
   "editions": [
     "bad_moon_rising"
   ],
@@ -91,6 +92,5 @@
       "reason": "If Riot is in play and the Grandchild dies by execution, evil wins."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/2/26/Icon_grandmother.png",
   "image": "assets/tokens/grandmother.png"
 }

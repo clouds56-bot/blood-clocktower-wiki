@@ -59,10 +59,10 @@
     ]
   },
   "url_param": "Pacifist",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/5/5d/Icon_pacifist.png",
   "editions": [
     "bad_moon_rising"
   ],
   "artist": "Aidan Roberts",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/5/5d/Icon_pacifist.png",
   "image": "assets/tokens/pacifist.png"
 }

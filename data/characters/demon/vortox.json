@@ -76,6 +76,7 @@
     ]
   },
   "url_param": "Vortox",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/8/89/Icon_vortox.png",
   "editions": [
     "sects_violets"
   ],
@@ -86,6 +87,5 @@
       "reason": "If the Vortox kills the Banshee, all players learn that the Banshee has died."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/8/89/Icon_vortox.png",
   "image": "assets/tokens/vortox.png"
 }

@@ -72,10 +72,10 @@
     ]
   },
   "url_param": "Fisherman",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/1/19/Icon_fisherman.png",
   "editions": [
     "experimental"
   ],
   "artist": "Anica Kelsen",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/1/19/Icon_fisherman.png",
   "image": "assets/tokens/fisherman.png"
 }

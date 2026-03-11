@@ -52,9 +52,9 @@
     ]
   },
   "url_param": "Hermit",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/b/b4/Icon_hermit.png",
   "editions": [
     "experimental"
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/b/b4/Icon_hermit.png",
   "image": "assets/tokens/hermit.png"
 }

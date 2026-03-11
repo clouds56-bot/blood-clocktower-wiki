@@ -10,7 +10,7 @@ const cheerio = require('cheerio');
 
 const EXTRACTED_DIR = path.join(__dirname, '..', '..', 'extracted');
 const INPUT_FILE = path.join(EXTRACTED_DIR, 'characters.wiki.en.jsonl');
-const OUTPUT_FILE = path.join(EXTRACTED_DIR, 'tokens.wiki.en.jsonl');
+const OUTPUT_FILE = path.join(EXTRACTED_DIR, 'reminders.wiki.en.jsonl');
 const CACHE_DIR = path.join(__dirname, '..', '..', '.cache', 'html');
 
 const EXCLUDED_INFO_TOKENS = new Set([
@@ -248,8 +248,9 @@ function main() {
   }
 
   fs.mkdirSync(EXTRACTED_DIR, { recursive: true });
-  fs.writeFileSync(OUTPUT_FILE, allTokens.map(row => JSON.stringify(row)).join('\n'), 'utf8');
-  console.log(`✅ Wrote ${allTokens.length} reminder tokens to ${OUTPUT_FILE}`);
+  const payload = allTokens.map(row => JSON.stringify(row)).join('\n');
+  fs.writeFileSync(OUTPUT_FILE, payload, 'utf8');
+  console.log(`✅ Wrote ${allTokens.length} reminders to ${OUTPUT_FILE}`);
 }
 
 if (require.main === module) {

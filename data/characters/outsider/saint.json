@@ -55,10 +55,10 @@
     ]
   },
   "url_param": "Saint",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/c/c9/Icon_saint.png",
   "editions": [
     "trouble_brewing"
   ],
   "artist": "Aidan Roberts",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/c/c9/Icon_saint.png",
   "image": "assets/tokens/saint.png"
 }

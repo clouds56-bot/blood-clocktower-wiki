@@ -88,6 +88,7 @@
     ]
   },
   "url_param": "Yaggababble",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/0/08/Icon_yaggababble.png",
   "editions": [
     "experimental"
   ],
@@ -98,6 +99,5 @@
       "reason": "If the Exorcist chooses the Yaggababble, the Yaggababble does not kill tonight."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/0/08/Icon_yaggababble.png",
   "image": "assets/tokens/yaggababble.png"
 }

@@ -62,6 +62,7 @@
     ]
   },
   "url_param": "Innkeeper",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/0/0c/Icon_innkeeper.png",
   "editions": [
     "bad_moon_rising"
   ],
@@ -76,6 +77,5 @@
       "reason": "If Riot nominates and executes an Innkeeper-protected player, good wins."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/0/0c/Icon_innkeeper.png",
   "image": "assets/tokens/innkeeper.png"
 }

@@ -82,6 +82,7 @@
     ]
   },
   "url_param": "Boomdandy",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/2/20/Icon_boomdandy.png",
   "editions": [
     "experimental"
   ],
@@ -92,6 +93,5 @@
       "reason": "If the Storyteller would gain the Boomdandy ability, a player becomes the Boomdandy."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/2/20/Icon_boomdandy.png",
   "image": "assets/tokens/boomdandy.png"
 }

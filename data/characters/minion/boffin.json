@@ -82,6 +82,7 @@
     ]
   },
   "url_param": "Boffin",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/e/e0/Icon_boffin.png",
   "editions": [
     "experimental"
   ],
@@ -120,6 +121,5 @@
       "reason": "If there is a spare token, the Boffin can give the Demon the Village Idiot ability."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/e/e0/Icon_boffin.png",
   "image": "assets/tokens/boffin.png"
 }

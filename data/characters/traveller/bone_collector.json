@@ -69,10 +69,10 @@
     ]
   },
   "url_param": "Bone_Collector",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/9/9e/Icon_bonecollector.png",
   "editions": [
     "sects_violets"
   ],
   "artist": "Aidan Roberts",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/9/9e/Icon_bonecollector.png",
   "image": "assets/tokens/bone_collector.png"
 }

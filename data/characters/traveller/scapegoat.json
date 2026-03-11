@@ -65,10 +65,10 @@
     ]
   },
   "url_param": "Scapegoat",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/3/3a/Icon_scapegoat.png",
   "editions": [
     "experimental"
   ],
   "artist": "Aidan Roberts",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/3/3a/Icon_scapegoat.png",
   "image": "assets/tokens/scapegoat.png"
 }

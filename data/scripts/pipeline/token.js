@@ -75,13 +75,14 @@ function main() {
         name: char.name,
         token_url: tokenUrl
       });
-      console.log(`  Tokens: ${char.name} -> ${tokenUrl || 'NOT FOUND'}`);
+      console.log(`  Token: ${char.name} -> ${tokenUrl || 'NOT FOUND'}`);
     } else {
       console.error(`  Warning: Cache missing for ${char.name} (${urlParam})`);
     }
   }
 
-  fs.writeFileSync(OUTPUT_FILE, allTokens.map(d => JSON.stringify(d)).join('\n'), 'utf8');
+  const payload = allTokens.map(d => JSON.stringify(d)).join('\n');
+  fs.writeFileSync(OUTPUT_FILE, payload, 'utf8');
   console.log(`\n✅ Wrote ${allTokens.length} token urls to ${OUTPUT_FILE}`);
 }
 

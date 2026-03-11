@@ -63,6 +63,7 @@
     ]
   },
   "url_param": "Atheist",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/4/43/Icon_atheist.png",
   "editions": [
     "experimental"
   ],
@@ -73,6 +74,5 @@
       "reason": "During a riot, if the Storyteller is nominated, players vote. If they are \"about to die\", the game ends. If not, they nominate again."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/4/43/Icon_atheist.png",
   "image": "assets/tokens/atheist.png"
 }

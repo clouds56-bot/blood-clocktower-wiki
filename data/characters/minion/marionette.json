@@ -89,6 +89,7 @@
     ]
   },
   "url_param": "Marionette",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/c/cf/Icon_marionette.png",
   "editions": [
     "experimental",
     "trouble_brewing"
@@ -132,6 +133,5 @@
       "reason": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/c/cf/Icon_marionette.png",
   "image": "assets/tokens/marionette.png"
 }

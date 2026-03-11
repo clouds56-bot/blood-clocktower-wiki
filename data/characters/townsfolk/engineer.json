@@ -78,6 +78,7 @@
     ]
   },
   "url_param": "Engineer",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/b/b9/Icon_engineer.png",
   "editions": [
     "experimental"
   ],
@@ -92,6 +93,5 @@
       "reason": "If the living Summoner is removed from play, the Storyteller has the Summoner ability."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/b/b9/Icon_engineer.png",
   "image": "assets/tokens/engineer.png"
 }

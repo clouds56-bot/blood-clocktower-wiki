@@ -86,10 +86,10 @@
     ]
   },
   "url_param": "Imp",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/5/5c/Icon_imp.png",
   "editions": [
     "trouble_brewing"
   ],
   "artist": "Aidan Roberts",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/5/5c/Icon_imp.png",
   "image": "assets/tokens/imp.png"
 }

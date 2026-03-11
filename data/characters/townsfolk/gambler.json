@@ -62,10 +62,10 @@
     ]
   },
   "url_param": "Gambler",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/f/fd/Icon_gambler.png",
   "editions": [
     "bad_moon_rising"
   ],
   "artist": "Aidan Roberts",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/f/fd/Icon_gambler.png",
   "image": "assets/tokens/gambler.png"
 }

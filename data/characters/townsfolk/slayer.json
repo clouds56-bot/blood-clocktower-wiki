@@ -68,6 +68,7 @@
     ]
   },
   "url_param": "Slayer",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/d/d3/Icon_slayer.png",
   "editions": [
     "trouble_brewing"
   ],
@@ -78,6 +79,5 @@
       "reason": "If the Slayer slays the Lleech host, the host dies."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/d/d3/Icon_slayer.png",
   "image": "assets/tokens/slayer.png"
 }

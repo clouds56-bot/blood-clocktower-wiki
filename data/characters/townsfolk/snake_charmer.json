@@ -75,10 +75,10 @@
     ]
   },
   "url_param": "Snake_Charmer",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/0/08/Icon_snakecharmer.png",
   "editions": [
     "sects_violets"
   ],
   "artist": "Aidan Roberts",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/0/08/Icon_snakecharmer.png",
   "image": "assets/tokens/snake_charmer.png"
 }

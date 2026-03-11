@@ -79,6 +79,7 @@
     ]
   },
   "url_param": "Cult_Leader",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/6/6c/Icon_cultleader.png",
   "editions": [
     "experimental"
   ],
@@ -93,6 +94,5 @@
       "reason": "If the Pit-Hag turns an evil player into the Cult Leader, they can't turn good due to their own ability."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/6/6c/Icon_cultleader.png",
   "image": "assets/tokens/cult_leader.png"
 }

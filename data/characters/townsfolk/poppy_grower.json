@@ -83,6 +83,7 @@
     ]
   },
   "url_param": "Poppy_Grower",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/9/91/Icon_poppygrower.png",
   "editions": [
     "experimental"
   ],
@@ -105,6 +106,5 @@
       "reason": "If the Poppy Grower has their ability, the Widow does not see the Grimoire."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/9/91/Icon_poppygrower.png",
   "image": "assets/tokens/poppy_grower.png"
 }

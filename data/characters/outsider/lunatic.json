@@ -71,6 +71,7 @@
     ]
   },
   "url_param": "Lunatic",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/6/64/Icon_lunatic.png",
   "editions": [
     "bad_moon_rising"
   ],
@@ -81,6 +82,5 @@
       "reason": "The Mathematician might learn if the Lunatic attacks a different player than the real Demon attacked."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/6/64/Icon_lunatic.png",
   "image": "assets/tokens/lunatic.png"
 }

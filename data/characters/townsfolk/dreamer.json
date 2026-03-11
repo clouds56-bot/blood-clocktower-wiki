@@ -83,10 +83,10 @@
     ]
   },
   "url_param": "Dreamer",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/f/f2/Icon_dreamer.png",
   "editions": [
     "sects_violets"
   ],
   "artist": "Caitlin Murphy",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/f/f2/Icon_dreamer.png",
   "image": "assets/tokens/dreamer.png"
 }

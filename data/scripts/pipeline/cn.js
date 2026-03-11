@@ -102,8 +102,33 @@ function extractTips($) {
   return tips.length > 0 ? tips : null;
 }
 
+function extractImageUrl($, pageUrl) {
+  const img = $('.infobox img, #character-details img, #mw-content-text img, .mw-parser-output img').first();
+
+  if (!img.length) return null;
+
+  const srcset = img.attr('srcset');
+  const dataSrc = img.attr('data-src');
+  const src = img.attr('src');
+  const rawUrl = (srcset ? srcset.split(',').pop().trim().split(' ')[0] : null) || dataSrc || src;
+  if (!rawUrl) return null;
+
+  let imageUrl = rawUrl;
+  if (rawUrl.startsWith('/')) {
+    const origin = new URL(pageUrl).origin;
+    imageUrl = `${origin}${rawUrl}`;
+  }
+
+  // Convert thumbnail URL to original full-size image URL.
+  // e.g. /images/thumb/b/b7/Banxian.png/200px-Banxian.png -> /images/b/b7/Banxian.png
+  imageUrl = imageUrl.replace(/\/images\/thumb\/(.+?)\/\d+px-[^/]+$/i, '/images/$1');
+
+  return imageUrl;
+}
+
 function extractCharacterData(html, cnName, urlParam) {
   const $ = cheerio.load(html);
+  const pageUrl = `${BASE_URL}${urlParam}`;
   
   // Extract English Name
   let englishName = null;
@@ -131,13 +156,13 @@ function extractCharacterData(html, cnName, urlParam) {
     if (abilityHeader.length > 0) {
       let p = abilityHeader.nextAll('p').first();
       if (p.length > 0) {
-        ability = p.text().replace(/^“|”$/g, '').trim();
+        ability = p.text().replace(/^"|"$|"/g, '').trim();
       }
     } else {
       const paragraphs = $('p').slice(0, 5);
       paragraphs.each(function() {
         const text = $(this).text().trim();
-        const match = text.match(/“([^”]+)”/);
+        const match = text.match(/"([^"]+)"/);
         if (match) {
           ability = match[1].trim();
           return false;
@@ -150,6 +175,7 @@ function extractCharacterData(html, cnName, urlParam) {
   const examples = extractExamples($);
   const howToRun = extractSection($, '运作方式');
   const tips = extractTips($);
+  const imageUrl = extractImageUrl($, pageUrl);
 
   const id = englishName
     ? englishName
@@ -169,6 +195,7 @@ function extractCharacterData(html, cnName, urlParam) {
     how_to_run: howToRun || null,
     examples: examples || null,
     tips: tips || null,
+    image_url: imageUrl || null,
     url_param: urlParam
   };
 

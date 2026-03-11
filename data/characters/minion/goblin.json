@@ -84,6 +84,7 @@
     ]
   },
   "url_param": "Goblin",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/e/e2/Icon_goblin.png",
   "editions": [
     "experimental"
   ],
@@ -98,6 +99,5 @@
       "reason": "If the Storyteller would gain the Goblin ability, a Minion gains it, and learns this."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/e/e2/Icon_goblin.png",
   "image": "assets/tokens/goblin.png"
 }

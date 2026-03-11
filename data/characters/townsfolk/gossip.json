@@ -73,11 +73,11 @@
     ]
   },
   "url_param": "Gossip",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/c/c7/Icon_gossip.png",
   "editions": [
     "bad_moon_rising",
     "sects_violets"
   ],
   "artist": "Aidan Roberts",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/c/c7/Icon_gossip.png",
   "image": "assets/tokens/gossip.png"
 }

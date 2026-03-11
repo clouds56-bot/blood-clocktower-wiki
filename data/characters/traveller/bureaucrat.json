@@ -78,10 +78,10 @@
     ]
   },
   "url_param": "Bureaucrat",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/b/b1/Icon_bureaucrat.png",
   "editions": [
     "experimental"
   ],
   "artist": "Aidan Roberts",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/b/b1/Icon_bureaucrat.png",
   "image": "assets/tokens/bureaucrat.png"
 }

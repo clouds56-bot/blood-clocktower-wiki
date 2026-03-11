@@ -25,17 +25,16 @@ Install dependencies (from the repo root):
 
 Common commands (run from repo root):
 
-- `pnpm --filter data run scrape` — Scrape English wiki (`data/scripts/scrape-wiki.js`)
-- `pnpm --filter data run scrape:cn` — Scrape Chinese wiki (`data/scripts/scrape-chinese-wiki.js`)
-- `pnpm --filter data run download-images` — Download assets referenced by scraped data
+- `pnpm --filter data run scrape:en` — Scrape English wiki (`data/scripts/pipeline/en.js`)
+- `pnpm --filter data run scrape:cn` — Scrape Chinese wiki (`data/scripts/pipeline/cn.js`)
+- `pnpm --filter data run scrape:all` — Run full scraping pipeline
 - `pnpm --filter wiki run dev` — Run Astro dev server for the frontend
 - `pnpm --filter wiki run build` — Build the static site into `wiki/dist`
 
 You can also run the scripts directly with node if you prefer:
 
-- `node data/scripts/scrape-wiki.js`
-- `node data/scripts/scrape-chinese-wiki.js`
-- `node data/scripts/download-images.js`
+- `node data/scripts/pipeline/en.js`
+- `node data/scripts/pipeline/cn.js`
 
 ### Testing
 We encourage writing tests for pure functions (e.g., parsing logic, data transformations). The project currently does not have a comprehensive test suite, but as we migrate toward test-driven development, standard Node testing practices apply.
@@ -78,7 +77,8 @@ All agents must strictly adhere to the following coding standards to ensure cons
 - **Constants**: `UPPER_SNAKE_CASE` (e.g., `BASE_URL`, `TYPE_MAPPING`).
 - **Classes & Components**: `PascalCase` (e.g., `CharacterCard`, `WikiScraper`).
 - **File Names**: 
-  - Scripts/Utilities: `kebab-case.js` (e.g., `scrape-wiki.js`).
+  - Scripts/Utilities: `kebab-case.js` (e.g., `scrape-editions.js`).
+  - Pipeline scripts: `pipeline/kebab-case.js` (e.g., `pipeline/en.js`).
   - Components (if added): `PascalCase.tsx` (e.g., `CharacterCard.tsx`).
 
 ### Typing & Documentation

@@ -75,10 +75,10 @@
     ]
   },
   "url_param": "Thief",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/7/77/Icon_thief.png",
   "editions": [
     "experimental"
   ],
   "artist": "Aidan Roberts",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/7/77/Icon_thief.png",
   "image": "assets/tokens/thief.png"
 }

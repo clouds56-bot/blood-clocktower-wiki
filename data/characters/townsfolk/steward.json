@@ -58,10 +58,10 @@
     ]
   },
   "url_param": "Steward",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/f/fe/Icon_steward.png",
   "editions": [
     "experimental"
   ],
   "artist": "Chloe McDougall",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/f/fe/Icon_steward.png",
   "image": "assets/tokens/steward.png"
 }

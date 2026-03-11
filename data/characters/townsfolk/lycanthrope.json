@@ -68,10 +68,10 @@
     ]
   },
   "url_param": "Lycanthrope",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/9/92/Icon_lycanthrope.png",
   "editions": [
     "experimental"
   ],
   "artist": "John Grist",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/9/92/Icon_lycanthrope.png",
   "image": "assets/tokens/lycanthrope.png"
 }

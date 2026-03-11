@@ -65,10 +65,10 @@
     ]
   },
   "url_param": "Artist",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/1/1a/Icon_artist.png",
   "editions": [
     "sects_violets"
   ],
   "artist": "Aidan Roberts",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/1/1a/Icon_artist.png",
   "image": "assets/tokens/artist.png"
 }

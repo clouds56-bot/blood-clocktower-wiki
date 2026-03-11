@@ -63,6 +63,7 @@
     ]
   },
   "url_param": "Drunk",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/4/4a/Icon_drunk.png",
   "editions": [
     "trouble_brewing"
   ],
@@ -77,6 +78,5 @@
       "reason": "The Mathematician might learn if the Drunk's ability yielded false info or failed to work properly."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/4/4a/Icon_drunk.png",
   "image": "assets/tokens/drunk.png"
 }

@@ -65,8 +65,10 @@ Each character is stored as a JSON file with the following structure:
 
 ## Scripts
 
-- `scripts/scrape-wiki.js` - Main scraper with caching
-- `scripts/download-images.js` - Image downloader (uses scraper cache)
+- `scripts/pipeline/en.js` - English wiki scraper
+- `scripts/pipeline/cn.js` - Chinese wiki scraper
+- `scripts/pipeline/build.js` - Build character JSON files
+- `scripts/pipeline/token.js` - Extract token URLs
 
 ## License
 

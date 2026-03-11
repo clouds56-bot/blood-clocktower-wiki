@@ -62,10 +62,10 @@
     ]
   },
   "url_param": "Butcher",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/e/e3/Icon_butcher.png",
   "editions": [
     "experimental"
   ],
   "artist": "Aidan Roberts",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/e/e3/Icon_butcher.png",
   "image": "assets/tokens/butcher.png"
 }

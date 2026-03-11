@@ -38,10 +38,10 @@
     ]
   },
   "url_param": "Ferryman",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/8/8f/Icon_ferryman.png",
   "editions": [
     "experimental"
   ],
   "artist": "Chloe McDougall",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/8/8f/Icon_ferryman.png",
   "image": "assets/tokens/ferryman.png"
 }

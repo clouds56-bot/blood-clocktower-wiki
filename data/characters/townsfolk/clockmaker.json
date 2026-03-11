@@ -64,6 +64,7 @@
     ]
   },
   "url_param": "Clockmaker",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/3/3d/Icon_clockmaker.png",
   "editions": [
     "sects_violets"
   ],
@@ -74,6 +75,5 @@
       "reason": "The Summoner registers as the Demon to the Clockmaker."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/3/3d/Icon_clockmaker.png",
   "image": "assets/tokens/clockmaker.png"
 }

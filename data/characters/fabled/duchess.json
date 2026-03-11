@@ -46,10 +46,10 @@
     ]
   },
   "url_param": "Duchess",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/8/87/Icon_duchess.png",
   "editions": [
     "experimental"
   ],
   "artist": "Caitlin Murphy",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/8/87/Icon_duchess.png",
   "image": "assets/tokens/duchess.png"
 }

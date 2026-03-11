@@ -70,6 +70,7 @@
     ]
   },
   "url_param": "Baron",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/6/6d/Icon_baron.png",
   "editions": [
     "trouble_brewing"
   ],
@@ -84,6 +85,5 @@
       "reason": "If the Storyteller would gain the Baron ability, up to two players become Outsiders."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/6/6d/Icon_baron.png",
   "image": "assets/tokens/baron.png"
 }

@@ -88,6 +88,7 @@
     ]
   },
   "url_param": "Lleech",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/7/70/Icon_lleech.png",
   "editions": [
     "experimental"
   ],
@@ -106,6 +107,5 @@
       "reason": "If the Slayer slays the Lleech host, the host dies."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/7/70/Icon_lleech.png",
   "image": "assets/tokens/lleech.png"
 }

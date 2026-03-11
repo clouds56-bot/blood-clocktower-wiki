@@ -69,6 +69,7 @@
     ]
   },
   "url_param": "Juggler",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/4/42/Icon_juggler.png",
   "editions": [
     "sects_violets"
   ],
@@ -79,6 +80,5 @@
       "reason": "If the Juggler guesses on their first day and dies by execution, tonight the living Cannibal learns how many guesses the Juggler got correct."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/4/42/Icon_juggler.png",
   "image": "assets/tokens/juggler.png"
 }

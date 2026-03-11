@@ -71,6 +71,7 @@
     ]
   },
   "url_param": "Ravenkeeper",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/e/ef/Icon_ravenkeeper.png",
   "editions": [
     "trouble_brewing"
   ],
@@ -85,6 +86,5 @@
       "reason": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Ravenkeeper uses their ability but does not die."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/e/ef/Icon_ravenkeeper.png",
   "image": "assets/tokens/ravenkeeper.png"
 }

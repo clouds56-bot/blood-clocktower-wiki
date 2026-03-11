@@ -74,6 +74,7 @@
     ]
   },
   "url_param": "Godfather",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/d/d0/Icon_godfather.png",
   "editions": [
     "bad_moon_rising"
   ],
@@ -84,6 +85,5 @@
       "reason": "Only 1 jinxed character can be in play."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/d/d0/Icon_godfather.png",
   "image": "assets/tokens/godfather.png"
 }

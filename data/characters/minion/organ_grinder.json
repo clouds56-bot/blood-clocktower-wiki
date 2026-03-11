@@ -49,6 +49,7 @@
     ]
   },
   "url_param": "Organ_Grinder",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/6/61/Icon_organgrinder.png",
   "tips": {
     "en": [
       "Consider carefully if you ever want to get yourself executed. Bearing in mind that when you die, it’s likely you’ll be outed as the Organ Grinder because votes will suddenly become open. Maybe you think your Demon might be executed instead if you don’t get enough votes yourself? Maybe your Demon is the one leading the charge against you and getting executed at their behest will convince town that they’re most likely good?",
@@ -77,6 +78,5 @@
       "reason": "If the Organ Grinder is causing eyes closed voting, the Butler may raise their hand to vote but their vote is only counted if their master voted too."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/6/61/Icon_organgrinder.png",
   "image": "assets/tokens/organ_grinder.png"
 }

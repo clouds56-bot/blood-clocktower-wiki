@@ -74,10 +74,10 @@
     ]
   },
   "url_param": "Amnesiac",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/2/26/Icon_amnesiac.png",
   "editions": [
     "experimental"
   ],
   "artist": "Anica Kelsen",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/2/26/Icon_amnesiac.png",
   "image": "assets/tokens/amnesiac.png"
 }

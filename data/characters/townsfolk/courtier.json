@@ -73,6 +73,7 @@
     ]
   },
   "url_param": "Courtier",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/e/e0/Icon_courtier.png",
   "editions": [
     "bad_moon_rising"
   ],
@@ -87,6 +88,5 @@
       "reason": "If the Vizier loses their ability, they learn this, and cannot die during the day."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/e/e0/Icon_courtier.png",
   "image": "assets/tokens/courtier.png"
 }

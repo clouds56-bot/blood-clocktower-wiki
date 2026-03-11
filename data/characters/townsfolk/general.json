@@ -72,10 +72,10 @@
     ]
   },
   "url_param": "General",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/9/99/Icon_general.png",
   "editions": [
     "experimental"
   ],
   "artist": "Caitlin Murphy",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/9/99/Icon_general.png",
   "image": "assets/tokens/general.png"
 }

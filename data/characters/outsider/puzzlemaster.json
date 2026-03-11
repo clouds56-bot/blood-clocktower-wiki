@@ -69,10 +69,10 @@
     ]
   },
   "url_param": "Puzzlemaster",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/7/7a/Icon_puzzlemaster.png",
   "editions": [
     "experimental"
   ],
   "artist": "Caitlin Murphy",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/7/7a/Icon_puzzlemaster.png",
   "image": "assets/tokens/puzzlemaster.png"
 }

@@ -72,10 +72,10 @@
     ]
   },
   "url_param": "Seamstress",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/5/53/Icon_seamstress.png",
   "editions": [
     "sects_violets"
   ],
   "artist": "Aidan Roberts",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/5/53/Icon_seamstress.png",
   "image": "assets/tokens/seamstress.png"
 }

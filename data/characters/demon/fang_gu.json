@@ -68,6 +68,7 @@
     ]
   },
   "url_param": "Fang_Gu",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/0/0e/Icon_fanggu.png",
   "editions": [
     "sects_violets"
   ],
@@ -78,6 +79,5 @@
       "reason": "If there would be two Demons, one of which was the Scarlet Woman, the Scarlet Woman remains the Scarlet Woman."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/0/0e/Icon_fanggu.png",
   "image": "assets/tokens/fang_gu.png"
 }

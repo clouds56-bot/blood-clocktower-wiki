@@ -76,6 +76,7 @@
     ]
   },
   "url_param": "Heretic",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/4/4a/Icon_heretic.png",
   "editions": [
     "experimental"
   ],
@@ -110,6 +111,5 @@
       "reason": "Only 1 jinxed character can be in play."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/4/4a/Icon_heretic.png",
   "image": "assets/tokens/heretic.png"
 }

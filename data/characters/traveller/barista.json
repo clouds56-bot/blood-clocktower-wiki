@@ -67,10 +67,10 @@
     ]
   },
   "url_param": "Barista",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/2/24/Icon_barista.png",
   "editions": [
     "sects_violets"
   ],
   "artist": "Aidan Roberts",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/2/24/Icon_barista.png",
   "image": "assets/tokens/barista.png"
 }

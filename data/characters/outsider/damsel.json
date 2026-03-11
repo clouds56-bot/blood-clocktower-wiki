@@ -82,6 +82,7 @@
     ]
   },
   "url_param": "Damsel",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/d/dc/Icon_damsel.png",
   "editions": [
     "experimental"
   ],
@@ -100,6 +101,5 @@
       "reason": "If the Widow is (or has been) in play, the Damsel is poisoned."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/d/dc/Icon_damsel.png",
   "image": "assets/tokens/damsel.png"
 }

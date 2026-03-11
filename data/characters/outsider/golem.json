@@ -57,10 +57,10 @@
     ]
   },
   "url_param": "Golem",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/2/2b/Icon_golem.png",
   "editions": [
     "experimental"
   ],
   "artist": "Anica Kelsen",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/2/2b/Icon_golem.png",
   "image": "assets/tokens/golem.png"
 }

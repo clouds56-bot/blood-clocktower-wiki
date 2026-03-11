@@ -78,10 +78,10 @@
     ]
   },
   "url_param": "Fortune_Teller",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/9/97/Icon_fortuneteller.png",
   "editions": [
     "trouble_brewing"
   ],
   "artist": "John Grist",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/9/97/Icon_fortuneteller.png",
   "image": "assets/tokens/fortune_teller.png"
 }

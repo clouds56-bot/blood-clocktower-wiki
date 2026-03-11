@@ -90,10 +90,10 @@
     ]
   },
   "url_param": "Harpy",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/d/d3/Icon_harpy.png",
   "editions": [
     "experimental"
   ],
   "artist": "Chloe McDougall",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/d/d3/Icon_harpy.png",
   "image": "assets/tokens/harpy.png"
 }

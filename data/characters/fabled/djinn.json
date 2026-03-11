@@ -38,10 +38,10 @@
     ]
   },
   "url_param": "Djinn",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/8/86/Icon_djinn.png",
   "editions": [
     "experimental"
   ],
   "artist": "John Grist",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/8/86/Icon_djinn.png",
   "image": "assets/tokens/djinn.png"
 }

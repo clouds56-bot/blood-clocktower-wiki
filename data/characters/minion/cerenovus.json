@@ -89,6 +89,7 @@
     ]
   },
   "url_param": "Cerenovus",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/4/45/Icon_cerenovus.png",
   "editions": [
     "sects_violets"
   ],
@@ -99,6 +100,5 @@
       "reason": "The Cerenovus may choose to make a player mad that they are the Goblin."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/4/45/Icon_cerenovus.png",
   "image": "assets/tokens/cerenovus.png"
 }

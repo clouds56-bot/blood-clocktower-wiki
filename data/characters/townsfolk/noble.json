@@ -64,10 +64,10 @@
     ]
   },
   "url_param": "Noble",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/c/cc/Icon_noble.png",
   "editions": [
     "experimental"
   ],
   "artist": "Caitlin Murphy",
-  "image_url": "https://wiki.bloodontheclocktower.com/images/c/cc/Icon_noble.png",
   "image": "assets/tokens/noble.png"
 }

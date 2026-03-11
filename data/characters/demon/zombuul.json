@@ -62,6 +62,7 @@
     ]
   },
   "url_param": "Zombuul",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/1/15/Icon_zombuul.png",
   "editions": [
     "bad_moon_rising"
   ],
@@ -72,6 +73,5 @@
       "reason": "If the Summoner summons a dead player into the Zombuul, the Zombuul has already \"died once\"."
     }
   ],
-  "image_url": "https://wiki.bloodontheclocktower.com/images/1/15/Icon_zombuul.png",
   "image": "assets/tokens/zombuul.png"
 }
