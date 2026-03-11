@@ -1,0 +1,105 @@
+# Blood on the Clocktower - Reminder Token Translations (EN → CN)
+# Format: "ENGLISH"="中文"
+# Common tokens first, then alphabetical
+
+# === MOST COMMON ===
+"DEAD"="死亡"
+"NO ABILITY"="失去能力"
+"POISONED"="中毒"
+"DRUNK"="醉酒"
+"?"="？"
+
+# === INFORMATION TOKENS ===
+"KNOW"="得知"
+"CORRECT"="猜测正确"
+"WRONG"="错误"
+"RED HERRING"="干扰项"
+"TOWNSFOLK"="镇民"
+"OUTSIDER"="外来者"
+"MINION"="爪牙"
+
+# === STATUS TOKENS ===
+"HAS ABILITY"="具有能力"
+"SAFE"="不会死亡"
+"CANNOT DIE"="不会死亡"
+"PROTECTED"="保护"
+"ALIVE"="复活"
+"MAD"="疯狂"
+"CURSED"="被诅咒"
+"CHOSEN"="被选择"
+"ABNORMAL"="未正常生效"
+
+# === DAY/NIGHT COUNTERS ===
+"DAY 1"="第一天"
+"DAY 2"="第二天"
+"DAY 3"="第三天"
+"DAY 4"="第四天"
+"DAY 5"="第五天"
+"NIGHT 1"="第一晚"
+"NIGHT 2"="第二晚"
+"NIGHT 3"="第三晚"
+
+# === DRUNK COUNTERS ===
+"DRUNK 1"="醉酒1"
+"DRUNK 2"="醉酒2"
+"DRUNK 3"="醉酒3"
+
+# === DEATH RELATED ===
+"DIED TODAY"="死于今日"
+"ABOUT TO DIE"="即将被处决"
+"SURVIVES EXECUTION"="处决不死"
+"GOOD PLAYER EXECUTED"="善良被处决"
+"DOESN'T KILL"="没有死亡"
+
+# === VOTING/NOMINATION ===
+"DEMON VOTED"="恶魔已投票"
+"DEMON NOT VOTED"="恶魔未投票"
+"MINION NOMINATED"="爪牙已提名"
+"MINIONS NOT NOMINATED"="爪牙未提名"
+"NOMINATE GOOD"="提名善良方"
+"NOMINATE EVIL"="提名邪恶方"
+"NEGATIVE VOTE"="负票"
+"3 VOTES"="3票"
+"MAY NOT NOMINATE"="无法提名"
+
+# === CHARACTER SPECIFIC ===
+"MASTER"="主人"
+"GRANDCHILD"="孙子"
+"LUNCH"="饱餐"
+"FRIEND"="挚友"
+"AMIGO"="同伴"
+"TWIN"="对立双子"
+"TURNS EVIL"="转为邪恶"
+"IS THE DEMON"="是恶魔"
+"IS THE APPRENTICE"="是学徒"
+"FEAR"="恐惧"
+"FAUX PAW"="失足"
+"GOAL"="目标"
+"CLAIMED"="已宣称"
+"GUESS USED"="已被猜测"
+"VISITOR"="访客"
+"FALSE INFO"="错误信息"
+"2ND"="第二名"
+"3 ATTACKS"="攻击三次"
+
+# === ABILITY TOKENS ===
+"ACTS TWICE"="行动两次"
+"SOBER & HEALTHY"="清醒且健康"
+"HAIRCUTS TONIGHT"="今晚理发"
+"TEA PARTY TONIGHT"="今晚茶会"
+"ONCE"="限一次"
+"FINAL NIGHT: NO ATTACK"="无法攻击"
+"EVIL WAKES"="唤醒邪恶"
+"EVERYONE IS DRUNK"="全员醉酒"
+"REGISTER FALSELY?"="被当作其他"
+"NO MORE EVIL"="禁止邪恶"
+"STORMCAUGHT"="不会死亡"
+"STORYTELLER ABILITY"="说书人能力"
+"ALIGNED"="对立双子"
+"NOT ME"="不是我"
+"SOMETHING BAD"="不好的事"
+"WHOOPSIE"="哎呀！"
+"X"="大限将至"
+"1"="1"
+"2"="2"
+"3"="3"

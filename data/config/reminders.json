@@ -1,0 +1,1376 @@
+{
+  "source": {
+    "en": "github_botc_release",
+    "cn": "manual_translation"
+  },
+  "reminders": [
+    {
+      "id": "acrobat:chosen",
+      "character_id": "acrobat",
+      "name": {
+        "en": "Chosen",
+        "cn": "被选择"
+      }
+    },
+    {
+      "id": "acrobat:dead",
+      "character_id": "acrobat",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "al_hadikhia:1",
+      "character_id": "al_hadikhia",
+      "name": {
+        "en": "1",
+        "cn": "1"
+      }
+    },
+    {
+      "id": "al_hadikhia:2",
+      "character_id": "al_hadikhia",
+      "name": {
+        "en": "2",
+        "cn": "2"
+      }
+    },
+    {
+      "id": "al_hadikhia:3",
+      "character_id": "al_hadikhia",
+      "name": {
+        "en": "3",
+        "cn": "3"
+      }
+    },
+    {
+      "id": "amnesiac:",
+      "character_id": "amnesiac",
+      "name": {
+        "en": "?",
+        "cn": "？"
+      }
+    },
+    {
+      "id": "angel:protected",
+      "character_id": "angel",
+      "name": {
+        "en": "Protected",
+        "cn": "保护"
+      }
+    },
+    {
+      "id": "angel:something_bad",
+      "character_id": "angel",
+      "name": {
+        "en": "Something Bad",
+        "cn": "不好的事"
+      }
+    },
+    {
+      "id": "apprentice:is_the_apprentice",
+      "character_id": "apprentice",
+      "name": {
+        "en": "Is The Apprentice",
+        "cn": "是学徒"
+      }
+    },
+    {
+      "id": "artist:no_ability",
+      "character_id": "artist",
+      "name": {
+        "en": "No Ability",
+        "cn": "失去能力"
+      }
+    },
+    {
+      "id": "assassin:dead",
+      "character_id": "assassin",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "assassin:no_ability",
+      "character_id": "assassin",
+      "name": {
+        "en": "No Ability",
+        "cn": "失去能力"
+      }
+    },
+    {
+      "id": "balloonist:know",
+      "character_id": "balloonist",
+      "name": {
+        "en": "Know",
+        "cn": "得知"
+      }
+    },
+    {
+      "id": "banshee:has_ability",
+      "character_id": "banshee",
+      "name": {
+        "en": "Has Ability",
+        "cn": "具有能力"
+      }
+    },
+    {
+      "id": "barber:haircuts_tonight",
+      "character_id": "barber",
+      "name": {
+        "en": "Haircuts Tonight",
+        "cn": "今晚理发"
+      }
+    },
+    {
+      "id": "barista:",
+      "character_id": "barista",
+      "name": {
+        "en": "?",
+        "cn": "？"
+      }
+    },
+    {
+      "id": "barista:acts_twice",
+      "character_id": "barista",
+      "name": {
+        "en": "Acts Twice",
+        "cn": "行动两次"
+      }
+    },
+    {
+      "id": "barista:sober_healthy",
+      "character_id": "barista",
+      "name": {
+        "en": "Sober & Healthy",
+        "cn": "清醒且健康"
+      }
+    },
+    {
+      "id": "bishop:nominate_evil",
+      "character_id": "bishop",
+      "name": {
+        "en": "Nominate Evil",
+        "cn": "提名邪恶方"
+      }
+    },
+    {
+      "id": "bishop:nominate_good",
+      "character_id": "bishop",
+      "name": {
+        "en": "Nominate Good",
+        "cn": "提名善良方"
+      }
+    },
+    {
+      "id": "bone_collector:has_ability",
+      "character_id": "bone_collector",
+      "name": {
+        "en": "Has Ability",
+        "cn": "重获能力"
+      }
+    },
+    {
+      "id": "bone_collector:no_ability",
+      "character_id": "bone_collector",
+      "name": {
+        "en": "No Ability",
+        "cn": "失去能力"
+      }
+    },
+    {
+      "id": "bounty_hunter:know",
+      "character_id": "bounty_hunter",
+      "name": {
+        "en": "Know",
+        "cn": "得知"
+      }
+    },
+    {
+      "id": "bureaucrat:3_votes",
+      "character_id": "bureaucrat",
+      "name": {
+        "en": "3 Votes",
+        "cn": "3票"
+      }
+    },
+    {
+      "id": "butler:master",
+      "character_id": "butler",
+      "name": {
+        "en": "Master",
+        "cn": "主人"
+      }
+    },
+    {
+      "id": "cacklejack:not_me",
+      "character_id": "cacklejack",
+      "name": {
+        "en": "Not me",
+        "cn": "不是我"
+      }
+    },
+    {
+      "id": "cannibal:lunch",
+      "character_id": "cannibal",
+      "name": {
+        "en": "Lunch",
+        "cn": "饱餐"
+      }
+    },
+    {
+      "id": "cannibal:poisoned",
+      "character_id": "cannibal",
+      "name": {
+        "en": "Poisoned",
+        "cn": "中毒"
+      }
+    },
+    {
+      "id": "cerenovus:mad",
+      "character_id": "cerenovus",
+      "name": {
+        "en": "Mad",
+        "cn": "疯狂"
+      }
+    },
+    {
+      "id": "courtier:drunk_1",
+      "character_id": "courtier",
+      "name": {
+        "en": "Drunk 1",
+        "cn": "醉酒1"
+      }
+    },
+    {
+      "id": "courtier:drunk_2",
+      "character_id": "courtier",
+      "name": {
+        "en": "Drunk 2",
+        "cn": "醉酒2"
+      }
+    },
+    {
+      "id": "courtier:drunk_3",
+      "character_id": "courtier",
+      "name": {
+        "en": "Drunk 3",
+        "cn": "醉酒3"
+      }
+    },
+    {
+      "id": "courtier:no_ability",
+      "character_id": "courtier",
+      "name": {
+        "en": "No Ability",
+        "cn": "失去能力"
+      }
+    },
+    {
+      "id": "damsel:guess_used",
+      "character_id": "damsel",
+      "name": {
+        "en": "Guess Used",
+        "cn": "已被猜测"
+      }
+    },
+    {
+      "id": "deus_ex_fiasco:whoopsie",
+      "character_id": "deus_ex_fiasco",
+      "name": {
+        "en": "Whoopsie",
+        "cn": "哎呀！"
+      }
+    },
+    {
+      "id": "devil_s_advocate:survives_execution",
+      "character_id": "devil_s_advocate",
+      "name": {
+        "en": "Survives Execution",
+        "cn": "处决不死"
+      }
+    },
+    {
+      "id": "duchess:false_info",
+      "character_id": "duchess",
+      "name": {
+        "en": "False Info",
+        "cn": "错误信息"
+      }
+    },
+    {
+      "id": "duchess:visitor",
+      "character_id": "duchess",
+      "name": {
+        "en": "Visitor",
+        "cn": "访客"
+      }
+    },
+    {
+      "id": "engineer:no_ability",
+      "character_id": "engineer",
+      "name": {
+        "en": "No Ability",
+        "cn": "失去能力"
+      }
+    },
+    {
+      "id": "evil_twin:twin",
+      "character_id": "evil_twin",
+      "name": {
+        "en": "Twin",
+        "cn": "对立双子"
+      }
+    },
+    {
+      "id": "exorcist:chosen",
+      "character_id": "exorcist",
+      "name": {
+        "en": "Chosen",
+        "cn": "被选择"
+      }
+    },
+    {
+      "id": "fang_gu:dead",
+      "character_id": "fang_gu",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "fang_gu:once",
+      "character_id": "fang_gu",
+      "name": {
+        "en": "Once",
+        "cn": "限一次"
+      }
+    },
+    {
+      "id": "fearmonger:fear",
+      "character_id": "fearmonger",
+      "name": {
+        "en": "Fear",
+        "cn": "恐惧"
+      }
+    },
+    {
+      "id": "fibbin:no_ability",
+      "character_id": "fibbin",
+      "name": {
+        "en": "No Ability",
+        "cn": "失去能力"
+      }
+    },
+    {
+      "id": "fisherman:no_ability",
+      "character_id": "fisherman",
+      "name": {
+        "en": "No Ability",
+        "cn": "失去能力"
+      }
+    },
+    {
+      "id": "flowergirl:demon_not_voted",
+      "character_id": "flowergirl",
+      "name": {
+        "en": "Demon Not Voted",
+        "cn": "恶魔未投票"
+      }
+    },
+    {
+      "id": "flowergirl:demon_voted",
+      "character_id": "flowergirl",
+      "name": {
+        "en": "Demon Voted",
+        "cn": "恶魔已投票"
+      }
+    },
+    {
+      "id": "fool:no_ability",
+      "character_id": "fool",
+      "name": {
+        "en": "No Ability",
+        "cn": "失去能力"
+      }
+    },
+    {
+      "id": "fortune_teller:red_herring",
+      "character_id": "fortune_teller",
+      "name": {
+        "en": "Red Herring",
+        "cn": "干扰项"
+      }
+    },
+    {
+      "id": "gambler:dead",
+      "character_id": "gambler",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "gnome:amigo",
+      "character_id": "gnome",
+      "name": {
+        "en": "Amigo",
+        "cn": "同伴"
+      }
+    },
+    {
+      "id": "goblin:claimed",
+      "character_id": "goblin",
+      "name": {
+        "en": "Claimed",
+        "cn": "已宣称"
+      }
+    },
+    {
+      "id": "godfather:dead",
+      "character_id": "godfather",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "godfather:died_today",
+      "character_id": "godfather",
+      "name": {
+        "en": "Died Today",
+        "cn": "死于今日"
+      }
+    },
+    {
+      "id": "golem:may_not_nominate",
+      "character_id": "golem",
+      "name": {
+        "en": "May Not Nominate",
+        "cn": "无法提名"
+      }
+    },
+    {
+      "id": "goon:drunk",
+      "character_id": "goon",
+      "name": {
+        "en": "Drunk",
+        "cn": "醉酒"
+      }
+    },
+    {
+      "id": "gossip:dead",
+      "character_id": "gossip",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "grandmother:dead",
+      "character_id": "grandmother",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "grandmother:grandchild",
+      "character_id": "grandmother",
+      "name": {
+        "en": "Grandchild",
+        "cn": "孙子"
+      }
+    },
+    {
+      "id": "harlot:dead",
+      "character_id": "harlot",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "harpy:2nd",
+      "character_id": "harpy",
+      "name": {
+        "en": "2nd",
+        "cn": "第二名"
+      }
+    },
+    {
+      "id": "harpy:mad",
+      "character_id": "harpy",
+      "name": {
+        "en": "Mad",
+        "cn": "疯狂"
+      }
+    },
+    {
+      "id": "hatter:tea_party_tonight",
+      "character_id": "hatter",
+      "name": {
+        "en": "Tea Party Tonight",
+        "cn": "今晚茶会"
+      }
+    },
+    {
+      "id": "hell_s_librarian:something_bad",
+      "character_id": "hell_s_librarian",
+      "name": {
+        "en": "Something Bad",
+        "cn": "不好的事"
+      }
+    },
+    {
+      "id": "hermit:1",
+      "character_id": "hermit",
+      "name": {
+        "en": "1",
+        "cn": "1"
+      }
+    },
+    {
+      "id": "hermit:2",
+      "character_id": "hermit",
+      "name": {
+        "en": "2",
+        "cn": "2"
+      }
+    },
+    {
+      "id": "hermit:3",
+      "character_id": "hermit",
+      "name": {
+        "en": "3",
+        "cn": "3"
+      }
+    },
+    {
+      "id": "huntsman:no_ability",
+      "character_id": "huntsman",
+      "name": {
+        "en": "No Ability",
+        "cn": "失去能力"
+      }
+    },
+    {
+      "id": "imp:dead",
+      "character_id": "imp",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "innkeeper:drunk",
+      "character_id": "innkeeper",
+      "name": {
+        "en": "Drunk",
+        "cn": "醉酒"
+      }
+    },
+    {
+      "id": "innkeeper:safe",
+      "character_id": "innkeeper",
+      "name": {
+        "en": "Safe",
+        "cn": "不会死亡"
+      }
+    },
+    {
+      "id": "investigator:minion",
+      "character_id": "investigator",
+      "name": {
+        "en": "Minion",
+        "cn": "爪牙"
+      }
+    },
+    {
+      "id": "investigator:wrong",
+      "character_id": "investigator",
+      "name": {
+        "en": "Wrong",
+        "cn": "错误"
+      }
+    },
+    {
+      "id": "judge:no_ability",
+      "character_id": "judge",
+      "name": {
+        "en": "No Ability",
+        "cn": "失去能力"
+      }
+    },
+    {
+      "id": "juggler:correct",
+      "character_id": "juggler",
+      "name": {
+        "en": "Correct",
+        "cn": "猜测正确"
+      }
+    },
+    {
+      "id": "kazali:dead",
+      "character_id": "kazali",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "knight:know",
+      "character_id": "knight",
+      "name": {
+        "en": "Know",
+        "cn": "得知"
+      }
+    },
+    {
+      "id": "legion:about_to_die",
+      "character_id": "legion",
+      "name": {
+        "en": "About To Die",
+        "cn": "即将被处决"
+      }
+    },
+    {
+      "id": "legion:dead",
+      "character_id": "legion",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "leviathan:day_1",
+      "character_id": "leviathan",
+      "name": {
+        "en": "Day 1",
+        "cn": "第一天"
+      }
+    },
+    {
+      "id": "leviathan:day_2",
+      "character_id": "leviathan",
+      "name": {
+        "en": "Day 2",
+        "cn": "第二天"
+      }
+    },
+    {
+      "id": "leviathan:day_3",
+      "character_id": "leviathan",
+      "name": {
+        "en": "Day 3",
+        "cn": "第三天"
+      }
+    },
+    {
+      "id": "leviathan:day_4",
+      "character_id": "leviathan",
+      "name": {
+        "en": "Day 4",
+        "cn": "第四天"
+      }
+    },
+    {
+      "id": "leviathan:day_5",
+      "character_id": "leviathan",
+      "name": {
+        "en": "Day 5",
+        "cn": "第五天"
+      }
+    },
+    {
+      "id": "leviathan:good_player_executed",
+      "character_id": "leviathan",
+      "name": {
+        "en": "Good Player Executed",
+        "cn": "善良被处决"
+      }
+    },
+    {
+      "id": "librarian:outsider",
+      "character_id": "librarian",
+      "name": {
+        "en": "Outsider",
+        "cn": "外来者"
+      }
+    },
+    {
+      "id": "librarian:wrong",
+      "character_id": "librarian",
+      "name": {
+        "en": "Wrong",
+        "cn": "错误"
+      }
+    },
+    {
+      "id": "lleech:dead",
+      "character_id": "lleech",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "lleech:poisoned",
+      "character_id": "lleech",
+      "name": {
+        "en": "Poisoned",
+        "cn": "中毒"
+      }
+    },
+    {
+      "id": "lord_of_typhon:dead",
+      "character_id": "lord_of_typhon",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "lunatic:chosen",
+      "character_id": "lunatic",
+      "name": {
+        "en": "Chosen",
+        "cn": "被选择"
+      }
+    },
+    {
+      "id": "lycanthrope:dead",
+      "character_id": "lycanthrope",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "lycanthrope:faux_paw",
+      "character_id": "lycanthrope",
+      "name": {
+        "en": "Faux Paw",
+        "cn": "失足"
+      }
+    },
+    {
+      "id": "mathematician:abnormal",
+      "character_id": "mathematician",
+      "name": {
+        "en": "Abnormal",
+        "cn": "未正常生效"
+      }
+    },
+    {
+      "id": "mezepheles:no_ability",
+      "character_id": "mezepheles",
+      "name": {
+        "en": "No Ability",
+        "cn": "失去能力"
+      }
+    },
+    {
+      "id": "mezepheles:turns_evil",
+      "character_id": "mezepheles",
+      "name": {
+        "en": "Turns Evil",
+        "cn": "转为邪恶"
+      }
+    },
+    {
+      "id": "minstrel:everyone_is_drunk",
+      "character_id": "minstrel",
+      "name": {
+        "en": "Everyone Is Drunk",
+        "cn": "全员醉酒"
+      }
+    },
+    {
+      "id": "monk:safe",
+      "character_id": "monk",
+      "name": {
+        "en": "Safe",
+        "cn": "保护"
+      }
+    },
+    {
+      "id": "moonchild:dead",
+      "character_id": "moonchild",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "nightwatchman:no_ability",
+      "character_id": "nightwatchman",
+      "name": {
+        "en": "No Ability",
+        "cn": "失去能力"
+      }
+    },
+    {
+      "id": "no_dashii:dead",
+      "character_id": "no_dashii",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "no_dashii:poisoned",
+      "character_id": "no_dashii",
+      "name": {
+        "en": "Poisoned",
+        "cn": "中毒"
+      }
+    },
+    {
+      "id": "noble:know",
+      "character_id": "noble",
+      "name": {
+        "en": "Know",
+        "cn": "得知"
+      }
+    },
+    {
+      "id": "ogre:friend",
+      "character_id": "ogre",
+      "name": {
+        "en": "Friend",
+        "cn": "挚友"
+      }
+    },
+    {
+      "id": "ojo:dead",
+      "character_id": "ojo",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "organ_grinder:about_to_die",
+      "character_id": "organ_grinder",
+      "name": {
+        "en": "About To Die",
+        "cn": "即将被处决"
+      }
+    },
+    {
+      "id": "organ_grinder:drunk",
+      "character_id": "organ_grinder",
+      "name": {
+        "en": "Drunk",
+        "cn": "醉酒"
+      }
+    },
+    {
+      "id": "philosopher:drunk",
+      "character_id": "philosopher",
+      "name": {
+        "en": "Drunk",
+        "cn": "醉酒"
+      }
+    },
+    {
+      "id": "pixie:has_ability",
+      "character_id": "pixie",
+      "name": {
+        "en": "Has Ability",
+        "cn": "获得能力"
+      }
+    },
+    {
+      "id": "pixie:mad",
+      "character_id": "pixie",
+      "name": {
+        "en": "Mad",
+        "cn": "疯狂"
+      }
+    },
+    {
+      "id": "plague_doctor:storyteller_ability",
+      "character_id": "plague_doctor",
+      "name": {
+        "en": "Storyteller Ability",
+        "cn": "说书人能力"
+      }
+    },
+    {
+      "id": "po:3_attacks",
+      "character_id": "po",
+      "name": {
+        "en": "3 Attacks",
+        "cn": "攻击三次"
+      }
+    },
+    {
+      "id": "po:dead",
+      "character_id": "po",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "poisoner:poisoned",
+      "character_id": "poisoner",
+      "name": {
+        "en": "Poisoned",
+        "cn": "中毒"
+      }
+    },
+    {
+      "id": "poppy_grower:evil_wakes",
+      "character_id": "poppy_grower",
+      "name": {
+        "en": "Evil Wakes",
+        "cn": "唤醒邪恶"
+      }
+    },
+    {
+      "id": "preacher:no_ability",
+      "character_id": "preacher",
+      "name": {
+        "en": "No Ability",
+        "cn": "失去能力"
+      }
+    },
+    {
+      "id": "princess:doesn_t_kill",
+      "character_id": "princess",
+      "name": {
+        "en": "Doesn't Kill",
+        "cn": "没有死亡"
+      }
+    },
+    {
+      "id": "professor:alive",
+      "character_id": "professor",
+      "name": {
+        "en": "Alive",
+        "cn": "复活"
+      }
+    },
+    {
+      "id": "professor:no_ability",
+      "character_id": "professor",
+      "name": {
+        "en": "No Ability",
+        "cn": "失去能力"
+      }
+    },
+    {
+      "id": "pukka:dead",
+      "character_id": "pukka",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "pukka:poisoned",
+      "character_id": "pukka",
+      "name": {
+        "en": "Poisoned",
+        "cn": "中毒"
+      }
+    },
+    {
+      "id": "puzzlemaster:drunk",
+      "character_id": "puzzlemaster",
+      "name": {
+        "en": "Drunk",
+        "cn": "醉酒"
+      }
+    },
+    {
+      "id": "puzzlemaster:guess_used",
+      "character_id": "puzzlemaster",
+      "name": {
+        "en": "Guess Used",
+        "cn": "已猜测"
+      }
+    },
+    {
+      "id": "revolutionary:aligned",
+      "character_id": "revolutionary",
+      "name": {
+        "en": "Aligned",
+        "cn": "对立双子"
+      }
+    },
+    {
+      "id": "revolutionary:register_falsely",
+      "character_id": "revolutionary",
+      "name": {
+        "en": "Register Falsely?",
+        "cn": "被当作其他"
+      }
+    },
+    {
+      "id": "riot:day_1",
+      "character_id": "riot",
+      "name": {
+        "en": "Day 1",
+        "cn": "第一天"
+      }
+    },
+    {
+      "id": "riot:day_2",
+      "character_id": "riot",
+      "name": {
+        "en": "Day 2",
+        "cn": "第二天"
+      }
+    },
+    {
+      "id": "riot:day_3",
+      "character_id": "riot",
+      "name": {
+        "en": "Day 3",
+        "cn": "第三天"
+      }
+    },
+    {
+      "id": "sailor:drunk",
+      "character_id": "sailor",
+      "name": {
+        "en": "Drunk",
+        "cn": "醉酒"
+      }
+    },
+    {
+      "id": "scarlet_woman:is_the_demon",
+      "character_id": "scarlet_woman",
+      "name": {
+        "en": "Is The Demon",
+        "cn": "是恶魔"
+      }
+    },
+    {
+      "id": "seamstress:no_ability",
+      "character_id": "seamstress",
+      "name": {
+        "en": "No Ability",
+        "cn": "失去能力"
+      }
+    },
+    {
+      "id": "shabaloth:alive",
+      "character_id": "shabaloth",
+      "name": {
+        "en": "Alive",
+        "cn": "复活"
+      }
+    },
+    {
+      "id": "shabaloth:dead",
+      "character_id": "shabaloth",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "slayer:no_ability",
+      "character_id": "slayer",
+      "name": {
+        "en": "No Ability",
+        "cn": "失去能力"
+      }
+    },
+    {
+      "id": "snake_charmer:poisoned",
+      "character_id": "snake_charmer",
+      "name": {
+        "en": "Poisoned",
+        "cn": "中毒"
+      }
+    },
+    {
+      "id": "spirit_of_ivory:no_more_evil",
+      "character_id": "spirit_of_ivory",
+      "name": {
+        "en": "No More Evil",
+        "cn": "禁止邪恶"
+      }
+    },
+    {
+      "id": "steward:know",
+      "character_id": "steward",
+      "name": {
+        "en": "Know",
+        "cn": "得知"
+      }
+    },
+    {
+      "id": "storm_catcher:stormcaught",
+      "character_id": "storm_catcher",
+      "name": {
+        "en": "Stormcaught",
+        "cn": "不会死亡"
+      }
+    },
+    {
+      "id": "summoner:night_1",
+      "character_id": "summoner",
+      "name": {
+        "en": "Night 1",
+        "cn": "第一晚"
+      }
+    },
+    {
+      "id": "summoner:night_2",
+      "character_id": "summoner",
+      "name": {
+        "en": "Night 2",
+        "cn": "第二晚"
+      }
+    },
+    {
+      "id": "summoner:night_3",
+      "character_id": "summoner",
+      "name": {
+        "en": "Night 3",
+        "cn": "第三晚"
+      }
+    },
+    {
+      "id": "sweetheart:drunk",
+      "character_id": "sweetheart",
+      "name": {
+        "en": "Drunk",
+        "cn": "醉酒"
+      }
+    },
+    {
+      "id": "tea_lady:cannot_die",
+      "character_id": "tea_lady",
+      "name": {
+        "en": "Cannot Die",
+        "cn": "不会死亡"
+      }
+    },
+    {
+      "id": "thief:negative_vote",
+      "character_id": "thief",
+      "name": {
+        "en": "Negative Vote",
+        "cn": "负票"
+      }
+    },
+    {
+      "id": "tinker:dead",
+      "character_id": "tinker",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "town_crier:minion_nominated",
+      "character_id": "town_crier",
+      "name": {
+        "en": "Minion Nominated",
+        "cn": "爪牙已提名"
+      }
+    },
+    {
+      "id": "town_crier:minions_not_nominated",
+      "character_id": "town_crier",
+      "name": {
+        "en": "Minions Not Nominated",
+        "cn": "爪牙未提名"
+      }
+    },
+    {
+      "id": "toymaker:final_night_no_attack",
+      "character_id": "toymaker",
+      "name": {
+        "en": "Final Night: No Attack",
+        "cn": "无法攻击"
+      }
+    },
+    {
+      "id": "undertaker:died_today",
+      "character_id": "undertaker",
+      "name": {
+        "en": "Died Today",
+        "cn": "死于今日"
+      }
+    },
+    {
+      "id": "ventriloquist:mad",
+      "character_id": "ventriloquist",
+      "name": {
+        "en": "Mad",
+        "cn": "疯狂"
+      }
+    },
+    {
+      "id": "vigormortis:dead",
+      "character_id": "vigormortis",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "vigormortis:has_ability",
+      "character_id": "vigormortis",
+      "name": {
+        "en": "Has Ability",
+        "cn": "保留能力"
+      }
+    },
+    {
+      "id": "vigormortis:poisoned",
+      "character_id": "vigormortis",
+      "name": {
+        "en": "Poisoned",
+        "cn": "中毒"
+      }
+    },
+    {
+      "id": "village_idiot:drunk",
+      "character_id": "village_idiot",
+      "name": {
+        "en": "Drunk",
+        "cn": "醉酒"
+      }
+    },
+    {
+      "id": "virgin:no_ability",
+      "character_id": "virgin",
+      "name": {
+        "en": "No Ability",
+        "cn": "失去能力"
+      }
+    },
+    {
+      "id": "vortox:dead",
+      "character_id": "vortox",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "washerwoman:townsfolk",
+      "character_id": "washerwoman",
+      "name": {
+        "en": "Townsfolk",
+        "cn": "镇民"
+      }
+    },
+    {
+      "id": "washerwoman:wrong",
+      "character_id": "washerwoman",
+      "name": {
+        "en": "Wrong",
+        "cn": "错误"
+      }
+    },
+    {
+      "id": "widow:know",
+      "character_id": "widow",
+      "name": {
+        "en": "Know",
+        "cn": "得知"
+      }
+    },
+    {
+      "id": "widow:poisoned",
+      "character_id": "widow",
+      "name": {
+        "en": "Poisoned",
+        "cn": "中毒"
+      }
+    },
+    {
+      "id": "witch:cursed",
+      "character_id": "witch",
+      "name": {
+        "en": "Cursed",
+        "cn": "被诅咒"
+      }
+    },
+    {
+      "id": "wizard:",
+      "character_id": "wizard",
+      "name": {
+        "en": "?",
+        "cn": "？"
+      }
+    },
+    {
+      "id": "xaan:night_1",
+      "character_id": "xaan",
+      "name": {
+        "en": "Night 1",
+        "cn": "第一晚"
+      }
+    },
+    {
+      "id": "xaan:night_2",
+      "character_id": "xaan",
+      "name": {
+        "en": "Night 2",
+        "cn": "第二晚"
+      }
+    },
+    {
+      "id": "xaan:night_3",
+      "character_id": "xaan",
+      "name": {
+        "en": "Night 3",
+        "cn": "第三晚"
+      }
+    },
+    {
+      "id": "xaan:x",
+      "character_id": "xaan",
+      "name": {
+        "en": "X",
+        "cn": "大限将至"
+      }
+    },
+    {
+      "id": "yaggababble:dead",
+      "character_id": "yaggababble",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "zenomancer:goal",
+      "character_id": "zenomancer",
+      "name": {
+        "en": "Goal",
+        "cn": "目标"
+      }
+    },
+    {
+      "id": "zombuul:dead",
+      "character_id": "zombuul",
+      "name": {
+        "en": "Dead",
+        "cn": "死亡"
+      }
+    },
+    {
+      "id": "zombuul:died_today",
+      "character_id": "zombuul",
+      "name": {
+        "en": "Died Today",
+        "cn": "死于今日"
+      }
+    }
+  ]
+}
