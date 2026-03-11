@@ -1,10 +1,18 @@
 {
   "id": "chambermaid",
-  "type": "townsfolk",
   "name": {
     "en": "Chambermaid",
     "cn": "侍女"
   },
+  "type": "townsfolk",
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Chambermaid",
   "ability": {
     "en": "Each night, choose 2 alive players (not yourself): you learn how many woke tonight due to their ability.",
     "cn": "每个夜晚，你要选择除你以外的两名存活的玩家：你会得知他们中有几人在当晚因其自身能力而被唤醒。"
@@ -13,13 +21,6 @@
     "en": "\"I aint seen nothin' untoward, Milady. Begging your pardon, but if I did see somethin', it certainly weren't the master o' the house sneaking into the professor's laboratory 'round eleven o'clock and mixing up fancy potions, just like you said, Miss.\"",
     "cn": "“我没有看到任何不寻常的事，夫人。请原谅我，但要是我真的看到了什么，那一定不是屋子主人在大约十一点的时候溜进了教授的实验室还把那些花花绿绿的药剂混合在了一起，就如你所说的那样，女士。”"
   },
-  "editions": [
-    "bad_moon_rising"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
   "examples": {
     "en": [
       "The Chambermaid chooses the Exorcist and the Innkeeper, and learns a \"2.\" The next night, the Exorcist chooses the Shabaloth, which will wake the Shabaloth. Later, Chambermaid chooses the Shabaloth and the Fool. Since the Shabaloth only woke due to the Exorcist ability, the Chambermaid learns a \"0\".",
@@ -51,9 +52,8 @@
     ]
   },
   "how_to_run": {
-    "en": "Each night, wake the Chambermaid. They point at any two alive players except themself. Show the Chambermaid fingers (0, 1, or 2) equaling the number of chosen characters who woke tonight. Put the Chambermaid to sleep.",
+    "en": "Each night, wake the Chambermaid. They point at any two alive players except themself. Show the Chambermaid fingers (0, 1, or 2) equaling the number of chosen characters who woke tonight. Put the Chambermaid to sleep.\nDo not wake the Chambermaid if there are not two players alive to be chosen (due to the Mastermind, Zombuul, etc.).",
     "cn": "每个夜晚，唤醒侍女。让侍女指向除自己外任意两名存活的玩家。用手势向侍女比划出所选角色中当晚被唤醒过的数量（0，1，或2）。让侍女重新入睡。\n如果没有两名存活玩家能够选择（由于主谋、僵怖等的能力造成），不要唤醒侍女。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Chambermaid",
-  "image": "assets/tokens/chambermaid.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/8/87/Icon_chambermaid.png"
 }

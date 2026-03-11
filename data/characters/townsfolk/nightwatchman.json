@@ -1,10 +1,18 @@
 {
   "id": "nightwatchman",
-  "type": "townsfolk",
   "name": {
     "en": "Nightwatchman",
     "cn": "守夜人"
   },
+  "type": "townsfolk",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "artist": "Chloe McDougall",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Nightwatchman",
   "ability": {
     "en": "Once per game, at night, choose a player: they learn you are the Nightwatchman.",
     "cn": "每局游戏限一次，在夜晚时，你可以选择一名玩家：他会得知你是守夜人。"
@@ -13,13 +21,6 @@
     "en": "\"The night is cold and lonely, but I have the moon, the stars, the crisp wind and the soft thud of leather boots on cobbled stone for company. Yonder, candlelight flickers behind a murky window...\"",
     "cn": "“夜晚寒冷而孤独，但我有月亮、星星、清风，还有鹅卵石上皮靴的轻柔撞击声与我作伴。远处，有烛光正在一扇昏暗的窗户后面闪烁……”"
   },
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "Chloe McDougall",
-  "jinxes": [],
   "examples": {
     "en": [
       "Lachlan is the Nightwatchman. He chooses Abdallah. Abdallah learns that Lachlan is the Nightwatchman.",
@@ -53,9 +54,8 @@
     ]
   },
   "how_to_run": {
-    "en": "Each night, wake the Nightwatchman. The Nightwatchman either shakes their head or points at any player. Put the Nightwatchman to sleep.",
+    "en": "Each night, wake the Nightwatchman. The Nightwatchman either shakes their head or points at any player. Put the Nightwatchman to sleep.\nIf the Nightwatchman pointed at a player, wake them and show them the Nightwatchman token, then point to the Nightwatchman player. Put the chosen player to sleep. The Nightwatchman loses their ability – mark them with a NO ABILITY reminder and remove their night token from the night sheet.",
     "cn": "每个夜晚，唤醒守夜人。如果他摇头不使用能力，让他重新入睡。如果他指向了一名玩家，让他重新入睡，并唤醒被他选择的玩家，对其展示“该角色的能力对你生效”提示标记，守夜人的角色标记，然后指向守夜人玩家，随后让该玩家重新入睡。使用守夜人的“失去能力”标记标记守夜人。守夜人的能力被使用，将守夜人的夜晚标记从夜晚顺序表旁移除，在此后的夜晚中，不要再唤醒守夜人。\n如果守夜人在选择玩家时醉酒中毒，在让他重新入睡后，不要唤醒他选择的玩家，并仍然使用“失去能力”标记守夜人，因为他使用了自己的“每局游戏限一次”的能力。\n如果涡流在场，在唤醒被守夜人选择的玩家时，需要对他指向一名除守夜人以外的玩家。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Nightwatchman",
-  "image": "assets/tokens/nightwatchman.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/f/f0/Icon_nightwatchman.png"
 }

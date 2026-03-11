@@ -1,10 +1,18 @@
 {
   "id": "innkeeper",
-  "type": "townsfolk",
   "name": {
     "en": "Innkeeper",
     "cn": "旅店老板"
   },
+  "type": "townsfolk",
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "artist": "John Grist",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Innkeeper",
   "ability": {
     "en": "Each night*, choose 2 players: they can't die tonight, but 1 is drunk until dusk.",
     "cn": "每个夜晚*，你要选择两名玩家：他们当晚不会死亡，但其中一人会醉酒到下个黄昏。"
@@ -13,13 +21,6 @@
     "en": "\"Come inside, fair traveller, and rest your weary bones. Drink and be merry, for the legions of the Dark One shall not harass thee tonight.\"",
     "cn": "“到里头来，美丽的旅者，放松筋骨，好好歇息。尽管饮酒作乐，黑暗之物今夜无法伤你分毫。”"
   },
-  "editions": [
-    "bad_moon_rising"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "John Grist",
-  "jinxes": [],
   "examples": {
     "en": [
       "The Innkeeper protects the Fool and the Chambermaid. The Storyteller chooses that the Fool becomes drunk. Tomorrow, when the Fool is executed, they die, even though they hadn’t used their ability yet.",
@@ -49,9 +50,8 @@
     ]
   },
   "how_to_run": {
-    "en": "Each night except the first, wake the Innkeeper. They point at any two players. Put the Innkeeper to sleep. Mark the two chosen players with SAFE reminders. One of the chosen players becomes drunk—mark them with the DRUNK reminder. The players marked SAFE cannot die tonight.",
+    "en": "Each night except the first, wake the Innkeeper. They point at any two players. Put the Innkeeper to sleep. Mark the two chosen players with SAFE reminders. One of the chosen players becomes drunk—mark them with the DRUNK reminder. The players marked SAFE cannot die tonight.\nAt dawn, remove the SAFE reminders.\nAt dusk, remove the DRUNK reminder.",
     "cn": "除了首个夜晚以外的每个夜晚，唤醒旅店老板。让旅店老板指向任意两名玩家。让旅店老板重新入睡。将“不会死亡”提示标记放置到所选的两个角色标记旁。所选玩家其中一人醉酒——将“醉酒”提示标记放置到该玩家的角色标记旁。标有“不会死亡”的玩家当晚不会死亡。\n在黎明，移除“不会死亡”提示标记。\n在黄昏，移除“醉酒”提示标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Innkeeper",
-  "image": "assets/tokens/innkeeper.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/0/0c/Icon_innkeeper.png"
 }

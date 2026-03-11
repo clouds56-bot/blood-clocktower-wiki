@@ -1,0 +1,76 @@
+{
+  "id": "legion",
+  "name": {
+    "en": "Legion",
+    "cn": "军团"
+  },
+  "type": "demon",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "artist": "Steven Medway",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Legion",
+  "ability": {
+    "en": "Each night*, a player might die. Executions fail if only evil voted. You register as a Minion too. [Most players are Legion]",
+    "cn": "每个夜晚*，可能有一名玩家死亡。如果一项提名只有邪恶玩家投票，投票无效。你也会被当作是爪牙。[多数玩家为军团]"
+  },
+  "flavor_text": {
+    "en": "\"We are the chill wind on a winter’s day. We are the shadow in the moonless night. We are the poison in your tea and the whisper in your ear. We are everywhere.\"",
+    "cn": "“我们是冬日刺骨的寒风。我们是无月之夜的阴影。我们是你茶里的毒药，是你耳边的低语。我们无处不在。”"
+  },
+  "examples": {
+    "en": [
+      "Most nights, kill a Legion. Killing a good player is usually unfair. Your aim is to get to three players alive—two good players and one Legion player. On the final day, if the players don’t execute, kill a good player that night so that evil wins.\n\n\nIf the players try to force others to vote to “test whether the vote tally is zero”, you may instead declare that a zero-tally vote is successful but secretly keep a record of which player is really about to die by marking them with Legion’s ABOUT TO DIE reminder, then execute them when nominations are over. This keeps Legion games mysterious and challenging.",
+      "The only good players are the Fortune Teller and the Slayer. 6 Legion and the Slayer vote to execute the Fortune Teller. They are executed, and evil wins.",
+      "4 players are alive. 3 Legion and no good players vote to execute Julian. Julian is not executed. Alex, who has 2 votes, 1 of which is a good player, is executed instead. Evil wins."
+    ],
+    "cn": [
+      "场上仅有的善良玩家是占卜师和猎手。有六名军团在场，猎手提名并处决了占卜师。邪恶阵营获胜。",
+      "有四名玩家存活。三名玩家是军团，在对小佳的提名投票中，没有善良玩家参与投票。小佳没有被处决。小艾获得了两票，其中一票来自一名善良玩家，因此小艾最终被处决。"
+    ]
+  },
+  "tips": {
+    "en": [
+      "Be wary of solely claiming any of your bluffs. Particularly in larger games, there could be as many as 4 Legion for each single bluff given by the Storyteller. The good team will have an easy time working out what the three bluffs were if you all choose to use them.",
+      "Pay attention to who is voting as the vote goes around the circle. Consider keeping your hand down unless you know that a good player is voting as well. This way, you will ensure that you won't be identified as Legion when a vote with popular support does not pass.",
+      "However, don't make it too obvious that you're voting with a specific player or players. Unless you're successfully bluffing as the Butler, you may end up drawing suspicion from the good team.",
+      "Consider deliberately claiming the role of one of the good players in the game. After all, if you die, you're just one of many, but if you can cast enough doubt on your opponent to get them executed, you will be significantly closer to victory.",
+      "If it becomes obvious to the good team that they are in a Legion game, you can use their newfound paranoia to your advantage. Try to sell the idea to one of them that you and they are possibly the last remaining good players. Having just one Legion in the circle of trust with a good player can easily lead to a death spiral for the good team.",
+      "There are some character bluffs that require a group effort, particularly when they have game-altering implications such as Atheist, Poppy Grower, or Vortox. As soon as one player makes one of these claims, it requires a co-ordinated effort to maintain the lie. Other players will need to follow your lead.",
+      "There are a number of evil abilities that instantly and publicly disprove the existence of Legion. This includes a Witch curse, a Devil's Advocate execution save (if no other explanation exists), a Fearmonger, or a Psychopath revealing themselves. If these are on the script, Legion will have to navigate their absence.",
+      "However, there are also a range of evil abilities that disprove the existence of Legion to one player, but since that piece of evidence relies upon that player sharing their info with the group, this can be written off as a lie by that player. This includes a person being made mad by the Cerenovus (up until a player is dramatically executed), or a player claiming a Widow is in play.",
+      "On top of that, Legion can use fake evil abilities as a way of trying to convince the group that it is not a Legion game. An evil player can claim they were made mad by a Cerenovus, or can claim they are the good player that learned there was a Widow in play.",
+      "Pretend to be a Minion. Legions can register as Minions as well as Demons – if you can convince the good team that you are a Minion, you can throw the good team off the scent. If a Ravenkeeper detects you as a Poisoner, throw yourself on your sword and play into it – the rest of the evil team can use this to divert suspicions of being Legion."
+    ],
+    "cn": [
+      "小心使用你的伪装角色。特别是在多人游戏中，可能 4 个军团要同时使用一个伪装角色。如果你们都选择使用这个角色，善良阵营将很容易弄清楚这三个伪装角色是什么。",
+      "当投票围绕圆圈进行时，请注意谁在投票。除非您知道一位善良玩家也在投票，否则请考虑保持低调。这样，您将确保在获得民众支持的投票未通过时，您不会被认定为军团。",
+      "但是，不要太明显地表明您正在跟着特定玩家或一些玩家投票。除非你成功伪装为管家，否则你最终可能会引起好团队的怀疑。",
+      "考虑故意声称自己是某个在场的角色。毕竟，如果你死了，你只是众多人中的一员，但如果你能让其他人对你伪装角色的玩家产生足够的怀疑，甚至被处决，你就会离胜利更近一步。",
+      "如果善良阵营很确信他们在军团局次中，你可以利用他们对新发现的偏执来建立优势。尝试向其中一个人推销你和他们可能是最后剩下的好玩家的想法。在信任圈内只有一个军团与优秀玩家很容易导致优秀团队陷入死亡漩涡。",
+      "有时候伪装成其他角色需要集体努力，尤其是当它们具有改变游戏规则的含义时，例如无神论者、罂粟种植者或涡流。一旦一名玩家提出其中一项声明，就需要大家协调一致来维持谎言。其他军团玩家需要跟随你的脚步。",
+      "有许多邪恶角色的能力可以立即公开否定军团的存在。这包括女巫的诅咒、魔鬼代言人处决豁免（如果没有其他解释）、恐惧之灵或精神病患者暴露自己。如果这些在剧本上，军团将不得不证明这些角色不在场。",
+      "然而，也有邪恶角色的能力虽然可以向某个玩家否定军团的存在，但由于该证据​​依赖于该玩家与大家分享他们的信息，这可能被视为谎言。这包括一个人被洗脑师洗脑了（直到玩家被戏剧性地处决），或者一个玩家声称寡妇在场。",
+      "最重要的是，军团可以用假的邪恶角色能力来试图让大家相信这不是军团局。一个邪恶玩家可以声称他们被洗脑师洗脑了，或者可以声称他们是知道游戏中有寡妇的善良玩家。",
+      "假装是爪牙。军团可以认作恶魔或爪牙——如果你能让善良阵营相信你是一个爪牙，你就可以让善良阵营迷失方向。如果守鸦人检测到你是投毒者，请把自己放在你的剑上并参与其中 - 邪恶团队的其他成员可以利用它来转移对军团的怀疑。",
+      "作为善良阵营的玩家，你在投票和处决方面拥有很大的权力。尝试通过提前举手投票，然后在轮到你投票之前放下手来抓住军团玩家。如果你能造成只有军团投票，你可以一举认定一半的玩家为邪恶。",
+      "请记住，邪恶阵营的伪装角色是不够用的，这意味着将发生两件事，这将有助于您判断出本局是军团局。\n1）一些邪恶玩家最终可能会声明相同的伪装角色，从而暴露自己。\n2) 部分邪恶玩家可能会直接赌一把从剧本中随机选择一个角色，可能会自称是你的角色（或者你同阵营玩家的角色之一）。",
+      "1）一些邪恶玩家最终可能会声明相同的伪装角色，从而暴露自己。",
+      "2) 部分邪恶玩家可能会直接赌一把从剧本中随机选择一个角色，可能会自称是你的角色（或者你同阵营玩家的角色之一）。",
+      "不要因为送葬者或筑梦师之类的角色说他们已经知道玩家是特定的爪牙而确信您不在军团局。军团可以被认成爪牙，从而隐藏自己。",
+      "在军团局中，说书人将选择谁在晚上死去，并且很可能每晚都会选择一个军团玩家以达到平衡的目的。这意味着，如果你是一个已经表明自己的强大角色并且夜复一夜地存活，这可能表明你正在与军团作战。",
+      "由于军团作为一个整体可能会获得 0 或 3 个伪装角色（如果游戏中有告密者，则可能会获得 6 个伪装角色），这取决于说书人，这意味着有大量角色几乎没有信息可用于继续了解正在发生的事情。你在军团局中的一种迹象是当有多次重复的角色声明，1或2次还说的通，但如果您突然获得 3 个或更多重复的角色声明，那么这是军团在场的一个非常强有力的线索。",
+      "军团都是关于邪恶玩家进入蜂巢思维动态的。需要注意的一件事是，如果一切看起来真的很合拍。如果大家有太多的共识，那就意味着太多的人在一致行动，这可能意味着你被邪恶的玩家包围，只是想让你站在一边。如果有很多人一起投票，这可能是您在军团局的进一步暗示。",
+      "军团在发起提名时可能真的很犹豫。许多军团玩家可能反复确认，他们是否得到了善良玩家足够的支持让提名通过。但是，一旦有玩家投票，军团将很快跟上投票。因此，如果有很多人对提名犹豫不决，但热衷于投票，这是军团局的一大暗示。",
+      "在军团局中要记住的一件关键事情是说书人控制着死亡。说书人必须确保最后一天只剩下一个军团，而且由于大多数玩家都是军团，说书人主要是在杀死军团。如果死亡似乎不遵循恶魔杀戮的传统逻辑，或者死亡看起来非常令人惊讶，那么这也许就是军团局的线索。"
+    ]
+  },
+  "how_to_run": {
+    "en": "During the first night, during the Demon Info step, let all Legion players make eye contact. (You may want to point to the non-Legion players so that Legion knows who they are.)\nEach night except the first, you may decide that a player dies.\nWhen counting votes, count out loud, as normal. If the vote tally is enough to make a player about to die but only evil players voted, declare that the vote tally is zero.\nMost nights, kill a Legion. Killing a good player is usually unfair. Your aim is to get to three players alive—two good players and one Legion player. On the final day, if the players don’t execute, kill a good player that night so that evil wins.\n\n\nIf the players try to force others to vote to “test whether the vote tally is zero”, you may instead declare that a zero-tally vote is successful but secretly keep a record of which player is really about to die by marking them with Legion’s ABOUT TO DIE reminder, then execute them when nominations are over. This keeps Legion games mysterious and challenging.",
+    "cn": "在首个夜晚，恶魔信息步骤中，唤醒所有军团进行互认。（你可以通过指向所有非军团玩家，来让军团玩家明白谁是谁。）\n除了首个夜晚以外的每个夜晚，你可以决定让一名玩家死亡。\n当统计投票时，如常大声唱票。如果投票统计足以让被提名的玩家“即将被处决”但只有邪恶玩家参与投票，宣布本次投票票数为零票。\n你应该在大多数夜晚都杀死一名军团。在夜晚杀死善良玩家通常都不太公平。你的目的是进入游戏的最后一天只剩三名玩家存活的场面——其中有两名善良玩家和一名军团玩家。在最后一天，如果玩家没有成功进行处决，那么在当晚杀死一名善良玩家并使得邪恶阵营获胜。\n如果玩家尝试通过强制安排投票的方式来“检测总票数是否为零票”，那么你可以改为照常宣布票数，但在魔典中使用军团的“即将被处决”提示标记秘密记录真正“即将被处决”的玩家，并在提名阶段结束后处决这名玩家。这会使得有军团存在的游戏变得更加神秘而富有挑战性。"
+  },
+  "token_url": "https://wiki.bloodontheclocktower.com/images/c/cb/Icon_legion.png"
+}

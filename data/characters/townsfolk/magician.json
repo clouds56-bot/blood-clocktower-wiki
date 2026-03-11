@@ -1,10 +1,18 @@
 {
   "id": "magician",
-  "type": "townsfolk",
   "name": {
     "en": "Magician",
     "cn": "魔术师"
   },
+  "type": "townsfolk",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "artist": "John Grist",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Magician",
   "ability": {
     "en": "The Demon thinks you are a Minion. Minions think you are a Demon.",
     "cn": "恶魔会以为你是爪牙。爪牙会以为你是恶魔。"
@@ -13,13 +21,6 @@
     "en": "\"1... 2... Abra... 3... 4... Cadabra... *poof!*\n                And, as you can see, ladies and gentlemen, Captain Farnsworth’s bag of gold has disappeared! Gone! Without a trace! Thank you, and goodnight!\"",
     "cn": "“1…2…唵嘛呢…3…4…叭咪吽…（嗖！）\n是的，正如你们所见，女士们先生们，梵斯沃船长的那袋金子不见了！没了！无迹可循！感谢诸位，晚安啦！”"
   },
-  "editions": [
-    "experimental"
-  ],
-  "first_night": true,
-  "other_nights": false,
-  "artist": "John Grist",
-  "jinxes": [],
   "examples": {
     "en": [
       "The Minions wake to learn that either the Leviathan player or the Magician player is the Demon. The Leviathan player learns that the Fearmonger player, the Assassin player, and the Magician player are the Minions."
@@ -53,9 +54,8 @@
     ]
   },
   "how_to_run": {
-    "en": "During the first night, wake the Minions. Show them the THIS IS THE DEMON info token, then point to the Demon and the Magician. Put the Minions to sleep.",
+    "en": "During the first night, wake the Minions. Show them the THIS IS THE DEMON info token, then point to the Demon and the Magician. Put the Minions to sleep.\nDuring the first night, wake the Demon. Show the THESE ARE YOUR MINIONS info token, then point to all Minions and the Magician. Show the THESE CHARACTERS ARE NOT IN PLAY info token and three character tokens. Put the Demon to sleep.\nDo this instead of the normal Minion Info and Demon Info steps.",
     "cn": "在首个夜晚，唤醒所有爪牙。对他们展示“他是恶魔”信息标记，然后指向恶魔与魔术师。让这些爪牙重新入睡。\n在首个夜晚，唤醒恶魔。对他展示“他们是你的爪牙”信息标记，然后指向所有爪牙与魔术师。对他展示“这些角色不在场”信息标记，然后展示三个善良角色标记。让恶魔重新入睡。\n以上述流程替代常规的爪牙信息与恶魔信息的步骤。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Magician",
-  "image": "assets/tokens/magician.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/9/93/Icon_magician.png"
 }

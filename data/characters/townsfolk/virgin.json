@@ -1,10 +1,18 @@
 {
   "id": "virgin",
-  "type": "townsfolk",
   "name": {
     "en": "Virgin",
     "cn": "贞洁者"
   },
+  "type": "townsfolk",
+  "editions": [
+    "trouble_brewing"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Virgin",
   "ability": {
     "en": "The 1st time you are nominated, if the nominator is a Townsfolk, they are executed immediately.",
     "cn": "当你首次被提名时，如果提名你的玩家是镇民，他立刻被处决。"
@@ -13,13 +21,6 @@
     "en": "\"I am pure. Let those who are without sin cast themselves down and suffer in my stead. My reputation shall not be stained with your venomous accusations.\"",
     "cn": "“我是纯洁的。就让那些无罪之人匍匐在地，替我受苦吧。我的名誉不应被你恶毒的指控所玷污。”"
   },
-  "editions": [
-    "trouble_brewing"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
   "examples": {
     "en": [
       "The Washerwoman nominates the Virgin. The Washerwoman is immediately executed and the day ends.",
@@ -65,9 +66,8 @@
     ]
   },
   "how_to_run": {
-    "en": "If the first player to ever nominate the Virgin is a Townsfolk, immediately declare that the nominating player is executed. That player dies—put a shroud on their character token in the Grimoire. The Virgin loses their ability—put the Virgin's NO ABILITY reminder token by the Virgin token. End the nomination process and proceed to the night phase. (No one else can be executed today.)",
+    "en": "If the first player to ever nominate the Virgin is a Townsfolk, immediately declare that the nominating player is executed. That player dies—put a shroud on their character token in the Grimoire. The Virgin loses their ability—put the Virgin's NO ABILITY reminder token by the Virgin token. End the nomination process and proceed to the night phase. (No one else can be executed today.)\nIf the first player to ever nominate the Virgin is not a Townsfolk, continue the vote as normal. The Virgin loses their ability—put the Virgin's NO ABILITY reminder token by the Virgin token.",
     "cn": "如果首次提名贞洁者的玩家是镇民，立即宣布那名发起提名的玩家被处决。那名玩家死亡——在魔典中将帷幕标记放置在其角色标记上。贞洁者失去他的能力——将贞洁者的“失去能力”提示标记放置在其角色标记旁。终止提名流程并推进至夜晚阶段。（今天白天没有其他人能被处决。）\n如果首次提名贞洁者的玩家不是镇民，照常继续进行投票。贞洁者失去他的能力——将贞洁者的“失去能力”提示标记放置在其角色标记旁。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Virgin",
-  "image": "assets/tokens/virgin.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/d/d3/Icon_virgin.png"
 }

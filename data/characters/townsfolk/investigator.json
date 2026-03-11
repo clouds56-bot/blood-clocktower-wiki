@@ -1,10 +1,18 @@
 {
   "id": "investigator",
-  "type": "townsfolk",
   "name": {
     "en": "Investigator",
     "cn": "调查员"
   },
+  "type": "townsfolk",
+  "editions": [
+    "trouble_brewing"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Investigator",
   "ability": {
     "en": "You start knowing that 1 of 2 players is a particular Minion.",
     "cn": "在你的首个夜晚，你会得知两名玩家和一个爪牙角色：这两名玩家之一是该角色（或者你会得知没有爪牙在场）。"
@@ -13,13 +21,6 @@
     "en": "\"It is a fine night for a stroll, wouldn't you say, Mister Morozov? Or should I say... BARON Morozov?\"",
     "cn": "“这真是个散步的好夜晚，您说呢，莫罗佐夫先生？\n还是我应该称呼您为……莫罗佐夫男爵？”"
   },
-  "editions": [
-    "trouble_brewing"
-  ],
-  "first_night": true,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
   "examples": {
     "en": [
       "Amy is the Baron, and Julian is the Mayor. The Investigator learns that either Amy or Julian is the Baron.",
@@ -56,9 +57,8 @@
     ]
   },
   "how_to_run": {
-    "en": "While preparing the first night, put the Investigator's MINION reminder token by any Minion character token, and put the Investigator's WRONG reminder token by any other character token.",
+    "en": "While preparing the first night, put the Investigator's MINION reminder token by any Minion character token, and put the Investigator's WRONG reminder token by any other character token.\nDuring the first night, wake the Investigator and point to the players marked MINION and WRONG. Show the character token marked MINION to the Investigator. Put the Investigator to sleep. Remove the Investigator's reminder tokens when convenient.",
     "cn": "在为首个夜晚进行准备时，将调查员的“爪牙”提示标记放置在任意一个爪牙角色标记旁，然后将调查员的“错误”提示标记放置在任意其他角色标记旁。\n在首个夜晚里，唤醒调查员，并指向标记有“爪牙”和“错误”的玩家。将标记有“爪牙”的玩家的角色标记展示给调查员。让调查员重新入睡。在说书人方便的时候，移除调查员的提示标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Investigator",
-  "image": "assets/tokens/investigator.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/a/ad/Icon_investigator.png"
 }

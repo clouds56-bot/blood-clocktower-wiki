@@ -1,10 +1,18 @@
 {
   "id": "minstrel",
-  "type": "townsfolk",
   "name": {
     "en": "Minstrel",
     "cn": "吟游诗人"
   },
+  "type": "townsfolk",
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "John Grist",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Minstrel",
   "ability": {
     "en": "When a Minion dies by execution, all other players (except Travellers) are drunk until dusk tomorrow.",
     "cn": "当一名爪牙死于处决时，除了你和旅行者以外的所有其他玩家醉酒直到明天黄昏。"
@@ -13,13 +21,6 @@
     "en": "\"And I shall hear, tho' soft you tread above me... And all my dreams will warm and sweeter be... If you'll not fail to tell me that you love me... I simply sleep in peace until you come to me.\"",
     "cn": "“我应倾听，当你轻敲我心……\n美梦因你，甜美温馨……\n若你羞赧，难以决定……\n我会安睡，待你光临。”"
   },
-  "editions": [
-    "bad_moon_rising"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "John Grist",
-  "jinxes": [],
   "examples": {
     "en": [
       "During the first day, the Pacifist dies. That night, players act as normal, because the Pacifist is not a Minion. During the second day, the Judge executes the Godfather. That night, everyone is drunk, including the Demon, so nobody dies. During the third day, a Minion who is protected by the Devil's Advocate is executed and dies, because the Devil's Advocate is drunk. Again, since a Minion died during the day, the Minstrel makes everyone drunk.",
@@ -49,9 +50,8 @@
     ]
   },
   "how_to_run": {
-    "en": "During the day, if a Minion dies by execution, all other players except Travellers become drunk—put the Minstrel’s EVERYONE IS DRUNK reminder in the center of the left side of the Grimoire.",
+    "en": "During the day, if a Minion dies by execution, all other players except Travellers become drunk—put the Minstrel’s EVERYONE IS DRUNK reminder in the center of the left side of the Grimoire.\nAt dusk tomorrow, all players made drunk by the Minstrel become sober—remove the EVERYONE IS DRUNK reminder.",
     "cn": "在白天，如果一名爪牙玩家死于处决，除旅行者外的所有其他玩家都醉酒——将吟游诗人的“全员醉酒”提示标记放置到魔典左侧的中央。\n在下一天的黄昏，所有因吟游诗人醉酒的玩家恢复清醒——移除“全员醉酒”提示标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Minstrel",
-  "image": "assets/tokens/minstrel.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/2/24/Icon_minstrel.png"
 }

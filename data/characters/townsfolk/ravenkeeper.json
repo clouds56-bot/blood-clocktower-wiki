@@ -1,10 +1,18 @@
 {
   "id": "ravenkeeper",
-  "type": "townsfolk",
   "name": {
     "en": "Ravenkeeper",
     "cn": "守鸦人"
   },
+  "type": "townsfolk",
+  "editions": [
+    "trouble_brewing"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Ravenkeeper",
   "ability": {
     "en": "If you die at night, you are woken to choose a player: you learn their character.",
     "cn": "如果你在夜晚死亡，你会被唤醒，然后你要选择一名玩家：你会得知他的角色。"
@@ -13,13 +21,6 @@
     "en": "\"My birds will avenge me! Fly! Fly, my sweet and dutiful pets! To the manor and to the river! To the alleys and to the salons! Fly!\"",
     "cn": "“我的鸟儿们会替我复仇的！飞吧！飞吧，我尽职的小可爱！\n去到庄园和溪边！去到小巷和集会所里！快飞吧！”"
   },
-  "editions": [
-    "trouble_brewing"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
   "examples": {
     "en": [
       "The Ravenkeeper is killed by the Imp, and then wakes to choose a player. After some deliberation, they choose Benjamin. Benjamin is the Empath, and the Ravenkeeper learns this.",
@@ -58,9 +59,8 @@
     ]
   },
   "how_to_run": {
-    "en": "If the Ravenkeeper died tonight, wake them. They point at any player. Show the chosen player's character token to the Ravenkeeper. Put the Ravenkeeper to sleep.",
+    "en": "If the Ravenkeeper died tonight, wake them. They point at any player. Show the chosen player's character token to the Ravenkeeper. Put the Ravenkeeper to sleep.\nWe advise you to discourage or even ban players from talking about what they are doing at night as they are doing it.",
     "cn": "如果守鸦人在夜晚死去，唤醒他。让守鸦人指向任意一名玩家。对守鸦人展示那名玩家的角色标记。让守鸦人重新入睡。\n我们建议你阻止甚至禁止玩家在夜晚谈论他们当晚正在进行的操作。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Ravenkeeper",
-  "image": "assets/tokens/ravenkeeper.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/e/ef/Icon_ravenkeeper.png"
 }

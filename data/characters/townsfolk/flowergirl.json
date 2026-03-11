@@ -1,10 +1,18 @@
 {
   "id": "flowergirl",
-  "type": "townsfolk",
   "name": {
     "en": "Flowergirl",
     "cn": "卖花女孩"
   },
+  "type": "townsfolk",
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Flowergirl",
   "ability": {
     "en": "Each night*, you learn if a Demon voted today.",
     "cn": "每个夜晚*，你会得知在今天白天时是否有恶魔投过票。"
@@ -13,13 +21,6 @@
     "en": "\"Yesterday's violets have withered and died, but today my poppies bloom.\"",
     "cn": "“昨天，我的紫罗兰凋谢了。今天，我的罂粟花盛开了。”"
   },
-  "editions": [
-    "sects_violets"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
   "examples": {
     "en": [
       "If you forget whether the Demon voted or not, wake the Demon at night and ask by showing them the DID YOU VOTE TODAY? info token. They must answer honestly, then go to sleep.",
@@ -52,9 +53,8 @@
     ]
   },
   "how_to_run": {
-    "en": "Each dawn, mark the Flowergirl with the DEMON NOT VOTED reminder, and remove the DEMON VOTED reminder, if any.",
+    "en": "Each dawn, mark the Flowergirl with the DEMON NOT VOTED reminder, and remove the DEMON VOTED reminder, if any.\nEach day, if the Demon votes for any execution, replace the DEMON NOT VOTED reminder with the DEMON VOTED reminder.\nEach night except the first, wake the Flowergirl. If the Flowergirl is marked DEMON NOT VOTED, shake your head no. If the Flowergirl is marked DEMON VOTED, nod your head yes.\nThen, put the Flowergirl to sleep.\nIf you forget whether the Demon voted or not, wake the Demon at night and ask by showing them the DID YOU VOTE TODAY? info token. They must answer honestly, then go to sleep.",
     "cn": "每个黎明，在卖花女孩角色标记旁放置“恶魔未投票”提示标记，并移除“恶魔已投票”提示标记（如果有）。\n每个白天，如果恶魔在任何处决中投票，则将“恶魔未投票”提示标记替换为“恶魔已投票”提示标记。\n除首个夜晚以外的每个夜晚，唤醒卖花女孩。 如果卖花女孩被标记为“恶魔未投票”，摇头告知否。如果卖花女孩被标记为“恶魔已投票”，点头告知是。让卖花女孩重新入睡。\n如果你忘记了恶魔是否在白天投票，在夜晚唤醒恶魔，并向他展示“你今天投票了吗？”信息标记。他必须诚实回答，然后重新入睡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Flowergirl",
-  "image": "assets/tokens/flowergirl.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/a/ac/Icon_flowergirl.png"
 }

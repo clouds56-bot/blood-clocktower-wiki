@@ -1,10 +1,18 @@
 {
   "id": "fool",
-  "type": "townsfolk",
   "name": {
     "en": "Fool",
     "cn": "弄臣"
   },
+  "type": "townsfolk",
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Anica Kelsen",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Fool",
   "ability": {
     "en": "The 1st time you die, you don't.",
     "cn": "当你首次将要死亡时，你不会死亡。"
@@ -13,13 +21,6 @@
     "en": "\"...and the King said 'What?! I've never even owned a pair of rubber pantaloons, let alone a custard cannon!' Ho-ho! Jolly day!\"",
     "cn": "“……然后国王说道：‘什么？！我甚至从未有过一条橡胶马裤，更别提一门奶油大炮了！’嗬嗬！欢乐一日！”"
   },
-  "editions": [
-    "bad_moon_rising"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Anica Kelsen",
-  "jinxes": [],
   "examples": {
     "en": [
       "On the first day, the Fool is executed but remains alive. On the fourth day, the Fool is executed again. This time, they die.",
@@ -55,9 +56,8 @@
     ]
   },
   "how_to_run": {
-    "en": "If the Fool would die, they remain alive. (But they die if they are drunk or poisoned.) If the Fool was executed, declare that the player was executed but remains alive. (Do not say why.)",
+    "en": "If the Fool would die, they remain alive. (But they die if they are drunk or poisoned.) If the Fool was executed, declare that the player was executed but remains alive. (Do not say why.)\nEither way, the Fool loses their ability—mark them with the NO ABILITY reminder.",
     "cn": "如果弄臣将要死亡，他依然存活。（但是如果此时醉酒或中毒就会死亡。）如果弄臣被处决，宣布该玩家被处决但依然存活。（不要说明原因。）\n无论哪种情况，弄臣都失去自己的能力——将“失去能力”提示标记放置到弄臣的角色标记旁。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Fool",
-  "image": "assets/tokens/fool.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/d/d9/Icon_fool.png"
 }

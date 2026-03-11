@@ -1,0 +1,77 @@
+{
+  "id": "boffin",
+  "name": {
+    "en": "Boffin",
+    "cn": "科学怪人"
+  },
+  "type": "minion",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Lachlan Bastiaen",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Boffin",
+  "ability": {
+    "en": "The Demon (even if drunk or poisoned) has a not-in-play good character's ability. You both know which.",
+    "cn": "恶魔拥有一个不在场的善良角色的能力，即使他醉酒或中毒。你和他都知道他获得了什么能力。"
+  },
+  "flavor_text": {
+    "en": "\"Stellar hydrogen, vast, inert; carbon, oxygen, neon gases, all ruined. Molecular chaos, entropy, yields new cosmic phenomena, rebirth from atomic chaos, dense matter collapsing. All in a teeny little bottle.\"",
+    "cn": "“恒星的氢能，取之不尽，静待采掘；碳、氧、氖，尽数裂解。分子引发混沌，熵增由此产生，宇宙现象更替，原子紊乱重塑，物质聚合坍缩。所有的一切，都集中在这一个小小的锥形瓶中。”"
+  },
+  "examples": {
+    "en": [
+      "Good abilities that would drunk/poison themselves, such as the Sailor, only drunk/poison the Demon's good ability.",
+      "The Imp has the Virgin ability. The Alsaahir nominates the Imp, and is immediately executed.",
+      "The Lord of Typhon has the Chambermaid ability. Each night, the Lord of Typhon wakes, chooses two players, and learns how many woke tonight. On the 4th night, the Boffin is drunk, so the Demon has no Chambermaid ability, so does not wake.",
+      "The Kazali has the Banshee ability. The Kazali dies at night, and the Scarlet Woman becomes the Kazali. The dead Kazali may nominate and vote twice per day."
+    ],
+    "cn": [
+      "小恶魔拥有贞洁者的能力。戏法师提名了小恶魔，他立即被处决。",
+      "堤丰之首拥有侍女的能力。每个夜晚，堤丰之首会被额外唤醒一次，并需要选择两名玩家，得知他们之中因自身能力被唤醒的人数。在第四个夜晚，科学怪人醉酒，恶魔因此失去了侍女的能力，当晚不再被额外唤醒。",
+      "卡扎力拥有报丧女妖的能力。卡扎力在夜晚死亡，红唇女郎变成了卡扎力。死亡的卡扎力能在每个白天发起两次提名，每次提名中都能投出两票。"
+    ]
+  },
+  "tips": {
+    "en": [
+      "Coordinate with your Demon, no matter what ability they have! If the Demon has the Virgin ability, find a powerful good Townsfolk to nominate them. If the Demon has the Gossip ability, bluff Gossip and make false statements when the Demon makes true Gossip statements. If the Demon has the Courtier ability, find out which good character they've drunked and convince that player their information is sober and healthy.",
+      "Frame good players who have confirmable abilities. If the good team thinks there is a Boffin in play, build worlds where the confirmed Nightwatchman or Professor is really the Demon with a good character's ability. Push on these players late in the game to keep the Demon alive.",
+      "Stay alive! The Demon only gets to use their good character ability as long as you live!",
+      "If the Demon has a once per game ability, encourage them to use it before you die.",
+      "As the Demon, claim to be the character whose ability you have. (Especially if you have a confirmable ability!)",
+      "As the Demon, claim to be a different not-in-play character. If you have the Pacifist ability, don't tell anyone! Let good players build worlds where there is a Devil's Advocate protecting evil players, when it's really your Pacifist ability preventing good players from dying to execution. Or, if you are the Vortox with the Monk ability, protect good information-gathering Townsfolk like the Seamstress or the Town Crier so they receive true (and therefore contradictory) information in a Vortox game.",
+      "As the Demon, use your ability to help the evil team gain information. As the Ojo, use the Dreamer ability to learn the characters of players that you think lied to you. As the Fang Gu, use the Librarian ability to identify an Outsider who wants to stay hidden from the evil team.",
+      "As the Demon, use your ability to secretly hurt the town. Use the Courtier ability to mess up a good player's information! Use the Philosopher ability to drunk an in-play good character without their knowledge!",
+      "As the Demon, claim to have your ability before you use it, in order to confirm yourself to a good player. Just make sure you use it before the Boffin dies!",
+      "As the Demon, don't say anything about your ability at first, and confirm yourself to one or more good players.",
+      "If good players think the Boffin is in play, keep players with confirmable abilities alive, to frame them as the Demon. There's nothing like a final day with the confirmed Virgin, Golem, and Nightwatchman as the last three players alive!"
+    ],
+    "cn": [
+      "无论恶魔拥有什么能力，都要与他们协作！如果恶魔拥有贞洁者的能力，找到一个强大的善良镇民提名他们。如果恶魔拥有造谣者的能力，伪装成造谣者，在恶魔使用造谣者能力时发表虚假的声明。如果恶魔拥有侍臣的能力，找出恶魔让哪位善良角色醉酒，并说服该玩家相信他们是清醒且健康的。",
+      "陷害那些拥有可以互相确认能力的善良玩家。如果善良阵营认为游戏中有科学怪人存在，说服大家相信被确认的守夜人或教授其实是拥有善良角色能力的恶魔。游戏后期针对这些玩家发起攻击以保护恶魔。",
+      "活下来！只有你活着，恶魔才能继续使用善良角色能力！！！",
+      "如果恶魔获得的是限次能力，鼓励他们在你死亡之前使用。",
+      "作为恶魔，宣称自己是你当前拥有能力的角色。（尤其是当你拥有可验证的能力时！）",
+      "作为恶魔，有时可以声称自己是另一个不在场的角色，而不是获得能力的善良角色。如果你拥有和平主义者的能力，不要告诉任何人！让好人玩家以为有魔鬼代言人在保护邪恶玩家，而实际上是你的和平主义者能力阻止好人玩家死于处决。或者，如果你是拥有僧侣能力的涡流，保护像女裁缝或城镇公告员这样的获取信息型的镇民，让他们在涡流的游戏中获得正确（但因此自相矛盾）的信息。",
+      "作为恶魔，利用你获得的能力帮助邪恶阵营获取信息。作为奥赫，使用筑梦师的能力来检测那些你认为对你撒谎的玩家的角色。作为方古，使用图书管理员的能力来识别那些想在邪恶阵营面前隐藏自己的外来者。",
+      "作为恶魔，利用你的能力暗中干扰镇民。使用侍臣的能力扰乱好人玩家的信息！使用哲学家的能力让一个正在游戏中的善良角色不知不觉变得醉酒！",
+      "作为恶魔，在使用你的能力之前声称自己拥有该能力，以此来让善良玩家相信你。只是一定要在科学怪人死亡之前使用它！",
+      "作为恶魔，一开始不要提及你的能力，先让自己得到一位或多位善良玩家的信任！",
+      "如果善良玩家认为科学怪人在场，尽量让拥有可验证能力的玩家存活下来，借此把他们诬陷为恶魔。没有什么比让被确认的贞洁者、魔像和守夜人作为最后三名存活玩家更有意思的了！",
+      "记住，被“确认”的玩家不一定是善良的，他们也可能是邪恶的恶魔！幸运的是，拥有特定能力并被确认的玩家中最多只有一人是恶魔。如果有玩家声称自己是弄臣、贞洁者、教授和守夜人，那么这4名玩家中至少有3个是好人！",
+      "相信你的社交属性判断，比如紧张的发言，飘忽不定的眼神。有时可能没有机械性的信息来区分教授和拥有教授能力的恶魔。",
+      "如果你拥有可确认的能力，寻找额外的信息来证明你是拥有该能力的善良玩家，而不是假扮成善良镇民或外来者能力的恶魔。",
+      "如果你认为游戏中有科学怪人存在，优先处决那些已经确认自己是好人的玩家。说书人通常会给恶魔一个可验证的能力，比如和平主义者、魔像或守夜人，因此处决这些玩家可以缩小恶魔玩家的范围。",
+      "如果奇怪且无法解释的事情不断发生，考虑一种可能性，即恶魔在暗中使用善良角色的能力来制造混乱。例如，如果旅店老板保护的玩家持续在夜晚死亡，考虑一下是否恶魔使用了哲学家的能力获得了旅店老板的能力，从而让真正的旅店老板处于醉酒状态。",
+      "要意识到恶魔可能拥有一个对邪恶没有收益的外来者能力。",
+      "如果你认为游戏中有科学怪人存在，要警惕那些在夜晚死亡的玩家，特别是如果剧本中有与死亡相关的角色时。拥有瘟疫医生能力的小恶魔可以以自己为目标，从而让邪恶阵营获得额外的爪牙能力。拥有报丧女妖能力的方古可以以外来者为目标，以激活他们的报丧女妖能力。拥有心上人能力的诺-达鲺可以在红唇女郎在场的情况下死亡，从而秘密地让一个善良玩家进入心上人的醉酒状态。"
+    ]
+  },
+  "how_to_run": {
+    "en": "While setting up the game, before putting character tokens in the bag, make any changes that are indicated in brackets on the Demon's two character abilities. Afterwards, place this second character token by the Demon character token.\nDuring the 1st night, wake the Boffin and the Demon. Show the THIS CHARACTER SELECTED YOU info token, then the Boffin token, then the good character token. Place this second character token by the Demon character token.\nTreat the Demon player as if they had this character ability, as well as their own Demon ability.\nGood abilities that would drunk/poison themselves, such as the Sailor, only drunk/poison the Demon's good ability.",
+    "cn": "在进行游戏设置时，将角色标记放入盲抽袋前，决定好恶魔获得的角色能力，并为恶魔本身和获得的角色能力做出相应的设置调整。在将角色标记收回并放入魔典后，将恶魔获得的能力对应的角色标记放置在恶魔的角色标记旁。\n在首个夜晚，唤醒科学怪人和恶魔。对他们展示“该角色的能力对你生效”信息标记，然后是科学怪人的角色标记，再是恶魔获得能力的那个善良角色标记。在展示后将这个善良角色标记放回到恶魔的角色标记旁。\n按照恶魔具有这个善良角色的能力一样来进行运作，同时恶魔还具有自己本身的能力。"
+  },
+  "token_url": "https://wiki.bloodontheclocktower.com/images/e/e0/Icon_boffin.png"
+}

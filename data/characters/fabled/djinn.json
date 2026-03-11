@@ -1,16 +1,10 @@
 {
   "id": "djinn",
-  "type": "fabled",
   "name": {
     "en": "Djinn",
-    "cn": "精灵"
+    "cn": "灯神"
   },
-  "ability": {
-    "en": "Use the Djinn's special rule. All players know what it is."
-  },
-  "flavor_text": {
-    "en": "\"نحن لسنا هنا.\n\t\t\t\tانت لست حقيقي.\n\t\t\t\tكل شيء هو وهم.\n\t\t\t\tأسئلتك هي جبل نار في يوم صافٍ.\""
-  },
+  "type": "fabled",
   "editions": [
     "experimental"
   ],
@@ -18,15 +12,28 @@
   "other_nights": false,
   "artist": "John Grist",
   "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Djinn",
+  "ability": {
+    "en": "Use the Djinn's special rule. All players know what it is.",
+    "cn": "使用灯神的相克规则。所有玩家都会知道其内容。"
+  },
+  "flavor_text": {
+    "en": "\"نحن لسنا هنا.\n\t\t\t\tانت لست حقيقي.\n\t\t\t\tكل شيء هو وهم.\n\t\t\t\tأسئلتك هي جبل نار في يوم صافٍ.\"",
+    "cn": "“我们并非在此，\n你也未必真实，\n一切神秘皆是幻象难觅，\n茫茫问题好似晴天霹雳。”\n（原文为阿拉伯语，见下）\nنحن لسنا هنا.\nانت لست حقيقي.\nكل شيء هو وهم.\nأسئلتك هي جبل نار في يوم صافٍ."
+  },
   "examples": {
     "en": [
       "The Pit-Hag and the Heretic are Jinxed. At the start of the game, the Storyteller reads out the Djinn's special rule: “A Pit-Hag cannot create a Heretic.” Later in the game, the Pit-Hag tries to create a Heretic. The Storyteller shakes their head, and the Pit-Hag must choose another character to create.",
       "The Spy and the Magician are Jinxed. At the start of the game, the Storyteller reads out the Djinn's special rule: \"When the Spy sees the grimoire, the Demon and the Magician's character tokens are removed.\" There is no Spy and no Magician in play, but the Storyteller reads this aloud anyway so that the good team doesn't know which Minion is in play."
+    ],
+    "cn": [
+      "麻脸巫婆和异端分子是相克角色。在游戏开始前，说书人宣布了灯神规则：“麻脸巫婆不能创造异端分子”。后来在游戏中，麻脸巫婆想要创造异端分子。说书人摇头告诉麻脸巫婆不能这么做，她必须选择创造其他角色。",
+      "间谍和魔术师是相克角色。在游戏开始前，说书人宣布了灯神规则：“当间谍查看魔典时，恶魔和魔术师的角色标记会被移除”。即使场上没有间谍和魔术师，说书人仍会大声宣布这条规则，善良阵营无法因此得知哪种爪牙在场。"
     ]
   },
   "how_to_run": {
-    "en": "At the start of the game, if there are jinxed characters on the character sheet, declare that the Djinn is in play and inform the group of all Djinn special rules for this game. (Do this even if there are no jinxed characters in play.)"
+    "en": "At the start of the game, if there are jinxed characters on the character sheet, declare that the Djinn is in play and inform the group of all Djinn special rules for this game. (Do this even if there are no jinxed characters in play.)\nFollow the Djinn instructions as listed on the Script Tool printout.",
+    "cn": "在游戏开始前，如果角色列表上存在相克玩家，宣布灯神在场，并向玩家们告知本局游戏中所有的灯神特殊规则。（即使没有相克角色在场也要这么做。）\n按照剧本工具列出的灯神的相克规则说明进行操作。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Djinn",
-  "image": "assets/tokens/djinn.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/8/86/Icon_djinn.png"
 }

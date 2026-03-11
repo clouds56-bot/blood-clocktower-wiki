@@ -1,10 +1,18 @@
 {
   "id": "acrobat",
-  "type": "townsfolk",
   "name": {
     "en": "Acrobat",
     "cn": "杂技演员"
   },
+  "type": "townsfolk",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "artist": "Chloe McDougall",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Acrobat",
   "ability": {
     "en": "Each night*, choose a player: if they are or become drunk or poisoned tonight, you die.",
     "cn": "每个夜晚*，你要选择一名玩家：如果当晚他醉酒或中毒，你死亡。"
@@ -13,13 +21,6 @@
     "en": "\"Ladies and gentlemen, hold fast to your hats, for I shall defy the very laws of gravity and dance upon the air, a marvel of agility and daring, all for your delight and wonder!\"",
     "cn": "“列位看官，请扶好帽盔，我将逆天而行，踏空起舞！身如飞燕，胆若雷霆，只为博君一笑一惊！”"
   },
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "Chloe McDougall",
-  "jinxes": [],
   "examples": {
     "en": [
       "The Sailor chooses the Assassin, and the Storyteller makes the Sailor drunk. The Acrobat chooses the Sailor, and dies because the Sailor is drunk.",
@@ -33,9 +34,8 @@
     ]
   },
   "how_to_run": {
-    "en": "Each night except the first, wake the Acrobat. They point to a player. Put the Acrobat to sleep.",
+    "en": "Each night except the first, wake the Acrobat. They point to a player. Put the Acrobat to sleep.\nIf the player the Acrobat pointed to is drunk or poisoned, or becomes drunk or poisoned at any time tonight, the Acrobat dies.",
     "cn": "除首个夜晚以外的每个夜晚，唤醒杂技演员。让杂技演员指向一名玩家。将“被选择”提示标记放置到所选玩家的角色标记旁。让杂技演员重新入睡。\n如果被选择的玩家在当晚任何时刻醉酒或中毒，杂技演员死亡——在杂技演员的角色标记旁放置“死亡”提示标记并放置帷幕标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Acrobat",
-  "image": "assets/tokens/acrobat.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/b/b5/Icon_acrobat.png"
 }

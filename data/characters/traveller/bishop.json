@@ -1,0 +1,58 @@
+{
+  "id": "bishop",
+  "name": {
+    "en": "Bishop",
+    "cn": "主教"
+  },
+  "type": "traveller",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "John Grist",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Bishop",
+  "ability": {
+    "en": "Only the Storyteller can nominate. At least 1 opposing player must be nominated each day.",
+    "cn": "只有说书人可以发起提名。每个白天说书人至少要提名一名你对立阵营的玩家。"
+  },
+  "flavor_text": {
+    "en": "\"In nomine Patris, et Filii, et Spiritus Sancti… Nos mos Dei. Deus vult de nobis.\"",
+    "cn": "“我以圣父，圣子，圣灵的名义...乞求主神保佑我们。”"
+  },
+  "examples": {
+    "en": [
+      "Usually, you’ll want to nominate about three to five players each day, with at least one of them being evil. You do not have to nominate the Demon each day, but you should nominate all alive players on the final day. Which players you nominate is up to you, but it’s best to nominate more evil players if the Bishop is good, and to nominate fewer evil players if the Bishop is evil.",
+      "The Bishop is good. On the first day, the Storyteller nominates the Demon, a Minion, and two Townsfolk. On the second day, the Storyteller nominates a Minion and Outsider.",
+      "The Bishop is evil. The Storyteller has nominated nobody. However, the Storyteller must nominate at least one good player today, so they choose the Minstrel. The next day, the Storyteller nominates four good players and the Demon. The Bishop is exiled that day, and now the players may continue the nomination process normally."
+    ],
+    "cn": [
+      "主教是善良的。在第一个白天，说书人提名了恶魔、爪牙以及两个镇民。第二个白天，说书人提名了一个爪牙和一个外来者。",
+      "主教是邪恶的。说书人还没有提名任何人。然而说书人在今天必须提名至少一名善良的玩家，所以他选择提名吟游诗人。下一个白天，说书人提名了四名善良的玩家和恶魔，主教在这天被流放了，现在玩家们可以正常继续提名处决玩家。"
+    ]
+  },
+  "tips": {
+    "en": [
+      "Pay very close attention to who the Storyteller nominates each day. Every day, the Storyteller must nominate at least one evil player. Usually, the Storyteller will nominate only one evil player and several good players. Pay attention day after day, and narrow down the pool of possible evil players. For example, if on day 1 the Storyteller nominates the Fool, the Chambermaid and the Tinker, then the day after nominates the Tinker, the Exorcist, the Grandmother and the Sailor, you can assume that either the Tinker is evil, or the Tinker is good, and 1 of each of the other groups of characters is evil.",
+      "Stay alive. You know you are good. You know that you are getting useful information each day. But, the other players don't. What they see is probably a player that is preventing them from nominating, and little more. You'll need to convince the good team to keep you alive - even though it is in their best interests to do so. Share what you learn, or vote how they want you to vote - do anything you can to stay alive long enough to gather some clues on who is good and who is evil.",
+      "On the final day, the Storyteller will definitely nominate the Demon. If the Storyteller just nominates two players on the final day, you'll have narrowed the possible Demon candidates down to 2 players instead of 3. This is significant. If you can convince the other players that you are good, they will gain the benefit too.",
+      "You get more powerful as the game progresses. If there are 12 players alive, the Storyteller can nominate a lot of players. But if there are just 4 players alive, the Storyteller will probably be nominating 4 or fewer players. Ideally, you want the Storyteller to nominate either 2 or 3 players in a day - the fewer, the better. Whilst you have no control over what the Storyteller does, what you can do is put your attention on the times when the fewest players were nominated during the day."
+    ],
+    "cn": [
+      "密切关注说书人在每个白天提名了谁。每个白天，说书人都必须提名至少一位邪恶玩家。通常来说，说书人只会提名一位邪恶玩家以及几位善良玩家。日复一日地观察，缩小可能的邪恶玩家的范围。例如，如果在第一个白天，说书人提名了弄臣，侍女和修补匠；在下一个白天说书人提名了修补匠，驱魔人，祖母和水手，你就可以假设要么修补匠是邪恶的，要么修补匠是善良的且每组中有一个角色是邪恶的。",
+      "活下来。你知道你是善良的。你知道你每天都能获取有用的信息。然而，其他玩家做不到这一点。他们所看到的可能就只是一位玩家在尽力避免自己被提名处决，仅此而已。你需要说服善良阵营让你保持存活——即便这样做并不符合他们的最大利益。分享你所知道的，或者按他们的想法投票——想尽一切办法让自己活下来，这样你才有足够的时间去收集有关玩家阵营的线索。",
+      "在最后一天，说书人绝对会提名恶魔。如果说书人在最后一天只提名了2位玩家，你就可以把恶魔嫌疑人从3位缩减到2位。这很重要。如果你能说服其他玩家你是善良的，那他们也能从中获益。",
+      "随着游戏进程的推进，你会越来越强大。如果有12名玩家存活，说书人可以提名很多位玩家。但如果只有四位玩家存活，说书人就至多可以提名四位玩家。你会希望说书人在每个白天提名2-3位玩家，越少越好。但你没法控制说书人的行为，你能做的就是重点关注被提名玩家数量最少的那一天。",
+      "尽你所能说服大家你是善良的。有些旅行者其实并不真正在意大家是否相信他是善良的。像法官或是巫毒师这样的角色，不管善良玩家怎么想，他们都可以使用自己的能力并从中获得收益。但是如果善良玩家从你身上嗅到了一丝丝邪恶的气息，他们就会立刻流放你，那你的能力就没什么帮助了。然而，如果你可以活过几个白天，你的能力就能带来毁灭性的打击，因为不仅邪恶玩家不会被提名（一般情况下，说书人可能会经常这样做来维持邪恶玩家的形象），而且善良阵营还会一门心思地在被提名玩家当中寻找谁是邪恶的…这样他们所得出的所有结论都将是错误的。",
+      "尽可能多地投票。对此你有完美的理由——被提名玩家有可能是邪恶的！毕竟…你是个善良主教，不是吗？如果善良阵营相信你是善良的，他们就也会给每一位可能被处决的玩家投票。主教不在场的情况下，一天中所有的提名都有可能是对善良玩家的提名。但如果主教在场，就总有机会去杀死一名邪恶玩家。如果你已经说服了大家你是善良的，剩下你要做的就是…投票，投票，再投票。",
+      "在最后一天，问问大家是否想要流放你。大多数说书人会在最后一天提名恶魔，而不管你是什么阵营，因而就算你死了也没多大损失。而且，你申请流放自己这件事通常反而会帮助你免于被处决。",
+      "不论何时，如果这个白天只有善良玩家被提名，你就需要在接下来的白天里尽可能地花时间来让大家注意到这样一个”事实”——昨天被提名者中至少有一位是邪恶的。假设有4位玩家在昨天被提名了，你就可以让这四位玩家看起来非常有嫌疑，并且可能会让其中的一位（或者两位甚至三位！）在接下来的白天里被处决。你引导善良阵营自相残杀的每一天，恶魔都将存活下来，邪恶方的投票总是会倾向于帮助邪恶方自己的。即便你没有让这几位玩家被处决，你也可以将大家讨论的内容从某个更危险的话题上转移，进而去讨论一个完全没用的话题——“这四位玩家中哪位是邪恶的？”。你可以通过这样的方式浪费善良阵营的时间和精力，让他们致力于研究一个毫无意义的方向。"
+    ]
+  },
+  "how_to_run": {
+    "en": "Each dawn, mark the good Bishop with their NOMINATE EVIL reminder, or mark the evil Bishop with their NOMINATE GOOD reminder.\nDuring the nomination process for execution, the players cannot make nominations, but you can. (Voting happens as normal.) When you nominate a player whose alignment is opposite the alignment of the Bishop, remove the Bishop’s reminder. You cannot end the nomination process if the Bishop is marked with their reminder.\nUsually, you’ll want to nominate about three to five players each day, with at least one of them being evil. You do not have to nominate the Demon each day, but you should nominate all alive players on the final day. Which players you nominate is up to you, but it’s best to nominate more evil players if the Bishop is good, and to nominate fewer evil players if the Bishop is evil.",
+    "cn": "每个黎明，用“提名邪恶方”提示标记善良的主教，或用“提名善良方”提示标记邪恶的主教。\n在提名阶段，玩家们不能发起提名，只有你可以。（投票像平常一样进行。）当你提名了与主教阵营相反的一名玩家，移除主教的提示标记。你不能在还没移除主教的提示标记之前结束提名。\n通常你可以每天提名三至五名玩家，其中至少有一名玩家是邪恶的。你不需要在每一天都提名恶魔，但你应该在最后一天提名所有的存活玩家。提名哪名玩家完全取决于你，但通常当主教是善良的，你最好要多提名邪恶玩家，当主教是邪恶的，最好要尽可能少地提名邪恶玩家。"
+  },
+  "token_url": "https://wiki.bloodontheclocktower.com/images/7/71/Icon_bishop.png"
+}

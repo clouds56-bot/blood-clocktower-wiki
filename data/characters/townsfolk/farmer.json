@@ -1,18 +1,10 @@
 {
   "id": "farmer",
-  "type": "townsfolk",
   "name": {
     "en": "Farmer",
-    "cn": "村夫"
+    "cn": "农夫"
   },
-  "ability": {
-    "en": "When you die at night, an alive good player becomes a Farmer.",
-    "cn": "每个夜晚，你要选择一名玩家：你会得知他的阵营。[+0~2村夫，复数村夫中有一人醉酒]"
-  },
-  "flavor_text": {
-    "en": "\"Even the high and mighty need food on the table. Without us, the city starves.\"",
-    "cn": "“玫瑰花是蓝色哒！草桂花是红色哒！哦豁，俺说反啦！”"
-  },
+  "type": "townsfolk",
   "editions": [
     "experimental"
   ],
@@ -20,14 +12,24 @@
   "other_nights": false,
   "artist": "Anica Kelsen",
   "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Farmer",
+  "ability": {
+    "en": "When you die at night, an alive good player becomes a Farmer.",
+    "cn": "当你在夜晚死亡时，一名存活的善良玩家会变成农夫。"
+  },
+  "flavor_text": {
+    "en": "\"Even the high and mighty need food on the table. Without us, the city starves.\"",
+    "cn": "“即使那些高高在上的人也需要吃东西。没有了我们，城市就会挨饿。”"
+  },
   "examples": {
     "en": [
       "Julian is the Farmer. The Demon kills him at night. Evin is the Fearmonger, and Sarah is the Alchemist. Sarah becomes the Farmer that night. Evin could not become the Farmer, because he is evil.",
       "On the 2nd night, the Farmer dies. The Choirboy becomes the Farmer. On the 3rd night, the new Farmer dies, and the Heretic becomes a Farmer. There is now no Heretic and no Choirboy in play, and three Farmers in play, two of which are dead."
     ],
     "cn": [
-      "道哥、小莱和小米都是村夫，道哥醉酒。在夜晚时，他们都选择了卡扎力小艾。道哥得知小艾是善良玩家。小莱和小米得知小艾是邪恶玩家。",
-      "小八和小明是村夫，小明醉酒。小美是邪恶玩家，并且伪装成村夫。小八选择了小美并得知她是邪恶玩家。小明选择了异端分子并得知他是善良玩家。小美声称自己选择了小八并得知他是邪恶玩家。"
+      "小佳是农夫，恶魔在夜晚杀死了他。小文是恐惧之灵，小美是炼金术士。小美在当晚变成了农夫。小文无法因此变成农夫，因为他是邪恶玩家。",
+      "在第二个夜晚，农夫死亡。小精灵变成了农夫。在第三个夜晚，新的农夫死亡，善良的异端分子变成了农夫。现在异端分子和小精灵都不在场了，并且有三名农夫在场，其中两名已死亡。",
+      "农夫在夜晚死亡。间谍被当作了善良阵营，并因此变成了农夫，但实际上他仍然保持为邪恶阵营不变。"
     ]
   },
   "tips": {
@@ -46,21 +48,23 @@
       "Pay attention to what the player was before they became a Farmer. If they were an Outsider, this might be a clue that the good team is doing badly and the Storyteller is trying to help out. If it’s a start player or a once per game character that’s used their ability, this might mean the game is fairly even. If it’s a powerful character, and there seem to be other choices, maybe this means the good team is winning."
     ],
     "cn": [
-      "找到你的村夫同伴。要想知道你们之中有谁醉酒了，最简单的方式就是比对你们的信息，找出其中相同之处和不同之处。同时，如果你是唯一的村夫，那么就说明你是清醒的！",
-      "与其他村夫合作，一起选择同一名玩家。这可以帮助你们确定你们谁醉酒了（如果其中有人的信息与其他人不同），或者确定是否有人在伪装成村夫（如果你们所有的信息都相同）。",
-      "如果正好只有两名村夫，而你们又无法确定谁醉酒了，那么一定要选择不同的玩家，这样你们仍然可以获得信息。如果你们两人始终选择相同的目标，将无法获得任何有效信息。",
-      "记住，有三人宣称自己是村夫并不能证明你们之中任何人是善良玩家。注意那些潜藏的邪恶玩家，如果村夫实际数量没有那么多，那么邪恶玩家就有机会伪装成村夫，并让你看起来像是醉酒了，但其实你并没有醉酒！",
-      "你也可以不必理会其他的村夫，假设你的信息就是正确的。如果所有的村夫都这么做，那么你们的能力效果叠加时总是会产生正向的收益。",
-      "尝试处决你认为醉酒的村夫以防万一，因为他们有可能实际上是邪恶玩家。",
-      "如果你确信某一玩家的阵营，那么就选择他，来检验自己是否是醉酒的。",
-      "但请注意，说书人仍然有可能向醉酒的村夫提供正确信息，以防止村夫的能力过于强大。",
-      "在透露自己是村夫之前先等待一小段时间。如果有三名或更多的玩家声称自己是村夫，你就知道他们之中至少有一人在撒谎。"
+      "如果你在夜晚死亡，静静地等待某名玩家作为新任农夫搭讪你。",
+      "农夫能够成为邪恶阵营的强力牢笼。如果你在夜晚变为农夫，联系最近死亡的玩家，告诉他们现在你是农夫。这种互动很难伪装，这意味着你们两个可以互相信任。",
+      "如果你发觉你想活下来，作为农夫现身，公然激恶魔在夜晚杀死你。在夜晚没有其他死亡来源的游戏中尤其有效。这能够迷惑恶魔，让他们反复揣测你的动机。",
+      "宣称自己是那些高优先级目标，例如赏金猎人或是占卜师，诱骗恶魔在夜晚杀死你。一旦你死亡并确认了新农夫是谁，就宣称你和他其实交换过（宣称的）角色，他们才是真正的高优先级目标，诱使恶魔也杀死他们。",
+      "试着不要立刻公开现身，因为建立一个大的农夫团队比一个小的农夫团队要厉害得多。回溯这些信息（链）让新农夫能够获得你可以信任的确切信息。",
+      "试着寻找一个高优先级目标并和他们交换（宣称的）角色，这样你可以作为一个优秀的目标在夜晚被杀，这也有助于保护其他玩家，尤其是当你是第一任农夫时。",
+      "试着在游戏过程中和多数人交谈，这样使你看起来像是在传播关于邪恶阵营重要信息，这样能让你看起来是一个需要被灭口的高优先级目标。",
+      "不惜代价避免处决，因为你的能力只在你死于夜晚时才能触发。",
+      "在你确认了一批玩家已经转变为农夫时一起现身，并使用这些信息作为开始寻找邪恶玩家的基础。这是一个分辨你可以信任和不能信任的人的优秀策略。",
+      "如果一个农夫链人数大于当前游戏设置中的邪恶玩家总数，这基本意味着你可以信任该农夫队伍中的所有人。",
+      "让强力角色转变为农夫比试着让他们在夜晚存活能带来更多好处。不要因为害怕把强力角色转变为农夫而害怕在夜晚死亡。",
+      "注意玩家在成为农夫之前的角色。如果他们是外来者，这可能是一个善良阵营做得不够好的线索，说书人正试图帮助他们。如果是一个游戏开始时能力的玩家或已经使用了能力的每场游戏限一次能力角色，这意味着游戏是均势。如果是一个强力角色，也许这意味着善良阵营即将获胜。"
     ]
   },
   "how_to_run": {
     "en": "If the Farmer died tonight, wake an alive good player. Show them the YOU ARE info token and a Farmer character token, then put them to sleep. Replace their previous character token with a Farmer character token.",
-    "cn": "在游戏设置时，将角色标记放入盲抽袋之前，使用额外的村夫角色标记替换掉其中的0~2个镇民角色标记。在为首个夜晚做准备时，（如果有超过一名村夫在场，）将村夫的“醉酒”提示标记放置到其中一个村夫角色标记旁。\n每个夜晚，唤醒任意一名村夫。让他指向一名玩家。对他给出拇指向上或向下的手势。让他重新入睡。重复这个操作，直到所有村夫玩家都进行了夜晚行动。"
+    "cn": "如果农夫在夜晚死亡，唤醒一名存活的善良玩家。对他展示“你是”信息标记和农夫角色标记，然后让他重新入睡。用农夫角色标记替换他此前的角色标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Farmer",
-  "image": "assets/tokens/farmer.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/f/fe/Icon_farmer.png"
 }

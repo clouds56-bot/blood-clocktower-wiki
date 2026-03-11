@@ -1,0 +1,55 @@
+{
+  "id": "deviant",
+  "name": {
+    "en": "Deviant",
+    "cn": "怪咖"
+  },
+  "type": "traveller",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "John Grist",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Deviant",
+  "ability": {
+    "en": "If you were funny today, you cannot die by exile.",
+    "cn": "如果你表现得很有趣，当天你不能被流放。"
+  },
+  "flavor_text": {
+    "en": "\"Twas the lady's quip, forsooth.\"",
+    "cn": "“这句好笑的话确实是那位女士说的。”"
+  },
+  "examples": {
+    "en": [
+      "It is best to be forgiving and treat even a slightly funny Deviant as funny. It can be tough to be funny when one is expected to be, after all.\n\n\nIf the player would prefer, you may determine different criteria for whether the Deviant is exiled. If being “funny” is difficult, you may reward the Deviant who “creates a positive mood” or “is helpful to others” instead. The Deviant is not a serious character, and it is meant to encourage laughter, lightheartedness, and fun, so adjust the Deviant rules to your players’ needs and talents.",
+      "The evil Deviant cracks a few jokes, and gets a few laughs, but the players nevertheless decide to exile them. Even though there are enough votes, the Storyteller decides to keep the Deviant alive.",
+      "On the third day, the Deviant was slightly funny, and cannot be exiled. On the fourth day, the Deviant was not very funny, and is successfully exiled."
+    ],
+    "cn": [
+      "邪恶的怪咖讲了一些笑话并且获得了一些笑声，尽管如此玩家们还是要流放他。即使流放票数足够，说书人还是决定让怪咖继续存活。",
+      "在第三个白天，怪咖表现得还算有点意思，玩家们想要流放怪咖，但怪咖不会死亡。在第四个白天，怪咖显得无趣了，因此当他被流放时，死亡了。"
+    ]
+  },
+  "tips": {
+    "en": [
+      "Oh man. If you are hoping that this wiki entry will teach you how to be funny, you are in trouble. See if you can get a giggle. Do your best, and use your words to lighten the mood - even setting a good vibe might be enough to avoid dying. Above all, relax, be yourself, and be ok with not being funny, should it pan out that way. Sometimes we all fall flat. Good luck :)",
+      "If you are the Deviant, but find it too much of a challenge to be funny on call, talk to the Storyteller. Together, you may determine different criteria for whether the Deviant is exiled. Instead of “being funny”, you could “create a positive mood” or “be helpful to others” instead. The Deviant is not a serious character, and its purpose is to provide an avenue for laughter, lightheartedness, and fun, so talk to the Storyteller about adjusting the Deviant criteria to your needs and talents.",
+      "Some personal favorite comedy routines for people in need of inspiration:  Steve Wright and Larry Miller."
+    ],
+    "cn": [
+      "天呐。如果你希望这条维基词条能教你如何变得搞笑，那你确实挺搞笑的，不用学了。看看你能不能收获笑声。尽你最大的努力，用你的话语调动大家的情绪——即便你只是营造了良好的氛围可能也足以避免死亡了。综上所述，放松下来吧，做你自己就好，就算不够有趣也无所谓，就这样呗。没人能一直达到自己的预期，所有人都一样。那，祝你好运咯：）",
+      "如果你是怪咖，但是你感觉一直保持搞笑太难了，你可以告诉说书人。你们可以一起制定一个流放怪咖的标准。可以用其他的行为替换”表现得搞笑”，比如”创造一个积极的氛围”或者是”对其他人有帮助”。怪咖并不是一个严苛的角色，设计这个角色的目的是为了让玩家在游戏过程中也给欢声笑语留出一部分空间，因此你可以与说书人交流并根据你的需求或其他天赋来调整怪咖的标准。",
+      "对于需要灵感的人来说，这里有一些个人最喜欢的喜剧形式：Steve Wright，Larry Miller和Jonathan Burns。",
+      "天呐。如果你希望这条维基词条能教你如何变得搞笑，那你确实挺搞笑的，不用学了。看看你能不能收获笑声。尽你最大的努力，用你的话语调动大家的情绪——即便你只是营造了良好的氛围可能也足以避免死亡了。综上所述，放松下来吧，做你自己就好，就算不够有趣也无所谓，就这样呗。没人能一直达到自己的预期，所有人都一样。那，祝你好运咯：）",
+      "如果你是怪咖，但是你感觉一直保持搞笑太难了，你可以告诉说书人。你们可以一起制定一个流放怪咖的标准。可以用其他的行为替换”表现得搞笑”，比如”创造一个积极的氛围”或者是”对其他人有帮助”。怪咖并不是一个严苛的角色，设计这个角色的目的是为了让玩家在游戏过程中也给欢声笑语留出一部分空间，因此你可以与说书人交流并根据你的需求或其他天赋来调整怪咖的标准。",
+      "对于需要灵感的人来说，这里有一些个人最喜欢的喜剧形式：Sean Baby，Billy Connolly和Rowan Atkinson.。"
+    ]
+  },
+  "how_to_run": {
+    "en": "If the Deviant would be exiled, you may declare that the Deviant\nremains alive.\nIt is best to be forgiving and treat even a slightly funny Deviant as funny. It can be tough to be funny when one is expected to be, after all.\n\n\nIf the player would prefer, you may determine different criteria for whether the Deviant is exiled. If being “funny” is difficult, you may reward the Deviant who “creates a positive mood” or “is helpful to others” instead. The Deviant is not a serious character, and it is meant to encourage laughter, lightheartedness, and fun, so adjust the Deviant rules to your players’ needs and talents.",
+    "cn": "如果怪咖被流放了，你可以宣布怪咖依旧存活。\n当怪咖仅是一点点有趣时，最好也视为他是有趣的，毕竟当你期待一个人有趣的时候，他就很难变得有趣。 \n只要玩家愿意，你就可以通过不同的标准来判定怪咖是否会被流放。如果变得“有趣”十分困难，你可以将标准改成只要怪咖“能够传递正能量”或者“对其他人是有帮助的”，就不会被流放。怪咖不是一个严谨的角色，他的设计目的是想让大家有更多的欢声笑语，更多的轻松自在以及更多的乐趣，所以尽可能根据玩家的要求和擅长之处来调整这些规则。"
+  },
+  "token_url": "https://wiki.bloodontheclocktower.com/images/a/a5/Icon_deviant.png"
+}

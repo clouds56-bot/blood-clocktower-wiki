@@ -1,16 +1,10 @@
 {
   "id": "fibbin",
-  "type": "fabled",
   "name": {
     "en": "Fibbin",
-    "cn": "谎言精"
+    "cn": "骗人精"
   },
-  "ability": {
-    "en": "Once per game, 1 good player might get incorrect information."
-  },
-  "flavor_text": {
-    "en": "\"Tee-hee-hee.\n\t\t\t\tTee. Hee. Hee.\""
-  },
+  "type": "fabled",
   "editions": [
     "experimental"
   ],
@@ -18,15 +12,29 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Fibbin",
+  "ability": {
+    "en": "Once per game, 1 good player might get incorrect information.",
+    "cn": "每局游戏限一次，一名善良玩家可能会得知“有问题”的信息。"
+  },
+  "flavor_text": {
+    "en": "\"Tee-hee-hee.\n\t\t\t\tTee. Hee. Hee.\"",
+    "cn": "“嘻嘻嘻，哈，嘻嘻。”"
+  },
   "examples": {
     "en": [
       "On the first night, all players get correct information. On the second night, the Empath learns they are neighbouring one evil player, but both their neighbours are actually good. For the rest of the game, all good players get correct information.",
       "The Virgin is nominated by a Townsfolk. This Townsfolk is executed immediately because the Fibbin cannot make an ability malfunction. Later, the Monk protects a player. Again, the Monk's ability cannot fail due to the Fibbin ability. Later, the Ravenkeeper dies at night and gets false information, because information from an ability can be affected by the Fibbin ability."
+    ],
+    "cn": [
+      "在第一个夜晚，所有的玩家获得了正确的信息。在第二个夜晚，由于骗人精的能力，虽然与共情者邻近的玩家实际上都是善良的，但是共情者得知与他邻近的玩家中有一名是邪恶的。接下来的游戏中，所有的玩家都会正常获得信息。",
+      "贞洁者被一名镇民提名了。这名镇民立即被处决了——骗人精不能影响贞洁者的能力，因为这不是一种获得信息的能力。后来，僧侣保护了一名玩家。同样骗人精也不会使僧侣的保护失效。再后来，守鸦人在夜里死亡并获得了错误信息，因为这种获得信息的能力会受到骗人精的能力影响。",
+      "说书人告诉博学者：“小兰，小八或者小美是疯子”，以及“昨天没有投票的玩家都是善良的”。这两个信息都是正确的，即使博学者本应该得知一真一假两条信息。骗人精的能力使得博学者的信息“有问题”了，因此获得了两条正确信息。"
     ]
   },
   "how_to_run": {
-    "en": "At the start of the game, declare that the Fibbin is in play. Add the Fibbin token to the Grimoire."
+    "en": "At the start of the game, declare that the Fibbin is in play. Add the Fibbin token to the Grimoire.\nOnce per game, when a good player gains information from an ability, you can give them incorrect information. The Fibbin loses their ability—put their NO ABILITY reminder token by their token.",
+    "cn": "在游戏开始时，宣布骗人精加入游戏。将骗人精角色标记放入魔典中。\n每局游戏限一次，当一名善良的玩家由于某一能力而获得信息时，你可以给他提供“有问题”的信息。骗人精会失去其角色能力——将“失去能力”提示标记放置在骗人精角色标记旁。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Fibbin",
-  "image": "assets/tokens/fibbin.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/2/2e/Icon_fibbin.png"
 }

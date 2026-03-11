@@ -1,10 +1,18 @@
 {
   "id": "librarian",
-  "type": "townsfolk",
   "name": {
     "en": "Librarian",
     "cn": "图书管理员"
   },
+  "type": "townsfolk",
+  "editions": [
+    "trouble_brewing"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Librarian",
   "ability": {
     "en": "You start knowing that 1 of 2 players is a particular Outsider. (Or that zero are in play.)",
     "cn": "在你的首个夜晚，你会得知两名玩家和一个外来者角色：这两名玩家之一是该角色（或者你会得知没有外来者在场）。"
@@ -13,13 +21,6 @@
     "en": "\"Certainly madam, under normal circumstances, you may borrow the Codex Malificarium from the library vaults. However, you do not seem to be a member.\"",
     "cn": "“毫无疑问，这位女士，在通常情况下，你可以从图书馆的馆藏中借阅《凶恶药典》。\n然而，你看起来不像是会员。”"
   },
-  "editions": [
-    "trouble_brewing"
-  ],
-  "first_night": true,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
   "examples": {
     "en": [
       "Benjamin is the Saint, and Filip is the Baron. The Librarian learns that either Benjamin or Filip is the Saint.",
@@ -58,9 +59,8 @@
     ]
   },
   "how_to_run": {
-    "en": "While preparing the first night, put the Librarian's OUTSIDER reminder token by any Outsider character token, and put the Librarian's WRONG reminder token by any other character token.",
+    "en": "While preparing the first night, put the Librarian's OUTSIDER reminder token by any Outsider character token, and put the Librarian's WRONG reminder token by any other character token.\nDuring the first night, wake the Librarian and point to the players marked OUTSIDER and WRONG. Show the character token marked OUTSIDER to the Librarian. Put the Librarian to sleep. Remove the Librarian's reminder tokens when convenient.",
     "cn": "在为首个夜晚进行准备时，将图书管理员的“外来者”提示标记放置在任意一个外来者角色标记旁，然后将图书管理员的“错误”提示标记放置在任意其他角色标记旁。\n在首个夜晚里，唤醒图书管理员，并指向标记有“外来者”和“错误”的玩家。将有“外来者”的玩家的角色标记展示给图书管理员。或者，如果说书人由于场上无外来者而未放置这两个标记，则对图书管理员展示手势“0”。让图书管理员重新入睡。在说书人方便的时候，移除图书管理员的提示标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Librarian",
-  "image": "assets/tokens/librarian.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/e/e0/Icon_librarian.png"
 }

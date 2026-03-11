@@ -1,10 +1,18 @@
 {
   "id": "courtier",
-  "type": "townsfolk",
   "name": {
     "en": "Courtier",
     "cn": "侍臣"
   },
+  "type": "townsfolk",
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Courtier",
   "ability": {
     "en": "Once per game, at night, choose a character: they are drunk for 3 nights & 3 days.",
     "cn": "每局游戏限一次，在夜晚时，你可以选择一个角色：如果该角色在场，该角色之一从当晚开始醉酒三天三夜。"
@@ -13,13 +21,6 @@
     "en": "\"I am more afraid of an army of one hundred sheep led by a lion than an army of one hundred lions led by a sheep.\"",
     "cn": "“比起一只羊带领的一百头狮子，我更害怕一头狮子带领的一百只羊。”"
   },
-  "editions": [
-    "bad_moon_rising"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
   "examples": {
     "en": [
       "In other editions, there can be multiple copies of the same character in play. The Courtier only makes one of them drunk.",
@@ -54,9 +55,8 @@
     ]
   },
   "how_to_run": {
-    "en": "Each night, wake the Courtier. They either shake their head no or point at any character icon on their character sheet. Put the Courtier to sleep.",
+    "en": "Each night, wake the Courtier. They either shake their head no or point at any character icon on their character sheet. Put the Courtier to sleep.\nIf the Courtier chose a character icon and that character is in play, the player of the chosen character becomes drunk for three nights and three days. Tonight, mark them with the Courtier’s DRUNK 1 reminder. The next night, replace the DRUNK 1 reminder with the DRUNK 2 reminder. The next night, replace the DRUNK 2 reminder with the DRUNK 3 reminder. At dusk on the next night, remove the DRUNK 3 reminder, and the Courtier loses their ability—mark them with the NO ABILITY reminder and remove their night token from the night sheet.\nAfter the Courtier chooses a character to make drunk, do not wake the Courtier for the rest of the game.\nIn other editions, there can be multiple copies of the same character in play. The Courtier only makes one of them drunk.",
     "cn": "每个夜晚，唤醒侍臣。侍臣要么摇头表示不使用能力，要么指向角色列表上的任意一个角色图标。让侍臣重新入睡。\n如果侍臣使用了能力且该角色在场，对应的玩家当晚醉酒，持续三天三夜。将侍臣的“醉酒1”放置到该玩家的角色标记旁。在下一夜，将“醉酒1”替换成“醉酒2”。再下一夜，将“醉酒2”替换成“醉酒3”。再下一夜的黄昏，移除“醉酒3”，且侍臣失去能力。将“失去能力”提示标记放置到侍臣角色标记旁，并从夜晚顺序表上移除其夜晚标记。\n在侍臣选择了角色使其醉酒后，在本局游戏的剩余时段内不再唤醒侍臣。\n在其他的剧本中，场上可能会出现多个相同角色。侍臣只能让他选择的角色所对应的玩家其中之一醉酒。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Courtier",
-  "image": "assets/tokens/courtier.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/e/e0/Icon_courtier.png"
 }

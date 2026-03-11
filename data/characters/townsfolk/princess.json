@@ -1,10 +1,18 @@
 {
   "id": "princess",
-  "type": "townsfolk",
   "name": {
     "en": "Princess",
     "cn": "公主"
   },
+  "type": "townsfolk",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Chloe McDougall",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Princess",
   "ability": {
     "en": "On your 1st day, if you nominated & executed a player, the Demon doesn’t kill tonight.",
     "cn": "在你的首个白天，如果你提名并处决了一名玩家，当晚恶魔不会造成死亡。"
@@ -13,13 +21,6 @@
     "en": "\"Our words are hounds, bound by silken threads, dear lords. Let kindness weave them true, lest the reigns unravel and rend our court.\"",
     "cn": "“言似猎犬，细语为绳；善念牵引，王廷方宁。”"
   },
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Chloe McDougall",
-  "jinxes": [],
   "examples": {
     "en": [
       "The Princess nominates the Preacher. The Preacher is executed, and dies. That night, the Vortox chooses the Pixie, who does not die. The Town Crier learns that a Minion nominated today, which is false information due to the Vortox.",
@@ -44,9 +45,8 @@
     ]
   },
   "how_to_run": {
-    "en": "If the Princess nominates and executes a player, mark the Demon with the DOESN'T KILL reminder.",
+    "en": "If the Princess nominates and executes a player, mark the Demon with the DOESN'T KILL reminder.\nTonight, if the Demon would wake to choose a player, wake them as normal. The Demon does not kill.",
     "cn": "在第一个白天，如果公主提名并处决了一名玩家，将“没有死亡”的提示标记放置在恶魔旁边。\n当晚，和平常一样唤醒恶魔并让他选择一名玩家，但他不会造成死亡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Princess",
-  "image": "assets/tokens/princess.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/3/36/Icon_princess.png"
 }

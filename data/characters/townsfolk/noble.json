@@ -1,10 +1,18 @@
 {
   "id": "noble",
-  "type": "townsfolk",
   "name": {
     "en": "Noble",
     "cn": "贵族"
   },
+  "type": "townsfolk",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "artist": "Caitlin Murphy",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Noble",
   "ability": {
     "en": "You start knowing 3 players, 1 and only 1 of which is evil.",
     "cn": "在你的首个夜晚，你会得知三名玩家：其中有且只有一名玩家是邪恶的。"
@@ -13,13 +21,6 @@
     "en": "\"Sarcasm is indeed the lowest form of wit. But speaking in response to your criticism, Sir, it is, nevertheless, a form of wit.\"",
     "cn": "“讽刺的确是最不足挂齿的机智。尽管如此，先生，回应你的批评，就是一种机智。”"
   },
-  "editions": [
-    "experimental"
-  ],
-  "first_night": true,
-  "other_nights": false,
-  "artist": "Caitlin Murphy",
-  "jinxes": [],
   "examples": {
     "en": [
       "The Noble is shown Marianna, Alex, and Abdallah. Marianna and Abdallah are good, and Alex is evil.",
@@ -51,9 +52,8 @@
     ]
   },
   "how_to_run": {
-    "en": "While preparing the first night, mark two good players' character tokens with Noble KNOW reminders. Mark any evil player's character token with the third KNOW reminder.",
+    "en": "While preparing the first night, mark two good players' character tokens with Noble KNOW reminders. Mark any evil player's character token with the third KNOW reminder.\nDuring the first night, wake the Noble. Point to all three players marked KNOW. Put the Noble to sleep.",
     "cn": "在为首个夜晚进行准备时，将贵族的“得知”标记分别放置在两名善良玩家和一名邪恶玩家的角色标记旁。\n在首个夜晚，唤醒贵族，并指向三名标记有“得知”的玩家。让贵族重新入睡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Noble",
-  "image": "assets/tokens/noble.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/c/cc/Icon_noble.png"
 }

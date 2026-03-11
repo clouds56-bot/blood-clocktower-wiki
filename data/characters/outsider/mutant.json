@@ -1,0 +1,59 @@
+{
+  "id": "mutant",
+  "name": {
+    "en": "Mutant",
+    "cn": "畸形秀演员"
+  },
+  "type": "outsider",
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Mutant",
+  "ability": {
+    "en": "If you are \"mad\" about being an Outsider, you might be executed.",
+    "cn": "如果你“疯狂”地证明自己是外来者，你可能被处决。"
+  },
+  "flavor_text": {
+    "en": "\"I am not a freak! I am a human being! Have mercy!\"",
+    "cn": "“我不是怪物！我是人！求你了！”"
+  },
+  "examples": {
+    "en": [
+      "Ten seconds into the first day, the Mutant says to the group that they’re the Mutant. The Storyteller declares that the Mutant is executed immediately. There is no nomination for an execution today, since there can be a maximum of one execution per day.",
+      "A Witch privately talks to the Storyteller and says that Evin, who is playing the Mutant, told them they are the Klutz. The Storyteller chooses to execute the Mutant immediately.",
+      "The Mutant tells the group that they are a Townsfolk, but does not say which one. When questioned if they are the Mutant, they stay silent. After a minute or so of silence, the Storyteller executes the Mutant.",
+      "The Mutant says they are the Oracle, gives some bogus Oracle information, then says \"By the way, I am definitely not the Mutant\" while giving a subtle wink. The Storyteller chooses to execute the Mutant immediately."
+    ],
+    "cn": [
+      "在进入第一个白天十秒后，畸形秀演员向其他玩家说他是畸形秀演员。说书人宣布畸形秀演员被立即处决。由于每天最多一次处决，今天无法再提名发起处决。",
+      "女巫私下与说书人对话，告诉说书人：小文（小文是畸形秀演员）告诉她说他自己是呆瓜。说书人决定立即处决畸形秀演员。",
+      "畸形秀演员告诉其他玩家他是一名镇民，但是不说具体是哪一个角色。其他玩家问他是不是畸形秀演员，畸形秀演员沉默不答。经过一分钟左右的沉默，说书人处决了畸形秀演员。",
+      "畸形秀演员说他是神谕者，提供了一些捏造的神谕者信息，然后说：“而且我绝对不是畸形秀演员”又附含深意的眨了下眼，说书人选择立即处决畸形秀演员。"
+    ]
+  },
+  "tips": {
+    "en": [
+      "Never admit to being the Mutant. Never even admit to being an Outsider. \"Admitting\", of course, is a tricky thing to define. In Blood On The Clocktower, the term \"mad\" is used instead. What this means, is that if you try to convince anybody that you are the Mutant, the Storyteller can (and should) execute you immediately. Or, if you try to convince the group that you are an Outsider, the Storyteller can (and should) execute you immediately. This is the judgement call of the Storyteller, and the Storyteller will make their decision based on what they think you are trying to do, not just the words you use. For example, if you tell the group that \"you might be the Mutant, but might not be\", then the Storyteller may judge that you are trying to convince the group that you are the Mutant, and execute you. Or, if the whole group is asking what your character is, and you stay silent, refusing to say who you are, then the Storyteller may judge that your silence is a way that you are trying to convince the group that you are the Mutant, and execute you.",
+      "Be proactive. Don't stay silent. As discussed above, Mutant players that stay silent the whole game tend to get executed by the Storyteller. If you talk, pick a Townsfolk to claim to be, and do your best to convince the group that you are a character other than the Mutant, then you almost certainly won't get executed. For example, if you spend the game convincing people that you are the Oracle, and give the best, most sensible sounding information that you can, you won't be executed. And, if the Demon kills you because they think you are a threat, then that's fine too! After all, if you die at night, it means that another good player (which, statistically speaking, would have been a Townsfolk character) doesn't die instead.",
+      "Deliberately coming out as the Mutant has some benefits and some drawbacks. On the one hand, if your execution goes off, you will be confirmed as a good player, and everyone will believe you. On the other hand, that's an execution that the good team don't get to dictate themselves, and if you go off too early in the day, you can block characters like the Savant. Artist and Juggler from using their abilities. Finally, the storyteller may simply choose not to execute you, which will leave you in an ambiguous state of unconfirmed despite not satisfying the madness of your ability... which will make you look especially evil.",
+      "Come out secretly to one or two players you trust. You're going to be bluffing as a townsfolk, which can look suspicious and cause problems for you down the line (especially if your information isn't adding up with what the other players are getting). Admitting the truth early on means that the people you trust will know to discount your information and protect you from accusations. (Additionally, knowing about your presence can be particularly important for determining if there is a Fang Gu around!)",
+      "Beware the Storyteller! They will be on the watch for you fulfilling your madness, and it won't take too much for them to execute you, thus denying the good team a chance at killing the Demon! Avoid mentioning your true identity within earshot of the Storyteller, but also be wary about revealing to suspected evil players - they can tell the Storyteller what you've said, and get you killed that way!"
+    ],
+    "cn": [
+      "不要承认自己是畸形秀演员，甚至不要承认自己是外来者。当然，很难定义\"承认\"一词。在染·钟楼谜团中，我们用\"疯狂\"来代替。这意味着，如果你尝试让任何人相信你是畸形秀演员，说书人可能（也应该）将你立即处决。或者，你尝试让大家相信你是外来者，说书人可能（也应该）将你立即处决。这会根据说书人的判断，而说书人会根据你想要做的事情而做决定，而不单单是你的说辞。例如，如果你告诉大家\"你可能是畸形秀演员，也可能不是\"，那么说书人可能会判断你是试图说服大家相信你是畸形秀演员，然后处决你。或者，如果大家在问你是什么角色时你保持沉默，不告诉大家你是什么角色，说书人也可能判断你是在用沉默的方式告诉大家你是畸形秀演员，然后处决你。",
+      "保持积极，不要沉默。就如上述所言，那些整局游戏都倾向沉默的畸形秀演员很可能被说书人处决。如果你要发言，可以挑一个角色来声明，然后尽你可能去说服大家相信你就是这个角色而不是畸形秀演员，那么你基本上就不会被处决。例如，如果你在游戏中让大家相信你是神谕者，然后尽可能的给出对的、合理的信息，那么你不会被处决。而且，如果恶魔也认为你有威胁然后击杀了你，也很不错！毕竟，如果你在夜晚死亡，也意味着其他善良玩家（那些更可能是镇民的玩家）不会死。",
+      "故意说明自己是畸形秀演员有一些好处与坏处。一方面，如果你被处决了，那么所有人就会相信你是善良玩家。另一方面，其他善良玩家对处决是无法掌控的，如果你在一天中过早的被处决，你可以阻碍类似于博学者、艺术家或者杂耍艺人使用他们的能力。当然，说书人也可能会简单的决定不去处决你，这会让你处于一个无法证实的状态……会让你看起来更像邪恶的。",
+      "向一两个你相信的玩家秘密的说明自己的角色。然后你就可以去伪装成一个镇民，这会让你看起来可疑而且给你带来麻烦（尤其是你给出的信息和其他玩家提供的信息不一致时）。尽早承认自己就意味着那些你选择相信的玩家会不考虑你提供的信息并且保护你免受大家处决（此外，得知你的存在，对于了解是否方古在场也很有帮助）",
+      "小心说书人！他会观察你的表现，对他而言可以轻易处决你，并阻碍善良玩家去找到杀死恶魔。避免在说书人能听到的范围去表明自己的真实角色，但也要小心向那些可以的邪恶玩家透露自己的角色——他们可能会告诉说书人，并用这种方式杀死你。"
+    ]
+  },
+  "how_to_run": {
+    "en": "At any time (even at night), if you believe that the Mutant is mad about being an Outsider, then you can decide to execute the Mutant. Declare this to the group. They die - mark them with a shroud.\nIf you execute them during the day before the normal execution\nhappens, go to the night phase. (There is a maximum of one execution per day.)",
+    "cn": "在游戏里的任何时间点（包括夜晚），如果你认为畸形秀演员“疯狂”地证明了他是一名外来者，那么你就可以决定处决畸形秀演员。向所有人宣布他被处决。并在魔典中为他放置帷幕标记。\n如果这次处决发生在白天的常规处决之前，则直接进入到夜晚阶段。（每个白天最多能进行一次处决。）"
+  },
+  "token_url": "https://wiki.bloodontheclocktower.com/images/2/2e/Icon_mutant.png"
+}

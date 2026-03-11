@@ -1,10 +1,18 @@
 {
   "id": "pixie",
-  "type": "townsfolk",
   "name": {
     "en": "Pixie",
     "cn": "小精灵"
   },
+  "type": "townsfolk",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "artist": "John Grist",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Pixie",
   "ability": {
     "en": "You start knowing 1 in-play Townsfolk. If you were mad that you were this character, you gain their ability when they die.",
     "cn": "在你的首个夜晚，你会得知一个在场的镇民角色。如果你“疯狂”地证明你是该角色，当他死亡时你获得该角色的能力。"
@@ -13,13 +21,6 @@
     "en": "\"Round and round the garden, go.\n\t\t\t\tLittle girls run to and fro.\n\t\t\t\tLittle boys climb up the tree.\n\t\t\t\tWhich of these should Pixie be?\n\t\t\t\tLadies smile and go to town. \n\t\t\t\tLords with axe chop forest down.\n\t\t\t\tWhat’s yours is mine. What’s mine, divine.\n\t\t\t\tSilly little Pixie, me.\"",
     "cn": "“绕着花园转圈圈，女孩跑得疯癫癫。男孩树上荡秋千，\n小精灵在谁心间？淑女微笑小镇边，贵族抡斧树长眠。\n容貌相似难分辨，谜底揭晓圣光现：小精灵呀是神仙。”"
   },
-  "editions": [
-    "experimental"
-  ],
-  "first_night": true,
-  "other_nights": false,
-  "artist": "John Grist",
-  "jinxes": [],
   "examples": {
     "en": [
       "Amy is the Pixie, and knows that the Washerwoman is in play. For three days, Amy claims that the Washerwoman player is lying, because she is the Washerwoman. The Washerwoman is executed. That night, Amy gains the Washerwoman ability, and learns that one of two people is the Monk.",
@@ -65,9 +66,8 @@
     ]
   },
   "how_to_run": {
-    "en": "During the first night, mark a Townsfolk character token with the Pixie’s MAD reminder. Wake the Pixie. Show the Pixie this Townsfolk character token. Put the Pixie to sleep.",
+    "en": "During the first night, mark a Townsfolk character token with the Pixie’s MAD reminder. Wake the Pixie. Show the Pixie this Townsfolk character token. Put the Pixie to sleep.\nIf the Townsfolk marked MAD dies, and you feel that the Pixie player has been sufficiently mad that they were this character, replace the MAD reminder with the HAS ABILITY reminder. The Pixie now has this Townsfolk’s ability, and will wake at night when this Townsfolk would normally wake.",
     "cn": "在为首个夜晚做准备时，将小精灵的“疯狂”标记放置在一个镇民角色标记旁。\n在首个夜晚，唤醒小精灵。对他展示标记了“疯狂”的镇民角色标记。让小精灵重新入睡。\n如果标记了“疯狂”的玩家死亡，并且你认为小精灵玩家曾足够“疯狂”地证明自己是这个角色，那么使用“获得能力”标记替换“疯狂”标记。小精灵现在获得了这个镇民的能力，并且会在这个镇民的夜晚行动顺序时机被唤醒以使用能力。\n有关小精灵以及疯狂机制的更多设计理念，请参考阅读：疯狂规则如何运作？——疯狂的小精灵"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Pixie",
-  "image": "assets/tokens/pixie.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/d/d5/Icon_pixie.png"
 }

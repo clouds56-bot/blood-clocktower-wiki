@@ -1,16 +1,10 @@
 {
   "id": "sentinel",
-  "type": "fabled",
   "name": {
     "en": "Sentinel",
     "cn": "哨兵"
   },
-  "ability": {
-    "en": "There might be 1 extra or 1 fewer Outsider in play."
-  },
-  "flavor_text": {
-    "en": "\"Name, please.\n\t\t\t\tPapers, please.\n\t\t\t\tWeapons, please.\""
-  },
+  "type": "fabled",
   "editions": [
     "experimental"
   ],
@@ -18,15 +12,28 @@
   "other_nights": false,
   "artist": "Caitlin Murphy",
   "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Sentinel",
+  "ability": {
+    "en": "There might be 1 extra or 1 fewer Outsider in play.",
+    "cn": "在初始设置时，可能会额外增加或减少一个外来者。"
+  },
+  "flavor_text": {
+    "en": "\"Name, please.\n\t\t\t\tPapers, please.\n\t\t\t\tWeapons, please.\"",
+    "cn": "“请提供你的名字，请出示你的证件，请展示你的武器。”"
+  },
   "examples": {
     "en": [
       "There are seven players in this game. There are no characters on the character list that add Outsiders. The Demon bluffs as the Saint. A Sentinel is in play, so the good players are not sure if there is actually a Saint or not.",
       "There are nine players in this game. Even though a Baron is on the character list, the good players know no Baron is in play because the Witch just killed a player, so there should be just two Outsiders in play. However, the Outsiders cannot be trusted because a Sentinel is in play. Indeed, there is one less Outsider than normal in this game, and the Witch is bluffing as the Butler."
+    ],
+    "cn": [
+      "这是一场有七名玩家的游戏。角色列表上没有任何角色会添加外来者，而恶魔伪装成了圣徒。因为有哨兵在场，善良的玩家就无法确定这名圣徒是不是真的了。",
+      "这是一场有九名玩家的游戏。因为女巫刚刚杀了一名玩家，所以即使男爵在角色列表上，善良的玩家也能知道男爵此时不在场，所以游戏中应该只有两名外来者。但是不能完全相信这些外来者，因为哨兵在场。实际上，这局游戏比起常规的游戏少了一名外来者，而女巫将自己伪装成了管家。"
     ]
   },
   "how_to_run": {
-    "en": "At the start of the game, declare that the Sentinel is in play. Add the Sentinel token to the Grimoire."
+    "en": "At the start of the game, declare that the Sentinel is in play. Add the Sentinel token to the Grimoire.\nWhile setting up the game, before putting character tokens in the bag, add an Outsider token and remove a Townsfolk token, remove an Outsider token and add a Townsfolk token, or do neither.",
+    "cn": "在游戏开始时，宣布哨兵加入游戏，并将哨兵标记放入魔典中。\n设置游戏时，在把角色标记放进盲抽袋之前，添加一个外来者并移除一个镇民，或者移除一个外来者然后添加一个镇民，或者不改变外来者数量。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Sentinel",
-  "image": "assets/tokens/sentinel.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/d/d4/Icon_sentinel.png"
 }

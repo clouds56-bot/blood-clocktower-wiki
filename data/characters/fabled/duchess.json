@@ -1,16 +1,10 @@
 {
   "id": "duchess",
-  "type": "fabled",
   "name": {
     "en": "Duchess",
     "cn": "公爵夫人"
   },
-  "ability": {
-    "en": "Each day, 3 players may choose to visit you. At night*, each visitor learns how many visitors are evil, but 1 gets false info."
-  },
-  "flavor_text": {
-    "en": "\"We shall entertain between the hours of 6 and 7 precisely. Tea at 6:15. Scones at 6:45. Do not be late. Formal wear applies, as always.\""
-  },
+  "type": "fabled",
   "editions": [
     "experimental"
   ],
@@ -18,16 +12,30 @@
   "other_nights": false,
   "artist": "Caitlin Murphy",
   "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Duchess",
+  "ability": {
+    "en": "Each day, 3 players may choose to visit you. At night*, each visitor learns how many visitors are evil, but 1 gets false info.",
+    "cn": "每个白天，三名玩家可以一起拜访你。当晚*，他们会得知他们之中有几个是邪恶的，但其中一人的信息是错的。"
+  },
+  "flavor_text": {
+    "en": "\"We shall entertain between the hours of 6 and 7 precisely. Tea at 6:15. Scones at 6:45. Do not be late. Formal wear applies, as always.\"",
+    "cn": "“我们会在6点至7点之间招待客人。6点15分喝茶点。6点45分吃松饼。不要迟到，着装要像往常一样正式。”"
+  },
   "examples": {
     "en": [
       "The Soldier, Pacifist, and Sage visit the Duchess. The Soldier and Pacifist learn a \"0.” The Sage learns a \"1.”",
       "The Mutant, Butler, and Po visit the Duchess. The Mutant learns a \"1,” the Butler learns a \"2,\" and the Po learns a \"1.”",
       "The Mastermind, Imp, and Minstrel visit the Duchess. The Mastermind learns a \"2,” the Imp learns a \"1,\" and the Minstrel learns a \"2.”"
+    ],
+    "cn": [
+      "士兵、和平主义者和贤者拜访了公爵夫人。士兵和和平主义者得知了“0”。贤者得知了“1”。",
+      "畸形秀演员、管家和珀拜访了公爵夫人。畸形秀演员得知了“1”，管家得知了“2”，珀得知了“1”。",
+      "主谋、小恶魔和吟游诗人拜访了公爵夫人。主谋得知了“2”，小恶魔得知了“1”，吟游诗人得知了“2”。"
     ]
   },
   "how_to_run": {
-    "en": "At the start of the game, declare that the Duchess is in play. Add the Duchess token and their reminders to the Grimoire. Each day, any player may volunteer to visit the Duchess tonight."
+    "en": "At the start of the game, declare that the Duchess is in play. Add the Duchess token and their reminders to the Grimoire. Each day, any player may volunteer to visit the Duchess tonight.\nIf exactly three players volunteer to visit the Duchess tonight, then mark two of them with a VISITOR reminder and one of them with a FALSE INFO reminder. If more or less than three players volunteer to visit, do not add these reminders.\nAt night, wake each player marked VISITOR or FALSE INFO one at a time. Show the woken player the Duchess token. If the woken player is marked VISITOR, show them fingers (0, 1, 2, or 3) equaling the number of evil players who are marked either VISITOR or FALSE INFO. If the woken player is marked FALSE INFO, show them any number of fingers except the correct number. Put the woken player to sleep.\nRemove the Duchess at any time, declaring when you do so.",
+    "cn": "在游戏开始时，宣布公爵夫人加入游戏。将公爵夫人标记及其对应提示标记放入魔典中。\n每一天，任何玩家都可以自愿表示他们今天晚上要拜访公爵夫人。如果正好有三名玩家自愿在今天晚上拜访公爵夫人，用“访客”标记其中两名玩家，用“错误信息”标记剩下那名玩家。如果自愿拜访的玩家超过或少于三名，那就无需添加这些提示标记。\n在晚上，分别单独唤醒每一名标记了“访客”和“错误信息”的玩家。向被唤醒的玩家展示“公爵夫人”标记。如果被唤醒的玩家被标记了“访客”，向他们用手指比划一个数字（0，1，2或3），这个数字会等于被标记了“访客”和“错误信息”的玩家中邪恶玩家的数量。如果被唤醒的玩家被标记了“错误信息”，则向他们用手指比划一个错误的数字。让被唤醒的玩家入睡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Duchess",
-  "image": "assets/tokens/duchess.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/8/87/Icon_duchess.png"
 }

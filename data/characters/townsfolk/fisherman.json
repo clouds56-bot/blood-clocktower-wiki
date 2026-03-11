@@ -1,18 +1,10 @@
 {
   "id": "fisherman",
-  "type": "townsfolk",
   "name": {
     "en": "Fisherman",
-    "cn": "水手"
+    "cn": "渔夫"
   },
-  "ability": {
-    "en": "Once per game, during the day, visit the Storyteller for some advice to help your team win.",
-    "cn": "每个夜晚，你要选择一名存活的玩家：你或他之一会醉酒直到下个黄昏。\n你不会死亡。"
-  },
-  "flavor_text": {
-    "en": "\"This was my favourite part of the river... see how the sunlight makes a rainbow from the monastery to the market? This was the best place for big fish. And the older I get, the bigger they were.\"",
-    "cn": "“你们随便谁来我都能把他喝到桌子底下去！说你呢！那个话痨！敢来和我喝一杯么？不来？那你呢，老太婆？你以前喝过老麦基利的加香料朗姆酒吗？保证能让你喝成个真男人！上船咯，噢耶！”"
-  },
+  "type": "townsfolk",
   "editions": [
     "experimental"
   ],
@@ -20,6 +12,15 @@
   "other_nights": false,
   "artist": "Anica Kelsen",
   "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Fisherman",
+  "ability": {
+    "en": "Once per game, during the day, visit the Storyteller for some advice to help your team win.",
+    "cn": "每局游戏限一次，在白天时，你可以让说书人给你一些能帮助你的阵营获胜的建议。"
+  },
+  "flavor_text": {
+    "en": "\"This was my favourite part of the river... see how the sunlight makes a rainbow from the monastery to the market? This was the best place for big fish. And the older I get, the bigger they were.\"",
+    "cn": "“这是这条河流里我最喜欢的一截儿……看看阳光是如何让一道彩虹横跨修道院和集市的？这是能让鱼儿长得肥美的最好的地方。我一天天变老，它们也一天天长大。”"
+  },
   "examples": {
     "en": [
       "It is best to give the Fisherman advice on what to DO, not just information about what IS. This makes the Fisherman more fun and unique.\n\nEg. Saying “You should execute that player” or “Keep this player alive” or “find out who is drunk” or “change your thinking entirely” or “ignore the Minions” or “trust this player” are much more interesting than saying “this player is evil” or “the Demon is a No Dashii”.",
@@ -28,9 +29,10 @@
       "On the final day, the Fisherman learns to “kill Lewis”. The Fisherman is drunk, and Lewis is a Townsfolk. The Storyteller gave bad (“false”) advice to the Fisherman."
     ],
     "cn": [
-      "水手选择了驱魔人，于是说书人决定让驱魔人醉酒。在这个夜晚，水手被沙巴洛斯攻击。水手依然存活。在下一个白天，水手被处决，但依然存活。",
-      "在白天，造谣者发表了一个公开声明，他以为是错误的，但其实是正确的。在当晚，造谣者的能力将会杀死一名玩家。水手让自己醉酒了，于是说书人决定让水手死亡。",
-      "水手选择了主谋，但是说书人决定让水手醉酒。在下一个白天，水手要求处决自己来“证明自己是水手”，但是因为他醉酒，所以死亡了。"
+      "渔夫拜访了说书人，并得知“不要信任小八”，这不是因为小八是邪恶玩家，而是由于小八醉酒了，他得知的信息正在让善良阵营误入歧途。",
+      "在第三个白天，渔夫拜访了说书人并得知了“让声称自己是外来者的玩家活着”。这些玩家实际上是呆瓜和恐惧之灵。说书人认为让这些玩家存活会有助于让善良玩家成功处决恶魔。",
+      "在第三个白天，渔夫拜访了说书人并得知了“处决小米”，因为小米是酒鬼，处决她会使得送葬者得知有用的信息。",
+      "在最后一天，渔夫拜访了说书人并得知了“不要询问小文太多的问题”，因为小文是畸形秀演员，他的能力一旦触发就会让善良阵营落败。"
     ]
   },
   "tips": {
@@ -49,18 +51,23 @@
       "Characters that register as different alignments or characters may affect the hint given to the Fisherman. For example, a Recluse may register as the Demon, prompting the Storyteller to advise you to execute them. Be aware of this possibility."
     ],
     "cn": [
-      "显而易见...如果你在晚上选择了一个镇民，你很可能不会醉酒。如果你选择了一个外来者，爪牙，或恶魔，你可能醉酒。水手的生存能力非常强大，说书人通常会抓住一切机会让善良阵营玩家为水手的存活付出代价，只要有可能就会让镇民醉酒，而你选择了非镇民玩家就会让你醉酒。",
-      "选择你想醉酒的玩家，比如你怀疑的邪恶玩家，或者是目前没有其他人有用的镇民。一个醉酒的祖母或一个醉酒的弄臣可能比一个醉酒的驱魔人或一个醉酒的侍臣危害要小。",
-      "通过让其他玩家醉酒来最大化你的生存能力。如果你一直选择镇民，特别是能力强大的镇民，你可以比其他玩家更容易活到最后一天。",
-      "告诉玩家晚上你选了谁，让他们知道他们可能喝醉了。这是至关重要的。例如，一个醉酒的旅店老板需要知道他们的能力可能在没有玩家死亡的晚上其实没起作用，或者醉酒的侍女需要知道他们的信息可能是假的。",
-      "与其他玩家交流，寻找好的买醉对象。你不会想和你不清楚角色的玩家买醉的...你要喝就要找知晓的那几个。如果你能分辨出一些玩家的角色，你就能更好地为善良阵营团队工作。有些人，醉了会更好。",
-      "你可以通过故意被处决来证明你就是那个水手。如果你没有醉酒，你就不会死。从这一点开始，如果团队确信你确实是水手，而不是简单地受到魔鬼代言人的保护，那么你应该能够活到最后一天，这使善良阵营的团队找到恶魔的机会大大增加。毕竟...他们知道恶魔不是你。"
+      "问问自己为什么会得到这样的建议。即使它是你完全没有预料到的亦或是会把你带入一条与之前（推论）完全不相关的路径，要记得说书人无所不知。他们最能给你提供帮助你获胜的建议。",
+      "听从收到的建议。渔夫不提供信息，而是提供帮助获胜的建议。如果建议是“处决你顺时针方向的邻座”，那就这么做。听从收到的建议！除非你认为你的信息值得怀疑，否则如果你不实现他们，建议可能会变得无效，因为他们是基于你询问时的当下局势给出的。两天才处决艾瑞克可能不是一个好主意，尽快劝说进行对他的处决。",
+      "在遵循建议之后，试着考量一下你现在在游戏中的情况，并试着逆推一下为什么会给你这样的建议。在给你的建议中谁占重要地位？为什么？遵循建议有什么好处？这说明游戏的迷惑之处在哪里？",
+      "立即使用你的能力。不用冒着在得到建议之前就被恶魔杀死或被处决的风险。在第一天就尽快寻求建议！毕竟，如果你不使用能力，你每天都有失去建议的风险。立即使用能力可以回避这种风险。基于游戏配置，说书人在第一天仍然可能给你许多好建议。",
+      "尽可能地推迟使用你的能力。这很有风险，但你等待的时间越长，说书人就越能给你直逼胜利的确切建议。另外，如果你连续数天勇敢直面死亡的风险，说书人可能更倾向于给予你一些有趣的建议来奖励你。",
+      "关注那些可能会影响你死亡可能性的角色能力，并在你使用能力时将这些因素考虑进去。如果剧本里是利维坦，那恶魔无法杀死你。如果你相信一名玩家是僧侣，你可以寻求他的保护。这两种情况下，你都有更高的几率存活到游戏后期，并且在此基础上延后你获得的建议。",
+      "关注说书人使用的特定词语。如果某些内容看起来模棱两可，他也许是在暗示某件事而非直白阐述。如果说书人告诉你不要相信某名玩家，那名玩家也许是善良阵营的共情者，但是已经被寡妇投毒，会提供将善良阵营引入毁灭的错误信息。理解说书人给予的建议时要特别当心。“凯文正在分享正确的信息”不意味着凯文是善良阵营，“处决艾瑞克”也不意味着艾瑞克是邪恶阵营。建议也许会专门针对你当前进行的游戏，说书人实在是很热衷于拐弯抹角。",
+      "注意剧本里涉及胜利条件的角色能力。你收到的建议可能与此相关。例如，一个渔夫收到来自说书人的建议让他试图阻止处决一个哥布林。",
+      "拜访说书人，然后直接回来，假装你已经使用了你的渔夫能力但实际上没有。让邪恶阵营以为你的力量对他们不再是威胁。如果恶魔相信你已经使用了你的能力，他们可能认为杀死你不再有价值，这会让你存活并且在稍后的游戏中使用能力。",
+      "想想有了建议你需要信任谁。你可能只想简单地立即展示它，把线索放在明面上让大家理解。或者你可能想与一队信任的玩家分享提示，他们可以秘密地配合使用它。",
+      "如果你不确定你记住的建议是否正确，你可以重新拜访说书人让他们重复一次。但是需要注意说书人可能不会提供（关于建议的）来龙去脉或是明晰解释。",
+      "那些会被认为是不同阵营或角色的角色会影响渔夫获得的提示。例如，一个陌客可能被认为是恶魔，导致说书人建议你处决他。要提防这种可能性。"
     ]
   },
   "how_to_run": {
-    "en": "Once per game, the Fisherman will ask to use their ability. In private, give them once piece of advice to help them win. Then, put the No ability reminder by the Fisherman token.",
-    "cn": "每个夜晚，唤醒水手。让水手指向任意一名存活玩家。让水手重新入睡。水手或他选择的玩家两者之一会进入醉酒状态——将“醉酒”提示标记放置到该玩家的角色标记旁。\n如果清醒的水手将要死亡，他会依然存活。如果清醒的水手被处决，宣布该玩家被处决但依然存活。（不要说明原因。）"
+    "en": "Once per game, the Fisherman will ask to use their ability. In private, give them once piece of advice to help them win. Then, put the No ability reminder by the Fisherman token.\nIt is best to give the Fisherman advice on what to DO, not just information about what IS. This makes the Fisherman more fun and unique.\n\nEg. Saying “You should execute that player” or “Keep this player alive” or “find out who is drunk” or “change your thinking entirely” or “ignore the Minions” or “trust this player” are much more interesting than saying “this player is evil” or “the Demon is a No Dashii”.",
+    "cn": "在白天的任何时候，渔夫可以私下拜访说书人以获得帮助他的阵营获胜的建议。说书人对他提供的这些建议并非“事实”，而是说书人认为如果渔夫遵照给出的建议行动能够帮助渔夫获胜。只要渔夫使用了自己的能力并获得了建议，那么使用渔夫的“失去能力”标记标记渔夫。他无法再次使用自己的能力。\n通常来说，给渔夫的建议应该是类似“你应该如何”或“你不应该如何”的句式。建议并非要完全按照这种格式进行，但应该按照类似的概念来给出建议，而不应该是类似博学者所得知的信息的样式。因此“处决某名玩家”、“找出谁是酒鬼”、“你应该重新考虑应该相信哪些玩家的信息”、“信任某名玩家”都是能够提供给渔夫的不错的建议格式。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Fisherman",
-  "image": "assets/tokens/fisherman.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/1/19/Icon_fisherman.png"
 }

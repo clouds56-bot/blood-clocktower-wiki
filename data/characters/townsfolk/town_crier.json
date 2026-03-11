@@ -1,10 +1,18 @@
 {
   "id": "town_crier",
-  "type": "townsfolk",
   "name": {
     "en": "Town Crier",
     "cn": "城镇公告员"
   },
+  "type": "townsfolk",
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Town_Crier",
   "ability": {
     "en": "Each night*, you learn if a Minion nominated today.",
     "cn": "每个夜晚*，你会得知在今天白天时是否有爪牙发起过提名。"
@@ -13,13 +21,6 @@
     "en": "\"Hear ye! Hear ye! Witchcraft in the labyrinth! Genius savant reveals all! Town in danger! Hear Ye!\"",
     "cn": "“号外！号外！迷宫中的巫术！天才博学者揭露了一切谜团！城镇有危险了！号外！”"
   },
-  "editions": [
-    "sects_violets"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
   "examples": {
     "en": [
       "If you forget whether a Minion made a nomination or not, wake each Minion at night and ask by showing them the DID YOU NOMINATE TODAY? info token. They must answer honestly, then go to sleep.",
@@ -53,9 +54,8 @@
     ]
   },
   "how_to_run": {
-    "en": "Each dawn, mark the Town Crier with the MINIONS NOT NOMINATED reminder, and remove the MINION NOMINATED reminder, if any.",
+    "en": "Each dawn, mark the Town Crier with the MINIONS NOT NOMINATED reminder, and remove the MINION NOMINATED reminder, if any.\nEach day, if any Minion makes a nomination, replace the MINIONS NOT NOMINATED reminder with the MINION NOMINATED reminder.\nEach night except the first, wake the Town Crier. If the Town Crier is marked MINIONS NOT NOMINATED, shake your head no. If the Town Crier is marked MINION NOMINATED, nod your head yes. Then, put the Town Crier to sleep. Remove the MINION NOMINATED reminder, if any.\nIf you forget whether a Minion made a nomination or not, wake each Minion at night and ask by showing them the DID YOU NOMINATE TODAY? info token. They must answer honestly, then go to sleep.",
     "cn": "每个黎明，在城镇公告员角色标记旁放置“爪牙未提名”提示标记，并移除“爪牙已提名”提示标记（如果有）。\n每个白天，如果有任何爪牙发起提名，则将“爪牙未提名”提示标记替换为“爪牙已提名”提示标记。\n除了第一个夜晚的每个夜晚都唤醒城镇公告员。如果城镇公告员被标记为“爪牙未提名”，摇头告知否。如果城镇公告员被标记为“爪牙已提名”，点头告知是。让城镇公告员重新入睡。然后移除“爪牙已提名”标记，如果有的话。\n如果你忘记了爪牙是否在白天提名，在夜晚分别单独唤醒每名爪牙玩家。每次唤醒一名玩家并对他展示“你今天提名了吗？”信息标记。他必须诚实回答，然后重新入睡。随后再唤醒下一名爪牙玩家。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Town_Crier",
-  "image": "assets/tokens/town_crier.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/e/ef/Icon_towncrier.png"
 }

@@ -1,10 +1,18 @@
 {
   "id": "washerwoman",
-  "type": "townsfolk",
   "name": {
     "en": "Washerwoman",
     "cn": "洗衣妇"
   },
+  "type": "townsfolk",
+  "editions": [
+    "trouble_brewing"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Washerwoman",
   "ability": {
     "en": "You start knowing that 1 of 2 players is a particular Townsfolk.",
     "cn": "在你的首个夜晚，你会得知两名玩家和一个镇民角色：这两名玩家之一是该角色。"
@@ -13,13 +21,6 @@
     "en": "\"Bloodstains on a dinner jacket? No, this is cooking sherry. How careless.\"",
     "cn": "“晚礼服上的血渍？\n才不是呢，这只是洒上了雪莉酒。真粗心！”"
   },
-  "editions": [
-    "trouble_brewing"
-  ],
-  "first_night": true,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
   "examples": {
     "en": [
       "Evin is the Chef, and Amy is the Ravenkeeper. The Washerwoman learns that either Evin or Amy is the Chef.",
@@ -66,9 +67,8 @@
     ]
   },
   "how_to_run": {
-    "en": "While preparing the first night, put the Washerwoman's TOWNSFOLK reminder token by any Townsfolk character token, and put the Washerwoman's WRONG reminder token by any other character token.",
+    "en": "While preparing the first night, put the Washerwoman's TOWNSFOLK reminder token by any Townsfolk character token, and put the Washerwoman's WRONG reminder token by any other character token.\nDuring the first night, wake the Washerwoman and point to the players marked TOWNSFOLK and WRONG. Show the character token marked TOWNSFOLK to the Washerwoman. Put the Washerwoman to sleep. Remove the Washerwoman's reminder tokens when convenient.",
     "cn": "在为首个夜晚进行准备时，将洗衣妇的“镇民”提示标记放置在任意一个镇民角色标记旁，然后将洗衣妇的“错误”提示标记放置在任意其他角色标记旁。\n在首个夜晚里，唤醒洗衣妇，并指向标记有“镇民”和“错误”的玩家。将标记有“镇民”的玩家标记展示给洗衣妇。让洗衣妇重新入睡。在说书人方便的时候，移除洗衣妇的提示标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Washerwoman",
-  "image": "assets/tokens/washerwoman.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/8/85/Icon_washerwoman.png"
 }

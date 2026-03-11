@@ -1,0 +1,64 @@
+{
+  "id": "scarlet_woman",
+  "name": {
+    "en": "Scarlet Woman",
+    "cn": "红唇女郎"
+  },
+  "type": "minion",
+  "editions": [
+    "trouble_brewing"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Marianna Carr",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Scarlet_Woman",
+  "ability": {
+    "en": "If there are 5 or more players alive & the Demon dies, you become the Demon. (Travellers don't count.)",
+    "cn": "如果大于等于五名玩家存活时（旅行者不计算在内）恶魔死亡，你变成那个恶魔。"
+  },
+  "flavor_text": {
+    "en": "\"You have shown me the secrets of the Council of the Purple Flame. We have lain together in fire and in lust and in beastly commune, and I am forever your servant. But tonight, my dear, I am your master.\"",
+    "cn": "“你曾向我展示了紫焰议会的秘密。我们也曾一起在烈火里拥抱，在欲望中交欢，在兽性的驱使下耳鬓厮磨，我将永生永世侍奉于你。但今晚，我亲爱的，我是你的主人。”"
+  },
+  "examples": {
+    "en": [
+      "There are seven players alive: the Imp, the Scarlet Woman, two Townsfolk, and three Travellers. The Imp is executed, so the game ends and good wins because Travellers do not add to the player count for the Scarlet Woman's ability.",
+      "There are five players alive: the Imp, the Scarlet Woman, the Baron, and two Townsfolk. The Imp is executed. The Scarlet Woman becomes the Imp, and the game continues.",
+      "Brianna is the Scarlet Woman. The Fortune Teller chooses Brianna and Alex, and learns a \"no.” Later, the Imp dies, so Brianna becomes the Imp. The Fortune Teller chooses Brianna and Alex again, and learns a \"yes.\""
+    ],
+    "cn": [
+      "有七名玩家存活：小恶魔，红唇女郎，两名镇民，三名旅行者。小恶魔被处决，因此游戏结束且善良阵营获胜，因为旅行者不计算在红唇女郎的能力里。",
+      "有五名玩家存活：小恶魔，红唇女郎，男爵，两名镇民。小恶魔被处决。红唇女郎变成了小恶魔，且游戏继续。",
+      "小兰是红唇女郎。占卜师选择了小兰和小美，并得知了“否”。随后，小恶魔死亡，因此小兰变成了小恶魔。占卜师再次选择了小兰和小美，并得知了“是”。"
+    ]
+  },
+  "tips": {
+    "en": [
+      "The Scarlet Woman is at her strongest when you co-ordinate with the Demon and figure out a strategy that you both like, since the Demon can safely die. Maybe you accuse the Demon of being evil, and the Demon does everything possible to make the good team think they are indeed evil? This makes you look very good, and trustworthy. Maybe the Demon kills themselves of a night time and claims to be the Ravenkeeper, saying that you are the character you say you are. Maybe the Demon accuses you of being evil, but does so unconvincingly, so that you look good by comparison. Maybe you and the Demon both claim to be the same character, such as the Mayor? After all, \"one of you must be the Mayor\", right? It doesn't matter which one of you dies, since the game continues with a living Demon either way.",
+      "In the early game, staying alive is more important for you compared to other Minions. Whist it doesn't really matter if the Baron, or Poisoner dies early (since they can often cause a lot of disruption early in the game), you will need to survive until the end of the game if you intend to become the Demon at some point. Waiting, listening, then claiming to be a character that you know is not in play often achieves this best.",
+      "Timing is important. Remember that if fewer than five players are alive when the Demon dies, the game is over and good wins. If your Demon has a lot of heat on them, and you think that they won't survive to the final day, take action and get your Demon killed while five or more players are still alive... before it's too late.",
+      "Whilst you are the Scarlet Woman, you will not register as the Demon. So, if you can get yourself confirmed as such by good characters, such as the Slayer or the Fortune Teller, then become the Demon at a later stage, then the good team will be very confused about the identity of the real Demon, as their information won't add up.",
+      "If the Demon is playing well, and seems to be trusted by the good team, there is no need to use your ability. You can play the normal Minion role of spreading false information, breeding distrust among the good players and generally being troublesome whilst ignoring your character ability."
+    ],
+    "cn": [
+      "当你与恶魔合作且找到了一个你们俩都认同的策略时，红唇女郎将发挥她最大的作用，因为恶魔可以安全地死掉。或许你可以公开指出邪恶阵营的恶魔，然后恶魔再尽最大努力让大家相信他确实邪恶。这会让你看起来非常善良且值得信赖。或许恶魔可以在晚上自杀然后宣称自己是守鸦人，并因此证实你此前的伪装。或许恶魔可以指控你为邪恶，但说辞并不那么让人信服，这样相比之下你看起来就会更加善良。或许你和恶魔可以同时说自己是某个相同的角色，比如镇长。不管怎么说，\"你们两个中间肯定有个镇长\"，没错吧？你们哪个死了都无所谓，不管怎样游戏都会继续，因为总会有一个恶魔存活。",
+      "与其他爪牙不同，在游戏前期你更需要\"活下来\"。像男爵和投毒者就算很早就死了也无所谓（因为前期他们就会带来很多麻烦）。但你如果打算在某个时刻变为恶魔，就需要活到游戏最后。等待，仔细倾听然后声称自己是某个你确信不在场的角色，这样通常能够达到最令人满意的效果。",
+      "时机很重要。如果恶魔死亡时存活玩家少于五位，这个时候游戏就结束了，且善良玩家胜利，时刻记住这一点。如果恶魔备受他人关注，并且你觉得他可能没法活到游戏最后了，立刻采取行动且让恶魔在五名或以上玩家存活时被杀死...趁着还来得及。",
+      "你是红唇女郎，因此你不会被当作恶魔。如此一来，如果你能够被猎手或占卜师这样的善良角色证实，且在之后的某个时间变为恶魔。善良阵营就将难以找到真正的恶魔，因为他们的信息没办法很好地结合在一起。",
+      "如果恶魔玩得很好，并且似乎已经被善良阵营所信任，你就不需要使用自己的能力了。你可以扮演一个普通的爪牙角色在小镇之中传递错误信息，让善良玩家之间滋生猜忌，给大家带来麻烦，这个时候就忽略你的能力吧。",
+      "红唇女郎在场时，恶魔可以做到一些原本无法做到的事且无需承担任何后果。例如，他可以在被成功处决或者被猎手杀死的情况下让游戏继续进行。如果你确定你真的已经揪出了小恶魔但是游戏还在继续，你就需要怀疑场上有红唇女郎在场了。如果场上的送葬者不是酒鬼，他将有可能在晚上看到一个小恶魔角色标记。",
+      "如果小恶魔在晚上自杀，红唇女郎必定先于其他爪牙变为恶魔。在原本的小恶魔出局后，知道这一点将帮助你更快找到新恶魔的所在。",
+      "恶魔和红唇女郎可能通过配合来互相证明。例如，红唇女郎可能会伪装成洗衣妇并且\"证实\"恶魔的角色。这样可能会让他们俩看起来都很善良，并且暗中准备好了在后续游戏中传递恶魔血脉的准备。",
+      "红唇女郎不会被当作恶魔，这意味着只能查验恶魔的角色在她身上无法得到信息。例如，占卜师无法在查验她时得到信息\"是\"，猎手的能力对她也不会起作用。留意那些在游戏前期就急于被其他人验证的玩家。",
+      "如果你觉得红唇女郎在场（例如，调查员或者守鸦人获得到了相关信息），让她就这么一直活着也是个不错的策略。在最后一天仅剩三名玩家存活时，你现在要考虑的问题就不再是\"谁是恶魔\"了，而是\"红唇女郎有没有变成恶魔\"。如果你认为恶魔已经更换玩家了，处决之前那个红唇女郎。如果你认为恶魔没有发生变化，那就可以不用考虑红唇女郎了，从剩下的玩家中寻找恶魔吧。",
+      "与其他爪牙不同，红唇女郎可能会大胆地将矛头指向自己的恶魔，并且可能会故意处决恶魔来让自己看起来更加善良。如果你怀疑某位玩家是红唇女郎，时刻关注她一直在针对谁，以及矛头是否突然转变；如果她原本一直在针对某一位玩家，但在存活玩家少于5人时突然调转了矛头，那之前那个被针对的玩家很有可能就是恶魔。",
+      "红唇女郎通常是作为一个备用计划，而不是攻略首领的第二阶段。如果恶魔能够很好地融入小镇且没有受到太多质疑，红唇女郎就可以表现得更像个一般的爪牙，并且更随意地牺牲自己。如果你发现红唇女郎表现得太过明显，那就需要怀疑那个之前很受大家信任的玩家了。"
+    ]
+  },
+  "how_to_run": {
+    "en": "If the Demon dies and there were five or more alive players immediately before the Demon died, replace the Scarlet Woman token with a spare Imp token, changing that player's character from the Scarlet Woman into the Imp. (They are now the Demon and have the Imp's ability. If they die, good wins.)\nThat night, wake the new Imp, show them the YOU ARE info token, then show them the Imp token.\nIn Trouble Brewing, there is only one Demon—the Imp. In other editions, there are multiple possible Demons. If the Scarlet Woman becomes the Demon, they become the same type of Demon that died, and they gain this Demon's ability. When this happens, mark the Scarlet Woman with the IS THE DEMON reminder and refer to that Demon's \"How to Run\" instructions.",
+    "cn": "如果恶魔死亡，且在恶魔死前有五名或更多的存活玩家，在魔典中用闲置的小恶魔标记替换红唇女郎的标记，也意味着那名玩家的角色从红唇女郎变成了小恶魔。（她现在是恶魔，且具有恶魔的能力。如果她死亡，善良阵营获胜。）\n在当晚，唤醒新的小恶魔，向她展示“你是”信息标记，然后向她展示小恶魔角色标记。\n在《暗流涌动》里，只有一种恶魔——小恶魔。在其他剧本中，可能会有多种不同的恶魔。如果红唇女郎变成了恶魔，她一定会变成与刚死去的恶魔同一种类的恶魔，并获得这种恶魔的能力。当这种情况发生时，使用红唇女郎的“是恶魔”提示标记标记红唇女郎现在是恶魔，并参照对应的恶魔介绍里的“运作方式”来进行相关操作。"
+  },
+  "token_url": "https://wiki.bloodontheclocktower.com/images/1/13/Icon_scarletwoman.png"
+}

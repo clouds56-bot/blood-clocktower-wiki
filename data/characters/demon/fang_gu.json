@@ -1,0 +1,63 @@
+{
+  "id": "fang_gu",
+  "name": {
+    "en": "Fang Gu",
+    "cn": "方古"
+  },
+  "type": "demon",
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Fang_Gu",
+  "ability": {
+    "en": "Each night*, choose a player: they die. The 1st Outsider this kills becomes an evil Fang Gu & you die instead. [+1 Outsider]",
+    "cn": "每个夜晚*，你要选择一名玩家：他死亡。\n被该能力杀死的外来者改为变成邪恶的方古且你代替他死亡，但每局游戏仅能成功转化一次。[+1外来者]"
+  },
+  "flavor_text": {
+    "en": "\"Your walls and your weapons are but smoke in dreams.\"",
+    "cn": "“你那高墙和锐器不过是虚无缥缈的泡影。”"
+  },
+  "examples": {
+    "en": [
+      "The Fang Gu attacks the Artist, who dies. The next night, the Fang Gu attacks the Sweetheart, who becomes the Fang Gu while the old Fang Gu dies. The Sweetheart does not make a player drunk, because they did not die. The next night, the new Fang Gu attacks the Klutz, who dies."
+    ],
+    "cn": [
+      "方古攻击并杀死艺术家。下个夜晚，方古攻击了心上人，心上人成为新方古，老方古死亡。心上人不会使一名玩家醉酒，因为心上人没有死。下个夜晚，新方古攻击并杀死了呆瓜。",
+      "方古攻击死去的呆瓜。因为呆瓜已经死了，他不会再次死亡，所以方古不会死。呆瓜仍然为善良阵营，今晚无人死亡。"
+    ]
+  },
+  "tips": {
+    "en": [
+      "Thanks to your body-hopping ability, you have a vested interest in figuring out who is an Outsider. Having this information early on is important, as your main option to escape trouble and grow your strength is to pass the Demon ability on - timing this correctly can be the difference between a triumphant town and a dastardly evil victory.",
+      "When the heat is on and you suspect you might be heading to the chopping block soon, deliberately target an Outsider to die instead, ensuring the Demon lives on (and hoping goes back into hiding among the good players). Even if the good team suspects that you've done this, they won't be able to stop it happening!",
+      "Jump to an Outsider to expand your empire! The more evil players you have, the more votes you have on your side. This can be risky since you are potentially exposing the Demon when you move them around - characters like the Oracle and the Dreamer will be able to catch on to these sorts of shenanigans if you don't time your demon jump carefully. Ultimately though, the extra voting power is invaluable.",
+      "If you have managed to carve out a solid bluff and are well trusted by the good team, don't kill an Outsider. Their bluff is unlikely to be as strong as yours since you know for certain characters that are not in play, so passing the demonhood on at that point is just making the evil team vulnerable.",
+      "Keep your Minions in the loop! Your Minions (in particular the Witch, Cerenovus and Pit-Hag) are very destructive, and if they aren't aware of who their Demon is, the game could have an abrupt and unsatisfying end. Try to let them know ahead of time if you intend to jump bodies/who you are targeting in general - that way even if you hit a hidden Outsider unexpectedly, they won't wake up cursed, mad or transformed on top of being newly evil.",
+      "Because you can factor in dying to part of your plans at some point, consider taking advantage of some of the bolder bluffs that Sects & Violets has to offer. Die, then claim to be the Sage and point out two people who are not the new Demon! Claim to be the Sweetheart and get everyone doubting their information... or claim to be the Klutz and exonerate one of your evil players with your 'choice'. Other bluffs will also work great for the Fang Gu, but if you have to die anyway, why not?",
+      "If you become the new Fang Gu... don't panic! Your first point of order should be figuring out who the evil team is - start with the recently dead Fang Gu, and then go on to get the Minions. After that, it's evil business as usual - kill, avoid detection, and win for your new team!"
+    ],
+    "cn": [
+      "得益于你的恶魔传递的能力，弄明白谁是外来者对你来说是有好处的。在游戏中尽快尽早地获取这些信息是非常重要的，且是你该考虑的主要战术。这么做可以帮助你洗脱嫌疑，且能帮助你在场上听感变好、地位变高以及传递恶魔的火种。——在正确的时候选择使用你的能力，往往能起到场上形式的质变并给你带来胜利。",
+      "当压力突增你察觉到自己即将被处决时，你可以故意选择一个外来者，用你的能力代替他的死亡，来确保恶魔火种的延续（以此方式回到善良阵营来隐藏自己）。即使善良阵营怀疑之前的坏事都是你做的，他们也没有能力去阻止让坏事继续发生。",
+      "传递你的恶魔能力来扩张你的邪恶势力！因为邪恶的玩家越多，你的阵营拥有的票数就越多。但是这样做是有风险的，因为当你传递你的恶魔能力的时候，你可能会暴露——例如神谕者和筑梦师，他们有能力去获取一些对邪恶阵营不利的信息，如果你没有仔细的思考场上的局势就传递你的恶魔能力的话。尽管这样做有一定的风险，但是额外的投票能力其实是无价的。",
+      "如果你成功的伪装了一个很好的角色并且混入了善良阵营被好人们认下，请不要在这个时候击杀一名外来者。他们在场上表现的角色可能没有你伪装的好，因为你知道不存在游戏中的角色，所以在这时候传递恶魔的能力只会让邪恶阵营变得更加脆弱。",
+      "让你的爪牙们保持沟通！你的爪牙（尤其是女巫、洗脑师和麻脸巫婆）非常具有破坏性，如果他们不知道自己的恶魔是谁，这场游戏可能没有一个好的发展和一个令人满意的结局。尝试提前跟他们沟通让他们知道你是否打算传递出恶魔的能力以及你可能传递的目标是谁——这样做的话即使你意外的攻击了一个隐藏的外来者触发了你的能力，这样的话新的恶魔在醒来时也不会被诅咒、疯狂或被变成一个新的恶魔。",
+      "因为你在某些时候可以把牺牲自我当做计划的一部分，所以可以考虑利用梦殒春宵提供的不在场的某些角色进行更有利的角色伪装。死亡之后声称自己是贤者，然后指向两名善良阵营的玩家声称他们中间存在恶魔。或者声称自己是心上人，让每个人都怀疑自己的信息可能出错。或者声称自己是呆瓜，指向一名邪恶阵营的玩家，将他们伪装成善良的玩家。其他的一些伪装角色也同样对方古非常有用，但是如果你不得不死，为什么不用这些更有用的角色呢？",
+      "如果你成为了新的方古，不要惊慌！你的首要任务是找到谁是你的邪恶阵营的队友——从前一晚死亡的方古开始，通过他再去找到爪牙。在那之后，杀戮就是你要做的事情。避免被善良阵营发现你是新的恶魔，然后为你的新的团队赢得胜利！",
+      "知道方古存在游戏中是打败他的第一步。第一个也是最大的线索就是外来者的数量比平时要多。当然这也可能是邪恶阵营的玩家声称是自己是外来者的结果，也可能是由于方古造成的。",
+      "某些角色能够直接发现方古的存在。每当一个新的方古出现时，神谕者能够发现一个新的死亡的邪恶阵营玩家。卖花女孩能够发现恶魔是否投票，如果投了票的玩家死在夜里，这可能是方古出现在游戏中的线索。筑梦师、艺术家和博学者有时候也能得到方古存在于游戏中的信息，当然这些信息不会十分明确的告诉你谁是方古。如果数学家一直得到是0的信息，即其他玩家的信息都没有出错，那意味着涡流和诺-达鲺不在游戏之中，方古就可能存在于场上。",
+      "如果你怀疑方古在存在游戏之中，就处决外来者。方古在一整局游戏中不转换外来者的阵营是很少见的，所以外来者特别令人怀疑。最好在游戏末期的时候处决外来者而不是早期，因为越到后期，方古才更有可能将外来者变成邪恶的新恶魔。",
+      "如果一名玩家在夜里死亡，请注意他们与谁在交谈。死亡的方古通常会想要和他的爪牙交谈谁是那个新的恶魔。",
+      "如果你是一个外来者，在你确定方古没有存在游戏中之前，请不要暴露你的角色。如果方古在游戏之中，你可能会在某个时刻突然变成邪恶的恶魔。如果你告诉了善良阵营你是一个外来者，他们可能认为你是邪恶的，然后将你处决。"
+    ]
+  },
+  "how_to_run": {
+    "en": "While setting up the game, before putting character tokens in the bag, add one extra Outsider character token and remove one Townsfolk character token.\nEach night except the first, wake the Fang Gu. They point at any player. Put the Fang Gu to sleep.\nIf the chosen player is not an Outsider, that player dies—mark them with the DEAD reminder.\nIf the chosen player is an Outsider and the ONCE reminder is in the center of the Grimoire, that player dies—mark them with the DEAD reminder.\nIf the chosen player is an Outsider and the ONCE reminder is not in the centre of the Grimoire, the Fang Gu dies—mark them with the DEAD reminder. Wake the chosen Outsider. Show them the YOU ARE info token, then the Fang Gu token, then the YOU ARE info token, then a thumbs-down. Change their character to a Fang Gu—swap their character token with the spare Fang Gu token. They become evil. Put the new Fang Gu to sleep. Put the ONCE reminder in the center of the Grimoire. (Unlike “Once per game” abilities, this reminder stays there for the rest of the game. Don’t remove it, even if the Fang Gu dies or changes character.)",
+    "cn": "在初始设置时，将角色标记放入盲抽袋前，把一个镇民角色标记替换为一个外来者角色标记。\n除首个夜晚外的每个夜晚，唤醒方古。让他指向一名玩家。让方古重新入睡。\n如果被选择的玩家不是外来者，为那名玩家放置“死亡”提示标记。\n如果被选择的玩家是外来者，且“限一次”提示标记已经被放置在魔典中，也为那名玩家放置“死亡”标记。\n如果被选择的玩家是外来者，且“限一次”提示标记不在魔典中，在原来的方古旁放置“死亡”提示标记。唤醒被选择的外来者。依次向他展示“你是”信息标记、向下的大拇指、方古角色标记。用多出的方古标记替换他的角色标记，且他转为邪恶阵营。让新方古重新入睡。把“限一次”标记放在魔典中心。（与“每局游戏限一次”能力不同，这个标记在接下来的游戏中始终留在那里，即使方古死亡或改变角色。）"
+  },
+  "token_url": "https://wiki.bloodontheclocktower.com/images/0/0e/Icon_fanggu.png"
+}

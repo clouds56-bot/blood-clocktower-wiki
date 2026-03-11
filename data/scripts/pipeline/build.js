@@ -38,11 +38,26 @@ function main() {
   // 1. Process English data
   for (const en of enData) {
     const id = normalizeId(en.english_name) || en.id;
-    characters.set(id, {
-      ...en,
+    
+    const char = {
       id,
-      name: { en: en.english_name } // Start name object
-    });
+      name: { en: en.english_name },
+      type: en.type,
+      editions: en.editions,
+      first_night: en.first_night,
+      other_nights: en.other_nights,
+      artist: en.artist,
+      jinxes: en.jinxes,
+      source_url: en.source_url
+    };
+
+    if (en.ability) char.ability = { en: en.ability };
+    if (en.flavor_text) char.flavor_text = { en: en.flavor_text };
+    if (en.examples) char.examples = { en: en.examples };
+    if (en.tips) char.tips = { en: en.tips };
+    if (en.how_to_run) char.how_to_run = { en: en.how_to_run };
+
+    characters.set(id, char);
   }
 
   // 2. Process Chinese data
@@ -62,15 +77,33 @@ function main() {
         name: { en: cnEngName, cn: cn.chinese_name },
         type: 'experimental', // fallback
         editions: ['experimental'],
-        ability: { cn: cn.ability },
         source_url: `https://clocktower-wiki.gstonegames.com/index.php?title=${cn.urlParam}`
       };
       characters.set(id, char);
     } else {
       // Merge Chinese data
       char.name.cn = cn.chinese_name;
+    }
+    
+    if (cn.ability) {
       if (!char.ability) char.ability = {};
       char.ability.cn = cn.ability;
+    }
+    if (cn.flavor_text) {
+      if (!char.flavor_text) char.flavor_text = {};
+      char.flavor_text.cn = cn.flavor_text;
+    }
+    if (cn.examples) {
+      if (!char.examples) char.examples = {};
+      char.examples.cn = cn.examples;
+    }
+    if (cn.tips) {
+      if (!char.tips) char.tips = {};
+      char.tips.cn = cn.tips;
+    }
+    if (cn.how_to_run) {
+      if (!char.how_to_run) char.how_to_run = {};
+      char.how_to_run.cn = cn.how_to_run;
     }
   }
 

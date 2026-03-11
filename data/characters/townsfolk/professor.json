@@ -1,10 +1,18 @@
 {
   "id": "professor",
-  "type": "townsfolk",
   "name": {
     "en": "Professor",
     "cn": "教授"
   },
+  "type": "townsfolk",
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Professor",
   "ability": {
     "en": "Once per game, at night*, choose a dead player: if they are a Townsfolk, they are resurrected.",
     "cn": "每局游戏限一次，在夜晚时*，你可以选择一名死亡的玩家：如果他是镇民，你会将他起死回生。"
@@ -13,13 +21,6 @@
     "en": "\"The process is simple. Attach the hydraulic confabulator to the modified chi matrix amplifier, add 20 CCs of pseudodorafine, keep his Z levels above 20%, and your husband will be fine. Now, all we need is a lightning strike.\"",
     "cn": "“过程很简单。将液压植入器连接到改良型气矩阵放大器上，加入20CC的伪多拉芬，让他的参数Z保持在20%以上，你丈夫就会重新活蹦乱跳。\n现在，我们需要的仅仅是一次雷击。”"
   },
-  "editions": [
-    "bad_moon_rising"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
   "examples": {
     "en": [
       "The Professor chooses a dead player who is claiming to be the Tea Lady. The player is actually the Lunatic. Nobody is resurrected.",
@@ -53,9 +54,8 @@
     ]
   },
   "how_to_run": {
-    "en": "Each night except the first, wake the Professor. The Professor either shakes their head no or points to a dead player. Put the Professor to sleep.",
+    "en": "Each night except the first, wake the Professor. The Professor either shakes their head no or points to a dead player. Put the Professor to sleep.\nIf the Professor chose a dead Townsfolk, the chosen player becomes alive again—mark them with the Professor’s ALIVE reminder and remove their shroud. (They wake later tonight if they normally would. If they wake on the first night only, they wake now to use their ability.) At dawn, after declaring which players died, declare which player is alive again. (Do not say why.) The Professor loses their ability—mark them with the NO ABILITY reminder and remove their night token from the night sheet.",
     "cn": "除首夜以外的夜晚，唤醒教授。教授要么摇头表示不使用能力，要么指向一名已死亡的玩家。让教授重新入睡。\n如果教授选择了一名已死亡的镇民，所选玩家再次变成存活状态——将教授的“复活”提示标记放置到该玩家的角色标记旁，并移除其帷幕标记。（如果被复活的玩家其角色在当晚的后续时段中应该被唤醒，则照常唤醒。如果该玩家的角色只会在首个夜晚被唤醒，则立即唤醒该玩家来使用自己的能力。）黎明时，在宣布哪些玩家死亡后，宣布哪些玩家再次变成存活状态了。（不要说明原因。）教授失去自己的能力——将“失去能力”提示标记放置到教授的角色标记旁，并从夜晚顺序表上移除其夜晚标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Professor",
-  "image": "assets/tokens/professor.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/6/65/Icon_professor.png"
 }

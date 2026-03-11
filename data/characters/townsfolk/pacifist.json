@@ -1,10 +1,18 @@
 {
   "id": "pacifist",
-  "type": "townsfolk",
   "name": {
     "en": "Pacifist",
     "cn": "和平主义者"
   },
+  "type": "townsfolk",
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Pacifist",
   "ability": {
     "en": "Executed good players might not die.",
     "cn": "被处决的善良玩家可能不会死亡。"
@@ -13,13 +21,6 @@
     "en": "\"Distrust all in whom the impulse to punish is powerful.\"",
     "cn": "“任何有强烈惩罚冲动的人都不可信赖。”"
   },
-  "editions": [
-    "bad_moon_rising"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
   "examples": {
     "en": [
       "Triggering the Pacifist ability once per game is usually about right. You can trigger it more if you feel it is appropriate. On rare occasions, to make the Pacifist look suspicious, you can never trigger it.",
@@ -52,9 +53,8 @@
     ]
   },
   "how_to_run": {
-    "en": "If a good character is executed, declare either that they die or they remain alive. (Do not say why.) Then, begin the night phase. (Whether the player lived or died, this was the one execution for the day.)",
+    "en": "If a good character is executed, declare either that they die or they remain alive. (Do not say why.) Then, begin the night phase. (Whether the player lived or died, this was the one execution for the day.)\nTriggering the Pacifist ability once per game is usually about right. You can trigger it more if you feel it is appropriate. On rare occasions, to make the Pacifist look suspicious, you can never trigger it.",
     "cn": "如果一个善良角色被处决，要么宣布该玩家死亡，要么宣布该玩家依然存活。（不要说明原因。）然后，夜晚阶段开始。（无论被处决的玩家存活还是死亡，每个白天都只能有一次处决。）\n每局游戏触发一次和平主义者的能力，通常来说是合理的。只要你觉得合适，也可以多触发几次。在少见的情形下，为了让和平主义者看起来很可疑，你可以永不触发他的能力。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Pacifist",
-  "image": "assets/tokens/pacifist.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/5/5d/Icon_pacifist.png"
 }

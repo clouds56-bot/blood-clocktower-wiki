@@ -1,10 +1,18 @@
 {
   "id": "engineer",
-  "type": "townsfolk",
   "name": {
     "en": "Engineer",
     "cn": "工程师"
   },
+  "type": "townsfolk",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "artist": "John Grist",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Engineer",
   "ability": {
     "en": "Once per game, at night, choose which Minions or which Demon is in play.",
     "cn": "每局游戏限一次，在夜晚时，你可以选择让恶魔变成你选择的恶魔角色，或让所有爪牙变成你选择的爪牙角色。"
@@ -13,13 +21,6 @@
     "en": "\"If it bends, great. If it breaks, well, it probably needed fixing anyway.\"",
     "cn": "“如果它弯曲了，那可就太棒了。但如果它断裂了，那么它就必须得修一修了。”"
   },
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "John Grist",
-  "jinxes": [],
   "examples": {
     "en": [
       "On the second night, the Engineer chooses that the Demon is a Lleech. Lewis, who was the Imp, is now the Lleech.",
@@ -59,9 +60,8 @@
     ]
   },
   "how_to_run": {
-    "en": "Each night, wake the Engineer. They either shake their head no or point at evil characters on the character sheet.",
+    "en": "Each night, wake the Engineer. They either shake their head no or point at evil characters on the character sheet.\nIf they shake their head no, nothing happens. Put the Engineer to sleep.\nIf they point to a Demon or Minions on their character sheet, put them to sleep. Swap all appropriate character tokens with new character tokens. Wake each evil player that changed character, show the YOU ARE info token, then their new character token, then put them to sleep. The Engineer loses their ability—mark them with the NO ABILITY reminder and remove their night token from the night sheet.",
     "cn": "每个夜晚，唤醒工程师。他要么摇头不使用能力，要么指向角色列表上的一个或多个邪恶角色。\n如果他摇头不使用能力，无事发生。让工程师重新入睡。\n如果他指向了角色列表上的恶魔或爪牙角色，让他重新入睡。以合适的方式用新的角色标记替换被工程师能力所影响的那些玩家原本的角色标记。分别依次唤醒每个角色发生变化的邪恶玩家，对其展示“你是”信息标记，和他当前的角色标记，然后再让他重新入睡，重复步骤直到所有受到影响的邪恶玩家均因此被唤醒。工程师现在失去能力——将“失去能力”提示标记放置在工程师旁，并从夜晚顺序表旁移除他的夜晚标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Engineer",
-  "image": "assets/tokens/engineer.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/b/b9/Icon_engineer.png"
 }

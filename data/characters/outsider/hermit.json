@@ -1,0 +1,53 @@
+{
+  "id": "hermit",
+  "name": {
+    "en": "Hermit",
+    "cn": "隐士"
+  },
+  "type": "outsider",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": null,
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Hermit",
+  "ability": {
+    "en": "You have all Outsider abilities. [-0 or -1 Outsider]",
+    "cn": "你拥有所有外来者能力。[-0~1外来者]"
+  },
+  "flavor_text": {
+    "en": "\"In the lost and forgotten places of the earth, the soul’s light beckons.\"",
+    "cn": "“于尘寰遗忘之境，有光静静亮着，不问归期。”"
+  },
+  "examples": {
+    "en": [
+      "If Outsider abilities clash, make up a rule to fix the clash, and tell the group. For example, for a Hermit-Butler-Zealot, you may declare that the Hermit must vote when their master votes.",
+      "Marianna is the Hermit, and has the Klutz, Butler, and Recluse abilities. Each night, she chooses a player as her master due to the Butler ability. The Ravenkeeper dies and learns that she is the Lord of Typhon, due to the Recluse ability. Marianna is executed, and chooses a player due to the Klutz ability. She chooses the Wizard. Good loses.",
+      "Lewis is the Hermit and has the Drunk, Mutant, and Sweetheart abilities. Thinking that he is the Exorcist, he chooses a player each night. Lewis says that he thinks he might be the Drunk, so the Storyteller executes him due to the Mutant ability. Due to the Sweetheart ability, the Alchemist is now drunk."
+    ],
+    "cn": [
+      "小文是隐士，拥有呆瓜、管家和陌客的能力。每个夜晚，由于管家的能力，他要选择一名玩家作为他的主人。守鸦人死亡时选择了小文，小文的陌客能力让他得知了堤丰之首。小文死于处决了，由于呆瓜的能力，他需要选择一名玩家。小文选择了巫师，善良阵营落败。",
+      "小佳是隐士，拥有酒鬼、畸形秀演员和心上人的能力。她以为她是驱魔人，每个夜晚都选择了一名玩家。小佳认为她可能是酒鬼，说书人认为她正在“疯狂”地证明自己是酒鬼，由于畸形秀演员的能力，说书人处决了她。小佳死于处决后，由于心上人的能力，炼金术士醉酒了。"
+    ]
+  },
+  "how_to_run": {
+    "en": "During setup, you may remove an Outsider token and add a Townsfolk token.\nWhenever appropriate, treat the Hermit as if they are the other Outsiders, including waking them at night, and using other Outsiders’ reminder tokens. If the Hermit duplicates an in-play Outsider, use the Hermit’s 1, 2 and 3 reminders instead.\nIf Outsider abilities clash, make up a rule to fix the clash, and tell the group. For example, for a Hermit-Butler-Zealot, you may declare that the Hermit must vote when their master votes.",
+    "cn": "设置游戏时，你可以移除一个外来者并添加一名镇民，或者不改变外来者数量。\n当你认为合适的时候，以其他外来者角色的运作方式来让隐士行动，包括在夜晚唤醒隐士，以及任意使用其他外来者的提示标记。如果隐士和其他外来者同时在场，使用隐士的“1”、“2”、“3”提示标记作为替代。\n如果多个外来者的能力产生了一定冲突，你可以自创一条规则来解决，并在游戏开始前告知所有玩家。例如，隐士同时获得了管家和狂热者的能力，你可以告知玩家，隐士必须要在主人投票的时候投票。"
+  },
+  "tips": {
+    "cn": [
+      "告诉所有人你是隐士！你拥有角色列表中所有外来者的能力，所以善良玩家得知你是隐士之后，会把可能影响他们的外来者能力纳入考量！然而，如果你拥有畸形秀演员的能力，声称自己是隐士意味着你正在“疯狂”地证明你是外来者，说书人可能会在任何时候处决你！",
+      "声称自己是一个拥有强大能力的镇民来吸引邪恶玩家在夜晚的攻击。如果你拥有的能力会在你存活的时候对小镇产生巨大的影响，比如圣徒和狂热者，那么在夜晚死亡一定是个不错的决定。",
+      "认真考虑你的能力是否会互相影响，因为可能会出现一些意外麻烦。例如，如果你拥有圣徒和畸形秀演员的能力，当你“疯狂”地证明自己是外来者时，你可能会因畸形秀演员的能力而被处决，并且当你死于处决时，圣徒的能力会让你的阵营落败。",
+      "私下询问说书人你获得的多个能力之间的运作交互！有些时候能力的组合并不会很容易理解，但确保自己理解说书人的规则一定是有帮助的！例如，如果你拥有了管家和狂热者的能力，说书人可能规定你必须要在主人投票的时候投票，或者也可能是你任何时候只能拥有其中一种能力。不论哪种规则，你都需要知道说书人如何运作你的角色能力。",
+      "认真阅读剧本中的相克规则！隐士不存在任何相克规则，但如果有外来者包含相克规则，那么这条相克规则对隐士同样适用。如果隐士拥有瘟疫医生的能力，红唇女郎在角色列表之中，当隐士死亡时，根据瘟疫医生&红唇女郎的相克规则，说书人也会把红唇女郎的能力给一个存活的爪牙。或者说，如果麻脸巫婆、异端分子和隐士在角色列表之中，由于麻脸巫婆&异端分子的相克规则，麻脸巫婆无法创造隐士。",
+      "基于你获得的所有能力，思考你最好什么时机慷慨赴死！如果你拥有呆瓜的能力，当你信任的玩家还存活时，你可能最好早点死亡。但如果你同时拥有心上人的能力时，过早的死亡意味着一名玩家在后面的游戏会一直醉酒。你要明白，作为一名外来者，你的能力会伤害这个宁静的小镇，但你可以把这个伤害降到尽你所能的最小！",
+      "如果初始只有两名外来者在场，找到可以保护你的善良玩家！如果你是唯一一个外来者，那你就可以证明自己是隐士了。",
+      "注意其他声称自己是外来者的玩家。因为你的能力可能会减少一个外来者，所以其他外来者可能是邪恶玩家伪装的，或者他们在说谎！",
+      "注意你不得不做的事情！如果你是狂热者，当五名及以上玩家存活时你都需要投票；但当你是一个拥有狂热者、呆瓜和月之子能力的隐士时，你不仅要记得每次提名时投票，还需要记得在死亡时进行呆瓜和月之子的选择！"
+    ]
+  },
+  "token_url": "https://wiki.bloodontheclocktower.com/images/b/b4/Icon_hermit.png"
+}

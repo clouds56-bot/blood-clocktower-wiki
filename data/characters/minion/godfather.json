@@ -1,0 +1,63 @@
+{
+  "id": "godfather",
+  "name": {
+    "en": "Godfather",
+    "cn": "教父"
+  },
+  "type": "minion",
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Godfather",
+  "ability": {
+    "en": "You start knowing which Outsiders are in play. If 1 died today, choose a player tonight: they die. [-1 or +1 Outsider]",
+    "cn": "在你的首个夜晚，你会得知有哪些外来者角色在场。\n如果有外来者在白天死亡，你会在当晚被唤醒并且你要选择一名玩家：他死亡。[-1或+1外来者]"
+  },
+  "flavor_text": {
+    "en": "\"Normally, it's just business. But when you insult my daughter, you insult me. And when you insult me, you insult my family. You really should be more careful - it would be a shame if you had an unfortunate accident.\"",
+    "cn": "“通常来说，这只是件小事。但在你侮辱我女儿时，你就侮辱了我。你侮辱我，就侮辱了我的家族。你真的应该更小心些——要是你不幸发生意外事故，那就太遗憾了。”"
+  },
+  "examples": {
+    "en": [
+      "The Godfather learns that the Lunatic and the Moonchild are in play, so the Godfather bluffs as the Tinker. During the third day, the Lunatic dies by execution. That night, the Demon kills the Minstrel, and the Godfather kills the Pacifist.",
+      "The Tinker is executed but remains alive, because they were protected by the Devil's Advocate. The Godfather does not act that night. The next day, the Tinker dies due to their own ability. That night, the Demon kills a player, and the Godfather kills themself to appear like a good player."
+    ],
+    "cn": [
+      "教父得知疯子和月之子在场，因此教父伪装成修补匠。在第三个白天，疯子死于处决。当晚，恶魔杀死了吟游诗人，同时教父杀死了和平主义者。",
+      "修补匠被处决但依然存活，因为他受到了魔鬼代言人的保护。教父当晚不行动。在下一个白天，修补匠因自己的能力而死亡。当晚，恶魔杀死了一名玩家，同时教父杀死了自己来假装成一名善良玩家。"
+    ]
+  },
+  "tips": {
+    "en": [
+      "The Godfather either adds or removes an Outsider from the normal game setup at the Storyteller's discretion. You can then kill these innocent good players for an extra kill at night... but only if you can convince the town to do your dirty work for you! Your ability is subtle, but powerful when abused in the right ways.",
+      "You start knowing which Outsiders are in play, which can help you and your evil team have an idea of what to expect. If you know there's a Lunatic for example, you can expect them not to come out for a while, and can bluff as an extra Outsider yourself. Alternatively if there is a Goon, you may want to seek them out and make an allegiance, turning them evil to join you instead of just getting them killed. This is reliable, powerful information - use it however best helps your team.",
+      "If there's one less outsider than expected, you can fill this gap with a bluff - while players will suspect you in the event of there being more or less outsiders than expected, they tend to overlook entirely if there are exactly as many outsiders as there's supposed to be. (This can also make it an exceptional bluff for your demon!)",
+      "If there's one more outsider in play than expected, it's probably best to try and convince the town that there isn't a Godfather in play, and that one of the outsiders is bluffing and secretly evil. This not only keeps up the ambiguity of the minion in play (meaning the terrifying Mastermind continues to be a possibility), but if they believe you, they might even start executing, giving you a free extra kill!",
+      "Get them Outsiders executed by any means necessary! Not only are you killing a good player and activating characters like the Moonchild, but you will get an extra kill that night. If you manage to time this well, your evil team can unleash a devastating counter-attack on the good team with your unexpected aid!",
+      "Coordinate with the demon when you have the chance to kill to maximize the amount of players that die. It can be a bummer to get a kill and then totally miss because the demon was going to kill them anyway. Plus, the more players who are dead in a single night, the more likely the good team are to just totally panic.",
+      "When you have a chance to kill, you can deliberately choose a dead player to mask your extra kill, hiding the fact that you are in play. This can be very useful if you are trying to push the narrative that no Godfather is in play - the good team typically stop killing Outsiders once they realize you're around, and this method keeps the shade firmly on them. Delaying gratification for a more deadly late game kill can be very satisfying!"
+    ],
+    "cn": [
+      "教父可以根据说书人判断在正常游戏设置中添加或删除外来者。然后，您可以在晚上杀死这些无辜的善良玩家以获得额外的杀戮……但前提是您可以说服城镇为您做肮脏的工作！你的能力是微妙的，但如果以正确的方式去滥用，就会变得强大。",
+      "你开始知道哪些外来者在玩，这可以帮助你和你的邪恶团队了解会发生什么。例如，如果您知道有一个疯子，您可以期望他们暂时不会出现，并且可以自己作为一个额外的外来者伪装。或者，如果有一个莽夫，你可能想找到他们并使其归顺，让他们变得邪恶加入你，而不是仅仅让他们被杀。这是可靠、强大的信息——使用它可以最好地帮助您的团队。",
+      "如果外来者比预期的少，你可以用伪装来填补这个空白——如果外来者的数量比预期的多或少，玩家会怀疑你，但如果外来者的数量与预期的一样多，他们往往会完全忽略你。（这也可以使它成为你的恶魔的特殊伪装！）",
+      "如果游戏中的外来者比预期的要多，那么最好尝试说服大家没有教父在场，并且其中一个邪恶玩家在伪装外来者。这不仅保持了爪牙在游戏中的模糊性（意味着可怕的主谋仍然有可能在策划个大事件），而且如果他们相信你，他们甚至可能开始处决外来者，给你一个免费的额外杀戮！",
+      "以任何必要的方式处决外来者！你不仅杀死了一个善良玩家并可能激活了像月之子这样的角色，而且当晚你将获得额外的杀戮。如果你能把握好时机，你的邪恶团队可以在你意想不到的帮助下对善良团队发动毁灭性的反击！",
+      "当你有机会杀戮时与恶魔好好配合，以最大限度地增加死亡的玩家数量。本来好不容易有机会杀戮，结果却因为恶魔本来就要杀死他们而重复了，那可太糟了。另外，在一个晚上死去的玩家越多，善良阵营就越有可能完全恐慌。",
+      "当你有机会杀戮时，你可以故意选择一个死去的玩家来掩盖你的额外杀戮，隐藏你的角色在游戏中的事实。如果您试图宣传没有教父在场，这将非常有用-善良团队通常会在他们意识到您在场时停止杀死外来者，并且这种方法会牢牢地将阴影笼罩在他们身上。延迟满足的致命杀戮在游戏后期可能会更令你激动！",
+      "计算有多少外来者在游戏中。如果这个数字比应该有的数字少1或多1，那么你可能有一个教父在场。一些外来者玩家，尤其是莽夫和疯子可能不想立即透露他们是谁，所以一开始这可能会很棘手。但是，如果你能让所有外来者都透露他们是谁，而且结果与预期不同，那么你就知道外来者在撒谎，或者你们中间有教父。",
+      "如果你知道一个教父在场，那么你就知道其他爪牙不在场（如果场上只有 1 个爪牙）。在这种情况下，你就能知道自称是外来者的玩家就是善良阵营，不应该被处决，而且你也不必担心主谋或魔鬼代言人。",
+      "如果你怀疑是教父，那就永远不要杀死外来者。处决外来者会让你们失去一名善良玩家，然后当晚你将失去另外2个（或更多！）善良玩家，这可能是毁灭性的。",
+      "在黯月初升中，知道哪些爪牙在场是获胜的关键。如果您不知道教父是否在场，并且处决了外来者，请特别注意当晚有多少玩家死亡。如果当晚有额外的玩家死亡，或者人数正常，您就会知道哪些爪牙在场。可能还有其他原因导致额外玩家在晚上死亡，例如赌徒、造谣者或修补匠，因此请先排除这些原因。"
+    ]
+  },
+  "how_to_run": {
+    "en": "While setting up the game, before putting the character tokens in the bag, either remove one Townsfolk and add one Outsider or remove one Outsider and add one Townsfolk.\nDuring the first night, wake the Godfather. Show them the character tokens of all Outsiders in play. Put the Godfather to sleep.\nIf an Outsider dies during the day, mark them with the DIED TODAY reminder. That night, wake the Godfather. They point at any player. Put the Godfather to sleep. The chosen player dies—mark them with the DEAD reminder.",
+    "cn": "在设置游戏时，将角色标记放进盲抽袋之前，要么移除一个镇民并加入一个外来者，要么移除一个外来者并加入一个镇民。\n在首个夜晚，唤醒教父。向教父展示所有在场的外来者的角色标记。让教父重新入睡。\n如果一名外来者在白天死亡，将“死于今日”提示标记放置到该玩家的角色标记旁。当晚，唤醒教父。让教父指向任意一名玩家。让教父重新入睡。所选玩家死亡——将“死亡”提示标记放置到该玩家的角色标记旁。"
+  },
+  "token_url": "https://wiki.bloodontheclocktower.com/images/d/d0/Icon_godfather.png"
+}

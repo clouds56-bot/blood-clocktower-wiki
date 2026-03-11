@@ -1,10 +1,18 @@
 {
   "id": "atheist",
-  "type": "townsfolk",
   "name": {
     "en": "Atheist",
     "cn": "无神论者"
   },
+  "type": "townsfolk",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Marianna Carr",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Atheist",
   "ability": {
     "en": "The Storyteller can break the game rules, and if executed, good wins, even if you are dead. [No evil characters]",
     "cn": "说书人可以打破游戏规则，如果说书人被处决，善良阵营获胜，即使你已死亡。[无邪恶角色在场]"
@@ -13,13 +21,6 @@
     "en": "\"Let us disperse with unnecessary conjecture and silly paranoia. There is a perfectly rational explanation for everything. Yes, a teacup may indeed be orbiting the planet, too small to see, but I shall drink my tea from the very real china in my very real hands.\"",
     "cn": "“让我们驱散这不必要的猜忌和愚蠢的妄想吧。这发生的一切都有一个完全合理的解释。是的，现在正有一个茶杯在围绕着地球旋转，它太小了，所以你们都无法看见。但我会真实地用我的手端起这真实的瓷器，饮下这茶。”"
   },
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Marianna Carr",
-  "jinxes": [],
   "examples": {
     "en": [
       "The Atheist is a complex character, and is recommended for experienced Storytellers. In addition to rules knowledge, it requires you to have a good sense of fun and fairness. It is your job to create a fun game for all players, so only break the game rules to give false information (as much or as little as you want) or simulate the actions of evil characters that could be in play, but aren’t. If you can convince the players that there is no Atheist in play, or at least get them discussing the possibility, you’ve done well.\n\n\nAvoid creating arbitrary rules or changing the win conditions. In order to have a good time, the players need to know how they can win the game if an Atheist is in play.",
@@ -56,9 +57,8 @@
     ]
   },
   "how_to_run": {
-    "en": "During setup, before giving the bag to the players, remove all evil character tokens and add Townsfolk or Outsider character tokens to match the player count.",
+    "en": "During setup, before giving the bag to the players, remove all evil character tokens and add Townsfolk or Outsider character tokens to match the player count.\nBreak any game rules, as you see fit. Use evil reminder tokens if you need them.\nThe Atheist is a complex character, and is recommended for experienced Storytellers. In addition to rules knowledge, it requires you to have a good sense of fun and fairness. It is your job to create a fun game for all players, so only break the game rules to give false information (as much or as little as you want) or simulate the actions of evil characters that could be in play, but aren’t. If you can convince the players that there is no Atheist in play, or at least get them discussing the possibility, you’ve done well.\n\n\nAvoid creating arbitrary rules or changing the win conditions. In order to have a good time, the players need to know how they can win the game if an Atheist is in play.",
     "cn": "在进行游戏设置，将盲抽袋给玩家进行角色抽取之前，将所有的邪恶角色标记移除，并加入镇民和外来者角色标记，直至盲抽袋中的角色标记总数等同于玩家人数。\n你可以在你认为合适的时候打破规则。如果你需要，你可以随意使用邪恶角色的相关提示标记。\n无神论者是一个非常复杂的角色，仅建议十分熟练的说书人尝试。在游戏的规则熟知和储备之上，这个角色还需要你对游戏乐趣与公平性有正确的判断。你的目的是为所有玩家创造一局有趣的游戏，所以你应该仅仅在给出适当的错误信息，或是模拟邪恶角色在场时的行为时打破规则。如果你能够让玩家相信无神论者并不在场，或者至少让他们探讨这种可能性，那么你就做得很好了。\n避免随意创造规则或是改变游戏的获胜条件。乐趣至上，玩家需要知道如果无神论者在场，他们如何才能获胜。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Atheist",
-  "image": "assets/tokens/atheist.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/4/43/Icon_atheist.png"
 }

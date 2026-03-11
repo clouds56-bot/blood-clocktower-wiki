@@ -1,16 +1,10 @@
 {
   "id": "ferryman",
-  "type": "fabled",
   "name": {
     "en": "Ferryman",
-    "cn": "渡船人"
+    "cn": "摆渡人"
   },
-  "ability": {
-    "en": "On the final day, all dead players regain their vote token."
-  },
-  "flavor_text": {
-    "en": "\"When righteous dreams come, they have the weight of truth.\""
-  },
+  "type": "fabled",
   "editions": [
     "experimental"
   ],
@@ -18,15 +12,28 @@
   "other_nights": false,
   "artist": "Chloe McDougall",
   "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Ferryman",
+  "ability": {
+    "en": "On the final day, all dead players regain their vote token.",
+    "cn": "在游戏的最后一天，所有已死亡玩家会重新获得投票标记。"
+  },
+  "flavor_text": {
+    "en": "\"When righteous dreams come, they have the weight of truth.\"",
+    "cn": "“当正义的梦想到来之时，它会带着真理的重量。”"
+  },
   "examples": {
     "en": [
       "Most of the group is new. Two players, Amy and Doug, forgot they were dead in the excitement of voting. The Storyteller puts the Ferryman in play. Later in the game, when there are three players left alive, the Storyteller declares that it is the final day. Amy and Doug regain their vote tokens.",
       "It is the start of the final day. 17 players are dead and three players are alive. 10 dead players have used their vote tokens. In order to create a more fun and engaging final day, the Storyteller adds the Ferryman and those dead players regain their vote tokens. After a riotously entertaining final day, the Storyteller is celebrated for maximizing the players’ enjoyment."
+    ],
+    "cn": [
+      "游戏中大多数玩家都是新手。有两名玩家，小米和道哥，兴奋地投票但忘记自己已经死亡了。说书人将摆渡人加入了游戏。在游戏的稍后时段，只有三名玩家存活时，说书人宣布现在是最后一天。小米和道哥重新获得了投票标记。",
+      "现在是游戏的最后一天刚开始的时候。17名玩家死亡，只有三名玩家存活。10名玩家已经用掉了投票标记。为了让最后一天变得更加有趣，说书人将摆渡人加入了游戏，那些已死亡的玩家又重新获得了投票标记。在最后一天的狂欢之后，说书人因为提高了玩家的游戏体验而受到了夸赞。"
     ]
   },
   "how_to_run": {
-    "en": "During the game, when you notice that it would be a good idea to add it, declare that the Ferryman is in play. Add the Ferryman token to the Grimoire."
+    "en": "During the game, when you notice that it would be a good idea to add it, declare that the Ferryman is in play. Add the Ferryman token to the Grimoire.",
+    "cn": "在游戏过程中，当你认为加入摆渡人会是一个不错的主意时，宣布摆渡人加入了游戏。将摆渡人标记放入魔典中。\n在最后一天开始时，告诉所有在城镇广场上显示为已死亡且没有投票标记的玩家，他们都获得了一枚投票标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Ferryman",
-  "image": "assets/tokens/ferryman.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/8/8f/Icon_ferryman.png"
 }

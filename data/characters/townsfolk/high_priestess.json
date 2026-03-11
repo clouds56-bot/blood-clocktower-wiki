@@ -1,10 +1,18 @@
 {
   "id": "high_priestess",
-  "type": "townsfolk",
   "name": {
     "en": "High Priestess",
     "cn": "女祭司"
   },
+  "type": "townsfolk",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "artist": "Chloe McDougall",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/High_Priestess",
   "ability": {
     "en": "Each night, learn which player the Storyteller believes you should talk to most.",
     "cn": "每个夜晚，你会得知一名说书人认为你最应该与其交流的玩家。"
@@ -13,13 +21,6 @@
     "en": "“There is life behind the personality that uses personalities as masks. There are times when life puts off the mask and deep answers to deep.”",
     "cn": "“在人性的背后，存在着以人性为面具的生活。某些时候生活会摘下面具，以深刻的答案应对深刻的问题。”"
   },
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "Chloe McDougall",
-  "jinxes": [],
   "examples": {
     "en": [
       "On the first night, the High Priestess learns Julian. Julian is the Chef and has useful information to share. On the second night, the High Priestess is shown Marianna. Marianna is the Goblin and the Storyteller thinks that the High Priestess would benefit most from talking to Marianna to find this out as early as possible. On the third night, the High Priestess is shown Doug. Doug is the Drunk whose information is wrong and harming the good team.",
@@ -60,6 +61,5 @@
     "en": "Each night, wake the High Priestess. Point to a player. Put the High Priestess to sleep.",
     "cn": "每个夜晚，唤醒女祭司。指向一名玩家。随后让女祭司重新入睡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/High_Priestess",
-  "image": "assets/tokens/high_priestess.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/6/63/Icon_highpriestess.png"
 }

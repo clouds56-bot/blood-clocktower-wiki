@@ -1,0 +1,64 @@
+{
+  "id": "bone_collector",
+  "name": {
+    "en": "Bone Collector",
+    "cn": "集骨者"
+  },
+  "type": "traveller",
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Bone_Collector",
+  "ability": {
+    "en": "Once per game, at night*, choose a dead player: they regain their ability until dusk.",
+    "cn": "每局游戏限一次，在夜晚时*，你可以选择一名死亡的玩家：他重新获得能力直到下个黄昏。"
+  },
+  "flavor_text": {
+    "en": "\"I collect many things. Hair. Teeth. Clothes. Fragments of poems. The dreams of lost lovers. My secret arts are not for you to know but my fee is a mere pittance. Bring me the blood of a noblewoman who died of heartbreak under a full moon, and you shall have your answers.\"",
+    "cn": "“我收集了很多东西。头发、牙齿、衣服、诗歌片段以及失散恋人的美梦。还有我的秘密艺术品，你想看的话那可得给点小费，一点点就可以。如果你能给我带来一些月圆之夜死于悲痛的贵妇人的血，你就会得到你想要的答案。”"
+  },
+  "examples": {
+    "en": [
+      "The Bone Collector gives the dead Flowergirl her ability back. That night, the Flowergirl learns that the Demon did indeed vote today. The following night, the Flowergirl once again has no ability.",
+      "The Bone Collector chooses the dead Witch. The Witch wakes and curses the Clockmaker. The Clockmaker nominates the following day, and dies.",
+      "At night, the Bone Collector chooses the dead Butcher. The following day, after an execution has occurred, the Storyteller prompts the Butcher to nominate again.",
+      "During the day, the dead Juggler guesses five players’ characters. That night, the Bone Collector gives the Juggler their ability back. The Juggler learns a \"3\"."
+    ],
+    "cn": [
+      "集骨者恢复了已死亡的卖花女孩的能力。当晚，卖花女孩得知恶魔在当天白天投票了。下一个夜晚，卖花女孩失去了角色能力。",
+      "集骨者选择了已死亡的女巫。女巫醒来并诅咒了钟表匠。钟表匠在接下来的白天发起了提名然后死亡。",
+      "在晚上，集骨者选择了已死亡的屠夫。在接下来的白天，当一名玩家被处决后，说书人告诉屠夫可以再进行一次处决提名。",
+      "在白天，死亡的杂耍艺人猜测了五名玩家的角色。在当天晚上，集骨者恢复了杂耍艺人的能力，杂耍艺人得知了一个 “3”。"
+    ]
+  },
+  "tips": {
+    "en": [
+      "As the Bone Collector, you'll want to know exactly which characters are dead. Talk to the dead players. Find out if any of them are actually different characters than they said they were when alive. Once there are a number of dead players, you'll be able to make a good decision on which one of their abilities would be most useful to have back in the game. If you think the Demon has changed players, maybe return the Clockmaker ability or the Flowergirl ability? If you need to know which twin is the Evil Twin, maybe return the Town Crier ability, or the Seamstress  ability? If you need to figure out whether a Vortox is in-play, maybe return the Dreamer  or the Juggler  ability?",
+      "You'll want to give back the ability of Townsfolk only. Returning the ability of an Outsider, Minion or Demon is not going to be very helpful. Occasionally, you may want a dead Traveller to use their ability again.",
+      "Signal to the group that you'd like to use your power on a particular player tonight. Sects & Violets needs all good players to co-operate well, so letting the group know what your intention is can really help. You can even have a private conversation and ask a player whether they would like to have their ability back tonight - they'll usually have an opinion on the matter. The Demon usually won't kill Travellers when there are Townsfolk and Outsiders to kill, so you'll probably live through the night.",
+      "Don't signal at all! Give a player's ability back out of the blue! This has the advantage that the evil team doesn't know what you are doing, so can't plan around it.",
+      "If you have chosen a player, but things seem a bit wonky the following day - there seems to be a different Minion in play than before, or the wrong number of Minions - then you may have accidentally given a dead Minion their ability back. If you think you have done so, this is still great information, since knowing the alignment of dead players is always helpful. Similarly, if a death occurred last night, but the last few nights have had no deaths, you may have given the dead Demon its ability back in a game where an Evil Twin was keeping the game going."
+    ],
+    "cn": [
+      "作为集骨者，你会想知道哪些角色已经死了。与死亡的玩家交谈。看看他们的角色是否与他们活着时所说的角色不一样。如果存在大量的死亡玩家，你就能够从中做出一个最优的选择，看看让哪一位重获能力是最有用的。如果你认为恶魔已经更换了玩家，是不是可以让钟表匠或卖花女孩重获能力？如果你需要弄清涡流是否在场，是不是可以让筑梦师或杂耍艺人重获能力？",
+      "你只会想让镇民重获能力。让一位外来者、爪牙或恶魔重获能力不会有太大的帮助。偶尔你也会希望让一位死去的旅行者重获他的能力。",
+      "告诉大家你今晚想要对某个玩家使用自己的能力。梦殒春宵需要所有善良玩家都紧密配合在一起，因此让大家都知道你的意图是非常有帮助的。你甚至可以与某位玩家私聊并且问问他想不想在今晚重获能力——他们通常会对此有自己的观点。当场上还存在镇民以及外来者时，恶魔通常不会优先杀死旅行者，因此你很可能安全地度过夜晚。",
+      "一点信息也别透露！出乎意料地让一位玩家重获能力！这样做的好处就是邪恶阵营将无法得知你要做什么，也就无法安排相应的策略了。",
+      "如果你已经选择了一位玩家，但在接下来的白天你感觉到情况有点不太对——似乎场上存在的爪牙和之前的不一样了，或者爪牙的数量对不上了——那你可能就是一不小心让一位死去的爪牙重获了能力。就算你让爪牙重获了能力，这也仍然是个好消息，因为得知死亡玩家的阵营总是有帮助的。同样的，如果在上一晚有人死亡，但是在接下来的几晚都无人死亡，那就有可能是在镜像双子的能力使游戏继续的情况下，你碰巧使已经死亡的恶魔重获了能力。",
+      "与死亡玩家交谈。假装你正在试图弄清对他们中的哪位使用能力是最好的。这会让你有足够的理由与死去的邪恶玩家私聊。",
+      "尽可能对爪牙发动能力。与恶魔交流然后得知哪位玩家是爪牙，然后尽快让爪牙重获能力。你会想要告诉这个爪牙你打算做什么，这样他就可以声称自己获得了他所伪装的角色的能力。不过在一般情况下，在夜晚重获能力的爪牙都会对此保持沉默，而你也同样不会提到这一点。",
+      "如果你正打算让自己看起来像个善良玩家，就让镇民重获能力。这个镇民会信任你，如果大家也都信任这个镇民，那大家也一样会相信你，且让你活到最后一天。在最后一天你将获得至关重要的额外一票，但代价就是你会给善良阵营一些额外的信息。尽量去选择一位信息不那么有用的镇民。",
+      "假装使用你的能力，但别真用。让一名死亡的爪牙告诉大家他在昨晚重新获得了自己的镇民能力。或者就直接告诉大家你在今晚打算对谁使用能力，然后选择一名爪牙玩家，并寄希望于他能理解你实际上是在假装这样做。在游戏后期，再让爪牙真正重获他的能力。",
+      "告诉大家你在昨晚让某一位玩家重获了能力，但实际上你保留了它。那一位玩家（如果他是善良的）会否认自己重获了能力。大家就会知道你们两位中的其中一位是邪恶的，且很可能会将你流放来以防万一，但你至少可以让大家搞不清楚到底谁是邪恶的！"
+    ]
+  },
+  "how_to_run": {
+    "en": "Each night except the first, wake the Bone Collector. They either shake their head no or point at any dead player. Put the Bone Collector to sleep.\nIf they pointed at a dead player, the chosen player regains their ability—mark their character token with the Bone Collector’s HAS ABILITY reminder. (They may need to be woken tonight to use their ability.) The Bone Collector loses their ability—mark them with their NO ABILITY reminder. The next dusk, the chosen player loses their ability—remove the HAS ABILITY reminder.",
+    "cn": "每个夜晚，唤醒集骨者。集骨者要么摇头表示不使用能力，或者是指向任何一名已死亡的玩家。让集骨者重新入睡。\n如果集骨者指向了一名已死亡的玩家，被选中的玩家会重新获得其角色能力——用集骨者的“重获能力”提示标记标记该角色。（可能需要在夜里唤醒该玩家，让其使用刚恢复的角色能力）之后集骨者失去其角色能力——将集骨者的“失去能力”提示标记放置到其角色标记旁。下一个黄昏，被选中的玩家会失去他的能力——移除“重获能力”提示标记。"
+  },
+  "token_url": "https://wiki.bloodontheclocktower.com/images/9/9e/Icon_bonecollector.png"
+}

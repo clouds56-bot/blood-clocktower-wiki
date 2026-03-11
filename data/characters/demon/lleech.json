@@ -1,0 +1,77 @@
+{
+  "id": "lleech",
+  "name": {
+    "en": "Lleech",
+    "cn": "痢蛭"
+  },
+  "type": "demon",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "artist": "John Grist",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Lleech",
+  "ability": {
+    "en": "Each night*, choose a player: they die. You start by choosing a player: they are poisoned. You die if & only if they are dead.",
+    "cn": "每个夜晚*，你要选择一名玩家：他死亡。在你的首个夜晚，你要选择一名存活的玩家：他中毒，只有当他处于死亡状态时你才会立即死亡。"
+  },
+  "flavor_text": {
+    "en": "\"Tasty, tasty, tasty, tasty, tasty, tasty, tasty, tasty brai- I mean pie! Yes. Tasty pie. That’s what I meant to say.\"",
+    "cn": "“美味，美味，美味，美味，美味，美味，美味，美味的脑——馅儿饼！是的。美味的老馅儿饼。我想说的就是这个。”"
+  },
+  "examples": {
+    "en": [
+      "When giving false information to a good player poisoned by the Lleech, make sure this information seems true. If the good player believes it to be false, they will quickly execute themselves and win the game.",
+      "The Lleech poisons the Noble. The Noble learns false information. The Lleech is executed, but does not die. The next day, the Noble is executed. The Noble and the Lleech die. Good wins.",
+      "The Lleech poisons the Farmer. The Lleech is made drunk by the Courtier. The poisoned Farmer dies, and the game continues because the Lleech is also drunk. The drunk Lleech is executed and dies, and good wins."
+    ],
+    "cn": [
+      "痢蛭让贵族中毒。贵族得知了三名善良玩家，而不是一名邪恶和两名善良玩家。痢蛭被处决，但没有死亡。第二个白天，贵族被处决。贵族和痢蛭死亡。善良阵营获胜。",
+      "痢蛭让农夫中毒。侍臣让痢蛭醉酒。精神病患者杀死了农夫，但痢蛭没有死亡，因为痢蛭没有能力。随后痢蛭被处决并死亡。"
+    ]
+  },
+  "tips": {
+    "en": [
+      "Communicate with your Minions as early as possible, and tell them who you have poisoned. The whole evil team will need to collaborate well from the very beginning to keep this player alive. Let's say you turn the Preacher into your host, poisoning them. Not only can you ignore them as a threat, since they cannot affect any of the Minions, but you actively need to keep them alive for final three.",
+      "Poison one of your neighbours, because then you can keep your host close and under your thumb. You can find out what their poisoned information is and try to manipulate the game to make it seem legitimate, making them disbelieve they're poisoned.",
+      "Poison someone on the other side of the circle, to draw attention as far away from you as possible.",
+      "Avoid being executed. Even though you cannot die by execution, the good team learning who the Demon is can often be enough information for them to win the game. Once the players know that the Demon is the Lleech they are likely to be locking you out from discussions, and trying to figure out which of the good players is the host.",
+      "Who you choose as your host can have a big impact on the game, and it's a choice you have to make blindly. If you choose a character who only gets information at the start of the game, it can be really difficult for them to figure out that they've been poisoned, making it easier for you to hide the host. However, they're much more likely to want to go along with being executed for all sorts of reasons since they have no ability to contribute to the game. If the Noble is the host, and there seems to be a lot of resistance to executing them when they're okay with it, it might telegraph really strongly that they're the host.",
+      "If there are just 3 players alive, getting executed is a safe strategy. Because the host is still alive, you will be executed but will not die. Then the game goes to night with three alive and you can kill the one last player that isn't the host. Note, it's really important in this situation to NOT kill the host, because otherwise you will also immediately die. This creates a tie, meaning good wins.",
+      "If for some reason the group seems to be circling in on the host to execute, you may need to carefully redirect attention away. If you make a lot of noise about *NOT* executing a specific player, this can come across as really suspicious. Instead, perhaps just point out someone else as a really big target, even if this means throwing one of your Minions under the bus. The best strategy is to get to final day without having much shade on the host.",
+      "In a normal Demon game, the priority is to protect the Demon from being killed. In a Lleech game, the priority is to create as much misinformation as possible to disguise the host. That way even if there is a person who doubts their information, it's just one among many sources of misinformation.",
+      "The Lleech can be particularly tricky, because effectively one of the members of the \"team\" is good. They are not aligned with you and you don't have a lot of control over them or their poisoning. It is perfectly fine to suggest to the Storyteller possible pieces of misinformation to give out through the poisoning, but the Storyteller does not need to listen to that request.",
+      "If the evil team has the upper hand at the end of the game, then the Storyteller might make the poisoning of the host really noisy as a way to offset that, especially if for some reason they have flown under the radar the whole game and the good team hasn't even discovered that it's a Lleech game."
+    ],
+    "cn": [
+      "尽早与你的爪牙沟通，并告诉他们你毒了谁。整个邪恶团队需要从一开始就进行良好的合作，才能让这个玩家保持活力。假设你把传教士变成了你的宿主，毒害了他们。你不仅可以不用再把他当做威胁，因为它们不会影响任何爪牙，而且你还需要积极地让主人活到最后。",
+      "毒你左右相邻的玩家之一，因为这样你就可以让你的宿主靠近并在你的拇指之下。你可以找出他们中毒的信息是什么，并尝试操纵游戏使其看起来合法，让他们不相信自己中毒了。",
+      "在圆圈的另一边给某人下毒，以尽可能远离你的注意力。",
+      "避免被处决。即使你不能死于处决，但了解恶魔是谁通常可以为善良阵营赢得比赛提供足够的信息。一旦玩家知道恶魔是痢蛭，他们可能会将你排除在讨论之外，并试图找出哪个善良玩家是宿主。",
+      "你选择谁作为你的宿主会对游戏产生很大的影响，而这你必须盲选。如果你选择了一个只在游戏开始时才获得信息的角色，他们可能真的很难弄清楚他们已经中毒了，让你更容易隐藏宿主。然而，他们更有可能因为各种原因而被处决，因为他们没有能力为游戏做出贡献。如果贵族是宿主，并且在大家同意的情况下处决他似乎有很多阻力，这会很强烈地表明他们是宿主。",
+      "如果只有3名玩家活着，被处决是一种安全的策略。因为宿主还活着，你会被处死，但不会死。然后游戏进入晚上，三个人活着，你可以杀死最后一个不是宿主的玩家。请注意，在这种情况下，不杀死宿主非常重要，否则你也会立即死亡。这创造了一个平局，意味着善良阵营胜利。",
+      "如果出于某种原因，大家处决的焦点在你的宿主身上，你可能需要小心地转移注意力。如果你大张旗鼓公开反对处决某一名玩家，这可能会让你看上去非常可疑。相反，也许只是指出其他玩家是一个非常好的目标，即使这意味着卖掉你一名爪牙。最好的策略是到达最后一天前你的宿主不要受太多怀疑。",
+      "在正常的恶魔局中，首要任务是保护恶魔不被杀死。在痢蛭局中，首要任务是制造尽可能多的错误信息来伪装宿主。这样，即使有人怀疑他们的信息，它也只是众多错误信息来源之一。",
+      "痢蛭可能特别棘手，因为实际上“团队”的成员之一是善良的。宿主与你不同阵营，而你无法控制他或他的中毒。向说书人建议给出因中毒的错误信息是完全可以的，但说书人可能不听你的。",
+      "如果邪恶阵营在游戏尾声占了上风，那么说书人可能会让宿主中毒信息变得非常混乱，以此来平衡，尤其是如果宿主出于某种原因在整个比赛中都没有受到关注，并且善良阵营甚至还没有发现这是一个痢蛭局。",
+      "弄清楚痢蛭是否在游戏中。这些信息决定了你的游戏目标是什么，因为在你弄清目标之前，你不知道该处决哪些玩家。一旦你知道这是痢蛭局，那么关键是找到并杀死宿主。",
+      "找到中毒的玩家。如果每一个认为自己可能中毒的善良玩家都告诉所有人，那么善良阵营应该能够对痢蛭的目标是谁做出一些猜测。\n如果有人获得虚假信息：处决他们——他们可能是宿主，或者可能只是一个散布错误信息的爪牙。不亏！\n如果你认为你得到了虚假信息：自愿被处决以自证清白。",
+      "如果有人获得虚假信息：处决他们——他们可能是宿主，或者可能只是一个散布错误信息的爪牙。不亏！",
+      "如果你认为你得到了虚假信息：自愿被处决以自证清白。",
+      "通过有信息的角色来验证其他玩家的信息，以尝试缩小中毒候选人的可能选择范围。请记住，只有一名玩家会因痢蛭中毒，并且不会改变。如果你可以验证一名玩家清醒且健康，则他不可能成为痢蛭的宿主。",
+      "如果根据你手上的信息，找不到任何合适的宿主可疑人选，请寻找似乎以奇怪的方式幸存下来的角色。对于找到隐藏的痢蛭宿主角色，以下是不错的选择：\n已确认的善良或在整个游戏中幸存下来的任何公开的高优先级目标角色，例如表明角色的气球驾驶员；或者\n一个似乎只是在挂机的开局信息角色，例如自游戏开始以来并没有真正做太多事情甚至自愿被处决的钟表匠；或者\n一个每场使用一次能力的角色，例如按照他们的提示采取行动的渔夫，但似乎没有多大作用。",
+      "已确认的善良或在整个游戏中幸存下来的任何公开的高优先级目标角色，例如表明角色的气球驾驶员；或者",
+      "一个似乎只是在挂机的开局信息角色，例如自游戏开始以来并没有真正做太多事情甚至自愿被处决的钟表匠；或者",
+      "一个每场使用一次能力的角色，例如按照他们的提示采取行动的渔夫，但似乎没有多大作用。",
+      "不要忘记找出谁是邪恶玩家！虽然这不会直接赢得比赛，但处决恶魔仍然是很好的信息。更重要的是，恶魔不太可能选择自己的一个爪牙作为宿主，因此你可以排除掉爪牙作为处决对象。",
+      "通常痢蛭局少于其他恶魔局，如果你到最后一天仍不确定是不是痢蛭局，那么假设它不是痢蛭局通常更安全。"
+    ]
+  },
+  "how_to_run": {
+    "en": "During the first night, wake the Lleech. They point at any player. That player is poisoned—mark them with the POISONED reminder. Put the Lleech to sleep.\nEach night except the first, wake the Lleech. They point at any player. That player dies—mark them with the DEAD reminder. Put the Lleech to sleep.\nIf the Lleech would die but the player marked with the Lleech’s POISONED reminder is alive, the Lleech does not die. If the player marked with the Lleech’s POISONED reminder is dead, the Lleech dies and the good team wins.\nWhen giving false information to a good player poisoned by the Lleech, make sure this information seems true. If the good player believes it to be false, they will quickly execute themselves and win the game.",
+    "cn": "在首个夜晚，唤醒痢蛭。让痢蛭指向任意一名玩家。被他选择的玩家中毒——将“中毒”提示标记放置在被选择的玩家角色标记旁。让痢蛭重新入睡。\n除首个夜晚以外的每个夜晚，唤醒痢蛭。让痢蛭指向任意一名玩家。被选择的玩家死亡——在那名玩家的角色标记旁放置痢蛭的“死亡”提示标记并放置帷幕标记。让痢蛭重新入睡。\n如果痢蛭即将死去，但是被痢蛭的“中毒”提示标记的玩家仍然存活，痢蛭不会死亡。如果标记了痢蛭的“中毒”提示标记的玩家死亡，那么痢蛭死亡，善良阵营获胜。\n当向中毒的善良玩家提供错误信息时，请确保这个信息看起来是正确的。如果这名善良玩家认为这个信息是错误的，他会迅速处决自己并获胜。"
+  },
+  "token_url": "https://wiki.bloodontheclocktower.com/images/7/70/Icon_lleech.png"
+}

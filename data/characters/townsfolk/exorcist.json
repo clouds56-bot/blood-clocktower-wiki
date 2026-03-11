@@ -1,10 +1,18 @@
 {
   "id": "exorcist",
-  "type": "townsfolk",
   "name": {
     "en": "Exorcist",
     "cn": "驱魔人"
   },
+  "type": "townsfolk",
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Exorcist",
   "ability": {
     "en": "Each night*, choose a player (different to last night): the Demon, if chosen, learns who you are then doesn't wake tonight.",
     "cn": "每个夜晚*，你要选择一名玩家（与上个夜晚不同）：如果你选中了恶魔，他会得知你是驱魔人，但他当晚不会因其自身能力而被唤醒。"
@@ -13,13 +21,6 @@
     "en": "\"We cast you out, every unclean spirit, every satanic power, every onslaught of the infernal adversary, every legion, every diabolical group and sect, in the name and by the power of Our Lord Jesus Christ. We command you, begone and fly far from the Church of God, from the souls made by God in His image and redeemed by the precious blood of the divine Lamb.\"",
     "cn": "“每一个不洁之灵，每一份撒旦之力，每一次炼狱敌人的猛袭，每一个军团，每一个崇拜恶魔的组织和教派，以我主耶稣基督的名义和力量，将你们驱逐。我命令你们，远离上帝的教堂，远离上帝按祂的形貌所创造并受神圣羔羊的宝血所救赎的灵魂。”"
   },
-  "editions": [
-    "bad_moon_rising"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
   "examples": {
     "en": [
       "A Demon chosen by the Exorcist will not wake to use their Demon ability, but will still wake if they need to due to other characters’ abilities. This may be relevant if using the Exorcist with characters from other editions.",
@@ -54,9 +55,8 @@
     ]
   },
   "how_to_run": {
-    "en": "Each night except the first, wake the Exorcist. They point at any player. Mark the chosen player’s character token with the CHOSEN reminder. Put the Exorcist to sleep.",
+    "en": "Each night except the first, wake the Exorcist. They point at any player. Mark the chosen player’s character token with the CHOSEN reminder. Put the Exorcist to sleep.\nIf the Exorcist chose the Demon, wake the Demon. Show them the THIS CHARACTER SELECTED YOU info token and the Exorcist token, then point at the Exorcist player. Put the Demon to sleep. Later tonight, do not wake the Demon.\nA Demon chosen by the Exorcist will not wake to use their Demon ability, but will still wake if they need to due to other characters’ abilities. This may be relevant if using the Exorcist with characters from other editions.",
     "cn": "除了首个夜晚以外的每个夜晚，唤醒驱魔人。让驱魔人指向任意一名玩家。（如果驱魔人指向上一夜选择过的玩家，摇头表示否定，并让他指向另一名玩家。）将“被选择”提示标记放置到所选玩家的角色标记旁。让驱魔人重新入睡。\n如果驱魔人选择了恶魔，唤醒恶魔。向恶魔展示“该角色的能力对你生效”信息标记以及驱魔人角色标记，然后指向驱魔人玩家。并让恶魔重新入睡。当晚的后续时段中，不要因为恶魔的自身能力唤醒恶魔。\n被驱魔人选中的恶魔不会被唤醒来使用自己的能力，但是如果有需要的话，仍然会因其他角色的能力被再次唤醒。在将驱魔人与来自其他剧本的角色一同使用时，这一点可以提供参考。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Exorcist",
-  "image": "assets/tokens/exorcist.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/c/c2/Icon_exorcist.png"
 }

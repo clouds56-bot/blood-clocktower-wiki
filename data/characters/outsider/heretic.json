@@ -1,0 +1,77 @@
+{
+  "id": "heretic",
+  "name": {
+    "en": "Heretic",
+    "cn": "异端分子"
+  },
+  "type": "outsider",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "John Grist",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Heretic",
+  "ability": {
+    "en": "Whoever wins, loses & whoever loses, wins, even if you are dead.",
+    "cn": "对调胜负结果，即使你已死亡。"
+  },
+  "flavor_text": {
+    "en": "\"After the hail has smashed the roof and splintered the glass of the Cathedral windows, it melts again into the earth, like a dying lamb in the desert sun. Such is the parable of the madman.\"",
+    "cn": "“冰雹砸向了屋顶，将大教堂窗户的玻璃打得粉碎，然后融化进泥土里，就像沙漠里烈日下奄奄一息的羔羊。这就是疯子的寓言。”"
+  },
+  "examples": {
+    "en": [
+      "On the first day, the Heretic publicly claims to be the Heretic. That night, the Demon kills themself. Evil wins.",
+      "The Heretic does not reveal their character until the final day, when 3 players are alive. They convince the good team to execute a good player, leaving 2 players alive, one of which is the Demon. Good wins.",
+      "The Heretic is dead. The Saint is executed. Good wins.",
+      "The Heretic is poisoned. The Assassin kills the Demon. Good wins.",
+      "There are 3 players alive. The Demon is executed. Because there is a Heretic in play, evil wins."
+    ],
+    "cn": [
+      "在第一个白天，异端分子声称自己是异端分子。当晚，恶魔杀死了自己。邪恶阵营获胜。",
+      "异端分子在最后一天前都没有揭示自己的角色。三名玩家存活，异端分子说服了善良阵营来处决一名善良玩家，让场上只有两名玩家存活，而其中一名玩家是恶魔。善良阵营获胜。",
+      "异端分子死亡了。随后，圣徒死于处决。善良阵营获胜。",
+      "异端分子中毒了。随后，刺客杀死了恶魔。善良阵营获胜。",
+      "异端分子在场，且当前只有三名玩家存活。随后，恶魔死于处决。邪恶阵营获胜。"
+    ]
+  },
+  "tips": {
+    "en": [
+      "Keep the Demon alive at all costs. Normally, in non-Heretic games, the good team can win at any time (by executing the Demon), while the evil team can only win on the final day (by executing a non-Demon player). In a Heretic game, the evil team can win at any time (by executing the Demon), while the good team can only win on the final day (by executing a non-Demon player).",
+      "It is extremely dangerous for the evil team to learn that there is a Heretic in play. If the Demon believes you, they may kill themself at night, losing the game, and therefore winning the game. Be very careful who you reveal yourself to.",
+      "If you believe that the good team is losing badly, it may be safest to not reveal your identity to anyone, ever.",
+      "Consider waiting until the final day of the game to out yourself as the Heretic. This is risky, because people may not believe you, but it’s better than having the Demon kill themself in the night and immediately win the game for evil. If you loudly proclaim that you are the Heretic when only three players are alive, even if you are dead, the good team will know that they need to execute a player that is NOT the Demon, and deliberately lose the game, which will win the game.",
+      "Search for good players who are able to confirm you as the Heretic, then work with them to orchestrate what would normally be a loss.",
+      "Try to find a good player such as the Courtier who is capable of making you drunk or poisoned. This will enable the good team to play for the win without fear of losing instead.",
+      "Pay attention to characters that have win or lose conditions in their character ability, such as the Mayor, Klutz, Saint, Mastermind, or Goblin. If you stay quiet about being the Heretic, the evil team may unknowingly be working to your advantage. For example, if the Goblin gets executed, good wins, or if an evil player is bluffing as the Mayor and convinces the group to not execute on the final day, good wins.",
+      "If you think that the good team is about to execute the Demon, you'll need to convince them otherwise. You can bluff as a Townsfolk character with conflicting information, or hint to them that executing this player is a bad, bad idea. As a last resort, reveal that you are the Heretic to dissuade them - avoiding the Demon being executed definitely results in avoiding a loss, but the Demon may or may not kill themself that night. It's better to trade a definite loss for a possible (or even, probable) loss.",
+      "When just three players are left alive, it is safe to reveal that you are the Heretic, since the game will end before nightfall. The good team may find this to be absolutely crucial information.",
+      "When just four players are left alive, it might be safe to reveal that you are the Heretic, since the game could end during the night via the Demon attacking as normal. The good team may find this to be absolutely crucial information. However, there is still an opportunity for the Demon to kill themself, so be wary.",
+      "It is often smarter to never really be 100% on what you claim to be. For example, if you claim that you are either the Heretic or the Moonchild, then the good team is made aware that a Heretic might be in play, and can adjust their strategy accordingly, while the Demon is not convinced enough to take the game-ending step of killing themselves. Or, if you bluff as the Juggler, then claim to be the Heretic, then bluff as the Snake Charmer, again the good team is clued in to the possibility of a Heretic, but the Demon isn't sure. Unlike other characters, ambiguity is your friend. Just make sure you are 100% forthright with being the Heretic when it really counts, such as the final day!",
+      "It doesn't matter if you die. If you get nominated, there is no need to defend yourself unless you want to. If the Demon kills you at night, it's no problem. Don't worry about staying alive.",
+      "You hold the fate of the game in your hands. Very few characters have this power. Remember how important you are. All other Townsfolk and Outsider characters are written in such a way as to encourage you to \"say whatever you want at any time\", that even making mistakes won't end the game. For example, even if the Mutant reveals who they are and is executed, the game continues. Even if the Fortune Teller reveals who they are and dies on night 2, the game continues. But the Heretic is different. The words of the Heretic can sway the fate of the good team drastically and quickly. Even though you are an Outsider, you are the most dangerous good player in the game - to both teams."
+    ],
+    "cn": [
+      "不惜一切代价让恶魔存活。通常，在非异端分子游戏中，善良团队可以在任何时候获胜（通过处决恶魔），而邪恶阵营只能在最后一天获胜（通过处决一名非恶魔玩家）。在异端分子游戏中，邪恶阵营可以在任何时候获胜（通过处决恶魔），而善良阵营只能在最后一天获胜（通过处决一名非恶魔玩家）。",
+      "让邪恶阵营得知有异端分子在场是极端危险的。如果恶魔相信你，他们可能会在夜晚自杀，落败，然后转为获胜。小心透露你自己。",
+      "如果你相信善良阵营正在溃败，那么最好永远不要向任何人透露你的角色。",
+      "考虑在游戏的最后一天作为异端分子现身。这很有风险，因为人们很可能不相信你，但总比让恶魔在夜晚自杀并立即让邪恶阵营获胜要好。如果你在只有三名玩家存活时大声宣称你是异端分子，无论你是否已经死亡，善良阵营也会知道他们需要处决一位非恶魔玩家来故意落败并转为获胜。",
+      "寻找能够确认你是异端分子的善良玩家，然后与他们合作谋划一场通常来说的落败。",
+      "试着寻找一名诸如侍臣这样有能力使你中毒或醉酒的善良玩家。这能使得善良阵营能够单纯为了胜利而战而不是时刻带着对落败的恐惧。",
+      "注意有特殊胜利能力的角色，例如镇长、呆瓜、圣徒、主谋或哥布林。如果你对是异端分子一事保持沉默，邪恶阵营可能会在不知不觉中给你带来优势。例如，如果哥布林被处决，善良阵营获胜，或是如果一名邪恶玩家伪装成镇长并说服团队在最后一天不处决，善良阵营获胜。",
+      "如果你认为善良阵营即将处决恶魔，那你将需要说服他们。你可以伪装成提供冲突信息的镇民角色，或是暗示他们处决这名玩家是一个非常糟糕的主意。作为最终手段，透露你是异端分子来劝阻他们——避免恶魔被处决肯定会避免落败，但恶魔可能会也可能不会在夜晚自杀。用可能（甚至只是也许）的落败来交换确定的落败会更好。",
+      "当只有三名玩家还存活时，可以安心地透露你是异端分子，因为比赛会在黄昏前结束。善良阵营可能会发现这是一个绝对关键的信息。",
+      "当只有四名玩家还存活时，也许可以安心地透露你是异端分子，因为游戏可能因为恶魔如常的攻击而在当晚结束。善良阵营可能会发现这是一个绝对关键的信息。然而，恶魔仍然会有机会杀死自己，所以要谨慎行事。",
+      "更聪明的做法是从不百分百地宣称自己是什么角色。举个例子，如果你宣称你是异端分子或月之子，那么善良阵营就会意识到异端分子可能在场，并相应地调整他们的策略，而恶魔并没有被说服到足以选择自杀来赢得游戏。或者如果你伪装成杂耍艺人，然后宣称自己是异端分子，然后伪装成舞蛇人，善良阵营也会得到异端分子有可能在场的提示，而恶魔也无法确定。与其他角色不同，模棱两可是你的朋友。只有当真正关键的时候如最后一天，才百分百坦率地宣称自己是异端分子。",
+      "你的死亡无关紧要。如果你被提名，除非你愿意否则没有必要为此辩护。如果恶魔在晚上杀了你，那也没问题。不要为存活下去而担忧。",
+      "你掌握着游戏的命运。极少角色拥有这种能力。记住你有多重要。所有其他镇民与外来者（攻略）都会写成鼓励你“想说什么说什么”的样子，因为即使犯错也不会终结游戏。例如，即使畸形秀演员透露了他的角色并被处决，游戏也会继续。即使占卜师透露了角色并在第二天死亡，游戏仍然继续。但是异端分子不同。异端分子的言论可以迅速彻底地左右善良阵营的命运。即使你是一个外来者，你仍然是游戏中最危险的善良玩家——对双方都是。"
+    ]
+  },
+  "how_to_run": {
+    "en": "If the game ends and the evil team would have won, declare that the good team wins and the evil team loses.\nIf the game ends and the good team would have won, declare that the evil team wins and the good team loses.",
+    "cn": "如果游戏结束且邪恶阵营即将获胜，宣布善良阵营获胜，邪恶阵营落败。\n如果游戏结束且善良阵营即将获胜，宣布邪恶阵营获胜，善良阵营落败。"
+  },
+  "token_url": "https://wiki.bloodontheclocktower.com/images/4/4a/Icon_heretic.png"
+}

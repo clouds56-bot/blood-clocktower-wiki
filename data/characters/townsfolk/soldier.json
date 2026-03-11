@@ -1,10 +1,18 @@
 {
   "id": "soldier",
-  "type": "townsfolk",
   "name": {
     "en": "Soldier",
     "cn": "士兵"
   },
+  "type": "townsfolk",
+  "editions": [
+    "trouble_brewing"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Soldier",
   "ability": {
     "en": "You are safe from the Demon.",
     "cn": "恶魔的负面能力对你无效。"
@@ -13,13 +21,6 @@
     "en": "\"As David said to Goliath, as Theseus said to the Minotaur, as Arjuna said to Bhagadatta... No.\"",
     "cn": "“就像大卫对歌利亚所说，\n像忒修斯对米诺陶所说，\n也像阿周那对福授所说的那样……\n绝不。”"
   },
-  "editions": [
-    "trouble_brewing"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
   "examples": {
     "en": [
       "The Imp attacks the Soldier. The Soldier does not die, so nobody dies that night.",
@@ -57,9 +58,8 @@
     ]
   },
   "how_to_run": {
-    "en": "During the night, if the Demon attacks the Soldier, the Soldier remains alive. (At dawn, declare that no one died at night.)",
+    "en": "During the night, if the Demon attacks the Soldier, the Soldier remains alive. (At dawn, declare that no one died at night.)\nIn other editions, Demons may have abilities other than killing. The Soldier is also protected from all other harmful effects of the Demon's ability, such as poisoning or turning the Soldier evil.",
     "cn": "在夜晚时，如果恶魔攻击了士兵，士兵仍然存活。（在黎明时，宣布当晚没有人死亡。）\n在其他剧本中，恶魔可能会拥有除杀死以外的其他能力。士兵的保护能力同样可以阻止恶魔的其他有害效果，例如让士兵中毒或将士兵转变为邪恶阵营。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Soldier",
-  "image": "assets/tokens/soldier.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/c/c3/Icon_soldier.png"
 }

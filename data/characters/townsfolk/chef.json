@@ -1,10 +1,18 @@
 {
   "id": "chef",
-  "type": "townsfolk",
   "name": {
     "en": "Chef",
     "cn": "厨师"
   },
+  "type": "townsfolk",
+  "editions": [
+    "trouble_brewing"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Chef",
   "ability": {
     "en": "You start knowing how many pairs of evil players there are.",
     "cn": "在你的首个夜晚，你会得知场上邻座的邪恶玩家有多少对。"
@@ -13,13 +21,6 @@
     "en": "\"This evening's reservations seem odd. Never before has Mrs Mayweather kept company with that scamp from Hudson Lane. Yet, tonight, they have a table for two. Strange.\"",
     "cn": "“今晚的预约有些古怪。我从未见过梅威瑟太太此前跟那个哈德逊巷的流氓有过交情。\n然而今晚，他们订了一张双人桌。真奇怪。”"
   },
-  "editions": [
-    "trouble_brewing"
-  ],
-  "first_night": true,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
   "examples": {
     "en": [
       "No evil players are sitting next to each other. The Chef learns a '0'.",
@@ -61,6 +62,5 @@
     "en": "During the first night, wake the Chef. Show the Chef fingers (0, 1, 2, etc.) equaling the number of pairs of neighboring evil players. Put the Chef to sleep.",
     "cn": "在首个夜晚里，唤醒厨师。为厨师用手势比划场上互为邻座的邪恶玩家有多少对（0，1，2，等等）。让厨师重新入睡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Chef",
-  "image": "assets/tokens/chef.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/d/d5/Icon_chef.png"
 }

@@ -1,10 +1,18 @@
 {
   "id": "huntsman",
-  "type": "townsfolk",
   "name": {
     "en": "Huntsman",
     "cn": "巡山人"
   },
+  "type": "townsfolk",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "John Grist",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Huntsman",
   "ability": {
     "en": "Once per game, at night, choose a living player: the Damsel, if chosen, becomes a not-in-play Townsfolk. [+the Damsel]",
     "cn": "每局游戏限一次，在夜晚时，你可以选择一名存活的玩家：如果你选中了落难少女，她会变成一个不在场的镇民角色。[+落难少女]"
@@ -13,13 +21,6 @@
     "en": "\"My cabin is warm and sturdy. My axe by the door, my boots drying by the fire, and elk stew a-simmering… Hark! A scream echoes through the valley! The rain and the mud and the cold, cold wind mask the scent of the wolves, but I know the path and my pace is steady. I am coming.\"",
     "cn": "“我的小屋温暖而坚固。我的斧头靠在门边，我的靴子在火旁烘干，我的麋鹿肉正在锅里细火慢炖……听听！有尖叫声在山谷中回荡！或许雨水、泥泞和寒风会掩盖狼的气味，但我熟悉山路，我的步伐坚定。我来了。”"
   },
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "John Grist",
-  "jinxes": [],
   "examples": {
     "en": [
       "The Huntsman is woken on the 1st night, but does not use their ability. On the second night, the Huntsman chooses the Damsel player. The Damsel becomes the Undertaker and learns which player died today.",
@@ -49,9 +50,8 @@
     ]
   },
   "how_to_run": {
-    "en": "While setting up the game, before putting character tokens in\nthe bag, if the Damsel is not already in play, remove a Townsfolk\ncharacter token and add the Damsel character token.",
+    "en": "While setting up the game, before putting character tokens in\nthe bag, if the Damsel is not already in play, remove a Townsfolk\ncharacter token and add the Damsel character token.\nEach night, wake the Huntsman.\nIf they shake their head no, put the Huntsman to sleep.\nIf they point to a player, put the Huntsman to sleep. The Huntsman loses their ability—mark them with the NO ABILITY reminder and remove their night token from the night sheet. If they chose the Damsel, wake the Damsel, show the YOU ARE info token, then a not-in-play Townsfolk token, then put the Damsel to sleep. The Damsel now has this Townsfolk ability, so replace the Damsel character token with this Townsfolk character token.",
     "cn": "在进行游戏设置，将角色标记放进盲抽袋之前，如果落难少女不在即将要放入盲抽袋的这些角色之中，那么移除一个镇民角色标记，并加入落难少女。\n每个夜晚，唤醒巡山人。他要么摇头不使用能力，要么指向一名玩家。\n如果他摇头，那么让巡山人重新入睡。\n如果他指向了一名玩家，让巡山人重新入睡。巡山人现在失去能力——将“失去能力”提示标记放置在巡山人旁，并从夜晚顺序表旁移除他的夜晚标记。如果他选中了落难少女，那么唤醒落难少女，对她展示“你是”信息标记和一个不在场的镇民角色标记，然后让落难少女重新入睡。落难少女现在拥有这个镇民的能力，因此将这个镇民角色标记替换落难少女角色标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Huntsman",
-  "image": "assets/tokens/huntsman.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/a/a1/Icon_huntsman.png"
 }

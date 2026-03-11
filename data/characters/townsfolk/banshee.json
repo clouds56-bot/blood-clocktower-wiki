@@ -1,10 +1,18 @@
 {
   "id": "banshee",
-  "type": "townsfolk",
   "name": {
     "en": "Banshee",
     "cn": "报丧女妖"
   },
+  "type": "townsfolk",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Chloe McDougall",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Banshee",
   "ability": {
     "en": "If the Demon kills you, all players learn this. From now on, you may nominate twice per day and vote twice per nomination.”",
     "cn": "如果恶魔杀死了你，所有玩家都会得知此事。从现在开始，你每天可以发起两次提名，每次投票时可以投两票。"
@@ -13,13 +21,6 @@
     "en": "\"Gorm do shúile, dearg do ghruaig, ní bheidh sé i bhfad, is a mbeidh tú san uaigh.\"",
     "cn": "“红是你的发色，蓝是你的瞳色，死是你的褪色。”（爱尔兰盖尔语）"
   },
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Chloe McDougall",
-  "jinxes": [],
   "examples": {
     "en": [
       "If all good players are dead, the game continues. Good can still win due to the Banshee being able to nominate.",
@@ -56,9 +57,8 @@
     ]
   },
   "how_to_run": {
-    "en": "If the Banshee is killed by the Demon, place the HAS ABILITY reminder token next to the Banshee and say “The Banshee has awoken” or something similarly dramatic. The Banshee may nominate twice per day, but it is the player’s responsibility to remember how many times they have nominated. The Banshee may raise two hands when voting. When counting the votes, count each hand as a vote.",
+    "en": "If the Banshee is killed by the Demon, place the HAS ABILITY reminder token next to the Banshee and say “The Banshee has awoken” or something similarly dramatic. The Banshee may nominate twice per day, but it is the player’s responsibility to remember how many times they have nominated. The Banshee may raise two hands when voting. When counting the votes, count each hand as a vote.\nIf the Banshee is killed by the Demon but does not have their ability at that time or is killed by a non-Demon ability, then do not tell the group that the Banshee ability has been triggered. The Banshee may not nominate, and needs a vote token to vote, like a regular dead player.\nIf all good players are dead, the game continues. Good can still win due to the Banshee being able to nominate.",
     "cn": "如果报丧女妖被恶魔杀死，在报丧女妖的角色标记旁放置“具有能力”提示标记，并宣布“报丧女妖觉醒了”或是类似的有戏剧性的台词。从现在开始，报丧女妖每天可以发起两次提名，但该玩家需要自觉记住自己提名了几次。报丧女妖也可以在每次投票时举两只手投票，在计票的时候该玩家每举一只手就算投了一票。\n如果报丧女妖在被恶魔杀死的时候不具有能力，或是被恶魔以外的能力杀死，说书人不会宣布她的能力被触发。在这种情况下，死亡的报丧女妖无法发起提名，并且需要使用投票标记来投票，如同其他死亡玩家一样。\n如果所有善良玩家都已死亡，游戏继续。因为善良阵营仍然有可能因为报丧女妖还能发起提名而获胜。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Banshee",
-  "image": "assets/tokens/banshee.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/6/63/Icon_banshee.png"
 }

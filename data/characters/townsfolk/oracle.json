@@ -1,10 +1,18 @@
 {
   "id": "oracle",
-  "type": "townsfolk",
   "name": {
     "en": "Oracle",
     "cn": "神谕者"
   },
+  "type": "townsfolk",
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "artist": "John Grist",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Oracle",
   "ability": {
     "en": "Each night*, you learn how many dead players are evil.",
     "cn": "每个夜晚*，你会得知有多少名死亡的玩家是邪恶的。"
@@ -13,13 +21,6 @@
     "en": "\"Only the chosen may gaze beyond the veil. The dead are restless, and they point in silence toward the icy north.\"",
     "cn": "“唯有受选者才能凝视面纱之外的光景。亡者躁动不安……他们的每一根僵硬的手指都指向了刺骨的北地。”"
   },
-  "editions": [
-    "sects_violets"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "John Grist",
-  "jinxes": [],
   "examples": {
     "en": [
       "During the first day, the Flowergirl is executed. That night, the Demon kills the Juggler. The Oracle wakes and learns a \"0,” because all dead players are good.",
@@ -50,6 +51,5 @@
     "en": "Each night except the first, wake the Oracle. Show fingers (0, 1, 2, etc.) equaling the number of dead evil players. Then, put the Oracle to sleep.",
     "cn": "除了第一个夜晚的每个夜晚，唤醒神谕者。对他用手势比划已死亡的邪恶玩家的数量 (0，1，2等）。让神谕者重新入睡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Oracle",
-  "image": "assets/tokens/oracle.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/b/bb/Icon_oracle.png"
 }

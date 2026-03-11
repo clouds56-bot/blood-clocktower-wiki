@@ -1,0 +1,62 @@
+{
+  "id": "gnome",
+  "name": {
+    "en": "Gnome",
+    "cn": "侏儒"
+  },
+  "type": "traveller",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Chloe McDougall",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Gnome",
+  "ability": {
+    "en": "All players start knowing a player of your alignment. You may choose to kill anyone who nominates them.",
+    "cn": "当你加入游戏时，所有玩家会得知一名与你阵营相同的玩家。每当他被提名时，你可以杀死提名者。"
+  },
+  "flavor_text": {
+    "en": "\"Four the score or seven beers, no shows are goes for me and my. A prank to crack the cranks and planks o' the floor foundation length, so incontravertabubbilly mini. The large essays down streams of joyce, no greater than is scene, not inherdt, Ha-urrumph.o.\"",
+    "cn": "“有备而来，有悲而来，无人搭台，自己开嗨！一场整人好戏，整得人惨兮兮，吱吱作响板板，又怕翻了盘盘。那些长篇大论顺着乔伊斯的溪流在流淌，不算最辉煌，也还够气场，却也挺像样——哈，响亮！”"
+  },
+  "examples": {
+    "en": [
+      "The Gnome starts the game at the same time as the rest of the players, and is good. Amy is the Alsaahir. Before the first night, the Storyteller announces that the Gnome is the same alignment as Amy. The Engineer nominates Amy on day 3. The Gnome does not use their ability.",
+      "The Gnome enters the game on the 2nd day, and is evil. Lewis is the Demon. At this time, the Storyteller announces that the Gnome is the same alignment as Lewis. On the 2nd day, the Boffin nominates Lewis, and is killed by the Gnome. On the 3rd day, the Zealot nominates Lewis, and is killed by the Gnome. On the 4th day, the Village Idiot nominates Lewis, and the Gnome does not use their ability."
+    ],
+    "cn": [
+      "善良的侏儒和其他玩家一起开始游戏。小哲是戏法师。在首个夜晚开始前，说书人宣布侏儒和小哲是同一阵营。工程师在第三个白天提名了小哲。侏儒没有使用能力。",
+      "小博是邪恶的恶魔。邪恶的侏儒在第二个白天加入了游戏。说书人宣布侏儒和小博阵营相同。然后科学怪人提名了小博，侏儒使用能力杀死了科学怪人。第三个白天，狂热者提名了小博，也被侏儒杀死。第四个白天，村夫提名了小博，但侏儒没有使用能力。"
+    ]
+  },
+  "tips": {
+    "en": [
+      "Get as many players as possible to nominate your amigo. This gives you more opportunities to use your ability to target evil players, and gives you opportunities to learn more about which players are comfortable or hesitant to die to your ability.",
+      "Stay silent so players forget you are in play, then jump in to use your ability when they least expect it! (because no one expects the Spanish Inquisition)",
+      "Taunt or dare players to nominate your amigo to see how they respond.",
+      "Don't vote for your amigo, & encourage other players not to vote for your amigo. You know they are good, so it's in your best interests to keep them alive!",
+      "Talk to players in the game to gain information about whether or not you want to use your ability to kill them."
+    ],
+    "cn": [
+      "尽量让更多玩家提名你的同伴！这样你有更多机会利用自己的能力针对邪恶玩家，同时也可以观察哪些玩家在提名时毫不犹豫，又有哪些玩家因畏惧被你杀死而感到犹豫。",
+      "保持沉默，让玩家忘记你的存在，在他们最意想不到的时候突然使用能力！（毕竟没人会预料到，眼一闭，不睁，一辈子就过去了）（注：这里的原文是“没有人预料到西班牙宗教裁判所的到来”，其中“西班牙宗教裁判所”来自于英国著名喜剧团体蒙提派森的经典台词，故此在翻译时引用了演员赵本山老师和小沈阳老师的小品名句）",
+      "挑衅或激将其他玩家来提名你的同伴，看看他们会如何应对。",
+      "不要对同伴投票，并鼓励其他玩家也不要投票给你的同伴。你知道他是善良的，所以保护他的存活是最有利的选择！",
+      "和其他玩家交流，收集信息，判断是否需要使用能力杀掉他们。",
+      "如果你的同伴是恶魔，尽量让更多玩家提名他。",
+      "如果你的同伴是爪牙，尽量让提名他的玩家越少越好。",
+      "如果你的同伴是爪牙，确保恶魔正在假装扮演一个不会提名你同伴的角色。否则，善良玩家会让恶魔去提名你的同伴，而你没有使用能力杀死他时，你们都会显得很可疑！",
+      "你的社交表现也会影响你的同伴！如果你表现得很像邪恶玩家，善良玩家可能会通过你和同伴的同阵营关系来推断出你的同伴也属于邪恶阵营。",
+      "参与讨论哪些玩家应当提名你的同伴。这会影响善良玩家决定你的能力适合对谁使用。",
+      "如果你的同伴是爪牙，而其他玩家认为你是邪恶阵营，分散他们的注意力！通过把话题和讨论引导向你和你的同伴，减轻恶魔的压力。",
+      "表现得混乱一些，用意料之外的方式使用你的能力来让其他玩家感到惊讶。在最坏的情况下，如果你真的想制造混乱，你可以提名你的同伴并使用能力。"
+    ]
+  },
+  "how_to_run": {
+    "en": "During the day, as soon as the Gnome has entered play, mark a player of the same alignment with the AMIGO reminder. Declare that this player is the same alignment as the Gnome.\nIf this player is nominated, but before you have started the voting process, if the Gnome player declares that they wish to use their ability, the nominator dies.",
+    "cn": "当侏儒加入游戏时，通过将“同伴”提示标记放置到一个与侏儒相同阵营玩家的角色标记旁来表示侏儒的“同伴”。宣布这名玩家和侏儒的阵营相同。\n如果这名玩家被提名，在投票开始前，如果侏儒宣布他要使用能力，提名同伴的玩家死亡。"
+  },
+  "token_url": "https://wiki.bloodontheclocktower.com/images/e/e0/Icon_gnome.png"
+}

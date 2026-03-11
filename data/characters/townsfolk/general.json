@@ -1,10 +1,18 @@
 {
   "id": "general",
-  "type": "townsfolk",
   "name": {
     "en": "General",
     "cn": "将军"
   },
+  "type": "townsfolk",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "artist": "Caitlin Murphy",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/General",
   "ability": {
     "en": "Each night, you learn which alignment the Storyteller believes is winning: good, evil, or neither.",
     "cn": "每个夜晚，你会得知说书人认为哪个阵营当前更有优势（善良/邪恶/均势）。"
@@ -13,13 +21,6 @@
     "en": "\"I don’t have time for quotes.\"",
     "cn": "“我没时间跟你谈条件。”"
   },
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "Caitlin Murphy",
-  "jinxes": [],
   "examples": {
     "en": [
       "There are 5 good players alive and 4 evil players alive. Even though the Demon is very suspicious and will probably be executed next, there is a Scarlet Woman in play, who is very trustworthy. The Storyteller gives a thumbs down.",
@@ -56,6 +57,5 @@
     "en": "Each night, wake the General. If you believe that the good team is winning, give a thumbs up. If you believe that the evil team is winning, give a thumbs down. If you don’t know which team is winning, give a thumbs to the side. Put the General to sleep.",
     "cn": "每个夜晚，唤醒将军。如果你认为善良阵营更具优势，给出拇指朝上的手势。如果你认为邪恶阵营更具优势，给出拇指朝下的手势。如果你不清楚哪一方更具优势，给出拇指水平指向一侧的手势。让将军重新入睡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/General",
-  "image": "assets/tokens/general.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/9/99/Icon_general.png"
 }

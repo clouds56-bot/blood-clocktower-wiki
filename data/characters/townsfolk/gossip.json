@@ -1,18 +1,10 @@
 {
   "id": "gossip",
-  "type": "townsfolk",
   "name": {
     "en": "Gossip",
     "cn": "造谣者"
   },
-  "ability": {
-    "en": "Each day, you may make a public statement. Tonight, if it was true, a player dies.",
-    "cn": "每个白天，你可以公开发表一个声明。如果该声明正确，在当晚会有一名玩家死亡。"
-  },
-  "flavor_text": {
-    "en": "\"Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah. Blah.\"",
-    "cn": "“巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉。巴拉。”"
-  },
+  "type": "townsfolk",
   "editions": [
     "bad_moon_rising",
     "sects_violets"
@@ -21,6 +13,15 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Gossip",
+  "ability": {
+    "en": "Each day, you may make a public statement. Tonight, if it was true, a player dies.",
+    "cn": "每个白天，你可以公开发表一个声明。如果该声明正确，在当晚会有一名玩家死亡。"
+  },
+  "flavor_text": {
+    "en": "\"Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah. Blah.\"",
+    "cn": "“巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉。巴拉。”"
+  },
   "examples": {
     "en": [
       "When choosing a player to die due to the Gossip ability, we recommend that you choose a character that will actually die, not one protected from death by an ability (like the Fool or Tea Lady). The Gossip gains knowledge when their statement caused a death. This is more helpful to the good team, and more fun for everyone.",
@@ -61,9 +62,8 @@
     ]
   },
   "how_to_run": {
-    "en": "Each day, if the Gossip makes a definite, true public statement, put the Gossip’s DEAD reminder in the center of the left side of the Grimoire as a reminder to yourself to place it tonight.",
+    "en": "Each day, if the Gossip makes a definite, true public statement, put the Gossip’s DEAD reminder in the center of the left side of the Grimoire as a reminder to yourself to place it tonight.\nEach night except the first, if the Gossip made a definite, true public statement today, you choose any player. The chosen player dies—mark them with the DEAD reminder.\nWhen choosing a player to die due to the Gossip ability, we recommend that you choose a character that will actually die, not one protected from death by an ability (like the Fool or Tea Lady). The Gossip gains knowledge when their statement caused a death. This is more helpful to the good team, and more fun for everyone.",
     "cn": "每个白天，如果造谣者发表了一个明确且正确的公开声明，将造谣者的“死亡”提示标记放置到魔典左侧的中央，来提醒自己当晚需要放置该标记。\n除了首个夜晚以外的每个夜晚，如果今天白天造谣者发表了一个明确且正确的公开声明，你选择任意一名玩家死亡——将“死亡”提示标记放置到该玩家的角色标记旁。\n在选择因造谣者能力而死亡的玩家时，我们推荐你选择能够死亡的角色，不要选择那些受到能力保护而无法死亡的角色（例如弄臣或茶艺师的能力）。当声明造成死亡时，造谣者才能得到更多信息。这对善良阵营更有帮助，也会让游戏更加有趣。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Gossip",
-  "image": "assets/tokens/gossip.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/c/c7/Icon_gossip.png"
 }

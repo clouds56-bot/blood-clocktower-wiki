@@ -1,0 +1,57 @@
+{
+  "id": "apprentice",
+  "name": {
+    "en": "Apprentice",
+    "cn": "学徒"
+  },
+  "type": "traveller",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Apprentice",
+  "ability": {
+    "en": "On your 1st night, you gain a Townsfolk ability (if good) or a Minion ability (if evil).",
+    "cn": "在你的首个夜晚，如果你是善良的，你会获得一个镇民角色的能力；如果你是邪恶的，你会获得一个爪牙角色的能力。"
+  },
+  "flavor_text": {
+    "en": "\"For years have I traveled, studying the ways of The Craft. Which craft, you ask? Simply that of the simple folk. Nothing to worry about. Not yet.\"",
+    "cn": "“这么多年来，我一路上不停地在学习各种各样的手艺。你问我学的是什么手艺？简单说都是一些普通的手艺，没什么好担心的，至少现在不必。”"
+  },
+  "examples": {
+    "en": [
+      "You will almost certainly want to choose a not-in-play character ability, because there is only one of each character token and the Apprentice needs to use that token.",
+      "The evil Apprentice gains the Assassin ability. That night, they kill the Fool.",
+      "The good Apprentice gains the Chambermaid ability. From now on, they learn who wakes at night. Later, the Gambler guesses that the Apprentice is the Tea Lady. The Gambler dies, because the Apprentice is not the Tea Lady, but the Apprentice."
+    ],
+    "cn": [
+      "邪恶的学徒获得了刺客的能力。当晚学徒杀死了弄臣。",
+      "善良的学徒获得了弄臣的能力。学徒被流放了但没有死亡。因为流放流程无法被角色能力影响，旅行者通常会在被流放后死亡。在这种情况下，获得弄臣能力的学徒本应死亡，但因为角色能力而仍然存活。",
+      "善良的学徒获得了侍女的能力。从现在开始，学徒每个夜晚都会和侍女一样得知其他角色是否被唤醒。之后，赌徒猜测学徒是侍女。赌徒死亡，因为学徒不是侍女。"
+    ]
+  },
+  "tips": {
+    "en": [
+      "The strategy that you employ will depend almost entirely on which Townsfolk ability you gain. If you become the Gambler, then play the game as you would a normal Gambler. If you become a Sailor, then play the game as if you were a Sailor.",
+      "Feel free to lie about which character ability you gained. If you lie that you gained the Courtier's power, you may successfully lure the Demon into attacking you. The good team losing a Traveller at night is a much more favorable outcome than the good team losing a Townsfolk (because Travellers don't count as players for evil's \"two players left alive\" victory condition), so by tricking the Demon into attacking you, you've helped the good team. Similarly, you can lie about who you are to prevent the evil team from attacking you. An Assassin is unlikely to use their precious ability to kill an Apprentice Fool... but they may do so to remove an Apprentice Exorcist!",
+      "It is possible that you become the same character as someone else in play, but it is unlikely. Since there is only 1 of each token, the Storyteller will more often give you a not-in-play character's ability. Treat any players claiming to be the same character as you with suspicion."
+    ],
+    "cn": [
+      "你要使用的策略几乎完全取决于你所获得的镇民能力。如果你获得了赌徒的能力，接下来你就像个正常赌徒一样进行游戏。如果你获得了水手的能力，那就像个水手一样进行游戏。",
+      "有关你获得的能力，你可以随便撒谎。如果你谎称自己获得了侍臣的能力，你就可能成功吸引恶魔攻击你。相比于在晚上失去一位镇民来说，在晚上损失一位旅行者这个结果更能够被善良阵营所接受（因为旅行者并不计入邪恶阵营”仅剩两名玩家存活”的胜利条件），因此你可以通过吸引恶魔攻击你的方式来帮助善良阵营。同样的，你也可以通过说谎来免避免遭受邪恶阵营的攻击。刺客不太会浪费他宝贵的能力去杀一个有弄臣能力的学徒…但是他可能会用能力来铲除一个有驱魔人能力的学徒。",
+      "你可能会获得一个在场角色的能力，但是几率不大。因为每种角色标识只有一张，说书人通常会给你一个不在场角色的能力。对任何声称自己有和你相同角色能力的玩家保持怀疑。",
+      "你要使用的策略几乎完全取决于你所获得的爪牙能力。如果你获得了主谋的能力，接下来你就像个正常主谋一样进行游戏。如果你获得了魔鬼代言人的能力，那就像个魔鬼代言人一样进行游戏。",
+      "选择一个镇民角色，然后声称自己获得了那个角色的能力。如果你是个善良学徒，你会被唤醒并且被展示一张镇民的角色标记，这表示你会获得他的能力。其他玩家可能会问你你获得了哪个镇民的能力以及你是怎么使用的，你需要对此有所准备。",
+      "如果你声称与某位善良玩家是相同角色，你要么声称说书人给了你与那名玩家相同的能力（虽然不太常见，但也有可能），要么说那名玩家在对自己的角色说谎。不管怎么说，这都不会是世界末日，但如果你想活下来，就不得不与那名玩家进行一次决斗了。",
+      "你的能力对邪恶阵营来说非常有帮助，但前提是你得知道他们是谁并且与他们协同作战才行。使用魔鬼代言人的能力，你可以保护邪恶玩家免于死亡，但你得先知道邪恶玩家都是谁。使用刺客的能力，你可以按需杀死任一善良玩家，但你也得先知道哪些玩家是善良的。使用主谋的能力，你就可以通过处决恶魔来赢得游戏，但你需要告诉爪牙你的打算，这样他们就知道何时该投票了。如果你获得了教父的能力，你就需要知道哪些玩家是真的外来者，而不是爪牙装成的外来者。不论你获得了哪个爪牙的能力，如果你能与恶魔交流并让他知道你是邪恶的，然后找出爪牙并与他们进行良好的沟通，这就能让你发挥最大的作用。"
+    ]
+  },
+  "how_to_run": {
+    "en": "During the first night after the Apprentice enters play, wake the Apprentice. Show them the YOU ARE info token, then a Townsfolk or Minion token. In the Grimoire, replace the Apprentice token with that character token, and mark them with the IS THE APPRENTICE reminder. That player remains the Apprentice but gains the ability of their character token.\nYou will almost certainly want to choose a not-in-play character ability, because there is only one of each character token and the Apprentice needs to use that token.",
+    "cn": "在学徒加入游戏的首个夜晚，唤醒学徒。向学徒展示“你是”信息标记，然后展示一个镇民或爪牙的角色标记。在魔典上，将学徒的角色标记替换为刚刚展示的角色标记，并放置“是学徒”提示标记。这名玩家还是学徒，只是他拥有了该角色的能力。\n基本上，你只能挑选一个不在场的角色能力给学徒，因为每个角色只有一个标记而学徒也需要用到这个角色标记。"
+  },
+  "token_url": "https://wiki.bloodontheclocktower.com/images/0/03/Icon_apprentice.png"
+}

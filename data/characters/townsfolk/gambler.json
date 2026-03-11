@@ -1,10 +1,18 @@
 {
   "id": "gambler",
-  "type": "townsfolk",
   "name": {
     "en": "Gambler",
     "cn": "赌徒"
   },
+  "type": "townsfolk",
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Gambler",
   "ability": {
     "en": "Each night*, choose a player & guess their character: if you guess wrong, you die.",
     "cn": "每个夜晚*，你要选择一名玩家并猜测该玩家的角色：如果你猜错了，你会死亡。"
@@ -13,13 +21,6 @@
     "en": "\"Heads, I win. Tails, you lose.\"",
     "cn": "“正面，我赢。\n反面，你输。”"
   },
-  "editions": [
-    "bad_moon_rising"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
   "examples": {
     "en": [
       "The Gambler points to the Minstrel player, then to the Minstrel icon. This guess is correct, so the Gambler remains alive, but is killed by the Demon tonight anyway.",
@@ -52,6 +53,5 @@
     "en": "Each night except the first, wake the Gambler. They point at any player, then point at any character icon on their character sheet. Put the Gambler to sleep. If the chosen player is a different character from the chosen character icon, the Gambler dies—mark them with the DEAD reminder.",
     "cn": "除了首个夜晚以外的每个夜晚，唤醒赌徒。让赌徒指向任意一名玩家，然后指向角色列表上的任意一个角色图标。让赌徒重新入睡。如果所选的玩家的角色和所选角色图标不同，赌徒死亡——将“死亡”提示标记放置到赌徒的角色标记旁。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Gambler",
-  "image": "assets/tokens/gambler.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/f/fd/Icon_gambler.png"
 }

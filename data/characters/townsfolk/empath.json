@@ -1,10 +1,18 @@
 {
   "id": "empath",
-  "type": "townsfolk",
   "name": {
     "en": "Empath",
     "cn": "共情者"
   },
+  "type": "townsfolk",
+  "editions": [
+    "trouble_brewing"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Empath",
   "ability": {
     "en": "Each night, you learn how many of your 2 alive neighbors are evil.",
     "cn": "每个夜晚，你会得知与你邻近的两名存活的玩家中邪恶玩家的数量。"
@@ -13,13 +21,6 @@
     "en": "\"My skin prickles. Something is not right here. I can feel it.\"",
     "cn": "“我的皮肤有些刺痛。\n这有些不太对劲。我能感觉得到。”"
   },
-  "editions": [
-    "trouble_brewing"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
   "examples": {
     "en": [
       "The Empath neighbours two good players—a Soldier and a Monk . The Empath learns a '0'. \n\n\t\t\t\tThe next day, the Soldier is executed. That night, the Monk is killed by the Imp. The Empath now detects the players sitting next to the Soldier and the Monk, which are a Librarian and an evil Gunslinger. The Empath now learns a '1'.\n\n\t\t\t\tThere are only three players left alive: the Empath, the Imp, and the Baron. No matter who is seated where, the Empath learns a '2'."
@@ -61,6 +62,5 @@
     "en": "Each night, wake the Empath. Show them fingers (0, 1, or 2) equaling the number of evil players neighbouring the Empath. Put the Empath to sleep.",
     "cn": "每个夜晚，唤醒共情者。为共情者用手势比划与他邻近的邪恶玩家数量（0，1，或2）。让共情者重新入睡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Empath",
-  "image": "assets/tokens/empath.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/1/13/Icon_empath.png"
 }

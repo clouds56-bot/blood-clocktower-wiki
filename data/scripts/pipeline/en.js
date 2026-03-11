@@ -122,22 +122,40 @@ function parseCharacterPage(html, englishName, type, urlParam) {
   const otherNights = howToRunText.includes('each night') || howToRunText.includes('every night');
 
   const jinxes = [];
-  const jinxSection = $('h2:contains("Jinx")').next('ul').find('li');
-  jinxSection.each(function() {
+  $('#jinxes table tr').each(function() {
     const $this = $(this);
-    const charLink = $this.find('a').first();
+    const charLink = $this.find('td').eq(1).find('a').first();
+    let effect = $this.find('td').eq(1).find('p').eq(1).text().trim();
+    if (!effect) {
+      effect = $this.find('td').eq(1).text().replace(charLink.text(), '').trim();
+    }
     if (charLink.length > 0) {
+      const charName = charLink.attr('href').split('/').pop().toLowerCase();
       jinxes.push({
-        character: charLink.attr('href').split('/').pop().toLowerCase().replace(/%27/g, "'").replace(/_/g, ''),
-        effect: $this.text().replace(charLink.text(), '').trim()
+        id: charName.replace(/%27/g, "").replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, ''),
+        reason: effect
       });
     }
   });
 
-  const examplesArr = extractExamplesEnglish($);
-  const examples = examplesArr && examplesArr.length > 0 ? { en: examplesArr } : undefined;
+  if (jinxes.length === 0) {
+    const jinxSection = $('h2:contains("Jinx")').next('ul').find('li');
+    jinxSection.each(function() {
+      const $this = $(this);
+      const charLink = $this.find('a').first();
+      if (charLink.length > 0) {
+        const charName = charLink.attr('href').split('/').pop().toLowerCase();
+        jinxes.push({
+          id: charName.replace(/%27/g, "").replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, ''),
+          reason: $this.text().replace(charLink.text(), '').trim()
+        });
+      }
+    });
+  }
 
-  const tips = { en: [] };
+  const examplesArr = extractExamplesEnglish($);
+
+  const tips = [];
   const tipsHeader = $('h2:contains("Tips & Tricks")').first();
   if (tipsHeader.length > 0) {
     const tipsLists = tipsHeader.nextAll().not('h2').filter(function() {
@@ -146,7 +164,7 @@ function parseCharacterPage(html, englishName, type, urlParam) {
     tipsLists.each(function() {
       const tipText = $(this).find('li').text().trim();
       if (tipText) {
-        tips.en.push(tipText);
+        tips.push(tipText);
       }
     });
   }
@@ -166,27 +184,35 @@ function parseCharacterPage(html, englishName, type, urlParam) {
 
   // Also artist
   let artist = null;
-  $('a[title^="User:"]').each(function() {
-    const title = $(this).attr('title');
-    if (title && title.includes('User:')) {
-      artist = $(this).text().trim();
+  $('th:contains("Artist"), td:contains("Artist")').each(function() {
+    const el = $(this).next('td');
+    if (el.length > 0) {
+      artist = el.text().trim();
     }
   });
+  if (!artist) {
+    $('a[title^="User:"]').each(function() {
+      const title = $(this).attr('title');
+      if (title && title.includes('User:')) {
+        artist = $(this).text().trim();
+      }
+    });
+  }
 
   return {
     id: englishName.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_'),
     english_name: englishName,
     type: type,
-    ability: ability ? { en: ability } : null,
-    flavor_text: flavorText ? { en: flavorText } : null,
+    ability: ability || null,
+    flavor_text: flavorText || null,
     editions: editionsArray,
     first_night: firstNight,
     other_nights: otherNights,
     artist: artist,
-    jinxes: jinxes.length > 0 ? jinxes : undefined,
-    examples: examples,
-    tips: tips.en.length > 0 ? tips : undefined,
-    how_to_run: howToRun ? { en: howToRun } : undefined,
+    jinxes: jinxes,
+    examples: examplesArr.length > 0 ? examplesArr : null,
+    tips: tips.length > 0 ? tips : null,
+    how_to_run: howToRun || null,
     source_url: `${BASE_URL}/${urlParam}`
   };
 }

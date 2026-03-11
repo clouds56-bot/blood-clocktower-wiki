@@ -1,0 +1,41 @@
+{
+  "id": "summoner",
+  "name": {
+    "en": "Summoner",
+    "cn": "召唤师"
+  },
+  "type": "minion",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Lachlan Bastiaen",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Summoner",
+  "ability": {
+    "en": "You get 3 bluffs. On the 3rd night, choose a player: they become an evil Demon of your choice. [No Demon]",
+    "cn": "在首个夜晚，你会得知三个伪装。在第三个夜晚，你要选择一名玩家：他变成由你选择的邪恶恶魔。[无恶魔在场]"
+  },
+  "flavor_text": {
+    "en": "\"Hail the guardians of the north; by my intellect, thou art cut. Hail the guardians of the east; by my will, thou art dominated. Hail the guardians of the south; by that which lies beyond, the mystery is revealed. Hail the guardians of the west; a shield in the darkness\"",
+    "cn": "“颂赞北之守护，以吾之智慧，斩却汝命；\n颂赞东之守护，以吾之意志，制御汝身；\n颂赞南之守护，以超越之力，揭示前路；\n颂赞西之守护，于漫漫长夜，化为坚盾。”"
+  },
+  "examples": {
+    "en": [
+      "On the third night, the Summoner chooses the Snitch player, and the Lleech. The Snitch becomes the evil Lleech, and chooses a player to poison, and a player to kill.",
+      "On the first day, the Summoner is executed. Good wins.",
+      "On the third night, the Summoner turns the Alchemist into the Leviathan. At dawn, all players learn that Leviathan is in play, and that it is day three of five."
+    ],
+    "cn": [
+      "在第三个夜晚，召唤师选择了告密者玩家和痢蛭角色。告密者变成了痢蛭，且需要选择一名玩家让他中毒，并攻击一名玩家。",
+      "在游戏的首个白天，召唤师被处决了。善良阵营获胜。",
+      "在第三个夜晚，召唤师将炼金术士变成了利维坦。在黎明时，所有玩家都得知了利维坦在场，且现在是第三个白天。"
+    ]
+  },
+  "how_to_run": {
+    "en": "During the setup phase, remove the Demon and add a Townsfolk.\nWhen preparing the first night, put the Summoner’s NIGHT 1 reminder by the Summoner. When preparing the second night, put the Summoner’s NIGHT 2 reminder by the Summoner. When preparing the third night, put the Summoner’s NIGHT 3 reminder by the Summoner.\nDuring the first night, show the Summoner 3 not-in-play characters as bluffs.\nDuring the night, if the Summoner has a NIGHT 3 reminder, wake the Summoner. They point at a player, and to a Demon icon on the character sheet. Put the Summoner to sleep. Wake the chosen player. Show the YOU ARE info token, then the Demon token. Show the YOU ARE info token, then give a thumbs down. Replace their character token with the Demon token and put the new Demon to sleep.",
+    "cn": "在设置阶段，将恶魔角色标记移除，并加入一个镇民角色标记。\n在为首个夜晚做准备时，将召唤师的“第一晚”提示标记放置在召唤师角色标记旁。在为第二个夜晚做准备时，将召唤师的“第二晚”提示标记放置在召唤师角色标记旁。在为第三个夜晚做准备时，将召唤师的“第三晚”提示标记放置在召唤师角色标记旁。\n在首个夜晚，对召唤师展示三个不在场的善良角色，作为他的伪装。\n在夜晚时，如果召唤师旁放置了“第三晚”提示标记，唤醒召唤师。让他指向一名玩家，和角色列表上的一个恶魔图标。让召唤师重新入睡。唤醒被召唤师选择的玩家。对他展示“你是”信息标记，和恶魔角色标记。再对他展示“你是”信息标记，和朝下的大拇指。用那个恶魔角色标记替换他的角色标记，并让新恶魔重新入睡。"
+  },
+  "token_url": "https://wiki.bloodontheclocktower.com/images/1/1a/Icon_summoner.png"
+}

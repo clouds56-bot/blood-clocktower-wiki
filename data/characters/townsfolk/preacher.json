@@ -1,10 +1,18 @@
 {
   "id": "preacher",
-  "type": "townsfolk",
   "name": {
     "en": "Preacher",
     "cn": "传教士"
   },
+  "type": "townsfolk",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "artist": "John Grist",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Preacher",
   "ability": {
     "en": "Each night, choose a player: a Minion, if chosen, learns this. All chosen Minions have no ability.",
     "cn": "每个夜晚，你要选择一名玩家：如果你选中了爪牙，他会得知被传教士选中。\n所有被你选中的爪牙失去能力。"
@@ -13,13 +21,6 @@
     "en": "\"It is better to be rich and healthy than poor and sick.\"",
     "cn": "“富有和健康总比贫穷和疾病要好。”"
   },
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "John Grist",
-  "jinxes": [],
   "examples": {
     "en": [
       "The Preacher points to Alex, who is the Engineer. Nothing happens.",
@@ -52,9 +53,8 @@
     ]
   },
   "how_to_run": {
-    "en": "Each night, wake the Preacher. They point to a player. Put the Preacher to sleep. If the Preacher choose a Minion, mark that Minion with a NO ABILITY reminder, wake the Minion and show them the THIS CHARACTER SELECTED YOU info token then the Preacher token, then put them to sleep.",
+    "en": "Each night, wake the Preacher. They point to a player. Put the Preacher to sleep. If the Preacher choose a Minion, mark that Minion with a NO ABILITY reminder, wake the Minion and show them the THIS CHARACTER SELECTED YOU info token then the Preacher token, then put them to sleep.\nAll Minions marked NO ABILITY have no ability while the Preacher is alive.",
     "cn": "每个夜晚，唤醒传教士并让他选择一名玩家。如果他选中一名爪牙，在那名爪牙的角色标记旁放置“失去能力”提示标记。让传教士重新入睡。如可能，则唤醒今晚被传教士选中的爪牙，向他展示“该角色的能力对你生效”信息标记以及传教士角色标记。让这名爪牙重新入睡。\n在传教士存活期间，所有被标记“失去能力”的爪牙不会拥有能力。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Preacher",
-  "image": "assets/tokens/preacher.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/8/82/Icon_preacher.png"
 }

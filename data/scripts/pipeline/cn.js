@@ -42,6 +42,49 @@ async function fetchWithCache(url, urlParam) {
   return html;
 }
 
+function extractSection($, heading) {
+  const header = $(`h2:contains("${heading}")`).first();
+  if (header.length === 0) return null;
+  
+  const section = header.nextUntil('h2');
+  if (section.length === 0) return null;
+  
+  return section.text().trim() || null;
+}
+
+function extractExamples($) {
+  const header = $('h2:contains("范例")').first();
+  if (header.length === 0) return null;
+  
+  const examples = [];
+  header.nextUntil('h2').each(function() {
+    const $el = $(this);
+    if ($el[0].tagName === 'pre') {
+      const text = $el.text().trim();
+      if (text) examples.push(text);
+    }
+  });
+  
+  return examples.length > 0 ? examples : null;
+}
+
+function extractTips($) {
+  const header = $('h2:contains("提示与技巧")').first();
+  if (header.length === 0) return null;
+  
+  const tips = [];
+  header.nextUntil('h2:contains("伪装成"), h2:contains("角色信息")').filter(function() {
+    return $(this)[0].tagName === 'ul';
+  }).each(function() {
+    $(this).find('li').each(function() {
+      const text = $(this).text().trim();
+      if (text) tips.push(text);
+    });
+  });
+  
+  return tips.length > 0 ? tips : null;
+}
+
 function extractCharacterData(html, cnName, urlParam) {
   const $ = cheerio.load(html);
   
@@ -54,47 +97,41 @@ function extractCharacterData(html, cnName, urlParam) {
     }
   });
 
-  // Extract Ability (Usually bold text followed by the ability or in summary)
-  let ability = null;
-  // Let's grab the text of the first paragraph after the image/intro or look for specific markers
-  // On Chinese wiki, ability is often in a blockquote or directly in text
-  // I will reuse the existing logic from scrape-chinese-wiki.js
+  let ability = extractSection($, '角色能力');
   
-  $('p').each(function() {
-    const text = $(this).text().trim();
-    // Look for ability text enclosed in quotes “ ”
-    const match = text.match(/“([^”]+)”/);
-    if (match && !ability && !text.includes('英文名')) {
-      // Very naive, let's just grab the first quoted text that looks like an ability
-      // We will refine if needed, or fallback
-    }
-  });
-
-  // A more robust way to get ability from Chinese wiki:
-  // Usually the ability is under "能力" heading or just quoted in the intro
-  const abilityHeader = $('h2:contains("能力"), h3:contains("能力")').first();
-  if (abilityHeader.length > 0) {
-    let p = abilityHeader.nextAll('p').first();
-    if (p.length > 0) {
-      ability = p.text().replace(/^“|”$/g, '').trim();
-    }
-  } else {
-    // try finding quotes in the first few paragraphs
-    const paragraphs = $('p').slice(0, 5);
-    paragraphs.each(function() {
-      const text = $(this).text().trim();
-      const match = text.match(/“([^”]+)”/);
-      if (match) {
-        ability = match[1].trim();
-        return false; // break
+  if (!ability) {
+    const abilityHeader = $('h2:contains("能力"), h3:contains("能力")').first();
+    if (abilityHeader.length > 0) {
+      let p = abilityHeader.nextAll('p').first();
+      if (p.length > 0) {
+        ability = p.text().replace(/^“|”$/g, '').trim();
       }
-    });
+    } else {
+      const paragraphs = $('p').slice(0, 5);
+      paragraphs.each(function() {
+        const text = $(this).text().trim();
+        const match = text.match(/“([^”]+)”/);
+        if (match) {
+          ability = match[1].trim();
+          return false;
+        }
+      });
+    }
   }
+
+  const flavorText = extractSection($, '背景故事');
+  const examples = extractExamples($);
+  const howToRun = extractSection($, '运作方式');
+  const tips = extractTips($);
 
   return {
     chinese_name: cnName,
     english_name: englishName,
-    ability: ability,
+    ability: ability || null,
+    flavor_text: flavorText,
+    examples: examples,
+    how_to_run: howToRun,
+    tips: tips,
     urlParam: urlParam
   };
 }

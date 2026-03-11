@@ -1,16 +1,10 @@
 {
   "id": "revolutionary",
-  "type": "fabled",
   "name": {
     "en": "Revolutionary",
     "cn": "革命者"
   },
-  "ability": {
-    "en": "2 neighboring players are known to be the same alignment. Once per game, 1 of them registers falsely."
-  },
-  "flavor_text": {
-    "en": "\"United we feigned.\n\t\t\t\tDivided, we stalled.\""
-  },
+  "type": "fabled",
   "editions": [
     "experimental"
   ],
@@ -18,16 +12,29 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Revolutionary",
+  "ability": {
+    "en": "2 neighboring players are known to be the same alignment. Once per game, 1 of them registers falsely.",
+    "cn": "公开声明一对邻座玩家本局游戏一直保持同一阵营。每局游戏限一次，他们中的一人可能被当作其他的角色/阵营。"
+  },
+  "flavor_text": {
+    "en": "\"United we feigned.\n\t\t\t\tDivided, we stalled.\"",
+    "cn": "“团结，假装的。分裂，就拖延。”"
+  },
   "examples": {
     "en": [
       "The Revolutionary should only be in play if both players want it to be. Ask for their consent before the game begins.",
       "Mathew is deaf. He teams up with Davo, via the Revolutionary. Mathew draws the Poisoner, and Davo draws the Imp. They can scheme in private, using sign language, so that Mathew can still participate.",
       "Hannah is 12 years old. She is keen to play, but does not understand many of the intricacies of how the characters work. She gets the Ravenkeeper and teams up with her father, who is the Fortune Teller."
+    ],
+    "cn": [
+      "小马是一名失聪人士，他和小佳合作成为革命者。小马抽取到了投毒者，所以小佳成为了小恶魔。他们可以用手语私下沟通，这样小马就能参与游戏了。",
+      "小娜只有12岁。她很想要参与但是难以理解这些错综复杂的角色是如何运作的。她拿到了僧侣并和她的共情者爸爸一起进行配合。"
     ]
   },
   "how_to_run": {
-    "en": "When setting up the game, before giving the bag to the players, declare that the Revolutionary is in play and which two neighboring players are Revolutionaries. Add the Revolutionary token to the Grimoire. Mark the Revolutionaries with the REGISTER FALSELY? reminder between their character tokens."
+    "en": "When setting up the game, before giving the bag to the players, declare that the Revolutionary is in play and which two neighboring players are Revolutionaries. Add the Revolutionary token to the Grimoire. Mark the Revolutionaries with the REGISTER FALSELY? reminder between their character tokens.\nGive the bag to one Revolutionary. They draw a token. Look at their token, choose a token of the same alignment from the bag, and give it to the other Revolutionary. Then, give the bag to the non-Revolutionary players to draw from.\nOnce per game, you can make one player marked REGISTER FALSELY? register as a different character and alignment, then remove the REGISTER FALSELY? reminder.\nThe Revolutionary should only be in play if both players want it to be. Ask for their consent before the game begins.",
+    "cn": "当初始设置中交给玩家盲抽袋之前，宣布革命者加入游戏，并宣布两名邻座玩家会是革命者。将革命者标记放入魔典中。将“被当作其他”提示标记放在两名革命者的中间。\n把盲抽袋拿给一个革命者，由他抽取一个角色标记。你查看他的角色，并从盲抽袋里选择一个相同阵营的角色并交给另外一名革命者。再把盲抽袋交给其他玩家抽取角色。\n每局游戏限一次，你可以使被标记了“被当作其他”的玩家之一被当作另一个角色和/或阵营，然后移除“被当作其他”提示标记。\n革命者应该在两名玩家都愿意的情况下才加入游戏，在游戏开始前先征得他们的同意。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Revolutionary",
-  "image": "assets/tokens/revolutionary.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/9/94/Icon_revolutionary.png"
 }

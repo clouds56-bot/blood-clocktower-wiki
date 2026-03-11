@@ -1,10 +1,18 @@
 {
   "id": "bounty_hunter",
-  "type": "townsfolk",
   "name": {
     "en": "Bounty Hunter",
     "cn": "赏金猎人"
   },
+  "type": "townsfolk",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Marianna Carr",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Bounty_Hunter",
   "ability": {
     "en": "You start knowing 1 evil player. If the player you know dies, you learn another evil player tonight. [1 Townsfolk is evil]",
     "cn": "在你的首个夜晚，你会得知一名邪恶玩家。\n每当你得知的玩家死亡，你会在当晚得知另一名邪恶玩家。[会有一名镇民转变为邪恶阵营]"
@@ -13,13 +21,6 @@
     "en": "\"Alone, I walk these streets, paved with the sick stench of corruption. Its thickness worms its way into my nostrils, unbidden, burning with revulsion. And anticipation. The illness of this wretched place grows each night. And I... I am the cure.\"",
     "cn": "“我一个人在这铺满腐败恶臭的街道上行走着。邪恶不请自来，在我的鼻腔里蠕动，将厌恶点燃，将期待烧光。这个令人不悦的地方一天比一天更加病态。而我……我会是这些罪恶的解药。”"
   },
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Marianna Carr",
-  "jinxes": [],
   "examples": {
     "en": [
       "Alex is the Bounty Hunter, Ben is the Harpy, and Abdallah is the Tea Lady. During setup, the Storyteller decides that Abdallah will be the Evil Tea Lady. On the first night, Alex learns Ben. On day 3, Ben is executed. That night, Alex learns Abdallah.",
@@ -55,9 +56,8 @@
     ]
   },
   "how_to_run": {
-    "en": "During setup, turn one Townsfolk character token upside down, to represent that they are evil. Mark one evil player with the KNOW reminder.",
+    "en": "During setup, turn one Townsfolk character token upside down, to represent that they are evil. Mark one evil player with the KNOW reminder.\nDuring the first night, wake the Bounty Hunter. Point to the player marked KNOW. Put the Bounty Hunter to sleep.\nEach time the player marked KNOW dies, mark a new evil player with the KNOW reminder. That night, wake the Bounty Hunter, point to the player marked KNOW, then put the Bounty Hunter to sleep.",
     "cn": "在设置调整阶段，将一名镇民的角色标记倒转放置，表示该玩家是邪恶阵营。将“得知”提示标记放置在一名邪恶玩家的角色标记旁。\n在首个夜晚，唤醒赏金猎人。指向放置“得知”提示标记的玩家，然后让赏金猎人重新入睡。\n每当放置“得知”提示标记的玩家死亡时，将“得知”提示标记放置在一名新的邪恶玩家的角色标记旁。当晚，唤醒赏金猎人，指向放置“得知”提示标记的玩家，然后让赏金猎人重新入睡。\n特别注意：由于赏金猎人会增加一名额外的邪恶玩家，在剧本中加入赏金猎人和其他任何潜在的具有阵营转换能力的角色时需要格外小心——一旦游戏中多于一名玩家能够转变为邪恶，邪恶阵营就能非常容易地获得大多数的投票，即使是邪恶阵营的玩家也不会特别喜欢这一点。我们测试过同时存在赏金猎人和这些角色（莽夫、灵言师、方古、政客和异教领袖）在一个剧本时，一点也不有趣......"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Bounty_Hunter",
-  "image": "assets/tokens/bounty_hunter.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/5/5b/Icon_bountyhunter.png"
 }

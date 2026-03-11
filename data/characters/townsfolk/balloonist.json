@@ -1,10 +1,18 @@
 {
   "id": "balloonist",
-  "type": "townsfolk",
   "name": {
     "en": "Balloonist",
     "cn": "气球驾驶员"
   },
+  "type": "townsfolk",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Anica Kelsen",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Balloonist",
   "ability": {
     "en": "Each night, you learn a player of a different character type than last night. [+0 or +1 Outsider]",
     "cn": "每个夜晚，你会得知一名与上个夜晚得知的玩家角色类型不同的玩家。[+0~1外来者]"
@@ -13,13 +21,6 @@
     "en": "\"More heat! Higher! Higher! Più alto! Ahhh... it is so beautiful from up here, don't you agree? Can you see the children fishing by the river, under the willow? Can you see the  glint of the sun on the circus tent-poles? What's this? An old man, alone, passed out in the vineyard? Less heat! Lower! Lower! Vai più in basso!\"",
     "cn": "“再来点热量！高点！高点！再高点！啊~从这上面往下看，风景真美，你说呢？你能看见孩子们在河边柳树下钓鱼吗？你能看到马戏团帐篷杆上反射的阳光吗？这是什么？一位老人孤身一人在葡萄园里昏倒了？少来点热量！低点！低点！再低点！”"
   },
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Anica Kelsen",
-  "jinxes": [],
   "examples": {
     "en": [
       "Abdallah is the Vizier, Lewis is the High Priestess, and Sarah is the Politician. On the first night, the Balloonist learns Abdallah. On the second night, the Balloonist learns Lewis. On the third night, the Balloonist learns Sarah.",
@@ -57,9 +58,8 @@
     ]
   },
   "how_to_run": {
-    "en": "During setup, you may add an Outsider.",
+    "en": "During setup, you may add an Outsider.\nWhen preparing the first night, mark any player with the KNOW reminder. When preparing each night afterwards, mark a character of a different type than the current with the KNOW reminder.\nEach night, wake the Balloonist. Point to the player marked KNOW. Put the Balloonist to sleep.",
     "cn": "在设置调整阶段，你可以额外增加一名外来者。\n在为首个夜晚进行准备时，将“得知”提示标记放置在任意一名玩家的角色标记旁。之后每个夜晚的准备阶段，将“得知”提示标记放置在一名与当前放置着该提示标记的角色类型不同的玩家角色标记旁。\n每个夜晚，唤醒气球驾驶员。指向被放置“得知”提示标记的玩家。然后让气球驾驶员入睡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Balloonist",
-  "image": "assets/tokens/balloonist.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/c/cb/Icon_balloonist.png"
 }

@@ -1,10 +1,18 @@
 {
   "id": "fortune_teller",
-  "type": "townsfolk",
   "name": {
     "en": "Fortune Teller",
     "cn": "占卜师"
   },
+  "type": "townsfolk",
+  "editions": [
+    "trouble_brewing"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "artist": "John Grist",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Fortune_Teller",
   "ability": {
     "en": "Each night, choose 2 players: you learn if either is a Demon. There is a good player that registers as a Demon to you.",
     "cn": "每个夜晚，你要选择两名玩家：你会得知他们之中是否有恶魔。\n会有一名善良玩家始终被你的能力当作恶魔。"
@@ -13,13 +21,6 @@
     "en": "\"I sense great evil in your soul! But... that could just be your perfume. I am allergic to Elderberry.\"",
     "cn": "“我在你的灵魂中感受到了庞大的恶意！\n但……那可能只是你的香水味道。我对接骨木汁过敏。”"
   },
-  "editions": [
-    "trouble_brewing"
-  ],
-  "first_night": true,
-  "other_nights": false,
-  "artist": "John Grist",
-  "jinxes": [],
   "examples": {
     "en": [
       "The Fortune Teller chooses the Monk and the Undertaker and learns a 'no'.",
@@ -59,9 +60,8 @@
     ]
   },
   "how_to_run": {
-    "en": "While preparing the first night, put the Fortune Teller's RED HERRING reminder token by any good character token, marking that player as the Red Herring.",
+    "en": "While preparing the first night, put the Fortune Teller's RED HERRING reminder token by any good character token, marking that player as the Red Herring.\nEach night, wake the Fortune Teller. The Fortune Teller points at any two players. If either chosen player is a Demon or the Red Herring, nod your head yes. Otherwise, shake your head no. Put the Fortune Teller to sleep.\nIn smaller games, making the Fortune Teller their own Red Herring is sometimes advised, as the Fortune Teller gets more information that way.",
     "cn": "在为首个夜晚进行准备时，将占卜师的“干扰项”提示标记放置在任意善良角色标记旁，标记那名玩家为“干扰项”。\n每个夜晚，唤醒占卜师。让占卜师指向任意两名玩家。如果这两名玩家中任意一名是恶魔或“干扰项”，对占卜师点头表示“是”。否则，摇头表示“否”。让占卜师重新入睡。\n在小型游戏中（指汀西维尔模式），我们建议你在某些情况下将占卜师本人作为“干扰项”，以使占卜师能通过这种方式得到更多信息。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Fortune_Teller",
-  "image": "assets/tokens/fortune_teller.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/9/97/Icon_fortuneteller.png"
 }

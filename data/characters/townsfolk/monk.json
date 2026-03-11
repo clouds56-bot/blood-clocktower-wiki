@@ -1,10 +1,18 @@
 {
   "id": "monk",
-  "type": "townsfolk",
   "name": {
     "en": "Monk",
     "cn": "僧侣"
   },
+  "type": "townsfolk",
+  "editions": [
+    "trouble_brewing"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Monk",
   "ability": {
     "en": "Each night*, choose a player (not yourself): they are safe from the Demon tonight.",
     "cn": "每个夜晚*，你要选择除你以外的一名玩家：当晚恶魔的负面能力对他无效。"
@@ -13,13 +21,6 @@
     "en": "\"'Tis an ill and deathly wind that blows tonight. Come, my brother, take shelter in the abbey while the storm rages. By my word, or by my life, you will be safe.\"",
     "cn": "“今夜吹来的是一股邪恶又致命的风。\n来吧，我的同胞，这风暴过于肆虐，来修道院找寻庇佑吧。\n我保证，我会用性命，护你周全。”"
   },
-  "editions": [
-    "trouble_brewing"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
   "examples": {
     "en": [
       "The Monk protects the Fortune Teller. The Imp attacks the Fortune Teller. No deaths occur tonight.",
@@ -58,9 +59,8 @@
     ]
   },
   "how_to_run": {
-    "en": "Each night except the first, wake the Monk. The Monk points at any player except themself. (If the Monk points at themself, shake your head no and prompt them to point at another player.) Put the Monk to sleep. Put the Monk's SAFE reminder token by the chosen player's character token.",
+    "en": "Each night except the first, wake the Monk. The Monk points at any player except themself. (If the Monk points at themself, shake your head no and prompt them to point at another player.) Put the Monk to sleep. Put the Monk's SAFE reminder token by the chosen player's character token.\nIf the Demon attacks the player marked SAFE, the player remains alive. (Do not mark them with the Demon's DEAD reminder token or add a shroud as you normally would.) At dawn, declare that no one died at night. (Do not say why.)\nAt dawn, remove the SAFE reminder token.\nIn other editions, Demons may have abilities other than killing. The Monk's protection also prevents all other harmful effects of the Demon's ability, such as poisoning or turning the protected player evil.",
     "cn": "除首个夜晚以外的每个夜晚，唤醒僧侣。让僧侣指向除自己外的任意一名玩家。（如果僧侣指向自己，摇头表示否定，并让他指向另一名玩家。）让僧侣重新入睡。将僧侣的“保护”提示标记放置在他选择的玩家角色标记旁。\n如果恶魔攻击了标记有“保护”标记的玩家，玩家仍然会存活。（不要对他进行通常应该进行的放置恶魔“死亡”标记的操作，或放置帷幕标记的操作。）在黎明时，宣布当晚无人死亡。（不要解释原因。）\n在黎明时，移除“保护”提示标记。\n在其他剧本中，恶魔可能会拥有除杀死以外的其他能力。僧侣的保护同样可以阻止恶魔的其他有害效果，例如中毒或将玩家转变为邪恶阵营。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Monk",
-  "image": "assets/tokens/monk.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/7/7c/Icon_monk.png"
 }

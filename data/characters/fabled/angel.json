@@ -1,16 +1,10 @@
 {
   "id": "angel",
-  "type": "fabled",
   "name": {
     "en": "Angel",
     "cn": "天使"
   },
-  "ability": {
-    "en": "Something bad might happen to whoever is most responsible for the death of a new player."
-  },
-  "flavor_text": {
-    "en": "\"Let those who are without sin dare to raise their hand to my chosen, for I shall strike such fools down with the fury and righteousness of a thousand storms.\""
-  },
+  "type": "fabled",
   "editions": [
     "experimental"
   ],
@@ -18,16 +12,29 @@
   "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Angel",
+  "ability": {
+    "en": "Something bad might happen to whoever is most responsible for the death of a new player.",
+    "cn": "对新玩家的死亡负最大责任的人，可能会遭遇一些不好的事情。"
+  },
+  "flavor_text": {
+    "en": "\"Let those who are without sin dare to raise their hand to my chosen, for I shall strike such fools down with the fury and righteousness of a thousand storms.\"",
+    "cn": "“让无罪之人勇于向我所选之人举起手，因为成倍的风暴之怒以及正义终会降临在这群傻瓜身上。”"
+  },
   "examples": {
     "en": [
       "The Angel only protects a player if that player wants it to. Ask for their consent before the game begins.\n\n\nThe “something bad” that happens is up to you. However, it is recommended to either make the penalty that the player dies, that the player loses their ability for a day, or that the player may not vote for a day. A light penalty works much better than a severe one.\n\n\nRemove the Angel on the final day, so that players feel free to execute players protected by the Angel.",
       "The Angel protects Sarah. The Demon attacks and kills her. As punishment, the Demon cannot attack on the next night.",
       "Ben is the Demon and is protected by the Angel. The players do not execute him until the final day, at which point they may execute him without penalty."
+    ],
+    "cn": [
+      "天使保护了小美。恶魔攻击并杀死了她。作为惩罚，恶魔下一个夜晚不能进行攻击。",
+      "小八是恶魔，并且被天使保护了。玩家们直到最后一天才处决他，因为这样他们不会受到惩罚。"
     ]
   },
   "how_to_run": {
-    "en": "At the start of the game, declare that the Angel is in play. Declare which player or players it is protecting, with their consent. Add the Angel token and their reminders to the Grimoire, and mark each protected player with a PROTECTED reminder."
+    "en": "At the start of the game, declare that the Angel is in play. Declare which player or players it is protecting, with their consent. Add the Angel token and their reminders to the Grimoire, and mark each protected player with a PROTECTED reminder.\nIf a player marked PROTECTED dies, something bad happens to the player responsible for the death. You may need to mark their character token with the SOMETHING BAD reminder, to remind you that they are now poisoned, or mad, or can’t vote today, or simply as a reminder to decide on what to do later.\nRemove the Angel at any time, declaring when you do so.\nThe Angel only protects a player if that player wants it to. Ask for their consent before the game begins.\n\n\nThe “something bad” that happens is up to you. However, it is recommended to either make the penalty that the player dies, that the player loses their ability for a day, or that the player may not vote for a day. A light penalty works much better than a severe one.\n\n\nRemove the Angel on the final day, so that players feel free to execute players protected by the Angel.",
+    "cn": "在游戏开始时，宣布天使加入游戏。在征得将要被保护玩家的同意后，宣布将会受到天使保护的一名或多名玩家。将天使标记与相关的提示标记放入魔典中，将“庇护”提示标记放在每一个受到保护的玩家标记旁。\n如果一名标记了“庇护”的玩家死亡，那名对他的死负主要责任的玩家将会遭遇一些不好的事情。你可以用“不好的事”标记该玩家，以提示你他现在已经中毒了，或者是处于疯狂状态，或者是他今天不能投票，或者只是作为提醒，具体效果之后再做决定。\n你可以在任何时候宣布，并将天使移出游戏。\n天使只会保护想要受到保护的玩家。在游戏开始前要征得他们的同意。\n“不好的事”是由你决定的。但我们建议你用死亡、失去能力一天或者是当天不能投票作为惩罚。轻度的惩罚总会比严重的惩罚要来的好一些。\n在游戏的最后一天移除天使，玩家们就可以放心地处决那名原本受天使保护的玩家。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Angel",
-  "image": "assets/tokens/angel.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/c/ca/Icon_angel.png"
 }

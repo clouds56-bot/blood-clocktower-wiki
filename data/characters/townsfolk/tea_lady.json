@@ -1,10 +1,18 @@
 {
   "id": "tea_lady",
-  "type": "townsfolk",
   "name": {
     "en": "Tea Lady",
     "cn": "茶艺师"
   },
+  "type": "townsfolk",
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Tea_Lady",
   "ability": {
     "en": "If both your alive neighbors are good, they can't die.",
     "cn": "如果与你邻近的两名存活的玩家是善良的，他们不会死亡。"
@@ -13,13 +21,6 @@
     "en": "\"If you are cold, tea will warm you. If you are too heated, tea will cool you. If you are depressed, tea will cheer you. If you are excited, tea will calm you.\"",
     "cn": "“若你感到寒冷，茶能使你温暖。\n若你感到愤怒，茶能使你冷静。\n若你感到沮丧，茶能使你振奋。\n若你感到激动，茶能使你镇定。”"
   },
-  "editions": [
-    "bad_moon_rising"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
   "examples": {
     "en": [
       "The Tea Lady starts the game neighbouring the Mastermind and the good Goon. The Mastermind is executed and dies. Now, the Tea Lady's alive neighbours are the good Goon and the Courtier. The Demon attacks the Courtier, but the Courtier remains alive. Later, the Goon turns evil, and the Demon attacks the Courtier again. This time, the Courtier dies.",
@@ -47,9 +48,8 @@
     ]
   },
   "how_to_run": {
-    "en": "If both alive neighbours of the Tea Lady are good, mark those neighbours’ character tokens with the Tea Lady’s CANNOT DIE reminders. If either alive neighbour of the Tea Lady is evil, remove these reminders. Update these reminders immediately based on this condition throughout the entire game (such as if a player’s alignment changes).",
+    "en": "If both alive neighbours of the Tea Lady are good, mark those neighbours’ character tokens with the Tea Lady’s CANNOT DIE reminders. If either alive neighbour of the Tea Lady is evil, remove these reminders. Update these reminders immediately based on this condition throughout the entire game (such as if a player’s alignment changes).\nIf a player marked CANNOT DIE would die, they remain alive. If a player marked CANNOT DIE is executed, declare that the marked player is executed but remains alive. (Do not say why.)",
     "cn": "如果茶艺师邻近的两名存活玩家都是善良的，将茶艺师的“不会死亡”提示标记放置到这两名玩家的角色标记旁。如果茶艺师邻近的两名存活玩家中有任何一个是邪恶的，移除这些提示标记。根据这个条件在整局游戏中随时更新这些提示标记（例如一名玩家的阵营改变了）。\n如果一名标有“不会死亡”的玩家将要死去，该玩家依然存活。如果一名标有“不会死亡”的玩家被处决，宣布该玩家被处决但依然存活。（不要说明原因。）"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Tea_Lady",
-  "image": "assets/tokens/tea_lady.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/1/16/Icon_tealady.png"
 }

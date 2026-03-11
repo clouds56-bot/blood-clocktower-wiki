@@ -1,0 +1,27 @@
+{
+  "id": "mr_misfortune",
+  "name": {
+    "en": "Mr. Misfortune",
+    "cn": "煞星"
+  },
+  "type": "experimental",
+  "editions": [
+    "experimental"
+  ],
+  "source_url": "https://clocktower-wiki.gstonegames.com/index.php?title=%E7%85%9E%E6%98%9F",
+  "ability": {
+    "cn": "如果你死亡，当晚与你邻近的存活玩家之一可能会死亡。"
+  },
+  "flavor_text": {
+    "cn": "“曾有游方术士言我天煞孤星命格，近则不幸。愚昧无知！世事无常，与吾何干！”"
+  },
+  "examples": {
+    "cn": [
+      "恶魔攻击了煞星，煞星死亡。说书人决定不触发煞星的能力。当晚只有煞星死亡。",
+      "月之子死于处决，并选择了煞星。当晚，煞星死亡，且与他相邻的邪恶镇长也一同死亡。"
+    ]
+  },
+  "how_to_run": {
+    "cn": "如果煞星死亡，决定是否触发煞星的能力。如果煞星的能力被触发，则在当晚，额外选择一名玩家，并用“死亡”提示标记标记这名玩家。\n在黎明时，如常宣布当晚死亡的玩家。（但不要说明死亡原因。）"
+  }
+}

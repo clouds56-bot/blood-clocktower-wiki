@@ -1,10 +1,18 @@
 {
   "id": "undertaker",
-  "type": "townsfolk",
   "name": {
     "en": "Undertaker",
     "cn": "送葬者"
   },
+  "type": "townsfolk",
+  "editions": [
+    "trouble_brewing"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Undertaker",
   "ability": {
     "en": "Each night*, you learn which character died by execution today.",
     "cn": "每个夜晚*，你会得知今天白天死于处决的玩家的角色。"
@@ -13,13 +21,6 @@
     "en": "\"Hmmm....what have we here? The left boot is worn down to the heel, with flint shavings under the tongue. This is the garb of a Military man.\"",
     "cn": "“嗯……看看我们发现了什么？左靴到足跟都有磨损，靴尖下还有些硝石屑。这是军人才会有的装束。”"
   },
-  "editions": [
-    "trouble_brewing"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
   "examples": {
     "en": [
       "The Mayor is executed today. That night, the Undertaker is shown the Mayor token.",
@@ -64,9 +65,8 @@
     ]
   },
   "how_to_run": {
-    "en": "If a player dies by execution, put the Undertaker's DIED TODAY reminder token by the dead player's character token.",
+    "en": "If a player dies by execution, put the Undertaker's DIED TODAY reminder token by the dead player's character token.\nEach night except the first, if any player died by execution today, wake the Undertaker. Show the character token marked DIED TODAY to the Undertaker. Put the Undertaker to sleep. Remove the Undertaker's reminder token when convenient.\nIn Trouble Brewing, there can only be one execution per day, and every execution causes a player to die. In other editions, there may be more than one execution per day (in which case the Storyteller chooses which character to show the Undertaker) or the execution does not cause a death (in which case the Undertaker learns nothing).",
     "cn": "如果一名玩家死于处决，将送葬者的“死于今日”提示标记放置在那名死亡玩家的角色标记旁。\n除首个夜晚以外的每个夜晚，如果当天有任何玩家死于处决，唤醒送葬者。向他展示被标记了“死于今日”的角色标记。让送葬者重新入睡。在说书人方便的时候，移除送葬者的提示标记。\n在《暗流涌动》里，每个白天只会有一场处决，且每次处决都会导致一名玩家死亡。在其他剧本中，每天可能会有多于一次的处决（在这种情形下由说书人决定向送葬者展示其中的哪一个角色标记），或发生了处决但并未导致死亡（在这种情形下送葬者不会得知任何消息）。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Undertaker",
-  "image": "assets/tokens/undertaker.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/0/05/Icon_undertaker.png"
 }

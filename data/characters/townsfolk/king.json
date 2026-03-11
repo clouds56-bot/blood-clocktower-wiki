@@ -1,10 +1,18 @@
 {
   "id": "king",
-  "type": "townsfolk",
   "name": {
     "en": "King",
     "cn": "国王"
   },
+  "type": "townsfolk",
+  "editions": [
+    "experimental"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "artist": "John Grist",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/King",
   "ability": {
     "en": "Each night, if the dead equal or outnumber the living, you learn 1 alive character. The Demon knows you are the King.",
     "cn": "每个夜晚，如果死亡的玩家数量大于或等于存活的玩家数量，你会得知一个存活的角色。\n恶魔知道你是国王。"
@@ -13,13 +21,6 @@
     "en": "\"↑Betwixt the unknown strains of mortal strife→\n                And morbid night, sweet↓ with mystery and woe\n                ←Lies unfettered joys of fate’s long and colored life\n                Who’s garden blooms with each painted Face to Show.\"",
     "cn": "“未知纷扰让致命冲突重负难堪\n在不祥之夜将神秘与悲伤盈满\n欢喜或曾无羁于漫长多彩世间\n谁的花园遍地绽放着彩绘的脸”"
   },
-  "editions": [
-    "experimental"
-  ],
-  "first_night": true,
-  "other_nights": false,
-  "artist": "John Grist",
-  "jinxes": [],
   "examples": {
     "en": [
       "Think carefully about what character tokens to show the King. Don’t be afraid to give great information. Most Kings will die before the final day. A King that lives to the final day will usually win, and that’s ok.",
@@ -50,9 +51,8 @@
     ]
   },
   "how_to_run": {
-    "en": "During the first night, wake the Demon. Show them the THIS PLAYER IS info token, then the King token, then point at the King player. Put the Demon to sleep.",
+    "en": "During the first night, wake the Demon. Show them the THIS PLAYER IS info token, then the King token, then point at the King player. Put the Demon to sleep.\nWhen the number of dead players equals or exceeds the number of alive players, add a night token to the King’s entry on the night sheet.\nEach night, if the King has a night token on the night sheet, wake the King. Show one alive character token. Put the King to sleep.\nThink carefully about what character tokens to show the King. Don’t be afraid to give great information. Most Kings will die before the final day. A King that lives to the final day will usually win, and that’s ok.",
     "cn": "在首个夜晚时，唤醒恶魔。对他展示“这名玩家是”信息标记，然后展示国王角色标记，然后指向角色为国王的玩家。让恶魔重新入睡。\n当死亡玩家的数量大于或等于存活玩家的数量时，在夜晚顺序表的国王顺序旁添加一个夜晚标记。\n每个夜晚，如果夜晚顺序表的国王顺序旁有夜晚标记，那么唤醒国王。对他展示一个存活玩家的角色标记。让国王重新入睡。\n仔细思考你需要给国王展示哪一个角色标记。不要担心给出大量的信息。绝大多数国王都会在最后一天到来前死亡，而如果一名国王活到了最后一天，那么他通常都能够获胜，这也是没问题的。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/King",
-  "image": "assets/tokens/king.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/d/dc/Icon_king.png"
 }

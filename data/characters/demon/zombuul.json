@@ -1,0 +1,57 @@
+{
+  "id": "zombuul",
+  "name": {
+    "en": "Zombuul",
+    "cn": "僵怖"
+  },
+  "type": "demon",
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Zombuul",
+  "ability": {
+    "en": "Each night*, if no-one died today, choose a player: they die. The 1st time you die, you live but register as dead.",
+    "cn": "每个夜晚*，如果今天白天没有人死亡，你会被唤醒并要选择一名玩家：他死亡。\n当你首次死亡后，你仍存活，但会被当作死亡。"
+  },
+  "flavor_text": {
+    "en": "\"I do not. Understand. Your ways. Fellow human. Show me. The dirt. Where the holy. Lay. Sleeping. I too. Must sleep. Soon.\"",
+    "cn": "“我不。明白。你的。方式。人类。同类。向我。指引。泥土。那是。圣地。静卧。安睡。我也。必须。长眠。立刻。”"
+  },
+  "examples": {
+    "en": [
+      "The Zombuul is executed and appears to die. They cannot attack tonight. A few days later, only two players appear alive on the Town Square. The good team is fairly certain that one of the dead players is the Zombuul, and the game continues until one more player dies.",
+      "Nobody died today. That night, the Zombuul attacks. The next day, the Tinker dies. That night, the Zombuul does not wake."
+    ],
+    "cn": [
+      "僵怖被处决且看起来已经死亡。僵怖当晚不能发动攻击。数天后，城镇广场看起来只剩两名玩家存活。善良阵营相当确定僵怖就是已死亡玩家中的一名，并且游戏继续，直到再有一名玩家死亡。",
+      "今天白天无人死亡。当晚，僵怖发动攻击。在下一个白天，修补匠死亡。当晚，僵怖不会被唤醒。"
+    ]
+  },
+  "tips": {
+    "en": [
+      "The sinister Zombuul is the deadliest Demon in Bad Moon Rising for its stealth and survivability. The Shabaloth and Po may kill many and the Pukka may strike with their poison, but they are all disappointingly fragile when the town eventually uncovers them. Not so for you - you're hard to find and harder to kill, and your patience is legendary; you're content to lie among the dead and listen peacefully as the town tears themselves apart looking for a Demon among the living, not ever suspecting that one of the rotting corpses in the graveyard still draws breath. The good team should pray you're not the Demon they're facing, because then no player is safe; the dead and the living alike are all equally and terrifyingly suspect.",
+      "You only have the ability to kill at night if nobody has died during the day. This can be difficult, since even though players are dying, it is primarily the good team that is killing them, meaning that a troublesome Exorcist or Courtier hovering around may continue to survive when you badly need them gone. One way to work around this limitation is to speak up for no executions, but the good team may find that suspicious and start questioning your allegiance if you push for that too often. A more reasonable strategy is to encourage executions that you don't think will cause death - for example, a Sailor claim, or the neighbours of a Tea Lady. This gives the good team information, but will also grant you your precious kill... providing the Tinker doesn't drop dead in the middle of the day, anyway. You could also (probably only once) argue for a Mastermind, leveraging the good team's paranoia about whether or not they killed the Demon to have them hold off for a night rather than risking losing the game.",
+      "Kill yourself, and hide in plain sight as a dead player! This can be especially effective if the good team thinks a different Demon is in play, since they will ignore the dead as suspects and focus on the living. Even if they do suspect you, choosing to die at the right moment can throw them off your trail - for example, get yourself executed early to \"test\" your Sailor immunity, and blame a Pukka for your death. Alternatively and more simply, you can just choose yourself and die at night - players who die at night tend to be good and considered trustworthy. Finally, you can coordinate with your Godfather to take you out at an opportune time, making it look like there isn't a Zombuul in play and that you are an innocent victim of circumstance. Then, you can use your death as a platform to spread misinformation and confuse the good team... or simply sit back and watch the game unfold.",
+      "Rather than dying early, you can instead decide to be a sophisticated undead who lives among the people and lives as long as possible! Surviving this way has several advantages - for one, you can keep bluffing and giving out new information, helping mislead the good team. You're guaranteed to survive death at least once, so you have a backup in the event that suspicion turns on you. Finally, if the good team starts to suspect that you are the Demon in play, you can direct their suspicions to the dead - if they spend an execution or two on your victims, that's an execution or two they can't use on you!"
+    ],
+    "cn": [
+      "邪恶的僵怖因其隐匿性和生存能力而成为黯月初升中最致命的恶魔。沙巴洛斯和珀可能会杀死许多人，而普卡可能会让你被毒药侵扰，但当小镇确定它们在场时，它们都脆弱得令人失望。但对你来说不是这样——你很难被找到也更难被杀死，你的耐心是恐怖的；你会满足于躺在死者中间，静静地听着小镇分崩离析，在活人中寻找恶魔，从没想过墓地里的一具腐烂的尸体还在呼吸。善良阵营应该祈祷你不是他们所面对的恶魔，因为那样的话没有玩家是安全的；死者和生者都同样令人恐惧。",
+      "你只有在白天没有人死亡时才有晚上杀人的能力。这可能很困难，因为即使玩家被提名，处决他们的大多数人仍然是善良玩家，这意味着当你急需他们死亡时，麻烦的驱魔人或侍臣可能仍然活着。解决这个麻烦的一种方法是大声引导不执行任何处决，但如果您过于频繁地这样做，善良阵营可能会发现这很可疑并开始质疑您的角色。更合理的策略是鼓励处决您认为不会导致死亡的处决——例如，清醒的水手或茶艺师的邻居. 这提供了善良阵营清楚的信息，但也将给予你宝贵的杀戮......无论如何，只要修补匠不会在白天死去。你也可以（可能只有一次）引导主谋在场的言论，利用善良阵营对是否杀死恶魔的怀疑，让他们推迟一晚，而不是冒着输掉比赛的风险。",
+      "杀死自己，然后像死去的玩家一样躲在众人的视线中！如果善良玩家认为另一个恶魔在场，这可能特别有效，因为他们不会将死者视为嫌疑人而将注意力集中在生者身上。即使他们确实怀疑你，选择在正确的时间死去也可以让他们减少对你的怀疑——例如，让自己早日被处决以“测试”你的水手不死能力，并将你的死归咎于普卡。或者更简单地说，你可以选择自己并在晚上死去——在晚上死去的玩家往往是善良的并且被认为是值得信赖的。最后，你可以配合你的教父在适当的时候送你出去，让大家看起来好像没有僵怖在游戏中，你是游戏的无辜受害者。然后，您可以利用您的死亡作为传播错误信息的平台并迷惑优秀团队......或者只是坐下来观看比赛的展开。",
+      "与其过早死去，不如决定做一个老练的生存者，活在人间，活得越久越好！以这种方式生存有几个优势——其中之一，你可以不断地虚张声势并提供新​​信息，从而误导善良阵营。你可以保证至少在死亡中幸存一次，所以你有一个plan b，以防万一大家怀疑你。最后，如果善良阵营开始怀疑你是游戏中的恶魔，你可以将他们的怀疑引向其他死者——如果他们对其他人执行一两次死刑，那你就可以逃过一两次死刑！",
+      "注意死亡发生的时间和原因。如果晚上有人死亡，但不是在玩家被处决后死亡，那么几乎可以肯定你中间有一个僵怖。一旦你知道了这一点，你可以执行以下操作...",
+      "怀疑死者。处决你最怀疑的死者。与死者交谈，找出谁的话最没有意义，并专注于那些玩家。你不确定僵怖是死玩家之一，但这是一个很好的起点。如果你能尽早确认某些死去的玩家不是僵怖，那么你将在游戏后期获得优势。",
+      "每天处决。即使你杀死了善良玩家，至少这也比不处决任何人并让恶魔选择谁死要好。",
+      "在最后一天，僵怖出现在生者中的可能性很小。至此，大多数僵怖会在晚上自杀，或者只是运气不好被处决。由于僵怖的杀戮频率远低于其他恶魔，因此在最后一天黎明时它已经死亡的可能性很高。如果您没有其他信息，请确保游戏的最终处决是对死玩家的处决。"
+    ]
+  },
+  "how_to_run": {
+    "en": "The first time the Zombuul would die, they remain alive. Declare that they died, but do not add a shroud to the Zombuul. (Flip the life token on the Town Square, as normal.) From now on, the\nZombuul registers as dead.\nEach day, if a player dies, mark them with the DIED TODAY reminder. (If the Zombuul “dies” by execution, they register as dead, so mark the Zombuul with the DIED TODAY reminder.)\nEach night except the first, if any player is marked DIED TODAY, do not wake the Zombuul.\nEach night except the first, if no player is marked DIED TODAY, wake the Zombuul. They point at any player. Put the Zombuul to sleep. The chosen player dies—mark them with the DEAD reminder.",
+    "cn": "当僵怖首次死亡后，他依然存活。宣布僵怖已经死亡，但是不要在魔典中给僵怖添加帷幕标记。（如常将城镇广场上他的生命标记翻面。）从现在起，僵怖被当作已死亡。\n每个白天，如果有玩家死亡，将“死于今日”提示标记放置到该玩家的角色标记旁。（如果僵怖因处决而“死亡”，会被当作已死亡，因此要给僵怖放置“死于今日”提示标记。）\n除了首个夜晚以外的每个夜晚，如果有任何玩家标有“死于今日”，不要唤醒僵怖。\n除了首个夜晚以外的每个夜晚，如果没有玩家标有“死于今日”，唤醒僵怖。让僵怖指向任意一名玩家。让僵怖重新入睡。所选玩家死亡——将“死亡”提示标记放置到该玩家的角色标记旁。"
+  },
+  "token_url": "https://wiki.bloodontheclocktower.com/images/1/15/Icon_zombuul.png"
+}

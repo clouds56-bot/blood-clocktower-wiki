@@ -1,18 +1,10 @@
 {
   "id": "shugenja",
-  "type": "townsfolk",
   "name": {
     "en": "Shugenja",
-    "cn": "阴阳师"
+    "cn": "修行者"
   },
-  "ability": {
-    "en": "You start knowing if your closest evil player is clockwise or anti-clockwise. If equidistant, this info is arbitrary.",
-    "cn": "在你的首个夜晚，你会得知两个善良角色和两个邪恶角色，其中有且只有两个角色在场。"
-  },
-  "flavor_text": {
-    "en": "これは夢。それも夢。すべて夢です。",
-    "cn": "“玄武大帝在眼前，神归庙，鬼归坟，妖魔鬼怪归山林，玄武真君急急如律令！”"
-  },
+  "type": "townsfolk",
   "editions": [
     "experimental"
   ],
@@ -20,15 +12,23 @@
   "other_nights": false,
   "artist": "Chloe McDougall",
   "jinxes": [],
+  "source_url": "https://wiki.bloodontheclocktower.com/Shugenja",
+  "ability": {
+    "en": "You start knowing if your closest evil player is clockwise or anti-clockwise. If equidistant, this info is arbitrary.",
+    "cn": "在你的首个夜晚，你会得知距离最近的邪恶玩家位于你的顺时针还是逆时针方向。如果两侧的邪恶玩家与你距离相等，你得知的信息由说书人决定。"
+  },
+  "flavor_text": {
+    "en": "これは夢。それも夢。すべて夢です。",
+    "cn": "“此即梦境。彼亦梦境。所见之物，非此即彼。”"
+  },
   "examples": {
     "en": [
       "The Organ Grinder is 2 steps away from the Shugenja in a clockwise direction. The Fearmonger is 3 steps away from the Shugenja in an anti-clockwise direction. The Shugenja wakes and learns that the closest evil player is in a clockwise direction.",
       "The Marionette is 1 step away from the Shugenja in  a clockwise direction. The Widow is 1 step away from the Shugenja in an anti-clockwise direction. The Shugenja wakes and the Storyteller chooses to tell the Shugenja that the closest evil player is in a clockwise direction."
     ],
     "cn": [
-      "阴阳师得知了占卜师、莽夫、洗脑师和痢蛭。其中莽夫和洗脑师在场。",
-      "阴阳师得知了士兵、送葬者、女巫和灵言师。小黑是陌客，被阴阳师当作女巫。小明是间谍，被阴阳师当作送葬者。",
-      "第三个夜晚，麻脸巫婆将猎手变成了阴阳师。当晚方古攻击了畸形秀演员，老方古死亡，畸形秀演员变成了新的方古。随后，阴阳师得知了钟表匠、畸形秀演员、麻脸巫婆和方古。其中麻脸巫婆和方古在场。"
+      "街头风琴手在修行者左侧方向上且距离为2。恐惧之灵在修行者右侧方向上且距离为3。修行者被唤醒，并得知与他距离最近的邪恶玩家位于左侧。",
+      "提线木偶在修行者左侧方向上且距离为1。寡妇在修行者右侧方向上且距离也为1。修行者被唤醒，说书人决定让修行者得知与他距离最近的玩家位于左侧。"
     ]
   },
   "tips": {
@@ -42,12 +42,22 @@
       "Reveal your information late. If an evil player feels outed or that they have strong information on them early, they will often avoid speaking to their fellow evil team. You want to wait and watch so you can see who your suspected evil candidates speak to in order to try to follow this branch to the source, the Demon.",
       "If you find an evil player in the direction you were given, you’ve confirmed at least one player in the other direction. You can now trust this player implicitly based on your information and should take advantage of this to work together for the rest of the game.",
       "Lie to your neighbours (or everyone) about your information to see how they react. An evil player hearing this will obviously know you are either bluffing or have bad information through drunk or poisoning, but it’s in their interests to play along as it allows them to push using your info to get good players in the other direction from you executed. See who responds to your information and how to try to get a read on who seems overly invested in following through on where it points."
+    ],
+    "cn": [
+      "通常来说，应该优先假设你的信息不是由于邪恶玩家与你距离相等而产生的随机信息，因为这种情况的可能性远比实际上有邪恶玩家在某一侧靠近你的可能性要小得多。当然你也需要牢记这种极小的可能性，但作为逻辑起点来说，一般最好假设你得知的信息是真实的，并以此为基础展开推理。",
+      "比如说，你得知距离最近的邪恶玩家位于你的顺时针方向，那么你很可能会马上开始信任位于你的逆时针方向的玩家。因为你的信息证明他们很可能是善良玩家，所以你可以优先与他们接触并建立互信，并且你还应该关注另一个方向上你们共同的敌人。",
+      "如果你在一段时间的状态解读后感觉与你左右邻近的玩家都是善良的，你可以进一步向外移动，分析你的邻近玩家的邻近玩家们对你说的话。如果你非常肯定其中一个方向有邪恶玩家，那意味着你可以信任与你邻近的两名玩家，还可以信任在另一个方向上从你的邻近玩家数过去的两名玩家。",
+      "如果你的信息确实不对，并且你认为周围的玩家无法信任，那么你该考虑邪恶玩家与你距离相等的可能性了。观察与你距离相等的每一对玩家——他们的行为是否能做成邪恶队友：他们之间有没有进行过对话，他们的信息是否互相绑定但没有其他信息证明，他们是否一起投票，他们是否在没有充分理由的时候就开始互信与合作？",
+      "有时候你会感觉你的信息非常模糊。在顺时针方向上的那名邻近玩家是邪恶的吗？还是挨着他的那名玩家是邪恶的？或者甚至可能是再数过去的那名玩家？或者说其实得到的是随机信息，实际上有一对邪恶玩家与我距离相等？重要的是，游戏进行的时间越长，你可以收集到的佐证就越多，然后就可以进一步缩小选择邪恶玩家的范围。毕竟，除非邪恶玩家的位置在游戏中发生了改变，你的信息在三人决赛的时候与在第一天的时候同样有用，都可以用来缩小可能存在邪恶玩家的范围。",
+      "尽早公开你的信息。这能让其他玩家根据那些与你邻近的值得信任的玩家来相应地确定自己能力的目标，并且他们可以利用你的信息去缩小邪恶玩家候选人的范围。这种做法还能在场上缺少其他信息指引的时候，让玩家们在潜意识里更倾向于处决你所得知的那个方向上的玩家。",
+      "推迟公开你的信息。如果邪恶玩家感觉自己已经暴露，或者在游戏初期就有大量信息指向自己，那么他通常会避免与其他邪恶玩家交流。为了得知你所怀疑的邪恶玩家候选人会与谁交谈，你会想要隐藏信息并进行观察，从而顺藤摸瓜，找出恶魔。",
+      "如果你已经在你得知的方向上找出邪恶玩家，那么你能够确定在另一个方向上至少有一个好人。现在你可以基于你的信息无条件地信任那名玩家，并且应当利用这种信任在游戏的剩余时间里努力协作。",
+      "向与你邻近的玩家，或者向所有人谎报你的信息，看看他们会有什么反应。听到虚假信息的邪恶玩家显然会知道你要么在扯谎，要么是醉酒或中毒，但这符合他们的利益，因为他们可以利用这个信息去推动玩家们处决错误方向上的善良玩家。注意观察谁对你的信息做出了回应，以及你要怎样去试图了解谁看起来正在过度投入于遵循错误方向的逻辑线。"
     ]
   },
   "how_to_run": {
     "en": "During the first night, wake the Shugenja. If the closest evil player is in a clockwise direction, point your finger horizontally in that direction. If the closest evil player is in an anti-clockwise direction, point your finger horizontally in that direction. If the two closest evil players are equidistant, point your finger horizontally in either direction. Put the Shugenja to sleep.",
-    "cn": "在为首个夜晚进行准备时，决定要为阴阳师提供的四个角色分别是什么。这四个角色需要满足其中两个是善良角色，而另两个是邪恶角色，且正好只有两个角色在场。将阴阳师的“在场”提示标记放置到那两个在场的角色标记旁，将另两个不在场的角色标记放置在魔典的角落里，并用“不在场”提示标记标记这两个角色。\n在首个夜晚，唤醒阴阳师，向阴阳师展示这四个提示标记所对应的角色标记。让阴阳师重新入睡。"
+    "cn": "在首个夜晚，唤醒修行者。用手指水平指向修行者的某一侧，告诉他与他距离最近的邪恶玩家位于这一侧。如果修行者两侧最近的邪恶玩家与他的距离相等，由你来决定告诉他什么样的信息，并用手指指向对应的一侧。让修行者重新入睡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Shugenja",
-  "image": "assets/tokens/shugenja.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/1/11/Icon_shugenja.png"
 }
