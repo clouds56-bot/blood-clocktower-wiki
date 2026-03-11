@@ -1,15 +1,70 @@
 {
   "id": "innkeeper",
+  "type": "townsfolk",
   "name": {
     "en": "Innkeeper",
+    "es-419": "Posadero",
+    "sv": "Gästgivaren",
+    "zh-Hans": "旅店老板",
     "cn": "旅店老板"
   },
-  "type": "townsfolk",
+  "ability": {
+    "en": "Each night*, choose 2 players: they can't die tonight, but 1 is drunk until dusk.",
+    "es-419": "Cada noche*, escoge 2 jugadores: ellos no pueden morir esta noche, pero 1 de ellos está borracho hasta el siguiente anochecer.",
+    "sv": "Varje natt* väljer du 2 spelare; de kan inte dö inatt, men 1 är full till skymningen.",
+    "zh-Hans": "每个夜晚*，你要选择两名玩家：他们当晚不会死亡，但其中一人会醉酒到下个黄昏。",
+    "cn": "每个夜晚*，你要选择两名玩家：他们当晚不会死亡，但其中一人会醉酒到下个黄昏。"
+  },
+  "flavor_text": {
+    "en": "\"Come inside, fair traveller, and rest your weary bones. Drink and be merry, for the legions of the Dark One shall not harass thee tonight.\"",
+    "es-419": "Ven, pasa, buen viajero, y descansa tus cansados huesos. Bebe y diviértete, pues las legiones del Señor Oscuro no te acosarán esta noche.",
+    "sv": "Kom in, kära vandrare, och vila dina trötta ben. Drick och var glad, för den ondas härar kommer inte ofreda dig inatt.",
+    "zh-Hans": "到里头来，美丽的旅者，放松筋骨，好好歇息。尽管饮酒作乐，黑暗之物今夜无法伤你分毫。",
+    "cn": "“到里头来，美丽的旅者，放松筋骨，好好歇息。尽管饮酒作乐，黑暗之物今夜无法伤你分毫。”"
+  },
+  "other_nights": {
+    "en": "The Innkeeper chooses 2 players. :reminder: :reminder: :reminder:",
+    "es-419": "El Posadero escoge 2 jugadores. :reminder: :reminder: :reminder:",
+    "sv": "Gästgivaren väljer 2 spelare. :reminder: :reminder: :reminder:",
+    "zh-Hans": "旅店老板选择任意两名玩家。 :reminder: :reminder: :reminder:"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Innkeeper",
+  "how_to_run": {
+    "cn": "除了首个夜晚以外的每个夜晚，唤醒旅店老板。让旅店老板指向任意两名玩家。让旅店老板重新入睡。将“不会死亡”提示标记放置到所选的两个角色标记旁。所选玩家其中一人醉酒——将“醉酒”提示标记放置到该玩家的角色标记旁。标有“不会死亡”的玩家当晚不会死亡。\n在黎明，移除“不会死亡”提示标记。\n在黄昏，移除“醉酒”提示标记。",
+    "en": "Each night except the first, wake the Innkeeper. They point at any two players. Put the Innkeeper to sleep. Mark the two chosen players with SAFE reminders. One of the chosen players becomes drunk—mark them with the DRUNK reminder. The players marked SAFE cannot die tonight.\nAt dawn, remove the SAFE reminders.\nAt dusk, remove the DRUNK reminder."
+  },
+  "examples": {
+    "cn": [
+      "旅店老板保护了弄臣和侍女。说书人选择让弄臣醉酒。明天，当弄臣被处决时，他会死亡，即使他还没有使用自己的能力。",
+      "旅店老板保护了刺客和珀。说书人选择让刺客醉酒。当晚的后续时段中，刺客使用了自己的能力，但是无事发生。",
+      "旅店老板保护了他自己和和平主义者。说书人选择让旅店老板醉酒。当晚，恶魔攻击了和平主义者，和平主义者死亡。"
+    ],
+    "en": [
+      "The Innkeeper protects the Fool and the Chambermaid. The Storyteller chooses that the Fool becomes drunk. Tomorrow, when the Fool is executed, they die, even though they hadn’t used their ability yet.",
+      "The Innkeeper protects the Assassin and the Po. The Storyteller chooses that the Assassin becomes drunk. Later that night, the Assassin uses their ability, but nothing happens.",
+      "The Innkeeper protects themself and the Pacifist. The Storyteller chooses that the Innkeeper becomes drunk. The Pacifist is attacked by the Demon tonight and dies."
+    ]
+  },
+  "tips": {
+    "cn": [
+      "你的能力很强大，如果有效使用，你可以阻止邪恶阵营的侵害，并保护善良玩家的安全。然而，这是有代价的——任何受你保护的人都变得不可靠，因为他们可能会在幸存的那晚醉酒。与强力的玩家合作，保护关键的角色，这非常重要——某些角色（例如和平主义者和驱魔人）生存时间越长越强大。",
+      "注意你的能力会导致醉酒！不要保护在当晚需要接收可靠信息的人或那些将使用他们能力的人。例如，如果你知道一个侍臣即将使用他们的能力，你保护他们可能会导致他们醉酒因此浪费他们的强大能力！",
+      "你保护的人，与你公开声称要保护的人，可以不一样。因为如果邪恶阵营相信你说的话，他们不会想浪费时间瞄准那些不能被杀死的玩家。同时，你秘密地保护其他可能成为受害者的玩家，希望他们能免遭杀戮。",
+      "用自己的能力保护自己似乎是个好主意，但通常不建议这样做——因为说书人很可能会选择让你醉酒，让你的保护完全失效，这样你和另一个玩家都会很危险。",
+      "如果你认为你至少辨别了2个邪恶的玩家，请同时选择他们！保护他们免于死亡并不理想，但这确实意味着他们中的一个会在那天晚上醉酒。如果你设法抓住了恶魔或像刺客或魔鬼代言人这样的强大爪牙，你就从源头上切断了邪恶的能力！但是，如果你选错了，那么大概率就是善良玩家醉酒了。"
+    ],
+    "en": [
+      "Your ability is powerful and when used effectively you can stall the evil team and keep your fellow good team safe. The price of your ability is steep, however - anyone protected by you becomes unreliable as they may be drunk for the night that they survive. Coordinating with your fellow good players to find ideal targets to protect is absolutely vital - some characters (such as the Pacifist and the Exorcist) become stronger the longer they survive, and you can enable that.",
+      "Be mindful of the drunkenness your ability causes! Don't protect people who need to receive reliable information or use their ability with any sort of guarantee that night. If you know for example that a Courtier is about to use their ability, you protecting them may cause them to become drunk and waste their powerful ability!",
+      "Protect different people than who you publicly claim to be protecting. If the evil team believes what you are saying, they will not want to waste time targeting players who can't be killed. Meanwhile, you secretly protect other players that are potential victims, hopefully blocking the evil team from a necessary kill.",
+      "It can seem like a good idea to protect yourself using your ability, but this is generally not recommended - it is likely that the Storyteller will choose to make you drunk by your own ability, completely negating your protection and making both you and the other player vulnerable.",
+      "If you think you know at least 2 evil players, select them both! Guarding them from death isn't ideal, but it does mean that one of them will be drunk that night. If you manage to get your hands on the Demon or a potent Minion like the Assassin or the Devil's Advocate, you're cutting off evil abilities at source! If you miss, though, you can almost guarantee that whichever player is good will be drunk."
+    ]
+  },
+  "url_param": "Innkeeper",
   "editions": [
     "bad_moon_rising"
   ],
-  "first_night": false,
-  "other_nights": true,
   "artist": "John Grist",
   "jinxes": [
     {
@@ -21,46 +76,5 @@
       "reason": "If Riot nominates and executes an Innkeeper-protected player, good wins."
     }
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Innkeeper",
-  "ability": {
-    "en": "Each night*, choose 2 players: they can't die tonight, but 1 is drunk until dusk.",
-    "cn": "每个夜晚*，你要选择两名玩家：他们当晚不会死亡，但其中一人会醉酒到下个黄昏。"
-  },
-  "flavor_text": {
-    "en": "\"Come inside, fair traveller, and rest your weary bones. Drink and be merry, for the legions of the Dark One shall not harass thee tonight.\"",
-    "cn": "“到里头来，美丽的旅者，放松筋骨，好好歇息。尽管饮酒作乐，黑暗之物今夜无法伤你分毫。”"
-  },
-  "examples": {
-    "en": [
-      "The Innkeeper protects the Fool and the Chambermaid. The Storyteller chooses that the Fool becomes drunk. Tomorrow, when the Fool is executed, they die, even though they hadn’t used their ability yet.",
-      "The Innkeeper protects the Assassin and the Po. The Storyteller chooses that the Assassin becomes drunk. Later that night, the Assassin uses their ability, but nothing happens.",
-      "The Innkeeper protects themself and the Pacifist. The Storyteller chooses that the Innkeeper becomes drunk. The Pacifist is attacked by the Demon tonight and dies."
-    ],
-    "cn": [
-      "旅店老板保护了弄臣和侍女。说书人选择让弄臣醉酒。明天，当弄臣被处决时，他会死亡，即使他还没有使用自己的能力。",
-      "旅店老板保护了刺客和珀。说书人选择让刺客醉酒。当晚的后续时段中，刺客使用了自己的能力，但是无事发生。",
-      "旅店老板保护了他自己和和平主义者。说书人选择让旅店老板醉酒。当晚，恶魔攻击了和平主义者，和平主义者死亡。"
-    ]
-  },
-  "tips": {
-    "en": [
-      "Your ability is powerful and when used effectively you can stall the evil team and keep your fellow good team safe. The price of your ability is steep, however - anyone protected by you becomes unreliable as they may be drunk for the night that they survive. Coordinating with your fellow good players to find ideal targets to protect is absolutely vital - some characters (such as the Pacifist and the Exorcist) become stronger the longer they survive, and you can enable that.",
-      "Be mindful of the drunkenness your ability causes! Don't protect people who need to receive reliable information or use their ability with any sort of guarantee that night. If you know for example that a Courtier is about to use their ability, you protecting them may cause them to become drunk and waste their powerful ability!",
-      "Protect different people than who you publicly claim to be protecting. If the evil team believes what you are saying, they will not want to waste time targeting players who can't be killed. Meanwhile, you secretly protect other players that are potential victims, hopefully blocking the evil team from a necessary kill.",
-      "It can seem like a good idea to protect yourself using your ability, but this is generally not recommended - it is likely that the Storyteller will choose to make you drunk by your own ability, completely negating your protection and making both you and the other player vulnerable.",
-      "If you think you know at least 2 evil players, select them both! Guarding them from death isn't ideal, but it does mean that one of them will be drunk that night. If you manage to get your hands on the Demon or a potent Minion like the Assassin or the Devil's Advocate, you're cutting off evil abilities at source! If you miss, though, you can almost guarantee that whichever player is good will be drunk."
-    ],
-    "cn": [
-      "你的能力很强大，如果有效使用，你可以阻止邪恶阵营的侵害，并保护善良玩家的安全。然而，这是有代价的——任何受你保护的人都变得不可靠，因为他们可能会在幸存的那晚醉酒。与强力的玩家合作，保护关键的角色，这非常重要——某些角色（例如和平主义者和驱魔人）生存时间越长越强大。",
-      "注意你的能力会导致醉酒！不要保护在当晚需要接收可靠信息的人或那些将使用他们能力的人。例如，如果你知道一个侍臣即将使用他们的能力，你保护他们可能会导致他们醉酒因此浪费他们的强大能力！",
-      "你保护的人，与你公开声称要保护的人，可以不一样。因为如果邪恶阵营相信你说的话，他们不会想浪费时间瞄准那些不能被杀死的玩家。同时，你秘密地保护其他可能成为受害者的玩家，希望他们能免遭杀戮。",
-      "用自己的能力保护自己似乎是个好主意，但通常不建议这样做——因为说书人很可能会选择让你醉酒，让你的保护完全失效，这样你和另一个玩家都会很危险。",
-      "如果你认为你至少辨别了2个邪恶的玩家，请同时选择他们！保护他们免于死亡并不理想，但这确实意味着他们中的一个会在那天晚上醉酒。如果你设法抓住了恶魔或像刺客或魔鬼代言人这样的强大爪牙，你就从源头上切断了邪恶的能力！但是，如果你选错了，那么大概率就是善良玩家醉酒了。"
-    ]
-  },
-  "how_to_run": {
-    "en": "Each night except the first, wake the Innkeeper. They point at any two players. Put the Innkeeper to sleep. Mark the two chosen players with SAFE reminders. One of the chosen players becomes drunk—mark them with the DRUNK reminder. The players marked SAFE cannot die tonight.\nAt dawn, remove the SAFE reminders.\nAt dusk, remove the DRUNK reminder.",
-    "cn": "除了首个夜晚以外的每个夜晚，唤醒旅店老板。让旅店老板指向任意两名玩家。让旅店老板重新入睡。将“不会死亡”提示标记放置到所选的两个角色标记旁。所选玩家其中一人醉酒——将“醉酒”提示标记放置到该玩家的角色标记旁。标有“不会死亡”的玩家当晚不会死亡。\n在黎明，移除“不会死亡”提示标记。\n在黄昏，移除“醉酒”提示标记。"
-  },
   "token_url": "https://wiki.bloodontheclocktower.com/images/0/0c/Icon_innkeeper.png"
 }

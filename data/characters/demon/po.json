@@ -1,44 +1,51 @@
 {
   "id": "po",
+  "type": "demon",
   "name": {
     "en": "Po",
+    "es-419": "Po",
+    "sv": "Po",
+    "zh-Hans": "珀",
     "cn": "珀"
   },
-  "type": "demon",
-  "editions": [
-    "bad_moon_rising"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "Anica Kelsen",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Po",
   "ability": {
     "en": "Each night*, you may choose a player: they die. If your last choice was no-one, choose 3 players tonight.",
+    "es-419": "Cada noche*, puedes escoger un jugador: él muere. Si tu última elección no fue nadie, escoge 3 jugadores esta noche.",
+    "sv": "Varje natt* får du välja en spelare; hen dör. Om du valde att inte döda senast väljer du 3 spelare inatt.",
+    "zh-Hans": "每个夜晚*，你可以选择一名玩家：他死亡。如果你上次选择时没有选择任何玩家，当晚你要选择三名玩家：他们死亡。",
     "cn": "每个夜晚*，你可以选择一名玩家：他死亡。\n如果你上次选择时没有选择任何玩家，当晚你要选择三名玩家：他们死亡。"
   },
   "flavor_text": {
     "en": "\"Would you like a flower? I'm so lonely.\"",
+    "es-419": "¿Te gustaría una flor? Estoy tan solo.",
+    "sv": "Vill du ha en blomma? Jag är så ensam.",
+    "zh-Hans": "我给你一朵花，陪陪我好不好……",
     "cn": "“我给你一朵花，陪陪我好不好……”"
   },
+  "other_nights": {
+    "en": "The Po may choose a player OR chooses 3 players if they chose no-one last night. :reminder: or :reminder: :reminder: :reminder:",
+    "es-419": "El Po puede escoger un jugador O escoge 3 jugadores si no escogió a nadie anoche. :reminder: o :reminder: :reminder: :reminder:",
+    "sv": "Po får välja en spelare. :reminder: Om Po är märkt *3 ATTACKER* så väljer Po tre spelare. :reminder: :reminder: :reminder:",
+    "zh-Hans": "珀可以选择一名玩家或在上一晚未选择任何玩家的情况下选择三名玩家。:reminder: 或者 :reminder: :reminder: :reminder:"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Po",
+  "how_to_run": {
+    "cn": "除了首个夜晚以外的每个夜晚，唤醒珀。珀要么摇头表示不选择任何人，要么指向任意一名玩家。让珀重新入睡。如果珀没有选择任何人，将“攻击三次”提示标记放置到珀的角色标记旁。如果珀选择了一名玩家，该玩家死亡——将“死亡”提示标记放置到该玩家的角色标记旁。\n如果唤醒珀行动时标有“攻击三次”，让珀依次指向三名玩家，每次一名。按照选择的顺序，每名所选玩家依次死亡——将“死亡”提示标记放置到这些玩家的角色标记旁。移除“攻击三次”提示标记。",
+    "en": "Each night except the first, wake the Po. They either shake their head no or point at any player. Put the Po to sleep. If they shook their head no, mark the Po with the 3 ATTACKS reminder. If they chose a player, that player dies—mark them with a DEAD reminder.\nIf the Po wakes to act while marked 3 ATTACKS, they point at any three players, one at a time. In the order chosen, each chosen player dies—mark them with DEAD reminders. Remove the 3 ATTACKS reminder."
+  },
   "examples": {
-    "en": [
-      "On the second night, the Po attacks one player. On the third night, the Po chooses to attack nobody. On the fourth night, the Po attacks three players.",
-      "The Po chooses to attack nobody, but is drunk. The next night, the Po is poisoned. They choose three players, but none of them die. The following night, the Po is sober and healthy and attacks a player, who dies.",
-      "The Po attacks the Moonchild, then the Goon, then the Grandmother. Only the Moonchild dies, because the Po became drunk when they attacked the Goon."
-    ],
     "cn": [
       "在第二个夜晚，珀攻击了一名玩家。在第三个夜晚，珀选择不攻击任何人。在第四个夜晚，珀攻击了三名玩家。",
       "珀选择不攻击任何人，但是醉酒了。在下一个夜晚，珀中毒了。珀选择了三名玩家，但是这些玩家都没有死亡。再下一个夜晚，珀恢复清醒和健康并攻击了一名玩家，该玩家死亡。",
       "珀攻击了月之子，然后是莽夫，最后是祖母。只有月之子死亡，因为珀在攻击莽夫时醉酒了。"
+    ],
+    "en": [
+      "On the second night, the Po attacks one player. On the third night, the Po chooses to attack nobody. On the fourth night, the Po attacks three players.",
+      "The Po chooses to attack nobody, but is drunk. The next night, the Po is poisoned. They choose three players, but none of them die. The following night, the Po is sober and healthy and attacks a player, who dies.",
+      "The Po attacks the Moonchild, then the Goon, then the Grandmother. Only the Moonchild dies, because the Po became drunk when they attacked the Goon."
     ]
   },
   "tips": {
-    "en": [
-      "The Po is the deadliest demon in Bad Moon Rising for its patience and ferocity. No other demon can hope to unleash as much devastation in a single night as you are capable of. Unlike the brutal Shabaloth, none of your victims are coming back from the dead unexpectedly. Unlike the Zombuul and the Pukka, you only wait if you choose it. The good team should tremble in fear at the mere thought that you are in play, knowing that at any time, you will unleash hell and leave the town torn asunder.",
-      "Playing the Po is all about choosing how you want to kill. You have a few more options available to you than your average demon, and utilizing them well will be key for your victory.\nKill once per night, ignoring the charge ability entirely in favor of consistency. One advantage of this is it eliminates the 'charge' night of no deaths that is your most obvious tell, and makes you almost indistinguishable from a Zombuul or Pukka... at least initially. The good team wasting resources trying to detect a dead demon or doubting their own information is great for you! The obvious disadvantage is that you kill much less, which gives the good team a little longer to see through your deception and track you down.\nDon't hold back - charge and kill consistently. By utilizing your charge ability every single night, you basically get to 'kill two, kill one free' - meaning that you get one more kill than normal across the two nights. If the good team is dead, they won't be able to detect a dang thing! The downside to this method is that it will be pretty obvious that you are in play - you get the most kills in a single night of any character, and the good team will pick up on that. This can back you unexpectedly into a corner, as characters like the Courtier may wine and dine you, making you drunk, or the Gossip can start getting very specific in the statements that they make.\nFinally, mix and match! Both methods above are viable depending on the game, but it pays to be flexible - kill once per night for a while, wait until you have three targets earmarked who you know will die, and then unleash your charged kill. Or unleash a charged kill early... but bluff as a Gossip to mask the extra kill, and then kill normally for the rest of the game. By mixing and matching your charged kill and regular kill, you can adapt to the situation as it unfolds - maybe the good team is wily and has a lot of information, and hiding your demon identity is crucial. Or maybe they're scattered, and you should finish them off before they have a chance to unite. Either way, you are versatile, so you might as well take full advantage of it. The downside to this method is that timing is everything - you have to plan your moves in advance, which means that if you didn't charge a kill on a night you really need more than one person dead, you could end up in hot water.Kill once per night, ignoring the charge ability entirely in favor of consistency. One advantage of this is it eliminates the 'charge' night of no deaths that is your most obvious tell, and makes you almost indistinguishable from a Zombuul or Pukka... at least initially. The good team wasting resources trying to detect a dead demon or doubting their own information is great for you! The obvious disadvantage is that you kill much less, which gives the good team a little longer to see through your deception and track you down.Don't hold back - charge and kill consistently. By utilizing your charge ability every single night, you basically get to 'kill two, kill one free' - meaning that you get one more kill than normal across the two nights. If the good team is dead, they won't be able to detect a dang thing! The downside to this method is that it will be pretty obvious that you are in play - you get the most kills in a single night of any character, and the good team will pick up on that. This can back you unexpectedly into a corner, as characters like the Courtier may wine and dine you, making you drunk, or the Gossip can start getting very specific in the statements that they make.Finally, mix and match! Both methods above are viable depending on the game, but it pays to be flexible - kill once per night for a while, wait until you have three targets earmarked who you know will die, and then unleash your charged kill. Or unleash a charged kill early... but bluff as a Gossip to mask the extra kill, and then kill normally for the rest of the game. By mixing and matching your charged kill and regular kill, you can adapt to the situation as it unfolds - maybe the good team is wily and has a lot of information, and hiding your demon identity is crucial. Or maybe they're scattered, and you should finish them off before they have a chance to unite. Either way, you are versatile, so you might as well take full advantage of it. The downside to this method is that timing is everything - you have to plan your moves in advance, which means that if you didn't charge a kill on a night you really need more than one person dead, you could end up in hot water.",
-      "Co-ordinate with the Assassin and the Godfather (and even the good players!) to mask the nights you don't kill. If a death occurs on the night where you are preparing for a triple kill, the good players will usually believe the death was due to the Demon attacking, and this false information will lead them astray about which demon is in play, and may even make them believe good players are lying when they are not. For example, if you don't kill one night (because you are preparing for a triple kill the following night), but that night, a player dies due to the Gossip having made a true public statement during the day, the good team may believe that the Gossip's statement was false, since they believe that the death was due to the Demon attacking and not the Gossip. Tricky."
-    ],
     "cn": [
       "耐心和凶残的珀是黯月初升中最致命的恶魔。没有其他恶魔在一夜中能做出和你一样多的破坏。与饥饿的沙巴洛斯不同，你的受害者不会出乎你意料的复活。与僵怖和普卡不同，你的不攻击是可以主动选择的。善良阵营一想到你在游戏中就应该吓得发抖，因为他们知道在任何时候，你都可能爆发并让城镇四分五裂。",
       "每晚攻击一个，完全无视攻击三次的能力以保持信息（死亡数量）的一致。这样做的一个好处是它消除了你最明显的“充能”之夜没有人死亡，并且让你几乎与僵怖或普卡没有区别……至少在最初是这样。浪费资源试图处决假死恶魔或怀疑自己信息的善良玩家对您来说是一件好事！明显的缺点是你的杀戮会少得多，这让善良阵营有更长的时间来识破你的伪装并找到你。\n不要退缩——持续充能和爆发。通过每晚利用你的爆发能力，你基本上可以“买二赠一”——这意味着你在两个夜晚比正常情况下多杀一个。如果善良玩家死了，他们不会知道是什么鬼东西让他们死亡的！这种方法的缺点是很明显的让你暴露在游戏中 - 你会在一个晚上造成比任何角色都要多的杀戮，而善良阵营会认同这一点。这会让你理所当然地陷入困境，因为像侍臣这样的角色可能会与你痛饮三天三夜，或者造谣者可能会开始在他们的陈述中讲的非常具体。\n最后，混搭！根据游戏情况的不同，上述两种方法都是可行的，但灵活一点是值得的——在一段时间内每晚杀死一个，等到你找到了三个你知道可以死的目标，然后开始你的充能，或者提前释放一次爆发杀戮……但伪装月之子在场来掩盖额外的杀戮，然后在剩下的游戏中正常杀戮。通过混合你的爆发杀戮和常规击杀，你可以看情况选择——也许善良阵营很狡猾，得知很多信息，所以隐藏你的恶魔角色是至关重要的。又或者善良阵营可能是不团结的，你应该在他们有机会团结之前杀掉他们。无论哪种方式，你都是有选择的，所以你不妨充分利用它。这种方法的缺点是时机难以把控——你必须提前规划你的行动，这意味着如果你在一个晚上没有进行杀戮，那么你真的需要杀死一个以上的人，这可能导致你陷入困境.",
@@ -48,11 +55,17 @@
       "尽快找出珀正在策划阴谋。确定由于夜间行动导致死亡的方式 - 每晚有1名玩家死亡，就像暗示珀在场一样，如果没有人在晚上死亡，然后2或3个人在下一个晚上死亡也一样。沙巴洛斯通常每晚都会杀死更多的玩家，僵怖和普卡经常导致夜晚没有死亡，但在接下来的晚上也不会有额外的杀戮。如果你发现一个珀在游戏中，侍臣可以有效地消除他们的能力，并且其他可能杀死玩家的善良角色，例如月之子，祖母，赌徒和造谣者，他们会变的特别小心。",
       "能防死的善良角色需要配合好，才能发挥的淋漓尽致。茶艺师、弄臣、旅店老板，甚至是莽夫和水手，都应该尽最大努力发挥自己的能力，挽救宝贵的生命，让珀的三杀不至于毁灭小镇。",
       "始终注意有多少玩家还活着。一旦只剩下 5 名玩家还活着，如果善良阵营那天没有人处决，那么珀可以在那天晚上获胜。如果其他因夜间行动导致死亡的角色在场，这个数字会更高。如果您认为珀正在游戏中，并且有4、5甚至6名玩家还活着，请认真考虑那天您将处决谁……这可能是您的最后一次机会！"
+    ],
+    "en": [
+      "The Po is the deadliest demon in Bad Moon Rising for its patience and ferocity. No other demon can hope to unleash as much devastation in a single night as you are capable of. Unlike the brutal Shabaloth, none of your victims are coming back from the dead unexpectedly. Unlike the Zombuul and the Pukka, you only wait if you choose it. The good team should tremble in fear at the mere thought that you are in play, knowing that at any time, you will unleash hell and leave the town torn asunder.",
+      "Playing the Po is all about choosing how you want to kill. You have a few more options available to you than your average demon, and utilizing them well will be key for your victory.\nKill once per night, ignoring the charge ability entirely in favor of consistency. One advantage of this is it eliminates the 'charge' night of no deaths that is your most obvious tell, and makes you almost indistinguishable from a Zombuul or Pukka... at least initially. The good team wasting resources trying to detect a dead demon or doubting their own information is great for you! The obvious disadvantage is that you kill much less, which gives the good team a little longer to see through your deception and track you down.\nDon't hold back - charge and kill consistently. By utilizing your charge ability every single night, you basically get to 'kill two, kill one free' - meaning that you get one more kill than normal across the two nights. If the good team is dead, they won't be able to detect a dang thing! The downside to this method is that it will be pretty obvious that you are in play - you get the most kills in a single night of any character, and the good team will pick up on that. This can back you unexpectedly into a corner, as characters like the Courtier may wine and dine you, making you drunk, or the Gossip can start getting very specific in the statements that they make.\nFinally, mix and match! Both methods above are viable depending on the game, but it pays to be flexible - kill once per night for a while, wait until you have three targets earmarked who you know will die, and then unleash your charged kill. Or unleash a charged kill early... but bluff as a Gossip to mask the extra kill, and then kill normally for the rest of the game. By mixing and matching your charged kill and regular kill, you can adapt to the situation as it unfolds - maybe the good team is wily and has a lot of information, and hiding your demon identity is crucial. Or maybe they're scattered, and you should finish them off before they have a chance to unite. Either way, you are versatile, so you might as well take full advantage of it. The downside to this method is that timing is everything - you have to plan your moves in advance, which means that if you didn't charge a kill on a night you really need more than one person dead, you could end up in hot water.Kill once per night, ignoring the charge ability entirely in favor of consistency. One advantage of this is it eliminates the 'charge' night of no deaths that is your most obvious tell, and makes you almost indistinguishable from a Zombuul or Pukka... at least initially. The good team wasting resources trying to detect a dead demon or doubting their own information is great for you! The obvious disadvantage is that you kill much less, which gives the good team a little longer to see through your deception and track you down.Don't hold back - charge and kill consistently. By utilizing your charge ability every single night, you basically get to 'kill two, kill one free' - meaning that you get one more kill than normal across the two nights. If the good team is dead, they won't be able to detect a dang thing! The downside to this method is that it will be pretty obvious that you are in play - you get the most kills in a single night of any character, and the good team will pick up on that. This can back you unexpectedly into a corner, as characters like the Courtier may wine and dine you, making you drunk, or the Gossip can start getting very specific in the statements that they make.Finally, mix and match! Both methods above are viable depending on the game, but it pays to be flexible - kill once per night for a while, wait until you have three targets earmarked who you know will die, and then unleash your charged kill. Or unleash a charged kill early... but bluff as a Gossip to mask the extra kill, and then kill normally for the rest of the game. By mixing and matching your charged kill and regular kill, you can adapt to the situation as it unfolds - maybe the good team is wily and has a lot of information, and hiding your demon identity is crucial. Or maybe they're scattered, and you should finish them off before they have a chance to unite. Either way, you are versatile, so you might as well take full advantage of it. The downside to this method is that timing is everything - you have to plan your moves in advance, which means that if you didn't charge a kill on a night you really need more than one person dead, you could end up in hot water.",
+      "Co-ordinate with the Assassin and the Godfather (and even the good players!) to mask the nights you don't kill. If a death occurs on the night where you are preparing for a triple kill, the good players will usually believe the death was due to the Demon attacking, and this false information will lead them astray about which demon is in play, and may even make them believe good players are lying when they are not. For example, if you don't kill one night (because you are preparing for a triple kill the following night), but that night, a player dies due to the Gossip having made a true public statement during the day, the good team may believe that the Gossip's statement was false, since they believe that the death was due to the Demon attacking and not the Gossip. Tricky."
     ]
   },
-  "how_to_run": {
-    "en": "Each night except the first, wake the Po. They either shake their head no or point at any player. Put the Po to sleep. If they shook their head no, mark the Po with the 3 ATTACKS reminder. If they chose a player, that player dies—mark them with a DEAD reminder.\nIf the Po wakes to act while marked 3 ATTACKS, they point at any three players, one at a time. In the order chosen, each chosen player dies—mark them with DEAD reminders. Remove the 3 ATTACKS reminder.",
-    "cn": "除了首个夜晚以外的每个夜晚，唤醒珀。珀要么摇头表示不选择任何人，要么指向任意一名玩家。让珀重新入睡。如果珀没有选择任何人，将“攻击三次”提示标记放置到珀的角色标记旁。如果珀选择了一名玩家，该玩家死亡——将“死亡”提示标记放置到该玩家的角色标记旁。\n如果唤醒珀行动时标有“攻击三次”，让珀依次指向三名玩家，每次一名。按照选择的顺序，每名所选玩家依次死亡——将“死亡”提示标记放置到这些玩家的角色标记旁。移除“攻击三次”提示标记。"
-  },
+  "url_param": "Po",
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "artist": "Anica Kelsen",
   "token_url": "https://wiki.bloodontheclocktower.com/images/b/b2/Icon_po.png"
 }

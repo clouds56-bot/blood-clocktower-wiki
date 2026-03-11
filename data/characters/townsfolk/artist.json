@@ -1,52 +1,48 @@
 {
   "id": "artist",
+  "type": "townsfolk",
   "name": {
     "en": "Artist",
+    "es-419": "Artista",
+    "sv": "Konstnären",
+    "zh-Hans": "艺术家",
     "cn": "艺术家"
   },
-  "type": "townsfolk",
-  "editions": [
-    "sects_violets"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Artist",
   "ability": {
     "en": "Once per game, during the day, privately ask the Storyteller any yes/no question.",
+    "es-419": "Una vez por juego, durante el día, pregúntale en privado al Narrado cualquier pregunta de sí o no.",
+    "sv": "En gång per spel, på dagen, kan du privat ställa en ja/nej-fråga till berättaren.",
+    "zh-Hans": "每局游戏限一次，在白天时，你可以私下询问说书人一个是非问题，你会得知该问题的答案。",
     "cn": "每局游戏限一次，在白天时，你可以私下询问说书人一个是非问题，你会得知该问题的答案。"
   },
   "flavor_text": {
     "en": "\"Mon Dieu! C'est lumineux! My work, she is... how you say... Magnifique! Dieu est révélé! Oui.\"",
+    "es-419": "Mon Dieu! C'est lumineux! Mi obra, ella es…cómo se dice…Magnifique! Dieu est révélé! Oui.",
+    "sv": "Mon Dieu ! C’est lumineux ! Mitt verk, hon är… hur man säger… magnifique ! Dieu est révélé ! Oui.",
+    "zh-Hans": "天啊！多么美妙的作品！我的作品……用你们的话怎么说来着……对，璀璨夺目！栩栩如生！没错！",
     "cn": "“天啊！多么美妙的作品！我的作品……用你们的话怎么说来着……对，璀璨夺目！栩栩如生！没错！”"
   },
+  "source_url": "https://wiki.bloodontheclocktower.com/Artist",
+  "how_to_run": {
+    "cn": "在任何一个白天，艺术家都可以要求与你进行私聊。请和他一同离开玩家围成的圆圈以保证你们的私聊不会被偷听。艺术家会问你一个问题。你需要以耳语的方式回答他“是”、“不是”或“我不知道”。如果你不能用这三种答案进行回答，让他重新问一个问题。艺术家在使用他的能力之后，为他放置“失去能力”提示标记。\n与博学者一样，伪装成艺术家的邪恶玩家可能会要求与你私下聊天并假装提出问题。为了帮助他伪装角色，你可以通过点头或摇头来假装给出答案。",
+    "en": "During any day, the Artist can request a private chat with you. Take them away from the circle so you cannot be overheard. They will ask you a question. Whisper “Yes,” “No,” or “I don’t know,” to them, or if you cannot answer in one of these ways, prompt the Artist to ask again in a different way. The Artist loses their ability - mark them with the NO ABILITY reminder.\nLike the Savant, evil players bluffing as the Artist may request a private chat with you and pretend to ask a question. To help them bluff, you can pretend to give an answer by nodding or shaking your head."
+  },
   "examples": {
+    "cn": [
+      "艺术家问：“恶魔坐在棕色椅子上吗？”说书人回答：“不是”，因为此时恶魔坐在黑色椅子上。",
+      "艺术家问：“大壮是镜像双子吗？”说书人回答，“是的”，因为此时大壮是镜像双子。",
+      "艺术家问：“有多少爪牙活着？”说书人回答：“我无法用’是，不是，或者我不知道’来回答。请再问一个问题。”",
+      "艺术家问：“我们快要赢了吗？”说书人回答：“我不知道。”因为此时即使所有爪牙都死了，还是有很多善良的玩家相信恶魔是好人。"
+    ],
     "en": [
       "Like the Savant, evil players bluffing as the Artist may request a private chat with you and pretend to ask a question. To help them bluff, you can pretend to give an answer by nodding or shaking your head.",
       "The Artist asks, \"Is the Demon sitting in a brown chair?\" The Storyteller answers, \"No,” because the Demon is in a black chair.",
       "The Artist asks, \"Is David the Evil Twin?” and the Storyteller answers, \"Yes,” because David is.",
       "The Artist asks, \"How many Minions are alive?” and the Storyteller says, \"Please ask another question. I cannot answer that with a yes, no, or I don't know.\"",
       "The Artist asks, \"Are we winning?” and the Storyteller answers, \"I don't know,” because even though all the Minions are dead, many good players trust the Demon."
-    ],
-    "cn": [
-      "艺术家问：“恶魔坐在棕色椅子上吗？”说书人回答：“不是”，因为此时恶魔坐在黑色椅子上。",
-      "艺术家问：“大壮是镜像双子吗？”说书人回答，“是的”，因为此时大壮是镜像双子。",
-      "艺术家问：“有多少爪牙活着？”说书人回答：“我无法用’是，不是，或者我不知道’来回答。请再问一个问题。”",
-      "艺术家问：“我们快要赢了吗？”说书人回答：“我不知道。”因为此时即使所有爪牙都死了，还是有很多善良的玩家相信恶魔是好人。"
     ]
   },
   "tips": {
-    "en": [
-      "Ask your question as soon as you can on the first day! Between the demon and the Pit-Hag, you risk losing your question every day that you do not use it. Using it right away negates this risk. There are a lot of questions you can ask knowing nothing else about the game that will give you a great head-start on detecting where evil is hidden in the town.",
-      "Hold onto your question for a few days. This is very risky, since the longer you are alive without using it, the greater chance you won't get to. With that said, Sects & Violets is a game stuffed to the brim with information - waiting to hear people's claims and the information they've got available to them can enable you to ask a much more specific and deadly question that could change the course of the game with a simple 'yes' or 'no'. In particular, characters like the Flowergirl, Town Crier, and Oracle give information that can help you narrow down where the evil lies.",
-      "Being too specific with your question (e.g. Is Amy the demon?) will probably result in an unhelpful 'no'. Instead, ask questions that will divide the group into two halves. For example, ask if the demon is sitting in a particular group - yes or no, you have narrowed down where the demon is or isn't. Other questions can include asking if there's a concentration of evil players in a particular location, or asking about characters like the Evil Twin.",
-      "If you don't have a lot of in-game threads to follow, you can also ask for information outside of the game mechanics and still break the town into groups. For example, if a disproportionate number of players are wearing red shirts. you can ask if the demon is among them!",
-      "Your ability can be used to replicate many information gathering abilities in the game - providing you can phrase them as a yes/no question! Listen to the claims of the people around you and craft your question to cover weaknesses in the good team's info, or to confirm/deny another person's claims.",
-      "Hiding from the demon so they don't kill you before you use your ability is imperative. You can try bluffing as another character, but another option is come out to the town and pretend you have already asked your question. The demon will not consider you as much of a threat if they believe you, and will probably prioritize more dangerous targets that appear to be still getting information.",
-      "Don't ask about the Vortox directly. Asking \"is there a Vortox in play\" will always result in a \"no\" - either there's no Vortox, or there is a Vortox and you're getting false information. To try and detect Vortox, you can instead give a statement that is definitely true (e.g. \"Does 2+2 = 4?\") - if the storyteller says \"no\", then you know your information has been compromised in some way.",
-      "Another way to inquire after Vortox is to ask after information that can be verified in-game as true. For example: Ask if the demon is among three players (Side note: These three players should not be close enough to be your neighbours, because the No Dashii will confuse your info). If you get a \"Yes\", then execute all of them. Then, if the game continues, you know it is probably Vortox. If you get a \"No\", then you either know three players who are not the demon, or you know that one of them is most likely the Vortox."
-    ],
     "cn": [
       "你可以在第一天就尽快的使用你的能力！由于有恶魔及麻脸巫婆的存在，如果你没有使用你的能力，你每天都会面临失去你能力的风险。如果你对目前的情况一无所知，那么你可以问很多问题，这会成为找到恶魔的良好开端。",
       "你可以过几天再使用你的能力。这非常冒险，因为你很可能失去你的能力。话虽如此，梦殒春宵版本中充满了大量的信息——等待玩家们给出信息然后你就可以问出一个更加具体更加致命的通过是否来改变游戏进程的问题。特别是像卖花女孩、城镇公告员和神谕者等角色可以帮助你缩小邪恶玩家的范围。",
@@ -56,11 +52,22 @@
       "不要被恶魔发现，这样他们就不会在你使用能力之前杀死你。你可以试着伪装成其他角色，或者说你告诉大家你已经使用你的能力去问了问题。如果恶魔相信你，那么他们会认为你现在不具有威胁，转而去考虑其他可能获取信息的更具有威胁的目标。",
       "不要过于直接的去问关于涡流的问题。比如你问\"是否有涡流在场\"那么你总会得到答案\"否\"——要么是涡流不在场，要么是涡流在场并导致你的信息错误。如果真的想检测是否有涡流，你可以问一个绝对正确的问题（如，2+2=4吗？）如果说书人说\"否\"，那么你的信息在某方面违背了，所以你知道你得到错误信息了。",
       "另一种发现涡流的方式是询问可以在游戏中验证的信息。例如问：恶魔是否在某三名玩家中（注意：这三名玩家最好不要离你太近，因为有可能有诺-达鲺影响到你）如果你得到\"是\"那么就处决那些人。如果游戏继续，那么你们就知道有涡流。如果你得到\"否\"，那么你就知道要么这三名玩家不是恶魔，要么其中一个可能就是涡流。"
+    ],
+    "en": [
+      "Ask your question as soon as you can on the first day! Between the demon and the Pit-Hag, you risk losing your question every day that you do not use it. Using it right away negates this risk. There are a lot of questions you can ask knowing nothing else about the game that will give you a great head-start on detecting where evil is hidden in the town.",
+      "Hold onto your question for a few days. This is very risky, since the longer you are alive without using it, the greater chance you won't get to. With that said, Sects & Violets is a game stuffed to the brim with information - waiting to hear people's claims and the information they've got available to them can enable you to ask a much more specific and deadly question that could change the course of the game with a simple 'yes' or 'no'. In particular, characters like the Flowergirl, Town Crier, and Oracle give information that can help you narrow down where the evil lies.",
+      "Being too specific with your question (e.g. Is Amy the demon?) will probably result in an unhelpful 'no'. Instead, ask questions that will divide the group into two halves. For example, ask if the demon is sitting in a particular group - yes or no, you have narrowed down where the demon is or isn't. Other questions can include asking if there's a concentration of evil players in a particular location, or asking about characters like the Evil Twin.",
+      "If you don't have a lot of in-game threads to follow, you can also ask for information outside of the game mechanics and still break the town into groups. For example, if a disproportionate number of players are wearing red shirts. you can ask if the demon is among them!",
+      "Your ability can be used to replicate many information gathering abilities in the game - providing you can phrase them as a yes/no question! Listen to the claims of the people around you and craft your question to cover weaknesses in the good team's info, or to confirm/deny another person's claims.",
+      "Hiding from the demon so they don't kill you before you use your ability is imperative. You can try bluffing as another character, but another option is come out to the town and pretend you have already asked your question. The demon will not consider you as much of a threat if they believe you, and will probably prioritize more dangerous targets that appear to be still getting information.",
+      "Don't ask about the Vortox directly. Asking \"is there a Vortox in play\" will always result in a \"no\" - either there's no Vortox, or there is a Vortox and you're getting false information. To try and detect Vortox, you can instead give a statement that is definitely true (e.g. \"Does 2+2 = 4?\") - if the storyteller says \"no\", then you know your information has been compromised in some way.",
+      "Another way to inquire after Vortox is to ask after information that can be verified in-game as true. For example: Ask if the demon is among three players (Side note: These three players should not be close enough to be your neighbours, because the No Dashii will confuse your info). If you get a \"Yes\", then execute all of them. Then, if the game continues, you know it is probably Vortox. If you get a \"No\", then you either know three players who are not the demon, or you know that one of them is most likely the Vortox."
     ]
   },
-  "how_to_run": {
-    "en": "During any day, the Artist can request a private chat with you. Take them away from the circle so you cannot be overheard. They will ask you a question. Whisper “Yes,” “No,” or “I don’t know,” to them, or if you cannot answer in one of these ways, prompt the Artist to ask again in a different way. The Artist loses their ability - mark them with the NO ABILITY reminder.\nLike the Savant, evil players bluffing as the Artist may request a private chat with you and pretend to ask a question. To help them bluff, you can pretend to give an answer by nodding or shaking your head.",
-    "cn": "在任何一个白天，艺术家都可以要求与你进行私聊。请和他一同离开玩家围成的圆圈以保证你们的私聊不会被偷听。艺术家会问你一个问题。你需要以耳语的方式回答他“是”、“不是”或“我不知道”。如果你不能用这三种答案进行回答，让他重新问一个问题。艺术家在使用他的能力之后，为他放置“失去能力”提示标记。\n与博学者一样，伪装成艺术家的邪恶玩家可能会要求与你私下聊天并假装提出问题。为了帮助他伪装角色，你可以通过点头或摇头来假装给出答案。"
-  },
+  "url_param": "Artist",
+  "editions": [
+    "sects_violets"
+  ],
+  "artist": "Aidan Roberts",
   "token_url": "https://wiki.bloodontheclocktower.com/images/1/1a/Icon_artist.png"
 }

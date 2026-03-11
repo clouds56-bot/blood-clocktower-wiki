@@ -9,8 +9,9 @@ const path = require('path');
 const cheerio = require('cheerio');
 
 const BASE_URL = 'https://wiki.bloodontheclocktower.com';
-const INPUT_FILE = path.join(__dirname, '..', '..', 'characters.wiki.en.jsonl');
-const OUTPUT_FILE = path.join(__dirname, '..', '..', 'characters.token.jsonl');
+const EXTRACTED_DIR = path.join(__dirname, '..', '..', 'extracted');
+const INPUT_FILE = path.join(EXTRACTED_DIR, 'characters.wiki.en.jsonl');
+const OUTPUT_FILE = path.join(EXTRACTED_DIR, 'characters.token.jsonl');
 const CACHE_DIR = path.join(__dirname, '..', '..', '.cache', 'html');
 
 function extractTokenUrl(html) {
@@ -70,12 +71,13 @@ function main() {
       
       allTokens.push({
         id: char.id,
-        english_name: char.english_name,
+        en_name: char.name,
+        name: char.name,
         token_url: tokenUrl
       });
-      console.log(`  Tokens: ${char.english_name} -> ${tokenUrl || 'NOT FOUND'}`);
+      console.log(`  Tokens: ${char.name} -> ${tokenUrl || 'NOT FOUND'}`);
     } else {
-      console.error(`  Warning: Cache missing for ${char.english_name} (${urlParam})`);
+      console.error(`  Warning: Cache missing for ${char.name} (${urlParam})`);
     }
   }
 

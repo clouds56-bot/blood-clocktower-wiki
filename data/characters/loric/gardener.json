@@ -1,0 +1,36 @@
+{
+  "id": "gardener",
+  "type": "loric",
+  "name": {
+    "en": "Gardener",
+    "es-419": "Jardinero",
+    "sv": "Trädgårdsmästaren",
+    "zh-Hans": "园丁",
+    "cn": "园丁"
+  },
+  "ability": {
+    "en": "The Storyteller assigns 1 or more players' characters.",
+    "es-419": "El Narrador asigna 1 o más roles a los jugadores.",
+    "sv": "Berättaren bestämmer en eller flera spelares roller.",
+    "zh-Hans": "由说书人来为一名或更多玩家派发角色。",
+    "cn": "由说书人来为一名或更多玩家派发角色。"
+  },
+  "flavor_text": {
+    "en": "When sophistry becomes stupidity and hypocrisy cruelty, retreat to the garden. The final love of old men is flowers and stones.",
+    "es-419": "Pues, no, esto no funciona. ¡El acónito está mezclado con el napelo y la cicuta está asfixiando al eléboro! Ay por Dios, será mejor que empecemos desde cero. Pásame mis podaderas.",
+    "sv": "När ord blir tomma och den skenheliga blir grym, ta tillflykt i trädgården. De gamlas sista kärlek är blommor och stenar.",
+    "zh-Hans": "哎呀，这可不行。我们把乌头草和狼毒乌头混在一起了，毒参还把嚏根草挤得喘不过气！天哪，最好还是重新整理吧。把我的修枝剪拿来。",
+    "cn": "“哎呀，这可不行。乌头和狼毒草怎么混到一块儿去了？毒芹也把黑藜都压住了！唉，还是得重新来过一遍。把我的剪枝剪拿来吧。”"
+  },
+  "source_url": "https://script.bloodontheclocktower.com/",
+  "how_to_run": {
+    "cn": "在游戏开始前，宣布园丁加入了游戏。将园丁角色标记放入魔典中。\n在为玩家派发角色前（点下“发送角色”前），私下决定哪些玩家将会受到园丁的影响。为这些玩家指定特定的角色标记。\n然后，使用“发送角色”功能将角色派发给所有玩家。\n说书人可以将园丁加入游戏，并采用园丁的运作方式为玩家发放角色，然而实际上却不为任何玩家指定特定的角色，这也是被允许的。\n让你的玩家们始终保持对你的怀疑，看起来捉摸不透，这样玩家就不会觉得自己的游戏体验受到了说书人太多的干预。如果你在角色分发上看起来形成了一个特定的习惯，那么玩家就会认为自己的游戏体验受到了说书人的干预，他们在游戏中所获得的乐趣也就随之减少了。"
+  },
+  "examples": {
+    "cn": [
+      "维齐尔位于剧本列表上，小艾不愿意游玩一个如此暴露的邪恶角色。为了确保他不会抽到维齐尔，说书人将园丁加入了游戏中，然后悄悄向小艾派发了投毒者角色。",
+      "小罗今天一整天都抽到的是邪恶角色。说书人将园丁加入了游戏中，然后悄悄向小罗派发了厨师角色。"
+    ]
+  },
+  "url_param": "%E5%9B%AD%E4%B8%81"
+}

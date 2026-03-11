@@ -1,49 +1,46 @@
 {
   "id": "scapegoat",
+  "type": "traveller",
   "name": {
     "en": "Scapegoat",
+    "es-419": "Chivo Expiatorio",
+    "sv": "Syndabocken",
+    "zh-Hans": "替罪羊",
     "cn": "替罪羊"
   },
-  "type": "traveller",
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Scapegoat",
   "ability": {
     "en": "If a player of your alignment is executed, you might be executed instead.",
+    "es-419": "Si un jugador de tu alineamiento es ejecutado, quizás tú seas ejecutado en su lugar.",
+    "sv": "Om en spelare på ditt lag avrättas kanske du avrättas istället.",
+    "zh-Hans": "如果你的阵营的一名玩家被处决，你可能会代替他被处决。",
     "cn": "如果你的阵营的一名玩家被处决，你可能会代替他被处决。"
   },
   "flavor_text": {
     "en": "\"Good evening! Thank you for inviting me to the ball. I'm not from around here, but you sure seem like a friendly bunch, by golly. I'm sure we'll get along just dandy. What's all that rope for?\"",
+    "es-419": "¡Buenas noches! Gracias por invitarme al baile. No soy de por aquí, pero dios mío, ustedes sí que parecen un grupo amigable. Estoy seguro que nos vamos a llevar todos muy bien. ¿Para qué es toda esta soga?",
+    "sv": "God afton! Tack så mycket för att ni ville bjuda mig till er bal. Jag är inte härifrån, men ni verkar ju vara ett riktigt trevligt gäng! Vi kommer säkert bli goda vänner. Vad ska ni ha allt rep till?",
+    "zh-Hans": "晚上好！感谢你们邀请我来舞厅。虽然我不是本地人，但你们看起来个个都慈眉善目的，我的天呐。我相信我们一定可以打成一片的。不过这些绳子是干嘛的？",
     "cn": "“晚上好！感谢你们邀请我来舞厅。虽然我不是本地人，但你们看起来个个都慈眉善目的，我的天呐。我相信我们一定可以打成一片的。不过这些绳子是干嘛的？”"
   },
+  "source_url": "https://wiki.bloodontheclocktower.com/Scapegoat",
+  "how_to_run": {
+    "cn": "如果一名与替罪羊同阵营的玩家即将被处决，你可以选择由替罪羊来代替该玩家被处决。替罪羊会因此死亡。\n最好是在最后一天到来之前使用替罪羊的能力。因为活到了最后一天的替罪羊几乎一定会被流放。如果替罪羊是邪恶阵营的，绝大多数情况你都应该使用他的能力来阻止邪恶玩家输掉游戏。",
+    "en": "If a player of the same alignment as the Scapegoat would be executed, you may choose that the Scapegoat is executed instead. The Scapegoat dies.\nIt is best to use the Scapegoat’s ability before the final day, because a Scapegoat that remains alive on the final day will almost certainly be exiled. You should always use an evil Scapegoat’s ability to prevent evil from losing the game."
+  },
   "examples": {
+    "cn": [
+      "在占卜师即将被处决的时候，说书人决定由替罪羊代替占卜师被处决。因此占卜师不会死亡而替罪羊死亡。那天晚上，送葬者得知替罪羊在今天白天被处决。",
+      "在投毒者即将被处决的时候，说书人决定由邪恶的替罪羊代替投毒者被处决。这时候说书人也可以选择让投毒者直接死亡，只是他没有这么选。",
+      "在间谍即将被处决的时候，说书人决定由善良的替罪羊代替间谍被处决，因为间谍此时被当作是善良阵营的。"
+    ],
     "en": [
       "It is best to use the Scapegoat’s ability before the final day, because a Scapegoat that remains alive on the final day will almost certainly be exiled. You should always use an evil Scapegoat’s ability to prevent evil from losing the game.",
       "The Fortune Teller is about to be executed, but the Storyteller chooses to execute the good Scapegoat instead. The Fortune Teller lives and the Scapegoat dies. That night, the Undertaker learns that a Scapegoat was executed today.",
       "The Poisoner is about to be executed, but the Storyteller chooses to execute the evil Scapegoat instead. The Storyteller could have let the Poisoner die as normal, but chose not to.",
       "The Spy is about to be executed. The good Scapegoat dies instead."
-    ],
-    "cn": [
-      "在占卜师即将被处决的时候，说书人决定由替罪羊代替占卜师被处决。因此占卜师不会死亡而替罪羊死亡。那天晚上，送葬者得知替罪羊在今天白天被处决。",
-      "在投毒者即将被处决的时候，说书人决定由邪恶的替罪羊代替投毒者被处决。这时候说书人也可以选择让投毒者直接死亡，只是他没有这么选。",
-      "在间谍即将被处决的时候，说书人决定由善良的替罪羊代替间谍被处决，因为间谍此时被当作是善良阵营的。"
     ]
   },
   "tips": {
-    "en": [
-      "Stay alive, however you can. Lay low and don't tempt the Demon into attacking you. Avoid getting exiled until after your ability triggers. If you can live long enough for you to die in place of an executed player, that helps enormously. The Storyteller will often wait for the second half of the game for your ability to make your ability trigger, so be patient, and play it safe.",
-      "When the Storyteller declares that the players kill you instead of the normal executee, this is great! Talk to the player you saved in private. You know that they are good, and they know that you are good. Work together, vote together, and win together. Encourage them to tell you any information that they have due to their character ability, and any information that they have due to other private conversations they have had. Do whatever you can to keep this player alive, and save your vote for when they vote too.",
-      "Vote liberally, and try to convince others to do the same. If you execute an evil player, that's great! The Demon will often bluff as a powerful information-gathering character that the good team doesn't want to execute, so taking a chance on executing the Fortune Teller might help your teammate enormoursly. If you execute a good player, you might be executed instead, which is what you want - you can keep that very real Fortune Teller alive!",
-      "After you have talked to the player whose life you saved, do whatever you can to convince the rest of the group that they are good. You have two publicly known facts to help you do this:\nMost Travellers are good. The odds that you are good, are good, therefore the odds that the player you saved is good, are good.\nBoth you and the player you saved are the same alignment. If there is a Chef or Empath in play, their information would need to be congruent with you both being the same alignment. If an Investigator or Fortune Teller is in-play, their information may be incongruent with you both being evil. It is rare that a piece of information such as \"two players are the same alignment\" becomes publicly known, so use it to the full.Most Travellers are good. The odds that you are good, are good, therefore the odds that the player you saved is good, are good.Both you and the player you saved are the same alignment. If there is a Chef or Empath in play, their information would need to be congruent with you both being the same alignment. If an Investigator or Fortune Teller is in-play, their information may be incongruent with you both being evil. It is rare that a piece of information such as \"two players are the same alignment\" becomes publicly known, so use it to the full.",
-      "Beware of the Spy! If they get the votes, you, the poor, innocent, good Scapegoat might be executed instead! You at least learn that they weren't the Demon when you were executed, so it's not all bad news!",
-      "Feeling devious? Go up to a player you don't trust and tell them you're evil. Convince them to get themselves executed so you can 'prove' you're on the same team - only to watch them get executed for their crime of believing you. One Minion (or even Demon!) down.",
-      "To help convince the group that you are good, make the argument that another Traveller in the game is evil. Whether they are actually good or evil doesn't really matter to you. What does matter is that if the group thinks that one of them is evil, they will believe that you are good, because the chance of there being 2 evil Travellers is small. A group that believes that you are the good Traveller will keep you alive long enough for you to use your ability, and will believe that the player whose life you save is good too. And you never know, maybe the Traveller that you are throwing under the bus actually is evil after all!"
-    ],
     "cn": [
       "尽你所能，保持存活。低调一点，别让恶魔攻击你。在触发你的能力之前尽量避免被流放。如果你活了足够长的时间，且代替了一位玩家被处决，那你可真是帮了大忙了。说书人通常会在游戏进行到中后期的时候才触发你的能力，所以就耐心等待吧，尽量选个安全点的玩法。",
       "如果说书人宣布你要替一名被处决者死亡，这简直太棒了！偷偷与你救下的那名玩家交流。你知道他是善良阵营，他也会知道你是善良阵营。你们要紧密配合，一起投票，共同获胜。鼓励他告诉你所有他通过能力，或是从私聊中获取到的信息。尽全力让这位玩家保持存活，留着你的票直到他也投票的那一刻。",
@@ -56,11 +53,21 @@
       "如果说书人宣布你要替一名被处决者死亡，这简直太棒了！偷偷与你保下的那名玩家交流，就像你是个善良阵营玩家那样做。你可以谈论天气，足球，什么都行。只要善良阵营玩家认为你是善良的，他们就会认为你救下的那名玩家也是善良的。如果你救下的是恶魔，这个策略可能会带领你走向胜利。如果你救下的是个爪牙，他也能够保留自己的能力以及每个白天投票的权利。",
       "如果游戏接近尾声时，你代替一位爪牙被处决了，那你这个时候最好在大家面前尽可能地表现得像个邪恶阵营玩家。在接下来的一天里，如果只剩3到4名玩家存活，善良阵营将可能处决掉你救下的那名玩家，且认为他就是那个恶魔。如果你表现得邪恶，善良阵营就会认为那名爪牙也是邪恶的，但并不清楚他实际上并不是恶魔。这条策略在场上剩余5-7位玩家存活时依旧有效。说服大家（再次）处决那名爪牙意味着他们不会去处决到恶魔，而善良阵营在这个过程中又浪费了宝贵的时间和票数。",
       "想尽一切办法说服剩余玩家你救下的那名玩家是善良的。取决于场上旅行者的数量，做到这一点可能会需要耗费很多口舌。因为大家知道你们肯定是相同阵营了，他们就可以用这条信息去证实或推翻其他玩家的阵营。集中精力去诋毁那些在关键位置上的玩家。例如，如果小恶魔在刚刚被处决的时候被你救下了，共情者刚好坐在你旁边且知道他的邻座中有一个人是邪恶阵营的，你就需要全力诋毁这个共情者，或者诋毁另一个他的相邻存活玩家...否则邪恶阵营就即将谢幕了。"
+    ],
+    "en": [
+      "Stay alive, however you can. Lay low and don't tempt the Demon into attacking you. Avoid getting exiled until after your ability triggers. If you can live long enough for you to die in place of an executed player, that helps enormously. The Storyteller will often wait for the second half of the game for your ability to make your ability trigger, so be patient, and play it safe.",
+      "When the Storyteller declares that the players kill you instead of the normal executee, this is great! Talk to the player you saved in private. You know that they are good, and they know that you are good. Work together, vote together, and win together. Encourage them to tell you any information that they have due to their character ability, and any information that they have due to other private conversations they have had. Do whatever you can to keep this player alive, and save your vote for when they vote too.",
+      "Vote liberally, and try to convince others to do the same. If you execute an evil player, that's great! The Demon will often bluff as a powerful information-gathering character that the good team doesn't want to execute, so taking a chance on executing the Fortune Teller might help your teammate enormoursly. If you execute a good player, you might be executed instead, which is what you want - you can keep that very real Fortune Teller alive!",
+      "After you have talked to the player whose life you saved, do whatever you can to convince the rest of the group that they are good. You have two publicly known facts to help you do this:\nMost Travellers are good. The odds that you are good, are good, therefore the odds that the player you saved is good, are good.\nBoth you and the player you saved are the same alignment. If there is a Chef or Empath in play, their information would need to be congruent with you both being the same alignment. If an Investigator or Fortune Teller is in-play, their information may be incongruent with you both being evil. It is rare that a piece of information such as \"two players are the same alignment\" becomes publicly known, so use it to the full.Most Travellers are good. The odds that you are good, are good, therefore the odds that the player you saved is good, are good.Both you and the player you saved are the same alignment. If there is a Chef or Empath in play, their information would need to be congruent with you both being the same alignment. If an Investigator or Fortune Teller is in-play, their information may be incongruent with you both being evil. It is rare that a piece of information such as \"two players are the same alignment\" becomes publicly known, so use it to the full.",
+      "Beware of the Spy! If they get the votes, you, the poor, innocent, good Scapegoat might be executed instead! You at least learn that they weren't the Demon when you were executed, so it's not all bad news!",
+      "Feeling devious? Go up to a player you don't trust and tell them you're evil. Convince them to get themselves executed so you can 'prove' you're on the same team - only to watch them get executed for their crime of believing you. One Minion (or even Demon!) down.",
+      "To help convince the group that you are good, make the argument that another Traveller in the game is evil. Whether they are actually good or evil doesn't really matter to you. What does matter is that if the group thinks that one of them is evil, they will believe that you are good, because the chance of there being 2 evil Travellers is small. A group that believes that you are the good Traveller will keep you alive long enough for you to use your ability, and will believe that the player whose life you save is good too. And you never know, maybe the Traveller that you are throwing under the bus actually is evil after all!"
     ]
   },
-  "how_to_run": {
-    "en": "If a player of the same alignment as the Scapegoat would be executed, you may choose that the Scapegoat is executed instead. The Scapegoat dies.\nIt is best to use the Scapegoat’s ability before the final day, because a Scapegoat that remains alive on the final day will almost certainly be exiled. You should always use an evil Scapegoat’s ability to prevent evil from losing the game.",
-    "cn": "如果一名与替罪羊同阵营的玩家即将被处决，你可以选择由替罪羊来代替该玩家被处决。替罪羊会因此死亡。\n最好是在最后一天到来之前使用替罪羊的能力。因为活到了最后一天的替罪羊几乎一定会被流放。如果替罪羊是邪恶阵营的，绝大多数情况你都应该使用他的能力来阻止邪恶玩家输掉游戏。"
-  },
+  "url_param": "Scapegoat",
+  "editions": [
+    "experimental"
+  ],
+  "artist": "Aidan Roberts",
   "token_url": "https://wiki.bloodontheclocktower.com/images/3/3a/Icon_scapegoat.png"
 }

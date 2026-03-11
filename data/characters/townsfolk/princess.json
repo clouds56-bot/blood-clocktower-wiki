@@ -1,15 +1,65 @@
 {
   "id": "princess",
+  "type": "townsfolk",
   "name": {
     "en": "Princess",
+    "es-419": "Princesa",
+    "sv": "Prinsessan",
+    "zh-Hans": "公主",
     "cn": "公主"
   },
-  "type": "townsfolk",
+  "ability": {
+    "en": "On your 1st day, if you nominated & executed a player, the Demon doesn’t kill tonight.",
+    "es-419": "En tu 1er día, si tú nominaste y ejecutaste a un jugador, el Demonio no mata esta noche.",
+    "sv": "Om du nominerade och avrättade en spelare din första dag kan Demonen inte döda den natten.",
+    "zh-Hans": "在你的首个白天，如果你提名并处决了一名玩家，当晚恶魔不会造成死亡。",
+    "cn": "在你的首个白天，如果你提名并处决了一名玩家，当晚恶魔不会造成死亡。"
+  },
+  "flavor_text": {
+    "en": "\"Our words are hounds, bound by silken threads, dear lords. Let kindness weave them true, lest the reigns unravel and rend our court.\"",
+    "es-419": "Nuestras palabras son como sabuesos, atados con hilos de seda, queridos señores. Dejemos que la bondad los teja, y que las riendas no se deshagan y desgarren nuestra corte.",
+    "sv": "Våra ord är blodhundar bundna med silkestrådar, mitt herrskap. Väv dem med vänlighet, så inte tyglarna tvinnas upp och hovet slits i stycken.",
+    "zh-Hans": "言似猎犬，细语为绳；善念牵引，王廷方宁。",
+    "cn": "“言似猎犬，细语为绳；善念牵引，王廷方宁。”"
+  },
+  "other_nights": {
+    "en": "If the Princess nominated the player who was executed today, wake the Demon as normal, but no one dies to the Demon's ability. :reminder:",
+    "es-419": "Si la Princesa nominó al jugador que fue ejecutado hoy, el Demonio se despierta de forma normal, pero nadie muere a manos de la habilidad del Demonio.",
+    "sv": "Om det var Prinsessans första dag och hen nominerade den spelare som avrättades idag så vaknar Demonen som vanligt, men ingen dör av Demonens förmåga. :reminder:",
+    "zh-Hans": "如果今天白天公主提名并处决了一名玩家，和平常一样唤醒恶魔并让他选择一名玩家，但他不会造成死亡。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Princess",
+  "how_to_run": {
+    "cn": "在第一个白天，如果公主提名并处决了一名玩家，将“没有死亡”的提示标记放置在恶魔旁边。\n当晚，和平常一样唤醒恶魔并让他选择一名玩家，但他不会造成死亡。",
+    "en": "If the Princess nominates and executes a player, mark the Demon with the DOESN'T KILL reminder.\nTonight, if the Demon would wake to choose a player, wake them as normal. The Demon does not kill."
+  },
+  "examples": {
+    "cn": [
+      "公主提名了传教士。传教士被处决并死亡了。当晚，涡流选择了小精灵，小精灵没有死亡。城镇公告员得知白天有爪牙提名，因为涡流的能力让他获得了错误信息。",
+      "第四个夜晚，麻脸巫婆把筑梦师变成了公主。在白天，公主提名了狂热者并处决了他。当晚，卡扎力选择了公主，公主没有死亡。"
+    ],
+    "en": [
+      "The Princess nominates the Preacher. The Preacher is executed, and dies. That night, the Vortox chooses the Pixie, who does not die. The Town Crier learns that a Minion nominated today, which is false information due to the Vortox.",
+      "On night 4, the Pit-Hag turns the Dreamer into the Princess. That day, the Princess nominates the Zealot, who is executed. That night, the Kazali chooses the Princess, who does not die."
+    ]
+  },
+  "tips": {
+    "cn": [
+      "吸引你忠心的臣民——呃，我是说，其他玩家的注意！如果你想成为那个发起提名和处决玩家的人，请提前告诉大家你的计划，好让他们配合你投票以达成目标。",
+      "在你的第一天，找一名不介意被处决的玩家。提名他们的时候保持轻松，声称自己并不是公主。你可以说他其实可以成为食人族的“美味佳肴”，或者说送葬者可以获得重要的角色信息。",
+      "你也可以选择不使用自己的能力，保持沉默，观察是否有其他人试图冒充公主。",
+      "你可以在不造成死亡的情况下使用能力吗？留意那些可能不会死于处决的角色能力，比如茶艺师和水手。",
+      "尊重他人，享受游戏，玩得开心！在第一天强制处决其他人会让游戏变得尴尬和无趣。别忘了第四条规则：要以优雅的方式杀戮，也要以有尊严的方式死去。",
+      "坦率和真诚地表达自己。你的行为举止越真心，越容易赢得大家的信任并支持你的计划。"
+    ],
+    "en": [
+      "Demand attention from your loyal subj- I mean, fellow players! If you want to be the one who nominates and executes a player, let everyone know your plan in advance so they’ll vote with you & help you achieve your goal.On your 1st day, try to find a player who doesn’t mind being executed. Nominate them and keep it casual, bluffing as if you are not the Princess. Claim you’ve nominated because you think the player is good Cannibal food, or because they would like their role confirmed by an Undertaker.Don’t use your ability. Stay quiet, wait, and see if a different player tries to claim that they are the Princess.Can you use your ability without killing a player? Look for reasons someone might not die to execution, like a Tea Lady or a Sailor.Be kind! Pushing to get someone killed on the first day can be socially tricky. Remember Rule 4: Kill with grace and die with dignity.Be honest and forthcoming. The more socially good you seem, the more people will believe you and choose to go forward with your plan."
+    ]
+  },
+  "url_param": "Princess",
   "editions": [
     "experimental"
   ],
-  "first_night": false,
-  "other_nights": false,
   "artist": "Chloe McDougall",
   "jinxes": [
     {
@@ -21,41 +71,5 @@
       "reason": "If the Cannibal nominated, executed, & killed the Princess today, the Demon doesn’t kill tonight."
     }
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Princess",
-  "ability": {
-    "en": "On your 1st day, if you nominated & executed a player, the Demon doesn’t kill tonight.",
-    "cn": "在你的首个白天，如果你提名并处决了一名玩家，当晚恶魔不会造成死亡。"
-  },
-  "flavor_text": {
-    "en": "\"Our words are hounds, bound by silken threads, dear lords. Let kindness weave them true, lest the reigns unravel and rend our court.\"",
-    "cn": "“言似猎犬，细语为绳；善念牵引，王廷方宁。”"
-  },
-  "examples": {
-    "en": [
-      "The Princess nominates the Preacher. The Preacher is executed, and dies. That night, the Vortox chooses the Pixie, who does not die. The Town Crier learns that a Minion nominated today, which is false information due to the Vortox.",
-      "On night 4, the Pit-Hag turns the Dreamer into the Princess. That day, the Princess nominates the Zealot, who is executed. That night, the Kazali chooses the Princess, who does not die."
-    ],
-    "cn": [
-      "公主提名了传教士。传教士被处决并死亡了。当晚，涡流选择了小精灵，小精灵没有死亡。城镇公告员得知白天有爪牙提名，因为涡流的能力让他获得了错误信息。",
-      "第四个夜晚，麻脸巫婆把筑梦师变成了公主。在白天，公主提名了狂热者并处决了他。当晚，卡扎力选择了公主，公主没有死亡。"
-    ]
-  },
-  "tips": {
-    "en": [
-      "Demand attention from your loyal subj- I mean, fellow players! If you want to be the one who nominates and executes a player, let everyone know your plan in advance so they’ll vote with you & help you achieve your goal.On your 1st day, try to find a player who doesn’t mind being executed. Nominate them and keep it casual, bluffing as if you are not the Princess. Claim you’ve nominated because you think the player is good Cannibal food, or because they would like their role confirmed by an Undertaker.Don’t use your ability. Stay quiet, wait, and see if a different player tries to claim that they are the Princess.Can you use your ability without killing a player? Look for reasons someone might not die to execution, like a Tea Lady or a Sailor.Be kind! Pushing to get someone killed on the first day can be socially tricky. Remember Rule 4: Kill with grace and die with dignity.Be honest and forthcoming. The more socially good you seem, the more people will believe you and choose to go forward with your plan."
-    ],
-    "cn": [
-      "吸引你忠心的臣民——呃，我是说，其他玩家的注意！如果你想成为那个发起提名和处决玩家的人，请提前告诉大家你的计划，好让他们配合你投票以达成目标。",
-      "在你的第一天，找一名不介意被处决的玩家。提名他们的时候保持轻松，声称自己并不是公主。你可以说他其实可以成为食人族的“美味佳肴”，或者说送葬者可以获得重要的角色信息。",
-      "你也可以选择不使用自己的能力，保持沉默，观察是否有其他人试图冒充公主。",
-      "你可以在不造成死亡的情况下使用能力吗？留意那些可能不会死于处决的角色能力，比如茶艺师和水手。",
-      "尊重他人，享受游戏，玩得开心！在第一天强制处决其他人会让游戏变得尴尬和无趣。别忘了第四条规则：要以优雅的方式杀戮，也要以有尊严的方式死去。",
-      "坦率和真诚地表达自己。你的行为举止越真心，越容易赢得大家的信任并支持你的计划。"
-    ]
-  },
-  "how_to_run": {
-    "en": "If the Princess nominates and executes a player, mark the Demon with the DOESN'T KILL reminder.\nTonight, if the Demon would wake to choose a player, wake them as normal. The Demon does not kill.",
-    "cn": "在第一个白天，如果公主提名并处决了一名玩家，将“没有死亡”的提示标记放置在恶魔旁边。\n当晚，和平常一样唤醒恶魔并让他选择一名玩家，但他不会造成死亡。"
-  },
   "token_url": "https://wiki.bloodontheclocktower.com/images/3/36/Icon_princess.png"
 }

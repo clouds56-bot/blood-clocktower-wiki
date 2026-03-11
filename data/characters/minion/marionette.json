@@ -1,16 +1,98 @@
 {
   "id": "marionette",
+  "type": "minion",
   "name": {
     "en": "Marionette",
+    "es-419": "Marioneta",
+    "sv": "Marionetten",
+    "zh-Hans": "提线木偶",
     "cn": "提线木偶"
   },
-  "type": "minion",
+  "ability": {
+    "en": "You think you are a good character, but you are not. The Demon knows who you are. [You neighbor the Demon]",
+    "es-419": "Tú crees que eres un rol bueno, pero no lo eres. El Demonio sabe quién eres. [Eres vecino del Demonio]",
+    "sv": "Du tror att du är en god roll, men det är du inte. Demonen vet vem du är. [Granne med Demonen]",
+    "zh-Hans": "你以为你是一个善良角色，但其实你不是。恶魔会知道你是提线木偶。[提线木偶会与恶魔邻座]",
+    "cn": "你以为你是一个善良角色，但其实你不是。恶魔会知道你是提线木偶。[提线木偶会与恶魔邻座]"
+  },
+  "flavor_text": {
+    "en": "\"Words, words. They're all we have to go on.\"",
+    "es-419": "Palabras, palabras. Son lo único que tenemos.",
+    "sv": "Ord, ord. Det är allt vi har att gå på.",
+    "zh-Hans": "给出命令，下达命令。只需要这样做就足够了。",
+    "cn": "“给出命令，下达命令。只需要这样做就足够了。”"
+  },
+  "first_night": {
+    "en": "Wake the Demon. Show the *THIS PLAYER IS* & Marionette tokens. Point to the Marionette.",
+    "es-419": "Despierta al Demonio. Apunta al jugador marcado *ES LA MARIONETA* y muéstrale la ficha de *ESTE JUGADOR ES* y la ficha de rol de la Marioneta.",
+    "sv": "Väck Demonen. Visa kortet *DEN HÄR SPELAREN ÄR* och Marionettens rollbricka. Peka på Marionetten.",
+    "zh-Hans": "唤醒恶魔，指向标记了“是提线木偶”的玩家，对恶魔展示提线木偶角色标记。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Marionette",
+  "how_to_run": {
+    "cn": "在游戏设置时，将角色标记放入盲抽袋之前，移除提线木偶角色标记，并加入一个镇民角色标记。\n如果有三名爪牙在场，额外再移除一个爪牙角色标记，并加入一个镇民角色标记。在为首个夜晚做准备时，将一名善良镇民玩家的角色标记与一个不在场的爪牙角色标记交换。在首个夜晚，唤醒这名玩家，对他展示“你是”信息标记和他的爪牙角色标记，随后展示“你是”信息标记和朝下的大拇指，随后让他重新入睡。那名玩家现在是一名邪恶的爪牙了。（这一步骤会确保只会有一个爪牙角色进入盲抽袋里，从而使得至少会有一名善良玩家会与恶魔邻座。）\n在为首个夜晚做准备时，在一名与恶魔邻座的善良玩家角色标记旁放置提线木偶的“是提线木偶”提示标记。在首个夜晚，唤醒恶魔，指向标记了“是提线木偶”的玩家，对恶魔展示提线木偶角色标记。让恶魔重新入睡。\n将提线木偶以为的那个角色视同醉酒一样来运作。他会在他以为的那个善良角色的时机被唤醒，可能获得错误信息，但不会在首夜爪牙信息时被唤醒，等等。\n提线木偶有另一种通用的设置方式：移除提线木偶角色标记和恶魔角色标记，并加入两个镇民角色标记。在为首个夜晚做准备时，选择任意一名与善良玩家相邻的镇民玩家，将他的角色标记替换成恶魔，并在他邻座选择一位善良玩家标记“是提线木偶”。唤醒恶魔并告诉他他的恶魔角色和邪恶阵营，随后告知他提线木偶是谁以及他的恶魔信息。不论爪牙数量多少，都可以按照这个方法进行设置。",
+    "en": "While setting up the game, before putting tokens in the bag, remove the Marionette token and add any Townsfolk token.\nIf there are three Minions in play, remove another Minion token and add another Townsfolk token. During the first night, swap a good player’s character token with a not-in-play Minion character token. Wake this player, show them the YOU ARE info token then their Minion character token, then the YOU ARE info token then a thumbs down, then put them to sleep. This player is now an evil Minion. (This ensures that only one Minion token is in the bag, so at least one good player will neighbor the Demon.)\nDuring the first night, mark a good player neighboring the Demon with the IS THE MARIONETTE reminder. Wake the Demon. Point to the player marked IS THE MARIONETTE and show the Marionette character token. Put the Demon to sleep.\nTreat the Marionette as if they were drunk. They wake when their good character would wake, may get false information, do not wake during the Minion Info step etc."
+  },
+  "examples": {
+    "cn": [
+      "小明是提线木偶，她认为自己是送葬者。她在每个夜晚被唤醒并得知白天死于处决的角色，但她的信息大部分时候都是错误的。在游戏进行到一半后，恶魔告诉她她实际上是提线木偶。",
+      "小兰是恶魔，他告诉小美她是提线木偶。小兰撒谎了，实际上提线木偶不在场。",
+      "小黑是恶魔，他告诉小八小八是提线木偶。小八认为自己是占卜师，但他实际上不是。因为他不相信小黑，于是他提名并处决了小黑。善良阵营获胜。"
+    ],
+    "en": [
+      "Marianna is the Marionette, but thinks she is the Undertaker. She wakes each night to learn who was executed that day, but her information is often wrong. Halfway through the game, the Demon tells her that she is the Marionette.",
+      "Lachlan is the Demon. He tells Sarah that she is the Marionette. Lachlan is lying. There is no Marionette.",
+      "The Demon tells Ben that he is the Marionette. Ben thinks he is the Fortune Teller, but he isn’t. Ben doesn’t believe the Demon, and executes them. Good wins."
+    ]
+  },
+  "tips": {
+    "cn": [
+      "作为提线木偶，你本质上是一个邪恶的酒鬼——你不仅没有你以为具有的能力，甚至不是你以为你是的阵营！好消息是许多你能用来检测自己是酒鬼的技巧也适用于检测提线木偶。如果你的信息不够合乎情理，或是你的能力在它应当生效时没有生效，那么你可能是提线木偶而不是一名善良玩家！",
+      "即使你无法知道，但你的阵营实际上是邪恶的并且你会被像是女裁缝或城镇公告员这样的角色当作邪恶阵营。但至少，你可以利用这点来帮助你确定你的角色……不过镇上的人也可以，所以请小心不要随意请求玩家对你使用他们的能力！",
+      "在多数情况下，邪恶阵营会想让你知道你应该与他们合作。如果你的一名邻近玩家告诉你你是提线木偶，认真对待这件事；虽然他们很有可能在骗你，但他们也可能只是想把你带入你的真实角色，如果你揭露他们，那么邪恶阵营会落败而你也会落败！",
+      "如果你怀疑你是提线木偶（可能是因为你的信息令你困惑或是某人直截了当地告诉了你），不要告诉其他镇民你的怀疑！如果你是对的而小镇相信你，那么善良阵营将会知道恶魔必定是你的邻近玩家之一。",
+      "除非证据确凿，否则不要提名或投票你的邻近玩家。如果你是提线木偶，恶魔一定是你的邻近玩家之一。因为你不知道你是邪恶的而意外地处决了你的恶魔这件事可能会让你不太快乐！",
+      "缩小在场爪牙类型的范围。提线木偶本质上一种隐秘而不外现的爪牙，而剧本中的其他爪牙可能更像外放的发言者——确认其中一种在场也意味着确认大家不必担心是提线木偶。如果你在一个八人游戏（单爪牙）中并且刚刚目睹了一名女巫的死亡，你就一定不是提线木偶！",
+      "如果你确信你知道谁是爪牙，你也可以确信你不是那个潜伏的提线木偶。游戏中的爪牙数量有限，即使你不知道他们的爪牙类型，确定谁是爪牙还是能告诉所有其他善良玩家他们不是提线木偶。",
+      "致力于追猎恶魔！如果你是提线木偶，那恶魔就是你的邻近玩家之一。如果你能证明恶魔坐在其他地方（比如，占卜师端了小镇的另一头），那么你就知道你不可能是提线木偶！（额外地如果你是提线木偶，你也让你的恶魔远离怀疑！这是双赢！）",
+      "如果你担心你是提线木偶，但又没法让你的邻近玩家敞开心扉，你总是能试着说服你的邻近玩家他是提线木偶。邪恶玩家会知道这不是真的，而善良玩家将不得不就你说的是否是事实与你抗争，并表现出不同的行为。这可以给你提供谁是你的秘密邪恶盟友的线索，或者至少能了解到你的秘密邻近邪恶玩家。",
+      "如果你确信你是提线木偶，那你就会知道你的角色是保护你的恶魔。小镇也会知道木偶可能在，并将密切关注你的存在，以便利用你来消灭你的恶魔。为了防止小镇怀疑你，改变你的信息，转而让它们看起来像是真的——比如，如果你相信自己是一个博学者，那就确保每天的信息是一个正确一个错误的。",
+      "如果你是恶魔，决定如何与提线木偶互动是你必须接受的责任。尽快告诉提线木偶他的真实角色绝对是有好处的——这使得他们能够按照他们的真实阵营行动，保护你并且不会在他们的能力出问题时向小镇意外地暴露你。让提线木偶隐藏在暗处也很有用——有时候最强大的邪恶玩家是最善良的那个人！如果你的提线木偶完全取信于小镇，就他们冲锋陷阵（并远离你）。他们最终仍然会获胜，但不是以他们想象的那种方式！",
+      "如果你是一个恶魔，没有东西能阻止你告诉你的邻近善良玩家他们是你的提线木偶。事实上，你可以告诉他们两个人，让他们都确信自己是“真正的”木偶，而另一个是被欺骗的！由于提线木偶并不知道他们真正的阵营，因此对这些玩家最好的就是隐藏你的宣称并暗自查明他们是否与你同一阵营——这一流程将会需要一些时间并且会让他们的行为对善良阵营产生负面效果。只是要提防他们查明真相后的愤怒——他们几乎一定会回头来处决你，所以确保你有一个退场计划！",
+      "如果你是一个爪牙，告诉你的邻近善良玩家他们是你的提线木偶！即使你被发现是个骗子，你也成功地让善良阵营陷入困惑，并且不会面临因被处决而落败的风险！",
+      "你是善良的，但有个不太合作的邻近玩家？告诉他们他们是你的提线木偶！至少在一段时间内，多数玩家会与你合作并试着解开他们自己的角色，你可以利用这个技巧让他们与你分享信息并参与他们原本不会参与的密谋。只要确保在游戏结束前能让他们明白他们必须与善良阵营合作才能获胜就行。",
+      "你就像是寻找暗流涌动中的酒鬼一样，寻找一名毫无疑问在提供错误信息的玩家。如果一名特定玩家的信息不合情理，那你也许已经找到了提线木偶。比如，如果一名玩家宣称是共情者并得到了“0”，但你怀疑他的一名邻近玩家是邪恶的，那共情者可能就是提线木偶。",
+      "如果一名玩家宣称是恶魔，而你是提线木偶，那你就面临一个问题。你是提线木偶吗？也许不是。如果你认为那名玩家实际上是恶魔，而提线木偶在场，那么与恶魔的另一个邻近玩家谈谈，看看你是否能查明他其实才是提线木偶！如果你认为告诉你你是提线木偶的人并非恶魔，那么他们几乎一定其实是一个爪牙。不管怎样你找到了一名邪恶玩家（或是一名需要停止骗你的善良玩家）。如果你被告知你是提线木偶但你查明了你其实不是，你就几乎赢得了游戏。",
+      "如果你确信自己不是提线木偶，但有人告诉你你是提线木偶，那告诉团队这件事。团队很可能会处决你的相邻玩家，这意味要么一个恶魔死亡，要么一个爪牙死亡，再不然就是一个伪装了但又没啥用的善良玩家死亡，最不济是一个胡闹的善良玩家死亡。",
+      "找出有多少玩家被告知他们是提线木偶。如果有超过一个，那么多半提线木偶根本就不在场。",
+      "注意你的邻近玩家。如果你认为他们都不是恶魔，并且他们也都没有告诉你你是提线木偶，那么你可以忽略提线木偶在游戏中这种情况。只要你在最后一天让你的相邻玩家存活，提线木偶在场这件事就不太令人担心。按预设的目标去查明谁是善良玩家谁是恶魔就行。",
+      "如果剧本上有提线木偶，就不要处决你的邻近玩家。你永远都不能十分确定。如果可以，转而处决其他所有玩家。",
+      "如果你认为木偶在场但不是你。那你会知道一件非常重要的事——恶魔和爪牙比邻而坐。就好像你是厨师或是钟表匠一样，你已经得知了一些非常有用的信息以往下思考。假设两名邪恶的玩家比邻而坐，然后看看这是否与游戏中的其他信息匹配。如果匹配的话，你可能已经找到了一对邪恶玩家。如果不匹配，那可能就没有提线木偶在场。不论如何，你和所有其他善良玩家都知道了一些有用的。",
+      "通常来说，查明一名玩家是爪牙很方便，但并不能帮助善良阵营获胜。在最后一天，得知一名死了很久的玩家是主谋很方便，但是查明一名死了很久的玩家是提线木偶将格外有用。相比起麻脸巫婆随意地改变了一些角色或是普卡让每个人的信息都变得可疑，仅仅一条信息——某个特定玩家是提线木偶——就足以让善良阵营在剩下三名玩家存活的情况下获胜。",
+      "请注意那些在前几天对分享信息和帮助善良阵营非常直接和热忱，随后突然沉默了的玩家。他们可能因为在游戏中途被告知是提线木偶而正陷入精神崩溃之中;)"
+    ],
+    "en": [
+      "As a Marionette, you are essentially an evil Drunk - not only do you not have the ability you think you do, but you don't have the alignment you think you do! The good news is that a lot of techniques you can use to detect a Drunk will also work for a Marionette. If your information isn't adding up, or your ability doesn't work when it really should, you could actually be the Marionette instead of a good player!",
+      "Even though you don't know it, your alignment is evil and you will register as evil to characters like the Seamstress and the Town Crier. You can use this to help determine your identity one way or another... but so can the town, so be careful about asking for players to use their abilities on you willy nilly!",
+      "In most cases, the evil team is going to want to let you know that you should be working with them. If one of your neighbours tells you that you're a Marionette, take it seriously; while there's every possibility they're lying to you, they could also just be clueing you into your true identity, and if you out them and evil loses, you will lose along with them!",
+      "If you suspect you are a Marionette (either through your information being confusing or someone straight up telling you), then don't tell other Townsfolk you suspect that! If you're right and the town believes you, the good team will know the Demon must be one of your neighbours.",
+      "Avoid nominating or voting for your neighbours unless the evidence is especially compelling. If you are a Marionette, the Demon must be one of your neighbours. Accidentally executing your Demon because you didn't know you were evil will be a bit of a bummer!",
+      "Narrow down which types of Minions are in play. The Marionette is by nature a secretive, invisible sort of Minion, while other Minions on the script might have more of a tell - confirming one of them also means confirming there isn't a Marionette to worry about. If you are in an 8 player game (1 Minion) and have just witnessed a Witch death, you're not the Marionette!",
+      "If you are confident you know who the Minions are, you can also be confident you are not secretly the Marionette. There are only a limited number of Minions in the game, so even if you don't know what kind of Minion they are, confirming who the Minion IS will tell all other good players they are not a Marionette.",
+      "Hunt down the Demon with gusto! If you are a Marionette, the Demon is one of your neighbours. If you can prove the Demon is sitting somewhere else (for example, a Fortune Teller ping on the other side of town), then you know you cannot be the Marionette! (Additionally if you ARE the Marionette, you point suspicion away from your Demon! Win-Win!)",
+      "If you are concerned you are a Marionette but can't get your neighbours to open up, you can always try convincing your neighbours that they're your Marionette instead. Evil players will know this isn't true, while good players have to contend with whether you're telling the truth or not and will behave differently. This can give you a clue as to who your secretly evil allies are... or secretly evil neighbours, anyway.",
+      "If you are convinced you are the Marionette, then you know your role is to protect your Demon. The town also knows the Marionette is a possibility, and will be on the lookout for tells you exist so that they can use you to take down your Demon. To keep town from suspecting you, change up your information so that it appears to be true instead - for example, if you believe you are a Savant, make sure one statement is true and one is false each day.",
+      "If you are a Demon, the Marionette is a responsibility you will have to decide how to interact with. It's absolutely beneficial to tell a Marionette their identity as soon as possible - this enables them to act to their true alignment, protect you, and not accidentally reveal you to the town when their ability malfunctions. It can also be useful to keep a Marionette in the dark - sometimes the most potent evil player is someone who is earnestly good! If your Marionette has won over the town, let them lead the charge (away from you). They'll still win in the end, just not for the reasons they thought!",
+      "If you are a Demon, nothing is stopping you telling your actually good neighbours that they are your Marionette. In fact, you can tell both of them, reassuring each that they are the 'real' Marionette and that the other is being duped! Since a Marionette doesn't know their true alignment, it will always be to these players' benefits to keep your claim secret and figure out for themselves if they are on your team or not - a process that will take some time and make them behave in ways counterproductive to the good team in the meanwhile. Just beware their wrath if they manage to figure it out - they will most certainly turn around and execute you, so make sure you have an exit plan!",
+      "If you are a Minion, tell your good neighbours that they are your Marionette! You get all the benefits of confusing the good team with none of the danger of losing the game by execution if or when you are discovered as a fraud!",
+      "Are you good, but have an uncooperative neighbour? Tell them that they're your Marionette! For a while at least, most players will work with you while unravelling their own identity, and you can utilise this trick to get them to share information and participate in plots with you that they otherwise wouldn't. Just make sure to come clean before the end so they know they have to work with the good team to win."
+    ]
+  },
+  "url_param": "Marionette",
   "editions": [
     "experimental",
     "trouble_brewing"
   ],
-  "first_night": false,
-  "other_nights": false,
   "artist": "Anica Kelsen",
   "jinxes": [
     {
@@ -50,73 +132,5 @@
       "reason": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor."
     }
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Marionette",
-  "ability": {
-    "en": "You think you are a good character, but you are not. The Demon knows who you are. [You neighbor the Demon]",
-    "cn": "你以为你是一个善良角色，但其实你不是。恶魔会知道你是提线木偶。[提线木偶会与恶魔邻座]"
-  },
-  "flavor_text": {
-    "en": "\"Words, words. They're all we have to go on.\"",
-    "cn": "“给出命令，下达命令。只需要这样做就足够了。”"
-  },
-  "examples": {
-    "en": [
-      "Marianna is the Marionette, but thinks she is the Undertaker. She wakes each night to learn who was executed that day, but her information is often wrong. Halfway through the game, the Demon tells her that she is the Marionette.",
-      "Lachlan is the Demon. He tells Sarah that she is the Marionette. Lachlan is lying. There is no Marionette.",
-      "The Demon tells Ben that he is the Marionette. Ben thinks he is the Fortune Teller, but he isn’t. Ben doesn’t believe the Demon, and executes them. Good wins."
-    ],
-    "cn": [
-      "小明是提线木偶，她认为自己是送葬者。她在每个夜晚被唤醒并得知白天死于处决的角色，但她的信息大部分时候都是错误的。在游戏进行到一半后，恶魔告诉她她实际上是提线木偶。",
-      "小兰是恶魔，他告诉小美她是提线木偶。小兰撒谎了，实际上提线木偶不在场。",
-      "小黑是恶魔，他告诉小八小八是提线木偶。小八认为自己是占卜师，但他实际上不是。因为他不相信小黑，于是他提名并处决了小黑。善良阵营获胜。"
-    ]
-  },
-  "tips": {
-    "en": [
-      "As a Marionette, you are essentially an evil Drunk - not only do you not have the ability you think you do, but you don't have the alignment you think you do! The good news is that a lot of techniques you can use to detect a Drunk will also work for a Marionette. If your information isn't adding up, or your ability doesn't work when it really should, you could actually be the Marionette instead of a good player!",
-      "Even though you don't know it, your alignment is evil and you will register as evil to characters like the Seamstress and the Town Crier. You can use this to help determine your identity one way or another... but so can the town, so be careful about asking for players to use their abilities on you willy nilly!",
-      "In most cases, the evil team is going to want to let you know that you should be working with them. If one of your neighbours tells you that you're a Marionette, take it seriously; while there's every possibility they're lying to you, they could also just be clueing you into your true identity, and if you out them and evil loses, you will lose along with them!",
-      "If you suspect you are a Marionette (either through your information being confusing or someone straight up telling you), then don't tell other Townsfolk you suspect that! If you're right and the town believes you, the good team will know the Demon must be one of your neighbours.",
-      "Avoid nominating or voting for your neighbours unless the evidence is especially compelling. If you are a Marionette, the Demon must be one of your neighbours. Accidentally executing your Demon because you didn't know you were evil will be a bit of a bummer!",
-      "Narrow down which types of Minions are in play. The Marionette is by nature a secretive, invisible sort of Minion, while other Minions on the script might have more of a tell - confirming one of them also means confirming there isn't a Marionette to worry about. If you are in an 8 player game (1 Minion) and have just witnessed a Witch death, you're not the Marionette!",
-      "If you are confident you know who the Minions are, you can also be confident you are not secretly the Marionette. There are only a limited number of Minions in the game, so even if you don't know what kind of Minion they are, confirming who the Minion IS will tell all other good players they are not a Marionette.",
-      "Hunt down the Demon with gusto! If you are a Marionette, the Demon is one of your neighbours. If you can prove the Demon is sitting somewhere else (for example, a Fortune Teller ping on the other side of town), then you know you cannot be the Marionette! (Additionally if you ARE the Marionette, you point suspicion away from your Demon! Win-Win!)",
-      "If you are concerned you are a Marionette but can't get your neighbours to open up, you can always try convincing your neighbours that they're your Marionette instead. Evil players will know this isn't true, while good players have to contend with whether you're telling the truth or not and will behave differently. This can give you a clue as to who your secretly evil allies are... or secretly evil neighbours, anyway.",
-      "If you are convinced you are the Marionette, then you know your role is to protect your Demon. The town also knows the Marionette is a possibility, and will be on the lookout for tells you exist so that they can use you to take down your Demon. To keep town from suspecting you, change up your information so that it appears to be true instead - for example, if you believe you are a Savant, make sure one statement is true and one is false each day.",
-      "If you are a Demon, the Marionette is a responsibility you will have to decide how to interact with. It's absolutely beneficial to tell a Marionette their identity as soon as possible - this enables them to act to their true alignment, protect you, and not accidentally reveal you to the town when their ability malfunctions. It can also be useful to keep a Marionette in the dark - sometimes the most potent evil player is someone who is earnestly good! If your Marionette has won over the town, let them lead the charge (away from you). They'll still win in the end, just not for the reasons they thought!",
-      "If you are a Demon, nothing is stopping you telling your actually good neighbours that they are your Marionette. In fact, you can tell both of them, reassuring each that they are the 'real' Marionette and that the other is being duped! Since a Marionette doesn't know their true alignment, it will always be to these players' benefits to keep your claim secret and figure out for themselves if they are on your team or not - a process that will take some time and make them behave in ways counterproductive to the good team in the meanwhile. Just beware their wrath if they manage to figure it out - they will most certainly turn around and execute you, so make sure you have an exit plan!",
-      "If you are a Minion, tell your good neighbours that they are your Marionette! You get all the benefits of confusing the good team with none of the danger of losing the game by execution if or when you are discovered as a fraud!",
-      "Are you good, but have an uncooperative neighbour? Tell them that they're your Marionette! For a while at least, most players will work with you while unravelling their own identity, and you can utilise this trick to get them to share information and participate in plots with you that they otherwise wouldn't. Just make sure to come clean before the end so they know they have to work with the good team to win."
-    ],
-    "cn": [
-      "作为提线木偶，你本质上是一个邪恶的酒鬼——你不仅没有你以为具有的能力，甚至不是你以为你是的阵营！好消息是许多你能用来检测自己是酒鬼的技巧也适用于检测提线木偶。如果你的信息不够合乎情理，或是你的能力在它应当生效时没有生效，那么你可能是提线木偶而不是一名善良玩家！",
-      "即使你无法知道，但你的阵营实际上是邪恶的并且你会被像是女裁缝或城镇公告员这样的角色当作邪恶阵营。但至少，你可以利用这点来帮助你确定你的角色……不过镇上的人也可以，所以请小心不要随意请求玩家对你使用他们的能力！",
-      "在多数情况下，邪恶阵营会想让你知道你应该与他们合作。如果你的一名邻近玩家告诉你你是提线木偶，认真对待这件事；虽然他们很有可能在骗你，但他们也可能只是想把你带入你的真实角色，如果你揭露他们，那么邪恶阵营会落败而你也会落败！",
-      "如果你怀疑你是提线木偶（可能是因为你的信息令你困惑或是某人直截了当地告诉了你），不要告诉其他镇民你的怀疑！如果你是对的而小镇相信你，那么善良阵营将会知道恶魔必定是你的邻近玩家之一。",
-      "除非证据确凿，否则不要提名或投票你的邻近玩家。如果你是提线木偶，恶魔一定是你的邻近玩家之一。因为你不知道你是邪恶的而意外地处决了你的恶魔这件事可能会让你不太快乐！",
-      "缩小在场爪牙类型的范围。提线木偶本质上一种隐秘而不外现的爪牙，而剧本中的其他爪牙可能更像外放的发言者——确认其中一种在场也意味着确认大家不必担心是提线木偶。如果你在一个八人游戏（单爪牙）中并且刚刚目睹了一名女巫的死亡，你就一定不是提线木偶！",
-      "如果你确信你知道谁是爪牙，你也可以确信你不是那个潜伏的提线木偶。游戏中的爪牙数量有限，即使你不知道他们的爪牙类型，确定谁是爪牙还是能告诉所有其他善良玩家他们不是提线木偶。",
-      "致力于追猎恶魔！如果你是提线木偶，那恶魔就是你的邻近玩家之一。如果你能证明恶魔坐在其他地方（比如，占卜师端了小镇的另一头），那么你就知道你不可能是提线木偶！（额外地如果你是提线木偶，你也让你的恶魔远离怀疑！这是双赢！）",
-      "如果你担心你是提线木偶，但又没法让你的邻近玩家敞开心扉，你总是能试着说服你的邻近玩家他是提线木偶。邪恶玩家会知道这不是真的，而善良玩家将不得不就你说的是否是事实与你抗争，并表现出不同的行为。这可以给你提供谁是你的秘密邪恶盟友的线索，或者至少能了解到你的秘密邻近邪恶玩家。",
-      "如果你确信你是提线木偶，那你就会知道你的角色是保护你的恶魔。小镇也会知道木偶可能在，并将密切关注你的存在，以便利用你来消灭你的恶魔。为了防止小镇怀疑你，改变你的信息，转而让它们看起来像是真的——比如，如果你相信自己是一个博学者，那就确保每天的信息是一个正确一个错误的。",
-      "如果你是恶魔，决定如何与提线木偶互动是你必须接受的责任。尽快告诉提线木偶他的真实角色绝对是有好处的——这使得他们能够按照他们的真实阵营行动，保护你并且不会在他们的能力出问题时向小镇意外地暴露你。让提线木偶隐藏在暗处也很有用——有时候最强大的邪恶玩家是最善良的那个人！如果你的提线木偶完全取信于小镇，就他们冲锋陷阵（并远离你）。他们最终仍然会获胜，但不是以他们想象的那种方式！",
-      "如果你是一个恶魔，没有东西能阻止你告诉你的邻近善良玩家他们是你的提线木偶。事实上，你可以告诉他们两个人，让他们都确信自己是“真正的”木偶，而另一个是被欺骗的！由于提线木偶并不知道他们真正的阵营，因此对这些玩家最好的就是隐藏你的宣称并暗自查明他们是否与你同一阵营——这一流程将会需要一些时间并且会让他们的行为对善良阵营产生负面效果。只是要提防他们查明真相后的愤怒——他们几乎一定会回头来处决你，所以确保你有一个退场计划！",
-      "如果你是一个爪牙，告诉你的邻近善良玩家他们是你的提线木偶！即使你被发现是个骗子，你也成功地让善良阵营陷入困惑，并且不会面临因被处决而落败的风险！",
-      "你是善良的，但有个不太合作的邻近玩家？告诉他们他们是你的提线木偶！至少在一段时间内，多数玩家会与你合作并试着解开他们自己的角色，你可以利用这个技巧让他们与你分享信息并参与他们原本不会参与的密谋。只要确保在游戏结束前能让他们明白他们必须与善良阵营合作才能获胜就行。",
-      "你就像是寻找暗流涌动中的酒鬼一样，寻找一名毫无疑问在提供错误信息的玩家。如果一名特定玩家的信息不合情理，那你也许已经找到了提线木偶。比如，如果一名玩家宣称是共情者并得到了“0”，但你怀疑他的一名邻近玩家是邪恶的，那共情者可能就是提线木偶。",
-      "如果一名玩家宣称是恶魔，而你是提线木偶，那你就面临一个问题。你是提线木偶吗？也许不是。如果你认为那名玩家实际上是恶魔，而提线木偶在场，那么与恶魔的另一个邻近玩家谈谈，看看你是否能查明他其实才是提线木偶！如果你认为告诉你你是提线木偶的人并非恶魔，那么他们几乎一定其实是一个爪牙。不管怎样你找到了一名邪恶玩家（或是一名需要停止骗你的善良玩家）。如果你被告知你是提线木偶但你查明了你其实不是，你就几乎赢得了游戏。",
-      "如果你确信自己不是提线木偶，但有人告诉你你是提线木偶，那告诉团队这件事。团队很可能会处决你的相邻玩家，这意味要么一个恶魔死亡，要么一个爪牙死亡，再不然就是一个伪装了但又没啥用的善良玩家死亡，最不济是一个胡闹的善良玩家死亡。",
-      "找出有多少玩家被告知他们是提线木偶。如果有超过一个，那么多半提线木偶根本就不在场。",
-      "注意你的邻近玩家。如果你认为他们都不是恶魔，并且他们也都没有告诉你你是提线木偶，那么你可以忽略提线木偶在游戏中这种情况。只要你在最后一天让你的相邻玩家存活，提线木偶在场这件事就不太令人担心。按预设的目标去查明谁是善良玩家谁是恶魔就行。",
-      "如果剧本上有提线木偶，就不要处决你的邻近玩家。你永远都不能十分确定。如果可以，转而处决其他所有玩家。",
-      "如果你认为木偶在场但不是你。那你会知道一件非常重要的事——恶魔和爪牙比邻而坐。就好像你是厨师或是钟表匠一样，你已经得知了一些非常有用的信息以往下思考。假设两名邪恶的玩家比邻而坐，然后看看这是否与游戏中的其他信息匹配。如果匹配的话，你可能已经找到了一对邪恶玩家。如果不匹配，那可能就没有提线木偶在场。不论如何，你和所有其他善良玩家都知道了一些有用的。",
-      "通常来说，查明一名玩家是爪牙很方便，但并不能帮助善良阵营获胜。在最后一天，得知一名死了很久的玩家是主谋很方便，但是查明一名死了很久的玩家是提线木偶将格外有用。相比起麻脸巫婆随意地改变了一些角色或是普卡让每个人的信息都变得可疑，仅仅一条信息——某个特定玩家是提线木偶——就足以让善良阵营在剩下三名玩家存活的情况下获胜。",
-      "请注意那些在前几天对分享信息和帮助善良阵营非常直接和热忱，随后突然沉默了的玩家。他们可能因为在游戏中途被告知是提线木偶而正陷入精神崩溃之中;)"
-    ]
-  },
-  "how_to_run": {
-    "en": "While setting up the game, before putting tokens in the bag, remove the Marionette token and add any Townsfolk token.\nIf there are three Minions in play, remove another Minion token and add another Townsfolk token. During the first night, swap a good player’s character token with a not-in-play Minion character token. Wake this player, show them the YOU ARE info token then their Minion character token, then the YOU ARE info token then a thumbs down, then put them to sleep. This player is now an evil Minion. (This ensures that only one Minion token is in the bag, so at least one good player will neighbor the Demon.)\nDuring the first night, mark a good player neighboring the Demon with the IS THE MARIONETTE reminder. Wake the Demon. Point to the player marked IS THE MARIONETTE and show the Marionette character token. Put the Demon to sleep.\nTreat the Marionette as if they were drunk. They wake when their good character would wake, may get false information, do not wake during the Minion Info step etc.",
-    "cn": "在游戏设置时，将角色标记放入盲抽袋之前，移除提线木偶角色标记，并加入一个镇民角色标记。\n如果有三名爪牙在场，额外再移除一个爪牙角色标记，并加入一个镇民角色标记。在为首个夜晚做准备时，将一名善良镇民玩家的角色标记与一个不在场的爪牙角色标记交换。在首个夜晚，唤醒这名玩家，对他展示“你是”信息标记和他的爪牙角色标记，随后展示“你是”信息标记和朝下的大拇指，随后让他重新入睡。那名玩家现在是一名邪恶的爪牙了。（这一步骤会确保只会有一个爪牙角色进入盲抽袋里，从而使得至少会有一名善良玩家会与恶魔邻座。）\n在为首个夜晚做准备时，在一名与恶魔邻座的善良玩家角色标记旁放置提线木偶的“是提线木偶”提示标记。在首个夜晚，唤醒恶魔，指向标记了“是提线木偶”的玩家，对恶魔展示提线木偶角色标记。让恶魔重新入睡。\n将提线木偶以为的那个角色视同醉酒一样来运作。他会在他以为的那个善良角色的时机被唤醒，可能获得错误信息，但不会在首夜爪牙信息时被唤醒，等等。\n提线木偶有另一种通用的设置方式：移除提线木偶角色标记和恶魔角色标记，并加入两个镇民角色标记。在为首个夜晚做准备时，选择任意一名与善良玩家相邻的镇民玩家，将他的角色标记替换成恶魔，并在他邻座选择一位善良玩家标记“是提线木偶”。唤醒恶魔并告诉他他的恶魔角色和邪恶阵营，随后告知他提线木偶是谁以及他的恶魔信息。不论爪牙数量多少，都可以按照这个方法进行设置。"
-  },
   "token_url": "https://wiki.bloodontheclocktower.com/images/c/cf/Icon_marionette.png"
 }

@@ -1,35 +1,45 @@
 {
   "id": "wizard",
+  "type": "minion",
   "name": {
     "en": "Wizard",
+    "es-419": "Hechicero",
+    "sv": "Trollkarlen",
+    "zh-Hans": "巫师",
     "cn": "巫师"
   },
-  "type": "minion",
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Lachlan Bastiaen",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Wizard",
   "ability": {
     "en": "Once per game, choose to make a wish. If granted, it might have a price & leave a clue as to its nature.",
+    "es-419": "Una vez por juego, escoge pedir un deseo. Si es concedido, quizás tenga un precio y deje una pista sobre su naturaleza.",
+    "sv": "En gång per spel får du önska dig något. Om önskan uppfylls kanske den får en kostnad och ger en ledtråd om sin natur.",
+    "zh-Hans": "每局游戏限一次，你可以向说书人许愿。如果愿望被实现，可能会伴随着代价和线索。",
     "cn": "每局游戏限一次，你可以向说书人许愿。如果愿望被实现，可能会伴随着代价和线索。"
   },
   "flavor_text": {
     "en": "\"Every man and every woman is a star. Love is the law, love under will.\"",
+    "es-419": "Cada hombre y cada mujer son una estrella. El amor es la ley, amor bajo mi voluntad.",
+    "sv": "Varje man och varje kvinna är en stjärna. Kärlek är lagen, kärlek under vilja.",
+    "zh-Hans": "每一个人，都是一颗星星，爱情让它们产生联系，而意志决定了它们的轨迹。",
     "cn": "“每一个人，都是一颗星星，爱情让它们产生联系，而意志决定了它们的轨迹。”"
   },
+  "first_night": {
+    "en": "Do whatever needs to be done to satisfy the Wizard's ability.",
+    "es-419": "Corre la habilidad del Hechicero, si es aplicable.",
+    "sv": "Gör det som krävs för Trollkarlens förmåga.",
+    "zh-Hans": "根据需要，运作巫师的能力。"
+  },
+  "other_nights": {
+    "en": "Do whatever needs to be done to satisfy the Wizard's ability.",
+    "es-419": "Corre la habilidad del Hechicero, si es aplicable.",
+    "sv": "Gör det som krävs för Trollkarlens förmåga.",
+    "zh-Hans": "根据需要，运作巫师的能力。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Wizard",
+  "how_to_run": {
+    "cn": "当巫师通过文字或说话许愿时，决定实现或拒绝这个愿望。如果愿望被拒绝了，让巫师再许愿一次，或告诉他已经失去能力。\n如果愿望被实现了，告诉巫师“你的愿望被实现了”， “你的愿望生效了”，点头，或给出手势来让巫师得知他的愿望被接受了。立即或在稍后的游戏中，你可以制造一个代价：实现一个适合本局游戏的能力的效果调整，来平衡这个愿望。立即或在稍后的游戏中，你可以公开宣布巫师已经完成了许愿，然后给善良阵营一些有关这个愿望的线索。\n说书一局存在巫师的游戏是有技巧的。当所有愿望被满足时，愿望留下线索时，以及愿望伴随着代价时，都是巫师让所有玩家最欢乐的时刻！然而……\n如果你认为这个愿望对邪恶阵营只有轻微的好处，并且善良阵营仍然需要找到谁是恶魔来获得游戏的胜利，你可以不制造任何代价和提供任何线索。你甚至可以跳过告诉善良阵营“巫师已经完成了许愿”，或者告诉他们，但不提供任何线索。\n如果你认为这个愿望对善良阵营有着十分明显的能力劣势，严重打破了善良和邪恶阵营的平衡，例如善良阵营即使找到恶魔也不可能获胜，你可以改变游戏规则或改变这个愿望，来制造一个对善良阵营公平的游戏。\n如果你认为这个愿望对善良阵营有着十分明显的信息劣势，比如他们因愿望缺失了获胜游戏的关键信息，给他们一个有帮助的线索来让他们发现巫师的愿望是什么。\n如果你认为这个愿望非常极端或难以理解，以致于你想不到任何线索或代价来平衡他，又或者这个愿望会让这个游戏变得无趣，拒绝这个愿望。\n总得来说，这个愿望应当以巫师的喜好来一定程度上扭转游戏的局势，但也要同时给予善良阵营合理的获胜机会和条件。慢慢思考，给出合适的代价和线索。不着急，你会慢慢地熟悉怎么做的。\n有关巫师与平衡的更多设计理念，请参考阅读：有关说书人的创造力--有趣的巫师",
+    "en": "When the Wizard makes a wish, either verbally or via text, decide whether to accept or decline the wish. If the wish is declined, prompt the Wizard to wish again, or tell them that they have no more wishes.\nIf the wish is granted, say “Your wish is granted.” or “Your wish is my command”, or nod, or otherwise signal that their wish is accepted. Now or later, you may make a price: make whatever mechanical adjustments to the game you feel are necessary for the wish to be balanced. Now or later, you may declare publicly that the Wizard has made a wish, then give the good team a clue about what was wished.\nStorytelling the Wizard can be tricky. The Wizard is the most fun for everybody when all wishes are granted, all wishes leave a clue, and all wishes have a price. However...\n\nIf you feel that by granting a wish, the evil team has benefitted a small amount but the good team still has all they need to figure out who the Demon is and to win the game, you may apply no clue and no price. You may even skip telling the good team that the Wizard has made a wish, or tell them but give no clue.\n\nIf you feel that by granting the wish, the good team is at a severe disadvantage in terms of balance - the game rules have changed so that it is impossible for the good team to win even if they learn who the Demon is - then change the game rules or change the wish so that it is still fair for the good team.\n\nIf you feel that by granting the wish, the good team is at a severe disadvantage in terms of knowledge - they lack the needed information to reasonably win the game - then give them a helpful clue to find out what the wish was.\n\nIf you feel that the wish is so extreme and convoluted that you can think of no clue or price to balance it, or that it would just make the game unfun, then decline the wish completely.\n\nOverall, the wish should tip the scales in favour of the Wizard, but still allow the good team a reasonable chance of winning. Take your time in deciding how to do this."
+  },
   "examples": {
-    "en": [
-      "Storytelling the Wizard can be tricky. The Wizard is the most fun for everybody when all wishes are granted, all wishes leave a clue, and all wishes have a price. However...\n\nIf you feel that by granting a wish, the evil team has benefitted a small amount but the good team still has all they need to figure out who the Demon is and to win the game, you may apply no clue and no price. You may even skip telling the good team that the Wizard has made a wish, or tell them but give no clue.\n\nIf you feel that by granting the wish, the good team is at a severe disadvantage in terms of balance - the game rules have changed so that it is impossible for the good team to win even if they learn who the Demon is - then change the game rules or change the wish so that it is still fair for the good team.\n\nIf you feel that by granting the wish, the good team is at a severe disadvantage in terms of knowledge - they lack the needed information to reasonably win the game - then give them a helpful clue to find out what the wish was.\n\nIf you feel that the wish is so extreme and convoluted that you can think of no clue or price to balance it, or that it would just make the game unfun, then decline the wish completely.\n\nOverall, the wish should tip the scales in favour of the Wizard, but still allow the good team a reasonable chance of winning. Take your time in deciding how to do this.",
-      "The Wizard wishes to see the Grimoire. The Storyteller grants this wish, and there is no price and no clue.",
-      "The Wizard wishes that all good players are drunk. The Storyteller grants the wish. Later, they declare that the Wizard has made a wish and that “Things are wrong” but provide no further context. For the rest of the game, the Storyteller makes all information false.",
-      "The Wizard wishes that they become a Demon. The Storyteller grants the wish. Later, they declare that the Wizard has made a wish, and that “The student has become the master.” The Storyteller kills the Lord of Typhon and turns the Wizard into the Ojo.",
-      "The Wizard wishes to win the game. The Storyteller grants the wish, and tells the Wizard that the evil team will win the game at the end of the day. The Storyteller declares that the Wizard has made a wish, and that either Ben, Amy, or Lewis is the Demon. The group executes Ben, who is the Demon, and good wins.",
-      "The Wizard wishes that all players have 5 lives, and all reminder tokens for the script are added to characters. The Storyteller judges that this wish is too awkward, confusing and boring, declines the wish, and asks the Wizard to wish again."
-    ],
     "cn": [
       "巫师许愿可以看一次魔典。说书人实现了这个愿望，并且没有代价和线索。",
       "巫师希望相邻的玩家之一变成邪恶的巫师。说书人实现了这个愿望。代价是新巫师的能力不会生效，没有线索。",
@@ -37,28 +47,17 @@
       "巫师许愿成为新的恶魔，代价是原来的恶魔死亡。说书人实现了这个愿望，并且杀死了堤丰之首，然后把巫师变成了奥赫。第二天黎明说书人公开宣布巫师已经完成了许愿，和\"昨晚我去剧院看了一场精彩的变脸表演\"这个模糊的线索。",
       "巫师许愿他能在本局游戏获胜。说书人实现了这个愿望。说书人告诉巫师，邪恶阵营会在白天结束后获胜。说书人公开宣布巫师已经完成了许愿，并宣布恶魔在小八、小米、小莱之中。大家处决了小八，由于小八是恶魔，善良阵营获胜。",
       "巫师许愿有五名玩家存活，并且所有的提示标记都放置在对应角色标记旁。说书人认为这个愿望奇怪、尴尬、令人困惑并且无聊，拒绝了这个愿望，然后让巫师重新许愿。"
+    ],
+    "en": [
+      "Storytelling the Wizard can be tricky. The Wizard is the most fun for everybody when all wishes are granted, all wishes leave a clue, and all wishes have a price. However...\n\nIf you feel that by granting a wish, the evil team has benefitted a small amount but the good team still has all they need to figure out who the Demon is and to win the game, you may apply no clue and no price. You may even skip telling the good team that the Wizard has made a wish, or tell them but give no clue.\n\nIf you feel that by granting the wish, the good team is at a severe disadvantage in terms of balance - the game rules have changed so that it is impossible for the good team to win even if they learn who the Demon is - then change the game rules or change the wish so that it is still fair for the good team.\n\nIf you feel that by granting the wish, the good team is at a severe disadvantage in terms of knowledge - they lack the needed information to reasonably win the game - then give them a helpful clue to find out what the wish was.\n\nIf you feel that the wish is so extreme and convoluted that you can think of no clue or price to balance it, or that it would just make the game unfun, then decline the wish completely.\n\nOverall, the wish should tip the scales in favour of the Wizard, but still allow the good team a reasonable chance of winning. Take your time in deciding how to do this.",
+      "The Wizard wishes to see the Grimoire. The Storyteller grants this wish, and there is no price and no clue.",
+      "The Wizard wishes that all good players are drunk. The Storyteller grants the wish. Later, they declare that the Wizard has made a wish and that “Things are wrong” but provide no further context. For the rest of the game, the Storyteller makes all information false.",
+      "The Wizard wishes that they become a Demon. The Storyteller grants the wish. Later, they declare that the Wizard has made a wish, and that “The student has become the master.” The Storyteller kills the Lord of Typhon and turns the Wizard into the Ojo.",
+      "The Wizard wishes to win the game. The Storyteller grants the wish, and tells the Wizard that the evil team will win the game at the end of the day. The Storyteller declares that the Wizard has made a wish, and that either Ben, Amy, or Lewis is the Demon. The group executes Ben, who is the Demon, and good wins.",
+      "The Wizard wishes that all players have 5 lives, and all reminder tokens for the script are added to characters. The Storyteller judges that this wish is too awkward, confusing and boring, declines the wish, and asks the Wizard to wish again."
     ]
   },
   "tips": {
-    "en": [
-      "Make your wish immediately! The sooner you wish, the quicker your wish can take effect and start wreaking whatever havoc you’ve wished upon the town.",
-      "Wait a few days to decide what kind of wish would be most helpful for your team. This can hide that there is a Wizard in play, which makes the good team suspect different in-play Minion abilities. A later-game wish can be much more targeted to disrupt the good team where it hurts the most.",
-      "Like every good Wizard should, be aware of how potent your wish is! If your wish is extremely powerful, you should expect it to come with a hefty price. If your wish is inherently balanced, the Storyteller might not need to set a price or leave a clue to the nature of the wish.",
-      "Before playing a script with the Wizard, brainstorm some things you’d like to wish for if you draw the token! This can make it less stressful to be the Wizard, as there’s no pressure to come up with a wish on the spot.",
-      "If your main priority is winning the game for the evil team, wish for something sensible that helps your team through misinformation or distraction.",
-      "If your main priority is having the most fun possible, wish for something bonkers. This may not be as likely to help your team win the game, but it will certainly be exciting and memorable!",
-      "Be ready for the Storyteller to declare that the Wizard has made a wish, or for the Storyteller to make an “unexpected” announcement. Act surprised that there is a Wizard in play, so other players can’t identify that you knew this was coming.",
-      "Help good players figure out what the clue to the wish means. If you look like you’re legitimately trying to “solve” what’s happening with the Wizard wish, good players are more likely to trust you and therefore tell you the truth.",
-      "Pretend to help good players figure out what the clue to the wish means, but secretly lead them astray. If you act like you’re genuinely trying to “solve” what’s happening with the Wizard, and you can come up with an alternative explanation that sends good players down the garden path, they’ll spend more time talking about your nonsense, and less time talking about who they think the Demon is.",
-      "If you don’t mind the good team finding out what the wish is, focus the good players’ attention on figuring out what the Wizard has wished for. It’s difficult for players to figure out both the wish and who the Demon is at the same time, so if they spend all their time trying to figure out the wish, they’re spending less time finding the Demon.\nIf the wish is something like “Every Townsfolk receives false information”, this is probably bad for the good team to figure out, since they can reverse their information and use that to find the Demon. If solving your wish helps the good team solve the game, don’t help them figure it out!\nIf the wish is something like “One good player is permanently poisoned,” this is great for the good team to figure out! If they realize one player is poisoned, they don’t have the tools to figure out who is poisoned, so they’ll spend more time worrying about whose ability is poisoned. If solving your wish makes the good team panic and spend more time talking about the wish, you should definitely help them figure it out.If the wish is something like “Every Townsfolk receives false information”, this is probably bad for the good team to figure out, since they can reverse their information and use that to find the Demon. If solving your wish helps the good team solve the game, don’t help them figure it out!If the wish is something like “One good player is permanently poisoned,” this is great for the good team to figure out! If they realize one player is poisoned, they don’t have the tools to figure out who is poisoned, so they’ll spend more time worrying about whose ability is poisoned. If solving your wish makes the good team panic and spend more time talking about the wish, you should definitely help them figure it out.",
-      "Work with the Storyteller to craft your wish, and respect the Storyteller’s judgment about what a fair price and clue for your wish might be. While you are part of an informed minority, the Storyteller still has more information about the game and can use it to inform how they balance your wish.",
-      "Tell the rest of your evil team what you wished for! If the other evil players know what’s happening, they can incorporate your shenanigans into their bluffs.",
-      "Be original! Original ideas are more likely to be granted by the Storyteller, and they are also trickier for the Storyteller to balance, since the Storyteller is less likely to be prepared for your unique wish.",
-      "Keep it simple. Simple wishes can be incredibly strong, especially if used at the right time. Some of the funniest and most exciting games we’ve seen were games where the Wizard wished for everyone to have the Tinker ability, or wished for the Storyteller to announce “The Wizard’s wish has been granted”.",
-      "Make a wish that supports what your team wants to do. Be aware of what characters are in play, and how your wish might affect the in-play characters.",
-      "Be subtle. If you look like a good player, you’ll be able to help the evil team by gaining good players’ trust.",
-      "Out evil! Sow as much chaos and distraction as you can. As long as you’ve made a wish, the effects of your wish stay in play even after you are dead."
-    ],
     "cn": [
       "立刻许愿！越早许愿，越早生效！开始随心所欲地破坏这个小镇吧！",
       "等几天再决定许什么样的愿望才能对你的阵营更有帮助。这可以隐藏在场的巫师，让善良阵营怀疑其他爪牙在场。一个游戏后期的愿望可以更有针对性地对善良阵营造成最大的伤害。",
@@ -87,11 +86,31 @@
       "如果你认为说书人没有公平地平衡巫师的愿望，在游戏结束后私下与说书人讨论这个问题。",
       "如果你在和说书人讨论游戏的体验和你个人的想法，专注于体验和想法本身，不要攻击说书人和他所做出的决定。",
       "享受游戏！如果你期待一个常规的《染·钟楼谜团》游戏对局，你可能会对一个混乱的愿望感到不满或措手不及。放下你对一些可能发生的事情的期望，专注于任何线索或非常规的恶作剧，来帮助你的阵营弄明白正在发生什么！"
+    ],
+    "en": [
+      "Make your wish immediately! The sooner you wish, the quicker your wish can take effect and start wreaking whatever havoc you’ve wished upon the town.",
+      "Wait a few days to decide what kind of wish would be most helpful for your team. This can hide that there is a Wizard in play, which makes the good team suspect different in-play Minion abilities. A later-game wish can be much more targeted to disrupt the good team where it hurts the most.",
+      "Like every good Wizard should, be aware of how potent your wish is! If your wish is extremely powerful, you should expect it to come with a hefty price. If your wish is inherently balanced, the Storyteller might not need to set a price or leave a clue to the nature of the wish.",
+      "Before playing a script with the Wizard, brainstorm some things you’d like to wish for if you draw the token! This can make it less stressful to be the Wizard, as there’s no pressure to come up with a wish on the spot.",
+      "If your main priority is winning the game for the evil team, wish for something sensible that helps your team through misinformation or distraction.",
+      "If your main priority is having the most fun possible, wish for something bonkers. This may not be as likely to help your team win the game, but it will certainly be exciting and memorable!",
+      "Be ready for the Storyteller to declare that the Wizard has made a wish, or for the Storyteller to make an “unexpected” announcement. Act surprised that there is a Wizard in play, so other players can’t identify that you knew this was coming.",
+      "Help good players figure out what the clue to the wish means. If you look like you’re legitimately trying to “solve” what’s happening with the Wizard wish, good players are more likely to trust you and therefore tell you the truth.",
+      "Pretend to help good players figure out what the clue to the wish means, but secretly lead them astray. If you act like you’re genuinely trying to “solve” what’s happening with the Wizard, and you can come up with an alternative explanation that sends good players down the garden path, they’ll spend more time talking about your nonsense, and less time talking about who they think the Demon is.",
+      "If you don’t mind the good team finding out what the wish is, focus the good players’ attention on figuring out what the Wizard has wished for. It’s difficult for players to figure out both the wish and who the Demon is at the same time, so if they spend all their time trying to figure out the wish, they’re spending less time finding the Demon.\nIf the wish is something like “Every Townsfolk receives false information”, this is probably bad for the good team to figure out, since they can reverse their information and use that to find the Demon. If solving your wish helps the good team solve the game, don’t help them figure it out!\nIf the wish is something like “One good player is permanently poisoned,” this is great for the good team to figure out! If they realize one player is poisoned, they don’t have the tools to figure out who is poisoned, so they’ll spend more time worrying about whose ability is poisoned. If solving your wish makes the good team panic and spend more time talking about the wish, you should definitely help them figure it out.If the wish is something like “Every Townsfolk receives false information”, this is probably bad for the good team to figure out, since they can reverse their information and use that to find the Demon. If solving your wish helps the good team solve the game, don’t help them figure it out!If the wish is something like “One good player is permanently poisoned,” this is great for the good team to figure out! If they realize one player is poisoned, they don’t have the tools to figure out who is poisoned, so they’ll spend more time worrying about whose ability is poisoned. If solving your wish makes the good team panic and spend more time talking about the wish, you should definitely help them figure it out.",
+      "Work with the Storyteller to craft your wish, and respect the Storyteller’s judgment about what a fair price and clue for your wish might be. While you are part of an informed minority, the Storyteller still has more information about the game and can use it to inform how they balance your wish.",
+      "Tell the rest of your evil team what you wished for! If the other evil players know what’s happening, they can incorporate your shenanigans into their bluffs.",
+      "Be original! Original ideas are more likely to be granted by the Storyteller, and they are also trickier for the Storyteller to balance, since the Storyteller is less likely to be prepared for your unique wish.",
+      "Keep it simple. Simple wishes can be incredibly strong, especially if used at the right time. Some of the funniest and most exciting games we’ve seen were games where the Wizard wished for everyone to have the Tinker ability, or wished for the Storyteller to announce “The Wizard’s wish has been granted”.",
+      "Make a wish that supports what your team wants to do. Be aware of what characters are in play, and how your wish might affect the in-play characters.",
+      "Be subtle. If you look like a good player, you’ll be able to help the evil team by gaining good players’ trust.",
+      "Out evil! Sow as much chaos and distraction as you can. As long as you’ve made a wish, the effects of your wish stay in play even after you are dead."
     ]
   },
-  "how_to_run": {
-    "en": "When the Wizard makes a wish, either verbally or via text, decide whether to accept or decline the wish. If the wish is declined, prompt the Wizard to wish again, or tell them that they have no more wishes.\nIf the wish is granted, say “Your wish is granted.” or “Your wish is my command”, or nod, or otherwise signal that their wish is accepted. Now or later, you may make a price: make whatever mechanical adjustments to the game you feel are necessary for the wish to be balanced. Now or later, you may declare publicly that the Wizard has made a wish, then give the good team a clue about what was wished.\nStorytelling the Wizard can be tricky. The Wizard is the most fun for everybody when all wishes are granted, all wishes leave a clue, and all wishes have a price. However...\n\nIf you feel that by granting a wish, the evil team has benefitted a small amount but the good team still has all they need to figure out who the Demon is and to win the game, you may apply no clue and no price. You may even skip telling the good team that the Wizard has made a wish, or tell them but give no clue.\n\nIf you feel that by granting the wish, the good team is at a severe disadvantage in terms of balance - the game rules have changed so that it is impossible for the good team to win even if they learn who the Demon is - then change the game rules or change the wish so that it is still fair for the good team.\n\nIf you feel that by granting the wish, the good team is at a severe disadvantage in terms of knowledge - they lack the needed information to reasonably win the game - then give them a helpful clue to find out what the wish was.\n\nIf you feel that the wish is so extreme and convoluted that you can think of no clue or price to balance it, or that it would just make the game unfun, then decline the wish completely.\n\nOverall, the wish should tip the scales in favour of the Wizard, but still allow the good team a reasonable chance of winning. Take your time in deciding how to do this.",
-    "cn": "当巫师通过文字或说话许愿时，决定实现或拒绝这个愿望。如果愿望被拒绝了，让巫师再许愿一次，或告诉他已经失去能力。\n如果愿望被实现了，告诉巫师“你的愿望被实现了”， “你的愿望生效了”，点头，或给出手势来让巫师得知他的愿望被接受了。立即或在稍后的游戏中，你可以制造一个代价：实现一个适合本局游戏的能力的效果调整，来平衡这个愿望。立即或在稍后的游戏中，你可以公开宣布巫师已经完成了许愿，然后给善良阵营一些有关这个愿望的线索。\n说书一局存在巫师的游戏是有技巧的。当所有愿望被满足时，愿望留下线索时，以及愿望伴随着代价时，都是巫师让所有玩家最欢乐的时刻！然而……\n如果你认为这个愿望对邪恶阵营只有轻微的好处，并且善良阵营仍然需要找到谁是恶魔来获得游戏的胜利，你可以不制造任何代价和提供任何线索。你甚至可以跳过告诉善良阵营“巫师已经完成了许愿”，或者告诉他们，但不提供任何线索。\n如果你认为这个愿望对善良阵营有着十分明显的能力劣势，严重打破了善良和邪恶阵营的平衡，例如善良阵营即使找到恶魔也不可能获胜，你可以改变游戏规则或改变这个愿望，来制造一个对善良阵营公平的游戏。\n如果你认为这个愿望对善良阵营有着十分明显的信息劣势，比如他们因愿望缺失了获胜游戏的关键信息，给他们一个有帮助的线索来让他们发现巫师的愿望是什么。\n如果你认为这个愿望非常极端或难以理解，以致于你想不到任何线索或代价来平衡他，又或者这个愿望会让这个游戏变得无趣，拒绝这个愿望。\n总得来说，这个愿望应当以巫师的喜好来一定程度上扭转游戏的局势，但也要同时给予善良阵营合理的获胜机会和条件。慢慢思考，给出合适的代价和线索。不着急，你会慢慢地熟悉怎么做的。\n有关巫师与平衡的更多设计理念，请参考阅读：有关说书人的创造力--有趣的巫师"
-  },
+  "url_param": "Wizard",
+  "editions": [
+    "experimental"
+  ],
+  "artist": "Lachlan Bastiaen",
   "token_url": "https://wiki.bloodontheclocktower.com/images/b/b5/Icon_wizard.png"
 }

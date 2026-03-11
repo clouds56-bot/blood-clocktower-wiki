@@ -1,54 +1,45 @@
 {
   "id": "virgin",
+  "type": "townsfolk",
   "name": {
     "en": "Virgin",
+    "es-419": "Virgen",
+    "sv": "Jungfrun",
+    "zh-Hans": "贞洁者",
     "cn": "贞洁者"
   },
-  "type": "townsfolk",
-  "editions": [
-    "trouble_brewing"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Virgin",
   "ability": {
     "en": "The 1st time you are nominated, if the nominator is a Townsfolk, they are executed immediately.",
+    "es-419": "La 1era vez que seas nominada, si el nominador es un Ciudadano, él es ejecutado inmediatamente.",
+    "sv": "Om den första som nominerar dig är Bybo avrättas hen omedelbart.",
+    "zh-Hans": "当你首次被提名时，如果提名你的玩家是镇民，他立刻被处决。",
     "cn": "当你首次被提名时，如果提名你的玩家是镇民，他立刻被处决。"
   },
   "flavor_text": {
     "en": "\"I am pure. Let those who are without sin cast themselves down and suffer in my stead. My reputation shall not be stained with your venomous accusations.\"",
+    "es-419": "Soy pura. Que aquellos que estén libre de pecado se sacrifiquen y sufran en mi lugar. Mi reputación no será manchada con tus acusaciones venenosas.",
+    "sv": "Jag bär ingen skuld. Låt dem som är utan synd lida i mitt ställe. Mitt anseende låter sig inte befläckas av era giftiga anklagelser.",
+    "zh-Hans": "我是纯洁的。就让那些无罪之人匍匐在地，替我受苦吧。我的名誉不应被你恶毒的指控所玷污。",
     "cn": "“我是纯洁的。就让那些无罪之人匍匐在地，替我受苦吧。我的名誉不应被你恶毒的指控所玷污。”"
   },
+  "source_url": "https://wiki.bloodontheclocktower.com/Virgin",
+  "how_to_run": {
+    "cn": "如果首次提名贞洁者的玩家是镇民，立即宣布那名发起提名的玩家被处决。那名玩家死亡——在魔典中将帷幕标记放置在其角色标记上。贞洁者失去他的能力——将贞洁者的“失去能力”提示标记放置在其角色标记旁。终止提名流程并推进至夜晚阶段。（今天白天没有其他人能被处决。）\n如果首次提名贞洁者的玩家不是镇民，照常继续进行投票。贞洁者失去他的能力——将贞洁者的“失去能力”提示标记放置在其角色标记旁。",
+    "en": "If the first player to ever nominate the Virgin is a Townsfolk, immediately declare that the nominating player is executed. That player dies—put a shroud on their character token in the Grimoire. The Virgin loses their ability—put the Virgin's NO ABILITY reminder token by the Virgin token. End the nomination process and proceed to the night phase. (No one else can be executed today.)\nIf the first player to ever nominate the Virgin is not a Townsfolk, continue the vote as normal. The Virgin loses their ability—put the Virgin's NO ABILITY reminder token by the Virgin token."
+  },
   "examples": {
-    "en": [
-      "The Washerwoman nominates the Virgin. The Washerwoman is immediately executed and the day ends.",
-      "The Drunk, who thinks they are the Chef, nominates the Virgin. The Drunk remains alive, and the Virgin loses their ability. Players may now vote on whether or not to execute the Virgin. (This happens because the Drunk is not a Townsfolk.)",
-      "A dead player nominates the Virgin. The dead, however, cannot nominate. The Storyteller declares that the nomination does not count. The Virgin does not lose their ability."
-    ],
     "cn": [
       "洗衣妇提名了贞洁者。洗衣妇被处决，并且投票终止。",
       "以为自己是厨师的酒鬼提名了贞洁者。酒鬼仍然存活，并且贞洁者失去了他的能力。因为酒鬼是一名外来者而不是镇民。接下来玩家可以选择投票是否处决贞洁者。",
       "一名已死亡的玩家提名了贞洁者。然而已死亡玩家无法发起提名。说书人宣布这次提名无效。贞洁者不会因此失去他的能力。"
+    ],
+    "en": [
+      "The Washerwoman nominates the Virgin. The Washerwoman is immediately executed and the day ends.",
+      "The Drunk, who thinks they are the Chef, nominates the Virgin. The Drunk remains alive, and the Virgin loses their ability. Players may now vote on whether or not to execute the Virgin. (This happens because the Drunk is not a Townsfolk.)",
+      "A dead player nominates the Virgin. The dead, however, cannot nominate. The Storyteller declares that the nomination does not count. The Virgin does not lose their ability."
     ]
   },
   "tips": {
-    "en": [
-      "You are one of the few Townsfolk in the game that can be absolutely confirmed as good. If a player is executed for nominating you, that is absolute and undeniable proof that you are the Virgin.",
-      "Characters who have received their information or have used their ability already (like the Washerwoman, Investigator or Slayer) are great choices to encourage into nominating you. Not only will they and their information be validated by their death, but they don't lose out on gaining any more information as the game continues.",
-      "Characters like the Undertaker, Fortune Teller or even Empath are great choices if they have received a little information and want to confirm they are good, or if they are under suspicion and want to remove themselves as a potential Demon.",
-      "An Outsider who nominates you will not be executed. Your ability requires your nominator to be a Townsfolk, not merely good.",
-      "Don't like any of your potential suitors? You can nominate yourself and trigger your ability, proving you are the Virgin! This can prevent an evil Minion or hapless Outsider from wasting your ability.",
-      "Once your ability activates, the nominator is immediately executed, ending the day (even if someone else had the votes and was due to be executed). Using this strategically can allow you to block an execution from happening in addition to proving yourself as good.",
-      "If you are known to be the Virgin but haven't used your ability yet, you are a prime target for death or poisoning. Using your ability early minimizes this risk and allows you to be a rally point for the good team to work around.",
-      "Waiting a couple of days before announcing that you're the Virgin can give you a chance to decide who should nominate you. A player being proven good, a few days into the game, can completely unravel an evil narrative.",
-      "Not claiming to be the Virgin until you get nominated can be a powerful strategy to uncover an evil player who is claiming to be a Townsfolk, but might not be willing to nominate you if you were to claim to be the Virgin.",
-      "If you can find a player that is claiming to be the Monk, convince them to protect you every night. Since you no longer have to fear death in the night, you can always wait another day to get somebody to nominate you.",
-      "If your ability doesn't activate, this can mean a few things:\nThe person who did the nominating is evil! Evil players can nominate the Virgin so that your ability does not activate, leaving you unable to be confirmed and throwing you both into doubt.\nThe person who nominated is an Outsider. This includes the Drunk, who thinks they are a Townsfolk.\nYou are in fact the Drunk or poisoned, so you have no ability.The person who did the nominating is evil! Evil players can nominate the Virgin so that your ability does not activate, leaving you unable to be confirmed and throwing you both into doubt.The person who nominated is an Outsider. This includes the Drunk, who thinks they are a Townsfolk.You are in fact the Drunk or poisoned, so you have no ability.",
-      "Your ability only triggers the first time you are nominated. Even if you were poisoned or nominated by a non-Townsfolk, your ability is already spent, and you can no longer cause an execution from your ability.",
-      "Beware the Spy! It is the only evil character that can activate your ability, since it registers as a Townsfolk."
-    ],
     "cn": [
       "你是游戏中少数几个能够被绝对证实为善良的镇民。如果一名玩家因为提名你被处决，这就毋庸置疑地证明了你是贞洁者。",
       "让已经获得信息的角色或是已经使用过能力的角色（像洗衣妇，调查员或者猎手）提名你是个不错的选择。他们的死不但能够验证他们获得的信息，而且随着游戏进行他们也不会因此失去获得更多信息的机会了。",
@@ -63,11 +54,27 @@
       "提名你的人是个外来者！包括酒鬼，即使他以为自己是个镇民。",
       "你才是那个酒鬼又或者你中毒了，因此你失去了你的能力。",
       "当心间谍！这是唯一一个可以触发你能力的邪恶阵营角色，因为他可能会被当作镇民。"
+    ],
+    "en": [
+      "You are one of the few Townsfolk in the game that can be absolutely confirmed as good. If a player is executed for nominating you, that is absolute and undeniable proof that you are the Virgin.",
+      "Characters who have received their information or have used their ability already (like the Washerwoman, Investigator or Slayer) are great choices to encourage into nominating you. Not only will they and their information be validated by their death, but they don't lose out on gaining any more information as the game continues.",
+      "Characters like the Undertaker, Fortune Teller or even Empath are great choices if they have received a little information and want to confirm they are good, or if they are under suspicion and want to remove themselves as a potential Demon.",
+      "An Outsider who nominates you will not be executed. Your ability requires your nominator to be a Townsfolk, not merely good.",
+      "Don't like any of your potential suitors? You can nominate yourself and trigger your ability, proving you are the Virgin! This can prevent an evil Minion or hapless Outsider from wasting your ability.",
+      "Once your ability activates, the nominator is immediately executed, ending the day (even if someone else had the votes and was due to be executed). Using this strategically can allow you to block an execution from happening in addition to proving yourself as good.",
+      "If you are known to be the Virgin but haven't used your ability yet, you are a prime target for death or poisoning. Using your ability early minimizes this risk and allows you to be a rally point for the good team to work around.",
+      "Waiting a couple of days before announcing that you're the Virgin can give you a chance to decide who should nominate you. A player being proven good, a few days into the game, can completely unravel an evil narrative.",
+      "Not claiming to be the Virgin until you get nominated can be a powerful strategy to uncover an evil player who is claiming to be a Townsfolk, but might not be willing to nominate you if you were to claim to be the Virgin.",
+      "If you can find a player that is claiming to be the Monk, convince them to protect you every night. Since you no longer have to fear death in the night, you can always wait another day to get somebody to nominate you.",
+      "If your ability doesn't activate, this can mean a few things:\nThe person who did the nominating is evil! Evil players can nominate the Virgin so that your ability does not activate, leaving you unable to be confirmed and throwing you both into doubt.\nThe person who nominated is an Outsider. This includes the Drunk, who thinks they are a Townsfolk.\nYou are in fact the Drunk or poisoned, so you have no ability.The person who did the nominating is evil! Evil players can nominate the Virgin so that your ability does not activate, leaving you unable to be confirmed and throwing you both into doubt.The person who nominated is an Outsider. This includes the Drunk, who thinks they are a Townsfolk.You are in fact the Drunk or poisoned, so you have no ability.",
+      "Your ability only triggers the first time you are nominated. Even if you were poisoned or nominated by a non-Townsfolk, your ability is already spent, and you can no longer cause an execution from your ability.",
+      "Beware the Spy! It is the only evil character that can activate your ability, since it registers as a Townsfolk."
     ]
   },
-  "how_to_run": {
-    "en": "If the first player to ever nominate the Virgin is a Townsfolk, immediately declare that the nominating player is executed. That player dies—put a shroud on their character token in the Grimoire. The Virgin loses their ability—put the Virgin's NO ABILITY reminder token by the Virgin token. End the nomination process and proceed to the night phase. (No one else can be executed today.)\nIf the first player to ever nominate the Virgin is not a Townsfolk, continue the vote as normal. The Virgin loses their ability—put the Virgin's NO ABILITY reminder token by the Virgin token.",
-    "cn": "如果首次提名贞洁者的玩家是镇民，立即宣布那名发起提名的玩家被处决。那名玩家死亡——在魔典中将帷幕标记放置在其角色标记上。贞洁者失去他的能力——将贞洁者的“失去能力”提示标记放置在其角色标记旁。终止提名流程并推进至夜晚阶段。（今天白天没有其他人能被处决。）\n如果首次提名贞洁者的玩家不是镇民，照常继续进行投票。贞洁者失去他的能力——将贞洁者的“失去能力”提示标记放置在其角色标记旁。"
-  },
+  "url_param": "Virgin",
+  "editions": [
+    "trouble_brewing"
+  ],
+  "artist": "Aidan Roberts",
   "token_url": "https://wiki.bloodontheclocktower.com/images/d/d3/Icon_virgin.png"
 }

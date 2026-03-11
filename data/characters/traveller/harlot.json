@@ -1,52 +1,50 @@
 {
   "id": "harlot",
+  "type": "traveller",
   "name": {
     "en": "Harlot",
+    "es-419": "Meretriz",
+    "sv": "Skökan",
+    "zh-Hans": "流莺",
     "cn": "流莺"
   },
-  "type": "traveller",
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "Caitlin Murphy",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Harlot",
   "ability": {
     "en": "Each night*, choose a living player: if they agree, you learn their character, but you both might die.",
+    "es-419": "Cada noche*, escoge un jugador vivo: si él acepta, tú aprendes su rol, pero ambos quizás mueran.",
+    "sv": "Varje natt* väljer du en levande spelare; om hen går med på det får du veta hens roll, men ni båda kanske dör.",
+    "zh-Hans": "每个夜晚*，你要选择一名存活的玩家：如果他同意，你会得知他的角色，但是你们两个可能同时死亡。",
     "cn": "每个夜晚*，你要选择一名存活的玩家：如果他同意，你会得知他的角色，但是你们两个可能同时死亡。"
   },
   "flavor_text": {
     "en": "\"Enchanté, Sailor. You look like you need someone to really listen to your troubles. I'm a good listener. Very, very good.\"",
+    "es-419": "Enchanté, Marinero. Tienes cara de que necesitas de alguien que realmente escuche tus problemas. Y yo sí que sé escuchar. Muy, muy bien.",
+    "sv": "Enchanté, matros. Du ser ut som att du behöver lätta på hjärtat. Jag är bra på att lyssna. Mycket, mycket bra.",
+    "zh-Hans": "认得侬老开心额，水手。你好像有些烦心事想告诉我，对嘛对嘛，而我就是一个很棒棒的聆听者。",
     "cn": "“认得侬老开心额，水手。你好像有些烦心事想告诉我，对嘛对嘛，而我就是一个很棒棒的聆听者。”"
   },
+  "other_nights": {
+    "en": "The Harlot chooses a living player. Put the Harlot to sleep. Wake the chosen player, show them the *THIS CHARACTER SELECTED YOU* token, then the Harlot token. If that player nods their head, wake the Harlot and show them the chosen player's character token. Both players might die. :reminder: :reminder:",
+    "es-419": "La Meretriz apunta a cualquier jugador vivo. Luego, pon a la Meretriz a dormir. Despierta al jugador escogido, muéstrale la ficha de *ESTE ROL TE HA SELECCIONADO*, luego la ficha de la Meretriz. Ese jugador puede asentir o denegar con la cabeza. Si asiente, despierta a la Meretriz y muéstrale la ficha de rol del jugador escogido. Luego, puedes decidir que ambos jugadores mueren.",
+    "sv": "Skökan pekar på en levande. Söv Skökan. Väck den valda spelaren, visa kortet *DU PÅVERKAS AV* och Skökans rollbricka. Om den valda spelaren nickar så väck Skökan igen och visa den valda spelarens rollbricka. Båda spelare kanske dör. :reminder: :reminder:",
+    "zh-Hans": "让流莺指向任意一名玩家。让流莺重新入睡。唤醒被选中的玩家，对该玩家展示“该角色的能力对你生效”提示标记和流莺角色标记。该玩家需要通过点头表示是，摇头表示否。如果被选择的玩家点头了表示是，则唤醒流莺并向流莺展示被选择的玩家的角色标记。然后，你可能决定让两名玩家都死亡。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Harlot",
+  "how_to_run": {
+    "cn": "每个夜晚，唤醒流莺。让流莺指向任意一名玩家。让流莺重新入睡。唤醒被选中的玩家，对该玩家展示“该角色的能力对你生效”提示标记和流莺角色标记。该玩家需要通过点头表示是，摇头表示否。然后让该玩家重新入睡。\n如果被选择的玩家摇头了表示否，则无事发生，继续进行夜晚阶段。\n如果被选择的玩家点头了表示是，则唤醒流莺并向流莺展示被选择的玩家的角色标记。让流莺再次入睡。如果你决定让两名玩家一起死——将“死亡”提示标记分别放在两者的角色标记旁。\n当你正在思考是否要杀死玩家时，尽量做你觉得最有趣、最平衡的选择。当恶魔将自己的角色揭露给流莺，你不应该直接杀死他们以结束游戏。",
+    "en": "Each night, wake the Harlot. The Harlot points at any player. Put the Harlot to sleep. Wake the chosen player, show them the THIS CHARACTER SELECTED YOU' info token, then the Harlot token. That player either nods their head yes or shakes their head no. Put that player to sleep.\nIf they shook their head no, then nothing happens. Continue with the night phase.\nIf they nodded their head yes, wake the Harlot and show them the chosen player’s character token. Put the Harlot to sleep. You may decide that both players die—mark them with DEAD reminders.\nWhen choosing whether to kill players, do what you feel is the most interesting and balanced. If the Demon reveals to the Harlot, you should not end the game by killing them."
+  },
   "examples": {
+    "cn": [
+      "善良的流莺醒来并选择了哲学家，哲学家选择了揭露自己的角色。下一个夜晚，流莺选择了诺-达鲺，诺-达鲺不愿意揭露自己的角色。下一个夜晚，流莺选择了畸形秀演员并且他愿意揭露自己的角色，说书人决定让流莺和畸形秀演员在今晚一起死亡。",
+      "邪恶的流莺选择了贤者，并且贤者愿意揭露自己的角色。下一个白天，流莺将贤者谎称为是女巫。"
+    ],
     "en": [
       "When choosing whether to kill players, do what you feel is the most interesting and balanced. If the Demon reveals to the Harlot, you should not end the game by killing them.",
       "The good Harlot wakes and chooses the Philosopher, who chooses to reveal. The next night, the Harlot chooses the No Dashii, who chooses not to reveal. The next night, the Harlot chooses the Mutant, who chooses to reveal. The Storyteller decides that the Harlot and Mutant die tonight.",
       "The evil Harlot chooses the Sage, who reveals. The next day, the Harlot says the Sage is actually the Witch."
-    ],
-    "cn": [
-      "善良的流莺醒来并选择了哲学家，哲学家选择了揭露自己的角色。下一个夜晚，流莺选择了诺-达鲺，诺-达鲺不愿意揭露自己的角色。下一个夜晚，流莺选择了畸形秀演员并且他愿意揭露自己的角色，说书人决定让流莺和畸形秀演员在今晚一起死亡。",
-      "邪恶的流莺选择了贤者，并且贤者愿意揭露自己的角色。下一个白天，流莺将贤者谎称为是女巫。"
     ]
   },
   "tips": {
-    "en": [
-      "Early in the game, learn as many players' characters as possible. If you can learn a player's character each night for 2 or 3 nights, this information might be enough for the good team to win the game. Even if you and another player die in the process, you can still talk, and your information is just as valid and helpful. Early in the game, an extra good player dying is hardly much of a sacrifice for the incredible knowledge you gain.",
-      "Late in the game, if you are still alive, be much more frugal and cautious with who you choose to encounter each night. At this stage, a good player dying may end the game, or put the good team in a very precarious position. Listen to the players talk, and decide which characters are expendable, and which players are not.",
-      "In Blood On The Clocktower, information trumps death. The Harlot is no exception. The information that you gain is well worth dying for, and well worth another player dying for, too. Communicate this fact to the group on day 1. Communicate this fact to the group on day 2. Communicate this fact every day until players agree to meet you at night time. The best case scenario is that you learn their character, and you both live - which is fantastic. The worst case scenario is that you learn their character, and you both die - which is still pretty good.",
-      "Choose players unexpectedly of a night time. Don't tell them beforehand that you plan to choose them. Evil players will usually say \"no\" immediately, whilst good players are more likely to hesitate longer, since they have a more difficult decision to make. If the Storyteller wakes you after a longer than normal time, you may have found a good player. This dynamic may not be true for your group. Use your best judgement.",
-      "Talk to players during the day to arrange a tryst, so that they are not surprised by you selecting them come dusk. Talk to as many players as possible each day, and find the ones who are keen to meet you tonight. This way, you can be sure to use your ability as much as possible, and learn as much information as possible. There is no point wasting your ability on people who refuse to let you learn their character.",
-      "Be suspicious of people who refuse to meet you at night. They may be a good character that want to stay alive as long as possible, such as a Flowergirl or a Savant, they might be evil, or they might be lying to you for other reasons.",
-      "Be prepared for evil players to reveal their character to you, even if they know that you are good. It is rare, but it does happen. Some evil players that you choose at night will reveal that they are evil because they are afraid that you will think that they are evil anyway if they don't. They may think that they have a much better chance convincing the group that they are good, but you are evil, once you tell the group what you learnt. Be prepared to go one-on-one with such a player - either they will get executed, you will get exiled or more likely both.",
-      "Tell the truth about good players you learn. This builds trust with them, and increases the likelihood that other good players will agree to meet you at night so they can reveal their character to you too.",
-      "Lie about good players you learn. The good player will think that you are evil, but there is a chance that evil players will think that you are evil too. Some games have been won by a crafty good Traveller who looks as evil as sin and starts a private conversation with a suspected evil player by saying \"The Demon wants you to exile me\", or \"I'm going to choose a Minion tonight, and make them look good\", and then judging the reactions of the Minion or Demon player. This strategy is risky, as you'll probably never be able to convince the good team that you are actually good unless evil takes the bait and takes you into their fold.",
-      "Lie about the characters of the good players you learn to the group, but plot in secret with the players whose characters you know. For example, if you learn that a certain player is the Sweetheart, you can tell them privately that you know who they are (they will believe you if they have not told anyone else they were the Sweetheart), but you both tell the group that they are the Clockmaker. The Demon will not want to kill the Clockmaker but will want to kill the Sweetheart, and you've just saved their life.",
-      "Tell the truth about evil players you learn. You know they are evil. Get them executed. If you learn that a player is a particular Demon, that is huge information for the group to use. If you learn that a particular Minion is in play, this can forewarn the group that a Pit-Hag, Witch or Cerenovus is working behind the scenes, and that the good team should be aware of it.",
-      "Lie about evil players you learn. This builds trust with both the evil team and the good team. The evil team may think that you are evil... and reveal information that they shouldn't. The good team will probably think that you are good... and keep you alive. After you've learnt another player or two's character, you can reveal that the first player you learn was actually evil."
-    ],
     "cn": [
       "在游戏前期，让尽可能多的人知道你是谁。如果你连续两到三晚每晚都能得知一位玩家的角色，这些信息就足以让善良阵营赢得游戏。即便你和另一位玩家在晚上死亡，你也能继续说话，你的信息同样有效且能带来帮助。在游戏前期，为了获得这种令人难以置信的信息而造成一位额外善良玩家的死亡并不会带来很大牺牲。",
       "在游戏后期，如果你依然存活的话，就需要更小心谨慎地选择今晚要与谁偶遇了。在这个阶段，一名善良玩家的死亡可能会使游戏结束，或是将善良阵营置于一个非常危险的境地。聆听玩家之间的交流，然后判定哪个角色可以被牺牲，哪个角色不行。",
@@ -71,11 +69,26 @@
       "谎报你所获知的邪恶玩家。这是基本操作了。让邪恶玩家看起来善良。让善良玩家看起来邪恶。保护队友，剑指仇敌。但你仍需注意涡流是否在场，因为如果它在场的话，你说谎越多，善良阵营越相信你，在善良玩家得知涡流在场后，邪恶阵营就会越危险，并且他们会将之前所有的信息都反过来看待。",
       "与你所获知的玩家之间达成协议。如果你获知了一位特别重要的善良玩家的角色信息，像博学者或贤者，你就可以和他们私下交流，让他知道你获知了它的角色，并且同意向大家声明你是一个完全不同的角色。当然了，你也可以在这之后偷偷与恶魔交流，让他知道要杀谁，不要杀谁。",
       "在玩家没有向你揭露角色的情况下，造谣他这样做了。选一位你认为你能驳倒的善良玩家。在晚上选择他。如果他向你揭露了角色，你可以任意捏造你获得的信息。但如果他拒绝向你揭露角色，告诉大家他揭露了，并且他还是个邪恶角色。"
+    ],
+    "en": [
+      "Early in the game, learn as many players' characters as possible. If you can learn a player's character each night for 2 or 3 nights, this information might be enough for the good team to win the game. Even if you and another player die in the process, you can still talk, and your information is just as valid and helpful. Early in the game, an extra good player dying is hardly much of a sacrifice for the incredible knowledge you gain.",
+      "Late in the game, if you are still alive, be much more frugal and cautious with who you choose to encounter each night. At this stage, a good player dying may end the game, or put the good team in a very precarious position. Listen to the players talk, and decide which characters are expendable, and which players are not.",
+      "In Blood On The Clocktower, information trumps death. The Harlot is no exception. The information that you gain is well worth dying for, and well worth another player dying for, too. Communicate this fact to the group on day 1. Communicate this fact to the group on day 2. Communicate this fact every day until players agree to meet you at night time. The best case scenario is that you learn their character, and you both live - which is fantastic. The worst case scenario is that you learn their character, and you both die - which is still pretty good.",
+      "Choose players unexpectedly of a night time. Don't tell them beforehand that you plan to choose them. Evil players will usually say \"no\" immediately, whilst good players are more likely to hesitate longer, since they have a more difficult decision to make. If the Storyteller wakes you after a longer than normal time, you may have found a good player. This dynamic may not be true for your group. Use your best judgement.",
+      "Talk to players during the day to arrange a tryst, so that they are not surprised by you selecting them come dusk. Talk to as many players as possible each day, and find the ones who are keen to meet you tonight. This way, you can be sure to use your ability as much as possible, and learn as much information as possible. There is no point wasting your ability on people who refuse to let you learn their character.",
+      "Be suspicious of people who refuse to meet you at night. They may be a good character that want to stay alive as long as possible, such as a Flowergirl or a Savant, they might be evil, or they might be lying to you for other reasons.",
+      "Be prepared for evil players to reveal their character to you, even if they know that you are good. It is rare, but it does happen. Some evil players that you choose at night will reveal that they are evil because they are afraid that you will think that they are evil anyway if they don't. They may think that they have a much better chance convincing the group that they are good, but you are evil, once you tell the group what you learnt. Be prepared to go one-on-one with such a player - either they will get executed, you will get exiled or more likely both.",
+      "Tell the truth about good players you learn. This builds trust with them, and increases the likelihood that other good players will agree to meet you at night so they can reveal their character to you too.",
+      "Lie about good players you learn. The good player will think that you are evil, but there is a chance that evil players will think that you are evil too. Some games have been won by a crafty good Traveller who looks as evil as sin and starts a private conversation with a suspected evil player by saying \"The Demon wants you to exile me\", or \"I'm going to choose a Minion tonight, and make them look good\", and then judging the reactions of the Minion or Demon player. This strategy is risky, as you'll probably never be able to convince the good team that you are actually good unless evil takes the bait and takes you into their fold.",
+      "Lie about the characters of the good players you learn to the group, but plot in secret with the players whose characters you know. For example, if you learn that a certain player is the Sweetheart, you can tell them privately that you know who they are (they will believe you if they have not told anyone else they were the Sweetheart), but you both tell the group that they are the Clockmaker. The Demon will not want to kill the Clockmaker but will want to kill the Sweetheart, and you've just saved their life.",
+      "Tell the truth about evil players you learn. You know they are evil. Get them executed. If you learn that a player is a particular Demon, that is huge information for the group to use. If you learn that a particular Minion is in play, this can forewarn the group that a Pit-Hag, Witch or Cerenovus is working behind the scenes, and that the good team should be aware of it.",
+      "Lie about evil players you learn. This builds trust with both the evil team and the good team. The evil team may think that you are evil... and reveal information that they shouldn't. The good team will probably think that you are good... and keep you alive. After you've learnt another player or two's character, you can reveal that the first player you learn was actually evil."
     ]
   },
-  "how_to_run": {
-    "en": "Each night, wake the Harlot. The Harlot points at any player. Put the Harlot to sleep. Wake the chosen player, show them the THIS CHARACTER SELECTED YOU' info token, then the Harlot token. That player either nods their head yes or shakes their head no. Put that player to sleep.\nIf they shook their head no, then nothing happens. Continue with the night phase.\nIf they nodded their head yes, wake the Harlot and show them the chosen player’s character token. Put the Harlot to sleep. You may decide that both players die—mark them with DEAD reminders.\nWhen choosing whether to kill players, do what you feel is the most interesting and balanced. If the Demon reveals to the Harlot, you should not end the game by killing them.",
-    "cn": "每个夜晚，唤醒流莺。让流莺指向任意一名玩家。让流莺重新入睡。唤醒被选中的玩家，对该玩家展示“该角色的能力对你生效”提示标记和流莺角色标记。该玩家需要通过点头表示是，摇头表示否。然后让该玩家重新入睡。\n如果被选择的玩家摇头了表示否，则无事发生，继续进行夜晚阶段。\n如果被选择的玩家点头了表示是，则唤醒流莺并向流莺展示被选择的玩家的角色标记。让流莺再次入睡。如果你决定让两名玩家一起死——将“死亡”提示标记分别放在两者的角色标记旁。\n当你正在思考是否要杀死玩家时，尽量做你觉得最有趣、最平衡的选择。当恶魔将自己的角色揭露给流莺，你不应该直接杀死他们以结束游戏。"
-  },
+  "url_param": "Harlot",
+  "editions": [
+    "experimental"
+  ],
+  "artist": "Caitlin Murphy",
   "token_url": "https://wiki.bloodontheclocktower.com/images/6/60/Icon_harlot.png"
 }

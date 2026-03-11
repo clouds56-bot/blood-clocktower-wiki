@@ -1,52 +1,61 @@
 {
   "id": "witch",
+  "type": "minion",
   "name": {
     "en": "Witch",
+    "es-419": "Bruja",
+    "sv": "Häxan",
+    "zh-Hans": "女巫",
     "cn": "女巫"
   },
-  "type": "minion",
-  "editions": [
-    "sects_violets"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Witch",
   "ability": {
     "en": "Each night, choose a player: if they nominate tomorrow, they die. If just 3 players live, you lose this ability.",
+    "es-419": "Cada noche, escoge un jugador: si él nomina mañana, él muere. Si solo 3 jugadores viven, pierdes esta habilidad.",
+    "sv": "Varje natt väljer du en spelare; om hen nominerar imorgon dör hen. Om bara 3 spelare lever förlorar du denna förmåga.",
+    "zh-Hans": "每个夜晚，你要选择一名玩家：如果他明天白天发起提名，他死亡。如果只有三名存活的玩家，你失去此能力。",
     "cn": "每个夜晚，你要选择一名玩家：如果他明天白天发起提名，他死亡。如果只有三名存活的玩家，你失去此能力。"
   },
   "flavor_text": {
     "en": "\"Three drops of goat's blood. A lock of hair, torn in anger. The name is spoken, the shadow cast. Walk left foot first down that brambled path, and don't look back.\"",
+    "es-419": "Tres gotas de sangre de cabra. Un mechón de pelo, arrancado con furia. Pronuncia el nombre, proyecta la sombra. Camina con el pie izquierdo primero por ese sendero de arbustos, y no mires atrás.",
+    "sv": "Tre droppar getblod. En hårlock, avsliten i vrede. Namnet är talat, skuggan är kastad. Gå med vänster fot först längs törnestigen, och se dig inte om.",
+    "zh-Hans": "山羊之血，三滴落下。一绺头发，怒意迸发。名字被说出，阴影被放大。左脚踏上荆棘路，莫要回头看它。",
     "cn": "“山羊之血，三滴落下。一绺头发，怒意迸发。名字被说出，阴影被放大。左脚踏上荆棘路，莫要回头看它。”"
   },
+  "first_night": {
+    "en": "The Witch chooses a player. :reminder:",
+    "es-419": "La Bruja escoge un jugador. :reminder:",
+    "sv": "Häxan väljer en spelare. :reminder:",
+    "zh-Hans": "女巫选择一名玩家。:reminder:"
+  },
+  "other_nights": {
+    "en": "The Witch chooses a player. :reminder:",
+    "es-419": "La Bruja escoge un jugador. :reminder:",
+    "sv": "Häxan väljer en spelare. :reminder:",
+    "zh-Hans": "女巫选择一名玩家。:reminder:"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Witch",
+  "how_to_run": {
+    "cn": "每个夜晚，唤醒女巫。让她指向一名玩家。让女巫重新入睡。在被选择的玩家角色标记旁放置“被诅咒”提示标记。下个白天，如果被标记为“被诅咒”的玩家发起了提名，立即宣布他死亡。（提名正常进行）",
+    "en": "Each night, wake the Witch. They point at any player. Put the Witch to sleep. Mark the chosen player with the CURSED reminder.\nThe next day, if the player marked CURSED makes a nomination, immediately declare that they die. (Nominations continue as normal.)"
+  },
   "examples": {
-    "en": [
-      "At night, the Witch curses the Sage. During the next day, the Sage nominates the Dreamer. The Storyteller immediately declares that the player of the Sage dies. The players still vote to execute the Dreamer, who dies too.",
-      "The Witch curses themself. During the next day, the Witch nominates the Demon, and dies. The players do not vote to execute the Demon, and nominations continue.",
-      "The Witch curses the Klutz. The Fang Gu attacks the Klutz, so the Klutz becomes the Fang Gu. The new Fang Gu is now cursed by the Witch, and they nominate. The new Fang Gu dies, and good wins.",
-      "The Witch curses the Savant. Later that night, after the Demon kills a player, only three players are alive, so the curse is removed. The Savant may nominate safely.",
-      "The Witch curses the Juggler. During the next day, the Juggler calls for the exile of a Traveller. The Juggler lives, and may nominate again, because abilities do not affect exiles."
-    ],
     "cn": [
       "夜晚，女巫诅咒了贤者。下个白天，贤者提名了筑梦师。说书人立即宣布贤者死亡。玩家仍然投票给筑梦师，随后筑梦师也死于处决。",
       "女巫诅咒了自己。下个白天，女巫提名恶魔并死亡。玩家对是否要处决恶魔进行投票，但票数未过半，提名继续。",
       "女巫诅咒了呆瓜。方古攻击了呆瓜，所以呆瓜变成了方古。新的方古现在被诅咒，他发起了提名，然后新的方古死了，善良阵营胜利。",
       "女巫诅咒了博学者。当晚，在恶魔杀死一名玩家后，只剩三名玩家存活，所以诅咒被移除。博学者可以安全提名。",
       "女巫诅咒了杂耍艺人。下个白天，杂耍艺人发起对旅行者的流放投票。杂耍艺人不会死亡而且还可以提名处决，因为女巫的诅咒不影响发起流放。"
+    ],
+    "en": [
+      "At night, the Witch curses the Sage. During the next day, the Sage nominates the Dreamer. The Storyteller immediately declares that the player of the Sage dies. The players still vote to execute the Dreamer, who dies too.",
+      "The Witch curses themself. During the next day, the Witch nominates the Demon, and dies. The players do not vote to execute the Demon, and nominations continue.",
+      "The Witch curses the Klutz. The Fang Gu attacks the Klutz, so the Klutz becomes the Fang Gu. The new Fang Gu is now cursed by the Witch, and they nominate. The new Fang Gu dies, and good wins.",
+      "The Witch curses the Savant. Later that night, after the Demon kills a player, only three players are alive, so the curse is removed. The Savant may nominate safely.",
+      "The Witch curses the Juggler. During the next day, the Juggler calls for the exile of a Traveller. The Juggler lives, and may nominate again, because abilities do not affect exiles."
     ]
   },
   "tips": {
-    "en": [
-      "Selecting who to curse is the most important part of being the Witch, and depending on your group and the characters in play, there will be many different factors that will help you decide what that will be. Your fellow minions and demon are all equally powerful and disruptive, so make sure to coordinate with them for maximum devastation of the good team - it can be a real bummer to accidentally curse the person the demon kills that night!",
-      "Loud, boisterous players who have a lot to say are great Witch targets! It doesn't take much to antagonize them into nominating if they weren't planning to, and their death will catch them off guard, and often ruin their plans.",
-      "Aim for character claims who you want dead. This can include powerful claims like the Savant or Flowergirl, but also characters like the Klutz, who put the good team at incredible risk. Another great option is the Sage - their ability only activates upon death via demon, meaning that your curse will render them unable to receive their information.",
-      "Another good option for cursing is simply players who are regularly nominating. For example, if someone is trying to get another player killed and have nominated them twice already, you can bet they'll probably nominate the third day as well!",
-      "Some towns will be savvy to your tricks, and try to rotate the people who nominate to unlikely targets for you as a Witch. They may also want to maximize the amount of information that a potential Town Crier is gaining from those nominations. If you see this sort of trend, go after quieter players or ones who haven't nominated yet, then let the good team do the talking.",
-      "Deliberately curse another evil player or yourself to look good. Players who die by Witch are usually going to be seen as good, so sacrificing yourself at the right moment can let you sneak in behind enemy lines and spread discord. (Beware the Oracle if you choose to try this out - they'll detect that evil has died recently and could cast suspicion on you!)",
-      "Hide your identity to support bluffs that other evil minions are in play. When a Witch activates, it is obvious to the town - someone nominates and then they immediately die. If your demon and another minion are bluffing as being the Good and Evil Twin, then the reveal that you are in play will undermine that bluff and make it obvious they are lying. Remember that you can curse a dead player - this will hide your ability from the group when necessary."
-    ],
     "cn": [
       "选择诅咒哪位玩家是女巫能力的关键，根据你的阵营团队和本局出现在场上的角色的不同，意味着将有许多不同的因素会影响你的决定。你的爪牙伙伴们和恶魔都非常强大且具有破坏性， 所以，去协调配合他们，争取最大程度地干扰善良阵营的玩家。如果不小心诅咒了恶魔当晚选择杀死的人，那将会十分遗憾！",
       "喜欢争吵的玩家经常会是女巫的首选的诅咒目标！每当他们听到反对自己的言论时，或听到和自己不同的想法，他们就会发起提名并死于女巫的诅咒，这种突发情况常常会毁了他们原本设定好的计划。",
@@ -60,11 +69,21 @@
       "其实你不需要在一场游戏中过于担心女巫的存在！因为在梦殒春宵中的爪牙们的行为方式十分明显，你通常会在一切情况中得知本局游戏不存在女巫。例如，如果游戏中只有一个爪牙，而两名玩家声称互为镜像双子，那么你可以非常确定本局游戏的爪牙是镜像双子，而不是女巫。如果这个游戏中有两个爪牙，有人声称昨晚被换成了其他角色，有人声称昨天被洗脑了，那这时你可以假设这些爪牙是一个麻脸巫婆和一个洗脑师。没有女巫，也无需小心提名。",
       "因为女巫而死去的人很可能是善良阵营的。女巫，特别是新手女巫，通常会诅咒善良阵营的玩家。尤其是能力强大的镇民角色。如果一位博学者、卖花女孩或钟表匠在提名时死亡，你可以放心地认为这些玩家是善良的，并让说出他们收到的信息。",
       "不要被女巫带给你的恐惧支配——把握每一天！随意提名并失去一到两名镇民并不会导致游戏结束，因为死亡并不会导致玩家移除游戏（他们依然可以发言或进行一次投票）。这些死亡虽然会帮助邪恶团队更容易胜利，但你仍然有机会处决恶魔。专注于你能做些什么来赢得游戏，而不是你之前做过些什么。"
+    ],
+    "en": [
+      "Selecting who to curse is the most important part of being the Witch, and depending on your group and the characters in play, there will be many different factors that will help you decide what that will be. Your fellow minions and demon are all equally powerful and disruptive, so make sure to coordinate with them for maximum devastation of the good team - it can be a real bummer to accidentally curse the person the demon kills that night!",
+      "Loud, boisterous players who have a lot to say are great Witch targets! It doesn't take much to antagonize them into nominating if they weren't planning to, and their death will catch them off guard, and often ruin their plans.",
+      "Aim for character claims who you want dead. This can include powerful claims like the Savant or Flowergirl, but also characters like the Klutz, who put the good team at incredible risk. Another great option is the Sage - their ability only activates upon death via demon, meaning that your curse will render them unable to receive their information.",
+      "Another good option for cursing is simply players who are regularly nominating. For example, if someone is trying to get another player killed and have nominated them twice already, you can bet they'll probably nominate the third day as well!",
+      "Some towns will be savvy to your tricks, and try to rotate the people who nominate to unlikely targets for you as a Witch. They may also want to maximize the amount of information that a potential Town Crier is gaining from those nominations. If you see this sort of trend, go after quieter players or ones who haven't nominated yet, then let the good team do the talking.",
+      "Deliberately curse another evil player or yourself to look good. Players who die by Witch are usually going to be seen as good, so sacrificing yourself at the right moment can let you sneak in behind enemy lines and spread discord. (Beware the Oracle if you choose to try this out - they'll detect that evil has died recently and could cast suspicion on you!)",
+      "Hide your identity to support bluffs that other evil minions are in play. When a Witch activates, it is obvious to the town - someone nominates and then they immediately die. If your demon and another minion are bluffing as being the Good and Evil Twin, then the reveal that you are in play will undermine that bluff and make it obvious they are lying. Remember that you can curse a dead player - this will hide your ability from the group when necessary."
     ]
   },
-  "how_to_run": {
-    "en": "Each night, wake the Witch. They point at any player. Put the Witch to sleep. Mark the chosen player with the CURSED reminder.\nThe next day, if the player marked CURSED makes a nomination, immediately declare that they die. (Nominations continue as normal.)",
-    "cn": "每个夜晚，唤醒女巫。让她指向一名玩家。让女巫重新入睡。在被选择的玩家角色标记旁放置“被诅咒”提示标记。下个白天，如果被标记为“被诅咒”的玩家发起了提名，立即宣布他死亡。（提名正常进行）"
-  },
+  "url_param": "Witch",
+  "editions": [
+    "sects_violets"
+  ],
+  "artist": "Aidan Roberts",
   "token_url": "https://wiki.bloodontheclocktower.com/images/7/7b/Icon_witch.png"
 }

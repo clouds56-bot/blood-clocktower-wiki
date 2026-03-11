@@ -1,50 +1,52 @@
 {
   "id": "gossip",
+  "type": "townsfolk",
   "name": {
     "en": "Gossip",
+    "es-419": "Chismoso",
+    "sv": "Skvallerbyttan",
+    "zh-Hans": "造谣者",
     "cn": "造谣者"
   },
-  "type": "townsfolk",
-  "editions": [
-    "bad_moon_rising",
-    "sects_violets"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Gossip",
   "ability": {
     "en": "Each day, you may make a public statement. Tonight, if it was true, a player dies.",
+    "es-419": "Cada día, puedes hacer una declaración pública. Esta noche, si fue verdadera, un jugador muere.",
+    "sv": "Varje dag får du öppet påstå något. Inatt dör en spelare om påståendet stämde.",
+    "zh-Hans": "每个白天，你可以公开发表一个声明。如果该声明正确，在当晚会有一名玩家死亡。",
     "cn": "每个白天，你可以公开发表一个声明。如果该声明正确，在当晚会有一名玩家死亡。"
   },
   "flavor_text": {
     "en": "\"Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah. Blah.\"",
+    "es-419": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla. Bla.",
+    "sv": "Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla. Bla.",
+    "zh-Hans": "巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉。巴拉。",
     "cn": "“巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉。巴拉。”"
   },
+  "other_nights": {
+    "en": "If the Gossip is due to kill a player, they die. :reminder:",
+    "es-419": "Si al Chismoso le toca matar a un jugador, ese jugador muere. :reminder:",
+    "sv": "Om Skvallerbyttan talade sanning så dör en spelare. :reminder:",
+    "zh-Hans": "如果今天白天造谣者发表了一个明确且正确的公开声明，说书人选择任意一名玩家死亡。:reminder:"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Gossip",
+  "how_to_run": {
+    "cn": "每个白天，如果造谣者发表了一个明确且正确的公开声明，将造谣者的“死亡”提示标记放置到魔典左侧的中央，来提醒自己当晚需要放置该标记。\n除了首个夜晚以外的每个夜晚，如果今天白天造谣者发表了一个明确且正确的公开声明，你选择任意一名玩家死亡——将“死亡”提示标记放置到该玩家的角色标记旁。\n在选择因造谣者能力而死亡的玩家时，我们推荐你选择能够死亡的角色，不要选择那些受到能力保护而无法死亡的角色（例如弄臣或茶艺师的能力）。当声明造成死亡时，造谣者才能得到更多信息。这对善良阵营更有帮助，也会让游戏更加有趣。",
+    "en": "Each day, if the Gossip makes a definite, true public statement, put the Gossip’s DEAD reminder in the center of the left side of the Grimoire as a reminder to yourself to place it tonight.\nEach night except the first, if the Gossip made a definite, true public statement today, you choose any player. The chosen player dies—mark them with the DEAD reminder.\nWhen choosing a player to die due to the Gossip ability, we recommend that you choose a character that will actually die, not one protected from death by an ability (like the Fool or Tea Lady). The Gossip gains knowledge when their statement caused a death. This is more helpful to the good team, and more fun for everyone."
+  },
   "examples": {
+    "cn": [
+      "在白天，造谣者说：“我是造谣者。我的公开声明是：恶魔戴着帽子。”恶魔没有戴帽子。当晚，没有玩家因造谣者的能力而死亡。",
+      "与造谣者邻近的玩家分别是善良的旅行者和和平主义者。在白天，醉酒的造谣者说：“我的两个邻近玩家都是善良的。”在黄昏，醉酒的造谣者恢复清醒。当晚，侍女死亡。",
+      "在白天，造谣者发表了一个正确的声明。当晚，造谣者被恶魔杀死。造谣者失去了自己的能力，因此不会有任何人因为他正确的声明而死亡。"
+    ],
     "en": [
       "When choosing a player to die due to the Gossip ability, we recommend that you choose a character that will actually die, not one protected from death by an ability (like the Fool or Tea Lady). The Gossip gains knowledge when their statement caused a death. This is more helpful to the good team, and more fun for everyone.",
       "During the day, the Gossip says, \"I am the Gossip. My public statement is: The Demon is wearing a hat.\" The Demon is not wearing a hat. That night, nobody dies due to the Gossip’s ability.",
       "The Gossip neighbours a good Traveller and the Pacifist. During the day, the drunk Gossip says, \"Both my neighbours are good.\" At dusk, the drunk Gossip becomes sober. That night, the Chambermaid dies.",
       "During the day, the Gossip makes a true statement. That night, the Gossip is killed by the Demon. They lose their ability, so their statement does not kill anyone tonight."
-    ],
-    "cn": [
-      "在白天，造谣者说：“我是造谣者。我的公开声明是：恶魔戴着帽子。”恶魔没有戴帽子。当晚，没有玩家因造谣者的能力而死亡。",
-      "与造谣者邻近的玩家分别是善良的旅行者和和平主义者。在白天，醉酒的造谣者说：“我的两个邻近玩家都是善良的。”在黄昏，醉酒的造谣者恢复清醒。当晚，侍女死亡。",
-      "在白天，造谣者发表了一个正确的声明。当晚，造谣者被恶魔杀死。造谣者失去了自己的能力，因此不会有任何人因为他正确的声明而死亡。"
     ]
   },
   "tips": {
-    "en": [
-      "Get over your fear of death! A lot of Gossips will be tentative about using their ability, since they're worried about causing a death accidentally. While it's true you should be cautious with any ability that could cause death, the potential gain in information more than makes up for the risk. Use your ability every day!",
-      "Similar to the Artist in Sects & Violets, you are an extremely flexible and versatile information gatherer. Since you can make literally any statement you like about anything, you can cover gaps in the good team, back up other players' information, or ask that one question that everyone desperately wants to know but have no way to find out! Take full advantage of this and the good team will be thanking you.",
-      "Be precise with your statements! A vague statement that could be true OR false (e.g. \"The demon made someone look evil yesterday.\") won't be helpful to you when you're trying to figure out if someone died as a result of your ability. Instead, aim for binary statements that are definitely true or false (e.g., \"The demon nominated yesterday.\")",
-      "Deliberately say statements that you believe are false. This reduces the risk that you will kill a player, but still allow you to gain information. If nobody dies (or at least, you don't think anyone died because of you), then you can reverse your statement to get the truth! For example, if you say \"The Chambermaid is not in play\" because you believe another player is the Chambermaid and no deaths occur, you can trust their claim!",
-      "Deliberately say true statements! This can be advantageous for two reasons. One, if someone dies because of you, it'll be hard to deny you're the Gossip (providing you can trace that death back to you and not one of the many other causes). This will be less effective in a game with a multi-kill demon like the Shabaloth or Po. Two, if someone dies as a result of your ability, then you can be very confident that the statement was true (deliberately saying false statements does not account for your ability malfunctioning, so if you suspect that could be the case, this is the way to confirm it!)",
-      "Be wary of the game state and time what kind of statements you say. If it's late enough in the game, an extra death at night could be all the evil team needs to squeeze out a victory. As the amount of living players runs low, try to avoid saying anything that could cause an extra death, just to be on the safe side.",
-      "Not sure what sort of statements you can make? Here's some examples!\n\"The demon is a Zombuul.\"\n\"Steven is evil.\"\n\"Two evil players are sitting next to each other.\"\n\"The Assassin has used their ability.\"\n\"Marianna is the Courtier.\"\n\"Both of my neighbours are good.\"\"The demon is a Zombuul.\"\"Steven is evil.\"\"Two evil players are sitting next to each other.\"\"The Assassin has used their ability.\"\"Marianna is the Courtier.\"\"Both of my neighbours are good.\""
-    ],
     "cn": [
       "克服对死亡的恐惧！很多造谣者都会试探性地使用他们的能力，因为他们担心会意外造成死亡。虽然你确实应该对任何可能导致死亡的能力保持谨慎，但信息的潜在收益足以弥补风险。要每天使用你的能力！",
       "类似于梦殒春宵剧本中的艺术家，你是一个极其灵活和多才多艺的信息收集者。由于你可以就任何事情发表你喜欢的任何声明，你可以弥补善良阵营中的空白，验证其他玩家的信息，或者提出每个人都非常想知道但无法解决的问题！充分利用这一点，善良阵营的玩家将感谢你。",
@@ -59,11 +61,22 @@
       "“刺客已经使用了他的能力。”",
       "“小明是侍臣。”",
       "“我的邻座是善良玩家。”"
+    ],
+    "en": [
+      "Get over your fear of death! A lot of Gossips will be tentative about using their ability, since they're worried about causing a death accidentally. While it's true you should be cautious with any ability that could cause death, the potential gain in information more than makes up for the risk. Use your ability every day!",
+      "Similar to the Artist in Sects & Violets, you are an extremely flexible and versatile information gatherer. Since you can make literally any statement you like about anything, you can cover gaps in the good team, back up other players' information, or ask that one question that everyone desperately wants to know but have no way to find out! Take full advantage of this and the good team will be thanking you.",
+      "Be precise with your statements! A vague statement that could be true OR false (e.g. \"The demon made someone look evil yesterday.\") won't be helpful to you when you're trying to figure out if someone died as a result of your ability. Instead, aim for binary statements that are definitely true or false (e.g., \"The demon nominated yesterday.\")",
+      "Deliberately say statements that you believe are false. This reduces the risk that you will kill a player, but still allow you to gain information. If nobody dies (or at least, you don't think anyone died because of you), then you can reverse your statement to get the truth! For example, if you say \"The Chambermaid is not in play\" because you believe another player is the Chambermaid and no deaths occur, you can trust their claim!",
+      "Deliberately say true statements! This can be advantageous for two reasons. One, if someone dies because of you, it'll be hard to deny you're the Gossip (providing you can trace that death back to you and not one of the many other causes). This will be less effective in a game with a multi-kill demon like the Shabaloth or Po. Two, if someone dies as a result of your ability, then you can be very confident that the statement was true (deliberately saying false statements does not account for your ability malfunctioning, so if you suspect that could be the case, this is the way to confirm it!)",
+      "Be wary of the game state and time what kind of statements you say. If it's late enough in the game, an extra death at night could be all the evil team needs to squeeze out a victory. As the amount of living players runs low, try to avoid saying anything that could cause an extra death, just to be on the safe side.",
+      "Not sure what sort of statements you can make? Here's some examples!\n\"The demon is a Zombuul.\"\n\"Steven is evil.\"\n\"Two evil players are sitting next to each other.\"\n\"The Assassin has used their ability.\"\n\"Marianna is the Courtier.\"\n\"Both of my neighbours are good.\"\"The demon is a Zombuul.\"\"Steven is evil.\"\"Two evil players are sitting next to each other.\"\"The Assassin has used their ability.\"\"Marianna is the Courtier.\"\"Both of my neighbours are good.\""
     ]
   },
-  "how_to_run": {
-    "en": "Each day, if the Gossip makes a definite, true public statement, put the Gossip’s DEAD reminder in the center of the left side of the Grimoire as a reminder to yourself to place it tonight.\nEach night except the first, if the Gossip made a definite, true public statement today, you choose any player. The chosen player dies—mark them with the DEAD reminder.\nWhen choosing a player to die due to the Gossip ability, we recommend that you choose a character that will actually die, not one protected from death by an ability (like the Fool or Tea Lady). The Gossip gains knowledge when their statement caused a death. This is more helpful to the good team, and more fun for everyone.",
-    "cn": "每个白天，如果造谣者发表了一个明确且正确的公开声明，将造谣者的“死亡”提示标记放置到魔典左侧的中央，来提醒自己当晚需要放置该标记。\n除了首个夜晚以外的每个夜晚，如果今天白天造谣者发表了一个明确且正确的公开声明，你选择任意一名玩家死亡——将“死亡”提示标记放置到该玩家的角色标记旁。\n在选择因造谣者能力而死亡的玩家时，我们推荐你选择能够死亡的角色，不要选择那些受到能力保护而无法死亡的角色（例如弄臣或茶艺师的能力）。当声明造成死亡时，造谣者才能得到更多信息。这对善良阵营更有帮助，也会让游戏更加有趣。"
-  },
+  "url_param": "Gossip",
+  "editions": [
+    "bad_moon_rising",
+    "sects_violets"
+  ],
+  "artist": "Aidan Roberts",
   "token_url": "https://wiki.bloodontheclocktower.com/images/c/c7/Icon_gossip.png"
 }

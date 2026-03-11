@@ -6,9 +6,11 @@
   "scripts": {
     "scrape:en": "node scripts/pipeline/en.js",
     "scrape:cn": "node scripts/pipeline/cn.js",
+    "scrape:tool": "node scripts/pipeline/tool.js",
     "scrape:token": "node scripts/pipeline/token.js",
+    "build:special": "node scripts/pipeline/special.js",
     "build:characters": "node scripts/pipeline/build.js",
-    "scrape:all": "pnpm run scrape:en && pnpm run scrape:cn && pnpm run scrape:token && pnpm run build:characters",
+    "scrape:all": "pnpm run scrape:tool && pnpm run scrape:en && pnpm run scrape:cn && pnpm run scrape:token && pnpm run build:characters && pnpm run build:special",
     "scrape:editions": "node scripts/scrape-editions.js",
     "download-images": "node scripts/download-images.js",
     "test": "echo \"No tests\" && exit 0"

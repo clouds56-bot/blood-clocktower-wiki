@@ -1,48 +1,44 @@
 {
   "id": "cacklejack",
+  "type": "traveller",
   "name": {
     "en": "Cacklejack",
+    "sv": "Kackeljack",
     "cn": "笑匠"
   },
-  "type": "traveller",
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": null,
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Cacklejack",
   "ability": {
     "en": "Each day, choose a player: a different player changes character tonight.",
+    "sv": "Varje dag väljer du en spelare; en annan spelare byter roll inatt.",
     "cn": "每个白天，你要选择一名玩家：一名其他玩家会在当晚改变角色。"
   },
   "flavor_text": {
     "en": "\"Wire α To wire β. LigHt oN. BuZZer off. GAzOinks! Arms STra1ght. FingER 2 nose. hOooLd stiLL. BoiNgo-banGo! Ha-ha-ha!\"",
+    "sv": "Sladd α Till sladd β. LjUs pÅ. LaRM av. TJohOpp! Armar UTåt. FingER mot näsan. håÅåålL st1LLa. BoiNgo-banGo! Ha ha ha!",
     "cn": "“将α线接仗β！俩咯！翁~灭咯！咔卡！胳膊申直。手指象鼻子。等亿吓。彭帕！哈哈哈！”"
   },
+  "other_nights": {
+    "en": "Before dawn, choose a player not marked *NOT ME*. Wake the target. Show the *YOU ARE* info token & their new character token.",
+    "sv": "Välj en spelare utan påminnelsen *INTE JAG* innan gryningen. Väck spelaren. Visa infokortet *DU ÄR* och hens nya rollbricka."
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Cacklejack",
+  "how_to_run": {
+    "cn": "每个白天，笑匠要选择一名玩家，用笑匠的“不是我”提示标记来标记该玩家。\n除首个夜晚以外的每个夜晚，用一个不同的角色标记替换任意一个玩家的角色标记。唤醒那名玩家，依次向他展示“你是”提示标记和新的角色标记，然后让他们重新入睡。\n别忘了夜间行动顺序只是用作指引。笑匠的能力可以在夜晚的任何一个你需要的时间生效。",
+    "en": "Each day, the Cacklejack chooses a player. Mark them with the NOT ME reminder.\nEach night, except the first, replace any player’s character token with a different character token. Wake that player. Show the YOU ARE info token, and their new character token, then put them to sleep.\nRemember that the night order is just a guide. The Cacklejack may act at any point in the night if you need it to."
+  },
   "examples": {
+    "cn": [
+      "在白天，笑匠选择了小文。在当晚，小米从杂技演员变成了钟表匠，并得知了“2”。",
+      "在白天，笑匠选择了小黑。在当晚，小佳从酒鬼变成了卖花女孩，但他不知道他现在已经变“清醒”了。",
+      "在白天，笑匠选择了小艾。在当晚，小茶从利维坦变成了沙巴洛斯，小茶可以大杀四方了！"
+    ],
     "en": [
       "Remember that the night order is just a guide. The Cacklejack may act at any point in the night if you need it to.",
       "During the day, the Cacklejack chooses Evin. That night, Amy changes from the Acrobat into the Clockmaker. Amy learns a 2.",
       "During the day, the Cacklejack chooses Abdallah. That night, Julian changes from the Drunk into the Flowergirl. Julian does not learn that he is now sober.",
       "During the day, the Cacklejack chooses Alex. That night, Lachlan changes from the Leviathan into the Shabaloth. Lachlan has fun."
-    ],
-    "cn": [
-      "在白天，笑匠选择了小文。在当晚，小米从杂技演员变成了钟表匠，并得知了“2”。",
-      "在白天，笑匠选择了小黑。在当晚，小佳从酒鬼变成了卖花女孩，但他不知道他现在已经变“清醒”了。",
-      "在白天，笑匠选择了小艾。在当晚，小茶从利维坦变成了沙巴洛斯，小茶可以大杀四方了！"
     ]
   },
   "tips": {
-    "en": [
-      "Talk to everyone! Figure out which players have abilities they’d like to keep, like a powerful Fortune Teller or a curious Amnesiac, and choose one of those players with your ability each day.",
-      "Avoid choosing players whose abilities can harm the good team, like the Recluse or the Barber, in the hopes that the Storyteller will Cacklejack them into a more helpful character for your team.",
-      "Be intentional about whether your choices are public or private. If you publicly choose the socially trusted Undertaker, the good team is likely to think you’re a good Cacklejack, but the public announcement might tip off the evil team, allowing evil players to deduce that your chosen player is a powerful Townsfolk. If you make your choice privately, you’ll hide it from evil players, but good players will have less incentive to trust you and believe you’re telling the truth about your choice.",
-      "Reflect on who wants to change and who doesn’t, and consider whether this lines up with the characters these players are claiming to be. A Clockmaker who is begging not to be picked could be evil, or they could be a good player lying about their ability. Similarly, a player claiming High Priestess who desperately wants to be picked might be a Mutant or a “You start knowing” character looking to gain additional information from a new ability.",
-      "Each day, ask players if their character changed in the night, in order to figure out who was affected by your ability! If no one is claiming to have changed, it’s possible that an evil player was changed, or a player changed in a way they cannot detect (such as a Townsfolk becoming a Marionette or a Drunk). If a player is claiming to have changed in a way that benefits the good team, it’s more likely they are good.",
-      "Meta the Storyteller. If players are becoming especially powerful good characters, the Storyteller might be signalling that the good team is losing and needs more helpful information. If players are changing arbitrarily, the good team may be on the right track and not need additional help from your ability."
-    ],
     "cn": [
       "和所有人交流！找出哪些玩家拥有值得保留的能力，比如强大的占卜师或正发掘自己能力的失忆者，每天使用你的能力时，优先选择这些玩家。",
       "避免选择对善良阵营造成负面影响的角色，比如陌客或理发师，希望说书人可以把他们变成对善良阵营更有帮助的角色。",
@@ -56,11 +52,19 @@
       "在游戏的前几天，公开选择一些被大家信任、能力强的善良玩家，争取团队信任。等博得信任后，再私下选择像莽夫、政客或畸形秀演员这类对邪恶方有利的角色，使他们保持原样，悄悄帮你推进邪恶计划。",
       "随意地选择玩家，让说书人为你决定变化的玩家。相信说书人会制造出对你们阵营更有利的局面。",
       "主动询问善良玩家他们的角色，假装是为了方便选择目标。实际上，把你得到的信息全告诉你的恶魔队友，这样他们夜晚就能精准出手！"
+    ],
+    "en": [
+      "Talk to everyone! Figure out which players have abilities they’d like to keep, like a powerful Fortune Teller or a curious Amnesiac, and choose one of those players with your ability each day.",
+      "Avoid choosing players whose abilities can harm the good team, like the Recluse or the Barber, in the hopes that the Storyteller will Cacklejack them into a more helpful character for your team.",
+      "Be intentional about whether your choices are public or private. If you publicly choose the socially trusted Undertaker, the good team is likely to think you’re a good Cacklejack, but the public announcement might tip off the evil team, allowing evil players to deduce that your chosen player is a powerful Townsfolk. If you make your choice privately, you’ll hide it from evil players, but good players will have less incentive to trust you and believe you’re telling the truth about your choice.",
+      "Reflect on who wants to change and who doesn’t, and consider whether this lines up with the characters these players are claiming to be. A Clockmaker who is begging not to be picked could be evil, or they could be a good player lying about their ability. Similarly, a player claiming High Priestess who desperately wants to be picked might be a Mutant or a “You start knowing” character looking to gain additional information from a new ability.",
+      "Each day, ask players if their character changed in the night, in order to figure out who was affected by your ability! If no one is claiming to have changed, it’s possible that an evil player was changed, or a player changed in a way they cannot detect (such as a Townsfolk becoming a Marionette or a Drunk). If a player is claiming to have changed in a way that benefits the good team, it’s more likely they are good.",
+      "Meta the Storyteller. If players are becoming especially powerful good characters, the Storyteller might be signalling that the good team is losing and needs more helpful information. If players are changing arbitrarily, the good team may be on the right track and not need additional help from your ability."
     ]
   },
-  "how_to_run": {
-    "en": "Each day, the Cacklejack chooses a player. Mark them with the NOT ME reminder.\nEach night, except the first, replace any player’s character token with a different character token. Wake that player. Show the YOU ARE info token, and their new character token, then put them to sleep.\nRemember that the night order is just a guide. The Cacklejack may act at any point in the night if you need it to.",
-    "cn": "每个白天，笑匠要选择一名玩家，用笑匠的“不是我”提示标记来标记该玩家。\n除首个夜晚以外的每个夜晚，用一个不同的角色标记替换任意一个玩家的角色标记。唤醒那名玩家，依次向他展示“你是”提示标记和新的角色标记，然后让他们重新入睡。\n别忘了夜间行动顺序只是用作指引。笑匠的能力可以在夜晚的任何一个你需要的时间生效。"
-  },
+  "url_param": "Cacklejack",
+  "editions": [
+    "experimental"
+  ],
   "token_url": "https://wiki.bloodontheclocktower.com/images/d/d7/Icon_cacklejack.png"
 }

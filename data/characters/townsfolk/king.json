@@ -1,15 +1,77 @@
 {
   "id": "king",
+  "type": "townsfolk",
   "name": {
     "en": "King",
+    "es-419": "Rey",
+    "sv": "Kungen",
+    "zh-Hans": "国王",
     "cn": "国王"
   },
-  "type": "townsfolk",
+  "ability": {
+    "en": "Each night, if the dead equal or outnumber the living, you learn 1 alive character. The Demon knows you are the King.",
+    "es-419": "Cada noche, si los muertos equiparan o superan en número a los vivos, tú aprendes 1 de los roles vivos. El Demonio sabe que tú eres el Rey.",
+    "sv": "Varje natt med minst lika många döda som levande spelare får du veta 1 levande roll. Demonen vet att du är Kungen.",
+    "zh-Hans": "每个夜晚，如果死亡的玩家数量大于或等于存活的玩家数量，你会得知一个存活的角色。恶魔知道你是国王。",
+    "cn": "每个夜晚，如果死亡的玩家数量大于或等于存活的玩家数量，你会得知一个存活的角色。\n恶魔知道你是国王。"
+  },
+  "flavor_text": {
+    "en": "\"↑Betwixt the unknown strains of mortal strife→\n                And morbid night, sweet↓ with mystery and woe\n                ←Lies unfettered joys of fate’s long and colored life\n                Who’s garden blooms with each painted Face to Show.\"",
+    "es-419": "Entre las melodías desconocidas de lucha mortal / Y la noche mórbida, dulce con misterio y dolor / Yacen las alegrías desenfrenadas de la larga y colorida vida del destino / Cuyo jardín florece con cada Rostro pintado por Mostrar.",
+    "sv": "Tungt är att dö förgäten och utan namn, // Dock tyngre, fader, är det att leva. // Bliv ej så mörk! Att leva förmår jag ej, // men lyda jag kan, jag lyder och dör.",
+    "zh-Hans": "未知纷扰让致命冲突重负难堪，在不祥之夜将神秘与悲伤盈满，欢喜或曾无羁于漫长多彩世间，谁的花园遍地绽放着彩绘的脸。",
+    "cn": "“未知纷扰让致命冲突重负难堪\n在不祥之夜将神秘与悲伤盈满\n欢喜或曾无羁于漫长多彩世间\n谁的花园遍地绽放着彩绘的脸”"
+  },
+  "first_night": {
+    "en": "Wake the Demon: Show the *THIS PLAYER IS* & King tokens, then point to the King.",
+    "es-419": "Despierta al Demonio. Muéstrale la ficha de *ÉSTE JUGADOR ES* y la ficha del Rey, luego apunta al Rey.",
+    "sv": "Väck Demonen. Visa kortet *DEN HÄR SPELAREN ÄR* och Kungens rollbricka, och peka sedan på Kungen.",
+    "zh-Hans": "唤醒恶魔。对他展示“这名玩家是”信息标记，然后展示国王角色标记，然后指向角色为国王的玩家。"
+  },
+  "other_nights": {
+    "en": "If the dead equal or outnumber the living, show the character token of a living player.",
+    "es-419": "Si los muertos equiparan o superan en número a los vivos, muéstrale la ficha de rol de un jugador vivo.",
+    "sv": "Om minst lika många spelare är döda som levande, visa en levande spelares rollbricka.",
+    "zh-Hans": "当死亡玩家的数量大于或等于存活玩家的数量时，展示一个存活玩家的角色标记。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/King",
+  "how_to_run": {
+    "cn": "在首个夜晚时，唤醒恶魔。对他展示“这名玩家是”信息标记，然后展示国王角色标记，然后指向角色为国王的玩家。让恶魔重新入睡。\n当死亡玩家的数量大于或等于存活玩家的数量时，在夜晚顺序表的国王顺序旁添加一个夜晚标记。\n每个夜晚，如果夜晚顺序表的国王顺序旁有夜晚标记，那么唤醒国王。对他展示一个存活玩家的角色标记。让国王重新入睡。\n仔细思考你需要给国王展示哪一个角色标记。不要担心给出大量的信息。绝大多数国王都会在最后一天到来前死亡，而如果一名国王活到了最后一天，那么他通常都能够获胜，这也是没问题的。",
+    "en": "During the first night, wake the Demon. Show them the THIS PLAYER IS info token, then the King token, then point at the King player. Put the Demon to sleep.\nWhen the number of dead players equals or exceeds the number of alive players, add a night token to the King’s entry on the night sheet.\nEach night, if the King has a night token on the night sheet, wake the King. Show one alive character token. Put the King to sleep.\nThink carefully about what character tokens to show the King. Don’t be afraid to give great information. Most Kings will die before the final day. A King that lives to the final day will usually win, and that’s ok."
+  },
+  "examples": {
+    "cn": [
+      "小米是国王。现在场上有十二名存活玩家和一名死亡玩家。在第二个夜晚，她不会得知任何信息。在第三个夜晚，她依然没有得知任何信息。在第四天的白天时，有七名玩家死亡，六名玩家存活。在第四个夜晚，小米得知了告密者仍然存活。在第五个夜晚，小米得知了女巫仍然存活。",
+      "恶魔知道小黑是国王。小文声称自己是唱诗男孩，但实际上是管家。恶魔冒险杀死了小黑。如果小文真的是唱诗男孩，他此时就会得知哪名玩家是恶魔了。"
+    ],
+    "en": [
+      "Think carefully about what character tokens to show the King. Don’t be afraid to give great information. Most Kings will die before the final day. A King that lives to the final day will usually win, and that’s ok.",
+      "Amy is the King. There are 12 players alive, and one dead player. On the second night, she learns nothing. On the third night, she learns nothing. On the fourth day, there are 7 dead players and 6 alive players. On the fourth night, Amy learns that the Snitch is alive. On the fifth night, she learns that the Witch is alive.",
+      "The Demon knows that Abdallah is the King. Evin is claiming to be the Choirboy, but is the Butler. The Demon takes a risk and kills Abdallah. If Evin was actually the Choirboy, he would have learnt which player was the Demon."
+    ]
+  },
+  "tips": {
+    "cn": [
+      "国王是少数能够在早期自信现身的角色之一。恶魔知道国王是谁，也知道他们可能是一个过早被杀就会触发的陷阱。因为恶魔只有在确定唱诗男孩不构成妨碍的情况下才能杀死国王，所以国王很可能存活到游戏结束。",
+      "国王也可以暗中等待。国王在游戏临近尾声时能获得大量而确实的优秀信息，虽然国王常常选择现身，但保持沉默也是一种驱离恶魔的好方法。你可以安静地观察那些仿佛对你关注过多的玩家，因为他们可能是恶魔。",
+      "只要唱诗男孩存活，国王就能拥有对恶魔的防护。寻找另一名善良玩家并隐秘地让他人知道他是唱诗男孩。如果其实并没有唱诗男孩在场，这种方法可能有助于推动恶魔狂热地寻找唱诗男孩。如果确实有唱诗男孩在场，这种方法会为恶魔提供一个假目标，帮助唱诗男孩（当然还有你）存活。",
+      "直率地作为国王现身创造了一个有趣的开场。因为唯二能确定国王是否在场的其他角色是唱诗男孩和恶魔。通过直率地现身，你提出了一项挑战，表明你不是国王就是恶魔。通过这种方法，你可以向大家询问他们的角色，并承诺同意在最后一晚之前被处决来降低对你是否是恶魔的怀疑。",
+      "因为国王在游戏临近尾声时获得的信息非常强力，而且国王也是被当作恶魔怀疑的主要嫌疑人，所以公开的国王存活到游戏结束的几率很低。如果你选择公开，专注于利用你的地位，在身旁建立一个可信的王宫而不是专注于存活。",
+      "成为国王并坐拥王宫会有很多乐趣。让其他玩家来找你并告诉你他们的秘密而不是像农民一样在王宫附近游荡。"
+    ],
+    "en": [
+      "The King is one of the few characters who can come out early and confidently. The Demon knows who the King is and knows they might be a possible trap if killed too early in the game. Because the Demon can only kill the King if they’re confident the Choirboy is out of the way, the King is likely to survive to the end game.",
+      "The King can also wait secretly. The King gets a lot of really good information at the end of the game, and while Kings often come out, staying silent might be a good way to throw the Demon off. You can quietly watch for players who seem to be paying you too much attention as this might be the Demon.",
+      "The King’s protection from the Demon lasts as long as the Choirboy is alive. Find another good player and secretly let others know that they are the Choirboy. If there is no Choirboy in play, this might help drive the Demon mad as they desperately hunt for the Choirboy. If there is one in play, it provides a false target for the Demon, helping the Choirboy (and therefore you) to stay alive.",
+      "Coming out straight away as the King creates a fun gambit. Because the only other characters who are certain whether the King is in play or not are the Choirboy and the Demon. By coming out straight away, you’re throwing down a challenge that suggests you’re either the King or the Demon. In this way, you can ask people for their characters with the promise that you will consent to be executed before the final night to lessen suspicion that you’re the Demon.",
+      "Because the King’s information at the end of the game can be very powerful and because Kings are prime suspects of being the Demon, the chance that a public King survives to the end game is quite low. If you go public, focus on using your position to form a trusted court around you rather than surviving.",
+      "There is a lot of fun in being the King and holding court. Make other players come to you and tell you their secrets, rather than wandering around the court like a peasant."
+    ]
+  },
+  "url_param": "King",
   "editions": [
     "experimental"
   ],
-  "first_night": true,
-  "other_nights": false,
   "artist": "John Grist",
   "jinxes": [
     {
@@ -21,47 +83,5 @@
       "reason": "If Riot is in play, and at least 1 player is dead, the King learns an alive character each night."
     }
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/King",
-  "ability": {
-    "en": "Each night, if the dead equal or outnumber the living, you learn 1 alive character. The Demon knows you are the King.",
-    "cn": "每个夜晚，如果死亡的玩家数量大于或等于存活的玩家数量，你会得知一个存活的角色。\n恶魔知道你是国王。"
-  },
-  "flavor_text": {
-    "en": "\"↑Betwixt the unknown strains of mortal strife→\n                And morbid night, sweet↓ with mystery and woe\n                ←Lies unfettered joys of fate’s long and colored life\n                Who’s garden blooms with each painted Face to Show.\"",
-    "cn": "“未知纷扰让致命冲突重负难堪\n在不祥之夜将神秘与悲伤盈满\n欢喜或曾无羁于漫长多彩世间\n谁的花园遍地绽放着彩绘的脸”"
-  },
-  "examples": {
-    "en": [
-      "Think carefully about what character tokens to show the King. Don’t be afraid to give great information. Most Kings will die before the final day. A King that lives to the final day will usually win, and that’s ok.",
-      "Amy is the King. There are 12 players alive, and one dead player. On the second night, she learns nothing. On the third night, she learns nothing. On the fourth day, there are 7 dead players and 6 alive players. On the fourth night, Amy learns that the Snitch is alive. On the fifth night, she learns that the Witch is alive.",
-      "The Demon knows that Abdallah is the King. Evin is claiming to be the Choirboy, but is the Butler. The Demon takes a risk and kills Abdallah. If Evin was actually the Choirboy, he would have learnt which player was the Demon."
-    ],
-    "cn": [
-      "小米是国王。现在场上有十二名存活玩家和一名死亡玩家。在第二个夜晚，她不会得知任何信息。在第三个夜晚，她依然没有得知任何信息。在第四天的白天时，有七名玩家死亡，六名玩家存活。在第四个夜晚，小米得知了告密者仍然存活。在第五个夜晚，小米得知了女巫仍然存活。",
-      "恶魔知道小黑是国王。小文声称自己是唱诗男孩，但实际上是管家。恶魔冒险杀死了小黑。如果小文真的是唱诗男孩，他此时就会得知哪名玩家是恶魔了。"
-    ]
-  },
-  "tips": {
-    "en": [
-      "The King is one of the few characters who can come out early and confidently. The Demon knows who the King is and knows they might be a possible trap if killed too early in the game. Because the Demon can only kill the King if they’re confident the Choirboy is out of the way, the King is likely to survive to the end game.",
-      "The King can also wait secretly. The King gets a lot of really good information at the end of the game, and while Kings often come out, staying silent might be a good way to throw the Demon off. You can quietly watch for players who seem to be paying you too much attention as this might be the Demon.",
-      "The King’s protection from the Demon lasts as long as the Choirboy is alive. Find another good player and secretly let others know that they are the Choirboy. If there is no Choirboy in play, this might help drive the Demon mad as they desperately hunt for the Choirboy. If there is one in play, it provides a false target for the Demon, helping the Choirboy (and therefore you) to stay alive.",
-      "Coming out straight away as the King creates a fun gambit. Because the only other characters who are certain whether the King is in play or not are the Choirboy and the Demon. By coming out straight away, you’re throwing down a challenge that suggests you’re either the King or the Demon. In this way, you can ask people for their characters with the promise that you will consent to be executed before the final night to lessen suspicion that you’re the Demon.",
-      "Because the King’s information at the end of the game can be very powerful and because Kings are prime suspects of being the Demon, the chance that a public King survives to the end game is quite low. If you go public, focus on using your position to form a trusted court around you rather than surviving.",
-      "There is a lot of fun in being the King and holding court. Make other players come to you and tell you their secrets, rather than wandering around the court like a peasant."
-    ],
-    "cn": [
-      "国王是少数能够在早期自信现身的角色之一。恶魔知道国王是谁，也知道他们可能是一个过早被杀就会触发的陷阱。因为恶魔只有在确定唱诗男孩不构成妨碍的情况下才能杀死国王，所以国王很可能存活到游戏结束。",
-      "国王也可以暗中等待。国王在游戏临近尾声时能获得大量而确实的优秀信息，虽然国王常常选择现身，但保持沉默也是一种驱离恶魔的好方法。你可以安静地观察那些仿佛对你关注过多的玩家，因为他们可能是恶魔。",
-      "只要唱诗男孩存活，国王就能拥有对恶魔的防护。寻找另一名善良玩家并隐秘地让他人知道他是唱诗男孩。如果其实并没有唱诗男孩在场，这种方法可能有助于推动恶魔狂热地寻找唱诗男孩。如果确实有唱诗男孩在场，这种方法会为恶魔提供一个假目标，帮助唱诗男孩（当然还有你）存活。",
-      "直率地作为国王现身创造了一个有趣的开场。因为唯二能确定国王是否在场的其他角色是唱诗男孩和恶魔。通过直率地现身，你提出了一项挑战，表明你不是国王就是恶魔。通过这种方法，你可以向大家询问他们的角色，并承诺同意在最后一晚之前被处决来降低对你是否是恶魔的怀疑。",
-      "因为国王在游戏临近尾声时获得的信息非常强力，而且国王也是被当作恶魔怀疑的主要嫌疑人，所以公开的国王存活到游戏结束的几率很低。如果你选择公开，专注于利用你的地位，在身旁建立一个可信的王宫而不是专注于存活。",
-      "成为国王并坐拥王宫会有很多乐趣。让其他玩家来找你并告诉你他们的秘密而不是像农民一样在王宫附近游荡。"
-    ]
-  },
-  "how_to_run": {
-    "en": "During the first night, wake the Demon. Show them the THIS PLAYER IS info token, then the King token, then point at the King player. Put the Demon to sleep.\nWhen the number of dead players equals or exceeds the number of alive players, add a night token to the King’s entry on the night sheet.\nEach night, if the King has a night token on the night sheet, wake the King. Show one alive character token. Put the King to sleep.\nThink carefully about what character tokens to show the King. Don’t be afraid to give great information. Most Kings will die before the final day. A King that lives to the final day will usually win, and that’s ok.",
-    "cn": "在首个夜晚时，唤醒恶魔。对他展示“这名玩家是”信息标记，然后展示国王角色标记，然后指向角色为国王的玩家。让恶魔重新入睡。\n当死亡玩家的数量大于或等于存活玩家的数量时，在夜晚顺序表的国王顺序旁添加一个夜晚标记。\n每个夜晚，如果夜晚顺序表的国王顺序旁有夜晚标记，那么唤醒国王。对他展示一个存活玩家的角色标记。让国王重新入睡。\n仔细思考你需要给国王展示哪一个角色标记。不要担心给出大量的信息。绝大多数国王都会在最后一天到来前死亡，而如果一名国王活到了最后一天，那么他通常都能够获胜，这也是没问题的。"
-  },
   "token_url": "https://wiki.bloodontheclocktower.com/images/d/dc/Icon_king.png"
 }

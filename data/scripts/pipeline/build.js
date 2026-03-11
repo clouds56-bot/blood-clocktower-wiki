@@ -1,135 +1,338 @@
 #!/usr/bin/env node
 /**
- * Blood on the Clocktower Wiki Scraper (Build Pipeline)
- * Joins English, Chinese, and Token data and outputs standard JSON files.
+ * Build pipeline
+ * - Reads extracted tool/wiki/token JSONL files from data/extracted
+ * - Generates config/characters.json with id -> { [lang]: name }
+ * - Merges rows by id (wiki fields take priority)
+ * - Writes final character JSON files to data/characters/<type>/<id>.json
  */
 
 const fs = require('fs');
 const path = require('path');
 
-const EN_FILE = path.join(__dirname, '..', '..', 'characters.wiki.en.jsonl');
-const CN_FILE = path.join(__dirname, '..', '..', 'characters.wiki.cn.jsonl');
-const TOKEN_FILE = path.join(__dirname, '..', '..', 'characters.token.jsonl');
-const OUTPUT_DIR = path.join(__dirname, '..', '..', 'characters');
+const DATA_DIR = path.join(__dirname, '..', '..');
+const EXTRACTED_DIR = path.join(DATA_DIR, 'extracted');
+const CONFIG_PATH = path.join(DATA_DIR, 'config', 'characters.json');
+const OUTPUT_DIR = path.join(DATA_DIR, 'characters');
+
+const TOOL_GLOB_PREFIX = 'characters.tool.';
+const WIKI_GLOB_PREFIX = 'characters.wiki.';
 
 function normalizeId(name) {
   if (!name) return null;
-  return name.toLowerCase()
+  return name
+    .toLowerCase()
     .replace(/[^a-z0-9]/g, '_')
     .replace(/_+/g, '_')
     .replace(/^_|_$/g, '');
 }
 
+function compactObject(obj) {
+  const out = {};
+  for (const [k, v] of Object.entries(obj)) {
+    if (v === null || v === undefined) continue;
+    if (typeof v === 'string' && v.trim() === '') continue;
+    if (Array.isArray(v) && v.length === 0) continue;
+    out[k] = v;
+  }
+  return out;
+}
+
 function parseJsonl(filePath) {
   if (!fs.existsSync(filePath)) return [];
-  return fs.readFileSync(filePath, 'utf8')
+  const text = fs.readFileSync(filePath, 'utf8');
+  return text
     .split('\n')
     .filter(Boolean)
     .map(line => JSON.parse(line));
 }
 
-function main() {
-  const enData = parseJsonl(EN_FILE);
-  const cnData = parseJsonl(CN_FILE);
-  const tokenData = parseJsonl(TOKEN_FILE);
+function teamToType(team) {
+  if (team === 'townsfolk') return 'townsfolk';
+  if (team === 'outsider') return 'outsiders';
+  if (team === 'minion') return 'minions';
+  if (team === 'demon') return 'demons';
+  if (team === 'traveller') return 'travellers';
+  if (team === 'fabled') return 'fabled';
+  if (team === 'loric') return 'loric';
+  return null;
+}
 
-  const characters = new Map();
+function detectTypeFromId(id) {
+  const DEMONS = new Set([
+    'al_hadikhia', 'fang_gu', 'imp', 'kazali', 'legion', 'leviathan', 'lil_monsta', 'lleech',
+    'lord_of_typhon', 'no_dashii', 'ojo', 'po', 'pukka', 'riot', 'shabaloth', 'vigormortis',
+    'vortox', 'yaggababble', 'zombuul', 'ocha', 'hun_dun', 'taotie', 'qiongqi', 'taowu'
+  ]);
+  const MINIONS = new Set([
+    'assassin', 'baron', 'boffin', 'boomdandy', 'cerenovus', 'devil_s_advocate', 'evil_twin',
+    'fearmonger', 'goblin', 'godfather', 'harpy', 'marionette', 'mastermind', 'mezepheles',
+    'organ_grinder', 'pit_hag', 'poisoner', 'psychopath', 'scarlet_woman', 'spy', 'summoner',
+    'vizier', 'widow', 'witch', 'wizard', 'wraith', 'xaan'
+  ]);
+  const OUTSIDERS = new Set([
+    'barber', 'butler', 'damsel', 'drunk', 'golem', 'goon', 'hatter', 'heretic', 'hermit',
+    'klutz', 'lunatic', 'moonchild', 'mutant', 'ogre', 'plague_doctor', 'politician',
+    'puzzlemaster', 'recluse', 'saint', 'snitch', 'sweetheart', 'tinker', 'zealot'
+  ]);
+  const TRAVELLERS = new Set([
+    'apprentice', 'barista', 'beggar', 'bishop', 'bone_collector', 'bureaucrat', 'butcher',
+    'cacklejack', 'deviant', 'gangster', 'gnome', 'gunslinger', 'harlot', 'judge', 'matron',
+    'scapegoat', 'thief', 'voudon'
+  ]);
+  const FABLED = new Set([
+    'angel', 'buddhist', 'deus_ex_fiasco', 'djinn', 'doomsayer', 'duchess', 'ferryman',
+    'fibbin', 'fiddler', 'hell_s_librarian', 'revolutionary', 'sentinel', 'spirit_of_ivory',
+    'toymaker'
+  ]);
 
-  // 1. Process English data
-  for (const en of enData) {
-    const id = normalizeId(en.english_name) || en.id;
-    
-    const char = {
-      id,
-      name: { en: en.english_name },
-      type: en.type,
-      editions: en.editions,
-      first_night: en.first_night,
-      other_nights: en.other_nights,
-      artist: en.artist,
-      jinxes: en.jinxes,
-      source_url: en.source_url
-    };
+  if (DEMONS.has(id)) return 'demons';
+  if (MINIONS.has(id)) return 'minions';
+  if (OUTSIDERS.has(id)) return 'outsiders';
+  if (TRAVELLERS.has(id)) return 'travellers';
+  if (FABLED.has(id)) return 'fabled';
+  return 'townsfolk';
+}
 
-    if (en.ability) char.ability = { en: en.ability };
-    if (en.flavor_text) char.flavor_text = { en: en.flavor_text };
-    if (en.examples) char.examples = { en: en.examples };
-    if (en.tips) char.tips = { en: en.tips };
-    if (en.how_to_run) char.how_to_run = { en: en.how_to_run };
+function localeFromFile(filename) {
+  const base = path.basename(filename, '.jsonl');
+  const parts = base.split('.');
+  return parts[2] || null;
+}
 
-    characters.set(id, char);
+function toLangKey(locale) {
+  if (locale === 'zh-hans') return 'zh-Hans';
+  return locale;
+}
+
+function buildConfigFromTool(toolFiles) {
+  const byType = {
+    townsfolk: {},
+    outsiders: {},
+    minions: {},
+    demons: {},
+    travellers: {},
+    fabled: {},
+    loric: {}
+  };
+
+  for (const file of toolFiles) {
+    const locale = toLangKey(localeFromFile(file));
+    const rows = parseJsonl(file);
+    for (const row of rows) {
+      const id = row.id;
+      if (!id) continue;
+      const type = teamToType(row.team) || detectTypeFromId(id);
+      if (!byType[type][id]) byType[type][id] = {};
+
+      if (locale === 'en') {
+        if (row.name) byType[type][id].en = row.name;
+      } else if (row.name) {
+        byType[type][id][locale] = row.name;
+      }
+    }
   }
 
-  // 2. Process Chinese data
-  for (const cn of cnData) {
-    const cnEngName = cn.english_name || 'UNKNOWN';
-    // special handling: trim spaces or quotes in english_name from Chinese wiki
-    const id = normalizeId(cnEngName.replace(/^"|"$/g, '').trim());
-    
-    if (!id) continue;
+  return { characters: byType };
+}
 
-    let char = characters.get(id);
-    
-    if (!char) {
-      // It's a Chinese-exclusive character or name mismatch
-      char = {
-        id,
-        name: { en: cnEngName, cn: cn.chinese_name },
-        type: 'experimental', // fallback
-        editions: ['experimental'],
-        source_url: `https://clocktower-wiki.gstonegames.com/index.php?title=${cn.urlParam}`
-      };
-      characters.set(id, char);
+function mergeInto(base, patch) {
+  const merged = { ...base };
+  for (const [key, value] of Object.entries(patch)) {
+    if (value === null || value === undefined) continue;
+
+    if (
+      typeof value === 'object' &&
+      !Array.isArray(value) &&
+      typeof merged[key] === 'object' &&
+      merged[key] !== null &&
+      !Array.isArray(merged[key])
+    ) {
+      merged[key] = { ...merged[key], ...value };
     } else {
-      // Merge Chinese data
-      char.name.cn = cn.chinese_name;
+      merged[key] = value;
     }
-    
-    if (cn.ability) {
-      if (!char.ability) char.ability = {};
-      char.ability.cn = cn.ability;
-    }
-    if (cn.flavor_text) {
-      if (!char.flavor_text) char.flavor_text = {};
-      char.flavor_text.cn = cn.flavor_text;
-    }
-    if (cn.examples) {
-      if (!char.examples) char.examples = {};
-      char.examples.cn = cn.examples;
-    }
-    if (cn.tips) {
-      if (!char.tips) char.tips = {};
-      char.tips.cn = cn.tips;
-    }
-    if (cn.how_to_run) {
-      if (!char.how_to_run) char.how_to_run = {};
-      char.how_to_run.cn = cn.how_to_run;
+  }
+  return merged;
+}
+
+function buildCombinedCharacters(toolFiles, wikiFiles, tokenFile) {
+  const combined = new Map();
+
+  // 1) Tool rows first (source of truth of ID)
+  for (const file of toolFiles) {
+    const locale = toLangKey(localeFromFile(file));
+    const rows = parseJsonl(file);
+
+    for (const row of rows) {
+      const id = row.id;
+      if (!id) continue;
+
+      const existing = combined.get(id) || {
+        id,
+        type: teamToType(row.team) || detectTypeFromId(id)
+      };
+      const patch = { source_url: row.source_url };
+
+      if (!existing.name) existing.name = {};
+      if (row.team && !existing.type) {
+        existing.type = teamToType(row.team) || existing.type;
+      }
+
+      if (locale === 'en' && row.name) {
+        existing.name.en = row.name;
+      } else if (row.name) {
+        existing.name[locale] = row.name;
+      }
+
+      if (row.ability) {
+        existing.ability = existing.ability || {};
+        existing.ability[locale] = row.ability;
+      }
+      if (row.flavor) {
+        existing.flavor_text = existing.flavor_text || {};
+        existing.flavor_text[locale] = row.flavor;
+      }
+      if (row.first_night) {
+        existing.first_night = existing.first_night || {};
+        existing.first_night[locale] = row.first_night;
+      }
+      if (row.other_nights) {
+        existing.other_nights = existing.other_nights || {};
+        existing.other_nights[locale] = row.other_nights;
+      }
+
+      combined.set(id, mergeInto(existing, patch));
     }
   }
 
-  // 3. Process Tokens
-  for (const t of tokenData) {
-    const id = normalizeId(t.english_name) || t.id;
-    if (id && characters.has(id)) {
-      characters.get(id).token_url = t.token_url;
+  // 2) Wiki rows second (wiki takes priority)
+  for (const file of wikiFiles) {
+    const locale = toLangKey(localeFromFile(file));
+    const rows = parseJsonl(file);
+
+    // Build reverse lookup by localized wiki row name for matching when id is missing.
+    const idByName = new Map();
+    for (const [id, character] of combined.entries()) {
+      const localizedName = character?.name?.[locale];
+      if (localizedName) idByName.set(localizedName, id);
+      if (locale !== 'en' && character?.name?.en) {
+        idByName.set(character.name.en, id);
+      }
+    }
+
+    for (const row of rows) {
+      const id = row.id || idByName.get(row.name) || normalizeId(row.en_name || row.name);
+      if (!id || !combined.has(id)) continue;
+
+      const existing = combined.get(id);
+      const patch = {};
+
+      if (!existing.name) existing.name = {};
+      if (locale === 'en') {
+        if (row.name) existing.name.en = row.name;
+      } else {
+        if (row.name) existing.name[locale] = row.name;
+        if (row.en_name && !existing.name.en) existing.name.en = row.en_name;
+      }
+
+      if (row.ability) {
+        existing.ability = existing.ability || {};
+        existing.ability[locale] = row.ability;
+      }
+      if (row.flavor) {
+        existing.flavor_text = existing.flavor_text || {};
+        existing.flavor_text[locale] = row.flavor;
+      }
+      if (row.first_night) {
+        existing.first_night = existing.first_night || {};
+        existing.first_night[locale] = row.first_night;
+      }
+      if (row.other_nights) {
+        existing.other_nights = existing.other_nights || {};
+        existing.other_nights[locale] = row.other_nights;
+      }
+
+      if (row.how_to_run) {
+        existing.how_to_run = existing.how_to_run || {};
+        existing.how_to_run[locale] = row.how_to_run;
+      }
+      if (row.examples) {
+        existing.examples = existing.examples || {};
+        existing.examples[locale] = row.examples;
+      }
+      if (row.tips) {
+        existing.tips = existing.tips || {};
+        existing.tips[locale] = row.tips;
+      }
+
+      if (row.type) patch.type = row.type;
+      if (row.editions) patch.editions = row.editions;
+      if (row.artist) patch.artist = row.artist;
+      if (row.jinxes) patch.jinxes = row.jinxes;
+      if (row.source_url) patch.source_url = row.source_url;
+      if (row.url_param) patch.url_param = row.url_param;
+
+      combined.set(id, mergeInto(existing, patch));
     }
   }
 
-  // 4. Output the files
+  // 3) Token rows
+  for (const row of parseJsonl(tokenFile)) {
+    if (!row.id || !combined.has(row.id)) continue;
+    const existing = combined.get(row.id);
+    existing.token_url = row.token_url;
+    combined.set(row.id, existing);
+  }
+
+  return combined;
+}
+
+function writeCharacters(combined) {
   let count = 0;
-  for (const char of characters.values()) {
-    const typeDir = char.type || 'unknown';
-    const outPath = path.join(OUTPUT_DIR, typeDir, `${char.id}.json`);
-    
-    // Clean up temporary internal fields if needed
-    delete char.english_name; // We use name.en instead
-
+  for (const char of combined.values()) {
+    const type = char.type || detectTypeFromId(char.id);
+    // Remove stale file from old type directory if it exists
+    for (const t of ['townsfolk','outsiders','minions','demons','travellers','fabled','loric']) {
+      if (t === type) continue;
+      const stale = path.join(OUTPUT_DIR, t, `${char.id}.json`);
+      if (fs.existsSync(stale)) fs.unlinkSync(stale);
+    }
+    const outPath = path.join(OUTPUT_DIR, type, `${char.id}.json`);
     fs.mkdirSync(path.dirname(outPath), { recursive: true });
-    fs.writeFileSync(outPath, JSON.stringify(char, null, 2), 'utf8');
-    count++;
+    fs.writeFileSync(outPath, JSON.stringify(compactObject(char), null, 2) + '\n', 'utf8');
+    count += 1;
+  }
+  return count;
+}
+
+function main() {
+  if (!fs.existsSync(EXTRACTED_DIR)) {
+    throw new Error(`Missing extracted dir: ${EXTRACTED_DIR}`);
   }
 
-  console.log(`\n✅ Built ${count} character JSON files in ${OUTPUT_DIR}`);
+  const files = fs.readdirSync(EXTRACTED_DIR)
+    .filter(name => name.endsWith('.jsonl'))
+    .map(name => path.join(EXTRACTED_DIR, name));
+
+  const toolFiles = files.filter(f => path.basename(f).startsWith(TOOL_GLOB_PREFIX));
+  const wikiFiles = files.filter(f => path.basename(f).startsWith(WIKI_GLOB_PREFIX));
+  const tokenFile = path.join(EXTRACTED_DIR, 'characters.token.jsonl');
+
+  if (toolFiles.length === 0) {
+    throw new Error('No extracted tool JSONL files found. Run scrape:tool first.');
+  }
+
+  // b) generate config/characters.json from tool ids/names first
+  const config = buildConfigFromTool(toolFiles);
+  fs.writeFileSync(CONFIG_PATH, JSON.stringify(config, null, 2) + '\n', 'utf8');
+  console.log(`✅ Wrote config mapping to ${CONFIG_PATH}`);
+
+  // c) merge all jsonl (wiki takes priority)
+  const combined = buildCombinedCharacters(toolFiles, wikiFiles, tokenFile);
+  const count = writeCharacters(combined);
+
+  console.log(`✅ Built ${count} character JSON files in ${OUTPUT_DIR}`);
 }
 
 main();

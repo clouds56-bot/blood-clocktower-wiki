@@ -1,56 +1,63 @@
 {
   "id": "saint",
+  "type": "outsider",
   "name": {
     "en": "Saint",
+    "es-419": "Santo",
+    "sv": "Helgonet",
+    "zh-Hans": "圣徒",
     "cn": "圣徒"
   },
-  "type": "outsider",
-  "editions": [
-    "trouble_brewing"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Saint",
   "ability": {
     "en": "If you die by execution, your team loses.",
+    "es-419": "Si mueres por ejecución, tu equipo pierde.",
+    "sv": "Om du dör av avrättning förlorar ditt lag.",
+    "zh-Hans": "如果你死于处决，你的阵营落败。",
     "cn": "如果你死于处决，你的阵营落败。"
   },
   "flavor_text": {
     "en": "\"Wisdom begets peace. Patience begets wisdom. Fear not, for the time shall come when fear too shall pass. Let us pray, and may the unity of our vision make saints of us all.\"",
+    "es-419": "La sabiduría engendra paz. La paciencia engendra sabiduría. No temas, porque llegará el día en que el miedo también pasará. Oremos, y que la unidad de nuestra visión nos haga santos a todos.",
+    "sv": "Vishet föder fred. Tålamod föder vishet. Frukta ej, ty dagen kommer när också fruktan flyr. Låt oss be, och må vår enade vision göra helgon av oss alla.",
+    "zh-Hans": "智慧带来和平。耐心孕育智慧。无需惧怕，因为恐惧消散的那一天终将到来。让我们一同祈祷，愿我们愿景一致，共赴圣洁。",
     "cn": "“智慧带来和平。耐心孕育智慧。\n无需惧怕，因为恐惧消散的那一天终将到来。\n让我们一同祈祷，愿我们愿景一致，共赴圣洁。”"
   },
+  "source_url": "https://wiki.bloodontheclocktower.com/Saint",
+  "how_to_run": {
+    "cn": "如果圣徒因处决而死亡，宣布游戏结束且邪恶阵营获胜。\n圣徒的能力中有特定的描述“你的阵营落败”。在《暗流涌动》里，这始终意味着“邪恶阵营获胜”，因为圣徒始终会是善良角色。在其他剧本中，可能会让角色改变阵营。如果一名邪恶的圣徒被处决，善良阵营获胜。",
+    "en": "If the Saint dies by execution, declare that the game ends and evil wins.\nThe Saint's ability has the strange phrase \"your team loses.\" In Trouble Brewing, this will always mean \"evil wins\" because the Saint is always good. In other editions, it is possible for characters to change alignment. If the evil Saint is executed, good wins."
+  },
   "examples": {
-    "en": [
-      "There are seven players alive and nominations are in progress. The Saint gets four votes and is about to die. Then, the Baron is nominated but only gets three votes. No more nominations occur today. The Saint is executed, and evil wins.",
-      "The Imp is nominated, and the players vote. The Gunslinger kills the Saint. The Saint dies, and the game continues.",
-      "The Saint is executed. However, the  Scapegoat's ability is triggered, so the Scapegoat dies instead. The game continues, because the Saint did not die."
-    ],
     "cn": [
       "有七名玩家存活，且正处于提名流程中。圣徒获得了四票，即将被处决。紧接着，男爵被提名但仅获得了三票。没有其他的提名出现。圣徒被处决，且邪恶阵营获胜。",
       "小恶魔被提名，玩家们纷纷投票。枪手杀死了参与投票的圣徒。圣徒死亡，但游戏继续。",
       "圣徒被处决。然而，替罪羊的能力被触发，因此替罪羊代替圣徒被处决。游戏继续，因为圣徒没有死亡。"
+    ],
+    "en": [
+      "There are seven players alive and nominations are in progress. The Saint gets four votes and is about to die. Then, the Baron is nominated but only gets three votes. No more nominations occur today. The Saint is executed, and evil wins.",
+      "The Imp is nominated, and the players vote. The Gunslinger kills the Saint. The Saint dies, and the game continues.",
+      "The Saint is executed. However, the  Scapegoat's ability is triggered, so the Scapegoat dies instead. The game continues, because the Saint did not die."
     ]
   },
   "tips": {
+    "cn": [
+      "如果你死于处决，游戏结束，你的阵营失败。保证善良阵营知道你是圣徒！你可以在大街上喊！站在屋顶喊！告诉所有人你是圣徒！你必须被认为是个善良玩家，要不就完了。如果你被提名了，一定要大声喊出自己是圣徒……游戏的结局如何就看此时了。",
+      "为了证明你是善良角色，你可以找其他善良玩家来查验你。杀死你和共情者之间的玩家可以让共情者得知你的阵营。说服占卜师在晚上选择你来证明你不是恶魔。找到守鸦人让他选择你来确认你的角色。让猎手尝试击杀你。恶魔通常在晚上不会想杀你，因此经常会有人问你的真实角色是什么。这时有几个能帮你作证的玩家将至关重要。",
+      "还有另一种方法，你可以保持沉默或者伪装成一个对恶魔来说非常有吸引力的目标，像猎手或是僧侣。如果你在晚上死了，你就能够规避掉白天被善良阵营意外处决的风险。",
+      "找出场上存在哪些外来者。如果本来应该有两名外来者在场，且只有你和陌客表露了自己是外来者，这种情况下即使你俩看起来都有点可疑，但善良阵营应该会相信你们都是善良玩家，因为外来者数量刚好能对得上。"
+    ],
     "en": [
       "Do not get executed.",
       "No, really. Don't. If you die by execution, the game ends, and your whole team loses. Make sure the good team knows you are the Saint! Tell it in the streets! Tell it from the rooftops! Tell it to everybody! You must be believed to be a good player, or it's curtains. If you have been nominated, cry black and blue that you are the Saint, loudly and publicly... the fate of the game depends on it.",
       "To help prove that you are good, you can arrange for other good players to confirm your identity. Kill players sitting between you and an Empath so that the Empath learns your alignment. Convince the Fortune Teller to select you at night to prove you are not the Demon. Find a Ravenkeeper and get them to agree to choose you so they learn who you are. Get a Slayer to attempt to slay you. The Demon will usually not want to kill you at night, so the question of who you really are will be asked by the group at some stage, and having some players back you up could be crucial.",
       "Alternatively, either stay silent, or bluff as a juicy target for the Demon to attack, such as the Slayer or the Monk. If you die at night, then you remove the possibility of being executed accidentally by the good team. It's only executions that count for your ability.",
       "Find out which other Outsiders are in play. If there are supposed to be two Outsiders in the game, and the only Outsiders to come out publicly are you and the Recluse, for example, then even though you both look inherently suspicious, there are supposed to be two Outsiders in play, so the good team may believe that you are good for this reason alone. If you're the only one, so much the better! It must be you and a Drunk."
-    ],
-    "cn": [
-      "如果你死于处决，游戏结束，你的阵营失败。保证善良阵营知道你是圣徒！你可以在大街上喊！站在屋顶喊！告诉所有人你是圣徒！你必须被认为是个善良玩家，要不就完了。如果你被提名了，一定要大声喊出自己是圣徒……游戏的结局如何就看此时了。",
-      "为了证明你是善良角色，你可以找其他善良玩家来查验你。杀死你和共情者之间的玩家可以让共情者得知你的阵营。说服占卜师在晚上选择你来证明你不是恶魔。找到守鸦人让他选择你来确认你的角色。让猎手尝试击杀你。恶魔通常在晚上不会想杀你，因此经常会有人问你的真实角色是什么。这时有几个能帮你作证的玩家将至关重要。",
-      "还有另一种方法，你可以保持沉默或者伪装成一个对恶魔来说非常有吸引力的目标，像猎手或是僧侣。如果你在晚上死了，你就能够规避掉白天被善良阵营意外处决的风险。",
-      "找出场上存在哪些外来者。如果本来应该有两名外来者在场，且只有你和陌客表露了自己是外来者，这种情况下即使你俩看起来都有点可疑，但善良阵营应该会相信你们都是善良玩家，因为外来者数量刚好能对得上。"
     ]
   },
-  "how_to_run": {
-    "en": "If the Saint dies by execution, declare that the game ends and evil wins.\nThe Saint's ability has the strange phrase \"your team loses.\" In Trouble Brewing, this will always mean \"evil wins\" because the Saint is always good. In other editions, it is possible for characters to change alignment. If the evil Saint is executed, good wins.",
-    "cn": "如果圣徒因处决而死亡，宣布游戏结束且邪恶阵营获胜。\n圣徒的能力中有特定的描述“你的阵营落败”。在《暗流涌动》里，这始终意味着“邪恶阵营获胜”，因为圣徒始终会是善良角色。在其他剧本中，可能会让角色改变阵营。如果一名邪恶的圣徒被处决，善良阵营获胜。"
-  },
+  "url_param": "Saint",
+  "editions": [
+    "trouble_brewing"
+  ],
+  "artist": "Aidan Roberts",
   "token_url": "https://wiki.bloodontheclocktower.com/images/c/c9/Icon_saint.png"
 }

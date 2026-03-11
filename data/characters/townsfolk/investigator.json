@@ -1,44 +1,61 @@
 {
   "id": "investigator",
+  "type": "townsfolk",
   "name": {
     "en": "Investigator",
+    "es-419": "Investigador",
+    "sv": "Detektiven",
+    "zh-Hans": "调查员",
     "cn": "调查员"
   },
-  "type": "townsfolk",
-  "editions": [
-    "trouble_brewing"
-  ],
-  "first_night": true,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [
-    {
-      "id": "vizier",
-      "reason": "The Storyteller doesn't declare the Vizier is in play."
-    }
-  ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Investigator",
   "ability": {
     "en": "You start knowing that 1 of 2 players is a particular Minion.",
+    "es-419": "Empiezas conociendo que 1 de 2 jugadores es un Secuaz en particular.",
+    "sv": "I början vet du att 1 av 2 spelare är en viss Kumpan.",
+    "zh-Hans": "在你的首个夜晚，你会得知两名玩家和一个爪牙角色：这两名玩家之一是该角色。",
     "cn": "在你的首个夜晚，你会得知两名玩家和一个爪牙角色：这两名玩家之一是该角色（或者你会得知没有爪牙在场）。"
   },
   "flavor_text": {
     "en": "\"It is a fine night for a stroll, wouldn't you say, Mister Morozov? Or should I say... BARON Morozov?\"",
+    "es-419": "Es una buena noche para una caminata, ¿no cree usted, Señor Morozov? ¿O, debería decir…BARÓN Morozov?",
+    "sv": "Det är en fin kväll för en promenad, inte sant, herr Morozov? Eller borde jag säga… BARON Morozov?",
+    "zh-Hans": "这真是个散步的好夜晚，您说呢，莫罗佐夫先生？还是我应该称呼您为……莫罗佐夫男爵？",
     "cn": "“这真是个散步的好夜晚，您说呢，莫罗佐夫先生？\n还是我应该称呼您为……莫罗佐夫男爵？”"
   },
+  "first_night": {
+    "en": "Show the Minion character token. Point to both the *MINION* and *WRONG* players.",
+    "es-419": "Muéstrale la ficha de rol del Secuaz. Apunta tanto al *SECUAZ* como al jugador *EQUIVOCADO*.",
+    "sv": "Visa Kumpanbrickan. Peka på spelarna markerade *KUMPAN* och *FEL*.",
+    "zh-Hans": "将标记有“爪牙”的玩家的角色标记展示给调查员。并指向标记有“爪牙”和“错误”的玩家。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Investigator",
+  "how_to_run": {
+    "cn": "在为首个夜晚进行准备时，将调查员的“爪牙”提示标记放置在任意一个爪牙角色标记旁，然后将调查员的“错误”提示标记放置在任意其他角色标记旁。\n在首个夜晚里，唤醒调查员，并指向标记有“爪牙”和“错误”的玩家。将标记有“爪牙”的玩家的角色标记展示给调查员。让调查员重新入睡。在说书人方便的时候，移除调查员的提示标记。",
+    "en": "While preparing the first night, put the Investigator's MINION reminder token by any Minion character token, and put the Investigator's WRONG reminder token by any other character token.\nDuring the first night, wake the Investigator and point to the players marked MINION and WRONG. Show the character token marked MINION to the Investigator. Put the Investigator to sleep. Remove the Investigator's reminder tokens when convenient."
+  },
   "examples": {
-    "en": [
-      "Amy is the Baron, and Julian is the Mayor. The Investigator learns that either Amy or Julian is the Baron.",
-      "Angelus is the Spy, and Lewis is the Poisoner. The Investigator learns that either Angelus or Lewis is the Spy.",
-      "Brianna is the Recluse, and Marianna is the Imp. The Investigator learns that either Brianna or Marianna is the Poisoner. (This happens because the Recluse is registering as a Minion—in this case, the Poisoner.)"
-    ],
     "cn": [
       "小米是男爵，小佳是镇长。调查员得知要么小米是男爵，要么小佳是男爵。",
       "小兰是间谍，小莱是投毒者。调查员得知要么小兰是间谍，要么小莱是间谍。",
       "小文是陌客，小明是小恶魔。调查员得知要么小文是投毒者，要么小明是投毒者。此时，陌客被当作了一名爪牙——在这个例子里，被当作了投毒者。"
+    ],
+    "en": [
+      "Amy is the Baron, and Julian is the Mayor. The Investigator learns that either Amy or Julian is the Baron.",
+      "Angelus is the Spy, and Lewis is the Poisoner. The Investigator learns that either Angelus or Lewis is the Spy.",
+      "Brianna is the Recluse, and Marianna is the Imp. The Investigator learns that either Brianna or Marianna is the Poisoner. (This happens because the Recluse is registering as a Minion—in this case, the Poisoner.)"
     ]
   },
   "tips": {
+    "cn": [
+      "在第一天尽早公布你的信息。你可能无法确定到底哪位玩家是爪牙，但如果你成功让大家相信你的话，那么善良阵营是有足够的时间将两名玩家全都处决的，这将确保最后一天一定少了一名爪牙。",
+      "尽管只靠你自己的信息还不足矣给一位玩家定性，但是你可以将你的信息和其他善良阵营玩家的信息相结合（例如共情者和厨师）。如果你相信他们，你就可以召集其他人尽早将爪牙处决，从而剥夺他的投票权并使你的阵营获得优势。",
+      "如果你强烈怀疑两名玩家其中之一，那你就先什么都别说，静静观察他们的行动。如果他一直在保护一名玩家，那这名被他保护的玩家很有可能就是恶魔。如果他一直想要处决一名玩家，那他针对的这位玩家应该就是善良的。在收集到了一些可靠的信息后，你就可以把它们都公布出来了。如果你认定的爪牙存活到了最后一天，那他也不必被处决，因为这时首先要解决的目标是恶魔。",
+      "与其公开讨论，不如对部分玩家秘密分享你获得的信息。其他玩家的信息可能能够帮助你锁定目标。",
+      "如果你得知的爪牙是红唇女郎，你就需要尽早处决她，以避免她削弱善良阵营的实力。",
+      "如果你得知的信息并非男爵，你就需要谨慎对待每一位声称自己是外来者的玩家。如果你知道在场仅有一位外来者，但场上有两位玩家都说自己是外来者，那他们之中可能有一位在说谎，也有可能都在说谎。",
+      "当心陌客！因为他可能会被你当作爪牙。如果你所查验的其中一位玩家的实际角色是陌客，但他被你认作了爪牙，另一位玩家有可能是任何角色，甚至也可能是你得知的那个爪牙角色。",
+      "尽管你能得知两名玩家其中一名是爪牙，但这并不表示另一名玩家一定是善良的。"
+    ],
     "en": [
       "Tell the group what your information is as soon as possible on the first day. You probably won't be able to determine which of the two players is the Minion, but if you are believed, then the good team will probably have enough time to execute both players, guaranteeing that a Minion is dead on the final day.",
       "Whilst your information by itself will probably not be enough to condemn a specific player, it might combine well with another good player's information, such as the Empath or the Chef. If you trust them, you can team up to execute a Minion early in the game, which removes their voting power and gives you an advantage.",
@@ -49,21 +66,18 @@
       "If you learn that any minion other than the Baron is in play in a game with only one minion, you know exactly how many outsiders there are. If more than that number are claiming to be outsiders, then you know that at least one of them is lying.",
       "Beware the Recluse! They may register as a Minion to you. If one of the players you detect is actually the Recluse, the second player could be literally anything, including the Minion you were shown.",
       "Even though one of the players you detect is a Minion, that does not necessarily mean that the other player is good."
-    ],
-    "cn": [
-      "在第一天尽早公布你的信息。你可能无法确定到底哪位玩家是爪牙，但如果你成功让大家相信你的话，那么善良阵营是有足够的时间将两名玩家全都处决的，这将确保最后一天一定少了一名爪牙。",
-      "尽管只靠你自己的信息还不足矣给一位玩家定性，但是你可以将你的信息和其他善良阵营玩家的信息相结合（例如共情者和厨师）。如果你相信他们，你就可以召集其他人尽早将爪牙处决，从而剥夺他的投票权并使你的阵营获得优势。",
-      "如果你强烈怀疑两名玩家其中之一，那你就先什么都别说，静静观察他们的行动。如果他一直在保护一名玩家，那这名被他保护的玩家很有可能就是恶魔。如果他一直想要处决一名玩家，那他针对的这位玩家应该就是善良的。在收集到了一些可靠的信息后，你就可以把它们都公布出来了。如果你认定的爪牙存活到了最后一天，那他也不必被处决，因为这时首先要解决的目标是恶魔。",
-      "与其公开讨论，不如对部分玩家秘密分享你获得的信息。其他玩家的信息可能能够帮助你锁定目标。",
-      "如果你得知的爪牙是红唇女郎，你就需要尽早处决她，以避免她削弱善良阵营的实力。",
-      "如果你得知的信息并非男爵，你就需要谨慎对待每一位声称自己是外来者的玩家。如果你知道在场仅有一位外来者，但场上有两位玩家都说自己是外来者，那他们之中可能有一位在说谎，也有可能都在说谎。",
-      "当心陌客！因为他可能会被你当作爪牙。如果你所查验的其中一位玩家的实际角色是陌客，但他被你认作了爪牙，另一位玩家有可能是任何角色，甚至也可能是你得知的那个爪牙角色。",
-      "尽管你能得知两名玩家其中一名是爪牙，但这并不表示另一名玩家一定是善良的。"
     ]
   },
-  "how_to_run": {
-    "en": "While preparing the first night, put the Investigator's MINION reminder token by any Minion character token, and put the Investigator's WRONG reminder token by any other character token.\nDuring the first night, wake the Investigator and point to the players marked MINION and WRONG. Show the character token marked MINION to the Investigator. Put the Investigator to sleep. Remove the Investigator's reminder tokens when convenient.",
-    "cn": "在为首个夜晚进行准备时，将调查员的“爪牙”提示标记放置在任意一个爪牙角色标记旁，然后将调查员的“错误”提示标记放置在任意其他角色标记旁。\n在首个夜晚里，唤醒调查员，并指向标记有“爪牙”和“错误”的玩家。将标记有“爪牙”的玩家的角色标记展示给调查员。让调查员重新入睡。在说书人方便的时候，移除调查员的提示标记。"
-  },
+  "url_param": "Investigator",
+  "editions": [
+    "trouble_brewing"
+  ],
+  "artist": "Aidan Roberts",
+  "jinxes": [
+    {
+      "id": "vizier",
+      "reason": "The Storyteller doesn't declare the Vizier is in play."
+    }
+  ],
   "token_url": "https://wiki.bloodontheclocktower.com/images/a/ad/Icon_investigator.png"
 }

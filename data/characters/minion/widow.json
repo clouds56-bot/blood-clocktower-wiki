@@ -1,77 +1,51 @@
 {
   "id": "widow",
+  "type": "minion",
   "name": {
     "en": "Widow",
+    "es-419": "Viuda",
+    "sv": "Änkan",
+    "zh-Hans": "寡妇",
     "cn": "寡妇"
   },
-  "type": "minion",
-  "editions": [
-    "experimental"
-  ],
-  "first_night": true,
-  "other_nights": false,
-  "artist": "Anica Kelsen",
-  "jinxes": [
-    {
-      "id": "alchemist",
-      "reason": "An Alchemist-Widow has no Widow ability & a Widow is in play. After each execution, a living Alchemist-Widow may publicly guess a living player as the Widow. If correct, the Demon must choose the Widow tonight."
-    },
-    {
-      "id": "damsel",
-      "reason": "If the Widow is (or has been) in play, the Damsel is poisoned."
-    },
-    {
-      "id": "heretic",
-      "reason": "Only 1 jinxed character can be in play."
-    },
-    {
-      "id": "magician",
-      "reason": "When the Widow sees the Grimoire, the Demon and Magician's character tokens are removed."
-    },
-    {
-      "id": "poppy_grower",
-      "reason": "If the Poppy Grower has their ability, the Widow does not see the Grimoire."
-    }
-  ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Widow",
   "ability": {
     "en": "On your 1st night, look at the Grimoire & choose a player: they are poisoned. 1 good player knows a Widow is in play.",
+    "es-419": "En tu 1era noche, mira al Grimorio y escoge un jugador: él está envenenado. 1 jugador bueno conoce que la Viuda está en juego.",
+    "sv": "Din första natt ser du grimoaren och väljer en spelare; hen är förgiftad. 1 god spelare vet att Änkan är i spel.",
+    "zh-Hans": "在你的首个夜晚，你能查看魔典并选择一名玩家：他中毒。随后，始终会有一名善良玩家知道寡妇在场。",
     "cn": "在你的首个夜晚，你能查看魔典并选择一名玩家：他中毒。随后，始终会有一名善良玩家知道寡妇在场。"
   },
   "flavor_text": {
     "en": "\"More wine? Château d’Ergot ’07 is a very special vintage. My yes, very special indeed.\"",
+    "es-419": "¿Más vino? Château d’Ergot ’07 es una cosecha muy especial. Oh sí, muy especial de verdad.",
+    "sv": "Mer vin? Château d’Ergot ’07 är en mycket speciell årgång. Ja, sannerligen speciell.",
+    "zh-Hans": "还要再来点酒吗？麦角酒庄的这款07年的窖藏非常特别。是的，的的确确很特别。",
     "cn": "“还要再来点酒吗？麦角酒庄的这款07年的窖藏非常特别。是的，的的确确很特别。”"
   },
+  "first_night": {
+    "en": "Show the Grimoire for as long as the Widow needs. The Widow chooses a player. :reminder: Put the Widow to sleep. Wake the player marked *KNOW* & show the Widow token. :reminder:",
+    "es-419": "Muéstrale el Grimorio a la Viuda el tiempo que sea necesario. La Viuda escoge un jugador. :reminder:",
+    "sv": "Visa grimoaren så länge Änkan behöver. Änkan väljer en spelare. :reminder: Söv Änkan. Väck spelaren märkt *VISAD* och visa Änkans rollbricka. :reminder:",
+    "zh-Hans": "唤醒寡妇并对她展示魔典。她可以按照自己意愿的时长来查看魔典。随后，让寡妇选择一名玩家。:reminder:"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Widow",
+  "how_to_run": {
+    "cn": "在为首个夜晚进行准备时，将寡妇的“得知”提示标记放置在任意一名善良玩家旁。\n在首个夜晚，唤醒寡妇并对她展示魔典。她可以按照自己意愿的时长来查看魔典。随后，让寡妇指向魔典上的一个角色标记，或一名玩家。使用寡妇的“中毒”提示标记标记那名玩家，他开始中毒。让寡妇重新入睡。\n然后唤醒那名被放置“得知”的善良玩家。对他展示寡妇角色标记，然后让这名玩家入睡。",
+    "en": "While preparing the first night, mark a good player with the KNOW reminder.\nOn the first night, wake the Widow and show them the Grimoire for as long as they need. The Widow points to a character token in the Grimoire. Mark them with a POISONED reminder. They are poisoned. Put the Widow to sleep.\nWake the player marked KNOW. Show them the Widow character token. Put that good player to sleep."
+  },
   "examples": {
-    "en": [
-      "The Widow sees the Grimoire and points to the Sailor. The Sailor is poisoned this game. The Sailor is sober, but dies when executed.",
-      "On the third night, the Pit-Hag turns themselves into the Widow. That night, the good Scapegoat learns that a Widow is in play.",
-      "The Empath is poisoned due to the Widow. The Widow becomes drunk due to the Innkeeper. The Empath is no longer poisoned. The Innkeeper dies. The Widow is now sober and the Empath is poisoned again."
-    ],
     "cn": [
       "寡妇查看了魔典，然后指向了魔典上的水手角色标记。水手在本局游戏中中毒。即使水手是清醒状态，也会在被处决时死亡。",
       "在第三个夜晚，麻脸巫婆将自己变成了寡妇。当晚，善良的替罪羊得知寡妇在场。",
       "共情者因为寡妇中毒。旅店老板让寡妇醉酒了，所以共情者不再中毒。随后旅店老板死亡，现在寡妇恢复了清醒，共情者又中毒了。"
+    ],
+    "en": [
+      "The Widow sees the Grimoire and points to the Sailor. The Sailor is poisoned this game. The Sailor is sober, but dies when executed.",
+      "On the third night, the Pit-Hag turns themselves into the Widow. That night, the good Scapegoat learns that a Widow is in play.",
+      "The Empath is poisoned due to the Widow. The Widow becomes drunk due to the Innkeeper. The Empath is no longer poisoned. The Innkeeper dies. The Widow is now sober and the Empath is poisoned again."
     ]
   },
   "tips": {
-    "en": [
-      "Much like the Spy, you start the game knowing everything! All characters in play and who they are will be laid out in the Grimoire. Use this information to help the evil team pick good bluffs, provide information they couldn’t otherwise know, and take out high priority targets. In the Grimoire, you will not only see who everyone is, but the Storyteller reminder tokens, allowing you to track what information people are starting with.",
-      "Who do you choose to poison? This is the most important question that you should be asking yourself. Unlike the Spy, who sees the Grimoire every night, you only see the Grimoire once. Unlike the Poisoner, you can choose which character, not just which player to poison. Take your time, look at every character, and make the best choice you can. There is no need to rush it.",
-      "As well as looking at the Grimoire, you get to poison a player! If you are not sure who to poison, poison the most potent information Townsfolk character. This will guarantee horrendous information for the good team for the entire game. Having the option to poison a Savant, Chambermaid, Fisherman, or Balloonist can be too sweet to pass up. Go for it. (If you're not sure who is the most potent off the top of your head, just poison the one that scares you the most!)",
-      "If there is a single, obvious choice for which character to poison, poison a different character instead. Since the good team will know that a Widow is in play, they will be looking for the most obvious choice for the Widow to have made. If you don't make the most obvious choice, then the good team will assume that a powerful information Townsfolk is poisoned when they are not, and that a less likely character is healthy when they are poisoned. Tricky you.",
-      "Additionally, you can try to poison a player you think will command the town’s conversation in the hopes they use their (now false) information to your ends.",
-      "Don't poison a player that you can get the Demon to kill instead. For example, it may be best get the Demon to kill the Fortune Teller while you poison the Chef. Since you see the Grimoire, communicating to the Demon which players to kill early in the game should be easy enough.",
-      "Coordinate with your Demon so that they do not kill your poisoned mark - unless they are a character like the Ravenkeeper. Otherwise your poison might go to waste by a savvy Demon having the same target as you early on!",
-      "Try to do what you can to discredit the player that knows you’re in play: if the town thinks they’re lying, they’ll probably think they’re lying about you being in play too! You can do this in a lot of social ways, but you can also try to use your poison (either on the player themselves or Townsfolk that might clear them) to disrupt that player's trust.",
-      "Because a player will know you’re in play, denying that there is a poison in the game will usually be harder than arguing that the poison is somewhere it isn’t. You cause a lot of damage for the good team, so they'll be unwilling to let go of the idea that you're lurking without extraordinary evidence. Redirection about who is poisoned is much more reasonable.",
-      "If you’re any evil player in a game with a Widow on the script, a brave but potentially rewarding play is to claim you got the Widow’s call. This could make the town trust you and become suspicious of their own abilities even when there is no real Widow poison in play.",
-      "In smaller games, such as 5, 6, 7, or 8 players, poison a character that only gets information on the first night, such as the Investigator or the Clockmaker. This ensures that your poisoning will have a real effect, and avoids the likely situation where your poisoned player dies by Demon kill or execution before they gain false information.",
-      "In larger games, such as 12, 13, 14, 15 or more players, avoid poisoning characters that only get information on the first night, and instead poison a character that get information every night, such as the Chambermaid or Oracle, or powerful non-information characters such as the Virgin or Innkeeper. In larger games, it is much less likely that your poisoned player dies by accidental execution or by the Demon killing them before you've had a chance to talk with them, and much greater chance that you can co-ordinate things so that their poisoning has full effect.",
-      "Die. If you are an alive Widow, then a good player is poisoned. If you are the dead Widow, then that player is no longer poisoned. This can turn a steady stream of false information into a steady stream of true information - something that is very useful if the good player was beginning to suspect that they were poisoned.",
-      "If a Widow is in play, or a Widow is not in play but an evil player says that there is, convince the group that you think that you have been poisoned by the Widow. Give true information for a nice double-bluff. If the group thinks that you are poisoned by the Widow, then you convince them that you are good while diverting their attention away from the real poisoned player. Additionally, if you suddenly claim to be getting true information, then it is possible to convince the good team that you were poisoned but are now healthy, so the Widow must surely be dead! Having the good team think that you are good, that the poisoned good player is healthy, and that they have killed the Widow when they haven't... well, that's one spaghetti-like tangle.",
-      "Poison yourself to hide that there is a Widow in play. A poisoned Widow has no ability, so no good player learns that a Widow is in play. You won't have the benefit of a poisoned good player working against the good team, but this will imply that a different Minion is in play. This is mostly effective only in 1 Minion games. For example, if you poison yourself and claim to be an Outsider in a seven player game, then that could make it look like a Baron is in play."
-    ],
     "cn": [
       "和间谍类似，你在游戏开始时知道所有事情！所有在场的角色以及谁是这些角色，这些内容都躺在魔典里。利用这些信息帮助邪恶阵营选择合适的伪装，提供他们无法得知的信息，并干掉高优先级目标。在魔典中，你不仅能看到每个人是谁，还能看到说书人的提醒标记，允许你追溯人们在游戏开始时获得的信息。",
       "你选择对谁投毒？这是你最应当扪心自问的重要问题。不同于每晚都能观看魔典的间谍，你只能看到一次魔典。不同于只能选择某名玩家来投毒的投毒者，你可以选择对某个角色投毒。慢慢思考，看清楚每个角色，尽可能做出最佳选择。没有必要太过着急。",
@@ -100,11 +74,51 @@
       "寡妇让邪恶阵营更容易宣称是那些能得知其他玩家角色的角色（比如筑梦师或图书管理员，因为他们已经获得了这些信息）。如果寡妇可能存在，在信任这些角色之前将这一点放在心里。",
       "只要寡妇存活，他们在游戏全程都很致命。如果你有一条线索指向一个疑似寡妇，那么处决他们并消除他们对小镇暗藏的影响对你总是有好处的。",
       "记住，对抗寡妇类似对抗间谍，然而寡妇只能在首夜看到魔典，因而只能完全依赖于记忆力。这使得他们在玩家人数较多的游戏中面临更多挑战，因为他们可能只记住了少量关键信息。不同于间谍，第一晚之后发生的任何事情寡妇都看不到。"
+    ],
+    "en": [
+      "Much like the Spy, you start the game knowing everything! All characters in play and who they are will be laid out in the Grimoire. Use this information to help the evil team pick good bluffs, provide information they couldn’t otherwise know, and take out high priority targets. In the Grimoire, you will not only see who everyone is, but the Storyteller reminder tokens, allowing you to track what information people are starting with.",
+      "Who do you choose to poison? This is the most important question that you should be asking yourself. Unlike the Spy, who sees the Grimoire every night, you only see the Grimoire once. Unlike the Poisoner, you can choose which character, not just which player to poison. Take your time, look at every character, and make the best choice you can. There is no need to rush it.",
+      "As well as looking at the Grimoire, you get to poison a player! If you are not sure who to poison, poison the most potent information Townsfolk character. This will guarantee horrendous information for the good team for the entire game. Having the option to poison a Savant, Chambermaid, Fisherman, or Balloonist can be too sweet to pass up. Go for it. (If you're not sure who is the most potent off the top of your head, just poison the one that scares you the most!)",
+      "If there is a single, obvious choice for which character to poison, poison a different character instead. Since the good team will know that a Widow is in play, they will be looking for the most obvious choice for the Widow to have made. If you don't make the most obvious choice, then the good team will assume that a powerful information Townsfolk is poisoned when they are not, and that a less likely character is healthy when they are poisoned. Tricky you.",
+      "Additionally, you can try to poison a player you think will command the town’s conversation in the hopes they use their (now false) information to your ends.",
+      "Don't poison a player that you can get the Demon to kill instead. For example, it may be best get the Demon to kill the Fortune Teller while you poison the Chef. Since you see the Grimoire, communicating to the Demon which players to kill early in the game should be easy enough.",
+      "Coordinate with your Demon so that they do not kill your poisoned mark - unless they are a character like the Ravenkeeper. Otherwise your poison might go to waste by a savvy Demon having the same target as you early on!",
+      "Try to do what you can to discredit the player that knows you’re in play: if the town thinks they’re lying, they’ll probably think they’re lying about you being in play too! You can do this in a lot of social ways, but you can also try to use your poison (either on the player themselves or Townsfolk that might clear them) to disrupt that player's trust.",
+      "Because a player will know you’re in play, denying that there is a poison in the game will usually be harder than arguing that the poison is somewhere it isn’t. You cause a lot of damage for the good team, so they'll be unwilling to let go of the idea that you're lurking without extraordinary evidence. Redirection about who is poisoned is much more reasonable.",
+      "If you’re any evil player in a game with a Widow on the script, a brave but potentially rewarding play is to claim you got the Widow’s call. This could make the town trust you and become suspicious of their own abilities even when there is no real Widow poison in play.",
+      "In smaller games, such as 5, 6, 7, or 8 players, poison a character that only gets information on the first night, such as the Investigator or the Clockmaker. This ensures that your poisoning will have a real effect, and avoids the likely situation where your poisoned player dies by Demon kill or execution before they gain false information.",
+      "In larger games, such as 12, 13, 14, 15 or more players, avoid poisoning characters that only get information on the first night, and instead poison a character that get information every night, such as the Chambermaid or Oracle, or powerful non-information characters such as the Virgin or Innkeeper. In larger games, it is much less likely that your poisoned player dies by accidental execution or by the Demon killing them before you've had a chance to talk with them, and much greater chance that you can co-ordinate things so that their poisoning has full effect.",
+      "Die. If you are an alive Widow, then a good player is poisoned. If you are the dead Widow, then that player is no longer poisoned. This can turn a steady stream of false information into a steady stream of true information - something that is very useful if the good player was beginning to suspect that they were poisoned.",
+      "If a Widow is in play, or a Widow is not in play but an evil player says that there is, convince the group that you think that you have been poisoned by the Widow. Give true information for a nice double-bluff. If the group thinks that you are poisoned by the Widow, then you convince them that you are good while diverting their attention away from the real poisoned player. Additionally, if you suddenly claim to be getting true information, then it is possible to convince the good team that you were poisoned but are now healthy, so the Widow must surely be dead! Having the good team think that you are good, that the poisoned good player is healthy, and that they have killed the Widow when they haven't... well, that's one spaghetti-like tangle.",
+      "Poison yourself to hide that there is a Widow in play. A poisoned Widow has no ability, so no good player learns that a Widow is in play. You won't have the benefit of a poisoned good player working against the good team, but this will imply that a different Minion is in play. This is mostly effective only in 1 Minion games. For example, if you poison yourself and claim to be an Outsider in a seven player game, then that could make it look like a Baron is in play."
     ]
   },
-  "how_to_run": {
-    "en": "While preparing the first night, mark a good player with the KNOW reminder.\nOn the first night, wake the Widow and show them the Grimoire for as long as they need. The Widow points to a character token in the Grimoire. Mark them with a POISONED reminder. They are poisoned. Put the Widow to sleep.\nWake the player marked KNOW. Show them the Widow character token. Put that good player to sleep.",
-    "cn": "在为首个夜晚进行准备时，将寡妇的“得知”提示标记放置在任意一名善良玩家旁。\n在首个夜晚，唤醒寡妇并对她展示魔典。她可以按照自己意愿的时长来查看魔典。随后，让寡妇指向魔典上的一个角色标记，或一名玩家。使用寡妇的“中毒”提示标记标记那名玩家，他开始中毒。让寡妇重新入睡。\n然后唤醒那名被放置“得知”的善良玩家。对他展示寡妇角色标记，然后让这名玩家入睡。"
-  },
+  "url_param": "Widow",
+  "editions": [
+    "experimental"
+  ],
+  "artist": "Anica Kelsen",
+  "jinxes": [
+    {
+      "id": "alchemist",
+      "reason": "An Alchemist-Widow has no Widow ability & a Widow is in play. After each execution, a living Alchemist-Widow may publicly guess a living player as the Widow. If correct, the Demon must choose the Widow tonight."
+    },
+    {
+      "id": "damsel",
+      "reason": "If the Widow is (or has been) in play, the Damsel is poisoned."
+    },
+    {
+      "id": "heretic",
+      "reason": "Only 1 jinxed character can be in play."
+    },
+    {
+      "id": "magician",
+      "reason": "When the Widow sees the Grimoire, the Demon and Magician's character tokens are removed."
+    },
+    {
+      "id": "poppy_grower",
+      "reason": "If the Poppy Grower has their ability, the Widow does not see the Grimoire."
+    }
+  ],
   "token_url": "https://wiki.bloodontheclocktower.com/images/9/99/Icon_widow.png"
 }

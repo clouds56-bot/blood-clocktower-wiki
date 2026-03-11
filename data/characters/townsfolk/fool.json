@@ -1,49 +1,45 @@
 {
   "id": "fool",
+  "type": "townsfolk",
   "name": {
     "en": "Fool",
+    "es-419": "Bufón",
+    "sv": "Narren",
+    "zh-Hans": "弄臣",
     "cn": "弄臣"
   },
-  "type": "townsfolk",
-  "editions": [
-    "bad_moon_rising"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Anica Kelsen",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Fool",
   "ability": {
     "en": "The 1st time you die, you don't.",
+    "es-419": "La 1era vez que mueres, no mueres.",
+    "sv": "Första gången du dör så överlever du.",
+    "zh-Hans": "当你首次将要死亡时，你不会死亡。",
     "cn": "当你首次将要死亡时，你不会死亡。"
   },
   "flavor_text": {
     "en": "\"...and the King said 'What?! I've never even owned a pair of rubber pantaloons, let alone a custard cannon!' Ho-ho! Jolly day!\"",
+    "es-419": "…y el Rey dijo '¡¿Qué?! ¡Jamás he tenido pantalones de goma, mucho menos un cañón de natilla!' ¡Jaja! ¡Qué tal día!",
+    "sv": "… och kungen sa ’Vafalls?! Jag har då aldrig haft gummipantalonger, för att inte tala om någon skinnflöjt!’ Haha!",
+    "zh-Hans": "……然后国王说道：‘什么？！我甚至从未有过一条橡胶马裤，更别提一门奶油大炮了！’嗬嗬！欢乐一日！",
     "cn": "“……然后国王说道：‘什么？！我甚至从未有过一条橡胶马裤，更别提一门奶油大炮了！’嗬嗬！欢乐一日！”"
   },
+  "source_url": "https://wiki.bloodontheclocktower.com/Fool",
+  "how_to_run": {
+    "cn": "如果弄臣将要死亡，他依然存活。（但是如果此时醉酒或中毒就会死亡。）如果弄臣被处决，宣布该玩家被处决但依然存活。（不要说明原因。）\n无论哪种情况，弄臣都失去自己的能力——将“失去能力”提示标记放置到弄臣的角色标记旁。",
+    "en": "If the Fool would die, they remain alive. (But they die if they are drunk or poisoned.) If the Fool was executed, declare that the player was executed but remains alive. (Do not say why.)\nEither way, the Fool loses their ability—mark them with the NO ABILITY reminder."
+  },
   "examples": {
-    "en": [
-      "On the first day, the Fool is executed but remains alive. On the fourth day, the Fool is executed again. This time, they die.",
-      "The Demon attacks the Fool, who remains alive. Nobody dies that night. The next day, the Fool is executed by the Judge, and dies.",
-      "The Demon attacks the Fool, who is protected by the Tea Lady. The Fool remains alive and keeps their ability. Later, after the Tea Lady has died, the Demon attacks the Fool, who is now protected by the Innkeeper. The Fool remains alive and keeps their ability. Later, after the Innkeeper has died, the Demon attacks the Fool, who remains alive again but uses their ability, so next time they will die."
-    ],
     "cn": [
       "在首个白天，弄臣被处决但依然存活。在第四个白天，弄臣再次被处决。这一次，他死亡。",
       "恶魔攻击了弄臣，但他依然存活。当晚无人死亡。在下一个白天，弄臣被法官处决并且死亡。",
       "恶魔攻击了弄臣，但他被茶艺师保护。弄臣依然存活，且保留着自己的能力。之后，在茶艺师死亡后，恶魔攻击了弄臣，但他被旅店老板保护。弄臣依然存活，且保留着自己的能力。之后，在旅店老板死亡后，恶魔攻击了弄臣，他依旧存活但使用了自己的能力，所以弄臣下一次再被攻击时，就会死亡。"
+    ],
+    "en": [
+      "On the first day, the Fool is executed but remains alive. On the fourth day, the Fool is executed again. This time, they die.",
+      "The Demon attacks the Fool, who remains alive. Nobody dies that night. The next day, the Fool is executed by the Judge, and dies.",
+      "The Demon attacks the Fool, who is protected by the Tea Lady. The Fool remains alive and keeps their ability. Later, after the Tea Lady has died, the Demon attacks the Fool, who is now protected by the Innkeeper. The Fool remains alive and keeps their ability. Later, after the Innkeeper has died, the Demon attacks the Fool, who remains alive again but uses their ability, so next time they will die."
     ]
   },
   "tips": {
-    "en": [
-      "The Fool is one of a few characters that can breathe a little easy in Bad Moon Rising, as their ability spares them (at least once) from the pile up of deaths. This doesn't mean that you should rest on your laurels, however - a proactive Fool can drive the evil team mad with bluffs, protecting their good teammates, and wasting a precious demon kill with their power. Who will get the last laugh? That's up to you!",
-      "Your ability keeps you safe from death... once. You can lean on this to guarantee your long term survival throughout the game, but another option is to get the demon to target you deliberately with bluffs. Claim to be an Exorcist or a Courtier, and inexperienced demons may just take aim at you in a panic, wasting their kill for that night. This is also an effective strategy against a Po or Shabaloth, both demons who win by slaughtering the town as quickly as possible. If they choose you, that's both you and another good player who may have died standing the next day!",
-      "Your ability is more useful if it triggers at night, blocking a demon's kill or other reckless deaths. Just because you are safe from execution doesn't mean that you should be rushing to the gallows!",
-      "If you are really coming under suspicion from the good team, you can prove yourself by being executed. Since you will fail to die, this is a pretty decent indicator you are who you claim you are. This is effectively giving up your night protection to give the good team peace of mind, and is not definitive proof (savvy players will point out that a well-timed Devil's Advocate's action achieves the same effect), but your willingness to sacrifice yourself may sway the hearts of the town... and hopefully get an overzealous Exorcist or Chambermaid off your back.",
-      "Try to deduce when you have been targeted at night by tracking the patterns of deaths. For example, if you have seen two deaths every night for the entire game, and then suddenly there's one death instead... it's possible that a Shabaloth tried to munch you and you got away by the seat of your pants. Knowing when you might be vulnerable allows you to adjust your strategies to become more or less of a target as feels necessary.",
-      "If you have the trust of a good player who would really prefer not to die at night, you can take over claiming to be their character. For example, a Pacifist might want people to know they're in play, but not expose themselves to the demon... so you can claim on their behalf instead! If the demon hits you, the Pacifist lives for another day!",
-      "If you die early or unexpectedly, you should be on the lookout for an Assassin or Pukka. The Assassin will be able to bypass your protection and kill you, while the Pukka poisons you, causing it to simply malfunction. Both of these are deadly characters, and knowing they are in play early can be a huge boon for the good team, even if it came at the expense of your death. (Note: You should also rule out that you were targeted by a Sailor, which is less deadly to the good team, but still could be why you died when you thought your protection was still active).",
-      "You can still be protected by other means - the Tea Lady, Innkeeper, Pacifist and even Devil's Advocate can also spare you from death. If you get lucky and gain any extra protection on top of your own power, take advantage! Taunt the evil team a bit! What could go wrong?"
-    ],
     "cn": [
       "弄臣是在《黯月初升》中少数可以自由呼吸的角色之一，因为他们的能力使他们免于一次死亡。然而，这并不意味着你应该固步自封——作为一个积极主动的弄臣可以虚张声势，把邪恶阵营逼疯，浪费恶魔一次宝贵的杀戮机会，保护你的善良队友。谁会笑到最后？由你决定！",
       "你的能力使你免于死亡……一次。你可以依靠这一点来保证你在整个游戏中的长期生存，但也可以故意虚张声势让恶魔来瞄准你。比如你自称是驱魔人或侍臣，那么没有经验的恶魔可能会惊慌失措地瞄准你，从而浪费当晚的杀戮。这也是对付珀和沙巴洛斯的有效策略，这两个恶魔都是通过尽快屠杀小镇而获胜的——如果他们选择了你，那么你和另一个善良玩家（一个如果恶魔不选择你，可能会选择的玩家）就可以活到下一天！",
@@ -53,11 +49,22 @@
       "如果你信任一个确实不想晚上死去的玩家，你可以自称是他的角色。例如，和平主义者可能希望人们知道他们在游戏中，但又不想暴露在恶魔前……所以你可以伪装他！如果恶魔袭击你，和平主义者会再活一天！",
       "如果你过早意外死亡，你应该留意刺客或普卡。刺客将能够绕过你的保护并杀死你，而普卡会毒害你，使你的能力无法正常生效。这两个都是致命的角色，早早知道他们在场对于善良团队来说可能是一个巨大的福音，即使它是以牺牲你为代价的。（注意：还要考虑水手选中的可能，这对善良团队来说不太致命，但仍然可能你突然死亡的原因。）",
       "你仍然可以通过其他方式得到保护——茶艺师、旅店老板、和平主义者甚至是魔鬼代言人也可以让你免于死亡。如果你幸运地在你自己的力量之上获得任何额外的保护，那就好好利用，嘲讽一下邪恶的队伍吧！这有什么关系呢？"
+    ],
+    "en": [
+      "The Fool is one of a few characters that can breathe a little easy in Bad Moon Rising, as their ability spares them (at least once) from the pile up of deaths. This doesn't mean that you should rest on your laurels, however - a proactive Fool can drive the evil team mad with bluffs, protecting their good teammates, and wasting a precious demon kill with their power. Who will get the last laugh? That's up to you!",
+      "Your ability keeps you safe from death... once. You can lean on this to guarantee your long term survival throughout the game, but another option is to get the demon to target you deliberately with bluffs. Claim to be an Exorcist or a Courtier, and inexperienced demons may just take aim at you in a panic, wasting their kill for that night. This is also an effective strategy against a Po or Shabaloth, both demons who win by slaughtering the town as quickly as possible. If they choose you, that's both you and another good player who may have died standing the next day!",
+      "Your ability is more useful if it triggers at night, blocking a demon's kill or other reckless deaths. Just because you are safe from execution doesn't mean that you should be rushing to the gallows!",
+      "If you are really coming under suspicion from the good team, you can prove yourself by being executed. Since you will fail to die, this is a pretty decent indicator you are who you claim you are. This is effectively giving up your night protection to give the good team peace of mind, and is not definitive proof (savvy players will point out that a well-timed Devil's Advocate's action achieves the same effect), but your willingness to sacrifice yourself may sway the hearts of the town... and hopefully get an overzealous Exorcist or Chambermaid off your back.",
+      "Try to deduce when you have been targeted at night by tracking the patterns of deaths. For example, if you have seen two deaths every night for the entire game, and then suddenly there's one death instead... it's possible that a Shabaloth tried to munch you and you got away by the seat of your pants. Knowing when you might be vulnerable allows you to adjust your strategies to become more or less of a target as feels necessary.",
+      "If you have the trust of a good player who would really prefer not to die at night, you can take over claiming to be their character. For example, a Pacifist might want people to know they're in play, but not expose themselves to the demon... so you can claim on their behalf instead! If the demon hits you, the Pacifist lives for another day!",
+      "If you die early or unexpectedly, you should be on the lookout for an Assassin or Pukka. The Assassin will be able to bypass your protection and kill you, while the Pukka poisons you, causing it to simply malfunction. Both of these are deadly characters, and knowing they are in play early can be a huge boon for the good team, even if it came at the expense of your death. (Note: You should also rule out that you were targeted by a Sailor, which is less deadly to the good team, but still could be why you died when you thought your protection was still active).",
+      "You can still be protected by other means - the Tea Lady, Innkeeper, Pacifist and even Devil's Advocate can also spare you from death. If you get lucky and gain any extra protection on top of your own power, take advantage! Taunt the evil team a bit! What could go wrong?"
     ]
   },
-  "how_to_run": {
-    "en": "If the Fool would die, they remain alive. (But they die if they are drunk or poisoned.) If the Fool was executed, declare that the player was executed but remains alive. (Do not say why.)\nEither way, the Fool loses their ability—mark them with the NO ABILITY reminder.",
-    "cn": "如果弄臣将要死亡，他依然存活。（但是如果此时醉酒或中毒就会死亡。）如果弄臣被处决，宣布该玩家被处决但依然存活。（不要说明原因。）\n无论哪种情况，弄臣都失去自己的能力——将“失去能力”提示标记放置到弄臣的角色标记旁。"
-  },
+  "url_param": "Fool",
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "artist": "Anica Kelsen",
   "token_url": "https://wiki.bloodontheclocktower.com/images/d/d9/Icon_fool.png"
 }

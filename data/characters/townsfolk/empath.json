@@ -1,48 +1,55 @@
 {
   "id": "empath",
+  "type": "townsfolk",
   "name": {
     "en": "Empath",
+    "es-419": "Empático",
+    "sv": "Empaten",
+    "zh-Hans": "共情者",
     "cn": "共情者"
   },
-  "type": "townsfolk",
-  "editions": [
-    "trouble_brewing"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Empath",
   "ability": {
     "en": "Each night, you learn how many of your 2 alive neighbors are evil.",
+    "es-419": "Cada noche, aprendes cuántos de tus 2 vecinos vivos son malvados.",
+    "sv": "Varje natt får du veta hur många av dina 2 levande grannar som är onda.",
+    "zh-Hans": "每个夜晚，你会得知与你邻近的两名存活的玩家中邪恶玩家的数量。",
     "cn": "每个夜晚，你会得知与你邻近的两名存活的玩家中邪恶玩家的数量。"
   },
   "flavor_text": {
     "en": "\"My skin prickles. Something is not right here. I can feel it.\"",
+    "es-419": "Me pica la piel. Algo no anda bien aquí. Lo puedo sentir.",
+    "sv": "Det kryper i skinnet på mig. Jag känner på mig att det är något som inte står rätt till.",
+    "zh-Hans": "我的皮肤有些刺痛。这有些不太对劲。我能感觉得到。",
     "cn": "“我的皮肤有些刺痛。\n这有些不太对劲。我能感觉得到。”"
   },
+  "first_night": {
+    "en": "Give a finger signal.",
+    "es-419": "Dale una señal con los dedos.",
+    "sv": "Ge en fingersignal.",
+    "zh-Hans": "用手势比划与他邻近的邪恶玩家数量（0，1，或2）。"
+  },
+  "other_nights": {
+    "en": "Give a finger signal.",
+    "es-419": "Dale una señal con los dedos.",
+    "sv": "Ge en fingersignal.",
+    "zh-Hans": "用手势比划与他邻近的邪恶玩家数量（0，1，或2）。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Empath",
+  "how_to_run": {
+    "cn": "每个夜晚，唤醒共情者。为共情者用手势比划与他邻近的邪恶玩家数量（0，1，或2）。让共情者重新入睡。",
+    "en": "Each night, wake the Empath. Show them fingers (0, 1, or 2) equaling the number of evil players neighbouring the Empath. Put the Empath to sleep."
+  },
   "examples": {
-    "en": [
-      "The Empath neighbours two good players—a Soldier and a Monk . The Empath learns a '0'. \n\n\t\t\t\tThe next day, the Soldier is executed. That night, the Monk is killed by the Imp. The Empath now detects the players sitting next to the Soldier and the Monk, which are a Librarian and an evil Gunslinger. The Empath now learns a '1'.\n\n\t\t\t\tThere are only three players left alive: the Empath, the Imp, and the Baron. No matter who is seated where, the Empath learns a '2'."
-    ],
     "cn": [
       "共情者与两名善良玩家相邻——士兵与僧侣。共情者得知了“0”。",
       "下一天，士兵被处决。在那一晚，僧侣被小恶魔杀死。共情者现在会探查与士兵和僧侣相邻的玩家——图书管理员与邪恶的枪手。共情者得知了“1”。",
       "在最后一夜里，只有三名玩家存活：共情者，小恶魔与男爵。不论谁坐在何处，共情者均会得知“2”。"
+    ],
+    "en": [
+      "The Empath neighbours two good players—a Soldier and a Monk . The Empath learns a '0'. \n\n\t\t\t\tThe next day, the Soldier is executed. That night, the Monk is killed by the Imp. The Empath now detects the players sitting next to the Soldier and the Monk, which are a Librarian and an evil Gunslinger. The Empath now learns a '1'.\n\n\t\t\t\tThere are only three players left alive: the Empath, the Imp, and the Baron. No matter who is seated where, the Empath learns a '2'."
     ]
   },
   "tips": {
-    "en": [
-      "You get information based on the state of the game when you wake up (after the Demon has killed that night). This means that if one of your neighbours died in the night, you immediately start to learn about the next living player.",
-      "The information you receive should inform how you handle your neighbours.\nIf you get a \"0\", you are (probably) sitting between two good players who you can coordinate with and might want to try to keep alive.\nIf you get a count of \"1\", then one of your neighbours is trustworthy, and one is not. You should try to determine which one of your neighbours you trust, and eliminate the other one.\nIf you get a count of \"2\", then you are sitting between two evil players, and should probably look to change that as soon as possible.If you get a \"0\", you are (probably) sitting between two good players who you can coordinate with and might want to try to keep alive.If you get a count of \"1\", then one of your neighbours is trustworthy, and one is not. You should try to determine which one of your neighbours you trust, and eliminate the other one.If you get a count of \"2\", then you are sitting between two evil players, and should probably look to change that as soon as possible.",
-      "If you trust your neighbours, keeping them alive drastically narrows the list of demon suspects.",
-      "If your neighbours die, you will receive new information on the next nearest living player to you. Getting your neighbours killed means you know more. Coordinating with an Undertaker to confirm the identities of your neighbours and getting new information down the line is a powerful combo. Even if your neighbours are both good, it can be worth executing a Slayer who has used their ability so that you know if you can trust the information from the Fortune Teller the other side of them.",
-      "Coming out with your information early (especially if you know you're sitting near evil players) can help you coordinate with the rest of the good team to further check out your suspects.",
-      "Waiting to reveal your information means that you can protect your good neighbours or keep an eye on your evil ones, as well as gather a wider portfolio of information.",
-      "If you get a count of \"1\" or \"2\", consider telling your neighbours you got a count of \"0\" instead. This will make you appear to be the Drunk or poisoned, and the evil team may be more inclined to keep you alive since you do not appear to be a threat. You could also try claiming to be the Soldier or another character the Demon doesn't want to attack. Remember to come out with your real information before the end of the game!",
-      "Travellers who neighbour you count for your information. If you're suddenly getting a \"1\" when previously you were getting \"0\", look to the newly arrived Traveller with some suspicion.",
-      "Beware the Spy! They may register as good for you, and give you an incorrect count. Additionally, the Recluse may register as evil, making you believe you are sitting next to an evil player when that is not actually the case."
-    ],
     "cn": [
       "你应该根据你得到的信息决定如何对待你的邻座：\n如果你得到的数字是\"0\"，那你可能就是坐在两位善良阵营玩家中间，你可以与他们合作并且努力让他们存活下来。\n如果你得到的数字是\"1\"，那就只有一位邻座是可信的。你需要决定你要相信哪一位，并且让另外一位出局。\n如果你得到的数字是\"2\"，那就表明你坐在两位邪恶阵营玩家中间，你应该尽快想办法去改变现状。",
       "如果你得到的数字是\"0\"，那你可能就是坐在两位善良阵营玩家中间，你可以与他们合作并且努力让他们存活下来。",
@@ -56,11 +63,23 @@
       "如果你得到的数字是\"1\"或\"2\"，你可以考虑告诉你的邻座你得到的数字是\"0\"。这可能会让你看起来像个酒鬼或者是中毒了，这样邪恶阵营的玩家就会更倾向让你活着，因为你看起来并不构成威胁。不过你得记得在游戏结束之前把你的真实信息公布出来！",
       "邻座的旅行者也会计入到你获取的信息当中。如果你之前得到的信息都是\"0\"，但这一轮突然得到了\"1\"，你旁边新加入的旅行者应该会有很大嫌疑。",
       "当心间谍！他们可能被你当作好人，导致你得到错误的数字。另外，陌客也可能被你当作邪恶，这将导致你会误以为自己坐在邪恶阵营玩家旁边。"
+    ],
+    "en": [
+      "You get information based on the state of the game when you wake up (after the Demon has killed that night). This means that if one of your neighbours died in the night, you immediately start to learn about the next living player.",
+      "The information you receive should inform how you handle your neighbours.\nIf you get a \"0\", you are (probably) sitting between two good players who you can coordinate with and might want to try to keep alive.\nIf you get a count of \"1\", then one of your neighbours is trustworthy, and one is not. You should try to determine which one of your neighbours you trust, and eliminate the other one.\nIf you get a count of \"2\", then you are sitting between two evil players, and should probably look to change that as soon as possible.If you get a \"0\", you are (probably) sitting between two good players who you can coordinate with and might want to try to keep alive.If you get a count of \"1\", then one of your neighbours is trustworthy, and one is not. You should try to determine which one of your neighbours you trust, and eliminate the other one.If you get a count of \"2\", then you are sitting between two evil players, and should probably look to change that as soon as possible.",
+      "If you trust your neighbours, keeping them alive drastically narrows the list of demon suspects.",
+      "If your neighbours die, you will receive new information on the next nearest living player to you. Getting your neighbours killed means you know more. Coordinating with an Undertaker to confirm the identities of your neighbours and getting new information down the line is a powerful combo. Even if your neighbours are both good, it can be worth executing a Slayer who has used their ability so that you know if you can trust the information from the Fortune Teller the other side of them.",
+      "Coming out with your information early (especially if you know you're sitting near evil players) can help you coordinate with the rest of the good team to further check out your suspects.",
+      "Waiting to reveal your information means that you can protect your good neighbours or keep an eye on your evil ones, as well as gather a wider portfolio of information.",
+      "If you get a count of \"1\" or \"2\", consider telling your neighbours you got a count of \"0\" instead. This will make you appear to be the Drunk or poisoned, and the evil team may be more inclined to keep you alive since you do not appear to be a threat. You could also try claiming to be the Soldier or another character the Demon doesn't want to attack. Remember to come out with your real information before the end of the game!",
+      "Travellers who neighbour you count for your information. If you're suddenly getting a \"1\" when previously you were getting \"0\", look to the newly arrived Traveller with some suspicion.",
+      "Beware the Spy! They may register as good for you, and give you an incorrect count. Additionally, the Recluse may register as evil, making you believe you are sitting next to an evil player when that is not actually the case."
     ]
   },
-  "how_to_run": {
-    "en": "Each night, wake the Empath. Show them fingers (0, 1, or 2) equaling the number of evil players neighbouring the Empath. Put the Empath to sleep.",
-    "cn": "每个夜晚，唤醒共情者。为共情者用手势比划与他邻近的邪恶玩家数量（0，1，或2）。让共情者重新入睡。"
-  },
+  "url_param": "Empath",
+  "editions": [
+    "trouble_brewing"
+  ],
+  "artist": "Aidan Roberts",
   "token_url": "https://wiki.bloodontheclocktower.com/images/1/13/Icon_empath.png"
 }

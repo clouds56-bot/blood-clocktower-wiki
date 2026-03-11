@@ -1,15 +1,91 @@
 {
   "id": "poppy_grower",
+  "type": "townsfolk",
   "name": {
     "en": "Poppy Grower",
+    "es-419": "Cultivador de Amapolas",
+    "sv": "Vallmoodlaren",
+    "zh-Hans": "罂粟种植者",
     "cn": "罂粟种植者"
   },
-  "type": "townsfolk",
+  "ability": {
+    "en": "Minions & Demons do not know each other. If you die, they learn who each other are that night.",
+    "es-419": "Los Secuaces y el Demonio no se conocen entre ellos. Si tú mueres, ellos aprenden quiénes son esa noche.",
+    "sv": "Kumpanerna och Demonen känner inte till varandra. Om du dör får de veta om varandra inatt.",
+    "zh-Hans": "爪牙和恶魔互相不认识。如果你死亡，当晚他们会互相认识。",
+    "cn": "爪牙和恶魔互相不认识。如果你死亡，当晚他们会互相认识。"
+  },
+  "flavor_text": {
+    "en": "\"In the hidden groves of the deep forest, the black poppy dwells. To see its revelry is to be enchanted. To smell its thick aroma is to be lost forever, a slave to the gods of light and dark.\"",
+    "es-419": "En las arboledas ocultas del bosque profundo, habita la amapola negra. Ver aquel espectáculo es quedar encantado. Oler aquel aroma es quedar perdido por siempre, un esclavo a los dioses de la luz y la oscuridad.",
+    "sv": "I den djupa skogens dolda lundar växer fjädervallmon. Att se dess frejdighet är att förtrollas. Att dofta dess fylliga arom är att förloras, slav under ljusets och mörkrets gudar.",
+    "zh-Hans": "黑色罂粟栖息在森林深处的隐蔽树丛里。见到它的狂野生长会为此着迷。闻到它的浓烈香气将永远迷失，沦为光明与黑暗之神的奴隶。",
+    "cn": "“黑色罂粟栖息在森林深处的隐蔽树丛里。见到它的狂野生长会为此着迷。闻到它的浓烈香气将永远迷失，沦为光明与黑暗之神的奴隶。”"
+  },
+  "first_night": {
+    "en": "Skip Minion Info and Demon Info. Wake the Demon. Show the *THESE CHARACTERS ARE NOT IN PLAY* token. Show 3 not-in-play good character tokens.",
+    "es-419": "Sáltate los pasos de Información del Secuaz e Información del Demonio. Despierta al Demonio, muéstrale la ficha de *ESTOS ROLES NO ESTÁN EN JUEGO* y las fichas de cualquier tres roles buenos que no estén en juego.",
+    "sv": "Hoppa över Kumpan- och Demon-infon. Väck Demonen. Visa kortet *DE HÄR ROLLERNA ÄR INTE I SPEL* och brickor för tre goda roller som inte är i spel.",
+    "zh-Hans": "不要进行“爪牙信息”和“恶魔信息”步骤。唤醒恶魔，对他展示“这些角色不在场”信息标记以及三个不在场的善良角色标记。"
+  },
+  "other_nights": {
+    "en": "If the Poppy Grower died today or tonight, wake all Minions. Show the *THIS IS THE DEMON* token. Point to the Demon. Put the Minions to sleep. Wake the Demon. Show the *THESE ARE YOUR MINIONS* token. Point to the Minions.",
+    "es-419": "Si el Cultivador de Amapolas ha muerto hoy por el día o por la noche, despierta a los Secuaces, muéstrales la ficha de *ESTE ES EL DEMONIO* y apunta al Demonio. Ponlos a dormir. Despierta al Demonio, y muéstrale la ficha de *ESTOS SON TUS SECUACES* y apunta a los Secuaces. Pon al Demonio a dormir.",
+    "sv": "Om Vallmoodlaren dog idag eller inatt: Väck Kumpanerna, visa kortet *DET HÄR ÄR DEMONEN* och peka på Demonen. Väck Demonen, visa kortet *DET HÄR ÄR DINA KUMPANER* och peka på Kumpanerna.",
+    "zh-Hans": "如果罂粟种植者在今天白天或当晚死亡，唤醒爪牙并让他们通过眼神接触来互认。对他们展示“他是恶魔”信息标记，然后指向恶魔玩家。让这些爪牙重新入睡。随后唤醒恶魔，对他展示“他们是你的爪牙”信息标记，然后指向所有爪牙。让恶魔重新入睡。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Poppy_Grower",
+  "how_to_run": {
+    "cn": "在首个夜晚，唤醒恶魔。对他展示“这些角色不在场”信息标记以及三个不在场的善良角色标记。然后，让恶魔重新入睡。不要进行“爪牙信息”和“恶魔信息”步骤。\n如果罂粟种植者死亡，将“唤醒邪恶”提示标记放置在罂粟种植者的角色标记旁。在当晚，唤醒爪牙并让他们通过眼神接触来互认。对他们展示“他是恶魔”信息标记，然后指向恶魔玩家。让这些爪牙重新入睡。随后唤醒恶魔，对他展示“他们是你的爪牙”信息标记，然后指向所有爪牙。让恶魔重新入睡。",
+    "en": "During the first night, wake the Demon. Show the THESE CHARACTERS ARE NOT IN PLAY info token, then any three good character tokens that are not in play. Then, put the Demon to sleep. Do not do the Minion Info and Demon Info steps.\nIf the Poppy Grower dies, mark them with the EVIL WAKES reminder. That night, wake the Minions and let them make eye contact. Show the THIS IS THE DEMON info token, then point to the Demon. Put the Minions to sleep. Wake the Demon. Show the THESE ARE YOUR MINIONS info token, then point to the Minions. Put the Demon to sleep."
+  },
+  "examples": {
+    "cn": [
+      "小恶魔、投毒者和女巫在场。在游戏的首个夜晚，小恶魔在被唤醒后得知了三个不在场的善良角色，但不知道哪些玩家是爪牙。投毒者和女巫没有被唤醒进行互认，也不知道谁是恶魔。",
+      "罂粟种植者死于处决。当晚，沙巴洛斯被唤醒得知哪些玩家是爪牙。教父和男爵被唤醒后通过眼神接触来互认并得知哪名玩家是沙巴洛斯。",
+      "罂粟种植者实际上是酒鬼。在游戏的首个夜晚，邪恶阵营玩家正常获取“恶魔信息”和“爪牙信息\"。第四个夜晚，恶魔杀死了罂粟种植者。恶魔和爪牙不会被唤醒得知“恶魔信息”和“爪牙信息”，因为罂粟种植者是酒鬼。"
+    ],
+    "en": [
+      "The Imp, the Poisoner and the Witch are in play. On the first night, the Imp wakes to learn 3 not-in-play characters, but does not learn which players are the Minions. The Poisoner and the Witch do not wake to learn who each other are, and do not learn who the Demon is.",
+      "The Poppy Grower is executed, and dies. That night, the Shabaloth learns which players are the Minions. The Godfather and the Baron wake, make eye contact, and learn which player is the Shabaloth.",
+      "The Poppy Grower is the Drunk. On the 1st night, the evil players learn who each other are, as normal. On the fourth night, the Demon kills the Poppy Grower. The Demons and Minions do not wake to learn who each other are again because the Poppy Grower is the Drunk."
+    ]
+  },
+  "tips": {
+    "cn": [
+      "保密就是一切。罂粟种植者的核心力量就是通过无效掉邪恶阵营的核心力量带给邪恶阵营多疑的氛围。",
+      "荒谬而大声地现身，因为有人大胆而激烈地宣称自己是罂粟种植者这件事非常诡异，这会让邪恶阵营不得不再次思考你到底是谁。他们可能会让你存活因为你看起来像是一个像农夫这样试图被杀死的角色。此外，恶魔可能并不希望通过杀死你来“证实”你是罂粟种植者。",
+      "作为罂粟种植者，你基本上需要孤身一人承担让邪恶阵营缺失协调能力的责任。特别注意宣称同一角色的两名玩家。其中一名可能是爪牙，因为他们还没有从恶魔那里获得伪装。",
+      "在第一天要注意谁和谁来往而谁保持沉默。被与阵营中其他人切分的爪牙会格外谨慎，因为他们起始没有信息。具体地说，要注意玩家的肢体语言，因为他们可能会无意识地传递出焦虑和孤立感。要怀疑那些最后才透露角色的玩家，他们可能是爪牙。",
+      "你很可能被视为邪恶阵营在夜晚击杀的首要目标。要非常小心地与其他人分享你的角色。",
+      "每天和一名新玩家分享你的角色。如果你在游戏早期就死亡，很可能你沟通过的某名玩家实际上是恶魔而不是爪牙，因为爪牙没有简单的方法去传达给恶魔你的角色。当然，并不能阻止爪牙公开揭露你的角色，但是至少你能带走一个确定的爪牙。",
+      "作为罂粟种植者，你可以假装是一个邪恶玩家来蒙骗邪恶玩家相信你是。秘密地和不同玩家沟通，让他们知道你知道罂粟种植者在场因为你是“邪恶玩家”。他们可能会上钩并向你透露信息。",
+      "如果你死亡，观察那些突然发生的行为变化。邪恶阵营骤然获得大量信息并可以互相联系。这些变化包括：\n那些之前不投票的玩家开始投票。\n那些强烈支持投票给某名玩家的玩家突然转变了目标。\n在你死亡后不久即表明角色的玩家（他们很可能刚刚从恶魔处得到了伪装）。",
+      "那些之前不投票的玩家开始投票。",
+      "那些强烈支持投票给某名玩家的玩家突然转变了目标。",
+      "在你死亡后不久即表明角色的玩家（他们很可能刚刚从恶魔处得到了伪装）。",
+      "如果你死后不现身，邪恶阵营能切实知道你是谁而善良阵营并不知道。这意味着那些对你过于关注的玩家可能是邪恶阵营的因为他们试图对你隐藏自己的变化。",
+      "如果你能安排自己在中毒或醉酒时死亡，邪恶阵营就无法互相得知。虽然这可能会非常有难度，因为并没有太多善良角色能故意让你醉酒，但它会带来巨大回报。",
+      "如果存活到最后一天，请现身。"
+    ],
+    "en": [
+      "Keep it secret keep it safe. The Poppy Grower's biggest strength is the paranoia they create by denying the evil team their greatest strength.",
+      "Come out ridiculously loudly, because someone boldly claiming to be a Poppy Grower so fiercely is just weird, that it is going to make the evil team second guess who you are. They might leave you alive because it seems like you're a character trying to get killed like the Farmer. Additionally, the Demon may not wish to ‘confirm’ that you’re the Poppy Grower by killing you.",
+      "As the Poppy Grower, you are essentially single-handedly responsible for the evil team's lack of ability to coordinate. Take special notice of any two players who are claiming to be the same character. One of them is possibly a Minion, because they haven’t obtained their bluffs from the Demon.",
+      "On the first day, pay attention to who mingles and who keeps quietly to themselves. Minions, being cut off from the rest of their team, will be extra cautious because they will have no information to start with. Specifically, watch for players' body language as they're likely to unconsciously communicate their anxiety and isolation. Be suspicious of those players who are last to reveal their character, as they might be Minions.",
+      "You are likely to be seen by the evil team as an important target for death in the night. Be very careful about who you share your role with.",
+      "Each day, share your role with one new player. If you die at night early in the game, it's a good chance that one of the people you confided with is actually the Demon specifically, and not a Minion, because a Minion would have no easy way of communicating who you are to the Demon. Of course, nothing stops the Minion from revealing you publicly, but at least you're taking a definite Minion down with you.",
+      "As Poppy Grower, you can pretend to be an evil player to deceive evil players into thinking you are too. Go around secretly to various players and let them know you know a Poppy Grower is in play as code that you're an \"evil player\". They might bite and confide in you.",
+      "If you die, watch for sudden changes of behaviour. The evil team has suddenly gained a lot of information and can coordinate better. This can include:\nPlayers who previously weren't voting, start voting\nPlayers who were voting strongly for one player suddenly change their target\nPlayers who come out shortly after you die (who have likely just received a bluff from the Demon).Players who previously weren't voting, start votingPlayers who were voting strongly for one player suddenly change their targetPlayers who come out shortly after you die (who have likely just received a bluff from the Demon).",
+      "If you don't come out after you die, the evil team knows exactly who you are but the good team does not. This means that the players who are paying you a little bit too much attention might actually be the evil team trying to hide their actions from you.",
+      "If you can manage to arrange being drunk or poisoned when you die, the evil team do not learn who each other are. While this can be incredibly tricky to pull off as there are not many good characters that can make you intentionally drunk, it has a massive payoff.",
+      "Come out on the final day, if you’re still alive."
+    ]
+  },
+  "url_param": "Poppy_Grower",
   "editions": [
     "experimental"
   ],
-  "first_night": true,
-  "other_nights": false,
   "artist": "Z. Benetatos",
   "jinxes": [
     {
@@ -29,61 +105,5 @@
       "reason": "If the Poppy Grower has their ability, the Widow does not see the Grimoire."
     }
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Poppy_Grower",
-  "ability": {
-    "en": "Minions & Demons do not know each other. If you die, they learn who each other are that night.",
-    "cn": "爪牙和恶魔互相不认识。如果你死亡，当晚他们会互相认识。"
-  },
-  "flavor_text": {
-    "en": "\"In the hidden groves of the deep forest, the black poppy dwells. To see its revelry is to be enchanted. To smell its thick aroma is to be lost forever, a slave to the gods of light and dark.\"",
-    "cn": "“黑色罂粟栖息在森林深处的隐蔽树丛里。见到它的狂野生长会为此着迷。闻到它的浓烈香气将永远迷失，沦为光明与黑暗之神的奴隶。”"
-  },
-  "examples": {
-    "en": [
-      "The Imp, the Poisoner and the Witch are in play. On the first night, the Imp wakes to learn 3 not-in-play characters, but does not learn which players are the Minions. The Poisoner and the Witch do not wake to learn who each other are, and do not learn who the Demon is.",
-      "The Poppy Grower is executed, and dies. That night, the Shabaloth learns which players are the Minions. The Godfather and the Baron wake, make eye contact, and learn which player is the Shabaloth.",
-      "The Poppy Grower is the Drunk. On the 1st night, the evil players learn who each other are, as normal. On the fourth night, the Demon kills the Poppy Grower. The Demons and Minions do not wake to learn who each other are again because the Poppy Grower is the Drunk."
-    ],
-    "cn": [
-      "小恶魔、投毒者和女巫在场。在游戏的首个夜晚，小恶魔在被唤醒后得知了三个不在场的善良角色，但不知道哪些玩家是爪牙。投毒者和女巫没有被唤醒进行互认，也不知道谁是恶魔。",
-      "罂粟种植者死于处决。当晚，沙巴洛斯被唤醒得知哪些玩家是爪牙。教父和男爵被唤醒后通过眼神接触来互认并得知哪名玩家是沙巴洛斯。",
-      "罂粟种植者实际上是酒鬼。在游戏的首个夜晚，邪恶阵营玩家正常获取“恶魔信息”和“爪牙信息\"。第四个夜晚，恶魔杀死了罂粟种植者。恶魔和爪牙不会被唤醒得知“恶魔信息”和“爪牙信息”，因为罂粟种植者是酒鬼。"
-    ]
-  },
-  "tips": {
-    "en": [
-      "Keep it secret keep it safe. The Poppy Grower's biggest strength is the paranoia they create by denying the evil team their greatest strength.",
-      "Come out ridiculously loudly, because someone boldly claiming to be a Poppy Grower so fiercely is just weird, that it is going to make the evil team second guess who you are. They might leave you alive because it seems like you're a character trying to get killed like the Farmer. Additionally, the Demon may not wish to ‘confirm’ that you’re the Poppy Grower by killing you.",
-      "As the Poppy Grower, you are essentially single-handedly responsible for the evil team's lack of ability to coordinate. Take special notice of any two players who are claiming to be the same character. One of them is possibly a Minion, because they haven’t obtained their bluffs from the Demon.",
-      "On the first day, pay attention to who mingles and who keeps quietly to themselves. Minions, being cut off from the rest of their team, will be extra cautious because they will have no information to start with. Specifically, watch for players' body language as they're likely to unconsciously communicate their anxiety and isolation. Be suspicious of those players who are last to reveal their character, as they might be Minions.",
-      "You are likely to be seen by the evil team as an important target for death in the night. Be very careful about who you share your role with.",
-      "Each day, share your role with one new player. If you die at night early in the game, it's a good chance that one of the people you confided with is actually the Demon specifically, and not a Minion, because a Minion would have no easy way of communicating who you are to the Demon. Of course, nothing stops the Minion from revealing you publicly, but at least you're taking a definite Minion down with you.",
-      "As Poppy Grower, you can pretend to be an evil player to deceive evil players into thinking you are too. Go around secretly to various players and let them know you know a Poppy Grower is in play as code that you're an \"evil player\". They might bite and confide in you.",
-      "If you die, watch for sudden changes of behaviour. The evil team has suddenly gained a lot of information and can coordinate better. This can include:\nPlayers who previously weren't voting, start voting\nPlayers who were voting strongly for one player suddenly change their target\nPlayers who come out shortly after you die (who have likely just received a bluff from the Demon).Players who previously weren't voting, start votingPlayers who were voting strongly for one player suddenly change their targetPlayers who come out shortly after you die (who have likely just received a bluff from the Demon).",
-      "If you don't come out after you die, the evil team knows exactly who you are but the good team does not. This means that the players who are paying you a little bit too much attention might actually be the evil team trying to hide their actions from you.",
-      "If you can manage to arrange being drunk or poisoned when you die, the evil team do not learn who each other are. While this can be incredibly tricky to pull off as there are not many good characters that can make you intentionally drunk, it has a massive payoff.",
-      "Come out on the final day, if you’re still alive."
-    ],
-    "cn": [
-      "保密就是一切。罂粟种植者的核心力量就是通过无效掉邪恶阵营的核心力量带给邪恶阵营多疑的氛围。",
-      "荒谬而大声地现身，因为有人大胆而激烈地宣称自己是罂粟种植者这件事非常诡异，这会让邪恶阵营不得不再次思考你到底是谁。他们可能会让你存活因为你看起来像是一个像农夫这样试图被杀死的角色。此外，恶魔可能并不希望通过杀死你来“证实”你是罂粟种植者。",
-      "作为罂粟种植者，你基本上需要孤身一人承担让邪恶阵营缺失协调能力的责任。特别注意宣称同一角色的两名玩家。其中一名可能是爪牙，因为他们还没有从恶魔那里获得伪装。",
-      "在第一天要注意谁和谁来往而谁保持沉默。被与阵营中其他人切分的爪牙会格外谨慎，因为他们起始没有信息。具体地说，要注意玩家的肢体语言，因为他们可能会无意识地传递出焦虑和孤立感。要怀疑那些最后才透露角色的玩家，他们可能是爪牙。",
-      "你很可能被视为邪恶阵营在夜晚击杀的首要目标。要非常小心地与其他人分享你的角色。",
-      "每天和一名新玩家分享你的角色。如果你在游戏早期就死亡，很可能你沟通过的某名玩家实际上是恶魔而不是爪牙，因为爪牙没有简单的方法去传达给恶魔你的角色。当然，并不能阻止爪牙公开揭露你的角色，但是至少你能带走一个确定的爪牙。",
-      "作为罂粟种植者，你可以假装是一个邪恶玩家来蒙骗邪恶玩家相信你是。秘密地和不同玩家沟通，让他们知道你知道罂粟种植者在场因为你是“邪恶玩家”。他们可能会上钩并向你透露信息。",
-      "如果你死亡，观察那些突然发生的行为变化。邪恶阵营骤然获得大量信息并可以互相联系。这些变化包括：\n那些之前不投票的玩家开始投票。\n那些强烈支持投票给某名玩家的玩家突然转变了目标。\n在你死亡后不久即表明角色的玩家（他们很可能刚刚从恶魔处得到了伪装）。",
-      "那些之前不投票的玩家开始投票。",
-      "那些强烈支持投票给某名玩家的玩家突然转变了目标。",
-      "在你死亡后不久即表明角色的玩家（他们很可能刚刚从恶魔处得到了伪装）。",
-      "如果你死后不现身，邪恶阵营能切实知道你是谁而善良阵营并不知道。这意味着那些对你过于关注的玩家可能是邪恶阵营的因为他们试图对你隐藏自己的变化。",
-      "如果你能安排自己在中毒或醉酒时死亡，邪恶阵营就无法互相得知。虽然这可能会非常有难度，因为并没有太多善良角色能故意让你醉酒，但它会带来巨大回报。",
-      "如果存活到最后一天，请现身。"
-    ]
-  },
-  "how_to_run": {
-    "en": "During the first night, wake the Demon. Show the THESE CHARACTERS ARE NOT IN PLAY info token, then any three good character tokens that are not in play. Then, put the Demon to sleep. Do not do the Minion Info and Demon Info steps.\nIf the Poppy Grower dies, mark them with the EVIL WAKES reminder. That night, wake the Minions and let them make eye contact. Show the THIS IS THE DEMON info token, then point to the Demon. Put the Minions to sleep. Wake the Demon. Show the THESE ARE YOUR MINIONS info token, then point to the Minions. Put the Demon to sleep.",
-    "cn": "在首个夜晚，唤醒恶魔。对他展示“这些角色不在场”信息标记以及三个不在场的善良角色标记。然后，让恶魔重新入睡。不要进行“爪牙信息”和“恶魔信息”步骤。\n如果罂粟种植者死亡，将“唤醒邪恶”提示标记放置在罂粟种植者的角色标记旁。在当晚，唤醒爪牙并让他们通过眼神接触来互认。对他们展示“他是恶魔”信息标记，然后指向恶魔玩家。让这些爪牙重新入睡。随后唤醒恶魔，对他展示“他们是你的爪牙”信息标记，然后指向所有爪牙。让恶魔重新入睡。"
-  },
   "token_url": "https://wiki.bloodontheclocktower.com/images/9/91/Icon_poppygrower.png"
 }

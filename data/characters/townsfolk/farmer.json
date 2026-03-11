@@ -1,61 +1,50 @@
 {
   "id": "farmer",
+  "type": "townsfolk",
   "name": {
     "en": "Farmer",
+    "es-419": "Granjero",
+    "sv": "Bonden",
+    "zh-Hans": "农夫",
     "cn": "农夫"
   },
-  "type": "townsfolk",
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Anica Kelsen",
-  "jinxes": [
-    {
-      "id": "leviathan",
-      "reason": "Each night*, the Leviathan chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but does not die."
-    },
-    {
-      "id": "riot",
-      "reason": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but does not die."
-    }
-  ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Farmer",
   "ability": {
     "en": "When you die at night, an alive good player becomes a Farmer.",
+    "es-419": "Cuando mueres en la noche, un jugador vivo bueno se convierte en un Granjero.",
+    "sv": "När du dör på natten blir en levande god spelare en Bonde.",
+    "zh-Hans": "当你在夜晚死亡时，一名存活的善良玩家会变成农夫。",
     "cn": "当你在夜晚死亡时，一名存活的善良玩家会变成农夫。"
   },
   "flavor_text": {
     "en": "\"Even the high and mighty need food on the table. Without us, the city starves.\"",
+    "es-419": "Incluso los grandes y poderosos necesitan comida en la mesa. Sin nosotros, la ciudad se muere de hambre.",
+    "sv": "Även maktens folk måste ha mat på bordet. Utan oss svälter staden.",
+    "zh-Hans": "即使那些高高在上的人也需要吃东西。没有了我们，城市就会挨饿。",
     "cn": "“即使那些高高在上的人也需要吃东西。没有了我们，城市就会挨饿。”"
   },
+  "other_nights": {
+    "en": "If the Farmer died tonight, wake a living good player. Show the *YOU ARE* info token and a Farmer token.",
+    "es-419": "Si el Granjero murió esta noche, despierta un jugador bueno vivo. Muéstrale la ficha de *TÚ ERES* y la ficha de rol del Granjero. Reemplaza su ficha anterior por la ficha del Granjero.",
+    "sv": "Om Bonden dog inatt, väck en levande god spelare. Visa kortet *DU ÄR* och en Bonde-bricka.",
+    "zh-Hans": "如果农夫在夜晚死亡，唤醒一名存活的善良玩家。对他展示“你是”信息标记和农夫角色标记，然后让他重新入睡。用农夫角色标记替换他此前的角色标记。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Farmer",
+  "how_to_run": {
+    "cn": "如果农夫在夜晚死亡，唤醒一名存活的善良玩家。对他展示“你是”信息标记和农夫角色标记，然后让他重新入睡。用农夫角色标记替换他此前的角色标记。",
+    "en": "If the Farmer died tonight, wake an alive good player. Show them the YOU ARE info token and a Farmer character token, then put them to sleep. Replace their previous character token with a Farmer character token."
+  },
   "examples": {
-    "en": [
-      "Julian is the Farmer. The Demon kills him at night. Evin is the Fearmonger, and Sarah is the Alchemist. Sarah becomes the Farmer that night. Evin could not become the Farmer, because he is evil.",
-      "On the 2nd night, the Farmer dies. The Choirboy becomes the Farmer. On the 3rd night, the new Farmer dies, and the Heretic becomes a Farmer. There is now no Heretic and no Choirboy in play, and three Farmers in play, two of which are dead."
-    ],
     "cn": [
       "小佳是农夫，恶魔在夜晚杀死了他。小文是恐惧之灵，小美是炼金术士。小美在当晚变成了农夫。小文无法因此变成农夫，因为他是邪恶玩家。",
       "在第二个夜晚，农夫死亡。小精灵变成了农夫。在第三个夜晚，新的农夫死亡，善良的异端分子变成了农夫。现在异端分子和小精灵都不在场了，并且有三名农夫在场，其中两名已死亡。",
       "农夫在夜晚死亡。间谍被当作了善良阵营，并因此变成了农夫，但实际上他仍然保持为邪恶阵营不变。"
+    ],
+    "en": [
+      "Julian is the Farmer. The Demon kills him at night. Evin is the Fearmonger, and Sarah is the Alchemist. Sarah becomes the Farmer that night. Evin could not become the Farmer, because he is evil.",
+      "On the 2nd night, the Farmer dies. The Choirboy becomes the Farmer. On the 3rd night, the new Farmer dies, and the Heretic becomes a Farmer. There is now no Heretic and no Choirboy in play, and three Farmers in play, two of which are dead."
     ]
   },
   "tips": {
-    "en": [
-      "If you die at night, play it cool and wait for somebody to approach you as the new Farmer that has been created.",
-      "The Farmer can be a powerful trap for the evil team. If you turn into the Farmer at night, reach out to the player that most recently died and reveal to them that you are a Farmer now. It’s very difficult to fake this interaction, meaning the two of you can trust each other.",
-      "If you feel like you want to survive, come out as the Farmer, blatantly daring the Demon to kill you at night. This is especially effective if there are no other sources of deaths by night in the game. It might also confuse the Demon, who might second guess your motives.",
-      "Claim to be a high priority target, like the Bounty Hunter or the Fortune Teller, and bait the Demon into killing you at night. Then, once you’ve died and confirmed who the new Farmer is, claim that you swapped characters with them and that they’re the real high priority target to try and bait the Demon into killing them too.",
-      "Try not to come out right away publically as building up a large group of Farmers is much more powerful than a small group of Farmers. Backtracking through the information that the new Farmers may have is valuable information that you can trust.",
-      "Try to find a high priority target and role swap with them so that you can become a good target to be killed at night and also helps to protect that player, especially if you are the first Farmer.",
-      "Try to talk with lots of people throughout the game, that way you may look like you are spreading lots of powerful information about where the evil team might be, that way you seem like a high priority target that may need to be silenced.",
-      "Avoid execution at all costs as your ability only triggers if you die at night.",
-      "After you have confirmed a couple of players who have been turned into Farmers coming out together and using that information as a base for where to start looking for evil players can be a good strategy to get the ball rolling on who you can and cannot trust.",
-      "If there is a Farmer chain that is greater than the total number of evil players in the current game's setup this generally means that you can trust all the Farmers in that group.",
-      "Powerful roles becoming Farmers is much more beneficial than trying to keep powerful characters alive at night. Do not be scared of dying at night for fear of turning powerful characters into Farmers.",
-      "Pay attention to what the player was before they became a Farmer. If they were an Outsider, this might be a clue that the good team is doing badly and the Storyteller is trying to help out. If it’s a start player or a once per game character that’s used their ability, this might mean the game is fairly even. If it’s a powerful character, and there seem to be other choices, maybe this means the good team is winning."
-    ],
     "cn": [
       "如果你在夜晚死亡，静静地等待某名玩家作为新任农夫搭讪你。",
       "农夫能够成为邪恶阵营的强力牢笼。如果你在夜晚变为农夫，联系最近死亡的玩家，告诉他们现在你是农夫。这种互动很难伪装，这意味着你们两个可以互相信任。",
@@ -69,11 +58,36 @@
       "如果一个农夫链人数大于当前游戏设置中的邪恶玩家总数，这基本意味着你可以信任该农夫队伍中的所有人。",
       "让强力角色转变为农夫比试着让他们在夜晚存活能带来更多好处。不要因为害怕把强力角色转变为农夫而害怕在夜晚死亡。",
       "注意玩家在成为农夫之前的角色。如果他们是外来者，这可能是一个善良阵营做得不够好的线索，说书人正试图帮助他们。如果是一个游戏开始时能力的玩家或已经使用了能力的每场游戏限一次能力角色，这意味着游戏是均势。如果是一个强力角色，也许这意味着善良阵营即将获胜。"
+    ],
+    "en": [
+      "If you die at night, play it cool and wait for somebody to approach you as the new Farmer that has been created.",
+      "The Farmer can be a powerful trap for the evil team. If you turn into the Farmer at night, reach out to the player that most recently died and reveal to them that you are a Farmer now. It’s very difficult to fake this interaction, meaning the two of you can trust each other.",
+      "If you feel like you want to survive, come out as the Farmer, blatantly daring the Demon to kill you at night. This is especially effective if there are no other sources of deaths by night in the game. It might also confuse the Demon, who might second guess your motives.",
+      "Claim to be a high priority target, like the Bounty Hunter or the Fortune Teller, and bait the Demon into killing you at night. Then, once you’ve died and confirmed who the new Farmer is, claim that you swapped characters with them and that they’re the real high priority target to try and bait the Demon into killing them too.",
+      "Try not to come out right away publically as building up a large group of Farmers is much more powerful than a small group of Farmers. Backtracking through the information that the new Farmers may have is valuable information that you can trust.",
+      "Try to find a high priority target and role swap with them so that you can become a good target to be killed at night and also helps to protect that player, especially if you are the first Farmer.",
+      "Try to talk with lots of people throughout the game, that way you may look like you are spreading lots of powerful information about where the evil team might be, that way you seem like a high priority target that may need to be silenced.",
+      "Avoid execution at all costs as your ability only triggers if you die at night.",
+      "After you have confirmed a couple of players who have been turned into Farmers coming out together and using that information as a base for where to start looking for evil players can be a good strategy to get the ball rolling on who you can and cannot trust.",
+      "If there is a Farmer chain that is greater than the total number of evil players in the current game's setup this generally means that you can trust all the Farmers in that group.",
+      "Powerful roles becoming Farmers is much more beneficial than trying to keep powerful characters alive at night. Do not be scared of dying at night for fear of turning powerful characters into Farmers.",
+      "Pay attention to what the player was before they became a Farmer. If they were an Outsider, this might be a clue that the good team is doing badly and the Storyteller is trying to help out. If it’s a start player or a once per game character that’s used their ability, this might mean the game is fairly even. If it’s a powerful character, and there seem to be other choices, maybe this means the good team is winning."
     ]
   },
-  "how_to_run": {
-    "en": "If the Farmer died tonight, wake an alive good player. Show them the YOU ARE info token and a Farmer character token, then put them to sleep. Replace their previous character token with a Farmer character token.",
-    "cn": "如果农夫在夜晚死亡，唤醒一名存活的善良玩家。对他展示“你是”信息标记和农夫角色标记，然后让他重新入睡。用农夫角色标记替换他此前的角色标记。"
-  },
+  "url_param": "Farmer",
+  "editions": [
+    "experimental"
+  ],
+  "artist": "Anica Kelsen",
+  "jinxes": [
+    {
+      "id": "leviathan",
+      "reason": "Each night*, the Leviathan chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but does not die."
+    },
+    {
+      "id": "riot",
+      "reason": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but does not die."
+    }
+  ],
   "token_url": "https://wiki.bloodontheclocktower.com/images/f/fe/Icon_farmer.png"
 }

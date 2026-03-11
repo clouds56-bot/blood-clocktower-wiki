@@ -1,55 +1,47 @@
 {
   "id": "fisherman",
+  "type": "townsfolk",
   "name": {
     "en": "Fisherman",
+    "es-419": "Pescador",
+    "sv": "Fiskaren",
+    "zh-Hans": "渔夫",
     "cn": "渔夫"
   },
-  "type": "townsfolk",
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Anica Kelsen",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Fisherman",
   "ability": {
     "en": "Once per game, during the day, visit the Storyteller for some advice to help your team win.",
+    "es-419": "Una vez por juego, durante el día, visita al Narrador para recibir un consejo que ayude a tu equipo a ganar.",
+    "sv": "En gång per spel, på dagen, kan du be berättaren om tips för att hjälpa ditt lag att vinna.",
+    "zh-Hans": "每局游戏限一次，在白天时，你可以让说书人给你一些能帮助你的阵营获胜的建议。",
     "cn": "每局游戏限一次，在白天时，你可以让说书人给你一些能帮助你的阵营获胜的建议。"
   },
   "flavor_text": {
     "en": "\"This was my favourite part of the river... see how the sunlight makes a rainbow from the monastery to the market? This was the best place for big fish. And the older I get, the bigger they were.\"",
+    "es-419": "Esta era mi parte favorita del río…¿ves cómo la luz del sol hace un arcoiris desde el monasterio hasta el mercado? Este era el mejor lugar para los peces grandes. Y contra más viejo me pongo, más grandes eran.",
+    "sv": "Jag har alltid älskat den här delen av älven. Ser du hur solskenet bildar en regnbåge från klostret till marknaden? Här fångade man alltid störst fisk. Och ju äldre jag blir, desto större var de.",
+    "zh-Hans": "这是这条河流里我最喜欢的一截儿……看看阳光是如何让一道彩虹横跨修道院和集市的？这是能让鱼儿长得肥美的最好的地方。我一天天变老，它们也一天天长大。",
     "cn": "“这是这条河流里我最喜欢的一截儿……看看阳光是如何让一道彩虹横跨修道院和集市的？这是能让鱼儿长得肥美的最好的地方。我一天天变老，它们也一天天长大。”"
   },
+  "source_url": "https://wiki.bloodontheclocktower.com/Fisherman",
+  "how_to_run": {
+    "cn": "在白天的任何时候，渔夫可以私下拜访说书人以获得帮助他的阵营获胜的建议。说书人对他提供的这些建议并非“事实”，而是说书人认为如果渔夫遵照给出的建议行动能够帮助渔夫获胜。只要渔夫使用了自己的能力并获得了建议，那么使用渔夫的“失去能力”标记标记渔夫。他无法再次使用自己的能力。\n通常来说，给渔夫的建议应该是类似“你应该如何”或“你不应该如何”的句式。建议并非要完全按照这种格式进行，但应该按照类似的概念来给出建议，而不应该是类似博学者所得知的信息的样式。因此“处决某名玩家”、“找出谁是酒鬼”、“你应该重新考虑应该相信哪些玩家的信息”、“信任某名玩家”都是能够提供给渔夫的不错的建议格式。",
+    "en": "Once per game, the Fisherman will ask to use their ability. In private, give them once piece of advice to help them win. Then, put the No ability reminder by the Fisherman token.\nIt is best to give the Fisherman advice on what to DO, not just information about what IS. This makes the Fisherman more fun and unique.\n\nEg. Saying “You should execute that player” or “Keep this player alive” or “find out who is drunk” or “change your thinking entirely” or “ignore the Minions” or “trust this player” are much more interesting than saying “this player is evil” or “the Demon is a No Dashii”."
+  },
   "examples": {
-    "en": [
-      "It is best to give the Fisherman advice on what to DO, not just information about what IS. This makes the Fisherman more fun and unique.\n\nEg. Saying “You should execute that player” or “Keep this player alive” or “find out who is drunk” or “change your thinking entirely” or “ignore the Minions” or “trust this player” are much more interesting than saying “this player is evil” or “the Demon is a No Dashii”.",
-      "The Fisherman visits the Storyteller and learns that “You shouldn’t trust Ben”. Ben is the poisoned Empath, and is unknowingly spreading false information.",
-      "The Fisherman learns “Keep the players claiming to be Outsiders alive”. These players are secretly the Klutz and the Fearmonger. The Storyteller believes that keeping these players alive is more likely to end up with good executing the Demon.",
-      "On the final day, the Fisherman learns to “kill Lewis”. The Fisherman is drunk, and Lewis is a Townsfolk. The Storyteller gave bad (“false”) advice to the Fisherman."
-    ],
     "cn": [
       "渔夫拜访了说书人，并得知“不要信任小八”，这不是因为小八是邪恶玩家，而是由于小八醉酒了，他得知的信息正在让善良阵营误入歧途。",
       "在第三个白天，渔夫拜访了说书人并得知了“让声称自己是外来者的玩家活着”。这些玩家实际上是呆瓜和恐惧之灵。说书人认为让这些玩家存活会有助于让善良玩家成功处决恶魔。",
       "在第三个白天，渔夫拜访了说书人并得知了“处决小米”，因为小米是酒鬼，处决她会使得送葬者得知有用的信息。",
       "在最后一天，渔夫拜访了说书人并得知了“不要询问小文太多的问题”，因为小文是畸形秀演员，他的能力一旦触发就会让善良阵营落败。"
+    ],
+    "en": [
+      "It is best to give the Fisherman advice on what to DO, not just information about what IS. This makes the Fisherman more fun and unique.\n\nEg. Saying “You should execute that player” or “Keep this player alive” or “find out who is drunk” or “change your thinking entirely” or “ignore the Minions” or “trust this player” are much more interesting than saying “this player is evil” or “the Demon is a No Dashii”.",
+      "The Fisherman visits the Storyteller and learns that “You shouldn’t trust Ben”. Ben is the poisoned Empath, and is unknowingly spreading false information.",
+      "The Fisherman learns “Keep the players claiming to be Outsiders alive”. These players are secretly the Klutz and the Fearmonger. The Storyteller believes that keeping these players alive is more likely to end up with good executing the Demon.",
+      "On the final day, the Fisherman learns to “kill Lewis”. The Fisherman is drunk, and Lewis is a Townsfolk. The Storyteller gave bad (“false”) advice to the Fisherman."
     ]
   },
   "tips": {
-    "en": [
-      "Ask yourself why you got the advice you got. Even if it’s something you didn’t expect, or that sends you down a totally different path than the one you were following, remember that the Storyteller knows all. They are in the best position to give you advice that will help you win.",
-      "Follow the advice. The Fisherman does not provide information, it provides advice to help you win. If the advice is \"execute your clockwise neighbour\", just do it. Follow your advice! Unless you think your information is suspect, your advice isn’t very useful if you don’t act on it, especially because it is given in the temporal context you ask for it. Executing Erik might not be a good idea in 2 days, so canvas for his execution as soon as possible.",
-      "After following your advice, try to evaluate where you are now in the game, and try to reverse-engineer why that advice may have been given. Who was featured as important in your advice? Why? What advantages might have come from following your advice? What does that say about the puzzle of the game?",
-      "Use your ability immediately. Don’t risk dying to the Demon or getting executed before you can receive your advice. Ask for advice as soon as you can on the first day! After all, you risk losing your advice every day that you do not use it. Using it right away negates this risk. There is still plenty of good advice the storyteller can give you on day 1, depending on the setup.",
-      "Hold off on using your ability for as long as possible. This is risky, but the longer you wait the more the storyteller will be able to give you the exact type of advice you need to win. Plus, the storyteller may be more inclined to reward your risky behaviour with some juicy advice if you brave death for many days.",
-      "Pay attention to character abilities that might affect the chances of you dying, and factor that into when you use your ability. If there is a Leviathan on the script, the Demon can’t kill you. If you believe a player is the Monk, you can ask them to protect you. In both cases, you have a higher chance of surviving later into the game, and could hold off on getting your advice until later on that basis.",
-      "Pay attention to the specific words that the Storyteller uses. If something seems a bit ambiguous, they may be hinting at something without outright saying it. If the Storyteller tells you not to trust a player, that player might actually be a good Empath, but one who has been poisoned by a Widow, and is providing false information that is leading the good team to their doom. Be especially careful when interpreting the advice given to you by your storyteller. “Kevin is sharing true information” does not necessarily mean Kevin is good, and “Execute Erik” does not necessarily mean Erik is evil. The advice may be specifically niche to whatever game you’re in, and storytellers do love being coy.",
-      "Watch out for win/lose conditions and character abilities on a script. The advice you receive might relate to one. A Fisherman's advice might, for example, be an attempt by the Storyteller to prevent you from executing a Goblin.",
-      "Visit the Storyteller, then come back and pretend you’ve used your Fisherman ability when you haven’t. Make the evil team think your power is no longer a threat. If the Demon believes you’ve already used your ability, they might not think it’s worth it to kill you, allowing you to survive and use it later in the game.",
-      "Think about who you want to trust with your advice. You might simply want to reveal it immediately and put the clue on the table for everyone to digest. Alternatively, you might want to share the hint with a trusted group of players who can use it to coordinate in secret.",
-      "If you’re not certain that you’re remembered the advice right, you can revisit the Storyteller and ask them to repeat it. However, be aware that the Storyteller likely cannot provide context, or significant clarifications.",
-      "Characters that register as different alignments or characters may affect the hint given to the Fisherman. For example, a Recluse may register as the Demon, prompting the Storyteller to advise you to execute them. Be aware of this possibility."
-    ],
     "cn": [
       "问问自己为什么会得到这样的建议。即使它是你完全没有预料到的亦或是会把你带入一条与之前（推论）完全不相关的路径，要记得说书人无所不知。他们最能给你提供帮助你获胜的建议。",
       "听从收到的建议。渔夫不提供信息，而是提供帮助获胜的建议。如果建议是“处决你顺时针方向的邻座”，那就这么做。听从收到的建议！除非你认为你的信息值得怀疑，否则如果你不实现他们，建议可能会变得无效，因为他们是基于你询问时的当下局势给出的。两天才处决艾瑞克可能不是一个好主意，尽快劝说进行对他的处决。",
@@ -63,11 +55,26 @@
       "想想有了建议你需要信任谁。你可能只想简单地立即展示它，把线索放在明面上让大家理解。或者你可能想与一队信任的玩家分享提示，他们可以秘密地配合使用它。",
       "如果你不确定你记住的建议是否正确，你可以重新拜访说书人让他们重复一次。但是需要注意说书人可能不会提供（关于建议的）来龙去脉或是明晰解释。",
       "那些会被认为是不同阵营或角色的角色会影响渔夫获得的提示。例如，一个陌客可能被认为是恶魔，导致说书人建议你处决他。要提防这种可能性。"
+    ],
+    "en": [
+      "Ask yourself why you got the advice you got. Even if it’s something you didn’t expect, or that sends you down a totally different path than the one you were following, remember that the Storyteller knows all. They are in the best position to give you advice that will help you win.",
+      "Follow the advice. The Fisherman does not provide information, it provides advice to help you win. If the advice is \"execute your clockwise neighbour\", just do it. Follow your advice! Unless you think your information is suspect, your advice isn’t very useful if you don’t act on it, especially because it is given in the temporal context you ask for it. Executing Erik might not be a good idea in 2 days, so canvas for his execution as soon as possible.",
+      "After following your advice, try to evaluate where you are now in the game, and try to reverse-engineer why that advice may have been given. Who was featured as important in your advice? Why? What advantages might have come from following your advice? What does that say about the puzzle of the game?",
+      "Use your ability immediately. Don’t risk dying to the Demon or getting executed before you can receive your advice. Ask for advice as soon as you can on the first day! After all, you risk losing your advice every day that you do not use it. Using it right away negates this risk. There is still plenty of good advice the storyteller can give you on day 1, depending on the setup.",
+      "Hold off on using your ability for as long as possible. This is risky, but the longer you wait the more the storyteller will be able to give you the exact type of advice you need to win. Plus, the storyteller may be more inclined to reward your risky behaviour with some juicy advice if you brave death for many days.",
+      "Pay attention to character abilities that might affect the chances of you dying, and factor that into when you use your ability. If there is a Leviathan on the script, the Demon can’t kill you. If you believe a player is the Monk, you can ask them to protect you. In both cases, you have a higher chance of surviving later into the game, and could hold off on getting your advice until later on that basis.",
+      "Pay attention to the specific words that the Storyteller uses. If something seems a bit ambiguous, they may be hinting at something without outright saying it. If the Storyteller tells you not to trust a player, that player might actually be a good Empath, but one who has been poisoned by a Widow, and is providing false information that is leading the good team to their doom. Be especially careful when interpreting the advice given to you by your storyteller. “Kevin is sharing true information” does not necessarily mean Kevin is good, and “Execute Erik” does not necessarily mean Erik is evil. The advice may be specifically niche to whatever game you’re in, and storytellers do love being coy.",
+      "Watch out for win/lose conditions and character abilities on a script. The advice you receive might relate to one. A Fisherman's advice might, for example, be an attempt by the Storyteller to prevent you from executing a Goblin.",
+      "Visit the Storyteller, then come back and pretend you’ve used your Fisherman ability when you haven’t. Make the evil team think your power is no longer a threat. If the Demon believes you’ve already used your ability, they might not think it’s worth it to kill you, allowing you to survive and use it later in the game.",
+      "Think about who you want to trust with your advice. You might simply want to reveal it immediately and put the clue on the table for everyone to digest. Alternatively, you might want to share the hint with a trusted group of players who can use it to coordinate in secret.",
+      "If you’re not certain that you’re remembered the advice right, you can revisit the Storyteller and ask them to repeat it. However, be aware that the Storyteller likely cannot provide context, or significant clarifications.",
+      "Characters that register as different alignments or characters may affect the hint given to the Fisherman. For example, a Recluse may register as the Demon, prompting the Storyteller to advise you to execute them. Be aware of this possibility."
     ]
   },
-  "how_to_run": {
-    "en": "Once per game, the Fisherman will ask to use their ability. In private, give them once piece of advice to help them win. Then, put the No ability reminder by the Fisherman token.\nIt is best to give the Fisherman advice on what to DO, not just information about what IS. This makes the Fisherman more fun and unique.\n\nEg. Saying “You should execute that player” or “Keep this player alive” or “find out who is drunk” or “change your thinking entirely” or “ignore the Minions” or “trust this player” are much more interesting than saying “this player is evil” or “the Demon is a No Dashii”.",
-    "cn": "在白天的任何时候，渔夫可以私下拜访说书人以获得帮助他的阵营获胜的建议。说书人对他提供的这些建议并非“事实”，而是说书人认为如果渔夫遵照给出的建议行动能够帮助渔夫获胜。只要渔夫使用了自己的能力并获得了建议，那么使用渔夫的“失去能力”标记标记渔夫。他无法再次使用自己的能力。\n通常来说，给渔夫的建议应该是类似“你应该如何”或“你不应该如何”的句式。建议并非要完全按照这种格式进行，但应该按照类似的概念来给出建议，而不应该是类似博学者所得知的信息的样式。因此“处决某名玩家”、“找出谁是酒鬼”、“你应该重新考虑应该相信哪些玩家的信息”、“信任某名玩家”都是能够提供给渔夫的不错的建议格式。"
-  },
+  "url_param": "Fisherman",
+  "editions": [
+    "experimental"
+  ],
+  "artist": "Anica Kelsen",
   "token_url": "https://wiki.bloodontheclocktower.com/images/1/19/Icon_fisherman.png"
 }

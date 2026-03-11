@@ -1,48 +1,57 @@
 {
   "id": "general",
+  "type": "townsfolk",
   "name": {
     "en": "General",
+    "es-419": "General",
+    "sv": "Generalen",
+    "zh-Hans": "将军",
     "cn": "将军"
   },
-  "type": "townsfolk",
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "Caitlin Murphy",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/General",
   "ability": {
     "en": "Each night, you learn which alignment the Storyteller believes is winning: good, evil, or neither.",
+    "es-419": "Cada noche, tú aprendes qué alineamiento está ganando según el Narrador: los buenos, los malvados, o ninguno.",
+    "sv": "Varje natt får du veta vilket lag som berättaren tror har övertaget: de goda, de onda eller varken eller.",
+    "zh-Hans": "每个夜晚，你会得知说书人认为哪个阵营当前更有优势（善良/邪恶/均势）。",
     "cn": "每个夜晚，你会得知说书人认为哪个阵营当前更有优势（善良/邪恶/均势）。"
   },
   "flavor_text": {
     "en": "\"I don’t have time for quotes.\"",
+    "es-419": "No tengo tiempo para refranes.",
+    "sv": "Jag har inte tid för citat.",
+    "zh-Hans": "我没时间跟你谈条件。",
     "cn": "“我没时间跟你谈条件。”"
   },
+  "first_night": {
+    "en": "Give a thumb signal.",
+    "es-419": "Dale una señal con el pulgar.",
+    "sv": "Ge en tumsignal.",
+    "zh-Hans": "给一个拇指的手势。"
+  },
+  "other_nights": {
+    "en": "Give a thumb signal.",
+    "es-419": "Dale una señal con el pulgar.",
+    "sv": "Ge en tumsignal.",
+    "zh-Hans": "给一个拇指的手势。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/General",
+  "how_to_run": {
+    "cn": "每个夜晚，唤醒将军。如果你认为善良阵营更具优势，给出拇指朝上的手势。如果你认为邪恶阵营更具优势，给出拇指朝下的手势。如果你不清楚哪一方更具优势，给出拇指水平指向一侧的手势。让将军重新入睡。",
+    "en": "Each night, wake the General. If you believe that the good team is winning, give a thumbs up. If you believe that the evil team is winning, give a thumbs down. If you don’t know which team is winning, give a thumbs to the side. Put the General to sleep."
+  },
   "examples": {
-    "en": [
-      "There are 5 good players alive and 4 evil players alive. Even though the Demon is very suspicious and will probably be executed next, there is a Scarlet Woman in play, who is very trustworthy. The Storyteller gives a thumbs down.",
-      "The Good team has a lot of information, and believes that their false information is indeed false. The only Minion is dead. The Storyteller gives a thumbs up.",
-      "The Po is a very experienced player and is coordinating well with the Minions. The Monk is successfully protecting the Savant each night and the good team have correctly identified several good players. However, the Po will probably kill 3 times tomorrow night, so it is anyone’s game. The Storyteller gives a thumbs to the side."
-    ],
     "cn": [
       "有五名善良玩家和三名爪牙存活。即使现在恶魔玩家备受猜疑，极大可能会成为下一个处决对象，但此外红唇女郎在场且被认为是善良玩家。说书人给出了拇指向下的手势。",
       "善良阵营拥有了大量的信息，也确信了自己获得的信息的真伪。只有一名爪牙死亡。说书人给出了拇指向上的手势。",
       "珀的玩家是一名老手玩家，且与爪牙之间的协调分工十分默契。僧侣在每个夜晚都保护了博学者，善良阵营也对谁是善良玩家有较为清晰的判断。然而，珀极大可能会在明晚杀死三名玩家，所以很难确信哪一方究竟会赢。说书人给出了大拇指水平指向一侧的手势。"
+    ],
+    "en": [
+      "There are 5 good players alive and 4 evil players alive. Even though the Demon is very suspicious and will probably be executed next, there is a Scarlet Woman in play, who is very trustworthy. The Storyteller gives a thumbs down.",
+      "The Good team has a lot of information, and believes that their false information is indeed false. The only Minion is dead. The Storyteller gives a thumbs up.",
+      "The Po is a very experienced player and is coordinating well with the Minions. The Monk is successfully protecting the Savant each night and the good team have correctly identified several good players. However, the Po will probably kill 3 times tomorrow night, so it is anyone’s game. The Storyteller gives a thumbs to the side."
     ]
   },
   "tips": {
-    "en": [
-      "Keep in mind that your role interacts with the personal opinion of the Storyteller. This opinion will inevitably be influenced by more than just mechanics. Does your group of players include someone who is widely regarded as a very cunning evil player? Perhaps you have someone in your game who is considerably more experienced than others? What are the strategies and tactics that your Storyteller considers to be most effective? These things, and many more, can and will influence your information each night.",
-      "Think about the events that have occurred each day/night and try to imagine how they may have altered the balance of play. Did you execute someone the day before learning that the good team is now winning? Perhaps that person was evil and that is why the Storyteller believes things have shifted in your favor. Maybe they were getting misinformation and their death has now hurt the evil team’s chances of selling a lie.",
-      "Take note of how your information changes from night to night. If you can survive long enough, you will essentially have a line graph showing how the good team’s fortunes have altered over the course of play. On the final day, you can use this knowledge to corroborate the claims of the remaining players.",
-      "Pay attention to what other players are saying, particularly group consensus. If the group is confident that certain players are evil and should be executed tomorrow, and those players are actually evil, then the Storyteller is likely to tell you that the good team is winning, even if there are more dead good players than evil. Similarly, if the group is vocally very trusting of several good players and their information, then the Storyteller is likely to tell you that good is winning. If the good team is vocally distrusting of good players and keen to execute them, while being trusting of evil players and isn't planning on executing them, the Storyteller will likely tell you that evil is winning.",
-      "If your information changes from \"good is winning\" to \"evil is winning\", or vice versa, over the course of two nights, this is extremely useful. Something drastic has happened, something that you should be able to guess. Information that changes to or from \"neither team is winning\" isn't nearly as helpful. For example, learning that \"good is winning\" on night 2 to \"neither team is winning\" on night 3, indicates a subtle change that will be more difficult to guess as to its cause.",
-      "If you consistently get information that the good team is winning, let the good team know. Even telling them \"I don't know what we are doing right, but let's keep doing what we are doing\" is helpful, because you know you are on the right track, even if you don't know the details. Be wary of any player that drastically tries to change the groups's main narrative, or suddenly advocates for the execution of a new player.",
-      "If you consistently get information that the evil team is winning, let the good team know, and take immediate, contradictory action. If the evil team has been winning, try something, anything new, and convince the group to go along with it. Even if that Librarian who is trusted by everybody and confirmed as good by the Empath is making complete sense, if you and the group spend the day assuming that they are lying, evil, or drunk, then the Storyteller may decide that the good team is now \"winning\" (or even that \"neither team is winning\") and tell you so tonight. Anything is better than letting the evil team continue to win day after day, so it may be wise to take action that is counterintuitive or explore ideas that seem unreasonable or doubt information that seems confirmed. The worst that can happen is that the Storyteller continues to tell you that evil is winning, while the best that can happen is that the Storyteller tells you that good is now winning - either way, you learn something important. The Demon might kill you at night before you can learn this, however, so if you can sway the overall beliefs and intention of the group without revealing that you are doing so, all the better."
-    ],
     "cn": [
       "谨记，你的职能与说书人的个人看法会有互动。这种看法会不可避免地受到游戏机制外的因素影响。你们的玩家群体中是否有公认狡猾而邪恶的玩家？也许你的游戏中有人比其他人更具有（游戏）经验？何种策略和战术是你的说书人认为最有效的？这些乃至更多事物会影响到你每晚获得的信息。",
       "想一想每个白天/夜晚发生的事件，试着想象它们如何改变了游戏的平衡。在得知善良阵营即将获胜前你是否处决了某名玩家？也许他是邪恶的而这就是说书人相信局势转向对你有利的原因。也许他获得了错误的信息而他的死亡妨碍了邪恶阵营传递谎言的可能。",
@@ -51,11 +60,21 @@
       "如果你的信息在两晚之间发生了逆转（从善良即将获胜转向邪恶即将获胜或反之），这信息很有用。某些极端事项正在发生而你应当能猜出来。信息在“没有阵营即将获胜”之内盘桓（从某方即将获胜转向没有阵营即将获胜或反之）的话就不太有用。比如，第二晚得到善良阵营即将获胜而第三晚得到没有阵营即将获胜，这意味着一个不易察觉的局势改变，更难猜测到原因。",
       "如果你一直得到善良阵营即将获胜的信息，让善良阵营知道这点。甚至可以告诉他们“我并不知道我们哪里做对了，但继续保持我们正在做的事情”都是很有帮助的，因为即使你不知道细节，你也知道你们在正确的轨道上前行。警惕任何试图扭转团队主流叙事的玩家，或是任何突然支持处决新对象的玩家。",
       "如果你一直得到邪恶阵营即将获胜的信息，也让善良阵营知道这点，并立即采取相反的行动。如果邪恶阵营即将获胜，尝试一些全新的主张并说服团队同意。即使一个被所有人信任并被共情者鉴定为善良的图书管理员（的信息）完全合理，如果你和你的团队花费一天时间假设他在说谎、他是邪恶或者他醉酒了，说书人可能也会决定在当晚告诉你善良阵营“即将获胜”（或者“没有阵营即将获胜”）。任何操作都比让邪恶阵营日复一日地持续迈向胜利要好，所以明智的做法也许是采取反常的行动或是探索看起来不太合理的想法或是怀疑似乎已被验证的信息。最糟糕的也不过是说书人继续告诉你邪恶阵营即将获胜，而最好的情况是说书人告诉你善良阵营即将获胜——但不管怎样，你都会了解一些重要信息。然而，恶魔可能在你了解这些之前就在夜晚杀死你，因此如果你能在不透露你在这么做的情况下干预团队整体信念或意图的话就更好了。"
+    ],
+    "en": [
+      "Keep in mind that your role interacts with the personal opinion of the Storyteller. This opinion will inevitably be influenced by more than just mechanics. Does your group of players include someone who is widely regarded as a very cunning evil player? Perhaps you have someone in your game who is considerably more experienced than others? What are the strategies and tactics that your Storyteller considers to be most effective? These things, and many more, can and will influence your information each night.",
+      "Think about the events that have occurred each day/night and try to imagine how they may have altered the balance of play. Did you execute someone the day before learning that the good team is now winning? Perhaps that person was evil and that is why the Storyteller believes things have shifted in your favor. Maybe they were getting misinformation and their death has now hurt the evil team’s chances of selling a lie.",
+      "Take note of how your information changes from night to night. If you can survive long enough, you will essentially have a line graph showing how the good team’s fortunes have altered over the course of play. On the final day, you can use this knowledge to corroborate the claims of the remaining players.",
+      "Pay attention to what other players are saying, particularly group consensus. If the group is confident that certain players are evil and should be executed tomorrow, and those players are actually evil, then the Storyteller is likely to tell you that the good team is winning, even if there are more dead good players than evil. Similarly, if the group is vocally very trusting of several good players and their information, then the Storyteller is likely to tell you that good is winning. If the good team is vocally distrusting of good players and keen to execute them, while being trusting of evil players and isn't planning on executing them, the Storyteller will likely tell you that evil is winning.",
+      "If your information changes from \"good is winning\" to \"evil is winning\", or vice versa, over the course of two nights, this is extremely useful. Something drastic has happened, something that you should be able to guess. Information that changes to or from \"neither team is winning\" isn't nearly as helpful. For example, learning that \"good is winning\" on night 2 to \"neither team is winning\" on night 3, indicates a subtle change that will be more difficult to guess as to its cause.",
+      "If you consistently get information that the good team is winning, let the good team know. Even telling them \"I don't know what we are doing right, but let's keep doing what we are doing\" is helpful, because you know you are on the right track, even if you don't know the details. Be wary of any player that drastically tries to change the groups's main narrative, or suddenly advocates for the execution of a new player.",
+      "If you consistently get information that the evil team is winning, let the good team know, and take immediate, contradictory action. If the evil team has been winning, try something, anything new, and convince the group to go along with it. Even if that Librarian who is trusted by everybody and confirmed as good by the Empath is making complete sense, if you and the group spend the day assuming that they are lying, evil, or drunk, then the Storyteller may decide that the good team is now \"winning\" (or even that \"neither team is winning\") and tell you so tonight. Anything is better than letting the evil team continue to win day after day, so it may be wise to take action that is counterintuitive or explore ideas that seem unreasonable or doubt information that seems confirmed. The worst that can happen is that the Storyteller continues to tell you that evil is winning, while the best that can happen is that the Storyteller tells you that good is now winning - either way, you learn something important. The Demon might kill you at night before you can learn this, however, so if you can sway the overall beliefs and intention of the group without revealing that you are doing so, all the better."
     ]
   },
-  "how_to_run": {
-    "en": "Each night, wake the General. If you believe that the good team is winning, give a thumbs up. If you believe that the evil team is winning, give a thumbs down. If you don’t know which team is winning, give a thumbs to the side. Put the General to sleep.",
-    "cn": "每个夜晚，唤醒将军。如果你认为善良阵营更具优势，给出拇指朝上的手势。如果你认为邪恶阵营更具优势，给出拇指朝下的手势。如果你不清楚哪一方更具优势，给出拇指水平指向一侧的手势。让将军重新入睡。"
-  },
+  "url_param": "General",
+  "editions": [
+    "experimental"
+  ],
+  "artist": "Caitlin Murphy",
   "token_url": "https://wiki.bloodontheclocktower.com/images/9/99/Icon_general.png"
 }

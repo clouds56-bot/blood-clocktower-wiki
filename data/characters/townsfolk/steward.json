@@ -1,53 +1,66 @@
 {
   "id": "steward",
+  "type": "townsfolk",
   "name": {
     "en": "Steward",
+    "es-419": "Administrador",
+    "sv": "Uppassaren",
+    "zh-Hans": "事务官",
     "cn": "事务官"
   },
-  "type": "townsfolk",
-  "editions": [
-    "experimental"
-  ],
-  "first_night": true,
-  "other_nights": false,
-  "artist": "Chloe McDougall",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Steward",
   "ability": {
     "en": "You start knowing 1 good player.",
+    "es-419": "Tú empiezas conociendo 1 jugador bueno.",
+    "sv": "I början vet du 1 god spelare.",
+    "zh-Hans": "在你的首个夜晚，你会得知一名善良玩家。",
     "cn": "在你的首个夜晚，你会得知一名善良玩家。"
   },
   "flavor_text": {
     "en": "\"How DARE you accuse Her Ladyship of wrongdoing? I’ve known her my entire life! All nine years!\"",
+    "es-419": "¿Cómo te ATREVES a acusar a Su Señoría de hacer algo malo? ¡Yo la conozco de toda la vida! ¡Nueve años!",
+    "sv": "Hur VÅGAR ni anklaga Hennes Nåd för oförrätter? Jag har känt henne i hela mitt liv! Nio år!",
+    "zh-Hans": "你竟敢指责夫人的过错？我认识她一辈子了！整整九年！",
     "cn": "“你竟敢指责夫人的过错？我认识她一辈子了！整整九年！”"
   },
+  "first_night": {
+    "en": "Point to the player marked *KNOW*.",
+    "es-419": "Apunta al jugador bueno marcado *CONOCE*.",
+    "sv": "Peka på spelaren märkt *VISAD*.",
+    "zh-Hans": "指向标记有“得知”的那名玩家。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Steward",
+  "how_to_run": {
+    "cn": "在为首个夜晚进行准备时，将事务官的“得知”提示标记放置在任意一名善良玩家的角色标记旁。\n在首个夜晚，唤醒事务官，并指向标记有“得知”的那名玩家。让事务官重新入睡。",
+    "en": "While preparing the first night, put the KNOW reminder by any good character token.\nDuring the first night, wake the Steward. Point to the player marked KNOW. Put the Steward to sleep."
+  },
   "examples": {
-    "en": [
-      "The Steward learns that Alex is good. Alex is the Undertaker.",
-      "The Pit-Hag turns the Poppy Grower into the Steward.\nThat night, the Steward learns that Abdallah is good. Abdallah is the Spy, and is registering as good."
-    ],
     "cn": [
       "事务官得知小艾是善良玩家。小艾是送葬者。",
       "麻脸巫婆将罂粟种植者变成了事务官。当晚，事务官得知小黑是善良玩家。小黑是间谍，但被当作善良阵营。"
+    ],
+    "en": [
+      "The Steward learns that Alex is good. Alex is the Undertaker.",
+      "The Pit-Hag turns the Poppy Grower into the Steward.\nThat night, the Steward learns that Abdallah is good. Abdallah is the Spy, and is registering as good."
     ]
   },
   "tips": {
-    "en": [
-      "You know a player who is neither the Demon or a Minion. This is great info! You can trust they are acting with good intent for your team and the only thing that can mess with their information is drunkenness and poisoning. Work together to solve the game using your information combined.",
-      "Come out publicly straight away. If everyone knows that you two are both good, they can factor it into their worldbuilding and their ability choices straight away. Your info isn’t game-solving, but it’s helpful, so let people know about it.",
-      "Talk to the player you know and keep your information a secret to help keep them alive. If the Demon hears about your information and believes you, then the player you know is a risk for them to keep alive to the final three, so they’ll be wanting them dead at the first opportunity, so keeping your information quiet might help your player survive.",
-      "Once your information is known, make people take it into account in their worldbuilding! You know you’re good and that this one player is good, so any world involving either of you being evil must involve both of you being evil. Often, this will mean that building the world of you both being evil ends up in there needing to be too many evil players and you can sway arguments accordingly."
-    ],
     "cn": [
       "你会得知一名既不是恶魔也不是爪牙的玩家。这是很棒的信息！你可以相信他是怀着善意为你们阵营行动，并且只有醉酒和中毒会干扰他们的信息。运用你的信息与其他人共同努力去通关游戏。",
       "直接公开自己的信息。如果所有人都知道你和你得知的玩家都是善良的，他们可以直接将这个信息加入到他们的逻辑线构建和能力选择方案里。你的信息不会让游戏通关，但它很有用，所以让大家都知道这个信息吧。",
       "与你得知的玩家私聊，并且为了让他能够存活而隐藏你的信息。如果让恶魔听到你的信息并且相信这是真的，那么恶魔会认为让你得知的玩家存活到三人决赛圈是危险的事情。所以恶魔会希望这名玩家最先死亡。因此，不说出你的信息也许有助于让那名玩家存活。",
       "一旦公开你的信息，让玩家们把这条信息纳入他们的逻辑线构建中！你知道自己以及你得知的玩家都是善良的，所以如果有逻辑线认为你们之中有邪恶玩家，那么另一个人也必须是邪恶玩家。通常来说，这意味着构建一条你们都是邪恶玩家的逻辑线最终会得到邪恶玩家过多的结论，而你可以根据这个结论作出相应的辩解。"
+    ],
+    "en": [
+      "You know a player who is neither the Demon or a Minion. This is great info! You can trust they are acting with good intent for your team and the only thing that can mess with their information is drunkenness and poisoning. Work together to solve the game using your information combined.",
+      "Come out publicly straight away. If everyone knows that you two are both good, they can factor it into their worldbuilding and their ability choices straight away. Your info isn’t game-solving, but it’s helpful, so let people know about it.",
+      "Talk to the player you know and keep your information a secret to help keep them alive. If the Demon hears about your information and believes you, then the player you know is a risk for them to keep alive to the final three, so they’ll be wanting them dead at the first opportunity, so keeping your information quiet might help your player survive.",
+      "Once your information is known, make people take it into account in their worldbuilding! You know you’re good and that this one player is good, so any world involving either of you being evil must involve both of you being evil. Often, this will mean that building the world of you both being evil ends up in there needing to be too many evil players and you can sway arguments accordingly."
     ]
   },
-  "how_to_run": {
-    "en": "While preparing the first night, put the KNOW reminder by any good character token.\nDuring the first night, wake the Steward. Point to the player marked KNOW. Put the Steward to sleep.",
-    "cn": "在为首个夜晚进行准备时，将事务官的“得知”提示标记放置在任意一名善良玩家的角色标记旁。\n在首个夜晚，唤醒事务官，并指向标记有“得知”的那名玩家。让事务官重新入睡。"
-  },
+  "url_param": "Steward",
+  "editions": [
+    "experimental"
+  ],
+  "artist": "Chloe McDougall",
   "token_url": "https://wiki.bloodontheclocktower.com/images/f/fe/Icon_steward.png"
 }

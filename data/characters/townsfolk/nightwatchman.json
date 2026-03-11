@@ -1,48 +1,57 @@
 {
   "id": "nightwatchman",
+  "type": "townsfolk",
   "name": {
     "en": "Nightwatchman",
+    "es-419": "Vigilante",
+    "sv": "Nattvakten",
+    "zh-Hans": "守夜人",
     "cn": "守夜人"
   },
-  "type": "townsfolk",
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "Chloe McDougall",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Nightwatchman",
   "ability": {
     "en": "Once per game, at night, choose a player: they learn you are the Nightwatchman.",
+    "es-419": "Una vez por juego, por la noche, escoge un jugador: él aprende que tú eres el Vigilante.",
+    "sv": "En gång per spel, på natten, kan du välja en spelare; hen får veta att du är Nattvakten.",
+    "zh-Hans": "每局游戏限一次，在夜晚时，你可以选择一名玩家：他会得知你是守夜人。",
     "cn": "每局游戏限一次，在夜晚时，你可以选择一名玩家：他会得知你是守夜人。"
   },
   "flavor_text": {
     "en": "\"The night is cold and lonely, but I have the moon, the stars, the crisp wind and the soft thud of leather boots on cobbled stone for company. Yonder, candlelight flickers behind a murky window...\"",
+    "es-419": "Esta noche es fría y solitaria, pero tengo la luna, las estrellas, el viento fresco y el suave sonido de mis botas de cuero en el piso de piedra que me acompañan. A lo lejos, una vela titila detrás de una ventana turbia…",
+    "sv": "Natten är kall och ensam, men jag har månen, stjärnorna, den kalla vinden och ljudet av läderkängor mot kullersten till sällskap. Där borta flimrar ett ljus i ett dunkelt fönster…",
+    "zh-Hans": "夜晚寒冷而孤独，但我有月亮、星星、清风，还有鹅卵石上皮靴的轻柔撞击声与我作伴。远处，有烛光正在一扇昏暗的窗户后面闪烁……",
     "cn": "“夜晚寒冷而孤独，但我有月亮、星星、清风，还有鹅卵石上皮靴的轻柔撞击声与我作伴。远处，有烛光正在一扇昏暗的窗户后面闪烁……”"
   },
+  "first_night": {
+    "en": "The Nightwatchman might choose a player. Put the Nightwatchman to sleep. Wake the target. Show the *THIS PLAYER IS* & Nightwatchman tokens, then point to the Nightwatchman. :reminder:",
+    "es-419": "El Vigilante quizás escoja un jugador :reminder: Pon al Vigilante a dormir. Despierta al jugador seleccionado y muéstrale la ficha de *ESTE JUGADOR ES* y la ficha del Vigilante y apunta al Vigilante.",
+    "sv": "Nattvakten kanske väljer en spelare. Söv nattvakten. Väck den utpekade. Visa kortet *DEN HÄR SPELAREN ÄR* och Nattvaktens rollbricka, och peka sedan på Nattvakten. :reminder:",
+    "zh-Hans": "守夜人可以选择一名玩家。:reminder:让他重新入睡，并唤醒被他选择的玩家，对其展示“该角色的能力对你生效”提示标记，守夜人的角色标记，然后指向守夜人玩家。"
+  },
+  "other_nights": {
+    "en": "The Nightwatchman might choose a player. Put the Nightwatchman to sleep. Wake the target. Show the *THIS PLAYER IS* & Nightwatchman tokens, then point to the Nightwatchman. :reminder:",
+    "es-419": "El Vigilante quizás escoja un jugador :reminder: Pon al Vigilante a dormir. Despierta al jugador seleccionado y muéstrale la ficha de *ESTE JUGADOR ES* y la ficha del Vigilante y apunta al Vigilante.",
+    "sv": "Nattvakten kanske väljer en spelare. Söv nattvakten. Väck den utpekade, visa kortet *DEN HÄR SPELAREN ÄR* och Nattvaktens rollbricka, och peka sedan på Nattvakten. :reminder:",
+    "zh-Hans": "守夜人可以选择一名玩家。:reminder:让他重新入睡，并唤醒被他选择的玩家，对其展示“该角色的能力对你生效”提示标记，守夜人的角色标记，然后指向守夜人玩家。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Nightwatchman",
+  "how_to_run": {
+    "cn": "每个夜晚，唤醒守夜人。如果他摇头不使用能力，让他重新入睡。如果他指向了一名玩家，让他重新入睡，并唤醒被他选择的玩家，对其展示“该角色的能力对你生效”提示标记，守夜人的角色标记，然后指向守夜人玩家，随后让该玩家重新入睡。使用守夜人的“失去能力”标记标记守夜人。守夜人的能力被使用，将守夜人的夜晚标记从夜晚顺序表旁移除，在此后的夜晚中，不要再唤醒守夜人。\n如果守夜人在选择玩家时醉酒中毒，在让他重新入睡后，不要唤醒他选择的玩家，并仍然使用“失去能力”标记守夜人，因为他使用了自己的“每局游戏限一次”的能力。\n如果涡流在场，在唤醒被守夜人选择的玩家时，需要对他指向一名除守夜人以外的玩家。",
+    "en": "Each night, wake the Nightwatchman. The Nightwatchman either shakes their head or points at any player. Put the Nightwatchman to sleep.\nIf the Nightwatchman pointed at a player, wake them and show them the Nightwatchman token, then point to the Nightwatchman player. Put the chosen player to sleep. The Nightwatchman loses their ability – mark them with a NO ABILITY reminder and remove their night token from the night sheet."
+  },
   "examples": {
-    "en": [
-      "Lachlan is the Nightwatchman. He chooses Abdallah. Abdallah learns that Lachlan is the Nightwatchman.",
-      "Marianna is the drunk Nightwatchman. She chooses Amy. Amy does not wake, and does not learn that Marianna is the Nightwatchman, because the Nightwatchman has no ability.",
-      "Ben is the Nightwatchman and Vortox is in play. Ben chooses Sarah. Sarah learns that Lewis is the Nightwatchman. Even though the Nightwatchman has their ability, the information is false."
-    ],
     "cn": [
       "小兰是守夜人。小兰选择了小黑，小黑得知了小兰是守夜人。",
       "小明是醉酒的守夜人。她选择了小米，小米没有被唤醒，也不会得知小明是守夜人。因为醉酒的守夜人不具有能力。",
       "小八是守夜人且涡流在场。小八选择了道哥，道哥得知了小美是守夜人。虽然守夜人具有能力，但因为涡流在场，道哥会因此得知错误信息。"
+    ],
+    "en": [
+      "Lachlan is the Nightwatchman. He chooses Abdallah. Abdallah learns that Lachlan is the Nightwatchman.",
+      "Marianna is the drunk Nightwatchman. She chooses Amy. Amy does not wake, and does not learn that Marianna is the Nightwatchman, because the Nightwatchman has no ability.",
+      "Ben is the Nightwatchman and Vortox is in play. Ben chooses Sarah. Sarah learns that Lewis is the Nightwatchman. Even though the Nightwatchman has their ability, the information is false."
     ]
   },
   "tips": {
-    "en": [
-      "As the Nightwatchman, the two most important questions for you to ask yourself are \"When should I use my ability?\" and \"On whom should I use my ability?\"",
-      "Using your ability early in the game makes sure that you get to use your ability. Like the Seamstress or the Slayer, it would be a shame to die on the first few days or nights of the game and never get to use your ability at all. Using your ability early, even on a less-than-ideal player, means you get some benefit and will often be more than enough. If someone, anyone, knows that you are the Nightwatchman, then they won't vote for you to be executed and will probably convince others that you are the Nightwatchman too.",
-      "You can even use your ability on the first night if you want. This guarantees that you will gain some benefit, since no deaths can occur until the first day or the second night.",
-      "Using your ability late in the game is riskier, because you will need both skill and luck to stay alive to get to that point, but much more useful. In extreme cases, it can win the game. For example, if just three players are alive and you choose one of them to learn that you are the Nightwatchman (and they reveal this to the group), then the possible Demon candidates has been reduced from one in three to one in two, or this may even reveal who the Demon is specifically, if the player you chose can be confirmed as good.",
-      "When deciding which player to choose, you almost always want to choose someone who is good and who can be confirmed as good. If you choose a good player, they will later claim that you are indeed the Nightwatchman, but you claiming that they are also good may fall flat. If they have already been confirmed good, via characters such as the Empath or the Dreamer, then their claim that you are good has much more weight. When two players claim that each other are good, the good team will want to know that these two players are not Minion and Demon. Before choosing, pay attention to which players are the most trustworthy, and consider them to be the player you choose at night.",
-      "If you do choose an evil player, this is still useful. If the evil player later claims that you are indeed the Nightwatchman, then you have confirmed your own identity to the group. You may die quickly thereafter by the Demon, but knowing which team you are on this is still helpful information for the good team generally. However, if the player you chose refuses to admit to the group that they were chosen by the Nightwatchman, you can be fairly certain that they are evil, since good players have little incentive to stay silent about this, at least for the entire game.",
-      "If you are a good player that knows who the Nightwatchman is, you can reveal this information immediately the next dawn, or wait until the late game to do so. Revealing immediately means that there is one less player to consider for execution each day, which increases your odds of finding and executing the Demon. Revealing later on can be a fantastic help for the good team, even revealing after you are dead but the Nightwatchman is still alive. Waiting until there are just three, four, or five players left alive before telling the group what you know drastically increases your odds of winning."
-    ],
     "cn": [
       "作为守夜人，对你而言最重要的两个问题是“我应该何时使用我的能力？”以及“我的能力应该对谁使用？”",
       "在游戏早期使用你的能力能确保你能够用出你的能力。就好像女裁缝或猎手一样，在游戏的前几天或几晚内死亡从而永远无法用出能力是一件憾事。尽早使用你的能力，即便它被用在一名你觉得不太理想的玩家身上，你也等于获得了一些收益。而且通常来说这点收益也已经足够了。如果有人，任何人，知道你是守夜人，那么他们不会投票赞成你被处决，而且也可能想其他人证明你是守夜人。",
@@ -51,11 +60,21 @@
       "在决定选择哪名玩家时，你几乎总是想选择一名善良并且被证实善良的玩家。如果你选择了一名善良玩家，他们会在随后宣称你确实是守夜人，但你宣称他们也是善良阵营也许会不太行。如果他们已经通过比如共情者或者筑梦师的能力被证实是善良的，他们宣称你是善良的会更具分量。当两名玩家互相宣称是善良的，善良阵营会想要知道这两名玩家不是爪牙和恶魔。在选择之前，注意哪些玩家最可信，考虑他们作为你晚上的选择。",
       "如果你选择了一名邪恶玩家，能力仍然会有些用处。如果那名邪恶玩家之后宣称你确实是守夜人，那么你已经向团队证明了自己。也许之后你会很快因恶魔死亡，但知道你是哪个阵营对善良阵营仍然是有帮助的信息。反之，如果你选择的玩家拒绝向团队承认被守夜人选择过，你就可以非常确信他们是邪恶的，因为善良玩家没有缘由对你的角色保持整局游戏的沉默。",
       "如果你是一名得知守夜人是谁的善良玩家，你可以在次日清晨立即透露这个信息，或者等到游戏后期才透露。立即透露信息意味着每天需要考虑处决的玩家减少了一个，这会增加发现并处决恶魔的几率。对善良阵营而言，稍晚透露信息会提供极大的帮助，即使是在你死亡而守夜人仍存活时。等到只剩下三至五名玩家存活时才告诉团队你得知的信息会极大地增加你获胜的几率。"
+    ],
+    "en": [
+      "As the Nightwatchman, the two most important questions for you to ask yourself are \"When should I use my ability?\" and \"On whom should I use my ability?\"",
+      "Using your ability early in the game makes sure that you get to use your ability. Like the Seamstress or the Slayer, it would be a shame to die on the first few days or nights of the game and never get to use your ability at all. Using your ability early, even on a less-than-ideal player, means you get some benefit and will often be more than enough. If someone, anyone, knows that you are the Nightwatchman, then they won't vote for you to be executed and will probably convince others that you are the Nightwatchman too.",
+      "You can even use your ability on the first night if you want. This guarantees that you will gain some benefit, since no deaths can occur until the first day or the second night.",
+      "Using your ability late in the game is riskier, because you will need both skill and luck to stay alive to get to that point, but much more useful. In extreme cases, it can win the game. For example, if just three players are alive and you choose one of them to learn that you are the Nightwatchman (and they reveal this to the group), then the possible Demon candidates has been reduced from one in three to one in two, or this may even reveal who the Demon is specifically, if the player you chose can be confirmed as good.",
+      "When deciding which player to choose, you almost always want to choose someone who is good and who can be confirmed as good. If you choose a good player, they will later claim that you are indeed the Nightwatchman, but you claiming that they are also good may fall flat. If they have already been confirmed good, via characters such as the Empath or the Dreamer, then their claim that you are good has much more weight. When two players claim that each other are good, the good team will want to know that these two players are not Minion and Demon. Before choosing, pay attention to which players are the most trustworthy, and consider them to be the player you choose at night.",
+      "If you do choose an evil player, this is still useful. If the evil player later claims that you are indeed the Nightwatchman, then you have confirmed your own identity to the group. You may die quickly thereafter by the Demon, but knowing which team you are on this is still helpful information for the good team generally. However, if the player you chose refuses to admit to the group that they were chosen by the Nightwatchman, you can be fairly certain that they are evil, since good players have little incentive to stay silent about this, at least for the entire game.",
+      "If you are a good player that knows who the Nightwatchman is, you can reveal this information immediately the next dawn, or wait until the late game to do so. Revealing immediately means that there is one less player to consider for execution each day, which increases your odds of finding and executing the Demon. Revealing later on can be a fantastic help for the good team, even revealing after you are dead but the Nightwatchman is still alive. Waiting until there are just three, four, or five players left alive before telling the group what you know drastically increases your odds of winning."
     ]
   },
-  "how_to_run": {
-    "en": "Each night, wake the Nightwatchman. The Nightwatchman either shakes their head or points at any player. Put the Nightwatchman to sleep.\nIf the Nightwatchman pointed at a player, wake them and show them the Nightwatchman token, then point to the Nightwatchman player. Put the chosen player to sleep. The Nightwatchman loses their ability – mark them with a NO ABILITY reminder and remove their night token from the night sheet.",
-    "cn": "每个夜晚，唤醒守夜人。如果他摇头不使用能力，让他重新入睡。如果他指向了一名玩家，让他重新入睡，并唤醒被他选择的玩家，对其展示“该角色的能力对你生效”提示标记，守夜人的角色标记，然后指向守夜人玩家，随后让该玩家重新入睡。使用守夜人的“失去能力”标记标记守夜人。守夜人的能力被使用，将守夜人的夜晚标记从夜晚顺序表旁移除，在此后的夜晚中，不要再唤醒守夜人。\n如果守夜人在选择玩家时醉酒中毒，在让他重新入睡后，不要唤醒他选择的玩家，并仍然使用“失去能力”标记守夜人，因为他使用了自己的“每局游戏限一次”的能力。\n如果涡流在场，在唤醒被守夜人选择的玩家时，需要对他指向一名除守夜人以外的玩家。"
-  },
+  "url_param": "Nightwatchman",
+  "editions": [
+    "experimental"
+  ],
+  "artist": "Chloe McDougall",
   "token_url": "https://wiki.bloodontheclocktower.com/images/f/f0/Icon_nightwatchman.png"
 }

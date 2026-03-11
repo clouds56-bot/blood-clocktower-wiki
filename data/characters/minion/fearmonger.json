@@ -1,61 +1,59 @@
 {
   "id": "fearmonger",
+  "type": "minion",
   "name": {
     "en": "Fearmonger",
+    "es-419": "Alarmista",
+    "sv": "Skräckspridaren",
+    "zh-Hans": "恐惧之灵",
     "cn": "恐惧之灵"
   },
-  "type": "minion",
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "Anica Kelsen",
-  "jinxes": [
-    {
-      "id": "plague_doctor",
-      "reason": "If the Storyteller would gain the Fearmonger ability, a Minion gains it, and learns this."
-    },
-    {
-      "id": "vizier",
-      "reason": "The Vizier wakes with the Fearmonger, learns who they choose and cannot choose to immediately execute that player."
-    }
-  ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Fearmonger",
   "ability": {
     "en": "Each night, choose a player: if you nominate & execute them, their team loses. All players know if you choose a new player.",
+    "es-419": "Cada noche, escoge un jugador: si tú lo nominaste y ejecutaste, su equipo pierde. Todos los jugadores saben si escoges un nuevo jugador.",
+    "sv": "Varje natt väljer du en spelare; om du nominerar och avrättar hen så förlorar hens lag. Alla vet om du väljer en ny spelare.",
+    "zh-Hans": "每个夜晚，你要选择一名玩家：如果你提名他且他被处决，他的阵营落败。当你首次选择或更换目标时，所有玩家都会得知你选择了新的玩家。",
     "cn": "每个夜晚，你要选择一名玩家：如果你提名他且他被处决，他的阵营落败。当你首次选择或更换目标时，所有玩家都会得知你选择了新的玩家。"
   },
   "flavor_text": {
     "en": "\"Beware of gazing long into the Abyss, lest the Abyss also gaze into you.\"",
+    "es-419": "Ten cuidado de no mirar por largo tiempo al Abismo, no sea que el Abismo te mire de vuelta.",
+    "sv": "Om du stirrar för länge in i avgrunden, kommer avgrunden också att stirra in i dig.",
+    "zh-Hans": "当心不要长久地凝视深渊，以免深渊也同样回望着你。",
     "cn": "“当心不要长久地凝视深渊，以免深渊也同样回望着你。”"
   },
+  "first_night": {
+    "en": "The Fearmonger chooses a player. :reminder: Announce that the Fearmonger has chosen a player.",
+    "es-419": "El Alarmista escoge un jugador. :reminder: Declara que \"El Alarmista ha escogido un jugador.\"",
+    "sv": "Skräckspridaren väljer en spelare. :reminder: Meddela att Skräckspridaren har valt en spelare.",
+    "zh-Hans": "恐惧之灵选择一名玩家。reminder:宣布“恐惧之灵选择了一名玩家”。"
+  },
+  "other_nights": {
+    "en": "The Fearmonger chooses a player. :reminder: If the target is different to last night, announce that the Fearmonger has chosen a player.",
+    "es-419": "El Alarmista escoge un jugador. :reminder: Si el jugador ya no estaba marcado con la ficha de recordatorio *MIEDO*, declara que \"el Alarmista ha escogido un jugador.\"",
+    "sv": "Skräckspridaren väljer en spelare. :reminder: Om den valda spelaren är en annan än igår så meddela att Skräckspridaren har valt en spelare.",
+    "zh-Hans": "恐惧之灵选择一名玩家。reminder:如果恐惧之灵此次选择的玩家在选择前没有放置“恐惧”提示标记，则宣布“恐惧之灵选择了一名玩家”。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Fearmonger",
+  "how_to_run": {
+    "cn": "每个夜晚，唤醒恐惧之灵。让他指向任意一名玩家。让恐惧之灵重新入睡。在被恐惧之灵选择的玩家的角色标记旁放置“恐惧”提示标记。如果恐惧之灵此次选择的玩家在选择前没有放置“恐惧”提示标记，则宣布“恐惧之灵选择了一名玩家”。（这会告诉所有玩家恐惧之灵现在存活并且选择了新的目标。）\n如果恐惧之灵提名并因此处决了一名标记有“恐惧”的玩家，宣布游戏结束以及哪一方阵营获得了胜利。",
+    "en": "Each night, wake the Fearmonger. They point at any player. Put the Fearmonger to sleep. Mark the chosen player with the FEAR reminder. If the Fearmonger chose a player who wasn’t already marked with the FEAR reminder, declare that “The Fearmonger has chosen a player.” (This informs the group that the Fearmonger is alive and has chosen a new player.)\nIf the Fearmonger nominates the player marked FEAR, and that nomination results in their execution, declare that the game is over and which team has won."
+  },
   "examples": {
-    "en": [
-      "On the first night, the Fearmonger chooses the Butler. All players learn the Fearmonger has chosen a new player. During the day, the Fearmonger nominates the Butler, and the Butler is executed. Evil wins.",
-      "At night, the Fearmonger chooses the Juggler. The Flowergirl nominates the Juggler, and the Juggler is executed. The game continues.",
-      "The Fearmonger chooses the Empath. The next night, the Fearmonger chooses the Soldier. The Fearmonger nominates and executes the Empath. The game continues because the Fearmonger has selected the Soldier, not the Empath.",
-      "The Fearmonger accidentally chooses the Baron, due to the Poppy Grower being in play. The Fearmonger nominates and executes the Baron. Good wins."
-    ],
     "cn": [
       "在首个夜晚，恐惧之灵选择了管家。所有玩家得知恐惧之灵选择了新的目标。在下个白天，恐惧之灵提名了管家，管家被处决。邪恶阵营获胜。",
       "夜晚，恐惧之灵选择了杂耍艺人。卖花女孩提名了杂耍艺人，杂耍艺人被处决。游戏没有因此结束，而是继续进行。",
       "恐惧之灵选择了共情者。在下一个夜晚，恐惧之灵选择了士兵。恐惧之灵提名并处决了共情者。游戏继续进行，因为恐惧之灵当前选择的是士兵而非共情者。",
       "因为罂粟种植者在场，恐惧之灵无意中选择了男爵。恐惧之灵提名并处决了男爵。善良阵营获胜。"
+    ],
+    "en": [
+      "On the first night, the Fearmonger chooses the Butler. All players learn the Fearmonger has chosen a new player. During the day, the Fearmonger nominates the Butler, and the Butler is executed. Evil wins.",
+      "At night, the Fearmonger chooses the Juggler. The Flowergirl nominates the Juggler, and the Juggler is executed. The game continues.",
+      "The Fearmonger chooses the Empath. The next night, the Fearmonger chooses the Soldier. The Fearmonger nominates and executes the Empath. The game continues because the Fearmonger has selected the Soldier, not the Empath.",
+      "The Fearmonger accidentally chooses the Baron, due to the Poppy Grower being in play. The Fearmonger nominates and executes the Baron. Good wins."
     ]
   },
   "tips": {
-    "en": [
-      "On the first night, choose any player. It is unlikely that you will be able to nominate and execute the player that you want on the first day without knowing which characters are in play, so don't get too fussy about who you choose. You can always change your mind on night two.",
-      "On the first few days of the game, pay attention to which players are seen as the most suspicious, or are the most likely to be executed. This could be because they are a character that is often killed early in the game, like a Clockmaker or a Slayer, or it could be because the player is acting shifty and staying silent about their character. If you can guess which players are likely to be executed the following day, choose that player tonight. This will drastically increase your chances of winning the game via your ability, since that player is likely to be executed by someone - hopefully you.",
-      "If you have chosen a player that is likely to be executed, pay attention to the Storyteller and how they are acting. If you get a good sense of when nominations are about to be called, you should be able to be the first player to make a nomination, which guarantees that it will be you to nominate the player you chose.",
-      "If you have chosen a player that is likely to be executed, but you feel it would look too suspicious to be overly-enthusiastic about nominating them, generate discussion that they should definitely be executed, but let the good team decide on who should nominate them. If you are able to make yourself look like a good player, you might be able to convince them (or let them convince themselves) that it should be you to nominate them.",
-      "If you don't think that you are likely to win via your Fearmonger ability, stop choosing new players each night. The fact that the good team will no longer be learning that the Fearmonger has chosen a player will often lead them to believe that the Fearmonger is dead. As they cast their gaze onto the dead players, trying to figure out which one is evil, they will likely interpret a good player that has given true information as an evil player that has given false information. This strategy works best when all dead players are good.",
-      "If you don't think that you are likely to win via your Fearmonger ability, choose a new player every night! If the good team is constantly reminded that a Fearmonger is in play, they are much less likely to vote for frivolous-seeming nominations. The more uncertain the good team is, the better for the evil team. Even reminding the good team publicly each day that they should be wary of the Fearmonger can make them reticent to cast their vote on nominated players, even evil nominated players. This strategy works best when there is more than one Minion in play, because if there is only one Minion in play, and the good team knows that the Fearmonger is still alive, they also know that all dead players are good, which is crucial information.",
-      "If you are an evil player that isn't the Fearmonger, do everything you can to make the Fearmonger look like a good player. Often, the good team will want to find a single good player to make all the nominations, since that player is the most trusted. If you can imply that the Fearmonger is good by claiming to be a Washerwoman who has learnt their character, or a Juggler who has confirmed who they are, or even an Evil Twin who has died and heavily implied that the Fearmonger is the good twin, or something similar, this will help. If the good team trusts the Fearmonger to be the player most likely to be good, the Fearmonger should be able to nominate each day without suspicion.",
-      "If you are evil player, even if you are not the Fearmonger, nominate as much as you can get away with. The good team will often want to keep nominations to a minimum, pay close attention to not only the nominated player but also the nominating play, and not have a chaotic mess of too-many nominations to keep track of. If only a few people are nominating each day, and the majority of those players are evil, then the majority of the voting focus will be on good players (assuming that the evil players are not nominating the Demon).",
-      "It is quite unlikely that the evil team will win directly via the Fearmonger's ability. In most games, the benefit of having a Fearmonger comes from the paranoia and over-cautiousness of the good team when they vote. If you can use this to your advantage by discouraging the execution of evil players, then the Fearmonger has had a large impact on the game, even if it might not seem like it to you. Sometimes, the Fearmonger can win the game for the evil team by a million tiny decisions that the good team are encouraged to make out of fear of what MIGHT happen, not what did happen."
-    ],
     "cn": [
       "在首夜选择任意玩家。你几乎不可能在不知道哪些角色在场的情况下，在第一天就提名并处决你希望的玩家，所以不要太过纠结你选择了谁。你总是能在第二夜改变主意。",
       "在游戏的前几天，注意哪些玩家被认为十分可疑或最有可能被处决。这可能是因为他们是那些常在游戏早期就被杀死的角色，比如钟表匠或猎手，也可能是因为玩家表现得心里有鬼并且对他们的角色保持沉默。如果你能猜到下一天哪名玩家最可能被处决，那么今晚就选择那名玩家。这样就能明显地提升你以能力获胜的机会，因为这名玩家很可能会被谁处决——希望是被你。",
@@ -73,11 +71,33 @@
       "注意那些过于热衷于提名的玩家。他们可能是恐惧之灵。",
       "最好每天的提名数量都超过邪恶玩家的数量。例如，如果有两名邪恶玩家，那至少让三名玩家提名。如果有四名邪恶玩家，那至少让五名玩家提名。这保证了每天有至少一名善良玩家在提名。如果每天只有邪恶玩家在提名，那么只有善良玩家在死亡，这会让善良阵营获胜的机会随着时间越来越少。",
       "邪恶阵营不太可能靠着恐惧之灵的能力获胜。这种情况会发生，但远远少于看起来那样。更大的危险来自善良阵营对应当处决谁陷入瘫痪和犹豫。过多的麻痹大意肯定会让恐惧之灵成功提名并处决，但是过多的担忧将意味着善良玩家根本无法处决。在其中寻找一个折中点。"
+    ],
+    "en": [
+      "On the first night, choose any player. It is unlikely that you will be able to nominate and execute the player that you want on the first day without knowing which characters are in play, so don't get too fussy about who you choose. You can always change your mind on night two.",
+      "On the first few days of the game, pay attention to which players are seen as the most suspicious, or are the most likely to be executed. This could be because they are a character that is often killed early in the game, like a Clockmaker or a Slayer, or it could be because the player is acting shifty and staying silent about their character. If you can guess which players are likely to be executed the following day, choose that player tonight. This will drastically increase your chances of winning the game via your ability, since that player is likely to be executed by someone - hopefully you.",
+      "If you have chosen a player that is likely to be executed, pay attention to the Storyteller and how they are acting. If you get a good sense of when nominations are about to be called, you should be able to be the first player to make a nomination, which guarantees that it will be you to nominate the player you chose.",
+      "If you have chosen a player that is likely to be executed, but you feel it would look too suspicious to be overly-enthusiastic about nominating them, generate discussion that they should definitely be executed, but let the good team decide on who should nominate them. If you are able to make yourself look like a good player, you might be able to convince them (or let them convince themselves) that it should be you to nominate them.",
+      "If you don't think that you are likely to win via your Fearmonger ability, stop choosing new players each night. The fact that the good team will no longer be learning that the Fearmonger has chosen a player will often lead them to believe that the Fearmonger is dead. As they cast their gaze onto the dead players, trying to figure out which one is evil, they will likely interpret a good player that has given true information as an evil player that has given false information. This strategy works best when all dead players are good.",
+      "If you don't think that you are likely to win via your Fearmonger ability, choose a new player every night! If the good team is constantly reminded that a Fearmonger is in play, they are much less likely to vote for frivolous-seeming nominations. The more uncertain the good team is, the better for the evil team. Even reminding the good team publicly each day that they should be wary of the Fearmonger can make them reticent to cast their vote on nominated players, even evil nominated players. This strategy works best when there is more than one Minion in play, because if there is only one Minion in play, and the good team knows that the Fearmonger is still alive, they also know that all dead players are good, which is crucial information.",
+      "If you are an evil player that isn't the Fearmonger, do everything you can to make the Fearmonger look like a good player. Often, the good team will want to find a single good player to make all the nominations, since that player is the most trusted. If you can imply that the Fearmonger is good by claiming to be a Washerwoman who has learnt their character, or a Juggler who has confirmed who they are, or even an Evil Twin who has died and heavily implied that the Fearmonger is the good twin, or something similar, this will help. If the good team trusts the Fearmonger to be the player most likely to be good, the Fearmonger should be able to nominate each day without suspicion.",
+      "If you are evil player, even if you are not the Fearmonger, nominate as much as you can get away with. The good team will often want to keep nominations to a minimum, pay close attention to not only the nominated player but also the nominating play, and not have a chaotic mess of too-many nominations to keep track of. If only a few people are nominating each day, and the majority of those players are evil, then the majority of the voting focus will be on good players (assuming that the evil players are not nominating the Demon).",
+      "It is quite unlikely that the evil team will win directly via the Fearmonger's ability. In most games, the benefit of having a Fearmonger comes from the paranoia and over-cautiousness of the good team when they vote. If you can use this to your advantage by discouraging the execution of evil players, then the Fearmonger has had a large impact on the game, even if it might not seem like it to you. Sometimes, the Fearmonger can win the game for the evil team by a million tiny decisions that the good team are encouraged to make out of fear of what MIGHT happen, not what did happen."
     ]
   },
-  "how_to_run": {
-    "en": "Each night, wake the Fearmonger. They point at any player. Put the Fearmonger to sleep. Mark the chosen player with the FEAR reminder. If the Fearmonger chose a player who wasn’t already marked with the FEAR reminder, declare that “The Fearmonger has chosen a player.” (This informs the group that the Fearmonger is alive and has chosen a new player.)\nIf the Fearmonger nominates the player marked FEAR, and that nomination results in their execution, declare that the game is over and which team has won.",
-    "cn": "每个夜晚，唤醒恐惧之灵。让他指向任意一名玩家。让恐惧之灵重新入睡。在被恐惧之灵选择的玩家的角色标记旁放置“恐惧”提示标记。如果恐惧之灵此次选择的玩家在选择前没有放置“恐惧”提示标记，则宣布“恐惧之灵选择了一名玩家”。（这会告诉所有玩家恐惧之灵现在存活并且选择了新的目标。）\n如果恐惧之灵提名并因此处决了一名标记有“恐惧”的玩家，宣布游戏结束以及哪一方阵营获得了胜利。"
-  },
+  "url_param": "Fearmonger",
+  "editions": [
+    "experimental"
+  ],
+  "artist": "Anica Kelsen",
+  "jinxes": [
+    {
+      "id": "plague_doctor",
+      "reason": "If the Storyteller would gain the Fearmonger ability, a Minion gains it, and learns this."
+    },
+    {
+      "id": "vizier",
+      "reason": "The Vizier wakes with the Fearmonger, learns who they choose and cannot choose to immediately execute that player."
+    }
+  ],
   "token_url": "https://wiki.bloodontheclocktower.com/images/1/11/Icon_fearmonger.png"
 }

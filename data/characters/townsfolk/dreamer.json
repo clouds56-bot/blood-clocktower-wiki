@@ -1,55 +1,60 @@
 {
   "id": "dreamer",
+  "type": "townsfolk",
   "name": {
     "en": "Dreamer",
+    "es-419": "Soñador",
+    "sv": "Drömmaren",
+    "zh-Hans": "筑梦师",
     "cn": "筑梦师"
   },
-  "type": "townsfolk",
-  "editions": [
-    "sects_violets"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "Caitlin Murphy",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Dreamer",
   "ability": {
     "en": "Each night, choose a player (not yourself or Travellers): you learn 1 good & 1 evil character, 1 of which is correct.",
+    "es-419": "Cada noche, escoge un jugador (no tú mismo ni Viajeros): tú aprendes 1 rol bueno y 1 rol malvado, 1 de los cuales es el rol del jugador.",
+    "sv": "Varje natt väljer du en spelare (inte dig själv eller Resenärer); du får veta 1 god och 1 ond roll som hen kan vara.",
+    "zh-Hans": "每个夜晚，你要选择除你及旅行者以外的一名玩家：你会得知一个善良角色和一个邪恶角色，该玩家是其中一个角色。",
     "cn": "每个夜晚，你要选择除你及旅行者以外的一名玩家：你会得知一个善良角色和一个邪恶角色，该玩家是其中一个角色。"
   },
   "flavor_text": {
     "en": "\"I remember the Clockmaker. The sky was red and it was raining fractal triangles. There was a smell of violets and a bubbling sound. A woman with glowing eyes and a scraggly beard was hissing at the sky. Then, I awoke.\"",
+    "es-419": "Recuerdo al Relojero. El cielo estaba rojo y estaban lloviendo triángulos fractales. Había un olor a violetas y un sonido burbujeante. Una mujer con ojos brillantes y una barba desaliñada silbaba al cielo. Luego, me desperté.",
+    "sv": "Jag minns urmakaren. Himlen var röd och det regnade triangelfraktaler. Luften sjöd och låg tät av violdoft. En kvinna med lysande ögon och tovigt skägg väste mot himlen. Sedan vaknade jag.",
+    "zh-Hans": "我记得有钟表匠……天空是红色的，有不规则的三角形不断从天上坠落下来。有紫罗兰的气味，还有气泡咕嘟咕嘟的声音。一个眼睛发光、还有着乱糟糟的胡须的女人对着天空发出嘶嘶声。然后，我醒了。",
     "cn": "“我记得有钟表匠……天空是红色的，有不规则的三角形不断从天上坠落下来。有紫罗兰的气味……还有气泡咕嘟咕嘟的声音。一个眼睛发光、还有着乱糟糟的胡须的女人对着天空发出嘶嘶声。然后，我醒了……”"
   },
+  "first_night": {
+    "en": "The Dreamer points to a player. Show 1 good & 1 evil character token, 1 of which is their character.",
+    "es-419": "El Soñador apunta a un jugador. Muéstrale 1 ficha de rol bueno y 1 ficha de rol malvado, 1 de las cuales es el rol del jugador.",
+    "sv": "Drömmaren pekar på en spelare. Visa 1 god och 1 ond rollbricka, varav 1 är den valda spelarens roll.",
+    "zh-Hans": "筑梦师选择一名玩家。展示一个善良角色和一个邪恶角色的角色标记，其中一个是该玩家的角色。"
+  },
+  "other_nights": {
+    "en": "The Dreamer points to a player. Show 1 good & 1 evil character token, 1 of which is their character.",
+    "es-419": "El Soñador apunta a un jugador. Muéstrale 1 ficha de rol bueno y 1 ficha de rol malvado, 1 de las cuales es el rol del jugador.",
+    "sv": "Drömmaren pekar på en spelare. Visa 1 god och 1 ond rollbricka, varav 1 är den valda spelarens roll.",
+    "zh-Hans": "筑梦师选择一名玩家。展示一个善良角色和一个邪恶角色的角色标记，其中一个是该玩家的角色。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Dreamer",
+  "how_to_run": {
+    "cn": "每个夜晚，唤醒筑梦师。让他指向除自己和旅行者外的任意一名玩家。如果被选择的玩家的真实角色是镇民或外来者，向筑梦师展示他的真实角色和任意一个爪牙或恶魔角色标记。如果被选择的玩家的真实角色是爪牙或恶魔，则给筑梦师展示他的真实角色和任意一个镇民或外来者角色标记。让筑梦师重新入睡。\n如果筑梦师选择了一名邪恶玩家，你能通过这种方式来帮助邪恶阵营：你可以给筑梦师展示邪恶玩家正在伪装的虚假角色，或者展示一些需要隐藏自己的角色，例如舞蛇人、贤者、畸形秀演员或呆瓜。",
+    "en": "Each night, wake the Dreamer. They point at any player. If the chosen player’s character is a Townsfolk or Outsider, show their character token and any Minion or Demon token to the Dreamer. If the chosen player’s character is a Minion or Demon, show their character token and any Townsfolk or Outsider token to the Dreamer. Then, put the Dreamer to sleep.\nIf the Dreamer chooses an evil player, you can help the evil team if you show the Dreamer the good character that this evil player is bluffing as, or if you show a more secretive character such as the Snake Charmer, Sage, Mutant, or Klutz."
+  },
   "examples": {
+    "cn": [
+      "筑梦师选择一名玩家，该玩家是畸形秀演员。筑梦师得知该玩家是畸形秀演员或洗脑师。",
+      "筑梦师选择了一名获得了卖花女孩能力的哲学家。筑梦师得知该玩家要么是哲学家，要么是亡骨魔。",
+      "在白天，镜像双子和艺术家都声称自己是艺术家。在那天晚上，筑梦师选择了镜像双子。如果说书人想帮助善良阵营，他可以给筑梦师展示这两个角色：镜像双子和心上人。反之，他可以给筑梦师镜像双子和艺术家这两个角色。",
+      "筑梦师选择了一名玩家，他的真实角色是涡流。因为涡流的能力效果，筑梦师获得的信息必须是错误的。所以筑梦师得到这个玩家的角色是神谕者或诺-达鲺。"
+    ],
     "en": [
       "If the Dreamer chooses an evil player, you can help the evil team if you show the Dreamer the good character that this evil player is bluffing as, or if you show a more secretive character such as the Snake Charmer, Sage, Mutant, or Klutz.",
       "The Dreamer chooses a player who is the Mutant. The Dreamer learns that this player is either the Mutant or the Cerenovus.",
       "The Dreamer chooses a player who was the Philosopher but gained the Flowergirl ability earlier that night. The Dreamer learns that this player is either the Philosopher or the Vigormortis.",
       "Today, both the Evil Twin and the Artist claimed to be the Artist. That night, the Dreamer chooses the player who is the Evil Twin. If the Storyteller wanted to help the good team, they could show the Evil Twin and the Sweetheart. But the Storyteller decides to help evil, so they show the Evil Twin and the Artist to the Dreamer.",
       "The Dreamer chooses a player who is the Vortox. The Dreamer's information must be false because the Vortox is in play, so the Dreamer learns that this player is either the Oracle or the No Dashii."
-    ],
-    "cn": [
-      "筑梦师选择一名玩家，该玩家是畸形秀演员。筑梦师得知该玩家是畸形秀演员或洗脑师。",
-      "筑梦师选择了一名获得了卖花女孩能力的哲学家。筑梦师得知该玩家要么是哲学家，要么是亡骨魔。",
-      "在白天，镜像双子和艺术家都声称自己是艺术家。在那天晚上，筑梦师选择了镜像双子。如果说书人想帮助善良阵营，他可以给筑梦师展示这两个角色：镜像双子和心上人。反之，他可以给筑梦师镜像双子和艺术家这两个角色。",
-      "筑梦师选择了一名玩家，他的真实角色是涡流。因为涡流的能力效果，筑梦师获得的信息必须是错误的。所以筑梦师得到这个玩家的角色是神谕者或诺-达鲺。"
     ]
   },
   "tips": {
-    "en": [
-      "Every time you choose a player, you learn a potential evil character that they could be. Pay close attention to these, because they give you a surprising amount of information even if they are wrong. For example, any player who registers as a Minion cannot be a Demon, so you can exclude them from your list of potential suspects.",
-      "Your ability is a fantastic detector for the Vortox and No Dashii, because unlike other players, it can be very easy to confirm if your information is correct or not. If you get one player who doesn't add up, be suspicious. If you get three? It's time to look at other options.",
-      "Try to choose players who are not close to you. If you are neighbouring a No Dashii, you will be poisoned, and your information will favor the Demon. By choosing someone further away from you in the town, you're much less likely to hit an evil player early and get unreliable information about them. (Feel free to revisit your neighbours in the future though!)",
-      "Giving your information tends to be more powerful in the early game rather than later. Fewer people will have publicly stated their character, and since an evil pair often needs time to coordinate, you'll have a better chance of proving you are a good player.",
-      "When swapping your information with your chosen target, be careful not to reveal your information first. If you are dealing with an evil player, telling them a potential good character might be feeding them a bluff. Instead, have them reveal to you and see if your information aligns with their claims.",
-      "Revealing your information first when swapping information will conclusively prove to the player you're speaking to that you are the Dreamer... providing your information is good. This will allow them to put a lot of trust in you right away, because it's very difficult to have that information otherwise.",
-      "Encourage players to not reveal who they are in the early game. If people come out with who they are, you can still check their claim, but it's much harder for you to confirm yourself if everyone is open about who they are from the get go!",
-      "Check people who you think are lying, not those you think are telling the truth. Catching players out in a lie is awesome, because you'll know what evil player they are and can decide right then and there if you want them dead.",
-      "Check players whom you think are telling the truth; not only does this enable you to back up players whom you trust, but if your information is differs from what you expect, then you can be suspicious that it has been tampered with.",
-      "You should never receive information about a Vortox, because the Vortox forces all information received by good players to be false. This means that if the Vortox is play, your information about them will be incorrect, so you will always receive a different evil character.",
-      "If you have an Evil Twin, don't bother checking them. You will receive the Good Twin's character and the Evil Twin for both players, which is... not very useful. One exception: You can check for Vortox this way, since the information would have to be false!"
-    ],
     "cn": [
       "每次你选择一名玩家，你就会得知他潜在的一种邪恶角色的可能性。请关注这些信息，因为这会给你带来惊人的信息量，哪怕这是错误的信息。例如，任何潜在角色是爪牙的玩家将不太可能是恶魔，所以你可以将他们从你嫌疑名单上划掉。",
       "你的信息可以绝佳的辨识出是否受到涡流或诺-达鲺影响，因为和其他玩家不同，你的信息可以非常容易证实是否正确。如果你得知的一名玩家的信息不太合理，那么你就要保持怀疑了。如果你得到更多玩家的信息都不合理？那么你就要寻找其他的可能性。",
@@ -62,11 +67,25 @@
       "可以选择你认为说真话的玩家；不仅这让他更受到支持，而且如果你发现你的信息错误，你可以去怀疑是否有什么其他原因导致了这一切。",
       "你永远不会得到涡流这个角色，因为如果涡流在场你必定获得错误信息。",
       "如果场上有一对镜像双子角色，不用去检查他们。你很可能会得到镜像双子中善良与邪恶的角色……这将毫无用处。有一个例外：你可以借此发现是否有涡流在场。"
+    ],
+    "en": [
+      "Every time you choose a player, you learn a potential evil character that they could be. Pay close attention to these, because they give you a surprising amount of information even if they are wrong. For example, any player who registers as a Minion cannot be a Demon, so you can exclude them from your list of potential suspects.",
+      "Your ability is a fantastic detector for the Vortox and No Dashii, because unlike other players, it can be very easy to confirm if your information is correct or not. If you get one player who doesn't add up, be suspicious. If you get three? It's time to look at other options.",
+      "Try to choose players who are not close to you. If you are neighbouring a No Dashii, you will be poisoned, and your information will favor the Demon. By choosing someone further away from you in the town, you're much less likely to hit an evil player early and get unreliable information about them. (Feel free to revisit your neighbours in the future though!)",
+      "Giving your information tends to be more powerful in the early game rather than later. Fewer people will have publicly stated their character, and since an evil pair often needs time to coordinate, you'll have a better chance of proving you are a good player.",
+      "When swapping your information with your chosen target, be careful not to reveal your information first. If you are dealing with an evil player, telling them a potential good character might be feeding them a bluff. Instead, have them reveal to you and see if your information aligns with their claims.",
+      "Revealing your information first when swapping information will conclusively prove to the player you're speaking to that you are the Dreamer... providing your information is good. This will allow them to put a lot of trust in you right away, because it's very difficult to have that information otherwise.",
+      "Encourage players to not reveal who they are in the early game. If people come out with who they are, you can still check their claim, but it's much harder for you to confirm yourself if everyone is open about who they are from the get go!",
+      "Check people who you think are lying, not those you think are telling the truth. Catching players out in a lie is awesome, because you'll know what evil player they are and can decide right then and there if you want them dead.",
+      "Check players whom you think are telling the truth; not only does this enable you to back up players whom you trust, but if your information is differs from what you expect, then you can be suspicious that it has been tampered with.",
+      "You should never receive information about a Vortox, because the Vortox forces all information received by good players to be false. This means that if the Vortox is play, your information about them will be incorrect, so you will always receive a different evil character.",
+      "If you have an Evil Twin, don't bother checking them. You will receive the Good Twin's character and the Evil Twin for both players, which is... not very useful. One exception: You can check for Vortox this way, since the information would have to be false!"
     ]
   },
-  "how_to_run": {
-    "en": "Each night, wake the Dreamer. They point at any player. If the chosen player’s character is a Townsfolk or Outsider, show their character token and any Minion or Demon token to the Dreamer. If the chosen player’s character is a Minion or Demon, show their character token and any Townsfolk or Outsider token to the Dreamer. Then, put the Dreamer to sleep.\nIf the Dreamer chooses an evil player, you can help the evil team if you show the Dreamer the good character that this evil player is bluffing as, or if you show a more secretive character such as the Snake Charmer, Sage, Mutant, or Klutz.",
-    "cn": "每个夜晚，唤醒筑梦师。让他指向除自己和旅行者外的任意一名玩家。如果被选择的玩家的真实角色是镇民或外来者，向筑梦师展示他的真实角色和任意一个爪牙或恶魔角色标记。如果被选择的玩家的真实角色是爪牙或恶魔，则给筑梦师展示他的真实角色和任意一个镇民或外来者角色标记。让筑梦师重新入睡。\n如果筑梦师选择了一名邪恶玩家，你能通过这种方式来帮助邪恶阵营：你可以给筑梦师展示邪恶玩家正在伪装的虚假角色，或者展示一些需要隐藏自己的角色，例如舞蛇人、贤者、畸形秀演员或呆瓜。"
-  },
+  "url_param": "Dreamer",
+  "editions": [
+    "sects_violets"
+  ],
+  "artist": "Caitlin Murphy",
   "token_url": "https://wiki.bloodontheclocktower.com/images/f/f2/Icon_dreamer.png"
 }

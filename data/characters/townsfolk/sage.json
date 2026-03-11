@@ -1,15 +1,69 @@
 {
   "id": "sage",
+  "type": "townsfolk",
   "name": {
     "en": "Sage",
+    "es-419": "Sabio",
+    "sv": "Gurun",
+    "zh-Hans": "贤者",
     "cn": "贤者"
   },
-  "type": "townsfolk",
+  "ability": {
+    "en": "If the Demon kills you, you learn that it is 1 of 2 players.",
+    "es-419": "Si el Demonio te mata, tú aprendes que él es 1 de 2 jugadores.",
+    "sv": "Om Demonen dödar dig får du veta att hen är 1 av 2 spelare.",
+    "zh-Hans": "如果恶魔杀死了你，在当晚你会被唤醒并得知两名玩家，其中一名是杀死你的那个恶魔。",
+    "cn": "如果恶魔杀死了你，在当晚你会被唤醒并得知两名玩家，其中一名是杀死你的那个恶魔。"
+  },
+  "flavor_text": {
+    "en": "\"These mountainous tomes guard the secret, I am sure of it! Twixt word and word, it lies in wait. More candles, boy! More ink! These notes may look arcane, but the infernal puzzle is revealing itself.\"",
+    "es-419": "Estos tomos gigantescos guardan el secreto, ¡estoy seguro de eso! Palabra tras palabra, acecha con paciencia. ¡Más velas, muchacho! ¡Más tinta! Estas notas pueden parecer arcanas, pero el rompecabezas infernal se está armando solo.",
+    "sv": "Dessa digra volymer döljer hemligheten, det är jag säker på! Den väntar oss mellan orden. Mer ljus, pojk! Mer bläck! Språket är märkligt, ja, men den infernaliska gåtan vecklar långsamt ut sig.",
+    "zh-Hans": "这书山卷海中一定隐藏着秘密，我非常确信！这些秘密就隐藏在这一字一句之间等待着我们发掘。小子！再帮我多拿点蜡烛！还有墨水！虽然这些笔记有些晦涩，但有关恶魔的谜语很快就会被揭晓。",
+    "cn": "“这书山卷海中一定隐藏着秘密，我非常确信！这些秘密就隐藏在这一字一句之间等待着我们发掘。小子！再帮我多拿点蜡烛！还有墨水！虽然这些笔记有些晦涩，但有关恶魔的谜语很快就会被揭晓。”"
+  },
+  "other_nights": {
+    "en": "If the Demon killed the Sage, wake the Sage and point to 2 players, 1 of which is the Demon.",
+    "es-419": "Si el Demonio mató al Sabio, despierta al Sabio y apunta a 2 jugadores, 1 de los cuales es el Demonio.",
+    "sv": "Om Demonen dödade Gurun så väck Gurun och peka på 2 spelare, varav 1 är Demonen.",
+    "zh-Hans": "如果贤者被恶魔杀死，唤醒贤者。指向两名玩家，其中一名是杀死贤者的恶魔。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Sage",
+  "how_to_run": {
+    "cn": "如果贤者被恶魔杀死，唤醒贤者。指向两名玩家，其中一名是杀死贤者的恶魔。让贤者重新入睡。\n如果贤者在游戏前期死亡，你可能会想给贤者展示两名存活玩家，因为这能让邪恶阵营仍然有微弱的获胜机会。如果贤者在游戏的最后一个夜晚死去，你可以指向一名存活玩家和一名已死亡的玩家。",
+    "en": "If the Sage was killed by the Demon, wake the Sage. Point at two players, one who is the Demon that killed the Sage. Put the Sage to sleep.\nIf the Sage dies early, you will probably want to show the Sage two alive players, which lets the evil team still have a slim chance of winning. If the Sage dies on the final night, feel free to show one alive and one dead player."
+  },
+  "examples": {
+    "cn": [
+      "第二个夜晚，恶魔杀死了贤者。说书人为贤者指出了两名玩家，其中一名是恶魔。",
+      "在最后一夜，恶魔杀死了醉酒的贤者。说书人为贤者指出了一名死亡玩家和剩下的一名存活善良玩家，没有给他正确信息。",
+      "麻脸巫婆创造了一名恶魔。因为麻脸巫婆的能力，当晚由说书人来选择杀死谁。说书人决定旧恶魔死亡，贤者也死亡，且当晚这些恶魔选择攻击的目标中没有贤者。因为贤者死于麻脸巫婆，而非恶魔，所以贤者不会醒来也不会得知任何信息。"
+    ],
+    "en": [
+      "If the Sage dies early, you will probably want to show the Sage two alive players, which lets the evil team still have a slim chance of winning. If the Sage dies on the final night, feel free to show one alive and one dead player.",
+      "During the second night, the Demon kills the Sage. The Storyteller points at two players, one of whom is the Demon.",
+      "During the final night, the Demon kills the Sage, who is drunk because of the Sweetheart. The Storyteller points at a dead player and one of the remaining three alive players. This information is incorrect.",
+      "The Pit-Hag creates a Demon. Because the Pit-Hag ability says that \"all deaths tonight are arbitrary,” the Storyteller decides that the old Demon dies, and the Sage dies. Because the Sage died due to the Pit-Hag, not the Demon, the Sage does not wake to learn anything tonight"
+    ]
+  },
+  "tips": {
+    "cn": [
+      "让自己被恶魔杀死。随便用什么方式，越快越好。如果恶魔杀死了你，你可以得到非常棒的信息，所以尽你可能去让恶魔杀死你。你可以装作一个恶魔想要击杀的目标，比如卖花女孩或者博学者，或者保持沉默。和希望死的时间越晚越有利的守鸦人不同，你能从更早就死亡中获得更大收益。如果恶魔在前两晚（或前期）杀死了你，那么你们就有足够的时间去处决你得到的那两名可能是恶魔的玩家。",
+      "如果恶魔杀死了你，那么立刻告诉大家你得到的信息。善良玩家越早知道了你是贤者，知道了两名玩家中有一个是恶魔，那么你们就越早可以指出谁是恶魔。如果你要等到最后一天再公开信息（正如占卜师可能会在最后一天只能证明活着的某一个两玩家不是恶魔一样），你也只能知道其中有一个是恶魔。而且，在这种情况下，你还需要让大家相信你是贤者，可能对你们而言已经没有足够的时间了。",
+      "你也可以就直接公开说自己是贤者，为了活到最后一天。如果你认为大家可以相信你，就告诉大家你是贤者，那么恶魔也不会来杀你，而其他玩家会在白天被处决。但是要这么做，至关重要的是要让大家都相信你。活到最后就意味着邪恶方不能通过最后活着的三个玩家都是邪恶的来获胜，也意味着在最后三选一时变为二选一。",
+      "如果你在夜晚死了但是没有获得信息，这也是个不错的消息！虽然你没有发现恶魔是谁，但是你知道了只有通过麻脸巫婆的方式导致你死亡才会使你没有得到信息，所以你可以将你确认的信息告诉大家。"
+    ],
+    "en": [
+      "Get killed by the Demon. Do it. By any means, and as quickly as possible. If the Demon kills you, you get fantastic information, so do whatever you can to make it happen. Pretend to be a character the Demon would want to kill, such as a Flowergirl or a Savant, or stay silent. Unlike the Ravenkeeper, who benefits more so when the Demon attacks them later in the game, you benefit most when the Demon attacks you earlier in the game. If the Demon attacks you on the first or second night (or in the first half of the game), then you will have enough days left to execute both suspects you learn might be the Demon.",
+      "Reveal your information immediately if the Demon does kill you. The sooner the good team knows that you are the Sage, and that you know 1 of two players is the Demon, then the sooner you can figure out who the Demon is. If you wait until the final day to reveal your information (in the way that a Fortune Teller might wait until the final day to reveal that 1 or 2 still-living players are not the Demon), then you may still only know that the Demon is 1 of 2 players. Also, in this case, you will have to convince the good team that you are the Sage, and you may not have enough time left to do so.",
+      "You can simply come out publicly as the Sage, in order to survive until the final day. If you believe that the group trusts you, telling the group that you are the Sage can be a great way to get the Demon to leave you alone, so that other players are killed at night, and other players are executed during the day. Having other players believe that you are good is crucial for this strategy to work. Surviving until the final day means that evil can not automatically win by having all 3 players alive be evil, and it also means that the good team is choosing between 2 players to execute, not 3.",
+      "If you die at night but didn't get any information, this is also great news! While you didn't get to find out who the Demon is, you know that the only way you can die at night but not be killed by the Demon is if you were killed by the Pit-Hag's arbitrary deaths, so you can confirm that to town."
+    ]
+  },
+  "url_param": "Sage",
   "editions": [
     "sects_violets"
   ],
-  "first_night": false,
-  "other_nights": false,
   "artist": "Aidan Roberts",
   "jinxes": [
     {
@@ -25,45 +79,5 @@
       "reason": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Sage uses their ability but does not die."
     }
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Sage",
-  "ability": {
-    "en": "If the Demon kills you, you learn that it is 1 of 2 players.",
-    "cn": "如果恶魔杀死了你，在当晚你会被唤醒并得知两名玩家，其中一名是杀死你的那个恶魔。"
-  },
-  "flavor_text": {
-    "en": "\"These mountainous tomes guard the secret, I am sure of it! Twixt word and word, it lies in wait. More candles, boy! More ink! These notes may look arcane, but the infernal puzzle is revealing itself.\"",
-    "cn": "“这书山卷海中一定隐藏着秘密，我非常确信！这些秘密就隐藏在这一字一句之间等待着我们发掘。小子！再帮我多拿点蜡烛！还有墨水！虽然这些笔记有些晦涩，但有关恶魔的谜语很快就会被揭晓。”"
-  },
-  "examples": {
-    "en": [
-      "If the Sage dies early, you will probably want to show the Sage two alive players, which lets the evil team still have a slim chance of winning. If the Sage dies on the final night, feel free to show one alive and one dead player.",
-      "During the second night, the Demon kills the Sage. The Storyteller points at two players, one of whom is the Demon.",
-      "During the final night, the Demon kills the Sage, who is drunk because of the Sweetheart. The Storyteller points at a dead player and one of the remaining three alive players. This information is incorrect.",
-      "The Pit-Hag creates a Demon. Because the Pit-Hag ability says that \"all deaths tonight are arbitrary,” the Storyteller decides that the old Demon dies, and the Sage dies. Because the Sage died due to the Pit-Hag, not the Demon, the Sage does not wake to learn anything tonight"
-    ],
-    "cn": [
-      "第二个夜晚，恶魔杀死了贤者。说书人为贤者指出了两名玩家，其中一名是恶魔。",
-      "在最后一夜，恶魔杀死了醉酒的贤者。说书人为贤者指出了一名死亡玩家和剩下的一名存活善良玩家，没有给他正确信息。",
-      "麻脸巫婆创造了一名恶魔。因为麻脸巫婆的能力，当晚由说书人来选择杀死谁。说书人决定旧恶魔死亡，贤者也死亡，且当晚这些恶魔选择攻击的目标中没有贤者。因为贤者死于麻脸巫婆，而非恶魔，所以贤者不会醒来也不会得知任何信息。"
-    ]
-  },
-  "tips": {
-    "en": [
-      "Get killed by the Demon. Do it. By any means, and as quickly as possible. If the Demon kills you, you get fantastic information, so do whatever you can to make it happen. Pretend to be a character the Demon would want to kill, such as a Flowergirl or a Savant, or stay silent. Unlike the Ravenkeeper, who benefits more so when the Demon attacks them later in the game, you benefit most when the Demon attacks you earlier in the game. If the Demon attacks you on the first or second night (or in the first half of the game), then you will have enough days left to execute both suspects you learn might be the Demon.",
-      "Reveal your information immediately if the Demon does kill you. The sooner the good team knows that you are the Sage, and that you know 1 of two players is the Demon, then the sooner you can figure out who the Demon is. If you wait until the final day to reveal your information (in the way that a Fortune Teller might wait until the final day to reveal that 1 or 2 still-living players are not the Demon), then you may still only know that the Demon is 1 of 2 players. Also, in this case, you will have to convince the good team that you are the Sage, and you may not have enough time left to do so.",
-      "You can simply come out publicly as the Sage, in order to survive until the final day. If you believe that the group trusts you, telling the group that you are the Sage can be a great way to get the Demon to leave you alone, so that other players are killed at night, and other players are executed during the day. Having other players believe that you are good is crucial for this strategy to work. Surviving until the final day means that evil can not automatically win by having all 3 players alive be evil, and it also means that the good team is choosing between 2 players to execute, not 3.",
-      "If you die at night but didn't get any information, this is also great news! While you didn't get to find out who the Demon is, you know that the only way you can die at night but not be killed by the Demon is if you were killed by the Pit-Hag's arbitrary deaths, so you can confirm that to town."
-    ],
-    "cn": [
-      "让自己被恶魔杀死。随便用什么方式，越快越好。如果恶魔杀死了你，你可以得到非常棒的信息，所以尽你可能去让恶魔杀死你。你可以装作一个恶魔想要击杀的目标，比如卖花女孩或者博学者，或者保持沉默。和希望死的时间越晚越有利的守鸦人不同，你能从更早就死亡中获得更大收益。如果恶魔在前两晚（或前期）杀死了你，那么你们就有足够的时间去处决你得到的那两名可能是恶魔的玩家。",
-      "如果恶魔杀死了你，那么立刻告诉大家你得到的信息。善良玩家越早知道了你是贤者，知道了两名玩家中有一个是恶魔，那么你们就越早可以指出谁是恶魔。如果你要等到最后一天再公开信息（正如占卜师可能会在最后一天只能证明活着的某一个两玩家不是恶魔一样），你也只能知道其中有一个是恶魔。而且，在这种情况下，你还需要让大家相信你是贤者，可能对你们而言已经没有足够的时间了。",
-      "你也可以就直接公开说自己是贤者，为了活到最后一天。如果你认为大家可以相信你，就告诉大家你是贤者，那么恶魔也不会来杀你，而其他玩家会在白天被处决。但是要这么做，至关重要的是要让大家都相信你。活到最后就意味着邪恶方不能通过最后活着的三个玩家都是邪恶的来获胜，也意味着在最后三选一时变为二选一。",
-      "如果你在夜晚死了但是没有获得信息，这也是个不错的消息！虽然你没有发现恶魔是谁，但是你知道了只有通过麻脸巫婆的方式导致你死亡才会使你没有得到信息，所以你可以将你确认的信息告诉大家。"
-    ]
-  },
-  "how_to_run": {
-    "en": "If the Sage was killed by the Demon, wake the Sage. Point at two players, one who is the Demon that killed the Sage. Put the Sage to sleep.\nIf the Sage dies early, you will probably want to show the Sage two alive players, which lets the evil team still have a slim chance of winning. If the Sage dies on the final night, feel free to show one alive and one dead player.",
-    "cn": "如果贤者被恶魔杀死，唤醒贤者。指向两名玩家，其中一名是杀死贤者的恶魔。让贤者重新入睡。\n如果贤者在游戏前期死亡，你可能会想给贤者展示两名存活玩家，因为这能让邪恶阵营仍然有微弱的获胜机会。如果贤者在游戏的最后一个夜晚死去，你可以指向一名存活玩家和一名已死亡的玩家。"
-  },
   "token_url": "https://wiki.bloodontheclocktower.com/images/a/a0/Icon_sage.png"
 }

@@ -1,54 +1,44 @@
 {
   "id": "atheist",
+  "type": "townsfolk",
   "name": {
     "en": "Atheist",
+    "es-419": "Ateo",
+    "sv": "Ateisten",
+    "zh-Hans": "无神论者",
     "cn": "无神论者"
   },
-  "type": "townsfolk",
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Marianna Carr",
-  "jinxes": [
-    {
-      "id": "riot",
-      "reason": "During a riot, if the Storyteller is nominated, players vote. If they are \"about to die\", the game ends. If not, they nominate again."
-    }
-  ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Atheist",
   "ability": {
     "en": "The Storyteller can break the game rules, and if executed, good wins, even if you are dead. [No evil characters]",
+    "es-419": "El Narrador puede romper las reglas del juego, y si es ejecutado, los buenos ganan, incluso si estás muerto. [Ningún rol malvado]",
+    "sv": "Berättaren kan bryta mot reglerna, och om hen avrättas vinner goda laget, även om du är död. [Inga onda roller]",
+    "zh-Hans": "说书人可以打破游戏规则，如果说书人被处决，善良阵营获胜，即使你已死亡。[无邪恶角色在场]",
     "cn": "说书人可以打破游戏规则，如果说书人被处决，善良阵营获胜，即使你已死亡。[无邪恶角色在场]"
   },
   "flavor_text": {
     "en": "\"Let us disperse with unnecessary conjecture and silly paranoia. There is a perfectly rational explanation for everything. Yes, a teacup may indeed be orbiting the planet, too small to see, but I shall drink my tea from the very real china in my very real hands.\"",
+    "es-419": "Dejémonos de conjeturas innecesarias y paranoias tontas. Hay una explicatión perfectamente racional para todo. Sí, pueda que una taza de té esté orbitando el planeta, muy pequeña para ser vista, pero yo seguiré tomando mi té en mi muy real porcelana en mis muy reales manos.",
+    "sv": "Nu lägger vi ifrån oss allt onödigt gissande och larvig paranoia. Det finns en fullständigt logisk förklaring till allt. Ja, kanske är det så att en tekopp kretsar kring planeten, för liten att se, men jag dricker hellre mitt te från det högst verkliga porslinet i mina högst verkliga händer.",
+    "zh-Hans": "让我们驱散这不必要的猜忌和愚蠢的妄想吧。这发生的一切都有一个完全合理的解释。是的，现在正有一个茶杯在围绕着地球旋转，它太小了，所以你们都无法看见。但我会真实地用我的手端起这真实的瓷器，饮下这茶。",
     "cn": "“让我们驱散这不必要的猜忌和愚蠢的妄想吧。这发生的一切都有一个完全合理的解释。是的，现在正有一个茶杯在围绕着地球旋转，它太小了，所以你们都无法看见。但我会真实地用我的手端起这真实的瓷器，饮下这茶。”"
   },
+  "source_url": "https://wiki.bloodontheclocktower.com/Atheist",
+  "how_to_run": {
+    "cn": "在进行游戏设置，将盲抽袋给玩家进行角色抽取之前，将所有的邪恶角色标记移除，并加入镇民和外来者角色标记，直至盲抽袋中的角色标记总数等同于玩家人数。\n你可以在你认为合适的时候打破规则。如果你需要，你可以随意使用邪恶角色的相关提示标记。\n无神论者是一个非常复杂的角色，仅建议十分熟练的说书人尝试。在游戏的规则熟知和储备之上，这个角色还需要你对游戏乐趣与公平性有正确的判断。你的目的是为所有玩家创造一局有趣的游戏，所以你应该仅仅在给出适当的错误信息，或是模拟邪恶角色在场时的行为时打破规则。如果你能够让玩家相信无神论者并不在场，或者至少让他们探讨这种可能性，那么你就做得很好了。\n避免随意创造规则或是改变游戏的获胜条件。乐趣至上，玩家需要知道如果无神论者在场，他们如何才能获胜。",
+    "en": "During setup, before giving the bag to the players, remove all evil character tokens and add Townsfolk or Outsider character tokens to match the player count.\nBreak any game rules, as you see fit. Use evil reminder tokens if you need them.\nThe Atheist is a complex character, and is recommended for experienced Storytellers. In addition to rules knowledge, it requires you to have a good sense of fun and fairness. It is your job to create a fun game for all players, so only break the game rules to give false information (as much or as little as you want) or simulate the actions of evil characters that could be in play, but aren’t. If you can convince the players that there is no Atheist in play, or at least get them discussing the possibility, you’ve done well.\n\n\nAvoid creating arbitrary rules or changing the win conditions. In order to have a good time, the players need to know how they can win the game if an Atheist is in play."
+  },
   "examples": {
+    "cn": [
+      "调查员得知祖母和女裁缝之中有一人是炸弹人。调查员发起了提名，然后死亡了，即使女巫并不在场。猎手对造谣者使用了能力，并杀死了他。",
+      "有三名外来者在场，然而根据游戏人数，本该只有两名外来者在场。玩家处决了说书人。善良阵营获胜。"
+    ],
     "en": [
       "The Atheist is a complex character, and is recommended for experienced Storytellers. In addition to rules knowledge, it requires you to have a good sense of fun and fairness. It is your job to create a fun game for all players, so only break the game rules to give false information (as much or as little as you want) or simulate the actions of evil characters that could be in play, but aren’t. If you can convince the players that there is no Atheist in play, or at least get them discussing the possibility, you’ve done well.\n\n\nAvoid creating arbitrary rules or changing the win conditions. In order to have a good time, the players need to know how they can win the game if an Atheist is in play.",
       "The Investigator learns that either the Grandmother or the Seamstress is the Boomdandy. The Sweetheart nominates, and dies, even though there is no Witch in play. The Slayer uses their ability on the Gossip, who dies.",
       "There are three Outsiders in play, when there should be two. The players execute the Storyteller. Good wins."
-    ],
-    "cn": [
-      "调查员得知祖母和女裁缝之中有一人是炸弹人。调查员发起了提名，然后死亡了，即使女巫并不在场。猎手对造谣者使用了能力，并杀死了他。",
-      "有三名外来者在场，然而根据游戏人数，本该只有两名外来者在场。玩家处决了说书人。善良阵营获胜。"
     ]
   },
   "tips": {
-    "en": [
-      "If you are the Atheist, you know who the Demon is: nobody. You know exactly what to do to win the game: execute the Storyteller. If you can convince the other players that you are indeed the Atheist, then that will be enough to win the game.",
-      "Don't be too fussed if the other players don't believe you at first, and want to execute a few players. Executing the Storyteller on day one just because one player claims to be the Atheist is a big risk for most players to take, and it is smart to play for a few days to get as much information as possible. Claim that you are the Atheist, again and again, and have patience.",
-      "Reveal your character early. There isn't really much point lying about who you are, since there are no evil players to fool, and no Demon attacks to avoid at night.",
-      "Convince as many players as possible to reveal their characters and information as early as possible. There is little point hiding information, since the player you need to beat is the Storyteller, and the Storyteller already knows everything.",
-      "If there are characters on the script that could make you drunk, such as the Drunk, do everything you can to figure out whether or not you are drunk. If you are the Drunk, then you are not the Atheist at all, there is no Atheist in play, there are hidden evil players amongst you, and executing the Storyteller will result in the evil team winning.",
-      "Don't be afraid to die. Most players will want to kill the Atheist at some stage, just in case you are evil. Dying so that the good team can win is worth it, even though it will result in the Storyteller killing an extra player (or more!) that night.",
-      "If all the good team's information makes sense and is consistent, then kill all the players that this information points to as evil. Once all these players are dead, it should be much easier to convince the other players that you are the Atheist.",
-      "If the good team's information has some noticeable inconsistencies, such as once player learning that an Evil Twin is in play and another learning that a Scarlet Woman is in play in a one-Minion game, then highlight these inconsistencies to the group as evidence that the Storyteller is breaking the rules.",
-      "If there are any characters in play that have game-ending abilities, such as the Mayor or Saint, then check with the Storyteller as to whether or not the game will end if you take a risky action. It is best that all players know beforehand, when they are about to do something that could end the game, with either a win or a loss."
-    ],
     "cn": [
       "如果你是无神论者，你能确切地知道场上不存在恶魔（及其他邪恶角色），你知道只有处决说书人才能获胜，如果你能向其他玩家证明你是无神论者，你就能赢得游戏。",
       "如果其他玩家起初并不信任你，并且想提名处决一些玩家，请不要惊慌。对于大多数人来说，仅仅因为一名玩家在第一天宣称自己是无神论者就处决说书人是一件风险极大的事情，让游戏正常地进行几天是更加明智的选择。记住，要不厌其烦地去宣称并说服其他人接受你是无神论者这个事实。",
@@ -59,11 +49,29 @@
       "如果所有善良阵营的玩家的信息都有迹可循而且指向一致，那就杀死所有这些信息中指认为邪恶的玩家。一旦这些玩家都死亡之后，让其他玩家相信你是无神论者会更加容易。",
       "如果你发现善良阵营的信息出现明显的矛盾，例如一名玩家得知镜像双子在场且另一名玩家得知红唇女郎在场，但本场游戏配置只有一个爪牙，你可以向其他玩家说明这些不一致是说书人打破规则的证据。",
       "如果当前游戏有特殊胜利能力角色在场，例如镇长或者圣徒，你需要与说书人确定如果在这种情况下，如果你贸然行动，游戏是否会结束。最好提前让所有玩家都知道这么做会导致的结果，无论输赢。"
+    ],
+    "en": [
+      "If you are the Atheist, you know who the Demon is: nobody. You know exactly what to do to win the game: execute the Storyteller. If you can convince the other players that you are indeed the Atheist, then that will be enough to win the game.",
+      "Don't be too fussed if the other players don't believe you at first, and want to execute a few players. Executing the Storyteller on day one just because one player claims to be the Atheist is a big risk for most players to take, and it is smart to play for a few days to get as much information as possible. Claim that you are the Atheist, again and again, and have patience.",
+      "Reveal your character early. There isn't really much point lying about who you are, since there are no evil players to fool, and no Demon attacks to avoid at night.",
+      "Convince as many players as possible to reveal their characters and information as early as possible. There is little point hiding information, since the player you need to beat is the Storyteller, and the Storyteller already knows everything.",
+      "If there are characters on the script that could make you drunk, such as the Drunk, do everything you can to figure out whether or not you are drunk. If you are the Drunk, then you are not the Atheist at all, there is no Atheist in play, there are hidden evil players amongst you, and executing the Storyteller will result in the evil team winning.",
+      "Don't be afraid to die. Most players will want to kill the Atheist at some stage, just in case you are evil. Dying so that the good team can win is worth it, even though it will result in the Storyteller killing an extra player (or more!) that night.",
+      "If all the good team's information makes sense and is consistent, then kill all the players that this information points to as evil. Once all these players are dead, it should be much easier to convince the other players that you are the Atheist.",
+      "If the good team's information has some noticeable inconsistencies, such as once player learning that an Evil Twin is in play and another learning that a Scarlet Woman is in play in a one-Minion game, then highlight these inconsistencies to the group as evidence that the Storyteller is breaking the rules.",
+      "If there are any characters in play that have game-ending abilities, such as the Mayor or Saint, then check with the Storyteller as to whether or not the game will end if you take a risky action. It is best that all players know beforehand, when they are about to do something that could end the game, with either a win or a loss."
     ]
   },
-  "how_to_run": {
-    "en": "During setup, before giving the bag to the players, remove all evil character tokens and add Townsfolk or Outsider character tokens to match the player count.\nBreak any game rules, as you see fit. Use evil reminder tokens if you need them.\nThe Atheist is a complex character, and is recommended for experienced Storytellers. In addition to rules knowledge, it requires you to have a good sense of fun and fairness. It is your job to create a fun game for all players, so only break the game rules to give false information (as much or as little as you want) or simulate the actions of evil characters that could be in play, but aren’t. If you can convince the players that there is no Atheist in play, or at least get them discussing the possibility, you’ve done well.\n\n\nAvoid creating arbitrary rules or changing the win conditions. In order to have a good time, the players need to know how they can win the game if an Atheist is in play.",
-    "cn": "在进行游戏设置，将盲抽袋给玩家进行角色抽取之前，将所有的邪恶角色标记移除，并加入镇民和外来者角色标记，直至盲抽袋中的角色标记总数等同于玩家人数。\n你可以在你认为合适的时候打破规则。如果你需要，你可以随意使用邪恶角色的相关提示标记。\n无神论者是一个非常复杂的角色，仅建议十分熟练的说书人尝试。在游戏的规则熟知和储备之上，这个角色还需要你对游戏乐趣与公平性有正确的判断。你的目的是为所有玩家创造一局有趣的游戏，所以你应该仅仅在给出适当的错误信息，或是模拟邪恶角色在场时的行为时打破规则。如果你能够让玩家相信无神论者并不在场，或者至少让他们探讨这种可能性，那么你就做得很好了。\n避免随意创造规则或是改变游戏的获胜条件。乐趣至上，玩家需要知道如果无神论者在场，他们如何才能获胜。"
-  },
+  "url_param": "Atheist",
+  "editions": [
+    "experimental"
+  ],
+  "artist": "Marianna Carr",
+  "jinxes": [
+    {
+      "id": "riot",
+      "reason": "During a riot, if the Storyteller is nominated, players vote. If they are \"about to die\", the game ends. If not, they nominate again."
+    }
+  ],
   "token_url": "https://wiki.bloodontheclocktower.com/images/4/43/Icon_atheist.png"
 }

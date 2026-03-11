@@ -1,15 +1,81 @@
 {
   "id": "courtier",
+  "type": "townsfolk",
   "name": {
     "en": "Courtier",
+    "es-419": "Cortesano",
+    "sv": "Hovmästaren",
+    "zh-Hans": "侍臣",
     "cn": "侍臣"
   },
-  "type": "townsfolk",
+  "ability": {
+    "en": "Once per game, at night, choose a character: they are drunk for 3 nights & 3 days.",
+    "es-419": "Una vez por juego, en la noche, escoge un rol: él está borracho por 3 noches y 3 días.",
+    "sv": "En gång per spel, på natten, kan du välja en roll; den spelaren är full i 3 dygn.",
+    "zh-Hans": "每局游戏限一次，在夜晚时，你可以选择一个角色：如果该角色在场，该角色之一从当晚开始醉酒三天三夜。",
+    "cn": "每局游戏限一次，在夜晚时，你可以选择一个角色：如果该角色在场，该角色之一从当晚开始醉酒三天三夜。"
+  },
+  "flavor_text": {
+    "en": "\"I am more afraid of an army of one hundred sheep led by a lion than an army of one hundred lions led by a sheep.\"",
+    "es-419": "Le tengo más miedo a un ejército de cien ovejas lideradas por un león que a un ejército de cien leones liderados por una oveja.",
+    "sv": "Jag fruktar mer en här av hundra får ledda av ett lejon, än en här av hundra lejon ledda av ett får.",
+    "zh-Hans": "比起一只羊带领的一百头狮子，我更害怕一头狮子带领的一百只羊。",
+    "cn": "“比起一只羊带领的一百头狮子，我更害怕一头狮子带领的一百只羊。”"
+  },
+  "first_night": {
+    "en": "The Courtier might choose a character. :reminder: :reminder:",
+    "es-419": "El Cortesano quizás escoja un rol. :reminder: :reminder:",
+    "sv": "Hovmästaren kanske väljer en roll. :reminder: :reminder:",
+    "zh-Hans": "侍臣可以选择一个角色:reminder: :reminder:"
+  },
+  "other_nights": {
+    "en": "The Courtier might choose a character. :reminder: :reminder:",
+    "es-419": "El Cortesano quizás escoja un rol. :reminder: :reminder:",
+    "sv": "Hovmästaren kanske väljer en roll. :reminder: :reminder:",
+    "zh-Hans": "侍臣可以选择一个角色:reminder: :reminder:"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Courtier",
+  "how_to_run": {
+    "cn": "每个夜晚，唤醒侍臣。侍臣要么摇头表示不使用能力，要么指向角色列表上的任意一个角色图标。让侍臣重新入睡。\n如果侍臣使用了能力且该角色在场，对应的玩家当晚醉酒，持续三天三夜。将侍臣的“醉酒1”放置到该玩家的角色标记旁。在下一夜，将“醉酒1”替换成“醉酒2”。再下一夜，将“醉酒2”替换成“醉酒3”。再下一夜的黄昏，移除“醉酒3”，且侍臣失去能力。将“失去能力”提示标记放置到侍臣角色标记旁，并从夜晚顺序表上移除其夜晚标记。\n在侍臣选择了角色使其醉酒后，在本局游戏的剩余时段内不再唤醒侍臣。\n在其他的剧本中，场上可能会出现多个相同角色。侍臣只能让他选择的角色所对应的玩家其中之一醉酒。",
+    "en": "Each night, wake the Courtier. They either shake their head no or point at any character icon on their character sheet. Put the Courtier to sleep.\nIf the Courtier chose a character icon and that character is in play, the player of the chosen character becomes drunk for three nights and three days. Tonight, mark them with the Courtier’s DRUNK 1 reminder. The next night, replace the DRUNK 1 reminder with the DRUNK 2 reminder. The next night, replace the DRUNK 2 reminder with the DRUNK 3 reminder. At dusk on the next night, remove the DRUNK 3 reminder, and the Courtier loses their ability—mark them with the NO ABILITY reminder and remove their night token from the night sheet.\nAfter the Courtier chooses a character to make drunk, do not wake the Courtier for the rest of the game.\nIn other editions, there can be multiple copies of the same character in play. The Courtier only makes one of them drunk."
+  },
+  "examples": {
+    "cn": [
+      "已经过去了四个夜晚，侍臣都被唤醒但没有使用自己的能力。在第五个夜晚，侍臣使沙巴洛斯醉酒。从今晚起的三个夜晚，沙巴洛斯能够行动，但是无法杀死任何人。",
+      "侍臣在醉酒时使用了自己的能力。无事发生，但侍臣再也不会被唤醒了。",
+      "侍臣使主谋醉酒。珀被处决而主谋依然存活。游戏结束，善良阵营获胜。"
+    ],
+    "en": [
+      "In other editions, there can be multiple copies of the same character in play. The Courtier only makes one of them drunk.",
+      "For four nights, the Courtier wakes but does not use their ability. During the fifth night, they make the Shabaloth drunk. For the next three nights, the Shabaloth acts but cannot kill anybody.",
+      "The Courtier uses their ability while drunk. Nothing happens, but they are not woken again.",
+      "The Courtier makes the Mastermind drunk. The Po is executed while the Mastermind still lives. The game ends and good wins."
+    ]
+  },
+  "tips": {
+    "cn": [
+      "侍臣的独特之处在于你选择的是角色，而不是玩家。这意味着如果你选择了一个在游戏里中存在的角色，那他就会醉酒。这与投毒者不同，投毒者是选择让玩家中毒，而不管他们是什么角色。多亏了这一点，你可以使用一些不同的策略！",
+      "整个游戏你只能使用一次你的能力，所以要把握好时机！你做出选择的时间越晚，你那时候的信息越多，造成的混乱也可能越多。另一方面，邪恶阵营的玩家会尽快瞄准你，所以尽早使用你的能力可以确保你在死前使用出能力并获得一些信息。要由你来判断游戏的进程并做出选择！",
+      "显然，你能力最强的用途之一就是瞄准恶魔——如果你可以通过让恶魔醉酒来阻止恶魔，那么善良阵营玩家将有三晚的平安，而邪恶阵营将处于严重劣势。判断是哪个恶魔在游戏中的可靠方法是观察每晚的死亡人数——发现一个规律的话，你就可以在他们发动毁灭性攻击之前醉酒他们，比如致命的沙巴洛斯或狡猾的珀。",
+      "你可以使用的另一个强大策略是让爪牙醉酒。醉酒的刺客或教父无法在镇上造成额外死亡，但要把握好时机——只有在你确定这会帮助善良阵营的前提下，再这么做。选择灌醉魔鬼代言人或主谋就更阴险了，因为邪恶的阵营往往靠他们的能力在危急关头拯救他们，而醉酒不会马上被发现。一个认为自己背后有主谋的邪恶阵营可能会让他们的恶魔被处决，而事实上他们即将输掉游戏！",
+      "在大多数情况下，让善良阵营的玩家醉酒可能不是你能力使用的最佳选择，但实际上在某些情况下它确实是可行的。例如，醉酒的造谣者不能再随机死亡，醉酒的祖母不会与孙子一起死去，醉酒的月之子死亡后不会导致额外善良阵营玩家的死亡。",
+      "如果你怀疑某人可能不是他们声称的人，你可以选择他们声称的角色，看看他们的发言是否会发生变化。例如，如果一个侍女在你醉酒那个角色之后继续提供“真实”信息，或者一个驱魔人在应该被醉酒之后继续“阻止”恶魔，那你完全可以怀疑他们。（注意：如果你错了，让真正的侍女或驱魔人醉酒了，你可能会因为干扰了善良阵营而受到怀疑和愤怒！这是一场冒险的游戏，但回报很大。）",
+      "如果你只是不确定要让谁醉酒，而且你又感觉自己要死了，一个有效的选择是简单地选择剧本中最致命的角色。无论这个角色是否在游戏中，你现在都可以完全确信这个角色根本不会影响你的游戏，让善良玩家可以排除那个角色进行推理。 （你问，黯月初升剧本中谁是最致命的角色？好吧，这取决于你！）"
+    ],
+    "en": [
+      "The Courtier is unique in that you choose a character, not a player. This means you select an actual role, and if they exist in your game they will be drunk. This is different from the Poisoner, who chooses a player to be poisoned regardless of who they are. Thanks to this, you have some different strategies available to you!",
+      "You can only use your ability once in the entire game, so time it well! The later you make your choice, the more information you will have about the game's state and what characters are in play and causing mayhem. On the other hand, the evil team will be keen to target you as soon as they possibly can, so using your ability early can ensure you get it off and learn something before you die. It's up to you to judge the landscape of your particular game and make your choice!",
+      "Obviously one of the strongest uses of your ability is to target the demon - if you can block the demon by getting them drunk, then the good team will have three nights of reprieve and the evil team will be at a severe disadvantage. The biggest tell for which demon is in play is the number of deaths each night - spot a pattern there, and you can pick out a deadly Shabaloth or cunning Po before they unleash their devastating attacks.",
+      "Another powerful strategy you have available to you is to get Minions drunk. A drunk Assassin or Godfather won't be able to unleash unexpected deaths on the town, though getting the timing right can be very tricky - only aim for these if you're really sure it's going to help the good team out. A drunk Devil's Advocate or Mastermind is a little more insidious, since the evil team often rely on their abilities to save them in a pinch, and the drunkenness will not be obvious right away. An evil team who thinks they have a Mastermind in their back pocket may be okay with letting their demon die, when in fact they're about to lose the game!",
+      "In most cases, getting good players drunk is probably not the best use of your ability, but there are some cases where it can be viable. For example, a drunk Tinker can no longer die randomly, a drunk Grandmother will not die alongside her grandchild, and a drunk Moonchild who dies will not cause an extra good player's death.",
+      "If you suspect that someone may not be who they claim to be, you can choose the character they're claiming and see if their story changes. For example, if a Chambermaid continues to come out with 'true' information after you've had a few too many drinks with that character, or an Exorcist continues to 'block' the demon after they're supposed to be hammered? (Note: if you're wrong and you make the actual Chambermaid or Exorcist drunk, you may gain some suspicion and ire for undermining the good team! It's a risky play with a big payoff.)",
+      "If you're just not sure who to make drunk and you're rapidly running out of days, a valid option is to simply choose the most deadly character on the script. Whether or not they are in play, you can now be completely confident that they are not impacting your game at all, allowing the good team to rule them out of any reasoning. (Who is the most deadly character in Bad Moon Rising, you ask? Well, that's up to you! ;) )"
+    ]
+  },
+  "url_param": "Courtier",
   "editions": [
     "bad_moon_rising"
   ],
-  "first_night": false,
-  "other_nights": true,
   "artist": "Aidan Roberts",
   "jinxes": [
     {
@@ -21,51 +87,5 @@
       "reason": "If the Vizier loses their ability, they learn this, and cannot die during the day."
     }
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Courtier",
-  "ability": {
-    "en": "Once per game, at night, choose a character: they are drunk for 3 nights & 3 days.",
-    "cn": "每局游戏限一次，在夜晚时，你可以选择一个角色：如果该角色在场，该角色之一从当晚开始醉酒三天三夜。"
-  },
-  "flavor_text": {
-    "en": "\"I am more afraid of an army of one hundred sheep led by a lion than an army of one hundred lions led by a sheep.\"",
-    "cn": "“比起一只羊带领的一百头狮子，我更害怕一头狮子带领的一百只羊。”"
-  },
-  "examples": {
-    "en": [
-      "In other editions, there can be multiple copies of the same character in play. The Courtier only makes one of them drunk.",
-      "For four nights, the Courtier wakes but does not use their ability. During the fifth night, they make the Shabaloth drunk. For the next three nights, the Shabaloth acts but cannot kill anybody.",
-      "The Courtier uses their ability while drunk. Nothing happens, but they are not woken again.",
-      "The Courtier makes the Mastermind drunk. The Po is executed while the Mastermind still lives. The game ends and good wins."
-    ],
-    "cn": [
-      "已经过去了四个夜晚，侍臣都被唤醒但没有使用自己的能力。在第五个夜晚，侍臣使沙巴洛斯醉酒。从今晚起的三个夜晚，沙巴洛斯能够行动，但是无法杀死任何人。",
-      "侍臣在醉酒时使用了自己的能力。无事发生，但侍臣再也不会被唤醒了。",
-      "侍臣使主谋醉酒。珀被处决而主谋依然存活。游戏结束，善良阵营获胜。"
-    ]
-  },
-  "tips": {
-    "en": [
-      "The Courtier is unique in that you choose a character, not a player. This means you select an actual role, and if they exist in your game they will be drunk. This is different from the Poisoner, who chooses a player to be poisoned regardless of who they are. Thanks to this, you have some different strategies available to you!",
-      "You can only use your ability once in the entire game, so time it well! The later you make your choice, the more information you will have about the game's state and what characters are in play and causing mayhem. On the other hand, the evil team will be keen to target you as soon as they possibly can, so using your ability early can ensure you get it off and learn something before you die. It's up to you to judge the landscape of your particular game and make your choice!",
-      "Obviously one of the strongest uses of your ability is to target the demon - if you can block the demon by getting them drunk, then the good team will have three nights of reprieve and the evil team will be at a severe disadvantage. The biggest tell for which demon is in play is the number of deaths each night - spot a pattern there, and you can pick out a deadly Shabaloth or cunning Po before they unleash their devastating attacks.",
-      "Another powerful strategy you have available to you is to get Minions drunk. A drunk Assassin or Godfather won't be able to unleash unexpected deaths on the town, though getting the timing right can be very tricky - only aim for these if you're really sure it's going to help the good team out. A drunk Devil's Advocate or Mastermind is a little more insidious, since the evil team often rely on their abilities to save them in a pinch, and the drunkenness will not be obvious right away. An evil team who thinks they have a Mastermind in their back pocket may be okay with letting their demon die, when in fact they're about to lose the game!",
-      "In most cases, getting good players drunk is probably not the best use of your ability, but there are some cases where it can be viable. For example, a drunk Tinker can no longer die randomly, a drunk Grandmother will not die alongside her grandchild, and a drunk Moonchild who dies will not cause an extra good player's death.",
-      "If you suspect that someone may not be who they claim to be, you can choose the character they're claiming and see if their story changes. For example, if a Chambermaid continues to come out with 'true' information after you've had a few too many drinks with that character, or an Exorcist continues to 'block' the demon after they're supposed to be hammered? (Note: if you're wrong and you make the actual Chambermaid or Exorcist drunk, you may gain some suspicion and ire for undermining the good team! It's a risky play with a big payoff.)",
-      "If you're just not sure who to make drunk and you're rapidly running out of days, a valid option is to simply choose the most deadly character on the script. Whether or not they are in play, you can now be completely confident that they are not impacting your game at all, allowing the good team to rule them out of any reasoning. (Who is the most deadly character in Bad Moon Rising, you ask? Well, that's up to you! ;) )"
-    ],
-    "cn": [
-      "侍臣的独特之处在于你选择的是角色，而不是玩家。这意味着如果你选择了一个在游戏里中存在的角色，那他就会醉酒。这与投毒者不同，投毒者是选择让玩家中毒，而不管他们是什么角色。多亏了这一点，你可以使用一些不同的策略！",
-      "整个游戏你只能使用一次你的能力，所以要把握好时机！你做出选择的时间越晚，你那时候的信息越多，造成的混乱也可能越多。另一方面，邪恶阵营的玩家会尽快瞄准你，所以尽早使用你的能力可以确保你在死前使用出能力并获得一些信息。要由你来判断游戏的进程并做出选择！",
-      "显然，你能力最强的用途之一就是瞄准恶魔——如果你可以通过让恶魔醉酒来阻止恶魔，那么善良阵营玩家将有三晚的平安，而邪恶阵营将处于严重劣势。判断是哪个恶魔在游戏中的可靠方法是观察每晚的死亡人数——发现一个规律的话，你就可以在他们发动毁灭性攻击之前醉酒他们，比如致命的沙巴洛斯或狡猾的珀。",
-      "你可以使用的另一个强大策略是让爪牙醉酒。醉酒的刺客或教父无法在镇上造成额外死亡，但要把握好时机——只有在你确定这会帮助善良阵营的前提下，再这么做。选择灌醉魔鬼代言人或主谋就更阴险了，因为邪恶的阵营往往靠他们的能力在危急关头拯救他们，而醉酒不会马上被发现。一个认为自己背后有主谋的邪恶阵营可能会让他们的恶魔被处决，而事实上他们即将输掉游戏！",
-      "在大多数情况下，让善良阵营的玩家醉酒可能不是你能力使用的最佳选择，但实际上在某些情况下它确实是可行的。例如，醉酒的造谣者不能再随机死亡，醉酒的祖母不会与孙子一起死去，醉酒的月之子死亡后不会导致额外善良阵营玩家的死亡。",
-      "如果你怀疑某人可能不是他们声称的人，你可以选择他们声称的角色，看看他们的发言是否会发生变化。例如，如果一个侍女在你醉酒那个角色之后继续提供“真实”信息，或者一个驱魔人在应该被醉酒之后继续“阻止”恶魔，那你完全可以怀疑他们。（注意：如果你错了，让真正的侍女或驱魔人醉酒了，你可能会因为干扰了善良阵营而受到怀疑和愤怒！这是一场冒险的游戏，但回报很大。）",
-      "如果你只是不确定要让谁醉酒，而且你又感觉自己要死了，一个有效的选择是简单地选择剧本中最致命的角色。无论这个角色是否在游戏中，你现在都可以完全确信这个角色根本不会影响你的游戏，让善良玩家可以排除那个角色进行推理。 （你问，黯月初升剧本中谁是最致命的角色？好吧，这取决于你！）"
-    ]
-  },
-  "how_to_run": {
-    "en": "Each night, wake the Courtier. They either shake their head no or point at any character icon on their character sheet. Put the Courtier to sleep.\nIf the Courtier chose a character icon and that character is in play, the player of the chosen character becomes drunk for three nights and three days. Tonight, mark them with the Courtier’s DRUNK 1 reminder. The next night, replace the DRUNK 1 reminder with the DRUNK 2 reminder. The next night, replace the DRUNK 2 reminder with the DRUNK 3 reminder. At dusk on the next night, remove the DRUNK 3 reminder, and the Courtier loses their ability—mark them with the NO ABILITY reminder and remove their night token from the night sheet.\nAfter the Courtier chooses a character to make drunk, do not wake the Courtier for the rest of the game.\nIn other editions, there can be multiple copies of the same character in play. The Courtier only makes one of them drunk.",
-    "cn": "每个夜晚，唤醒侍臣。侍臣要么摇头表示不使用能力，要么指向角色列表上的任意一个角色图标。让侍臣重新入睡。\n如果侍臣使用了能力且该角色在场，对应的玩家当晚醉酒，持续三天三夜。将侍臣的“醉酒1”放置到该玩家的角色标记旁。在下一夜，将“醉酒1”替换成“醉酒2”。再下一夜，将“醉酒2”替换成“醉酒3”。再下一夜的黄昏，移除“醉酒3”，且侍臣失去能力。将“失去能力”提示标记放置到侍臣角色标记旁，并从夜晚顺序表上移除其夜晚标记。\n在侍臣选择了角色使其醉酒后，在本局游戏的剩余时段内不再唤醒侍臣。\n在其他的剧本中，场上可能会出现多个相同角色。侍臣只能让他选择的角色所对应的玩家其中之一醉酒。"
-  },
   "token_url": "https://wiki.bloodontheclocktower.com/images/e/e0/Icon_courtier.png"
 }

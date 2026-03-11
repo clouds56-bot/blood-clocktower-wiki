@@ -1,47 +1,48 @@
 {
   "id": "ojo",
+  "type": "demon",
   "name": {
     "en": "Ojo",
+    "es-419": "Ojo",
+    "sv": "Ojo",
+    "zh-Hans": "奥赫",
     "cn": "奥赫"
   },
-  "type": "demon",
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "Chloe McDougall",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Ojo",
   "ability": {
     "en": "Each night*, choose a character: they die. If they are not in play, the Storyteller chooses who dies.",
+    "es-419": "Cada noche*, escoge un rol: él muere. Si ese rol no está en juego, el Narrador escoge quién muere.",
+    "sv": "Varje natt* väljer du en roll; hen dör. Om rollen inte är i spel väljer berättaren vem som dör.",
+    "zh-Hans": "每个夜晚*，你要选择一个角色：他死亡。如果该角色不在场，则由说书人来决定谁会被你杀死。",
     "cn": "每个夜晚*，你要选择一个角色：他死亡。如果该角色不在场，则由说书人来决定谁会被你杀死。"
   },
   "flavor_text": {
     "en": "\"Like a bonfire on a moonless night... I see you, mortal.\"",
+    "es-419": "Como una fogata en una noche sin luna…te veo, mortal.",
+    "sv": "Jag ser dig, klart som ett bål på en månfri natt.",
+    "zh-Hans": "如同无月之夜里的篝火那般显眼……我看到你了，凡人。",
     "cn": "“如同无月之夜里的篝火那般显眼……我看到你了，凡人。”"
   },
+  "other_nights": {
+    "en": "The Ojo chooses a character. :reminder:",
+    "es-419": "El Ojo escoge a un jugador. :reminder: ",
+    "sv": "Ojo väljer en roll. :reminder:",
+    "zh-Hans": "奥赫选择一个角色。:reminder:"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Ojo",
+  "how_to_run": {
+    "cn": "除首个夜晚以外的每个夜晚，唤醒奥赫。让奥赫指向角色列表上的一个角色标记。如果被选择的角色在场，对应的玩家死亡——使用“死亡”提示标记标记那名玩家。如果被选择的角色不在场，那么改为你来选择任意一名玩家，那名玩家死亡——使用“死亡”提示标记标记那名玩家。让奥赫重新入睡。\n如果奥赫所在的剧本包含能够在同一个夜晚进行多次杀戮的恶魔，例如沙巴洛斯，并且奥赫选择了一个不在场的角色，你可以杀死超过一名玩家。这可以帮助奥赫伪装成另一种恶魔。",
+    "en": "Each night except the first, wake the Ojo. The Ojo player points to a character icon on their character sheet. If that character is in play, that player dies—mark them with the “Dead” reminder. If that character is not in play, choose any player. That player dies—mark them with the “Dead” reminder. Put the Ojo to sleep.\nIf the Ojo is on a script with a Demon that kills multiple times per night, such as the Shabaloth, and the Ojo chooses a not-in-play character, you may choose more than one player to kill that night. This helps the Ojo player pretend that a different Demon is in play."
+  },
   "examples": {
+    "cn": [
+      "奥赫选择了瘟疫医生，瘟疫医生死亡。下一个夜晚，奥赫选择了罂粟种植者，罂粟种植者死亡。再下一个夜晚，奥赫选择了共情者。共情者不在场，因此说书人决定改为让修行者死亡。"
+    ],
     "en": [
       "If the Ojo is on a script with a Demon that kills multiple times per night, such as the Shabaloth, and the Ojo chooses a not-in-play character, you may choose more than one player to kill that night. This helps the Ojo player pretend that a different Demon is in play.",
       "The Ojo chooses the Plague Doctor. The Plague Doctor dies. The next night, the Ojo chooses the Poppy Grower. The Poppy Grower dies. The next night, the Ojo chooses the Empath. There is no Empath in play, so the Storyteller chooses that the  Shugenja dies instead."
-    ],
-    "cn": [
-      "奥赫选择了瘟疫医生，瘟疫医生死亡。下一个夜晚，奥赫选择了罂粟种植者，罂粟种植者死亡。再下一个夜晚，奥赫选择了共情者。共情者不在场，因此说书人决定改为让修行者死亡。"
     ]
   },
   "tips": {
-    "en": [
-      "Choose the most powerful characters first. The joy of your ability is that you can get rid of the characters you’re most concerned about playing against as soon as you want, so just start killing them!",
-      "Think about the other Demons on the script – is it worth trying to kill as though one of those might be in play? If you do, though, you’re likely to have to sacrifice killing all the most worrisome Townsfolk first, which is your main ability, so think about whether it’s worthwhile.",
-      "If you think players are going to work out you’re an Ojo, make sure you bluff as a less powerful Townsfolk or Outsider. You don’t want people to be asking why you haven’t died before the final three when all the other most powerful Townsfolk have died already.",
-      "Bluff as a powerful Townsfolk and get your Minions to do so too! If there are multiple powerful characters that haven’t died, it makes it look less like an Ojo game, plus your whole evil team gets to spread powerful misinformation at the same time.",
-      "If you’re not sure if someone is telling the truth about being a certain character, you can pick it and find out. If they die, great, you know you have to take their information into account. If not, they were bluffing and you can move on.",
-      "Pay attention when a player you weren’t expecting to die dies. Maybe they had swapped claims with another player and were actually the character you tried to kill. Or maybe that character was out of play and the Storyteller has just chosen that kill.",
-      "If you’re playing a script with Demons that can kill multiple times at night, you can deliberately choose a not in play character (maybe one of your bluffs?) to allow the Storyteller to make multiple kills to keep the option alive that one of those multi-kill Demons is in play. While those kills likely won’t be as good for you as you choosing the exact characters you want to snipe, it will continue to hide which Demon is actually in-play.",
-      "Don’t forget Outsiders. If you focus all your attention on killing Townsfolk, you might end up in a final three with just two Outsiders that’re confirmed by Outsider count, so don’t forget that they’re also worthwhile kills.",
-      "If you or one of your Minions wants to bluff a character that’s not in your bluffs, you can choose that character at night to find out if it’s in play or not and adjust your bluffs accordingly."
-    ],
     "cn": [
       "优先选择最强力的角色。你的能力的乐趣在于，你可以随心所欲地消灭那些你觉得最具威胁性的角色，所以放开手来结果他们吧！",
       "考虑一下剧本中的其他恶魔——是否值得伪装成其他恶魔可能的行动来进行杀戮？如果你这样做，那意味着你可能不得不放弃优先击杀那些最具威胁性的镇民的做法，但这正是你的能力所在，所以你需要考虑一下是否值得去伪装成其他恶魔。",
@@ -58,11 +59,23 @@
       "通过观察哪些角色死亡来判断奥赫是否在场。如果玩家都按照通常游戏那样死亡——死亡的是那些公开声明自己是强力角色，以及那些根据场上公开或半公开信息可以推断出来是强力角色的玩家，那么这很可能不是奥赫在场。如果死亡的是那些从头到尾都没有公开声明过自己的角色，并且一直游离在玩家信息之外的玩家，那么这可能是奥赫在场。",
       "不要因为在游戏前期死亡的是外来者或不太重要的镇民就放弃奥赫在场的可能性。奥赫可能是在试图摆脱你们的追踪，或可能是意外地选中了不在场角色，然后说书人相应地选择更弱小的目标进行击杀。",
       "注意那些在夜晚死亡的玩家所声称的角色。考虑一下存活玩家之中，谁的游戏思路比较有可能认为当前的死亡顺序最有利于邪恶阵营。如果你的小伙伴是奥赫，他会优先击杀什么角色？这个思路可以帮助你找出谁是真正的奥赫！"
+    ],
+    "en": [
+      "Choose the most powerful characters first. The joy of your ability is that you can get rid of the characters you’re most concerned about playing against as soon as you want, so just start killing them!",
+      "Think about the other Demons on the script – is it worth trying to kill as though one of those might be in play? If you do, though, you’re likely to have to sacrifice killing all the most worrisome Townsfolk first, which is your main ability, so think about whether it’s worthwhile.",
+      "If you think players are going to work out you’re an Ojo, make sure you bluff as a less powerful Townsfolk or Outsider. You don’t want people to be asking why you haven’t died before the final three when all the other most powerful Townsfolk have died already.",
+      "Bluff as a powerful Townsfolk and get your Minions to do so too! If there are multiple powerful characters that haven’t died, it makes it look less like an Ojo game, plus your whole evil team gets to spread powerful misinformation at the same time.",
+      "If you’re not sure if someone is telling the truth about being a certain character, you can pick it and find out. If they die, great, you know you have to take their information into account. If not, they were bluffing and you can move on.",
+      "Pay attention when a player you weren’t expecting to die dies. Maybe they had swapped claims with another player and were actually the character you tried to kill. Or maybe that character was out of play and the Storyteller has just chosen that kill.",
+      "If you’re playing a script with Demons that can kill multiple times at night, you can deliberately choose a not in play character (maybe one of your bluffs?) to allow the Storyteller to make multiple kills to keep the option alive that one of those multi-kill Demons is in play. While those kills likely won’t be as good for you as you choosing the exact characters you want to snipe, it will continue to hide which Demon is actually in-play.",
+      "Don’t forget Outsiders. If you focus all your attention on killing Townsfolk, you might end up in a final three with just two Outsiders that’re confirmed by Outsider count, so don’t forget that they’re also worthwhile kills.",
+      "If you or one of your Minions wants to bluff a character that’s not in your bluffs, you can choose that character at night to find out if it’s in play or not and adjust your bluffs accordingly."
     ]
   },
-  "how_to_run": {
-    "en": "Each night except the first, wake the Ojo. The Ojo player points to a character icon on their character sheet. If that character is in play, that player dies—mark them with the “Dead” reminder. If that character is not in play, choose any player. That player dies—mark them with the “Dead” reminder. Put the Ojo to sleep.\nIf the Ojo is on a script with a Demon that kills multiple times per night, such as the Shabaloth, and the Ojo chooses a not-in-play character, you may choose more than one player to kill that night. This helps the Ojo player pretend that a different Demon is in play.",
-    "cn": "除首个夜晚以外的每个夜晚，唤醒奥赫。让奥赫指向角色列表上的一个角色标记。如果被选择的角色在场，对应的玩家死亡——使用“死亡”提示标记标记那名玩家。如果被选择的角色不在场，那么改为你来选择任意一名玩家，那名玩家死亡——使用“死亡”提示标记标记那名玩家。让奥赫重新入睡。\n如果奥赫所在的剧本包含能够在同一个夜晚进行多次杀戮的恶魔，例如沙巴洛斯，并且奥赫选择了一个不在场的角色，你可以杀死超过一名玩家。这可以帮助奥赫伪装成另一种恶魔。"
-  },
+  "url_param": "Ojo",
+  "editions": [
+    "experimental"
+  ],
+  "artist": "Chloe McDougall",
   "token_url": "https://wiki.bloodontheclocktower.com/images/6/6f/Icon_ojo.png"
 }

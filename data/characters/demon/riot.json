@@ -1,15 +1,48 @@
 {
   "id": "riot",
+  "type": "demon",
   "name": {
     "en": "Riot",
+    "es-419": "Disturbio",
+    "sv": "Kravallen",
+    "zh-Hans": "暴乱",
     "cn": "暴乱"
   },
-  "type": "demon",
+  "ability": {
+    "en": "On day 3, Minions become Riot & nominees die but nominate an alive player immediately. This must happen.",
+    "es-419": "En el día 3, los Secuaces se convierten en Disturbio y los nominados mueren pero nominan a un jugador vivo inmediatamente. Esto debe ocurrir.",
+    "sv": "Dag 3 blir Kumpaner till Kravallen och nominerade dör men nominerar en levande spelare direkt. Detta måste hända.",
+    "zh-Hans": "在第三个白天，所有爪牙会变成暴乱，当天被提名的玩家会立即死亡且必须再次提名一名存活的玩家。",
+    "cn": "在第三个白天，所有爪牙会变成暴乱，当天被提名的玩家会立即死亡且必须再次提名一名存活的玩家。"
+  },
+  "flavor_text": {
+    "en": "\"Larga vida a la revolución! Mi revolucion!\"",
+    "es-419": "¡Que viva la revolución! ¡Mi revolución!",
+    "sv": "¡Larga vida a la revolución! ¡Mi revolución!",
+    "zh-Hans": "革命万岁！我的革命！",
+    "cn": "“革命万岁！我的革命！”（西班牙语）"
+  },
+  "other_nights": {
+    "en": "Change the Riot reminder token to the relevant day. :reminder: If it is night 3, you may wake the Minions. Show the *YOU ARE* & Riot tokens.",
+    "sv": "Ändra Kravallens påminnelse till den aktuella dagen. :reminder: Om det är natt 3 får du väcka Kumpanerna. Visa kortet *DU ÄR* och Kravallbrickorna."
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Riot",
+  "how_to_run": {
+    "cn": "在第一个白天，把“第一个白天”标记放置在魔典中央。在第二个白天，把“第二个白天”标记放置在魔典中央。在第三个白天，把“第三个白天”放置在魔典中央。\n在第三个夜晚，唤醒每个爪牙。向他展示“你是”信息标记和暴乱的角色标记，然后让他重新入睡。可以在此时或第三个白天，把所有爪牙角色标记替换成暴乱的角色标记。\n在第三天，每当一名玩家被提名时，这名玩家死亡。立即宣告他死亡并添加帷幕标记。告诉他必须再次提名。公开倒数“3... 2... 1...”，如果他在倒数结束前提名，为新的被提名者重复这个流程（他死亡，可以继续提名，等等），直到所有暴乱死亡或只有两名玩家存活。宣布哪个阵营获胜。\n在第三天，如果没有玩家提名，或者被提名的玩家没有及时发起提名，由说书人来提名一名玩家——那名玩家死亡并且需要立刻发起提名。",
+    "en": "On the 1st day, add the DAY 1 reminder to the Grimoire. On the 2nd day, add the DAY 2 reminder to the Grimoire. On the 3rd day, add the DAY 3 reminder to the Grimoire.\nOn the 3rd night, wake each Minion. Show the YOU ARE info token, then the Riot token, then put each Minion to sleep. Either now, or later during the 3rd day, replace all Minion tokens with Riot tokens.\nDuring the 3rd day, each time a player is nominated, they die. Declare that they are dead, and add a shroud immediately. Tell them to nominate again and publicly count down “3... 2... 1...” After they nominate, repeat this process until all Riot are dead, or just 2 players are alive. Declare which team has won.\nIf the players do not nominate at all on the 3rd day, or if a nominated player does not nominate before their time runs out, nominate a player – they die and must then nominate again."
+  },
+  "examples": {
+    "cn": [
+      "在第三天，一名暴乱玩家被提名。他死亡并提名失忆者，失忆者死亡并提名巡山人，巡山人死亡并提名一名暴乱玩家。游戏立即结束，因为所有暴乱都死亡了。"
+    ],
+    "en": [
+      "Alex nominates Lewis. Lewis dies and nominates Ben. Ben dies and nominates Marianna. Marianna dies and nominates Lachlan. Lachlan dies. All Riot players are dead. Good wins."
+    ]
+  },
+  "url_param": "Riot",
   "editions": [
     "experimental"
   ],
-  "first_night": false,
-  "other_nights": false,
   "artist": "John Grist",
   "jinxes": [
     {
@@ -61,26 +94,5 @@
       "reason": "If Riot nominates and executes the Soldier, good wins."
     }
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Riot",
-  "ability": {
-    "en": "On day 3, Minions become Riot & nominees die but nominate an alive player immediately. This must happen.",
-    "cn": "在第三个白天，所有爪牙会变成暴乱，当天被提名的玩家会立即死亡且必须再次提名一名存活的玩家。"
-  },
-  "flavor_text": {
-    "en": "\"Larga vida a la revolución! Mi revolucion!\"",
-    "cn": "“革命万岁！我的革命！”（西班牙语）"
-  },
-  "examples": {
-    "en": [
-      "Alex nominates Lewis. Lewis dies and nominates Ben. Ben dies and nominates Marianna. Marianna dies and nominates Lachlan. Lachlan dies. All Riot players are dead. Good wins."
-    ],
-    "cn": [
-      "在第三天，一名暴乱玩家被提名。他死亡并提名失忆者，失忆者死亡并提名巡山人，巡山人死亡并提名一名暴乱玩家。游戏立即结束，因为所有暴乱都死亡了。"
-    ]
-  },
-  "how_to_run": {
-    "en": "On the 1st day, add the DAY 1 reminder to the Grimoire. On the 2nd day, add the DAY 2 reminder to the Grimoire. On the 3rd day, add the DAY 3 reminder to the Grimoire.\nOn the 3rd night, wake each Minion. Show the YOU ARE info token, then the Riot token, then put each Minion to sleep. Either now, or later during the 3rd day, replace all Minion tokens with Riot tokens.\nDuring the 3rd day, each time a player is nominated, they die. Declare that they are dead, and add a shroud immediately. Tell them to nominate again and publicly count down “3... 2... 1...” After they nominate, repeat this process until all Riot are dead, or just 2 players are alive. Declare which team has won.\nIf the players do not nominate at all on the 3rd day, or if a nominated player does not nominate before their time runs out, nominate a player – they die and must then nominate again.",
-    "cn": "在第一个白天，把“第一个白天”标记放置在魔典中央。在第二个白天，把“第二个白天”标记放置在魔典中央。在第三个白天，把“第三个白天”放置在魔典中央。\n在第三个夜晚，唤醒每个爪牙。向他展示“你是”信息标记和暴乱的角色标记，然后让他重新入睡。可以在此时或第三个白天，把所有爪牙角色标记替换成暴乱的角色标记。\n在第三天，每当一名玩家被提名时，这名玩家死亡。立即宣告他死亡并添加帷幕标记。告诉他必须再次提名。公开倒数“3... 2... 1...”，如果他在倒数结束前提名，为新的被提名者重复这个流程（他死亡，可以继续提名，等等），直到所有暴乱死亡或只有两名玩家存活。宣布哪个阵营获胜。\n在第三天，如果没有玩家提名，或者被提名的玩家没有及时发起提名，由说书人来提名一名玩家——那名玩家死亡并且需要立刻发起提名。"
-  },
   "token_url": "https://wiki.bloodontheclocktower.com/images/2/2d/Icon_riot.png"
 }

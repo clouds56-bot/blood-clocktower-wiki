@@ -1,52 +1,51 @@
 {
   "id": "clockmaker",
+  "type": "townsfolk",
   "name": {
     "en": "Clockmaker",
+    "es-419": "Relojero",
+    "sv": "Urmakaren",
+    "zh-Hans": "钟表匠",
     "cn": "钟表匠"
   },
-  "type": "townsfolk",
-  "editions": [
-    "sects_violets"
-  ],
-  "first_night": true,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [
-    {
-      "id": "summoner",
-      "reason": "The Summoner registers as the Demon to the Clockmaker."
-    }
-  ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Clockmaker",
   "ability": {
     "en": "You start knowing how many steps from the Demon to its nearest Minion.",
+    "es-419": "Tú empiezas conociendo cuántos pasos hay del Demonio a su Secuaz más cercano.",
+    "sv": "I början vet du hur många steg det är från Demonen till närmsta Kumpan.",
+    "zh-Hans": "在你的首个夜晚，你会得知恶魔与爪牙之间最近的距离。",
     "cn": "在你的首个夜晚，你会得知恶魔与爪牙之间最近的距离。（邻座的玩家距离为1）"
   },
   "flavor_text": {
     "en": "\"Do not disturb me. The tick must continue, for the circle is a symbol of life and contains all things - all answers - in its divine machinery. I must work.\"",
+    "es-419": "No me molestes. El tic debe continuar, porque el círculo es un símbolo de la vida y contiene todas las cosas ‐ todas las respuestas ‐ en su maquinaria divina. Debo trabajar.",
+    "sv": "Stör mig inte. Tickandet måste fortsätta, för cirkeln symboliserar livet och innehåller alltet – alla svar – i sitt gudomliga maskineri. Jag måste arbeta.",
+    "zh-Hans": "不要打扰我。时钟的滴答声必须延续下去，它的每一圈循环都象征着生命，它的每一圈循环都包含着世间万物——世间的所有答案——它是一个无比神圣的机器。好了，我必须工作了。",
     "cn": "“不要打扰我。时钟的滴答声必须延续下去，它的每一圈循环都象征着生命，它的每一圈循环都包含着世间万物——世间的所有答案——它是一个无比神圣的机器。好了，我必须工作了。”"
   },
+  "first_night": {
+    "en": "Give a finger signal.",
+    "es-419": "Dale una señal con los dedos.",
+    "sv": "Ge en fingersignal.",
+    "zh-Hans": "用手势比划数字来表示恶魔与爪牙之间最近的距离(1，2，3等）。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Clockmaker",
+  "how_to_run": {
+    "cn": "在第一个夜晚，唤醒钟表匠。对他用手势比划数字来表示恶魔与爪牙之间最近的距离(1，2，3等）。让钟表匠重新入睡。",
+    "en": "During the first night, wake the Clockmaker. Show fingers (1, 2, etc.) equaling the distance in players from the Demon to the nearest Minion, starting with the player neighboring the Demon closer to that Minion. Put the Clockmaker to sleep."
+  },
   "examples": {
-    "en": [
-      "The Fang Gu is sitting next to the Pit-Hag. During the first night, the Clockmaker learns a \"1\".",
-      "Clockwise from the No Dashii sits the Dreamer, the Snake Charmer, then the Evil Twin. Counterclockwise from the No Dashii sits the Mutant, the Sweetheart, the Philosopher, the Sage, then the Witch. Because the Witch is five steps away from the Demon, and the Evil Twin is three steps away from the Demon, the Clockmaker learns a \"3\" during the first night.",
-      "The Fang Gu neighbours two Travellers, one good and one evil. Neighboring one of these Travellers is a Cerenovus. During the first night, the Clockmaker learns a \"2\", because evil Travellers are not Minions."
-    ],
     "cn": [
       "方古坐在麻脸巫婆旁边。钟表匠得知了“1”。",
       "诺-达鲺顺时针方向依次坐着筑梦师、舞蛇人，然后是镜像双子。诺-达鲺逆时针方依次坐着畸形秀演员、心上人、哲学家、贤者，然后是女巫。因为女巫与恶魔的距离为五，而镜像双子与恶魔的距离为三，所以钟表匠得知了“3”。",
       "方古与两名旅行者相邻，一善一恶。洗脑师与其中一名旅行者相邻。在第一个晚上，钟表匠得知了“2”，因为邪恶的旅行者不是爪牙。"
+    ],
+    "en": [
+      "The Fang Gu is sitting next to the Pit-Hag. During the first night, the Clockmaker learns a \"1\".",
+      "Clockwise from the No Dashii sits the Dreamer, the Snake Charmer, then the Evil Twin. Counterclockwise from the No Dashii sits the Mutant, the Sweetheart, the Philosopher, the Sage, then the Witch. Because the Witch is five steps away from the Demon, and the Evil Twin is three steps away from the Demon, the Clockmaker learns a \"3\" during the first night.",
+      "The Fang Gu neighbours two Travellers, one good and one evil. Neighboring one of these Travellers is a Cerenovus. During the first night, the Clockmaker learns a \"2\", because evil Travellers are not Minions."
     ]
   },
   "tips": {
-    "en": [
-      "You don't have to give your information out immediately; wait a couple of days so that you can observe the other players and see if you uncover anything suspicious while the evil team thinks the pressure is off.",
-      "Your information is most valuable if you can identify a Minion. Figure out which player is a Minion, and you can pin down some very likely Demon suspects. You should try to coordinate with other good players in the game to uncover this information. Many players detect players of an evil alignment (like the Oracle and the Seamstress), while others detect the Demons and Minions directly (like the Flowergirl, Town Crier, or even the Snake Charmer).",
-      "If you get a very large number (> 3), then the Minions are probably sitting close together and away from their Demon. Similarly, if you get a very small number (< 2), one of the Minions and the Demon are probably very close together. You can use this information to look at who is talking to whom - watch for players interacting in a way that matches up with what you know.",
-      "If you have a suspicion of who you think the Demon is, use your information to locate their possible Minions and observe those players/what information they have, and what information exists about them. Minions tend to have a harder time hiding themselves than a Demon (who knows not-in-play characters), so you can take advantage of this weak point to confirm the Demon.",
-      "Your information becomes more valuable as the game goes on and players die. Since the evil players are unlikely to die at night, they tend to survive longer and will support each other and their arguments, thus making themselves more obvious than at the start of the game. Look at which players still alive match up to your information; if they're coordinating or backing each other up, they might be secretly evil!",
-      "All of the Minions you'll be facing tend to act obviously, which means that it is also quite obvious when they die. If you notice that suddenly nobody is dying by Witch, being driven mad by Cerenovus, or transformed by the Pit-Hag, then you may have executed one of the Minions. Figuring out who will lead you right back to the Demon! The Evil Twin is a bit of an exception to this since you'll very likely know they're in play from the beginning. This also means you know (up to) four Demon options from the very beginning!"
-    ],
     "cn": [
       "你不必立即提供你的信息；等待一两天以便你可以在邪恶阵营放松警惕的时候观察其他玩家来发现可疑之处。",
       "如果你能找出一个爪牙那么你的信息将会变得非常有用。弄清楚谁是爪牙，你就可以确定谁更有嫌疑是恶魔。你需要和其他善良角色合作尝试揭露真相。许多玩家有着辨识出邪恶阵营的能力（如神谕者和女裁缝）或是辨识恶魔与爪牙的能力（如卖花女孩、城镇公告员甚至是舞蛇人）。",
@@ -54,11 +53,26 @@
       "如果你有怀疑是恶魔的对象，你可以利用你的信息来寻找可能是爪牙的玩家，然后观察他们，他们提供的信息以及有什么信息是关于他们的。相比于恶魔（知道三个不在场角色）爪牙们倾向于努力的隐藏自己，你可以好好利用爪牙们的弱点来确认谁是恶魔。",
       "你的信息将随着游戏推进以及玩家逐渐死亡变得越发的有用。由于邪恶的玩家不太可能会在夜晚时死去，他们往往想要活的更长来互相支持对方以及他们的观点，因此他们相比于游戏开始时会变得越来越容易暴露。观察仍然活着的玩家中是否能匹配你的信息；如果他们在暗中支持对方，那么他们很有可能是潜藏的邪恶玩家。",
       "所有你即将面对的爪牙都有明显的表现，也就是说即使他们死了，也会有明显的现象。如果你注意到突然间没有人再因为女巫诅咒而死，被洗脑师洗脑，或者因为麻脸巫婆改变角色，那么很有可能你们已经处决了这些爪牙。弄清楚这些可以让你回推出谁会是恶魔！镜像双子是一个例外，因为你通常会在很早的时候就得知他们在场。这也意味着你可能在很早就确定（最多）四个有可能是恶魔的玩家。"
+    ],
+    "en": [
+      "You don't have to give your information out immediately; wait a couple of days so that you can observe the other players and see if you uncover anything suspicious while the evil team thinks the pressure is off.",
+      "Your information is most valuable if you can identify a Minion. Figure out which player is a Minion, and you can pin down some very likely Demon suspects. You should try to coordinate with other good players in the game to uncover this information. Many players detect players of an evil alignment (like the Oracle and the Seamstress), while others detect the Demons and Minions directly (like the Flowergirl, Town Crier, or even the Snake Charmer).",
+      "If you get a very large number (> 3), then the Minions are probably sitting close together and away from their Demon. Similarly, if you get a very small number (< 2), one of the Minions and the Demon are probably very close together. You can use this information to look at who is talking to whom - watch for players interacting in a way that matches up with what you know.",
+      "If you have a suspicion of who you think the Demon is, use your information to locate their possible Minions and observe those players/what information they have, and what information exists about them. Minions tend to have a harder time hiding themselves than a Demon (who knows not-in-play characters), so you can take advantage of this weak point to confirm the Demon.",
+      "Your information becomes more valuable as the game goes on and players die. Since the evil players are unlikely to die at night, they tend to survive longer and will support each other and their arguments, thus making themselves more obvious than at the start of the game. Look at which players still alive match up to your information; if they're coordinating or backing each other up, they might be secretly evil!",
+      "All of the Minions you'll be facing tend to act obviously, which means that it is also quite obvious when they die. If you notice that suddenly nobody is dying by Witch, being driven mad by Cerenovus, or transformed by the Pit-Hag, then you may have executed one of the Minions. Figuring out who will lead you right back to the Demon! The Evil Twin is a bit of an exception to this since you'll very likely know they're in play from the beginning. This also means you know (up to) four Demon options from the very beginning!"
     ]
   },
-  "how_to_run": {
-    "en": "During the first night, wake the Clockmaker. Show fingers (1, 2, etc.) equaling the distance in players from the Demon to the nearest Minion, starting with the player neighboring the Demon closer to that Minion. Put the Clockmaker to sleep.",
-    "cn": "在第一个夜晚，唤醒钟表匠。对他用手势比划数字来表示恶魔与爪牙之间最近的距离(1，2，3等）。让钟表匠重新入睡。"
-  },
+  "url_param": "Clockmaker",
+  "editions": [
+    "sects_violets"
+  ],
+  "artist": "Aidan Roberts",
+  "jinxes": [
+    {
+      "id": "summoner",
+      "reason": "The Summoner registers as the Demon to the Clockmaker."
+    }
+  ],
   "token_url": "https://wiki.bloodontheclocktower.com/images/3/3d/Icon_clockmaker.png"
 }

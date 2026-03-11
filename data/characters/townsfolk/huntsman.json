@@ -1,50 +1,55 @@
 {
   "id": "huntsman",
+  "type": "townsfolk",
   "name": {
     "en": "Huntsman",
+    "es-419": "Cazador",
+    "sv": "Jägaren",
+    "zh-Hans": "巡山人",
     "cn": "巡山人"
   },
-  "type": "townsfolk",
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "John Grist",
-  "jinxes": [
-    {
-      "id": "marionette",
-      "reason": "If the Marionette thinks that they are the Huntsman, the Damsel was added during setup."
-    }
-  ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Huntsman",
   "ability": {
     "en": "Once per game, at night, choose a living player: the Damsel, if chosen, becomes a not-in-play Townsfolk. [+the Damsel]",
+    "es-419": "Una vez por juego, por la noche, escoge un jugador vivo: la Damisela, si es escogida, se convierte en un Ciudadano fuera de juego. [+la Damisela]",
+    "sv": "En gång per spel, på natten, kan du välja en levande spelare; om du väljer Ungmön blir hen en Bybo som inte är i spel. [+Ungmön]",
+    "zh-Hans": "每局游戏限一次，在夜晚时，你可以选择一名存活的玩家：如果你选中了落难少女，她会变成一个不在场的镇民角色。[+落难少女]",
     "cn": "每局游戏限一次，在夜晚时，你可以选择一名存活的玩家：如果你选中了落难少女，她会变成一个不在场的镇民角色。[+落难少女]"
   },
   "flavor_text": {
     "en": "\"My cabin is warm and sturdy. My axe by the door, my boots drying by the fire, and elk stew a-simmering… Hark! A scream echoes through the valley! The rain and the mud and the cold, cold wind mask the scent of the wolves, but I know the path and my pace is steady. I am coming.\"",
+    "es-419": "Mi cabaña es cálida y robusta. Mi hacha junto a la puerta, mis botas secándose junto al fuego, y un estofado de alce a fuego lento…¡Escuchen! ¡Un grito resuena en el valle! La lluvia y el barro y el frío, congelante viento oscurecen el aroma de los lobos, pero yo conozco el camino y mi paso es firme. Allá voy.",
+    "sv": "Stugan är bekväm och varm. Min yxa står vid dörren, mina kängor torkar vid eldstaden, och hjortgrytan kokar… Men hör! Ett skrik ekar i dalen! Regnet och leran och kölden, den kalla vinden döljer lukten av vargar, men jag vet vägen och rör mig snabbt. Jag kommer.",
+    "zh-Hans": "我的小屋温暖而坚固。我的斧头靠在门边，我的靴子在火旁烘干，我的麋鹿肉正在锅里细火慢炖……听听！有尖叫声在山谷中回荡！或许雨水、泥泞和寒风会掩盖狼的气味，但我熟悉山路，我的步伐坚定。我来了。",
     "cn": "“我的小屋温暖而坚固。我的斧头靠在门边，我的靴子在火旁烘干，我的麋鹿肉正在锅里细火慢炖……听听！有尖叫声在山谷中回荡！或许雨水、泥泞和寒风会掩盖狼的气味，但我熟悉山路，我的步伐坚定。我来了。”"
   },
+  "first_night": {
+    "en": "The Huntsman might choose a player. :reminder: If they chose the Damsel: Put the Huntsman to sleep. Wake the target. Show the *YOU ARE* info token & their new character token.",
+    "es-419": "El Cazador quizás escoja un jugador. :reminder: Si ese jugador es la Damisela: Pon al Cazador a dormir. Despierta a la Damisela y muéstrale la ficha de *TÚ ERES* y su nueva ficha de rol.",
+    "sv": "Jägaren kanske väljer en spelare. :reminder: Söv Jägaren. Om Jägaren pekade på Ungmön så väck Ungmön, visa kortet *DU ÄR* och hens nya rollbricka.",
+    "zh-Hans": "巡山人可以选择一名玩家。:reminder:如果他选中了落难少女，让巡山人重新入睡。唤醒落难少女，对她展示“你是”信息标记和一个不在场的镇民角色标记。"
+  },
+  "other_nights": {
+    "en": "The Huntsman might choose a player. :reminder: If they chose the Damsel: Put the Huntsman to sleep. Wake the target. Show the *YOU ARE* info token & their new character token.",
+    "es-419": "El Cazador quizás escoja un jugador. :reminder: Si ese jugador es la Damisela: Pon al Cazador a dormir. Despierta a la Damisela y muéstrale la ficha de *TÚ ERES* y su nueva ficha de rol.",
+    "sv": "Jägaren kanske väljer en spelare. :reminder: Söv Jägaren. Om Jägaren pekade på Ungmön så väck Ungmön, visa kortet *DU ÄR* och hens nya rollbricka.",
+    "zh-Hans": "巡山人可以选择一名玩家。:reminder:如果他选中了落难少女，让巡山人重新入睡。唤醒落难少女，对她展示“你是”信息标记和一个不在场的镇民角色标记。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Huntsman",
+  "how_to_run": {
+    "cn": "在进行游戏设置，将角色标记放进盲抽袋之前，如果落难少女不在即将要放入盲抽袋的这些角色之中，那么移除一个镇民角色标记，并加入落难少女。\n每个夜晚，唤醒巡山人。他要么摇头不使用能力，要么指向一名玩家。\n如果他摇头，那么让巡山人重新入睡。\n如果他指向了一名玩家，让巡山人重新入睡。巡山人现在失去能力——将“失去能力”提示标记放置在巡山人旁，并从夜晚顺序表旁移除他的夜晚标记。如果他选中了落难少女，那么唤醒落难少女，对她展示“你是”信息标记和一个不在场的镇民角色标记，然后让落难少女重新入睡。落难少女现在拥有这个镇民的能力，因此将这个镇民角色标记替换落难少女角色标记。",
+    "en": "While setting up the game, before putting character tokens in\nthe bag, if the Damsel is not already in play, remove a Townsfolk\ncharacter token and add the Damsel character token.\nEach night, wake the Huntsman.\nIf they shake their head no, put the Huntsman to sleep.\nIf they point to a player, put the Huntsman to sleep. The Huntsman loses their ability—mark them with the NO ABILITY reminder and remove their night token from the night sheet. If they chose the Damsel, wake the Damsel, show the YOU ARE info token, then a not-in-play Townsfolk token, then put the Damsel to sleep. The Damsel now has this Townsfolk ability, so replace the Damsel character token with this Townsfolk character token."
+  },
   "examples": {
-    "en": [
-      "The Huntsman is woken on the 1st night, but does not use their ability. On the second night, the Huntsman chooses the Damsel player. The Damsel becomes the Undertaker and learns which player died today.",
-      "The Huntsman chooses Lachlan. Lachlan is the General, so nothing happens. The Huntsman is no longer woken at night."
-    ],
     "cn": [
       "巡山人在第一个夜晚被唤醒，但没有使用自己的能力。在第二个夜晚，巡山人选择了角色为落难少女的玩家。落难少女变成了贵族，并因此在当晚得知了三名玩家，且其中有一名是邪恶的。",
       "巡山人选择了小兰。小兰是唱诗男孩，因此无事发生。巡山人不会在此后的夜晚因为自己的能力被唤醒了。"
+    ],
+    "en": [
+      "The Huntsman is woken on the 1st night, but does not use their ability. On the second night, the Huntsman chooses the Damsel player. The Damsel becomes the Undertaker and learns which player died today.",
+      "The Huntsman chooses Lachlan. Lachlan is the General, so nothing happens. The Huntsman is no longer woken at night."
     ]
   },
   "tips": {
-    "en": [
-      "Find the Damsel ASAP. You have one shot and you’re racing against either you or them dying before you can find them! This can be more important in smaller games as the chances of either player dying early is higher, but also your chances of being correct with a blind pick is higher. On the first night of a small game, you're often better off just taking a punt tonight rather than gambling you both survive to tomorrow and the Damsel gets an ability they can use that night.",
-      "Wait to use your ability until you're really sure. You only have one opportunity to get it right and there is a lot of fun to be had during the hunting. Try to partner up with characters that can learn about characters like Dreamer. Even the Undertaker can be great for you as confirming that the Damsel is dead verifies that fact for you and lets you know you're no longer on your Damsel-hunting sidequest but onto the main Demon-hunting campaign!",
-      "The Damsel is likely to be flighty and paranoid, and may even be trying to get themselves killed. Use your ability on people who seem shifty or quiet as they might be a Damsel. If a player seems to be keen to volunteer themselves for execution, privately ask them if they'd like you to guess them as the Damsel that night. Be careful though, this might just be an evil player trying to bait you into wasting your ability.",
-      "Privately claim to be the Damsel to other players. This can be useful to flush out the Damsel and the various Minions. Characters that can prove who they are, like the Virgin or Golem, can be great to give you a trusted person to arrange a private meeting as both you and the Damsel can freely claim your respective characters to this confirmed player.",
-      "Stay alive at any cost. You can claim you've used your ability already, or that you’ve already found your Damsel, meaning you’re no longer a threat to evil. Watch what happens if you publicly claim a random person as your Damsel. However, be careful as the Damsel might decide they are now a risk with no potential reward if you're claiming to have used your ability and try to get themselves killed.",
-      "Try to flush out the Minions or lure them into a trap to make a public guess. Go around to various shady people claiming to be the Damsel or ask a trusted good player to accidentally let slip there's a Damsel in play to someone you're not sure of just after they've spoken to you. If the Minions are baited into spending their guess on you (or anyone who isn't the Damsel for that matter!), they can't hurt your real Damsel anymore."
-    ],
     "cn": [
       "尽快找到落难少女。你只有一次机会并且你需要在你或者她死亡之前找到她。在小型剧本游戏中这一点可能更重要，因为任何一名玩家过早死亡的几率都更高，但是盲选命中的几率也更高。你最好在一场小型游戏的首夜就冒个险而不是赌你和她都能活到明天，并且落难少女可以因此获得一个明晚就能使用的能力。",
       "在你真正确定之后再使用你的能力。你只有一次机会命中，而搜寻过程也会有许多乐趣。试着与那些能够得知角色的角色例如筑梦师合作。即使是送葬者对你来说也很棒，因为确认落难少女已死的事实可以让你知道你已经从落难少女搜寻的支线中转回了恶魔搜寻的主线上。",
@@ -52,11 +57,26 @@
       "私下对其他玩家宣称你是落难少女。这有助于引出落难少女和其他各类爪牙。那些能够证明自己的角色，例如贞洁者或是魔像，可以给你提供一个可信的人来安排一次私聊，让你和落难少女都可以没有妨碍地对这名玩家宣称你们各自的角色。",
       "不惜代价活着。你可以宣称你已经使用了你的能力，或者是已经找到了你的落难少女，这些意味着你不再是邪恶阵营的威胁。看看如果你随机地公开宣称一名玩家是你的落难少女会发生什么，但要小心，宣称你已经使用了你的能力会让落难少女认为她现在是一个单纯的风险（角色）而不再有获得奖励的可能，从而试图让自己被杀。",
       "试着赶走爪牙或是引诱他们跌入公开猜测的陷阱。在可疑人士之间四处走动并宣称是落难少女，或是让一个可信的善良玩家在和你对话后对某名可疑玩家状似无意地透露落难少女在场。如果爪牙被欺骗，将他们的猜测浪费在你身上（或者任何并非落难少女的玩家身上），他们就无法伤害你真正的落难少女了。"
+    ],
+    "en": [
+      "Find the Damsel ASAP. You have one shot and you’re racing against either you or them dying before you can find them! This can be more important in smaller games as the chances of either player dying early is higher, but also your chances of being correct with a blind pick is higher. On the first night of a small game, you're often better off just taking a punt tonight rather than gambling you both survive to tomorrow and the Damsel gets an ability they can use that night.",
+      "Wait to use your ability until you're really sure. You only have one opportunity to get it right and there is a lot of fun to be had during the hunting. Try to partner up with characters that can learn about characters like Dreamer. Even the Undertaker can be great for you as confirming that the Damsel is dead verifies that fact for you and lets you know you're no longer on your Damsel-hunting sidequest but onto the main Demon-hunting campaign!",
+      "The Damsel is likely to be flighty and paranoid, and may even be trying to get themselves killed. Use your ability on people who seem shifty or quiet as they might be a Damsel. If a player seems to be keen to volunteer themselves for execution, privately ask them if they'd like you to guess them as the Damsel that night. Be careful though, this might just be an evil player trying to bait you into wasting your ability.",
+      "Privately claim to be the Damsel to other players. This can be useful to flush out the Damsel and the various Minions. Characters that can prove who they are, like the Virgin or Golem, can be great to give you a trusted person to arrange a private meeting as both you and the Damsel can freely claim your respective characters to this confirmed player.",
+      "Stay alive at any cost. You can claim you've used your ability already, or that you’ve already found your Damsel, meaning you’re no longer a threat to evil. Watch what happens if you publicly claim a random person as your Damsel. However, be careful as the Damsel might decide they are now a risk with no potential reward if you're claiming to have used your ability and try to get themselves killed.",
+      "Try to flush out the Minions or lure them into a trap to make a public guess. Go around to various shady people claiming to be the Damsel or ask a trusted good player to accidentally let slip there's a Damsel in play to someone you're not sure of just after they've spoken to you. If the Minions are baited into spending their guess on you (or anyone who isn't the Damsel for that matter!), they can't hurt your real Damsel anymore."
     ]
   },
-  "how_to_run": {
-    "en": "While setting up the game, before putting character tokens in\nthe bag, if the Damsel is not already in play, remove a Townsfolk\ncharacter token and add the Damsel character token.\nEach night, wake the Huntsman.\nIf they shake their head no, put the Huntsman to sleep.\nIf they point to a player, put the Huntsman to sleep. The Huntsman loses their ability—mark them with the NO ABILITY reminder and remove their night token from the night sheet. If they chose the Damsel, wake the Damsel, show the YOU ARE info token, then a not-in-play Townsfolk token, then put the Damsel to sleep. The Damsel now has this Townsfolk ability, so replace the Damsel character token with this Townsfolk character token.",
-    "cn": "在进行游戏设置，将角色标记放进盲抽袋之前，如果落难少女不在即将要放入盲抽袋的这些角色之中，那么移除一个镇民角色标记，并加入落难少女。\n每个夜晚，唤醒巡山人。他要么摇头不使用能力，要么指向一名玩家。\n如果他摇头，那么让巡山人重新入睡。\n如果他指向了一名玩家，让巡山人重新入睡。巡山人现在失去能力——将“失去能力”提示标记放置在巡山人旁，并从夜晚顺序表旁移除他的夜晚标记。如果他选中了落难少女，那么唤醒落难少女，对她展示“你是”信息标记和一个不在场的镇民角色标记，然后让落难少女重新入睡。落难少女现在拥有这个镇民的能力，因此将这个镇民角色标记替换落难少女角色标记。"
-  },
+  "url_param": "Huntsman",
+  "editions": [
+    "experimental"
+  ],
+  "artist": "John Grist",
+  "jinxes": [
+    {
+      "id": "marionette",
+      "reason": "If the Marionette thinks that they are the Huntsman, the Damsel was added during setup."
+    }
+  ],
   "token_url": "https://wiki.bloodontheclocktower.com/images/a/a1/Icon_huntsman.png"
 }

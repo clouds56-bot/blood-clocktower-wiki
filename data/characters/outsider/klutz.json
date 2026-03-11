@@ -1,46 +1,44 @@
 {
   "id": "klutz",
+  "type": "outsider",
   "name": {
     "en": "Klutz",
+    "es-419": "Torpe",
+    "sv": "Klanten",
+    "zh-Hans": "呆瓜",
     "cn": "呆瓜"
   },
-  "type": "outsider",
-  "editions": [
-    "sects_violets"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Klutz",
   "ability": {
     "en": "When you learn that you died, publicly choose 1 alive player: if they are evil, your team loses.",
+    "es-419": "Cuando aprendes que has muerto, escoge 1 jugador vivo públicamente: si él es malvado, tu equipo pierde.",
+    "sv": "När du får veta att du dött väljer du öppet 1 levande spelare; om hen är ond förlorar ditt lag.",
+    "zh-Hans": "当你得知你死亡时，你要公开选择一名存活的玩家：如果他是邪恶的，你的阵营落败。",
     "cn": "当你得知你死亡时，你要公开选择一名存活的玩家：如果他是邪恶的，你的阵营落败。"
   },
   "flavor_text": {
     "en": "\"Oops.\"",
+    "es-419": "Uy.",
+    "sv": "Oj då.",
+    "zh-Hans": "哎哟！",
     "cn": "“哎哟！”"
   },
+  "source_url": "https://wiki.bloodontheclocktower.com/Klutz",
+  "how_to_run": {
+    "cn": "当呆瓜玩家被宣布死亡时，他必须宣布他是呆瓜，然后选择一名存活玩家（给他足够的时间）。如果他选择了一名邪恶玩家，游戏结束，邪恶阵营获胜。如果他选择了一名善良玩家，游戏继续。\n在特殊情况下，当属于邪恶阵营的呆瓜选择了一名邪恶玩家也会导致游戏结束，并且改为善良阵营获胜。\n如果呆瓜玩家没有意识到他必须在死亡时选择一名玩家，私下提醒他。新手玩家可能不明白他的角色如何运作。",
+    "en": "When the Klutz player is declared dead, they must declare that they are the Klutz and then point at any player. (Give them time.) If they choose an evil player, the game ends and the evil team wins. If they choose a good player, the game continues.\nIn the strange situation where the Klutz is evil and chooses an evil player, then the game ends and the good team wins instead.\nIf the Klutz player doesn’t realize that they must choose a player when they die, privately remind them. New players may not understand how their character works."
+  },
   "examples": {
+    "cn": [
+      "呆瓜死于处决。经过一番争吵，呆瓜选择了一名玩家，而该玩家是善良的女裁缝。夜幕降临，游戏继续。",
+      "恶魔杀死了呆瓜玩家小莱。当说书人在黎明宣布小莱死亡后，小莱说“所有人注意了，我是呆瓜，”在讨论几分钟后，小莱公开选择了一名玩家，而该玩家是邪恶的恶魔，游戏立即结束，邪恶方获胜，而且笑得很大声。"
+    ],
     "en": [
       "If the Klutz player doesn’t realize that they must choose a player when they die, privately remind them. New players may not understand how their character works.",
       "The Klutz dies by execution. After much yelling and confusion, the Klutz chooses a player—who is secretly the Seamstress. Night falls, and the game continues.",
       "The Demon kills Dave, the Klutz. In the morning, when the Storyteller informs the group that Dave is dead, Dave says \"Ok everybody, I was the Klutz\" and after discussion for a few minutes, Dave publicly chooses the player that is the Demon. The game ends immediately and evil rejoices."
-    ],
-    "cn": [
-      "呆瓜死于处决。经过一番争吵，呆瓜选择了一名玩家，而该玩家是善良的女裁缝。夜幕降临，游戏继续。",
-      "恶魔杀死了呆瓜玩家小莱。当说书人在黎明宣布小莱死亡后，小莱说“所有人注意了，我是呆瓜，”在讨论几分钟后，小莱公开选择了一名玩家，而该玩家是邪恶的恶魔，游戏立即结束，邪恶方获胜，而且笑得很大声。"
     ]
   },
   "tips": {
-    "en": [
-      "Like nearly all Outsiders in Sects & Violets, you should avoid dying if at all possible. Your ability is particularly nasty as it can end the game if you choose poorly, but it only becoming an issue if you actually die!",
-      "If the good team is floundering, you can die deliberately and confirm someone as good by choosing them. Your ability yields incredibly powerful information for incredibly high risk. Knowing for sure that someone is good allows you to trust them completely, a very rare thing in this edition! Similar to the Snake Charmer, your information can also not be interfered with by the Vortox, meaning that you suspect that demon is in play, you don't have to worry about your information being false. (Note: While this all sounds incredibly useful and even tempting, remember that choosing carelessly will lose you the game!)",
-      "Before you die, work with the other players and try to find one alive player you believe is good, so you have a safe choice to pick in the event you accidentally die. (It's up to you if you want to reveal your identity before death to this player - if you do, they may be more inclined to trust you while you're both alive. If you don't, your choice will be more of a surprise, but it will look less like you're colluding with that player. It all depends on how the group is leaning right now.)",
-      "Don't pick players who are doubling up their character claim with another player - in most cases, a double up means one of the two is evil, which gives you a 50/50 chance to lose! This includes the Evil Twin and their good twin, since it is very difficult to tell for sure which one is actually evil. Aim for players with unique character claims instead.",
-      "If the group is keen to execute you, you can pre-empt the voting by loudly proclaiming which player you WILL choose as the Klutz after you die. If the group thinks that this player might be evil, they are less likely to kill you, which helps the good team. After this, if the Demon doesn't kill you that night, it probably means that the Demon did not want to kill you because it knows that you would choose a good player anyway.",
-      "If you die, and choose a player, and the game does not end, you can be almost certain that that player is good. Since the Klutz is not affected by the Vortox, the No Dashii, and probably not by the Sweetheart or Philosopher, then you can safely assume that you are not drunk or poisoned."
-    ],
     "cn": [
       "就像梦殒春宵中几乎所有的外来者一样，你应该尽可能地避免死亡。如果你使用不当你的能力，那非常糟糕，因为它可能会直接结束游戏，但是只有当你真正死亡的时候，它才会成为一个问题！",
       "如果好人团队举步维艰，你可以慷慨赴死，通过选择他们来确定一个人是善良阵营的。你的能力会产生非常强大的信息，但是这伴随着相当大的风险。确信某人是好人可以让你完全信任他们，这在这个剧本中是非常罕见的事情！和舞蛇人相似的是，你的能力也不会被涡流干扰，这意味着就算你怀疑他存在场上，也不必担心你的信息会是虚假的。（ 注意： 虽然这听起来非常有用，甚至很诱人，但是请记住，不够小心的选择你就会直接输掉这场游戏！）",
@@ -48,11 +46,20 @@
       "不要选择一名和别人角色重复的玩家——在大多数情况下，角色重复意味着两个玩家中的一个是邪恶的，这给了你50%的机会去输掉这场游戏！这包括镜像双子和他的善良双胞胎，因为很难确定他们哪一个是真正的邪恶。你应该选择的目标是场上唯一的角色。",
       "如果大家想要处决你，你可以在投票前大声宣布你死亡后将选择哪位玩家作为呆瓜。如果大家认为这个玩家是邪恶的，他们就不太可能处决你，这有助于善良团队继续下去这个游戏。如果恶魔那天晚上没有杀你，那可能意味着恶魔不想杀你，因为他知道你无论如何选的玩家都是善良阵营的。",
       "如果你死亡了，并且选择了一个玩家，而游戏并没有结束，你几乎可以肯定那名玩家是个善良的玩家。既然呆瓜不受涡流、诺-达鲺的影响，也可能不受心上人或者哲学家影响，那么你可以放心地假设你没有醉酒或者中毒。"
+    ],
+    "en": [
+      "Like nearly all Outsiders in Sects & Violets, you should avoid dying if at all possible. Your ability is particularly nasty as it can end the game if you choose poorly, but it only becoming an issue if you actually die!",
+      "If the good team is floundering, you can die deliberately and confirm someone as good by choosing them. Your ability yields incredibly powerful information for incredibly high risk. Knowing for sure that someone is good allows you to trust them completely, a very rare thing in this edition! Similar to the Snake Charmer, your information can also not be interfered with by the Vortox, meaning that you suspect that demon is in play, you don't have to worry about your information being false. (Note: While this all sounds incredibly useful and even tempting, remember that choosing carelessly will lose you the game!)",
+      "Before you die, work with the other players and try to find one alive player you believe is good, so you have a safe choice to pick in the event you accidentally die. (It's up to you if you want to reveal your identity before death to this player - if you do, they may be more inclined to trust you while you're both alive. If you don't, your choice will be more of a surprise, but it will look less like you're colluding with that player. It all depends on how the group is leaning right now.)",
+      "Don't pick players who are doubling up their character claim with another player - in most cases, a double up means one of the two is evil, which gives you a 50/50 chance to lose! This includes the Evil Twin and their good twin, since it is very difficult to tell for sure which one is actually evil. Aim for players with unique character claims instead.",
+      "If the group is keen to execute you, you can pre-empt the voting by loudly proclaiming which player you WILL choose as the Klutz after you die. If the group thinks that this player might be evil, they are less likely to kill you, which helps the good team. After this, if the Demon doesn't kill you that night, it probably means that the Demon did not want to kill you because it knows that you would choose a good player anyway.",
+      "If you die, and choose a player, and the game does not end, you can be almost certain that that player is good. Since the Klutz is not affected by the Vortox, the No Dashii, and probably not by the Sweetheart or Philosopher, then you can safely assume that you are not drunk or poisoned."
     ]
   },
-  "how_to_run": {
-    "en": "When the Klutz player is declared dead, they must declare that they are the Klutz and then point at any player. (Give them time.) If they choose an evil player, the game ends and the evil team wins. If they choose a good player, the game continues.\nIn the strange situation where the Klutz is evil and chooses an evil player, then the game ends and the good team wins instead.\nIf the Klutz player doesn’t realize that they must choose a player when they die, privately remind them. New players may not understand how their character works.",
-    "cn": "当呆瓜玩家被宣布死亡时，他必须宣布他是呆瓜，然后选择一名存活玩家（给他足够的时间）。如果他选择了一名邪恶玩家，游戏结束，邪恶阵营获胜。如果他选择了一名善良玩家，游戏继续。\n在特殊情况下，当属于邪恶阵营的呆瓜选择了一名邪恶玩家也会导致游戏结束，并且改为善良阵营获胜。\n如果呆瓜玩家没有意识到他必须在死亡时选择一名玩家，私下提醒他。新手玩家可能不明白他的角色如何运作。"
-  },
+  "url_param": "Klutz",
+  "editions": [
+    "sects_violets"
+  ],
+  "artist": "Aidan Roberts",
   "token_url": "https://wiki.bloodontheclocktower.com/images/b/bc/Icon_klutz.png"
 }

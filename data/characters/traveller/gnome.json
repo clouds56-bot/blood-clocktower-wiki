@@ -1,44 +1,43 @@
 {
   "id": "gnome",
+  "type": "traveller",
   "name": {
     "en": "Gnome",
+    "es-419": "Gnomo",
+    "sv": "Pysslingen",
+    "zh-Hans": "侏儒",
     "cn": "侏儒"
   },
-  "type": "traveller",
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Chloe McDougall",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Gnome",
   "ability": {
     "en": "All players start knowing a player of your alignment. You may choose to kill anyone who nominates them.",
+    "es-419": "Todos los jugadores empiezan conociendo un jugador de tu alineamiento. Tú puedes elegir matar a cualquiera que lo nomine.",
+    "sv": "Alla får veta en spelare på ditt lag. Du får välja att döda spelare som nominerar hen.",
+    "zh-Hans": "当你加入游戏时，所有玩家会得知一名与你阵营相同的玩家。每当他被提名时，你可以杀死提名者。",
     "cn": "当你加入游戏时，所有玩家会得知一名与你阵营相同的玩家。每当他被提名时，你可以杀死提名者。"
   },
   "flavor_text": {
     "en": "\"Four the score or seven beers, no shows are goes for me and my. A prank to crack the cranks and planks o' the floor foundation length, so incontravertabubbilly mini. The large essays down streams of joyce, no greater than is scene, not inherdt, Ha-urrumph.o.\"",
+    "es-419": "Cuatro puntos o siete cervezas, y si no vienen, más para mí y mi amigo. Un chascarro que agarro al charro bien chaparro hasta el fondo del pedal innegabilibombástico. Los grandes ensayos descienden por corrientes de felicidadidad, nada más grande que lo que se ve no se hereda. Tarán.",
+    "sv": "Vad det är bra att jag har dig. Vad det är bra att du har mig. Vad det är bra att vi har oss, och jättebra är det förstås att vi får träffas varje dag, och va tillsammans, du och jag, för ingen, nä ingen, vill va ensam.",
+    "zh-Hans": "有备而来，有悲而来，无人搭台，自己开嗨！一场整人好戏，整得人惨兮兮，吱吱作响板板，又怕翻了盘盘。那些长篇大论顺着乔伊斯的溪流在流淌，不算最辉煌，也还够气场，却也挺像样——哈，响亮！",
     "cn": "“有备而来，有悲而来，无人搭台，自己开嗨！一场整人好戏，整得人惨兮兮，吱吱作响板板，又怕翻了盘盘。那些长篇大论顺着乔伊斯的溪流在流淌，不算最辉煌，也还够气场，却也挺像样——哈，响亮！”"
   },
+  "source_url": "https://wiki.bloodontheclocktower.com/Gnome",
+  "how_to_run": {
+    "cn": "当侏儒加入游戏时，通过将“同伴”提示标记放置到一个与侏儒相同阵营玩家的角色标记旁来表示侏儒的“同伴”。宣布这名玩家和侏儒的阵营相同。\n如果这名玩家被提名，在投票开始前，如果侏儒宣布他要使用能力，提名同伴的玩家死亡。",
+    "en": "During the day, as soon as the Gnome has entered play, mark a player of the same alignment with the AMIGO reminder. Declare that this player is the same alignment as the Gnome.\nIf this player is nominated, but before you have started the voting process, if the Gnome player declares that they wish to use their ability, the nominator dies."
+  },
   "examples": {
-    "en": [
-      "The Gnome starts the game at the same time as the rest of the players, and is good. Amy is the Alsaahir. Before the first night, the Storyteller announces that the Gnome is the same alignment as Amy. The Engineer nominates Amy on day 3. The Gnome does not use their ability.",
-      "The Gnome enters the game on the 2nd day, and is evil. Lewis is the Demon. At this time, the Storyteller announces that the Gnome is the same alignment as Lewis. On the 2nd day, the Boffin nominates Lewis, and is killed by the Gnome. On the 3rd day, the Zealot nominates Lewis, and is killed by the Gnome. On the 4th day, the Village Idiot nominates Lewis, and the Gnome does not use their ability."
-    ],
     "cn": [
       "善良的侏儒和其他玩家一起开始游戏。小哲是戏法师。在首个夜晚开始前，说书人宣布侏儒和小哲是同一阵营。工程师在第三个白天提名了小哲。侏儒没有使用能力。",
       "小博是邪恶的恶魔。邪恶的侏儒在第二个白天加入了游戏。说书人宣布侏儒和小博阵营相同。然后科学怪人提名了小博，侏儒使用能力杀死了科学怪人。第三个白天，狂热者提名了小博，也被侏儒杀死。第四个白天，村夫提名了小博，但侏儒没有使用能力。"
+    ],
+    "en": [
+      "The Gnome starts the game at the same time as the rest of the players, and is good. Amy is the Alsaahir. Before the first night, the Storyteller announces that the Gnome is the same alignment as Amy. The Engineer nominates Amy on day 3. The Gnome does not use their ability.",
+      "The Gnome enters the game on the 2nd day, and is evil. Lewis is the Demon. At this time, the Storyteller announces that the Gnome is the same alignment as Lewis. On the 2nd day, the Boffin nominates Lewis, and is killed by the Gnome. On the 3rd day, the Zealot nominates Lewis, and is killed by the Gnome. On the 4th day, the Village Idiot nominates Lewis, and the Gnome does not use their ability."
     ]
   },
   "tips": {
-    "en": [
-      "Get as many players as possible to nominate your amigo. This gives you more opportunities to use your ability to target evil players, and gives you opportunities to learn more about which players are comfortable or hesitant to die to your ability.",
-      "Stay silent so players forget you are in play, then jump in to use your ability when they least expect it! (because no one expects the Spanish Inquisition)",
-      "Taunt or dare players to nominate your amigo to see how they respond.",
-      "Don't vote for your amigo, & encourage other players not to vote for your amigo. You know they are good, so it's in your best interests to keep them alive!",
-      "Talk to players in the game to gain information about whether or not you want to use your ability to kill them."
-    ],
     "cn": [
       "尽量让更多玩家提名你的同伴！这样你有更多机会利用自己的能力针对邪恶玩家，同时也可以观察哪些玩家在提名时毫不犹豫，又有哪些玩家因畏惧被你杀死而感到犹豫。",
       "保持沉默，让玩家忘记你的存在，在他们最意想不到的时候突然使用能力！（毕竟没人会预料到，眼一闭，不睁，一辈子就过去了）（注：这里的原文是“没有人预料到西班牙宗教裁判所的到来”，其中“西班牙宗教裁判所”来自于英国著名喜剧团体蒙提派森的经典台词，故此在翻译时引用了演员赵本山老师和小沈阳老师的小品名句）",
@@ -52,11 +51,19 @@
       "参与讨论哪些玩家应当提名你的同伴。这会影响善良玩家决定你的能力适合对谁使用。",
       "如果你的同伴是爪牙，而其他玩家认为你是邪恶阵营，分散他们的注意力！通过把话题和讨论引导向你和你的同伴，减轻恶魔的压力。",
       "表现得混乱一些，用意料之外的方式使用你的能力来让其他玩家感到惊讶。在最坏的情况下，如果你真的想制造混乱，你可以提名你的同伴并使用能力。"
+    ],
+    "en": [
+      "Get as many players as possible to nominate your amigo. This gives you more opportunities to use your ability to target evil players, and gives you opportunities to learn more about which players are comfortable or hesitant to die to your ability.",
+      "Stay silent so players forget you are in play, then jump in to use your ability when they least expect it! (because no one expects the Spanish Inquisition)",
+      "Taunt or dare players to nominate your amigo to see how they respond.",
+      "Don't vote for your amigo, & encourage other players not to vote for your amigo. You know they are good, so it's in your best interests to keep them alive!",
+      "Talk to players in the game to gain information about whether or not you want to use your ability to kill them."
     ]
   },
-  "how_to_run": {
-    "en": "During the day, as soon as the Gnome has entered play, mark a player of the same alignment with the AMIGO reminder. Declare that this player is the same alignment as the Gnome.\nIf this player is nominated, but before you have started the voting process, if the Gnome player declares that they wish to use their ability, the nominator dies.",
-    "cn": "当侏儒加入游戏时，通过将“同伴”提示标记放置到一个与侏儒相同阵营玩家的角色标记旁来表示侏儒的“同伴”。宣布这名玩家和侏儒的阵营相同。\n如果这名玩家被提名，在投票开始前，如果侏儒宣布他要使用能力，提名同伴的玩家死亡。"
-  },
+  "url_param": "Gnome",
+  "editions": [
+    "experimental"
+  ],
+  "artist": "Chloe McDougall",
   "token_url": "https://wiki.bloodontheclocktower.com/images/e/e0/Icon_gnome.png"
 }

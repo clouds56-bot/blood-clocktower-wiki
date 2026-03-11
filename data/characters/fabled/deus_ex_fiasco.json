@@ -1,27 +1,42 @@
 {
   "id": "deus_ex_fiasco",
+  "type": "fabled",
   "name": {
     "en": "Deus ex Fiasco",
+    "es-419": "Deus ex Fiasco",
+    "sv": "Deus Ex Fiasco",
+    "zh-Hans": "失败的上帝",
     "cn": "失败的上帝"
   },
-  "type": "fabled",
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Chlo MacDougal",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Deus_ex_Fiasco",
   "ability": {
     "en": "At least once per game, the Storyteller will make a mistake, correct it, and publicly admit to it. ",
+    "es-419": "Al menos una vez por juego, el Narrador cometerá un error, lo corregirá, y lo admitirá públicamente.",
+    "sv": "Minst en gång per spel begår berättaren ett misstag, rättar till det och erkänner detta öppet.",
+    "zh-Hans": "每局游戏至少一次，说书人将会出现失误，但会纠正并公开承认自己曾处理有误。",
     "cn": "每局游戏至少一次，说书人将会出现失误，但会纠正并公开承认自己曾处理有误。"
   },
   "flavor_text": {
     "en": "\"It’s not a bug, it’s a feature. It’s not an error, it’s a tweak. It’s not broken, it’s quirky.\"",
+    "es-419": "No es una falla, es una funcionalidad. No es un error, es una modificación. No está roto, solo es inusual.",
+    "sv": "Det är inte en bugg; det är en funktion. Det är inte ett fel; det är en fix. Det är inte trasigt; det är lustigt.",
+    "zh-Hans": "这不是漏洞，是神迹。这不是失误，是天意。这不是崩坏，是风格。",
     "cn": "“这不是漏洞，是神迹。\n这不是失误，是天意。\n这不是崩坏，是风格。”"
   },
+  "source_url": "https://wiki.bloodontheclocktower.com/Deus_ex_Fiasco",
+  "how_to_run": {
+    "cn": "在游戏开始时，宣布失败的上帝加入游戏。别把玩家们的吐槽和调侃放在心上！\n任何时候，如果你不小心犯了错吴，请尽最大努力纠正或弥补，必要时可灵活调整规则。之后，声明你犯了一个错误，并在魔典中添加“哎呀！”的提示标记。\n任何时候，如果你故意犯了错误，那么请纠正这个错误，之后，声明你犯了一个措误，并在魔典中添加“哎呀！”的提示标记。\n请记住：传奇角色的设计并非为了说书人的“（恶）趣味”。其存在的目的是帮助说书人，流畅且包容地运作游戏。",
+    "en": "At the start of the game, declare that the Deus ex Fiasco is in play. Ignore any groans and complaints from players.\nAt any time, if you make a misteak, correct it as best you can, bending the rules if needed. Afterwards you declare that you have made a mistake. Add the WHOOPSIE reminder to the Grimoire.\nAt any time, you may deliberately break the rules, then correct it. Afterwards, declare that you have made a mistkae. Add the WHOOPSIE reminder to the Grimoire.\nRemember: Fabled characters are not designed for extra spice. They are characters whose purpose is to help you, as the Storyteller, to run smooth and inclusive games."
+  },
   "examples": {
+    "cn": [
+      "在第一个白天，道哥和说书人私聊时，告诉说书人他从盲抽袋中抽出来的是酒鬼，说书人发现魔典中道哥的角色的确是酒鬼。说书人告诉道哥他现在是镇长，并且将魔典中道哥的角色标记替换为镇长。并且悄悄将魔典里的守鸦人玩家变成了酒鬼。当天的晚些时候，说书人宣布氾了一个措误。",
+      "共情者坐在僧侣和中毒的陌客中间，说书人忘记了陌客是中毒的，不小心让共情者得知了“1”。当晚，说书人重新唤醒共情者并告知“0”。在白天，当共情者私下询问说书人发生了什么事情时，说书人说第一个数字是错误的，第二个数字是正确的。说书人为了不暴露太多额外的信息，一直等到下一个白天才宣布犯了一个错误。",
+      "小恶魔被处决并死亡。说书人当晚唤醒清醒且健康的送葬者，故意错误地给他展示了陌客的角色标记。当晚，说书人重新唤醒了送葬者并向他展示了小恶魔的角色标记。黎明，说书人宣布他犯一个错误并且已经纠正了。",
+      "牙噶巴卜被处决并死亡。说书人不小心宣布了游戏结束，善良获生。但是红唇女郎仍然存活。说书人宣布犯了一个错误，游戏继赎。",
+      "小八是沙巴洛斯，当晚，小八杀死了小米和道哥。黎明时，说书人故意宣布小八和小莱死亡。约30秒后，说书人说：“哎呀！我的魔典摆错了，小八和小莱不应该死亡，他们还活着，是小米和道哥在昨晚死亡了。对不起，我弄错了。”",
+      "说书人昨天晚上忘记了唤醒投毒者，于是说书人白天去找投毒者私聊并承认自己的错误，为了弥补错误，说书人告诉投毒者之后的每晚都可以选择任意数量的玩家，然后由说书人决定其中的哪名玩家中毒。",
+      "侍女被唤醒并选择了一名死亡玩家，即使侍女只能选择存活玩家。说书人并没有让侍女去更换选择，反而故意给了一个错误信息。在白天，说书人和侍女私聊，并承认他错误地让侍女选择了已经死亡的玩家，为了补救，他让侍女可以立刻重新选择两名存活的玩家。这次说书人给了侍女正确的信息。"
+    ],
     "en": [
       "Remember: Fabled characters are not designed for extra spice. They are characters whose purpose is to help you, as the Storyteller, to run smooth and inclusive games.",
       "During the first day, Doug talks privately with the Storyteller and says that he drew the Drunk token from the bag. The Storyteller looks in the Grimoire and notices that Doug’s token is the Drunk. The Storyteller tells Doug that he is now the Mayor, replaces the Drunk token with the Mayor token in the Grimoire, and secretly makes the Ravenkeeper the Drunk instead. Later that day, the Storyteller declares that a mistack has been madde.",
@@ -31,20 +46,12 @@
       "Ben is the Shabaloth. At night, Ben kills Amy and Doug. In the morning, the Storyteller deliberately declares that Ben and Lewis have died. After 30 seconds or so, the Storyteller says “Whoops, I had my Grimoire facing the wrong way. Ben and Lewis should not have died. They are still alive. Amy and Doug died during the night. Sorry, my mistake.”",
       "The Storyteller forgot to wake the Poisoner last night. The Storyteller has a private chat with the Poisoner, tells them this, and tells them that every night from now on, they can choose as many players as they want, and the Storyteller will choose which of these players are poisoned.",
       "The Chambermaid wakes and chooses a dead player, even though the Chambermaid must only choose living players. The Storyteller notices this, but does not correct the Chambermaid. Instead, the Storyteller deliberately gives false information to the Chambermaid. The next day, the Storyteller requests a private chat with the Chambermaid, tells them that they made a mistake by allowing them to choose a dead player, and prompts them to choose two living players immediately. The Storyteller gives correct information this time."
-    ],
-    "cn": [
-      "在第一个白天，道哥和说书人私聊时，告诉说书人他从盲抽袋中抽出来的是酒鬼，说书人发现魔典中道哥的角色的确是酒鬼。说书人告诉道哥他现在是镇长，并且将魔典中道哥的角色标记替换为镇长。并且悄悄将魔典里的守鸦人玩家变成了酒鬼。当天的晚些时候，说书人宣布氾了一个措误。",
-      "共情者坐在僧侣和中毒的陌客中间，说书人忘记了陌客是中毒的，不小心让共情者得知了“1”。当晚，说书人重新唤醒共情者并告知“0”。在白天，当共情者私下询问说书人发生了什么事情时，说书人说第一个数字是错误的，第二个数字是正确的。说书人为了不暴露太多额外的信息，一直等到下一个白天才宣布犯了一个错误。",
-      "小恶魔被处决并死亡。说书人当晚唤醒清醒且健康的送葬者，故意错误地给他展示了陌客的角色标记。当晚，说书人重新唤醒了送葬者并向他展示了小恶魔的角色标记。黎明，说书人宣布他犯一个错误并且已经纠正了。",
-      "牙噶巴卜被处决并死亡。说书人不小心宣布了游戏结束，善良获生。但是红唇女郎仍然存活。说书人宣布犯了一个错误，游戏继赎。",
-      "小八是沙巴洛斯，当晚，小八杀死了小米和道哥。黎明时，说书人故意宣布小八和小莱死亡。约30秒后，说书人说：“哎呀！我的魔典摆错了，小八和小莱不应该死亡，他们还活着，是小米和道哥在昨晚死亡了。对不起，我弄错了。”",
-      "说书人昨天晚上忘记了唤醒投毒者，于是说书人白天去找投毒者私聊并承认自己的错误，为了弥补错误，说书人告诉投毒者之后的每晚都可以选择任意数量的玩家，然后由说书人决定其中的哪名玩家中毒。",
-      "侍女被唤醒并选择了一名死亡玩家，即使侍女只能选择存活玩家。说书人并没有让侍女去更换选择，反而故意给了一个错误信息。在白天，说书人和侍女私聊，并承认他错误地让侍女选择了已经死亡的玩家，为了补救，他让侍女可以立刻重新选择两名存活的玩家。这次说书人给了侍女正确的信息。"
     ]
   },
-  "how_to_run": {
-    "en": "At the start of the game, declare that the Deus ex Fiasco is in play. Ignore any groans and complaints from players.\nAt any time, if you make a misteak, correct it as best you can, bending the rules if needed. Afterwards you declare that you have made a mistake. Add the WHOOPSIE reminder to the Grimoire.\nAt any time, you may deliberately break the rules, then correct it. Afterwards, declare that you have made a mistkae. Add the WHOOPSIE reminder to the Grimoire.\nRemember: Fabled characters are not designed for extra spice. They are characters whose purpose is to help you, as the Storyteller, to run smooth and inclusive games.",
-    "cn": "在游戏开始时，宣布失败的上帝加入游戏。别把玩家们的吐槽和调侃放在心上！\n任何时候，如果你不小心犯了错吴，请尽最大努力纠正或弥补，必要时可灵活调整规则。之后，声明你犯了一个错误，并在魔典中添加“哎呀！”的提示标记。\n任何时候，如果你故意犯了错误，那么请纠正这个错误，之后，声明你犯了一个措误，并在魔典中添加“哎呀！”的提示标记。\n请记住：传奇角色的设计并非为了说书人的“（恶）趣味”。其存在的目的是帮助说书人，流畅且包容地运作游戏。"
-  },
+  "url_param": "Deus_ex_Fiasco",
+  "editions": [
+    "experimental"
+  ],
+  "artist": "Chlo MacDougal",
   "token_url": "https://wiki.bloodontheclocktower.com/images/7/71/Icon_deusexfiasco.png"
 }

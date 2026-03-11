@@ -1,49 +1,49 @@
 {
   "id": "knight",
+  "type": "townsfolk",
   "name": {
     "en": "Knight",
+    "es-419": "Caballero",
+    "sv": "Riddaren",
+    "zh-Hans": "骑士",
     "cn": "骑士"
   },
-  "type": "townsfolk",
-  "editions": [
-    "experimental"
-  ],
-  "first_night": true,
-  "other_nights": false,
-  "artist": "Chloe McDougall",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Knight",
   "ability": {
     "en": "You start knowing 2 players that are not the Demon.",
+    "es-419": "Empiezas conociendo 2 jugadores que no son el Demonio.",
+    "sv": "I början vet du 2 spelare som inte är Demonen.",
+    "zh-Hans": "在你的首个夜晚，你会得知两名非恶魔玩家。",
     "cn": "在你的首个夜晚，你会得知两名非恶魔玩家。"
   },
   "flavor_text": {
     "en": "\"When a man lies, he murders some part of the world.\"",
+    "es-419": "Cuando un hombre miente, mata una parte del mundo.",
+    "sv": "När en man ljuger mördar han ock en del av världen.",
+    "zh-Hans": "当有人倒下时，他也就谋杀了世界上的某个部分。",
     "cn": "“当有人倒下时，他也就谋杀了世界上的某个部分。”"
   },
+  "first_night": {
+    "en": "Point to the 2 players marked *KNOW*.",
+    "es-419": "Apunta a los 2 jugadores no-Demonios marcados con *CONOCE*.",
+    "sv": "Peka på de två spelarna som är markerade med *VISAD*.",
+    "zh-Hans": "指向标记有“得知”的两名非恶魔玩家。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Knight",
+  "how_to_run": {
+    "cn": "在为首个夜晚进行准备时，将骑士的“得知”提示标记放置在任意两名非恶魔玩家的角色标记旁。\n在首个夜晚，唤醒骑士，并指向标记有“得知”的两名玩家。让骑士重新入睡。",
+    "en": "During setup, mark two non-Demon players with the Knight’s KNOW reminders.\nDuring the first night, wake the Knight. Point to the two players marked KNOW."
+  },
   "examples": {
-    "en": [
-      "Lewis is the Undertaker, Doug is the Imp and Ben is the Fortune Teller. The Knight learns Lewis and Ben.",
-      "Marianna is the Vortox and Abdallah is the Alchemist. The Knight learns Marianna and Abdallah. The Knight must learn Marianna and Abdallah because the Knight's information must be false due to the Vortox ability and therefore include the Demon."
-    ],
     "cn": [
       "小明是涡流，小黑是炼金术士。骑士得知了小明和小黑。由于涡流的能力，骑士的信息必须是错误的，所以他得知的玩家里必须要包含恶魔。",
       "小努是送葬者，小清是小恶魔，小Z是占卜师。骑士得知了小努和小Z。"
+    ],
+    "en": [
+      "Lewis is the Undertaker, Doug is the Imp and Ben is the Fortune Teller. The Knight learns Lewis and Ben.",
+      "Marianna is the Vortox and Abdallah is the Alchemist. The Knight learns Marianna and Abdallah. The Knight must learn Marianna and Abdallah because the Knight's information must be false due to the Vortox ability and therefore include the Demon."
     ]
   },
   "tips": {
-    "en": [
-      "You know the two players you learnt aren’t the Demon. If both of them survive to the final three, you know two players that aren’t the Demon and therefore know who the Demon is and can win the game with your information!",
-      "Hide what you learnt from the town - the Demon is going to actively want to kill the players you saw to avoid getting found out on the final day, so not telling people who you learnt means the Demon doesn’t know who to kill.",
-      "Conceal your information and try to make the two players you saw just suspicious enough that they might be Demon candidates, but not suspicious enough that they get executed. This gives them the best odds of surviving to the final day.",
-      "Come out with your information as early as possible to try to convince the good team to trust the players you know. Statistically they’re most likely to be good players too and can benefit from that trust and if they’re not good, they’re Minions, so it’s not the worst thing to give them a little undeserved trust.",
-      "Hunt for sources of drunk or poison – you need to know if your information is true! If you suspect you were made drunk or poisoned on the first night, you probably want to kill both players that you saw as they’re more likely to be the Demon. Finding out you were drunk or poisoned can therefore win the game.",
-      "Only reveal the players you learnt when they are nominated, to help keep them from being executed. This keeps the information from the Demon as long as you can, without hindering your ability to keep those players alive.",
-      "Agree with one of the players you learnt to swap character claims and information. You are happy to die to get the players you know aren’t the Demon to the final day, so if the Knight information is shared that you yourself are confirmed not the Demon, the Demon will be incentivised to kill you rather than the players you learnt.",
-      "Name players that you didn’t learn as your public “information” early in the game. If they don’t die at night, either the Demon didn’t believe you were the Knight (possibly because one of those two players is in fact the Demon!) or they had higher priorities for killing throughout the game, both of which gives you good social information.",
-      "Claim another good character, such as the Fortune Teller or Washerwoman that can clear one or both of the players you saw, so that you aren’t forced to reveal your Knight information too early.",
-      "You don’t need the players you learnt to reveal their characters or information to you, you know they’re not the Demon and can at least trust them that far. It may be the best play for them not to reveal for as long as possible on the basis of the trust inspired by your information naming them."
-    ],
     "cn": [
       "你知道你所得知的两名玩家不是恶魔。如果他们都能活到最后三人决赛日，由于你知道其中两名玩家不是恶魔，所以你就一定知道恶魔是谁并且利用你的信息获胜！",
       "对玩家们隐藏你的信息——恶魔会积极主动想要杀死你得知的玩家，以防在决赛日暴露自己。所以不把自己得知的信息告诉别人意味着恶魔不知道该杀谁。",
@@ -55,11 +55,24 @@
       "在游戏早期说出那些并不是你得知的玩家，作为你的公开的“骑士信息”。如果这些玩家没有在夜晚死亡，要么是恶魔不相信你是骑士（可能是因为这两名玩家之中真的有恶魔），要么是恶魔在整个对局中还有更高优先级的击杀目标。不管是哪种情况，都能让你得到不错的玩家状态信息。",
       "声称自己是其他善良角色，比如占卜师或洗衣妇这种角色，可以将你得知的其中一名或两名玩家排除嫌疑。这样你就不会被迫过早透露你的骑士信息。",
       "你不需要让你得知的玩家向你透露他们的角色或信息，你知道他们不是恶魔，至少能在这个程度上信任他们。对于他们来说，最优的玩法可能是基于你的信息所激发的信任，尽可能长久地不暴露自己。"
+    ],
+    "en": [
+      "You know the two players you learnt aren’t the Demon. If both of them survive to the final three, you know two players that aren’t the Demon and therefore know who the Demon is and can win the game with your information!",
+      "Hide what you learnt from the town - the Demon is going to actively want to kill the players you saw to avoid getting found out on the final day, so not telling people who you learnt means the Demon doesn’t know who to kill.",
+      "Conceal your information and try to make the two players you saw just suspicious enough that they might be Demon candidates, but not suspicious enough that they get executed. This gives them the best odds of surviving to the final day.",
+      "Come out with your information as early as possible to try to convince the good team to trust the players you know. Statistically they’re most likely to be good players too and can benefit from that trust and if they’re not good, they’re Minions, so it’s not the worst thing to give them a little undeserved trust.",
+      "Hunt for sources of drunk or poison – you need to know if your information is true! If you suspect you were made drunk or poisoned on the first night, you probably want to kill both players that you saw as they’re more likely to be the Demon. Finding out you were drunk or poisoned can therefore win the game.",
+      "Only reveal the players you learnt when they are nominated, to help keep them from being executed. This keeps the information from the Demon as long as you can, without hindering your ability to keep those players alive.",
+      "Agree with one of the players you learnt to swap character claims and information. You are happy to die to get the players you know aren’t the Demon to the final day, so if the Knight information is shared that you yourself are confirmed not the Demon, the Demon will be incentivised to kill you rather than the players you learnt.",
+      "Name players that you didn’t learn as your public “information” early in the game. If they don’t die at night, either the Demon didn’t believe you were the Knight (possibly because one of those two players is in fact the Demon!) or they had higher priorities for killing throughout the game, both of which gives you good social information.",
+      "Claim another good character, such as the Fortune Teller or Washerwoman that can clear one or both of the players you saw, so that you aren’t forced to reveal your Knight information too early.",
+      "You don’t need the players you learnt to reveal their characters or information to you, you know they’re not the Demon and can at least trust them that far. It may be the best play for them not to reveal for as long as possible on the basis of the trust inspired by your information naming them."
     ]
   },
-  "how_to_run": {
-    "en": "During setup, mark two non-Demon players with the Knight’s KNOW reminders.\nDuring the first night, wake the Knight. Point to the two players marked KNOW.",
-    "cn": "在为首个夜晚进行准备时，将骑士的“得知”提示标记放置在任意两名非恶魔玩家的角色标记旁。\n在首个夜晚，唤醒骑士，并指向标记有“得知”的两名玩家。让骑士重新入睡。"
-  },
+  "url_param": "Knight",
+  "editions": [
+    "experimental"
+  ],
+  "artist": "Chloe McDougall",
   "token_url": "https://wiki.bloodontheclocktower.com/images/8/8e/Icon_knight.png"
 }

@@ -10,7 +10,8 @@ const cheerio = require('cheerio');
 
 const BASE_URL = 'https://wiki.bloodontheclocktower.com';
 const CACHE_DIR = path.join(__dirname, '..', '..', '.cache', 'html');
-const OUTPUT_FILE = path.join(__dirname, '..', '..', 'characters.wiki.en.jsonl');
+const OUTPUT_DIR = path.join(__dirname, '..', '..', 'extracted');
+const OUTPUT_FILE = path.join(OUTPUT_DIR, 'characters.wiki.en.jsonl');
 
 const CATEGORIES = [
   { name: 'Townsfolk', type: 'townsfolk' },
@@ -117,9 +118,6 @@ function parseCharacterPage(html, englishName, type, urlParam) {
 
   const howToRunHeader = $('#How_to_Run').closest('h2');
   const howToRunSection = howToRunHeader.nextAll().not('h2').first();
-  const howToRunText = howToRunSection.length > 0 ? howToRunSection.text().toLowerCase() : '';
-  const firstNight = howToRunText.includes('first night');
-  const otherNights = howToRunText.includes('each night') || howToRunText.includes('every night');
 
   const jinxes = [];
   $('#jinxes table tr').each(function() {
@@ -199,22 +197,31 @@ function parseCharacterPage(html, englishName, type, urlParam) {
     });
   }
 
-  return {
-    id: englishName.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_'),
-    english_name: englishName,
+  const row = {
+    id: englishName.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, ''),
+    name: englishName,
     type: type,
     ability: ability || null,
-    flavor_text: flavorText || null,
+    flavor: flavorText || null,
     editions: editionsArray,
-    first_night: firstNight,
-    other_nights: otherNights,
     artist: artist,
     jinxes: jinxes,
     examples: examplesArr.length > 0 ? examplesArr : null,
     tips: tips.length > 0 ? tips : null,
     how_to_run: howToRun || null,
+    url_param: urlParam,
     source_url: `${BASE_URL}/${urlParam}`
   };
+
+  const compact = {};
+  for (const [key, value] of Object.entries(row)) {
+    if (value === null || value === undefined) continue;
+    if (typeof value === 'string' && value.trim() === '') continue;
+    if (Array.isArray(value) && value.length === 0) continue;
+    compact[key] = value;
+  }
+
+  return compact;
 }
 
 async function scrapeCategory(categoryUrl, type) {
@@ -234,6 +241,8 @@ async function scrapeCategory(categoryUrl, type) {
 }
 
 async function main() {
+  fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+
   const allData = [];
   
   // Scrape each category

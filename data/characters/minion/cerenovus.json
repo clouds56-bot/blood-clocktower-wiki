@@ -1,58 +1,57 @@
 {
   "id": "cerenovus",
+  "type": "minion",
   "name": {
     "en": "Cerenovus",
+    "es-419": "Cerenovus",
+    "sv": "Cerenovus",
+    "zh-Hans": "洗脑师",
     "cn": "洗脑师"
   },
-  "type": "minion",
-  "editions": [
-    "sects_violets"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "John Grist",
-  "jinxes": [
-    {
-      "id": "goblin",
-      "reason": "The Cerenovus may choose to make a player mad that they are the Goblin."
-    }
-  ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Cerenovus",
   "ability": {
     "en": "Each night, choose a player & a good character: they are \"mad\" they are this character tomorrow, or might be executed.",
+    "es-419": "Cada noche, escoge un jugador y un rol bueno: él está \"loco\" que es ese rol mañana, o quizás sea ejecutado.",
+    "sv": "Varje natt väljer du en spelare och en god roll; hen är ”galen” om att hen är den rollen imorgon, annars kanske hen avrättas.",
+    "zh-Hans": "每个夜晚，你要选择一名玩家和一个善良角色。他明天白天和夜晚需要“疯狂”地证明自己是这个角色，不然他可能被处决。",
     "cn": "每个夜晚，你要选择一名玩家和一个善良角色。他明天白天和夜晚需要“疯狂”地证明自己是这个角色，不然他可能被处决。"
   },
   "flavor_text": {
     "en": "\"Reality is merely an opinion. Specifically, my opinion.\"",
+    "es-419": "La realidad es solamente una opinión. En particular, mi opinión.",
+    "sv": "Verkligheten är bara en uppfattning. Närmare bestämt min uppfattning.",
+    "zh-Hans": "所谓的现实，其实，只是一种想法罢了。具体点来说，是我的想法。",
     "cn": "“所谓的现实，其实，只是一种想法罢了。具体点来说，是我的想法。”"
   },
+  "first_night": {
+    "en": "The Cerenovus chooses a player & a character. :reminder: Put the Cerenovus to sleep. Wake the target. Show the *THIS CHARACTER SELECTED YOU* token, the Cerenovus token, then the madness-character token.",
+    "es-419": "El Cerenovus escoge un jugador y un rol. :reminder: Pon al Cerenovus a dormir. Despierta al jugador escogido. Muéstrale la ficha de *ESTE ROL TE HA SELECCIONADO*, la ficha del Cerenovus, y luego la ficha de rol escogido.",
+    "sv": "Cerenovus väljer en spelare och en roll. :reminder: Söv Cerenovus. Väck den valda spelaren. Visa kortet *DU PÅVERKAS AV*, Cerenovus bricka och sedan den valda rollens bricka.",
+    "zh-Hans": "洗脑师指向一名玩家和角色列表上一个镇民或外来者图标。让洗脑师重新入睡。为这名玩家放置“疯狂”提示标记并唤醒这名玩家，依次向他展示“该角色的能力对你生效”信息标记、洗脑师的角色标记、他要疯狂证明的角色标记。"
+  },
+  "other_nights": {
+    "en": "The Cerenovus chooses a player & a character. :reminder: Put the Cerenovus to sleep. Wake the target. Show the *THIS CHARACTER SELECTED YOU* token, the Cerenovus token, then the madness-character token.",
+    "es-419": "El Cerenovus escoge un jugador y un rol. :reminder: Pon al Cerenovus a dormir. Despierta al jugador escogido. Muéstrale la ficha de *ESTE ROL TE HA SELECCIONADO*, la ficha del Cerenovus, y luego la ficha de rol escogido.",
+    "sv": "Cerenovus väljer en spelare och en roll. :reminder: Söv Cerenovus. Väck den valda spelaren. Visa kortet *DU PÅVERKAS AV*, Cerenovus bricka och sedan den valda rollens bricka.",
+    "zh-Hans": "洗脑师指向一名玩家和角色列表上一个镇民或外来者图标。让洗脑师重新入睡。为这名玩家放置“疯狂”提示标记并唤醒这名玩家，依次向他展示“该角色的能力对你生效”信息标记、洗脑师的角色标记、他要疯狂证明的角色标记。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Cerenovus",
+  "how_to_run": {
+    "cn": "每个夜晚，唤醒洗脑师。让洗脑师指向一名玩家和角色列表上一个镇民或外来者图标。让洗脑师重新入睡。为这名玩家放置“疯狂”提示标记并唤醒这名玩家，依次向他展示“该角色的能力对你生效”信息标记、洗脑师的角色标记、他要疯狂证明的角色标记。让那名玩家重新入睡。\n在下一个白天或夜晚，如果被选择的玩家没有尽最大努力去说服其他玩家他是被选择的角色，你就可以处决他。向所有玩家宣布他的死亡。如果你在白天的常规处决前处决了他，则直接进入夜晚阶段。（每个白天最多一次处决。）",
+    "en": "Each night, wake the Cerenovus. They point at any player and at any Townsfolk or Outsider icon on their character sheet. Put the Cerenovus to sleep. Mark the chosen player with the MAD reminder. Wake this player, show them the THIS CHARACTER SELECTED YOU info token, then the Cerenovus token, then the character token of the character they are mad about being. Put that player to sleep.\nDuring the next day or night, if you feel that the mad player has not done their best to convince the group they are this character, you can decide to execute them. Declare this to the group. They die. If you execute them during the day before the normal execution happens, go to the night phase. (There is a maximum of one execution per day.)"
+  },
   "examples": {
-    "en": [
-      "The Cerenovus makes the Barber mad about being the Savant. Tomorrow, the Barber claims to be the Savant, talks to the Storyteller, and tells the group two facts that they made up. When asked whether they are mad, the Barber says \"no\" emphatically, so avoids being executed.",
-      "The dead Artist is made mad about being the Sage. The next day, they say nothing about being the Sage. The Artist is executed.",
-      "The Cerenovus makes the Flowergirl mad about being the Clockmaker. The Flowergirl says to the group that they are the Clockmaker and learned a \"2,” but hints privately to other players that they are mad. The Storyteller overhears this and executes the Flowergirl."
-    ],
     "cn": [
       "洗脑师使理发师“疯狂”地证明他是博学者。第二天，理发师声称自己是博学者，并拜访说书人，然后告诉其他玩家两个编造的信息。当被问及他是否疯狂时，理发师断然说“不”来避免被处决。",
       "洗脑师使死亡的艺术家“疯狂”地证明他是贤者。第二天，艺术家没说自己是贤者。所以艺术家被处决。",
       "洗脑师使卖花女孩“疯狂”地证明她是钟表匠。卖花女孩对其他玩家说，她是钟表匠，并得知恶魔与爪牙的最近距离是“2”，但私下暗示其他玩家她疯狂了。这一举动被说书人发现了，并处决了卖花女孩。"
+    ],
+    "en": [
+      "The Cerenovus makes the Barber mad about being the Savant. Tomorrow, the Barber claims to be the Savant, talks to the Storyteller, and tells the group two facts that they made up. When asked whether they are mad, the Barber says \"no\" emphatically, so avoids being executed.",
+      "The dead Artist is made mad about being the Sage. The next day, they say nothing about being the Sage. The Artist is executed.",
+      "The Cerenovus makes the Flowergirl mad about being the Clockmaker. The Flowergirl says to the group that they are the Clockmaker and learned a \"2,” but hints privately to other players that they are mad. The Storyteller overhears this and executes the Flowergirl."
     ]
   },
   "tips": {
-    "en": [
-      "Madness is an infliction that can severely hinder the good team, and also a fine art - you can block a player from revealing information, force a player to change their story or double up with another good player, and even get your victim executed if they don't play along. When choosing who to make mad (and about what), think carefully about your preferred outcome!",
-      "Target players who have a lot to say. Most games will have those players who are running the show - maybe they've built up trust with other players and have some sway, or maybe they're just very sure they're right. Either way, forcing this sort of player to become mad will hinder them and their ability to coordinate with their allies... or sow seeds of doubt.",
-      "If a player is revealing a lot of important information, you can use your madness to neutralize them. The Flowergirl, Seamstress or Oracle will have a hard time revealing their game-changing info if you're forcing them to act as the Sweetheart. Track who people are listening to (publicly or privately) so you can focus on them.",
-      "One dastardly move that can really put the good team on the spot is to make them mad that they are a complicated character like the Savant, who receives a lot of information... close to the end of the game. Watching this player scramble to invent 3+ days of information is not only hilarious, but a great distraction for the good team.",
-      "When choosing who you make mad, try to be subtle or consistent. Players who are no longer mad will immediately reveal to the group that they were affected by you, and at that point on the good team will be on the lookout for loud, bold madness. A way to avoid this are to consistently choose the same player, making them mad every single day so they have no chance to reveal what you're doing to them, at the cost of restricting your movements to this one player. Another way is to pick subtle, plausible characters for your madness - for example, having someone reveal as an Outsider in a suspected Fang Gu game, or someone who has given inconsistent information reveal as a character like the Snake Charmer.",
-      "An advanced way to use madness is to build a consistent narrative. For example, you can force a player to reveal as the Sage.... but it'll lend a little credence to their forced bluff if you had them bluffing as a Dreamer the day before, just like a real Sage would. This allows you to undermine the real Sage without it necessarily coming off as just one of them being mad - the simple logical thread you have created will be something the other players find pleasing and want to hold onto. Another option for a consistent narrative is to feed into the story the evil team is trying to make - for example, if you're trying to convince them a Fang Gu is in play, make people mad they are Outsiders.",
-      "If the good team suspects that the Vortox is in play, they will be very reluctant to end the day without an execution. If they don't have any strong leads on potential evil, they may fall back to 'safe' executions - players who have used their abilities (such as the Clockmaker or Artist). Causing a more powerful character to become mad they are one of these characters can see the good team executing them without you having to lift a finger - and if they protest, they might break madness and be executed anyway!",
-      "Your ability can also affect dead players! Even if they are dead, they can still be executed should they break madness (meaning the good team does not get to execute someone of their choice instead, and the evil team gets a free night to act). If you know who your demon is going to kill, hit them with a madness about being the Barber, Sweetheart or Klutz for an extra fun distraction for the good team!",
-      "On paper, making someone mad that they are the Mutant seems like a fun trick. In reality, this madness doesn't help you - your target will be forced to reveal they are the Mutant, which obviously does nothing since they (probably) do not have the Mutant ability. The good team will know they are probably afflicted by madness, thus revealing you are in play!",
-      "Target evil players deliberately to make them look good. This has some risk associated with it since they can be executed if they don't play the madness effectively, but if the good team believes a player has been targeted by evil abilities, they'll be more likely to trust them. Just... probably warn your demon before you do it.",
-      "Your ability is obvious for the good team - madness is a very public affliction, so the good team will know you are in play pretty confidently after a few days. Keep this in mind if your evil team is bluffing that other minions are in existence; for example, in a one minion game, your demon could not have been shape-shifted by a Pit-Hag if someone died because of your madness, which will expose them as a liar!",
-      "This is an advanced tip, but a fun one: The Storyteller is the one who decides how sincere a player is when playing out a madness. This allows for some leniency for newer players, and conversely a difficulty spike for the experienced players who know the game well and understand how madness works. Targeting the latter will give you a better chance of seeing complicated and sincere madness getting played out, since more is expected of them - and it's as entertaining as it is effective!"
-    ],
     "cn": [
       "疯狂是一种能严重阻碍优秀团队找寻恶魔的处罚，也是一门艺术——你可以阻止一名善良玩家透露出他的信息，迫使他改变他的发言内容或者让两名玩家对跳相同的角色，如果他们不配合，甚至可以处决掉你选择的受害者。在选择谁疯狂（以及对什么角色疯狂）时，请仔细考虑您喜欢的结果！",
       "把目标尽量选择成有很多话要说的玩家。大多数游戏中都会有掌控全场节奏的玩家——可能他们已经和其他玩家建立了信任，或者可能他们非常确定他们的信息是非常正确的。不管怎样，强迫这类玩家疯狂会阻碍他们相互交流……或者让他们产生一丝丝怀疑。",
@@ -73,11 +72,32 @@
       "当你认为有人处于疯狂状态之中，不要对他们施加太大的压力，他们可能处于疯狂状态，他们也可能处于不同的原因撒谎。但是，如果你和大家都认为，一个处于疯狂状态的玩家说的话是因为他们疯狂了，那么说书人可能会处决有问题的玩家。",
       "洗脑师可以将死亡的玩家作为目标！鸦木布拉夫的居民们能够，甚至有些时候也必须要处决已死之人。这是个奇怪的地方。如果一名死亡玩家被洗脑师作为目标，那名玩家仍可能因为不够疯狂而被处决，因为每天只能执行一次处决，没有提名发生，今天不可能执行对其他玩家的处决，然后夜间将降临。",
       "作为一个团队，当洗脑师存在于游戏之中时，你可能会知晓。玩家们可能会突然的被处决。然后这名玩家可能会告诉大家他在昨天，或者前几天，处于疯狂状态，如果他们不再疯狂，他们可以放心地这样做。请注意那些声称被洗脑师选中的玩家，回溯他们的信息，以获得谁是善良的谁是邪恶的信息。如果两名玩家都声称他们在前一晚上同时被洗脑师选择了，那么他们至少有一个人在撒谎，且撒谎的玩家可能是邪恶的。洗脑师总是大概率选择善良阵营的玩家，而且几乎永远不会选择恶魔（这太冒险了！）除非他们有意图的死亡，否则你可以永远放心地假设之前被选择的玩家并不是恶魔。让这些玩家存活，即使你认为他们可能是爪牙，因为专注于寻找并杀死恶魔才是你最重要的事情。"
+    ],
+    "en": [
+      "Madness is an infliction that can severely hinder the good team, and also a fine art - you can block a player from revealing information, force a player to change their story or double up with another good player, and even get your victim executed if they don't play along. When choosing who to make mad (and about what), think carefully about your preferred outcome!",
+      "Target players who have a lot to say. Most games will have those players who are running the show - maybe they've built up trust with other players and have some sway, or maybe they're just very sure they're right. Either way, forcing this sort of player to become mad will hinder them and their ability to coordinate with their allies... or sow seeds of doubt.",
+      "If a player is revealing a lot of important information, you can use your madness to neutralize them. The Flowergirl, Seamstress or Oracle will have a hard time revealing their game-changing info if you're forcing them to act as the Sweetheart. Track who people are listening to (publicly or privately) so you can focus on them.",
+      "One dastardly move that can really put the good team on the spot is to make them mad that they are a complicated character like the Savant, who receives a lot of information... close to the end of the game. Watching this player scramble to invent 3+ days of information is not only hilarious, but a great distraction for the good team.",
+      "When choosing who you make mad, try to be subtle or consistent. Players who are no longer mad will immediately reveal to the group that they were affected by you, and at that point on the good team will be on the lookout for loud, bold madness. A way to avoid this are to consistently choose the same player, making them mad every single day so they have no chance to reveal what you're doing to them, at the cost of restricting your movements to this one player. Another way is to pick subtle, plausible characters for your madness - for example, having someone reveal as an Outsider in a suspected Fang Gu game, or someone who has given inconsistent information reveal as a character like the Snake Charmer.",
+      "An advanced way to use madness is to build a consistent narrative. For example, you can force a player to reveal as the Sage.... but it'll lend a little credence to their forced bluff if you had them bluffing as a Dreamer the day before, just like a real Sage would. This allows you to undermine the real Sage without it necessarily coming off as just one of them being mad - the simple logical thread you have created will be something the other players find pleasing and want to hold onto. Another option for a consistent narrative is to feed into the story the evil team is trying to make - for example, if you're trying to convince them a Fang Gu is in play, make people mad they are Outsiders.",
+      "If the good team suspects that the Vortox is in play, they will be very reluctant to end the day without an execution. If they don't have any strong leads on potential evil, they may fall back to 'safe' executions - players who have used their abilities (such as the Clockmaker or Artist). Causing a more powerful character to become mad they are one of these characters can see the good team executing them without you having to lift a finger - and if they protest, they might break madness and be executed anyway!",
+      "Your ability can also affect dead players! Even if they are dead, they can still be executed should they break madness (meaning the good team does not get to execute someone of their choice instead, and the evil team gets a free night to act). If you know who your demon is going to kill, hit them with a madness about being the Barber, Sweetheart or Klutz for an extra fun distraction for the good team!",
+      "On paper, making someone mad that they are the Mutant seems like a fun trick. In reality, this madness doesn't help you - your target will be forced to reveal they are the Mutant, which obviously does nothing since they (probably) do not have the Mutant ability. The good team will know they are probably afflicted by madness, thus revealing you are in play!",
+      "Target evil players deliberately to make them look good. This has some risk associated with it since they can be executed if they don't play the madness effectively, but if the good team believes a player has been targeted by evil abilities, they'll be more likely to trust them. Just... probably warn your demon before you do it.",
+      "Your ability is obvious for the good team - madness is a very public affliction, so the good team will know you are in play pretty confidently after a few days. Keep this in mind if your evil team is bluffing that other minions are in existence; for example, in a one minion game, your demon could not have been shape-shifted by a Pit-Hag if someone died because of your madness, which will expose them as a liar!",
+      "This is an advanced tip, but a fun one: The Storyteller is the one who decides how sincere a player is when playing out a madness. This allows for some leniency for newer players, and conversely a difficulty spike for the experienced players who know the game well and understand how madness works. Targeting the latter will give you a better chance of seeing complicated and sincere madness getting played out, since more is expected of them - and it's as entertaining as it is effective!"
     ]
   },
-  "how_to_run": {
-    "en": "Each night, wake the Cerenovus. They point at any player and at any Townsfolk or Outsider icon on their character sheet. Put the Cerenovus to sleep. Mark the chosen player with the MAD reminder. Wake this player, show them the THIS CHARACTER SELECTED YOU info token, then the Cerenovus token, then the character token of the character they are mad about being. Put that player to sleep.\nDuring the next day or night, if you feel that the mad player has not done their best to convince the group they are this character, you can decide to execute them. Declare this to the group. They die. If you execute them during the day before the normal execution happens, go to the night phase. (There is a maximum of one execution per day.)",
-    "cn": "每个夜晚，唤醒洗脑师。让洗脑师指向一名玩家和角色列表上一个镇民或外来者图标。让洗脑师重新入睡。为这名玩家放置“疯狂”提示标记并唤醒这名玩家，依次向他展示“该角色的能力对你生效”信息标记、洗脑师的角色标记、他要疯狂证明的角色标记。让那名玩家重新入睡。\n在下一个白天或夜晚，如果被选择的玩家没有尽最大努力去说服其他玩家他是被选择的角色，你就可以处决他。向所有玩家宣布他的死亡。如果你在白天的常规处决前处决了他，则直接进入夜晚阶段。（每个白天最多一次处决。）"
-  },
+  "url_param": "Cerenovus",
+  "editions": [
+    "sects_violets"
+  ],
+  "artist": "John Grist",
+  "jinxes": [
+    {
+      "id": "goblin",
+      "reason": "The Cerenovus may choose to make a player mad that they are the Goblin."
+    }
+  ],
   "token_url": "https://wiki.bloodontheclocktower.com/images/4/45/Icon_cerenovus.png"
 }

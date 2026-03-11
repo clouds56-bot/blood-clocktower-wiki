@@ -1,61 +1,57 @@
 {
   "id": "lord_of_typhon",
+  "type": "demon",
   "name": {
     "en": "Lord of Typhon",
+    "es-419": "Señor del Tifón",
+    "sv": "Tyfons Herre",
+    "zh-Hans": "堤丰之首",
     "cn": "堤丰之首"
   },
-  "type": "demon",
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Chloe McDougall",
-  "jinxes": [
-    {
-      "id": "summoner",
-      "reason": "If a Lord of Typhon is summoned, they must neighbor a Minion & their other neighbor becomes an evil Minion."
-    }
-  ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Lord_of_Typhon",
   "ability": {
     "en": "Each night*, choose a player: they die. [Evil characters are in a line. You are in the middle. +1 Minion. -? to +? Outsiders]",
+    "es-419": "Cada noche*, escoge un jugador: él muere. [Los roles malvados se encuentran en una línea. Tú estás en el medio. +1 Secuaz. -? a +? Extranjeros]",
+    "sv": "Varje natt* väljer du en spelare; hen dör. [Onda roller sitter på rad; du är inte ytterst. +1 Kumpan. ±? Utbölingar]",
+    "zh-Hans": "每个夜晚*，你要选择一名玩家：他死亡。[邪恶角色全部邻座，你靠近正中，+1爪牙，-或+任意数量外来者]",
     "cn": "每个夜晚*，你要选择一名玩家：他死亡。[邪恶角色全部邻座，你靠近正中，+1爪牙，-或+任意数量外来者]"
   },
   "flavor_text": {
     "en": "\"In the shadowed and forgotten corners of the cosmos, where the stars whisper secrets to the void, lies a truth so profound that the merest glimpse of it unravels the sanity of mortal minds.\"",
+    "es-419": "En los rincones sombríos y olvidados del cosmos, donde las estrellas susurran secretos al vacío, yace una verdad tan profunda que tan solamente mirarla desbarata la cordura de las mentes mortales.",
+    "sv": "I kosmos förgätna avkrokar, där stjärnorna viskar hemligheter till intet, vilar en sanning så djup att minsta skymt av den kan driva dödliga till vansinne.",
+    "zh-Hans": "在宇宙的阴影之中，被遗忘的角落里，星辰向虚空低声诉说着秘密，那些深邃的真理，仅是一瞥就能让肉体凡胎的心智崩溃瓦解。",
     "cn": "“在宇宙的阴影之中，被遗忘的角落里，星辰向虚空低声诉说着秘密，那些深邃的真理，仅是一瞥就能让肉体凡胎的心智崩溃瓦解。”"
   },
+  "first_night": {
+    "en": "Wake the Lord of Typhon's neighbors. Show the *YOU ARE* and Minion tokens & give a thumbs-down.",
+    "es-419": "Reemplaza los vecinos del Señor del Tifón con Secuaces, despiértalos, muéstrales sus nuevos roles y alineamientos, y dales información del secuaz.",
+    "sv": "Väck Tyfons Herres grannar. Visa kortet *DU ÄR* och Kumpanbrickor och ge tummen ner.",
+    "zh-Hans": "用爪牙角色替换堤丰之首两侧的玩家。分别唤醒他们，对这些玩家展示一个不同的爪牙角色标记和朝下的大拇指，然后照常执行爪牙信息。"
+  },
+  "other_nights": {
+    "en": "The Lord of Typhon chooses a player. :reminder:",
+    "es-419": "El Señor del Tifón escoge un jugador. :reminder:",
+    "sv": "Tyfons Herre väljer en spelare. :reminder:",
+    "zh-Hans": "堤丰之首选择一名玩家。:reminder:"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Lord_of_Typhon",
+  "how_to_run": {
+    "cn": "在进行游戏设置时，将角色标记放入盲抽袋前，移除所有的爪牙角色标记，并加入等量的镇民或外来者角色标记作为补充。\n在首个夜晚，分别依次唤醒位于堤丰之首两侧的，等同于常规游戏爪牙数量加一的玩家。分别对这些玩家展示一个不同的爪牙角色标记和朝下的大拇指，再让他们重新入睡。再用展示给他们的爪牙角色标记替换魔典中这些玩家的善良角色标记。然后再如常进行爪牙信息和恶魔信息步骤。\n在除首个夜晚以外的每个夜晚，唤醒堤丰之首。让他指向任意一名玩家。那名玩家死亡——用“死亡”提示标记标记那名玩家。让堤丰之首重新入睡。",
+    "en": "During setup, remove all Minion tokens and add Townsfolk or Outsider tokens.\nDuring the first night, wake the appropriate number of players directly clockwise and counter-clockwise from the Lord of Typhon. Show each of these players a unique Minion token, and give a thumbs down. Replace these players' good character tokens with these Minion tokens and put these players to sleep. Then, do the Minion Info and Demon Info steps as normal.\nEach night except the first, wake the Lord of Typhon. They point at any player. That player dies—mark them with the DEAD reminder. Put the Lord of Typhon to sleep."
+  },
   "examples": {
-    "en": [
-      "There are two Minions: the Organ Grinder and the Mezepheles. In between them, neighboring them both, sits the Lord of Typhon. The number of Outsiders is normal.",
-      "The Vizier neighbors the Harpy, who neighbors the Lord of Typhon, who neighbors the Goblin. There are ten players, and two Outsiders in play, due to the Lord of Typhon ability.",
-      "The Fearmonger neighbors the Boomdandy, who neighbors the Lord of Typhon, who neighbors the Poisoner, who neighbors the Mastermind. There are 15 players, but zero Outsiders in play, since the Lord of Typhon removed one Outsider, and the Puzzlemaster became the Boomdandy during the first night."
-    ],
     "cn": [
       "在一局游戏中有两名爪牙：街头风琴手和灵言师。堤丰之首位于他们中间，三人相邻而坐。外来者的数量没有出现异常。",
       "维齐尔与鹰身女妖相邻，鹰身女妖的另一侧则是堤丰之首，而堤丰之首的另一侧是哥布林。本局为10人游戏，因为堤丰之首的能力而使得有两名外来者在场。",
       "恐惧之灵与炸弹人相邻，炸弹人的另一侧是堤丰之首，堤丰之首的另一侧是投毒者，投毒者的另一侧是主谋。本局为15人游戏，但没有外来者在场，因为堤丰之首移除了一个外来者，而解谜大师在首夜变成了炸弹人。"
+    ],
+    "en": [
+      "There are two Minions: the Organ Grinder and the Mezepheles. In between them, neighboring them both, sits the Lord of Typhon. The number of Outsiders is normal.",
+      "The Vizier neighbors the Harpy, who neighbors the Lord of Typhon, who neighbors the Goblin. There are ten players, and two Outsiders in play, due to the Lord of Typhon ability.",
+      "The Fearmonger neighbors the Boomdandy, who neighbors the Lord of Typhon, who neighbors the Poisoner, who neighbors the Mastermind. There are 15 players, but zero Outsiders in play, since the Lord of Typhon removed one Outsider, and the Puzzlemaster became the Boomdandy during the first night."
     ]
   },
   "tips": {
-    "en": [
-      "As a Minion, bluff as the character you drew at the start of the game. If the good team finds one evil player and figures out it’s a Lord of Typhon game, they find the whole evil team, so you need to seem extremely good.",
-      "As a Minion, if you started with an Outsider token, use one of the Demon bluffs. If the good team thinks there is a nonstandard number of Outsiders in play, that may indicate the Lord of Typhon is in play.",
-      "As a Minion, if you bluff as something else, use your starting character as a backup.",
-      "Hide! The Lord of Typhon is not a Demon that rewards risky plays. Think carefully about the consequences of playing as an outed evil.",
-      "Use the additional Minion to your advantage. +1 Minion means you are more likely to outvote the good team, and more likely to have more evil players alive later in the game.",
-      "Keep track of how much voting power your team has compared to the good team.",
-      "Don’t vote as a team. When the entire line votes together, the good team can find the line, especially when a Flowergirl is carefully watching votes.",
-      "Use your seats next to each other to swap information. Talk casually at the start of the day! Whisper to your neighbors during the night! You’re in the perfect position to make nonstop evil plans.",
-      "Pay attention to who is watching you talk with your neighbors. Frame those players as evil to deflect attention from you and your team.",
-      "Work to discredit or poison players whose information indicates the Lord of Typhon is in play.",
-      "If the good team isn’t sure where the evil team is, make players sitting far away from you look evil. Claim to be the Town Crier who learned that a Minion nominated when only players across from you nominated, or claim to be the Fortune Teller who got a Yes on two players sitting further from the line.",
-      "If the good team is honing in on the evil team, frame the good players on the end(s) of the line.",
-      "If players don’t think the Lord of Typhon is in play, let them! As a Minion, act evil to distract the good team and protect your Demon.",
-      "Publicly disagree with your teammates to make it look like you are on opposite teams.",
-      "If you are not on the end of the line, pick a good player far away from the line, and build trust with them."
-    ],
     "cn": [
       "如果你是爪牙，直接使用你在游戏开始时抽到的角色作为伪装。如果善良阵营找出了一名邪恶玩家，并发现堤丰之首在场，他们就能找出整个邪恶团队。所以你必须看起来非常像是善良的。",
       "如果你是爪牙，并且开局抽到的角色是外来者，那么就使用恶魔的其中一个伪装。因为如果让善良阵营认为游戏中的外来者数量不合标准，这会指出堤丰之首在场。",
@@ -78,11 +74,35 @@
       "分析出是哪个恶魔在场。",
       "注意有多少个爪牙能力正在生效。如果场上有额外的爪牙，那意味着堤丰之首在场。得知这一点会很有帮助。",
       "如果你找出了一名爪牙，或者认为你找到了，那就杀死他们两边的玩家。如果是堤丰之首在场，你这样做就能保证杀死了一名爪牙，或两名爪牙，或是杀死恶魔。"
+    ],
+    "en": [
+      "As a Minion, bluff as the character you drew at the start of the game. If the good team finds one evil player and figures out it’s a Lord of Typhon game, they find the whole evil team, so you need to seem extremely good.",
+      "As a Minion, if you started with an Outsider token, use one of the Demon bluffs. If the good team thinks there is a nonstandard number of Outsiders in play, that may indicate the Lord of Typhon is in play.",
+      "As a Minion, if you bluff as something else, use your starting character as a backup.",
+      "Hide! The Lord of Typhon is not a Demon that rewards risky plays. Think carefully about the consequences of playing as an outed evil.",
+      "Use the additional Minion to your advantage. +1 Minion means you are more likely to outvote the good team, and more likely to have more evil players alive later in the game.",
+      "Keep track of how much voting power your team has compared to the good team.",
+      "Don’t vote as a team. When the entire line votes together, the good team can find the line, especially when a Flowergirl is carefully watching votes.",
+      "Use your seats next to each other to swap information. Talk casually at the start of the day! Whisper to your neighbors during the night! You’re in the perfect position to make nonstop evil plans.",
+      "Pay attention to who is watching you talk with your neighbors. Frame those players as evil to deflect attention from you and your team.",
+      "Work to discredit or poison players whose information indicates the Lord of Typhon is in play.",
+      "If the good team isn’t sure where the evil team is, make players sitting far away from you look evil. Claim to be the Town Crier who learned that a Minion nominated when only players across from you nominated, or claim to be the Fortune Teller who got a Yes on two players sitting further from the line.",
+      "If the good team is honing in on the evil team, frame the good players on the end(s) of the line.",
+      "If players don’t think the Lord of Typhon is in play, let them! As a Minion, act evil to distract the good team and protect your Demon.",
+      "Publicly disagree with your teammates to make it look like you are on opposite teams.",
+      "If you are not on the end of the line, pick a good player far away from the line, and build trust with them."
     ]
   },
-  "how_to_run": {
-    "en": "During setup, remove all Minion tokens and add Townsfolk or Outsider tokens.\nDuring the first night, wake the appropriate number of players directly clockwise and counter-clockwise from the Lord of Typhon. Show each of these players a unique Minion token, and give a thumbs down. Replace these players' good character tokens with these Minion tokens and put these players to sleep. Then, do the Minion Info and Demon Info steps as normal.\nEach night except the first, wake the Lord of Typhon. They point at any player. That player dies—mark them with the DEAD reminder. Put the Lord of Typhon to sleep.",
-    "cn": "在进行游戏设置时，将角色标记放入盲抽袋前，移除所有的爪牙角色标记，并加入等量的镇民或外来者角色标记作为补充。\n在首个夜晚，分别依次唤醒位于堤丰之首两侧的，等同于常规游戏爪牙数量加一的玩家。分别对这些玩家展示一个不同的爪牙角色标记和朝下的大拇指，再让他们重新入睡。再用展示给他们的爪牙角色标记替换魔典中这些玩家的善良角色标记。然后再如常进行爪牙信息和恶魔信息步骤。\n在除首个夜晚以外的每个夜晚，唤醒堤丰之首。让他指向任意一名玩家。那名玩家死亡——用“死亡”提示标记标记那名玩家。让堤丰之首重新入睡。"
-  },
+  "url_param": "Lord_of_Typhon",
+  "editions": [
+    "experimental"
+  ],
+  "artist": "Chloe McDougall",
+  "jinxes": [
+    {
+      "id": "summoner",
+      "reason": "If a Lord of Typhon is summoned, they must neighbor a Minion & their other neighbor becomes an evil Minion."
+    }
+  ],
   "token_url": "https://wiki.bloodontheclocktower.com/images/c/cf/Icon_lordoftyphon.png"
 }

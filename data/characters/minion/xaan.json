@@ -1,51 +1,57 @@
 {
   "id": "xaan",
+  "type": "minion",
   "name": {
     "en": "Xaan",
+    "es-419": "Xaan",
+    "sv": "Xaan",
+    "zh-Hans": "限",
     "cn": "限"
   },
-  "type": "minion",
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Steven Medway",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Xaan",
   "ability": {
     "en": "On night X, all Townsfolk are poisoned until dusk. [X Outsiders]",
+    "es-419": "En la noche X, todos los Ciudadanos están envenenados hasta el siguiente anochecer. [X Extranjeros]",
+    "sv": "På natt X är alla Bybor förgiftade till skymningen. [X Utbölingar]",
+    "zh-Hans": "在等同于初始外来者数量的夜晚，所有镇民玩家中毒直到下个黄昏。[外来者数量任意]",
     "cn": "在等同于初始外来者数量的夜晚，所有镇民玩家中毒直到下个黄昏。[外来者数量任意]"
   },
   "flavor_text": {
     "en": "\"Down they fall. One by one. By two, by three, by five.\"",
+    "es-419": "Van cayendo. Uno por uno. De a dos, de a tres, de a cinco.",
+    "sv": "Se dem falla. En efter en. Efter två, efter tre, efter fem.",
+    "zh-Hans": "他们接连倒下。一个，又一个。两个，三个，五个。",
     "cn": "“他们接连倒下。一个，又一个。两个，三个，五个。”"
   },
+  "first_night": {
+    "en": "If X is 1, mark the Xaan with the *X* reminder token. :reminder: :reminder:",
+    "es-419": "Marca al Xaan con la ficha de recordatorio *NOCHE 1*. Si X es 1, marca al Xaan con la ficha de recordatorio *X*. :reminder: :reminder:",
+    "sv": "Om X är 1, märk Xaan med påminnelsen *X*. :reminder: :reminder:",
+    "zh-Hans": "把“第一晚”提示标记放置在限的角色标记旁。如果X是1，标记限的“X”提示标记。:reminder: :reminder:"
+  },
+  "other_nights": {
+    "en": "Change the Xaan reminder token to the relevant night. If it is night X, mark the Xaan with the *X* reminder token. :reminder: :reminder:",
+    "es-419": "Cambia la ficha de recordatorio del Xaan a la noche adecuada. Si es la noche X, marca al Xaan con la ficha de recordatorio *X*. :reminder: :reminder:",
+    "sv": "Byt ut Xaans påminnelse till den aktuella natten. Om det är natt X, märk istället Xaan med påminnelsen *X*. :reminder: :reminder:",
+    "zh-Hans": "在每一夜正常改变限的提示标记，在和初始外来者数量等同的那个夜晚，把“X”提示标记放置在魔典中央。:reminder: :reminder:"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Xaan",
+  "how_to_run": {
+    "cn": "在游戏设置时，加入或移除任意数量的外来者角色标记，也可以不变。确认角色标记的总数量和玩家数量匹配。移除所有不需要使用的限的提示标记。\n在首个夜晚，把“第一晚”提示标记放置在限的角色标记旁。在第二个夜晚，把“第二晚”提示标记替换“第一晚”提示标记。在第三个夜晚，把“第三晚”提示标记替换“第二晚”提示标记……在和初始外来者数量等同的那个夜晚，把“大限将至”提示标记放置在魔典中央，并在下个黄昏移除。当“大限将至”提示标记被放置时，所有镇民玩家中毒。",
+    "en": "While setting up the game, before putting character tokens in the bag, add or remove any number of Outsider tokens, including zero. Remove any unnecessary Xaan reminders.\nOn the 1st night, add the NIGHT 1 Xaan reminder to the Grimoire. On the 2nd night, add the NIGHT 2 Xaan reminder to the Grimoire. On the 3rd night, add the NIGHT 3 Xaan reminder to the Grimoire. On the night that equals the number of Outsiders in play when the game began, add the X reminder to the Grimoire, and remove it the following dusk.\nWhen the X reminder is in the Grimoire, all Townsfolk players are poisoned."
+  },
   "examples": {
-    "en": [
-      "There are 3 Outsiders in play, due to the Xaan. On night 3, the Exorcist chooses the Demon but nothing happens, the Acrobat chooses the Drunk but nothing happens, and the Seamstress gets false information.",
-      "There is 1 Outsider in play. It is an 11 player game. On the first night, the Xaan poisons all 7 Townsfolk. On the second night, the Pit-Hag creates a Hatter. Even though there are 2 Outsiders in play, all players are healthy tonight.",
-      "There are no Outsiders in play. The Xaan never poisons anyone. The Xaan bluffs as the Zealot, and the good team believes that all Townsfolk are poisoned on night 1, but they are not."
-    ],
     "cn": [
       "由于限的能力，有三名外来者在场。第三个夜晚，驱魔人选择了恶魔，但无事发生，杂技演员选择了酒鬼，但也无事发生，女裁缝得知了错误信息。",
       "在一个11名玩家的游戏中，只有一名外来者在场。首个夜晚，限让7位镇民玩家都中毒了。第二个夜晚，麻脸巫婆创造了帽匠。即使现在有两名外来者在场，但所有玩家都是健康的。",
       "没有外来者在场。限没有让任何玩家中毒。限声称自己是狂热者。善良阵营认为所有镇民在首个夜晚都中毒了，但实际上他们没有。"
+    ],
+    "en": [
+      "There are 3 Outsiders in play, due to the Xaan. On night 3, the Exorcist chooses the Demon but nothing happens, the Acrobat chooses the Drunk but nothing happens, and the Seamstress gets false information.",
+      "There is 1 Outsider in play. It is an 11 player game. On the first night, the Xaan poisons all 7 Townsfolk. On the second night, the Pit-Hag creates a Hatter. Even though there are 2 Outsiders in play, all players are healthy tonight.",
+      "There are no Outsiders in play. The Xaan never poisons anyone. The Xaan bluffs as the Zealot, and the good team believes that all Townsfolk are poisoned on night 1, but they are not."
     ]
   },
   "tips": {
-    "en": [
-      "Stay alive as long as you can - or at least until after night & day X! Remember, your ability only works while you are alive.",
-      "Get yourself killed before the start of night X, to hide that there is a Xaan in play and to make additional outsider claims look suspicious.",
-      "If there is no Xaan in play, bluff as an Outsider to make it look like there is a living Xaan. Evil team coordination goes a long way here - evil players who are bluffing as Townsfolk should give incorrect information on night 2 or night 3 to make good players believe there is a Xaan in play and back up the Outsider bluff!",
-      "If there is a Xaan in play, discredit some of the Outsiders. If 3 good players are claiming to be Outsiders, claim to be the Investigator who has seen one of the Outsiders as the Poisoner. Or, claim to be a Village Idiot who has learned that one or two of the Outsiders are evil. The more that the good Outsiders appear to be evil, the harder it will be for the town to identify that a Xaan is in play.",
-      "Solve for X! (This is totally what your teachers meant when they said that mathematics matters in the real world.) Seriously, though - identify how many Outsiders are in play! If you can figure out how many Outsiders there are in the game, you’ll know when night X starts, and you & your evil teammates can bluff poisoned information accordingly.",
-      "Listen to the information good players share, and identify inconsistencies. If you notice multiple sources of poisoned information on the same night, you’ll be able to figure out how many Outsiders started in play.",
-      "Fake a Xaan night/day! Coordinate with your evil team, and have every evil player bluff incorrect information and/or malfunctioning abilities on the same night.",
-      "Be chaotic and draw attention towards yourself (and therefore away from your Demon)!",
-      "As evil players, bluff characters that receive lots of information, especially information that is usually difficult to bluff. Claiming to be a Dreamer, a Cannibal, or a Washerwoman is much more believable with the Xaan on the script. Receiving poisoned information is much less suspicious when good players are expecting at least one night where all Townsfolk are poisoned.",
-      "Be wary of bluffing true or healthy information, or bluffing that you know it can’t be a Xaan night or day because your ability “worked”. It’s much easier to claim that you were poisoned on a night when other players were sober, than it is to bluff that you were sober on a night when every Townsfolk was poisoned!"
-    ],
     "cn": [
       "尽可能地活着！或者至少活到大限将至（等同于外来者数量）的那一天！记住，你必须得活着，能力才能生效！",
       "让你自己死于大限将至（等同于外来者数量）那一夜之前，来隐瞒限在场的事实，这样能够让声称是外来者的玩家更可疑！",
@@ -66,11 +72,24 @@
       "当一个玩家获得清醒健康的信息，或者（并且）他可以证明自己的能力正常生效了，把所有这个夜晚和白天的信息都拿出来比较，并且慎重考虑本局外来者的数量。如果筑梦师和洗衣妇在首个夜晚获得的信息看起来都是正确的，管家也得知了正确的守夜人，那么限不会只让一个外来者加入游戏。",
       "不要过多考虑外来者的数量。如果限真的在场，外来者的数量可以任意发生变化，而并不是简单的数字相加！",
       "如果你在首个夜晚获得了信息，可以等一天或两天，来看看你的信息是否能对得上。作为图书管理员，如果你知道两名玩家之中有莽夫，完全有可能是说书人在大限之日告诉了你一名邪恶玩家，而莽夫不曾在场！"
+    ],
+    "en": [
+      "Stay alive as long as you can - or at least until after night & day X! Remember, your ability only works while you are alive.",
+      "Get yourself killed before the start of night X, to hide that there is a Xaan in play and to make additional outsider claims look suspicious.",
+      "If there is no Xaan in play, bluff as an Outsider to make it look like there is a living Xaan. Evil team coordination goes a long way here - evil players who are bluffing as Townsfolk should give incorrect information on night 2 or night 3 to make good players believe there is a Xaan in play and back up the Outsider bluff!",
+      "If there is a Xaan in play, discredit some of the Outsiders. If 3 good players are claiming to be Outsiders, claim to be the Investigator who has seen one of the Outsiders as the Poisoner. Or, claim to be a Village Idiot who has learned that one or two of the Outsiders are evil. The more that the good Outsiders appear to be evil, the harder it will be for the town to identify that a Xaan is in play.",
+      "Solve for X! (This is totally what your teachers meant when they said that mathematics matters in the real world.) Seriously, though - identify how many Outsiders are in play! If you can figure out how many Outsiders there are in the game, you’ll know when night X starts, and you & your evil teammates can bluff poisoned information accordingly.",
+      "Listen to the information good players share, and identify inconsistencies. If you notice multiple sources of poisoned information on the same night, you’ll be able to figure out how many Outsiders started in play.",
+      "Fake a Xaan night/day! Coordinate with your evil team, and have every evil player bluff incorrect information and/or malfunctioning abilities on the same night.",
+      "Be chaotic and draw attention towards yourself (and therefore away from your Demon)!",
+      "As evil players, bluff characters that receive lots of information, especially information that is usually difficult to bluff. Claiming to be a Dreamer, a Cannibal, or a Washerwoman is much more believable with the Xaan on the script. Receiving poisoned information is much less suspicious when good players are expecting at least one night where all Townsfolk are poisoned.",
+      "Be wary of bluffing true or healthy information, or bluffing that you know it can’t be a Xaan night or day because your ability “worked”. It’s much easier to claim that you were poisoned on a night when other players were sober, than it is to bluff that you were sober on a night when every Townsfolk was poisoned!"
     ]
   },
-  "how_to_run": {
-    "en": "While setting up the game, before putting character tokens in the bag, add or remove any number of Outsider tokens, including zero. Remove any unnecessary Xaan reminders.\nOn the 1st night, add the NIGHT 1 Xaan reminder to the Grimoire. On the 2nd night, add the NIGHT 2 Xaan reminder to the Grimoire. On the 3rd night, add the NIGHT 3 Xaan reminder to the Grimoire. On the night that equals the number of Outsiders in play when the game began, add the X reminder to the Grimoire, and remove it the following dusk.\nWhen the X reminder is in the Grimoire, all Townsfolk players are poisoned.",
-    "cn": "在游戏设置时，加入或移除任意数量的外来者角色标记，也可以不变。确认角色标记的总数量和玩家数量匹配。移除所有不需要使用的限的提示标记。\n在首个夜晚，把“第一晚”提示标记放置在限的角色标记旁。在第二个夜晚，把“第二晚”提示标记替换“第一晚”提示标记。在第三个夜晚，把“第三晚”提示标记替换“第二晚”提示标记……在和初始外来者数量等同的那个夜晚，把“大限将至”提示标记放置在魔典中央，并在下个黄昏移除。当“大限将至”提示标记被放置时，所有镇民玩家中毒。"
-  },
+  "url_param": "Xaan",
+  "editions": [
+    "experimental"
+  ],
+  "artist": "Steven Medway",
   "token_url": "https://wiki.bloodontheclocktower.com/images/0/0c/Icon_xaan.png"
 }

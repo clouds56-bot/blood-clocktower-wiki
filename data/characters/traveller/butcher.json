@@ -1,46 +1,45 @@
 {
   "id": "butcher",
+  "type": "traveller",
   "name": {
     "en": "Butcher",
+    "es-419": "Carnicero",
+    "sv": "Slaktaren",
+    "zh-Hans": "屠夫",
     "cn": "屠夫"
   },
-  "type": "traveller",
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Butcher",
   "ability": {
     "en": "Each day, after the 1st execution, you may nominate again.",
+    "es-419": "Cada día, luego de la 1era ejecución, puedes nominar nuevamente.",
+    "sv": "Varje dag efter den första avrättningen får du nominera igen.",
+    "zh-Hans": "每个白天，首次处决后，你可以再次发起提名。",
     "cn": "每个白天，首次处决后，你可以再次发起提名。"
   },
   "flavor_text": {
     "en": "\"It tastes like chicken. More please.\"",
+    "es-419": "Sabe a pollo. Más, por favor.",
+    "sv": "Smakar kyckling. Mer, tack.",
+    "zh-Hans": "这口感好像鸡肉..……请再来一份。",
     "cn": "“这口感好像鸡肉..……请再来一份。”"
   },
+  "source_url": "https://wiki.bloodontheclocktower.com/Butcher",
+  "how_to_run": {
+    "cn": "每一天，在第一次有玩家被处决后，屠夫可以提名一名玩家进行处决。（如果需要的话可以提醒屠夫。）这次提名处决的成功条件和正常情况下一样，需要至少达到存活玩家的一半的票数，但是不需要达到并超过在屠夫发动能力之前被处决玩家的票数。如果第二次处决成功了，屠夫无法再发起第三次处决提名。",
+    "en": "Each day, immediately after a player is executed, the Butcher may nominate a player for execution. (Remind them if needed.) To succeed, this nomination must tally votes of at least half the alive players, as normal, but does not have to exceed the votes of the execution that prompted the Butcher ability. If this second execution succeeds, it does not allow the Butcher to nominate a third player."
+  },
   "examples": {
-    "en": [
-      "The Witch is executed and dies. The Butcher then nominates the Sage, who gets enough votes to be executed. The Sage dies too.",
-      "The Bone Collector is exiled, and then the Harlot is exiled. There are no executions today. The Butcher does not get to nominate again, because exiles are not executions.",
-      "The Butcher nominates the Town Crier, but the Town Crier is not executed. The Mathematician gets more votes and is executed today. The game continues, and the Butcher nominates the Town Crier again. This time, enough hands are raised, and the Town Crier is executed."
-    ],
     "cn": [
       "女巫被处决并且死亡了。屠夫提名了贤者，并且得到了足够处决贤者的赞成票。贤者也死亡了。",
       "集骨者被流放了，流莺也被流放了。今天没有处决发生，屠夫无法进行额外的提名，因为流放不是处决。",
       "屠夫提名了城镇公告员，但是城镇公告员没有被处决。因为数学家获得了更高的票数并且在今天被处决了。游戏继续，屠夫再次提名了城镇公告员，这一次也获得了足够的票数，城镇公告员被处决了。"
+    ],
+    "en": [
+      "The Witch is executed and dies. The Butcher then nominates the Sage, who gets enough votes to be executed. The Sage dies too.",
+      "The Bone Collector is exiled, and then the Harlot is exiled. There are no executions today. The Butcher does not get to nominate again, because exiles are not executions.",
+      "The Butcher nominates the Town Crier, but the Town Crier is not executed. The Mathematician gets more votes and is executed today. The game continues, and the Butcher nominates the Town Crier again. This time, enough hands are raised, and the Town Crier is executed."
     ]
   },
   "tips": {
-    "en": [
-      "Only nominate players that you think you can execute. Executing 2 players per day is extremely helpful to the good team. Instead of 1 player dying during the day by the choice of the group and 1 player dying at night (by the choice of the Demon), there will be 2 players dying per day by the choice of the group for every player that dies at night by choice of the Demon. The increase in probability alone is enough to give the good team a significant advantage. If you nominate players that end up executed, you maintain this advantage. If you nominate players that end up slipping the noose (even if you think they are evil), then you lose this advantage - your ability might as well be non-existent.",
-      "During the normal voting process, pay attention to which players get a lot of votes, but are not executed, and which players don't get many votes, but are not executed. Players that get an overwhelming number of votes are unlikely to be the Demon, since Minions rarely vote for the Demon in such dangerous circumstances. Players that don't get many votes are more likely to be the Demon, since the Minions are not voting for them. When it comes time for you to use your ability, choose wisely.",
-      "If the group keeps failing to vote for the players that you nominate, or if the group is talking about exiling you, then you can make a deal with them - you will nominate who they want you to nominate. Staying alive is better than being dead, even if it means that you go with the group's guesses instead of your own. You can always change your mind at the last minute and actually nominate a different player than the group wants you to... but they may exile you if you miss the Demon.",
-      "If there is an Evil Twin in the game, be much more frugal with your nominations. If the Demon and the Evil Twin are both still alive when just 3 players are alive, it is possible that evil has already won. You don't want to accidentally bring the game to an early end, and an early loss, due to too many frivolous executions. This is particularly true if a Witch or Cerenovus is in-play and still alive.",
-      "If the Witch curses you, this is great news! An Evil Witch will definitely want to keep an evil Butcher alive, so that fact that the Witch cursed you instead of a much more valuable target, basically confirms to the group that you are good. And, if you are good, the group knows that your choices for the extra nomination each day were made with the intention of killing the Demon. The group also knows that any other Travellers in play are much more likely to be evil, and should probably be Exiled."
-    ],
     "cn": [
       "只去提名那些你认为你可以处决的玩家。对于善良阵营来说，而每个白天处决两位玩家是相当有帮助的。通常来说，在白天会有一名玩家死于团队的选择，在夜晚也会有一名玩家会死亡（基于恶魔的选择）。而你的存在将会让团队能够在白天选择两位玩家并让他们死亡，在夜晚依旧只会有一位玩家会被恶魔杀害。单是概率的增加就足以带给善良阵营巨大的优势。如果你提名的玩家最后被处决了，你就将这个优势维持住了。如果你提名的玩家最后侥幸逃脱了（即便你认为他是邪恶的），那你就失去了这个优势——你的能力就好像根本不存在一样。",
       "在正常的提名环节，留意哪位玩家获得了大量的投票但最终没有被处决，也要注意哪位玩家得票不多最后也没被处决。获得压倒性票数的玩家不太可能是恶魔，因为爪牙在这个危险的情况下几乎不会给恶魔投票。那些得票不多的玩家更可能是恶魔，因为爪牙不会给他投票。当你要使用能力时，谨慎地做出选择。",
@@ -53,11 +52,19 @@
       "用你的能力提名爪牙。或者不提名。你觉得怎么做最好，你就怎么做。",
       "如果一位镜像双子，一位女巫，或者一位洗脑师在场，和他们合作看看能不能迅速让场上的存活玩家数降到3位——镜像双子，善良双子以及恶魔。在这种情况下，邪恶阵营就已经赢了。",
       "如果恶魔是方古，你就要小心了！恶魔会在你毫无察觉的情况下变更玩家，你可能会意外提名并处决恶魔。与其他邪恶玩家交流，找出是哪位恶魔在场，并且及时更新有关邪恶阵营的所有消息。同样的，如果舞蛇人变成了恶魔，你也不会希望意外提名了恶魔，特别是在游戏的后期。"
+    ],
+    "en": [
+      "Only nominate players that you think you can execute. Executing 2 players per day is extremely helpful to the good team. Instead of 1 player dying during the day by the choice of the group and 1 player dying at night (by the choice of the Demon), there will be 2 players dying per day by the choice of the group for every player that dies at night by choice of the Demon. The increase in probability alone is enough to give the good team a significant advantage. If you nominate players that end up executed, you maintain this advantage. If you nominate players that end up slipping the noose (even if you think they are evil), then you lose this advantage - your ability might as well be non-existent.",
+      "During the normal voting process, pay attention to which players get a lot of votes, but are not executed, and which players don't get many votes, but are not executed. Players that get an overwhelming number of votes are unlikely to be the Demon, since Minions rarely vote for the Demon in such dangerous circumstances. Players that don't get many votes are more likely to be the Demon, since the Minions are not voting for them. When it comes time for you to use your ability, choose wisely.",
+      "If the group keeps failing to vote for the players that you nominate, or if the group is talking about exiling you, then you can make a deal with them - you will nominate who they want you to nominate. Staying alive is better than being dead, even if it means that you go with the group's guesses instead of your own. You can always change your mind at the last minute and actually nominate a different player than the group wants you to... but they may exile you if you miss the Demon.",
+      "If there is an Evil Twin in the game, be much more frugal with your nominations. If the Demon and the Evil Twin are both still alive when just 3 players are alive, it is possible that evil has already won. You don't want to accidentally bring the game to an early end, and an early loss, due to too many frivolous executions. This is particularly true if a Witch or Cerenovus is in-play and still alive.",
+      "If the Witch curses you, this is great news! An Evil Witch will definitely want to keep an evil Butcher alive, so that fact that the Witch cursed you instead of a much more valuable target, basically confirms to the group that you are good. And, if you are good, the group knows that your choices for the extra nomination each day were made with the intention of killing the Demon. The group also knows that any other Travellers in play are much more likely to be evil, and should probably be Exiled."
     ]
   },
-  "how_to_run": {
-    "en": "Each day, immediately after a player is executed, the Butcher may nominate a player for execution. (Remind them if needed.) To succeed, this nomination must tally votes of at least half the alive players, as normal, but does not have to exceed the votes of the execution that prompted the Butcher ability. If this second execution succeeds, it does not allow the Butcher to nominate a third player.",
-    "cn": "每一天，在第一次有玩家被处决后，屠夫可以提名一名玩家进行处决。（如果需要的话可以提醒屠夫。）这次提名处决的成功条件和正常情况下一样，需要至少达到存活玩家的一半的票数，但是不需要达到并超过在屠夫发动能力之前被处决玩家的票数。如果第二次处决成功了，屠夫无法再发起第三次处决提名。"
-  },
+  "url_param": "Butcher",
+  "editions": [
+    "experimental"
+  ],
+  "artist": "Aidan Roberts",
   "token_url": "https://wiki.bloodontheclocktower.com/images/e/e3/Icon_butcher.png"
 }

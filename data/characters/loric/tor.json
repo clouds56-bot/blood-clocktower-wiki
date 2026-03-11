@@ -1,0 +1,37 @@
+{
+  "id": "tor",
+  "type": "loric",
+  "name": {
+    "en": "Tor",
+    "sv": "Väktaren",
+    "zh-Hans": "遗忘之门",
+    "cn": "遗忘之门"
+  },
+  "ability": {
+    "en": "Players don't know their character or alignment. They learn them when they die.",
+    "sv": "Spelare vet inte sin roll eller sitt lag. De får veta det när de har dött.",
+    "zh-Hans": "玩家不知道自己的角色和阵营。当他们死亡时才会得知这些信息。",
+    "cn": "玩家不知道自己的角色和阵营。当他们死亡时才会得知这些信息。"
+  },
+  "flavor_text": {
+    "en": "With thunder as my voice and lightning as my blade, I, the eternal guardian, feast upon the fools who dare approach the forbidden gate. Behold, my sacred goal! To purge the beetle from the belly of the rocky earth, to ensnare it in a net of stars, on the hilltop where heaven meets earth.",
+    "sv": "Med åskan som min röst och blixten som mitt svärd ska jag, den eviga väktaren, frossa på de dårar som vågar närma sig den förbjudna porten. Skåda mitt heliga mål! Att utrota skalbaggen från den steniga jordens buk, att snärja den i ett nät av stjärnor, på kullen där himmel möter jord.",
+    "zh-Hans": "雷鸣是我的言语，闪电是我的剑。我是永恒的守门者，吞噬一切妄闯禁域的愚者。我的圣志昭然：净化尘世的污虫，将其困缚于星光织成的网中，在那天与地交汇的山巅，守望永恒的真理。",
+    "cn": "“雷鸣是我的言语，闪电是我的剑。\n我是永恒的守门者，吞噬一切妄闯禁域的愚者。\n我的圣志昭然：净化尘世的污虫，将其困缚于星光织成的网中，\n在那天与地交汇的山巅，守望永恒的真理。”"
+  },
+  "first_night": {
+    "en": "If a player died tonight, show the *YOU ARE* info token, their character token, & a thumbs up or thumbs down.",
+    "sv": "Om en spelare dog inatt, visa kortet *DU ÄR* följt av spelarens rollbricka och tummen upp eller ner.",
+    "zh-Hans": "如果一名玩家在白天死亡，私下告诉他角色和阵营。如果一名玩家在夜晚死亡，唤醒他并向他依次展示“你是”信息标记，他的角色标记，“你是”信息标记和竖起或倒置的大拇指。"
+  },
+  "source_url": "https://script.bloodontheclocktower.com/",
+  "how_to_run": {
+    "cn": "在设置调整阶段，不要把盲抽袋给玩家。由说书人从盲抽袋抽取角色标记，并把它们放置在魔典中。\n如果一名玩家在白天死亡，私下告诉他角色和阵营。如果一名玩家在夜晚死亡，唤醒他并向他依次展示“你是”信息标记，他的角色标记，“你是”信息标记和竖起或倒置的大拇指。"
+  },
+  "examples": {
+    "cn": [
+      "小佳，小艾，小文，小茶，小美，小明和小米不知道他们各自的角色。小文每个夜晚都会被唤醒，并看到说书人对他竖起大拇指，但不知道是为什么。小美每个夜晚都会被唤醒选择一名玩家，但不知道为什么。小米每个夜晚都会被唤醒选择一名玩家，但不知道为什么。小美死于处决后，得知了她是善良的僧侣。小茶猜测自己可能是猎手，并公开声称自己是猎手，选择了小米。小米死亡了。实际上，小文是将军，小茶是猎手，小米是小恶魔。"
+    ]
+  },
+  "url_param": "%E9%81%97%E5%BF%98%E4%B9%8B%E9%97%A8"
+}

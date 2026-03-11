@@ -1,50 +1,54 @@
 {
   "id": "barber",
+  "type": "outsider",
   "name": {
     "en": "Barber",
+    "es-419": "Barbero",
+    "sv": "Barberaren",
+    "zh-Hans": "理发师",
     "cn": "理发师"
   },
-  "type": "outsider",
-  "editions": [
-    "sects_violets"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Barber",
   "ability": {
     "en": "If you died today or tonight, the Demon may choose 2 players (not another Demon) to swap characters.",
+    "es-419": "Si has muerto hoy por el día or por la noche, el Demonio puede escoger 2 jugadores (pero no otro Demonio) para intercambiar roles.",
+    "sv": "Om du dog idag eller inatt får Demonen välja 2 spelare (inte en annan Demon) som byter roll med varandra.",
+    "zh-Hans": "如果你死亡，在当晚恶魔可以选择两名玩家（不能选择其他恶魔）交换角色。",
     "cn": "如果你死亡，在当晚恶魔可以选择两名玩家（不能选择其他恶魔）交换角色。"
   },
   "flavor_text": {
     "en": "\"Did you know that barbery and surgery were once the same profession? No? Well, now you do.\"",
+    "es-419": "¿Sabías que la barbería y la cirugía fueron alguna vez la misma profesión? ¿No? Pues, ahora lo sabes.",
+    "sv": "Visste du att barberare och kirurg en gång var samma yrke? Inte? Nu vet du.",
+    "zh-Hans": "对了，你以前知不知道，理发师和手术医生其实是同一个职业？不知道？那现在你知道了。",
     "cn": "“对了，你以前知不知道，理发师和手术医生其实是同一个职业？不知道？那现在你知道了。”"
   },
+  "other_nights": {
+    "en": "If the Barber died today or tonight, show the Demon the *THIS CHARACTER SELECTED YOU* & Barber tokens. If the Demon chose 2 players, wake one at a time. Show the *YOU ARE* token & their new character token.",
+    "es-419": "Si el Barbero ha muerto hoy por el día o por la noche, muéstrale al Demonio la ficha de *ESTE ROL TE HA SELECCIONADO* y la ficha del Barbero. Si el Demonio escoge 2 jugadores, despiértalos uno por uno. Muéstrales la ficha de *TÚ ERES* y su nueva ficha de rol.",
+    "sv": "Om Barberaren dog idag eller inatt, visa Demonen kortet *DU PÅVERKAS AV* och Barberarens rollbricka. Om Demonen väljer 2 spelare, väck dem en i taget. Visa kortet *DU ÄR* och deras nya rollbricka.",
+    "zh-Hans": "在理发师死亡的夜晚，唤醒一名恶魔玩家。向他展示“该角色的能力对你生效”信息标记，理发师角色标记。如果恶魔指向两名玩家，交换那两名玩家的角色标记。然后分别单独唤醒两名被交换的玩家，并展示“你是”信息标记、新的角色标记，再让他们重新入睡。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Barber",
+  "how_to_run": {
+    "cn": "如果理发师死亡，为他放置“今晚理发”提示标记。\n在理发师死亡的夜晚，唤醒一名恶魔玩家。向他展示“该角色的能力对你生效”信息标记，理发师角色标记。恶魔要么摇头，要么指向两名玩家。让恶魔重新入睡。移除“今晚理发”。\n如果恶魔指向两名玩家，交换那两名玩家的角色标记。然后分别单独唤醒两名被交换的玩家，并展示“你是”信息标记、新的角色标记，再让他们重新入睡。如果玩家的新角色标记与其所属阵营颜色不同，将其倒置以代表相反阵营。\n如果一名善良玩家变成爪牙或恶魔，或者是一名邪恶的玩家变成镇民或外来者，你可能需要提醒他阵营未改变。",
+    "en": "If the Barber dies, mark them with the HAIRCUTS TONIGHT reminder.\nDuring that night, wake the Demon. Show them the THIS CHARACTER SELECTED YOU info token, then the Barber token. The Demon either shakes their head no or points to two players. Put the Demon to sleep. Remove the HAIRCUTS TONIGHT reminder.\nIf the Demon pointed to two players, swap the character tokens of the chosen players. One at a time, wake each swapped player, show them the YOU ARE info token and their new character token, then put them to sleep. If a player’s alignment does not match the color of their character token, turn it upside-down.\nIf a good player becomes a Minion or Demon, or an evil player becomes a Townsfolk or Outsider, you may wish to remind them that their alignment has not changed."
+  },
   "examples": {
+    "cn": [
+      "理发师死了。恶魔本来想要交换钟表匠和杂耍艺人，但随后决定什么都不做。",
+      "理发师死了。恶魔交换了存活的神谕者和死亡的理发师。现在，有一名存活的理发师和一名死亡的神谕者。",
+      "理发师死了。涡流与一名存活的女巫交换角色。",
+      "理发师死了。亡骨魔与死去的心上人交换角色。曾经的亡骨魔现在是邪恶的心上人，游戏本该因此结束，但是由于在先前的夜晚里麻脸巫婆创造了一名善良恶魔，游戏继续。"
+    ],
     "en": [
       "If a good player becomes a Minion or Demon, or an evil player becomes a Townsfolk or Outsider, you may wish to remind them that their alignment has not changed.",
       "The Barber dies. The Demon considers swapping the Clockmaker and the Juggler, but then does nothing.",
       "The Barber dies. The Demon swaps the alive Snake Charmer with the dead Barber. Now, there is an alive Barber and a dead Snake Charmer.",
       "The Barber dies. The Vortox swaps themself with an alive Witch.",
       "The Barber dies. The Vigormortis swaps themself with a dead Sweetheart. The old Vigormortis is now the evil Sweetheart. Because the Pit-Hag created a good Demon during the previous night, the game continues."
-    ],
-    "cn": [
-      "理发师死了。恶魔本来想要交换钟表匠和杂耍艺人，但随后决定什么都不做。",
-      "理发师死了。恶魔交换了存活的神谕者和死亡的理发师。现在，有一名存活的理发师和一名死亡的神谕者。",
-      "理发师死了。涡流与一名存活的女巫交换角色。",
-      "理发师死了。亡骨魔与死去的心上人交换角色。曾经的亡骨魔现在是邪恶的心上人，游戏本该因此结束，但是由于在先前的夜晚里麻脸巫婆创造了一名善良恶魔，游戏继续。"
     ]
   },
   "tips": {
-    "en": [
-      "Don't die! Your death will immediately give the evil team a massive advantage - they have a wealth of options available to them with your swapping ability, and will definitely utilize them to undermine the good team as much as possible.",
-      "Bluff as an undesirable target for the demon. To increase your chances of survival, claim to be a character that the demon wouldn't want to touch - this can be a character like the Sage, who the demon wants to avoid at all costs, or characters like the Artist and Juggler who have used their abilities already. If the demon thinks you are low priority, they'll focus on other targets, allowing you to avoid death. (Note that it may be to your benefit to reveal your true identity to one or two people secretly so they know whatever 'information' you're offering is not true).",
-      "If you die, you should come out, but maybe not immediately. It's important for people to know that a Barber swap has taken place, but if you wait a few minutes, most good players will come out and let you know that they've had their characters changed. If you reveal after someone has come out as changed, you will look a lot more credible.",
-      "Deliberately dying might be viable in certain games - for example, if you have a good idea who all evil players are, OR if you're certain that most evil players are dead. These conditions block the most difficult Barber swap to detect (two evil players swapping characters), meaning the demon is more likely to try and swap good players (confirming you), or no players (thus minimize your effect on the game).",
-      "If you are a good player and your character changes on the night that the Barber died, it is usually best to tell the town as soon as possible, since you confirm the existence of the Barber, and can help you find the person you were swapped with. Unless you were swapped with an evil player, the other player will probably also want to come out, and then you know you can trust that person!",
-      "Help, I'm the demon and the Barber just died! The Barber's ability is very versatile and powerful, but it can be tricky to use, especially when you kill them unexpectedly! Here's a few options for the caught-off guard demon:\nSwap two evil players. In nearly all cases, you're doing this to move the demon to another evil player, thus invalidating information from all sorts of good characters (including the Flowergirl, Savant, and even the Dreamer). A well timed move of the demon can completely throw the good team off your trail.\nSwap two good players! Keeping in mind that you can swap alive and dead players this way, you can use this to disable a troublesome Philosopher or Sage, among many other difficult characters... simply by swapping them with the newly dead Barber. You can also swap a known Mutant to put a player in a difficult position where they cannot easily admit the swap has taken place. Finally, you can just swap two random players to create confusion! Be aware: Good players will obviously know that they've been swapped, and swapped players will know each others' characters and be able to trust each other. Make sure that neutralizing that troublesome townsfolk is worth the new information!\nSwap an evil and a good player. This is usually not a good idea, since a good player with an evil ability can cause team evil a lot of damage. A good Witch, or a good Cerenovus, for example, are dangerous. However, they may be so dangerous to both sides that the good team decides to execute a good player that becomes an evil character and talks about it. However, it works both ways. If the evil team can gain a good player's ability that can be used against them, it can be devastating. For example, an evil player becoming a Sweetheart, Philosopher or Snake Charmer can be awesome.\nSometimes, it is best to do nothing at all when a Barber dies. If you have no good characters that you feel like swapping, and you are happy with which evil players are which evil characters, simply do nothing. Since this choice has no game effect, this keeps your position strong, and either makes the Barber look like they are lying, or makes it look like the Demon and Minion swapped characters. Either way, this is false information to distract and confuse the good team.Swap two evil players. In nearly all cases, you're doing this to move the demon to another evil player, thus invalidating information from all sorts of good characters (including the Flowergirl, Savant, and even the Dreamer). A well timed move of the demon can completely throw the good team off your trail.Swap two good players! Keeping in mind that you can swap alive and dead players this way, you can use this to disable a troublesome Philosopher or Sage, among many other difficult characters... simply by swapping them with the newly dead Barber. You can also swap a known Mutant to put a player in a difficult position where they cannot easily admit the swap has taken place. Finally, you can just swap two random players to create confusion! Be aware: Good players will obviously know that they've been swapped, and swapped players will know each others' characters and be able to trust each other. Make sure that neutralizing that troublesome townsfolk is worth the new information!Swap an evil and a good player. This is usually not a good idea, since a good player with an evil ability can cause team evil a lot of damage. A good Witch, or a good Cerenovus, for example, are dangerous. However, they may be so dangerous to both sides that the good team decides to execute a good player that becomes an evil character and talks about it. However, it works both ways. If the evil team can gain a good player's ability that can be used against them, it can be devastating. For example, an evil player becoming a Sweetheart, Philosopher or Snake Charmer can be awesome.Sometimes, it is best to do nothing at all when a Barber dies. If you have no good characters that you feel like swapping, and you are happy with which evil players are which evil characters, simply do nothing. Since this choice has no game effect, this keeps your position strong, and either makes the Barber look like they are lying, or makes it look like the Demon and Minion swapped characters. Either way, this is false information to distract and confuse the good team."
-    ],
     "cn": [
       "尽量不要让自己死亡。你死后会给邪恶团队带来巨大的收益——他们可以用你的交换能力做出很多选择来尽可能的削弱善良阵营玩家。",
       "伪装成一个恶魔不想击杀的目标。为了增加你的存活机会，你可以说自己是那些恶魔不想去击杀的角色——比如像贤者这样的角色，恶魔肯定会尽量避开，或者说是像艺术家和杂耍艺人这样的已经使用了能力的角色。恶魔如果认为你的优先级较低，就会去选择其他目标，这样也会使你避免死亡（需要注意的是，你可以秘密的向一两个人透露你的真实角色，这样他们就不会被你的任何可能不是真信息的\"信息\"所干扰）。",
@@ -56,11 +60,20 @@
       "交换两个善良玩家！记住你可以交换活着的玩家和死亡的玩家，你可以用这个能力来解决一些麻烦的角色，比如哲学家或者贤者或者其他的角色……只需要简单的把刚死去的理发师和他们交换。你也可以把一个已知的畸形秀演员和其他玩家交换，这样他们无法轻易的证实他们被交换了。最后，你可以随机选择两个玩家交换以制造更多的混乱！ 注意： 善良玩家会知道他们被交换了，而且善良玩家会知道被交换玩家的角色，所以会变得更信任对方。确保这样做是值得的。",
       "交换一个邪恶玩家和一个善良玩家。通常这不是一个好的主意，因为一个有着邪恶能力的善良玩家会对你们产生影响。例如一个善良女巫或者善良的洗脑师，对你们来说会很危险。然而，这对双方而言都是如此，善良玩家可能会决定去处决那些变为邪恶角色的善良玩家，并且对此讨论这种情况。这是双向的。如果邪恶队伍得到善良玩家的能力可以用来对付他们，那也可能会是具有毁灭性的。例如，一个邪恶玩家变为心上人、哲学家或者舞蛇人就非常棒。",
       "有些时候，你可以在理发师死后选择什么都不做。如果你没有好的角色决定去换，而且觉得目前的邪恶玩家的角色都还不错，你可以什么都不做。由于没有产生影响，这也会使你受益。要么会让理发师看起来在撒谎，要么让大家以为恶魔和爪牙之间交换了角色。不管怎么样，这些都是错误的信息，同样可以干扰善良队伍并分散他们的注意力。"
+    ],
+    "en": [
+      "Don't die! Your death will immediately give the evil team a massive advantage - they have a wealth of options available to them with your swapping ability, and will definitely utilize them to undermine the good team as much as possible.",
+      "Bluff as an undesirable target for the demon. To increase your chances of survival, claim to be a character that the demon wouldn't want to touch - this can be a character like the Sage, who the demon wants to avoid at all costs, or characters like the Artist and Juggler who have used their abilities already. If the demon thinks you are low priority, they'll focus on other targets, allowing you to avoid death. (Note that it may be to your benefit to reveal your true identity to one or two people secretly so they know whatever 'information' you're offering is not true).",
+      "If you die, you should come out, but maybe not immediately. It's important for people to know that a Barber swap has taken place, but if you wait a few minutes, most good players will come out and let you know that they've had their characters changed. If you reveal after someone has come out as changed, you will look a lot more credible.",
+      "Deliberately dying might be viable in certain games - for example, if you have a good idea who all evil players are, OR if you're certain that most evil players are dead. These conditions block the most difficult Barber swap to detect (two evil players swapping characters), meaning the demon is more likely to try and swap good players (confirming you), or no players (thus minimize your effect on the game).",
+      "If you are a good player and your character changes on the night that the Barber died, it is usually best to tell the town as soon as possible, since you confirm the existence of the Barber, and can help you find the person you were swapped with. Unless you were swapped with an evil player, the other player will probably also want to come out, and then you know you can trust that person!",
+      "Help, I'm the demon and the Barber just died! The Barber's ability is very versatile and powerful, but it can be tricky to use, especially when you kill them unexpectedly! Here's a few options for the caught-off guard demon:\nSwap two evil players. In nearly all cases, you're doing this to move the demon to another evil player, thus invalidating information from all sorts of good characters (including the Flowergirl, Savant, and even the Dreamer). A well timed move of the demon can completely throw the good team off your trail.\nSwap two good players! Keeping in mind that you can swap alive and dead players this way, you can use this to disable a troublesome Philosopher or Sage, among many other difficult characters... simply by swapping them with the newly dead Barber. You can also swap a known Mutant to put a player in a difficult position where they cannot easily admit the swap has taken place. Finally, you can just swap two random players to create confusion! Be aware: Good players will obviously know that they've been swapped, and swapped players will know each others' characters and be able to trust each other. Make sure that neutralizing that troublesome townsfolk is worth the new information!\nSwap an evil and a good player. This is usually not a good idea, since a good player with an evil ability can cause team evil a lot of damage. A good Witch, or a good Cerenovus, for example, are dangerous. However, they may be so dangerous to both sides that the good team decides to execute a good player that becomes an evil character and talks about it. However, it works both ways. If the evil team can gain a good player's ability that can be used against them, it can be devastating. For example, an evil player becoming a Sweetheart, Philosopher or Snake Charmer can be awesome.\nSometimes, it is best to do nothing at all when a Barber dies. If you have no good characters that you feel like swapping, and you are happy with which evil players are which evil characters, simply do nothing. Since this choice has no game effect, this keeps your position strong, and either makes the Barber look like they are lying, or makes it look like the Demon and Minion swapped characters. Either way, this is false information to distract and confuse the good team.Swap two evil players. In nearly all cases, you're doing this to move the demon to another evil player, thus invalidating information from all sorts of good characters (including the Flowergirl, Savant, and even the Dreamer). A well timed move of the demon can completely throw the good team off your trail.Swap two good players! Keeping in mind that you can swap alive and dead players this way, you can use this to disable a troublesome Philosopher or Sage, among many other difficult characters... simply by swapping them with the newly dead Barber. You can also swap a known Mutant to put a player in a difficult position where they cannot easily admit the swap has taken place. Finally, you can just swap two random players to create confusion! Be aware: Good players will obviously know that they've been swapped, and swapped players will know each others' characters and be able to trust each other. Make sure that neutralizing that troublesome townsfolk is worth the new information!Swap an evil and a good player. This is usually not a good idea, since a good player with an evil ability can cause team evil a lot of damage. A good Witch, or a good Cerenovus, for example, are dangerous. However, they may be so dangerous to both sides that the good team decides to execute a good player that becomes an evil character and talks about it. However, it works both ways. If the evil team can gain a good player's ability that can be used against them, it can be devastating. For example, an evil player becoming a Sweetheart, Philosopher or Snake Charmer can be awesome.Sometimes, it is best to do nothing at all when a Barber dies. If you have no good characters that you feel like swapping, and you are happy with which evil players are which evil characters, simply do nothing. Since this choice has no game effect, this keeps your position strong, and either makes the Barber look like they are lying, or makes it look like the Demon and Minion swapped characters. Either way, this is false information to distract and confuse the good team."
     ]
   },
-  "how_to_run": {
-    "en": "If the Barber dies, mark them with the HAIRCUTS TONIGHT reminder.\nDuring that night, wake the Demon. Show them the THIS CHARACTER SELECTED YOU info token, then the Barber token. The Demon either shakes their head no or points to two players. Put the Demon to sleep. Remove the HAIRCUTS TONIGHT reminder.\nIf the Demon pointed to two players, swap the character tokens of the chosen players. One at a time, wake each swapped player, show them the YOU ARE info token and their new character token, then put them to sleep. If a player’s alignment does not match the color of their character token, turn it upside-down.\nIf a good player becomes a Minion or Demon, or an evil player becomes a Townsfolk or Outsider, you may wish to remind them that their alignment has not changed.",
-    "cn": "如果理发师死亡，为他放置“今晚理发”提示标记。\n在理发师死亡的夜晚，唤醒一名恶魔玩家。向他展示“该角色的能力对你生效”信息标记，理发师角色标记。恶魔要么摇头，要么指向两名玩家。让恶魔重新入睡。移除“今晚理发”。\n如果恶魔指向两名玩家，交换那两名玩家的角色标记。然后分别单独唤醒两名被交换的玩家，并展示“你是”信息标记、新的角色标记，再让他们重新入睡。如果玩家的新角色标记与其所属阵营颜色不同，将其倒置以代表相反阵营。\n如果一名善良玩家变成爪牙或恶魔，或者是一名邪恶的玩家变成镇民或外来者，你可能需要提醒他阵营未改变。"
-  },
+  "url_param": "Barber",
+  "editions": [
+    "sects_violets"
+  ],
+  "artist": "Aidan Roberts",
   "token_url": "https://wiki.bloodontheclocktower.com/images/1/16/Icon_barber.png"
 }

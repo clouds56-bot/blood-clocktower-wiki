@@ -1,15 +1,86 @@
 {
   "id": "engineer",
+  "type": "townsfolk",
   "name": {
     "en": "Engineer",
+    "es-419": "Ingeniero",
+    "sv": "Ingenjören",
+    "zh-Hans": "工程师",
     "cn": "工程师"
   },
-  "type": "townsfolk",
+  "ability": {
+    "en": "Once per game, at night, choose which Minions or which Demon is in play.",
+    "es-419": "Una vez por juego, por la noche, escoge qué Secuaces o qué Demonio está en juego.",
+    "sv": "En gång per spel, på natten, kan du välja vilka Kumpaner eller vilken Demon som är i spel.",
+    "zh-Hans": "每局游戏限一次，在夜晚时，你可以选择让恶魔变成你选择的恶魔角色，或让所有爪牙变成你选择的爪牙角色。",
+    "cn": "每局游戏限一次，在夜晚时，你可以选择让恶魔变成你选择的恶魔角色，或让所有爪牙变成你选择的爪牙角色。"
+  },
+  "flavor_text": {
+    "en": "\"If it bends, great. If it breaks, well, it probably needed fixing anyway.\"",
+    "es-419": "Si se dobla, genial. Si se rompe, bueno, probablemente necesitaba que lo reparen de todos modos.",
+    "sv": "Det ska böjas i tid, det som krokigt ska bli. Och om det går av, ja, då behövde det väl ändå lagas.",
+    "zh-Hans": "如果它弯曲了，那可就太棒了。但如果它断裂了，那么它就必须得修一修了。",
+    "cn": "“如果它弯曲了，那可就太棒了。但如果它断裂了，那么它就必须得修一修了。”"
+  },
+  "first_night": {
+    "en": "The Engineer might choose Minions or Demons. Put the Engineer to sleep. Wake the target(s) one at a time. Show the *YOU ARE* info token & their new character token. :reminder:",
+    "es-419": "El Ingeniero quizás escoja Secuaces o Demonios. :reminder: Si lo hacen: Pon al Ingeniero a dormir. Despierta al jugador objetivo, muéstrale la ficha de *TÚ ERES* y la ficha de su nuevo rol, luego ponlo a dormir. Repite con todos los jugadores que han cambiado de rol.",
+    "sv": "Ingenjören kanske väljer Kumpaner eller en Demon. Söv Ingenjören. Väck berörda spelare en i taget, visa kortet *DU ÄR* och den nya rollen. :reminder:",
+    "zh-Hans": "工程师可以选择爪牙或者恶魔角色。 :reminder:如果他使用能力，让工程师重新入睡。分别依次唤醒每个角色发生变化的邪恶玩家，对其展示“你是”信息标记，和他当前的角色标记，然后再让他重新入睡，重复步骤直到所有受到影响的邪恶玩家均因此被唤醒。"
+  },
+  "other_nights": {
+    "en": "The Engineer might choose Minions or Demons. Put the Engineer to sleep. Wake the target(s) one at a time. Show the *YOU ARE* info token & their new character token. :reminder:",
+    "es-419": "El Ingeniero quizás escoja Secuaces o Demonios. :reminder: Si lo hacen: Pon al Ingeniero a dormir. Despierta al jugador objetivo, muéstrale la ficha de *TÚ ERES* y la ficha de su nuevo rol, luego ponlo a dormir. Repite con todos los jugadores que han cambiado de rol.",
+    "sv": "Ingenjören kanske väljer Kumpaner eller en Demon. Söv ingenjören. Väck berörda spelare en i taget, visa kortet *DU ÄR* och den nya rollen. :reminder:",
+    "zh-Hans": "工程师可以选择爪牙或者恶魔角色。 :reminder:如果他使用能力，让工程师重新入睡。分别依次唤醒每个角色发生变化的邪恶玩家，对其展示“你是”信息标记，和他当前的角色标记，然后再让他重新入睡，重复步骤直到所有受到影响的邪恶玩家均因此被唤醒。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Engineer",
+  "how_to_run": {
+    "cn": "每个夜晚，唤醒工程师。他要么摇头不使用能力，要么指向角色列表上的一个或多个邪恶角色。\n如果他摇头不使用能力，无事发生。让工程师重新入睡。\n如果他指向了角色列表上的恶魔或爪牙角色，让他重新入睡。以合适的方式用新的角色标记替换被工程师能力所影响的那些玩家原本的角色标记。分别依次唤醒每个角色发生变化的邪恶玩家，对其展示“你是”信息标记，和他当前的角色标记，然后再让他重新入睡，重复步骤直到所有受到影响的邪恶玩家均因此被唤醒。工程师现在失去能力——将“失去能力”提示标记放置在工程师旁，并从夜晚顺序表旁移除他的夜晚标记。",
+    "en": "Each night, wake the Engineer. They either shake their head no or point at evil characters on the character sheet.\nIf they shake their head no, nothing happens. Put the Engineer to sleep.\nIf they point to a Demon or Minions on their character sheet, put them to sleep. Swap all appropriate character tokens with new character tokens. Wake each evil player that changed character, show the YOU ARE info token, then their new character token, then put them to sleep. The Engineer loses their ability—mark them with the NO ABILITY reminder and remove their night token from the night sheet."
+  },
+  "examples": {
+    "cn": [
+      "在第二个夜晚，工程师选择让恶魔变成痢蛭。原本为小恶魔的小莱现在变成了痢蛭。",
+      "在第一个夜晚，工程师将男爵变成了炸弹人。仍然会有额外的两名外来者在场。",
+      "在场的爪牙为恐惧之灵和精神病患者，他们制造了相当大的混乱。工程师选择让灵言师和间谍在场。说书人决定将恐惧之灵变成了灵言师，将精神病患者变成了间谍。",
+      "在场的爪牙为间谍、刺客和女巫。工程师选择让间谍、刺客和灵言师在场。因此，女巫变成了灵言师。"
+    ],
+    "en": [
+      "On the second night, the Engineer chooses that the Demon is a Lleech. Lewis, who was the Imp, is now the Lleech.",
+      "On the first night, the Engineer changes the Baron into the Boomdandy. There are still an extra two Outsiders in play.",
+      "The Fearmonger and the Psychopath are in play, and causing havoc. The Engineer chooses that the Mezepheles and the Spy are in play. The Storyteller chooses to change the Fearmonger into the Mezepheles and the Psychopath into the Spy.",
+      "The Spy, Assassin, and Witch are in play. The Engineer chooses that the Spy, Assassin and Mezepheles are in play. The Witch turns into the Mezepheles."
+    ]
+  },
+  "tips": {
+    "cn": [
+      "如果你是工程师，你大抵能够完成如下四件事中的一件：决定哪些爪牙在场，决定哪些爪牙不在场，决定哪个恶魔在场，决定哪个恶魔不在场。",
+      "你指定哪些爪牙在场的话，你和整个善良阵营都能知道面对的（对手）是谁。这个信息至关重要。知道有哥布林或炸弹人在场至少意味着你们需要对处决小心谨慎。知道一个间谍或寡妇在场意味着你和整个善良阵营应当尽快且诚实地透露角色。知道自己要对抗的对手意味着你可以相应地规划起自己的策略。同样，指定哪个恶魔在场可以让你为此做好计划。知道涡流在场意味着善良阵营（镇民）必须反转他们获得的信息，它们不可能是真的。",
+      "如果你想指定哪些爪牙不在场，只需要简单地选择其他爪牙在场即可。如果你想避免中毒发生，那么选择投毒者以外的角色就可以保证这点。如果你的队伍特别忌惮主谋，那么你可以通过将所有爪牙都换成其他爪牙来确保你不会碰到他们。类似地，如果你不知道你希望哪个恶魔在场，但有某种恶魔是你绝对不希望在场的，那么将恶魔变为其他角色。你仍会面对一个强大的对手，但并不会是最可怕的对手。",
+      "避免邪恶阵营（甚至是善良阵营！）在你使用能力之前杀死你，在首夜使用你的能力。这确保了你能行动起来。但提前行动的缺点是没有机会进行团队讨论，以及没能获得任何可能会影响你决定的相关信息，比如哪些善良角色在场以及哪些邪恶角色他们特别适合对抗。",
+      "想要创造最理想的爪牙和恶魔（阵容），你需要等到第二或者第三个晚上，同时在此期间引发尽可能多的讨论。为了尽可能做出最好的决定，你需要知道尽可能多的在场善良角色，以便充分地利用他们的特殊能力，例如创造一个亡骨魔来帮助神谕者探察邪恶玩家，或是在巫毒师在场时创造一个哥布林，你可以确定死去的玩家都是善良阵营的。",
+      "时机对工程师来说至关重要。一些邪恶（角色）能力可以通过你在正确时机的行动而被完全无效掉。比如，如果你在灵言师即将转变一名玩家为邪恶的那个夜晚将灵言师转变为魔鬼代言人，那名玩家就会留在善良阵营。如果你在最后一夜将魔鬼代言人转变为灵言师，你就能确保最后一天会在恶魔无法免于被处决的情况下进行，同时灵言师也无法使用他们的能力（因为不会再有夜晚）。",
+      "在游戏中途创造一个明显的恶魔或爪牙角色能用来确认你是工程师。一个出人意料的恐惧之灵或是镜像双子可以让善良阵营信任你，因为这些角色似乎前一天还不存在，但是它们也许不是善良阵营真正希望面对的爪牙。你从证明自己是善良玩家中获得的好处与团队面对最合适的爪牙与恶魔获得的好处，你需要小心平衡这两者。",
+      "不要担心创造那些在方括号中注明引入外来者的角色，就像[这样]。方括号内容指示说书人在设置阶段需要添加或移除一些标记，不会在游戏中期影响到其他事情。如果你引入了男爵，不会有两个外来者被引入。",
+      "关于你的能力你需要汇总多少讨论内容取决于你自己。讨论太多，恶魔可能会在当晚杀死你，阻止你使用你的能力。讨论太少，团队会因为你没有让他们参与决策而（对你）产生怀疑。"
+    ],
+    "en": [
+      "If you are the Engineer, you can broadly accomplish one of four things: deciding which Minions are in play, deciding which Minions are not in play, deciding which Demon is in play, deciding which Demon is not in play.",
+      "If you want to choose which Minions are in play, this lets you and the entire good team know what you are facing. This can be crucial information. Knowing that there is a Goblin or Boomdandy is in play at least means that you need to be wary on who to execute. Knowing that a Spy or Widow is in play means that you and all the good players should reveal who you are, honestly, as soon as possible. Knowing what you are up against means that you can plan your strategy accordingly. Similarly, choosing which Demon is in play allows you to plan what to do. Knowing that a Vortox is in play means the good team must reverse their information, that it can not be true, for example.",
+      "If you want to choose which Minions are not in play, simply choose the other Minions to be in play instead. If you want to avoid poisoning, then choosing characters other than the Poisoner may guarantee it. If your group is particularly susceptible to the Mastermind then you can make sure that you don't have to think about it by changing all Minions to other characters instead. Similarly, if you don't know what Demon you do want in play, but there is one Demon in particular that you definitely do NOT want in play, choose to turn the Demon into this character. You will still be facing a powerful adversary, but not the most feared adversary.",
+      "To prevent the evil team (or the good team!) killing you before you use your ability, use your ability on the first night. This guarantees that you will get to act. The downside to acting this early is that you miss out on the group discussion, and any pertinent information that may influence your decision, like which good characters are in play and which evil characters that they are particularly suited at combatting.",
+      "To choose the most ideal Minions or Demon to create, wait until the second or third night, and generate as much discussion as you can in the meantime. To make the best decision possible, you'll need to know as many good characters that are in play, so that their particular abilities can be used to the full, such as creating a Vigormortis to help the Oracle detect evil players, or creating a Goblin if there is a Voudon in play you are fairly certain that the dead players are all good.",
+      "Timing can be crucial for the Engineer. Some evil abilities can be entirely negated by you acting at the right time. For example, if you turn the Mezepheles into the Devil's Advocate on the night that the Mezepheles was due to turn a player evil, that player will stay good. If you turn the Devil's Advocate into the Mezepheles on the final night, then you guarantee that the final day will continue without the Demon being safe from execution AND prevent the Mezepheles from using their ability (since there are no more nights).",
+      "Creating an obvious Demon or Minion in the middle of the game may confirm your identity as the Engineer. A surprise Fearmonger or Evil Twin will get the good team trusting you, since those characters didn't seem to exist the previous day, but they may not be the Minions that the good team really wants to face. Be careful when balancing the benefit of your glowing reputation as a good player with the benefit of facing the most ideal Minions and Demons.",
+      "Don't be afraid to create character that add Outsiders in square brackets, like [this]. Square brackets indicate to the Storyteller what tokens to add or remove during the game setup, and won't influence what happens in the middle of the game. If you add a Baron, then two Outsiders will not be added.",
+      "How much discussion you generate about your ability is up to you. Too much discussion, and the Demon may kill you that night, preventing you from using your ability. Too little, and the group may get suspicious that you didn't involve them in the decision."
+    ]
+  },
+  "url_param": "Engineer",
   "editions": [
     "experimental"
   ],
-  "first_night": false,
-  "other_nights": true,
   "artist": "John Grist",
   "jinxes": [
     {
@@ -21,56 +92,5 @@
       "reason": "If the living Summoner is removed from play, the Storyteller has the Summoner ability."
     }
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Engineer",
-  "ability": {
-    "en": "Once per game, at night, choose which Minions or which Demon is in play.",
-    "cn": "每局游戏限一次，在夜晚时，你可以选择让恶魔变成你选择的恶魔角色，或让所有爪牙变成你选择的爪牙角色。"
-  },
-  "flavor_text": {
-    "en": "\"If it bends, great. If it breaks, well, it probably needed fixing anyway.\"",
-    "cn": "“如果它弯曲了，那可就太棒了。但如果它断裂了，那么它就必须得修一修了。”"
-  },
-  "examples": {
-    "en": [
-      "On the second night, the Engineer chooses that the Demon is a Lleech. Lewis, who was the Imp, is now the Lleech.",
-      "On the first night, the Engineer changes the Baron into the Boomdandy. There are still an extra two Outsiders in play.",
-      "The Fearmonger and the Psychopath are in play, and causing havoc. The Engineer chooses that the Mezepheles and the Spy are in play. The Storyteller chooses to change the Fearmonger into the Mezepheles and the Psychopath into the Spy.",
-      "The Spy, Assassin, and Witch are in play. The Engineer chooses that the Spy, Assassin and Mezepheles are in play. The Witch turns into the Mezepheles."
-    ],
-    "cn": [
-      "在第二个夜晚，工程师选择让恶魔变成痢蛭。原本为小恶魔的小莱现在变成了痢蛭。",
-      "在第一个夜晚，工程师将男爵变成了炸弹人。仍然会有额外的两名外来者在场。",
-      "在场的爪牙为恐惧之灵和精神病患者，他们制造了相当大的混乱。工程师选择让灵言师和间谍在场。说书人决定将恐惧之灵变成了灵言师，将精神病患者变成了间谍。",
-      "在场的爪牙为间谍、刺客和女巫。工程师选择让间谍、刺客和灵言师在场。因此，女巫变成了灵言师。"
-    ]
-  },
-  "tips": {
-    "en": [
-      "If you are the Engineer, you can broadly accomplish one of four things: deciding which Minions are in play, deciding which Minions are not in play, deciding which Demon is in play, deciding which Demon is not in play.",
-      "If you want to choose which Minions are in play, this lets you and the entire good team know what you are facing. This can be crucial information. Knowing that there is a Goblin or Boomdandy is in play at least means that you need to be wary on who to execute. Knowing that a Spy or Widow is in play means that you and all the good players should reveal who you are, honestly, as soon as possible. Knowing what you are up against means that you can plan your strategy accordingly. Similarly, choosing which Demon is in play allows you to plan what to do. Knowing that a Vortox is in play means the good team must reverse their information, that it can not be true, for example.",
-      "If you want to choose which Minions are not in play, simply choose the other Minions to be in play instead. If you want to avoid poisoning, then choosing characters other than the Poisoner may guarantee it. If your group is particularly susceptible to the Mastermind then you can make sure that you don't have to think about it by changing all Minions to other characters instead. Similarly, if you don't know what Demon you do want in play, but there is one Demon in particular that you definitely do NOT want in play, choose to turn the Demon into this character. You will still be facing a powerful adversary, but not the most feared adversary.",
-      "To prevent the evil team (or the good team!) killing you before you use your ability, use your ability on the first night. This guarantees that you will get to act. The downside to acting this early is that you miss out on the group discussion, and any pertinent information that may influence your decision, like which good characters are in play and which evil characters that they are particularly suited at combatting.",
-      "To choose the most ideal Minions or Demon to create, wait until the second or third night, and generate as much discussion as you can in the meantime. To make the best decision possible, you'll need to know as many good characters that are in play, so that their particular abilities can be used to the full, such as creating a Vigormortis to help the Oracle detect evil players, or creating a Goblin if there is a Voudon in play you are fairly certain that the dead players are all good.",
-      "Timing can be crucial for the Engineer. Some evil abilities can be entirely negated by you acting at the right time. For example, if you turn the Mezepheles into the Devil's Advocate on the night that the Mezepheles was due to turn a player evil, that player will stay good. If you turn the Devil's Advocate into the Mezepheles on the final night, then you guarantee that the final day will continue without the Demon being safe from execution AND prevent the Mezepheles from using their ability (since there are no more nights).",
-      "Creating an obvious Demon or Minion in the middle of the game may confirm your identity as the Engineer. A surprise Fearmonger or Evil Twin will get the good team trusting you, since those characters didn't seem to exist the previous day, but they may not be the Minions that the good team really wants to face. Be careful when balancing the benefit of your glowing reputation as a good player with the benefit of facing the most ideal Minions and Demons.",
-      "Don't be afraid to create character that add Outsiders in square brackets, like [this]. Square brackets indicate to the Storyteller what tokens to add or remove during the game setup, and won't influence what happens in the middle of the game. If you add a Baron, then two Outsiders will not be added.",
-      "How much discussion you generate about your ability is up to you. Too much discussion, and the Demon may kill you that night, preventing you from using your ability. Too little, and the group may get suspicious that you didn't involve them in the decision."
-    ],
-    "cn": [
-      "如果你是工程师，你大抵能够完成如下四件事中的一件：决定哪些爪牙在场，决定哪些爪牙不在场，决定哪个恶魔在场，决定哪个恶魔不在场。",
-      "你指定哪些爪牙在场的话，你和整个善良阵营都能知道面对的（对手）是谁。这个信息至关重要。知道有哥布林或炸弹人在场至少意味着你们需要对处决小心谨慎。知道一个间谍或寡妇在场意味着你和整个善良阵营应当尽快且诚实地透露角色。知道自己要对抗的对手意味着你可以相应地规划起自己的策略。同样，指定哪个恶魔在场可以让你为此做好计划。知道涡流在场意味着善良阵营（镇民）必须反转他们获得的信息，它们不可能是真的。",
-      "如果你想指定哪些爪牙不在场，只需要简单地选择其他爪牙在场即可。如果你想避免中毒发生，那么选择投毒者以外的角色就可以保证这点。如果你的队伍特别忌惮主谋，那么你可以通过将所有爪牙都换成其他爪牙来确保你不会碰到他们。类似地，如果你不知道你希望哪个恶魔在场，但有某种恶魔是你绝对不希望在场的，那么将恶魔变为其他角色。你仍会面对一个强大的对手，但并不会是最可怕的对手。",
-      "避免邪恶阵营（甚至是善良阵营！）在你使用能力之前杀死你，在首夜使用你的能力。这确保了你能行动起来。但提前行动的缺点是没有机会进行团队讨论，以及没能获得任何可能会影响你决定的相关信息，比如哪些善良角色在场以及哪些邪恶角色他们特别适合对抗。",
-      "想要创造最理想的爪牙和恶魔（阵容），你需要等到第二或者第三个晚上，同时在此期间引发尽可能多的讨论。为了尽可能做出最好的决定，你需要知道尽可能多的在场善良角色，以便充分地利用他们的特殊能力，例如创造一个亡骨魔来帮助神谕者探察邪恶玩家，或是在巫毒师在场时创造一个哥布林，你可以确定死去的玩家都是善良阵营的。",
-      "时机对工程师来说至关重要。一些邪恶（角色）能力可以通过你在正确时机的行动而被完全无效掉。比如，如果你在灵言师即将转变一名玩家为邪恶的那个夜晚将灵言师转变为魔鬼代言人，那名玩家就会留在善良阵营。如果你在最后一夜将魔鬼代言人转变为灵言师，你就能确保最后一天会在恶魔无法免于被处决的情况下进行，同时灵言师也无法使用他们的能力（因为不会再有夜晚）。",
-      "在游戏中途创造一个明显的恶魔或爪牙角色能用来确认你是工程师。一个出人意料的恐惧之灵或是镜像双子可以让善良阵营信任你，因为这些角色似乎前一天还不存在，但是它们也许不是善良阵营真正希望面对的爪牙。你从证明自己是善良玩家中获得的好处与团队面对最合适的爪牙与恶魔获得的好处，你需要小心平衡这两者。",
-      "不要担心创造那些在方括号中注明引入外来者的角色，就像[这样]。方括号内容指示说书人在设置阶段需要添加或移除一些标记，不会在游戏中期影响到其他事情。如果你引入了男爵，不会有两个外来者被引入。",
-      "关于你的能力你需要汇总多少讨论内容取决于你自己。讨论太多，恶魔可能会在当晚杀死你，阻止你使用你的能力。讨论太少，团队会因为你没有让他们参与决策而（对你）产生怀疑。"
-    ]
-  },
-  "how_to_run": {
-    "en": "Each night, wake the Engineer. They either shake their head no or point at evil characters on the character sheet.\nIf they shake their head no, nothing happens. Put the Engineer to sleep.\nIf they point to a Demon or Minions on their character sheet, put them to sleep. Swap all appropriate character tokens with new character tokens. Wake each evil player that changed character, show the YOU ARE info token, then their new character token, then put them to sleep. The Engineer loses their ability—mark them with the NO ABILITY reminder and remove their night token from the night sheet.",
-    "cn": "每个夜晚，唤醒工程师。他要么摇头不使用能力，要么指向角色列表上的一个或多个邪恶角色。\n如果他摇头不使用能力，无事发生。让工程师重新入睡。\n如果他指向了角色列表上的恶魔或爪牙角色，让他重新入睡。以合适的方式用新的角色标记替换被工程师能力所影响的那些玩家原本的角色标记。分别依次唤醒每个角色发生变化的邪恶玩家，对其展示“你是”信息标记，和他当前的角色标记，然后再让他重新入睡，重复步骤直到所有受到影响的邪恶玩家均因此被唤醒。工程师现在失去能力——将“失去能力”提示标记放置在工程师旁，并从夜晚顺序表旁移除他的夜晚标记。"
-  },
   "token_url": "https://wiki.bloodontheclocktower.com/images/b/b9/Icon_engineer.png"
 }

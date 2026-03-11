@@ -1,48 +1,54 @@
 {
   "id": "soldier",
+  "type": "townsfolk",
   "name": {
     "en": "Soldier",
+    "es-419": "Soldado",
+    "sv": "Soldaten",
+    "zh-Hans": "士兵",
     "cn": "士兵"
   },
-  "type": "townsfolk",
-  "editions": [
-    "trouble_brewing"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [
-    {
-      "id": "leviathan",
-      "reason": "If the Leviathan nominates and executes the Soldier, good wins."
-    },
-    {
-      "id": "riot",
-      "reason": "If Riot nominates and executes the Soldier, good wins."
-    }
-  ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Soldier",
   "ability": {
     "en": "You are safe from the Demon.",
+    "es-419": "Estás a salvo del Demonio.",
+    "sv": "Du är säker från Demonen.",
+    "zh-Hans": "恶魔的负面能力对你无效。",
     "cn": "恶魔的负面能力对你无效。"
   },
   "flavor_text": {
     "en": "\"As David said to Goliath, as Theseus said to the Minotaur, as Arjuna said to Bhagadatta... No.\"",
+    "es-419": "Como le dijo David a Goliat, como le dijo Teseo al Minotauro, como le dijo Arjuna a Bhagadatta…No.",
+    "sv": "Som David sa till Goljat, som Theseus sa till Minotauren, som Arjuna sa till Bhagadatta… Nej.",
+    "zh-Hans": "就像大卫对歌利亚所说，像忒修斯对米诺陶所说，也像阿周那对福授所说的那样……绝不。",
     "cn": "“就像大卫对歌利亚所说，\n像忒修斯对米诺陶所说，\n也像阿周那对福授所说的那样……\n绝不。”"
   },
+  "source_url": "https://wiki.bloodontheclocktower.com/Soldier",
+  "how_to_run": {
+    "cn": "在夜晚时，如果恶魔攻击了士兵，士兵仍然存活。（在黎明时，宣布当晚没有人死亡。）\n在其他剧本中，恶魔可能会拥有除杀死以外的其他能力。士兵的保护能力同样可以阻止恶魔的其他有害效果，例如让士兵中毒或将士兵转变为邪恶阵营。",
+    "en": "During the night, if the Demon attacks the Soldier, the Soldier remains alive. (At dawn, declare that no one died at night.)\nIn other editions, Demons may have abilities other than killing. The Soldier is also protected from all other harmful effects of the Demon's ability, such as poisoning or turning the Soldier evil."
+  },
   "examples": {
-    "en": [
-      "The Imp attacks the Soldier. The Soldier does not die, so nobody dies that night.",
-      "The Poisoner poisons the Soldier, then the Imp attacks the Soldier. The Soldier dies, since they have no ability.",
-      "The Imp attacks the Soldier. The Soldier dies, because they are actually the Drunk."
-    ],
     "cn": [
       "小恶魔攻击了士兵。士兵没有死亡，因此当晚无人死亡。",
       "投毒者让士兵中毒，然后小恶魔攻击了士兵。士兵死亡，因为他在处于中毒状态时失去了能力。",
       "小恶魔攻击了镇长。说书人选择由士兵来代替镇长死亡。然而，因为士兵无法被恶魔杀死，当晚无人死亡。\n（备注：这个例子只是作为解释镇长的能力逻辑用，在实际游戏中，你很少会遇到需要非得士兵或者是其他无法死去的玩家代替镇长死亡的情况，因此通过镇长的能力造成夜晚无人死亡的操作不建议频繁发生。具体可以看镇长条目下“运作方式”里的设计师建议）"
+    ],
+    "en": [
+      "The Imp attacks the Soldier. The Soldier does not die, so nobody dies that night.",
+      "The Poisoner poisons the Soldier, then the Imp attacks the Soldier. The Soldier dies, since they have no ability.",
+      "The Imp attacks the Soldier. The Soldier dies, because they are actually the Drunk."
     ]
   },
   "tips": {
+    "cn": [
+      "如果恶魔攻击了你，这个夜晚就没人会死。这有两点好处。第一，因为今晚没有玩家死亡，场上存活玩家会比正常情况下要多一些，这就给了善良阵营玩家更多可以处决的轮次。第二，没有玩家死亡会支持你的\"我是个士兵\"这一声明。为了让恶魔选你作为目标，你可以伪装成更诱人的角色，比如占卜师，送葬者，共情者或者猎手。",
+      "在游戏的最后一天，如果你能证明你是士兵，善良阵营将会有巨大的优势。你将会让大家从多选题里排除一个错误选项。让共情者或者占卜师来证实你不是恶魔会非常有帮助。",
+      "一个聪明的恶魔在第一次杀不掉你之后就不会再攻击你了，除非他想到了能杀你的方法。如果你能让恶魔相信其实昨晚是僧侣保护了你，那恶魔就有可能再攻击你一次。",
+      "如果你不确定一位玩家是善良还是邪恶，允许那些能获取大量信息的角色伪装成你。这样，恶魔就更容易攻击你，而不是攻击他。你甚至可以和一些玩家秘密地交流，并且互相声明自己是对方的角色，这样你就能够把他获得的信息公布给大家，并且保证他还活着。",
+      "如果你在晚上死了，要么你是被投毒者下毒了，要么你根本就是个酒鬼。这是个重大新闻，会对团队非常有帮助。如果你中毒了，就表示投毒者还活着（在只有一个爪牙的对局中，你就能知道场上到底存在的是哪个爪牙了！），这也能让你推断出已死亡玩家的阵营。如果你是酒鬼，那其他人就不能是酒鬼了。不论怎样，你都会知道一些有用的信息。",
+      "你还是需要在游戏中适时告诉大家你是士兵，而不是一直伪装到底。毕竟，善良玩家会需要尽可能多的信息。",
+      "如果你没有告诉任何人你是士兵，并且活到了最后一天，每天晚上都有人会死，那就很有可能有间谍在场，并且他一直在告诉恶魔要去杀谁。"
+    ],
     "en": [
       "If the Demon attacks you, nobody dies this night. This has two benefits. Firstly, since no good player has died at night, there are more players alive than there ought to have been, allowing the good team more time to execute. Secondly, no death of a night time supports your claim that you are indeed the Soldier.",
       "You will never know for sure that your ability has worked. If you wake up to no deaths, perhaps there is a Monk in play, or the Imp decided to take a night off terrorising the living and attack someone's already dead corpse. Both of those look identical to the Demon attacking you in the night.",
@@ -55,20 +61,22 @@
       "Tell the group you are the Soldier at some stage during the game. After all, good will need as much information as they can get at their disposal.",
       "If you have told nobody that you are the Soldier, you are still alive on the final day, and a death has occurred every night so far, then it is probable that a Spy is in play and telling the Demon who to attack. If you notice this happening, pay attention to who is whispering to who.",
       "If you never tell anyone who you are, your role can combo in a very risky way with the Mayor. You might be more confident to execute nobody in final three than anyone else in your position. Even if the Imp is pretending to be the Mayor, and you execute no one, evil hasn't won yet! The Demon still has to kill either you or the other surviving player, and just maybe they'll guess wrong, and you will wake to a second day with just three players alive."
-    ],
-    "cn": [
-      "如果恶魔攻击了你，这个夜晚就没人会死。这有两点好处。第一，因为今晚没有玩家死亡，场上存活玩家会比正常情况下要多一些，这就给了善良阵营玩家更多可以处决的轮次。第二，没有玩家死亡会支持你的\"我是个士兵\"这一声明。为了让恶魔选你作为目标，你可以伪装成更诱人的角色，比如占卜师，送葬者，共情者或者猎手。",
-      "在游戏的最后一天，如果你能证明你是士兵，善良阵营将会有巨大的优势。你将会让大家从多选题里排除一个错误选项。让共情者或者占卜师来证实你不是恶魔会非常有帮助。",
-      "一个聪明的恶魔在第一次杀不掉你之后就不会再攻击你了，除非他想到了能杀你的方法。如果你能让恶魔相信其实昨晚是僧侣保护了你，那恶魔就有可能再攻击你一次。",
-      "如果你不确定一位玩家是善良还是邪恶，允许那些能获取大量信息的角色伪装成你。这样，恶魔就更容易攻击你，而不是攻击他。你甚至可以和一些玩家秘密地交流，并且互相声明自己是对方的角色，这样你就能够把他获得的信息公布给大家，并且保证他还活着。",
-      "如果你在晚上死了，要么你是被投毒者下毒了，要么你根本就是个酒鬼。这是个重大新闻，会对团队非常有帮助。如果你中毒了，就表示投毒者还活着（在只有一个爪牙的对局中，你就能知道场上到底存在的是哪个爪牙了！），这也能让你推断出已死亡玩家的阵营。如果你是酒鬼，那其他人就不能是酒鬼了。不论怎样，你都会知道一些有用的信息。",
-      "你还是需要在游戏中适时告诉大家你是士兵，而不是一直伪装到底。毕竟，善良玩家会需要尽可能多的信息。",
-      "如果你没有告诉任何人你是士兵，并且活到了最后一天，每天晚上都有人会死，那就很有可能有间谍在场，并且他一直在告诉恶魔要去杀谁。"
     ]
   },
-  "how_to_run": {
-    "en": "During the night, if the Demon attacks the Soldier, the Soldier remains alive. (At dawn, declare that no one died at night.)\nIn other editions, Demons may have abilities other than killing. The Soldier is also protected from all other harmful effects of the Demon's ability, such as poisoning or turning the Soldier evil.",
-    "cn": "在夜晚时，如果恶魔攻击了士兵，士兵仍然存活。（在黎明时，宣布当晚没有人死亡。）\n在其他剧本中，恶魔可能会拥有除杀死以外的其他能力。士兵的保护能力同样可以阻止恶魔的其他有害效果，例如让士兵中毒或将士兵转变为邪恶阵营。"
-  },
+  "url_param": "Soldier",
+  "editions": [
+    "trouble_brewing"
+  ],
+  "artist": "Aidan Roberts",
+  "jinxes": [
+    {
+      "id": "leviathan",
+      "reason": "If the Leviathan nominates and executes the Soldier, good wins."
+    },
+    {
+      "id": "riot",
+      "reason": "If Riot nominates and executes the Soldier, good wins."
+    }
+  ],
   "token_url": "https://wiki.bloodontheclocktower.com/images/c/c3/Icon_soldier.png"
 }

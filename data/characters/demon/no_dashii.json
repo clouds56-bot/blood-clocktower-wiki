@@ -1,45 +1,50 @@
 {
   "id": "no_dashii",
+  "type": "demon",
   "name": {
     "en": "No Dashii",
+    "es-419": "No Dashii",
+    "sv": "No Dashii",
+    "zh-Hans": "诺-达鲺",
     "cn": "诺-达鲺"
   },
-  "type": "demon",
-  "editions": [
-    "sects_violets"
-  ],
-  "first_night": true,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/No_Dashii",
   "ability": {
     "en": "Each night*, choose a player: they die. Your 2 Townsfolk neighbors are poisoned.",
+    "es-419": "Cada noche*, escoge un jugador: él muere. Tus 2 Ciudadanos vecinos están envenenados.",
+    "sv": "Varje natt* väljer du en spelare; hen dör. Dina 2 Bybogrannar är förgiftade.",
+    "zh-Hans": "每个夜晚*，你要选择一名玩家：他死亡。与你邻近的两名镇民中毒。",
     "cn": "每个夜晚*，你要选择一名玩家：他死亡。\n与你邻近的两名镇民中毒。"
   },
   "flavor_text": {
     "en": "\"By the sins of Arnoch, I feel thy laden stench. By the curs-ed sun and her foul legion of tiny grinning gods, I corrupt thee. By the blessed night and the hidden depths of the horrid and unholy sea, I end thy squalid life upon this plane.\"",
+    "es-419": "Por los pecados de Arnoch, percibo su olor putrefacto. Por el maldito sol y su vil legión de pequeños dioses burlones, os corrompo. Por la bendita noche y las profundidades oscuras del mar hórrido e impío, declaro el final de su miserable vida en este plano.",
+    "sv": "Vid Arnochs synder känner jag din stank. Vid den fördömda solen och hennes eländiga skara flinande gudar korrumperar jag dig. Vid den välsignade natten och det oheliga havets hemliga djup avslutar jag ditt ynkliga liv på detta plan.",
+    "zh-Hans": "彼因汝之罪孽，吾已嗅汝之恶臭满溢全身。时日曷丧？予及汝皆亡。竖子命如草芥，以吾之力，使汝终末于深海，终于此良夜。",
     "cn": "“彼因汝之罪孽，吾已嗅汝之恶臭满溢全身。时日曷丧？予及汝皆亡。竖子命如草芥，以吾之力，使汝终末于深海，终于此良夜。”"
   },
+  "other_nights": {
+    "en": "The No Dashii chooses a player. :reminder:",
+    "es-419": "El No Dashii escoge un jugador. :reminder:",
+    "sv": "No Dashii väljer en spelare. :reminder:",
+    "zh-Hans": "诺-达鲺选择一名玩家。:reminder:"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/No_Dashii",
+  "how_to_run": {
+    "cn": "在为首个夜晚进行准备时，让两名与诺-达鲺邻近的镇民玩家中毒——在他们角色标记旁放置“中毒”提示标记。\n如果一名被诺-达鲺影响的镇民变成了一个非镇民角色，或者诺-达鲺变成了另一个角色，或者如果一个新的玩家变成了诺-达鲺，都会让与诺-达鲺现在邻近的镇民中毒，而之前邻近但现在不邻近的镇民恢复健康。如有需要，立即移除诺-达鲺的“中毒”提示标记。\n除首个夜晚外的每个夜晚，唤醒诺-达鲺。让诺-达鲺指向一名玩家。该玩家死亡，在他角色标记旁放置“死亡”提示标记。让诺-达鲺重新入睡。",
+    "en": "While preparing the first night, the two Townsfolk neighboring the No Dashii become poisoned - mark them with POISONED reminders.\nIf a Townsfolk poisoned by the No Dashii becomes a non-Townsfolk character, or the No Dashii turns into a different character, or if a new player becomes the No Dashii, the new neighbors of the No Dashii become poisoned, and the old neighbors become healthy - move the No Dashii’s POISONED reminders immediately if needed.\nEach night except the first, wake the No Dashii. They point at any player. That player dies - mark them with the DEAD reminder. Put the No Dashii to sleep."
+  },
   "examples": {
-    "en": [
-      "At the start of the game, the No Dashii neighbors a Town Crier and a Snake Charmer. They are both poisoned. A few days later, they are both dead, and the closest alive neighbors to the No Dashii are an unpoisoned Clockmaker and an unpoisoned Barber.",
-      "Clockwise from the No Dashii sits a Philosopher, a Mathematician, then a Sage. Anticlockwise from the No Dashii sits a Witch, a Mutant, then a Seamstress. The Philosopher and the Seamstress are poisoned"
-    ],
     "cn": [
       "在游戏开始时，诺-达鲺与城镇公告员和舞蛇人相邻，这两名玩家都中毒了。几天之后，他们都死了，与诺-达鲺最近的存活玩家变为了钟表匠和理发师，但他们不会受到诺-达鲺的影响。",
       "诺-达鲺顺时针方向依次坐着哲学家，数学家和贤者。诺-达鲺逆时针方向依次坐着女巫，畸形秀演员和女裁缝。哲学家和女裁缝中毒了。",
       "麻脸巫婆将死亡的诺-达鲺变成了卖花女孩。下个夜晚，麻脸巫婆将存活的方古变成了诺-达鲺。这个新的诺-达鲺现在使与他邻近的两个镇民玩家中毒。"
+    ],
+    "en": [
+      "At the start of the game, the No Dashii neighbors a Town Crier and a Snake Charmer. They are both poisoned. A few days later, they are both dead, and the closest alive neighbors to the No Dashii are an unpoisoned Clockmaker and an unpoisoned Barber.",
+      "Clockwise from the No Dashii sits a Philosopher, a Mathematician, then a Sage. Anticlockwise from the No Dashii sits a Witch, a Mutant, then a Seamstress. The Philosopher and the Seamstress are poisoned"
     ]
   },
   "tips": {
-    "en": [
-      "Find out who your neighboring Townsfolk are. You may be sitting next to Minions, Travellers or Outsiders, so it may not be immediately obvious who you have poisoned.",
-      "Once you know who your neighboring Townsfolk are, support them as much as possible. Listen to them. Repeat their arguments to the group. Since they are poisoned, their information is probably false, and spreading their false information will make others look dodgy, particularly when it is not you that revealed the false information originally.",
-      "At night, don't kill your neighboring Townsfolk. Since they are poisoned, the longer they stay alive, and the shorter that unpoisoned Townsfolk live, the more misinformation will be in the game, and the more chance you have of winning.",
-      "Kill your neighbors, if people begin to think that a No Dashii is in play. Doing this makes it look like someone else is the No Dashii, or at least it makes it look like you are a different Demon than the No Dashii.",
-      "If all evil players are spreading false information, then it can sometimes look like a Vortox is in play. Making the argument that the Demon is actually the Vortox makes the remaining good players mistrust their own information, and makes you look good."
-    ],
     "cn": [
       "找到谁是那个与你相邻的镇民。你可能坐在了爪牙、旅行者或者外来者的旁边，所以你可能不会立即发现你会让谁中毒。",
       "一旦知道与你相邻的镇民是谁，就要尽可能地支持他们，听他们说。向其他玩家重复他们的观点。由于他们中毒了，他们的信息可能是假的，传播他们的假信息将会使其他人看起来很可疑，尤其是最初宣称这些假信息的不是你。",
@@ -51,11 +56,19 @@
       "梦殒春宵里有一些错误信息来源，但是如果你是个镇民角色，并且怀疑你的信息受到了干扰，那么你应该从仔细观察与你相邻的玩家开始，看看他们是否有可疑之处。如果诺-达鲺是中毒的来源，那么他如果要发挥他的能力，就必须要靠近你。",
       "根据游戏的规模（游玩人数），区分在场恶魔是否为诺-达鲺应该是比较容易的。举个例子，如果在场的恶魔是亡骨魔，那么大部分的镇民信息应该都是合理且构成逻辑链的。这种时候你就可以大方排除涡流或者亡骨魔的可能性。如果部分镇民甚至全部人的信息都极其不合理，你就应该考虑到诺-达鲺与涡流的可能性。区分以下三种情况：所有的信息都是错误的、部分信息是错误的、有玩家故意给出错误信息，是帮助你们轻松取胜或者惨败的关键。",
       "想出一个我们还没想到的很酷且有趣的策略，然后联系我们并发布到钟楼百科上！"
+    ],
+    "en": [
+      "Find out who your neighboring Townsfolk are. You may be sitting next to Minions, Travellers or Outsiders, so it may not be immediately obvious who you have poisoned.",
+      "Once you know who your neighboring Townsfolk are, support them as much as possible. Listen to them. Repeat their arguments to the group. Since they are poisoned, their information is probably false, and spreading their false information will make others look dodgy, particularly when it is not you that revealed the false information originally.",
+      "At night, don't kill your neighboring Townsfolk. Since they are poisoned, the longer they stay alive, and the shorter that unpoisoned Townsfolk live, the more misinformation will be in the game, and the more chance you have of winning.",
+      "Kill your neighbors, if people begin to think that a No Dashii is in play. Doing this makes it look like someone else is the No Dashii, or at least it makes it look like you are a different Demon than the No Dashii.",
+      "If all evil players are spreading false information, then it can sometimes look like a Vortox is in play. Making the argument that the Demon is actually the Vortox makes the remaining good players mistrust their own information, and makes you look good."
     ]
   },
-  "how_to_run": {
-    "en": "While preparing the first night, the two Townsfolk neighboring the No Dashii become poisoned - mark them with POISONED reminders.\nIf a Townsfolk poisoned by the No Dashii becomes a non-Townsfolk character, or the No Dashii turns into a different character, or if a new player becomes the No Dashii, the new neighbors of the No Dashii become poisoned, and the old neighbors become healthy - move the No Dashii’s POISONED reminders immediately if needed.\nEach night except the first, wake the No Dashii. They point at any player. That player dies - mark them with the DEAD reminder. Put the No Dashii to sleep.",
-    "cn": "在为首个夜晚进行准备时，让两名与诺-达鲺邻近的镇民玩家中毒——在他们角色标记旁放置“中毒”提示标记。\n如果一名被诺-达鲺影响的镇民变成了一个非镇民角色，或者诺-达鲺变成了另一个角色，或者如果一个新的玩家变成了诺-达鲺，都会让与诺-达鲺现在邻近的镇民中毒，而之前邻近但现在不邻近的镇民恢复健康。如有需要，立即移除诺-达鲺的“中毒”提示标记。\n除首个夜晚外的每个夜晚，唤醒诺-达鲺。让诺-达鲺指向一名玩家。该玩家死亡，在他角色标记旁放置“死亡”提示标记。让诺-达鲺重新入睡。"
-  },
+  "url_param": "No_Dashii",
+  "editions": [
+    "sects_violets"
+  ],
+  "artist": "Aidan Roberts",
   "token_url": "https://wiki.bloodontheclocktower.com/images/e/eb/Icon_nodashii.png"
 }

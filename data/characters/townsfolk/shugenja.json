@@ -1,48 +1,49 @@
 {
   "id": "shugenja",
+  "type": "townsfolk",
   "name": {
     "en": "Shugenja",
+    "es-419": "Shugenja",
+    "sv": "Shugenjan",
+    "zh-Hans": "修行者",
     "cn": "修行者"
   },
-  "type": "townsfolk",
-  "editions": [
-    "experimental"
-  ],
-  "first_night": true,
-  "other_nights": false,
-  "artist": "Chloe McDougall",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Shugenja",
   "ability": {
     "en": "You start knowing if your closest evil player is clockwise or anti-clockwise. If equidistant, this info is arbitrary.",
+    "es-419": "Tú empiezas conociendo si el jugador malvado más cercano a ti está en sentido horario o antihorario. Si está equidistante, esta información es arbitraria.",
+    "sv": "I början vet du om närmsta onda spelare är medurs eller moturs från dig. Om det är lika blir svaret godtyckligt.",
+    "zh-Hans": "在你的首个夜晚，你会得知距离最近的邪恶玩家位于你的顺时针还是逆时针方向。如果两侧的邪恶玩家与你距离相等，你得知的信息由说书人决定。",
     "cn": "在你的首个夜晚，你会得知距离最近的邪恶玩家位于你的顺时针还是逆时针方向。如果两侧的邪恶玩家与你距离相等，你得知的信息由说书人决定。"
   },
   "flavor_text": {
     "en": "これは夢。それも夢。すべて夢です。",
+    "es-419": "これは夢。それも夢。すべて夢です。",
+    "sv": "これは夢。それも夢。すべて夢です。",
+    "zh-Hans": "此即梦境。彼亦梦境。所见之物，非此即彼。",
     "cn": "“此即梦境。彼亦梦境。所见之物，非此即彼。”"
   },
+  "first_night": {
+    "en": "Point clockwise or anticlockwise.",
+    "es-419": "Apunta en sentido horario o antihorario alrededor del círculo.",
+    "sv": "Peka medurs eller moturs.",
+    "zh-Hans": "指向顺时针或者逆时针方向。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Shugenja",
+  "how_to_run": {
+    "cn": "在首个夜晚，唤醒修行者。用手指水平指向修行者的某一侧，告诉他与他距离最近的邪恶玩家位于这一侧。如果修行者两侧最近的邪恶玩家与他的距离相等，由你来决定告诉他什么样的信息，并用手指指向对应的一侧。让修行者重新入睡。",
+    "en": "During the first night, wake the Shugenja. If the closest evil player is in a clockwise direction, point your finger horizontally in that direction. If the closest evil player is in an anti-clockwise direction, point your finger horizontally in that direction. If the two closest evil players are equidistant, point your finger horizontally in either direction. Put the Shugenja to sleep."
+  },
   "examples": {
-    "en": [
-      "The Organ Grinder is 2 steps away from the Shugenja in a clockwise direction. The Fearmonger is 3 steps away from the Shugenja in an anti-clockwise direction. The Shugenja wakes and learns that the closest evil player is in a clockwise direction.",
-      "The Marionette is 1 step away from the Shugenja in  a clockwise direction. The Widow is 1 step away from the Shugenja in an anti-clockwise direction. The Shugenja wakes and the Storyteller chooses to tell the Shugenja that the closest evil player is in a clockwise direction."
-    ],
     "cn": [
       "街头风琴手在修行者左侧方向上且距离为2。恐惧之灵在修行者右侧方向上且距离为3。修行者被唤醒，并得知与他距离最近的邪恶玩家位于左侧。",
       "提线木偶在修行者左侧方向上且距离为1。寡妇在修行者右侧方向上且距离也为1。修行者被唤醒，说书人决定让修行者得知与他距离最近的玩家位于左侧。"
+    ],
+    "en": [
+      "The Organ Grinder is 2 steps away from the Shugenja in a clockwise direction. The Fearmonger is 3 steps away from the Shugenja in an anti-clockwise direction. The Shugenja wakes and learns that the closest evil player is in a clockwise direction.",
+      "The Marionette is 1 step away from the Shugenja in  a clockwise direction. The Widow is 1 step away from the Shugenja in an anti-clockwise direction. The Shugenja wakes and the Storyteller chooses to tell the Shugenja that the closest evil player is in a clockwise direction."
     ]
   },
   "tips": {
-    "en": [
-      "In general, it’s usually worth assuming that your information isn’t arbitrary due to equidistance as this is far less likely than to actually get one direction or the other. Obviously it’s worth bearing this potential in mind, but initially it’s usually best to assume your information is good and work on that basis.",
-      "If you learn clockwise, for example, you can most likely trust the player immediately anti-clockwise from you. Make it a priority to engage with them and build mutual trust as your information is likely indicating they are good and that you should be able to focus on a mutual opponent in the other direction.",
-      "If you feel like both your neighbours are good after some time getting a read, move one step further out and see what that next set of neighbours tells you. If you’re pretty certain that your neighbour’s neighbour is evil, that implies you can probably trust both of your neighbours plus the player two away on the opposite side.",
-      "If your information really doesn’t make sense and you don’t feel like you can trust your surrounding players, that’s the time to go back to the concept of equidistance. Have a look at each pair as you take steps away from yourself – do they make sense to be on an evil team together: have they spoken, does their info tie up with each other but no one else, are they voting together, are they collaborating or trusting each other without good reason?",
-      "Your information can feel incredibly nebulous at times. Is my clockwise neighbour evil? Or are they just good and it’s the next player round that’s evil? Or even the player after that? Or maybe my information is arbitrary and it’s actually a pair a couple seats away from me in each direction that’re evil together? The important thing to remember is that the longer the game goes on, the more ancillary information you can gather and the more you can narrow down the options. After all, unless the evil team has changed during the game, your information is just as useful in the final three to narrow down who might be evil as it was on day 1.",
-      "Reveal your information early. This allows other players to target their abilities accordingly based on who they trust near you and try to use your information to narrow down candidates. It also potentially allows you to get players in the direction you learnt executed, in the absence of other information to guide town’s efforts.",
-      "Reveal your information late. If an evil player feels outed or that they have strong information on them early, they will often avoid speaking to their fellow evil team. You want to wait and watch so you can see who your suspected evil candidates speak to in order to try to follow this branch to the source, the Demon.",
-      "If you find an evil player in the direction you were given, you’ve confirmed at least one player in the other direction. You can now trust this player implicitly based on your information and should take advantage of this to work together for the rest of the game.",
-      "Lie to your neighbours (or everyone) about your information to see how they react. An evil player hearing this will obviously know you are either bluffing or have bad information through drunk or poisoning, but it’s in their interests to play along as it allows them to push using your info to get good players in the other direction from you executed. See who responds to your information and how to try to get a read on who seems overly invested in following through on where it points."
-    ],
     "cn": [
       "通常来说，应该优先假设你的信息不是由于邪恶玩家与你距离相等而产生的随机信息，因为这种情况的可能性远比实际上有邪恶玩家在某一侧靠近你的可能性要小得多。当然你也需要牢记这种极小的可能性，但作为逻辑起点来说，一般最好假设你得知的信息是真实的，并以此为基础展开推理。",
       "比如说，你得知距离最近的邪恶玩家位于你的顺时针方向，那么你很可能会马上开始信任位于你的逆时针方向的玩家。因为你的信息证明他们很可能是善良玩家，所以你可以优先与他们接触并建立互信，并且你还应该关注另一个方向上你们共同的敌人。",
@@ -53,11 +54,23 @@
       "推迟公开你的信息。如果邪恶玩家感觉自己已经暴露，或者在游戏初期就有大量信息指向自己，那么他通常会避免与其他邪恶玩家交流。为了得知你所怀疑的邪恶玩家候选人会与谁交谈，你会想要隐藏信息并进行观察，从而顺藤摸瓜，找出恶魔。",
       "如果你已经在你得知的方向上找出邪恶玩家，那么你能够确定在另一个方向上至少有一个好人。现在你可以基于你的信息无条件地信任那名玩家，并且应当利用这种信任在游戏的剩余时间里努力协作。",
       "向与你邻近的玩家，或者向所有人谎报你的信息，看看他们会有什么反应。听到虚假信息的邪恶玩家显然会知道你要么在扯谎，要么是醉酒或中毒，但这符合他们的利益，因为他们可以利用这个信息去推动玩家们处决错误方向上的善良玩家。注意观察谁对你的信息做出了回应，以及你要怎样去试图了解谁看起来正在过度投入于遵循错误方向的逻辑线。"
+    ],
+    "en": [
+      "In general, it’s usually worth assuming that your information isn’t arbitrary due to equidistance as this is far less likely than to actually get one direction or the other. Obviously it’s worth bearing this potential in mind, but initially it’s usually best to assume your information is good and work on that basis.",
+      "If you learn clockwise, for example, you can most likely trust the player immediately anti-clockwise from you. Make it a priority to engage with them and build mutual trust as your information is likely indicating they are good and that you should be able to focus on a mutual opponent in the other direction.",
+      "If you feel like both your neighbours are good after some time getting a read, move one step further out and see what that next set of neighbours tells you. If you’re pretty certain that your neighbour’s neighbour is evil, that implies you can probably trust both of your neighbours plus the player two away on the opposite side.",
+      "If your information really doesn’t make sense and you don’t feel like you can trust your surrounding players, that’s the time to go back to the concept of equidistance. Have a look at each pair as you take steps away from yourself – do they make sense to be on an evil team together: have they spoken, does their info tie up with each other but no one else, are they voting together, are they collaborating or trusting each other without good reason?",
+      "Your information can feel incredibly nebulous at times. Is my clockwise neighbour evil? Or are they just good and it’s the next player round that’s evil? Or even the player after that? Or maybe my information is arbitrary and it’s actually a pair a couple seats away from me in each direction that’re evil together? The important thing to remember is that the longer the game goes on, the more ancillary information you can gather and the more you can narrow down the options. After all, unless the evil team has changed during the game, your information is just as useful in the final three to narrow down who might be evil as it was on day 1.",
+      "Reveal your information early. This allows other players to target their abilities accordingly based on who they trust near you and try to use your information to narrow down candidates. It also potentially allows you to get players in the direction you learnt executed, in the absence of other information to guide town’s efforts.",
+      "Reveal your information late. If an evil player feels outed or that they have strong information on them early, they will often avoid speaking to their fellow evil team. You want to wait and watch so you can see who your suspected evil candidates speak to in order to try to follow this branch to the source, the Demon.",
+      "If you find an evil player in the direction you were given, you’ve confirmed at least one player in the other direction. You can now trust this player implicitly based on your information and should take advantage of this to work together for the rest of the game.",
+      "Lie to your neighbours (or everyone) about your information to see how they react. An evil player hearing this will obviously know you are either bluffing or have bad information through drunk or poisoning, but it’s in their interests to play along as it allows them to push using your info to get good players in the other direction from you executed. See who responds to your information and how to try to get a read on who seems overly invested in following through on where it points."
     ]
   },
-  "how_to_run": {
-    "en": "During the first night, wake the Shugenja. If the closest evil player is in a clockwise direction, point your finger horizontally in that direction. If the closest evil player is in an anti-clockwise direction, point your finger horizontally in that direction. If the two closest evil players are equidistant, point your finger horizontally in either direction. Put the Shugenja to sleep.",
-    "cn": "在首个夜晚，唤醒修行者。用手指水平指向修行者的某一侧，告诉他与他距离最近的邪恶玩家位于这一侧。如果修行者两侧最近的邪恶玩家与他的距离相等，由你来决定告诉他什么样的信息，并用手指指向对应的一侧。让修行者重新入睡。"
-  },
+  "url_param": "Shugenja",
+  "editions": [
+    "experimental"
+  ],
+  "artist": "Chloe McDougall",
   "token_url": "https://wiki.bloodontheclocktower.com/images/1/11/Icon_shugenja.png"
 }

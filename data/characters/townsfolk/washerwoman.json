@@ -1,39 +1,64 @@
 {
   "id": "washerwoman",
+  "type": "townsfolk",
   "name": {
     "en": "Washerwoman",
+    "es-419": "Lavandera",
+    "sv": "Tvätterskan",
+    "zh-Hans": "洗衣妇",
     "cn": "洗衣妇"
   },
-  "type": "townsfolk",
-  "editions": [
-    "trouble_brewing"
-  ],
-  "first_night": true,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Washerwoman",
   "ability": {
     "en": "You start knowing that 1 of 2 players is a particular Townsfolk.",
+    "es-419": "Empiezas conociendo que 1 de 2 jugadores es un Ciudadano en particular.",
+    "sv": "I början vet du att 1 av 2 spelare är en viss Bybo.",
+    "zh-Hans": "在你的首个夜晚，你会得知两名玩家和一个镇民角色：这两名玩家之一是该角色。",
     "cn": "在你的首个夜晚，你会得知两名玩家和一个镇民角色：这两名玩家之一是该角色。"
   },
   "flavor_text": {
     "en": "\"Bloodstains on a dinner jacket? No, this is cooking sherry. How careless.\"",
+    "es-419": "¿Manchas de sangre en una chaqueta formal? No, es vino para cocinar. Qué descuidados.",
+    "sv": "Blodfläckar på smokingen? Nej, det är matlagningssherry. Så vårdslöst.",
+    "zh-Hans": "晚礼服上的血渍？才不是呢，这只是洒上了雪莉酒。真粗心！",
     "cn": "“晚礼服上的血渍？\n才不是呢，这只是洒上了雪莉酒。真粗心！”"
   },
+  "first_night": {
+    "en": "Show the Townsfolk character token. Point to both the *TOWNSFOLK* and *WRONG* players.",
+    "es-419": "Muéstrale la ficha de rol de un Ciudadano. Apunta tanto al *CIUDADANO* como al jugador *EQUIVOCADO*.",
+    "sv": "Visa Bybons rollbricka. Peka på spelarna märkta *BYBO* och *FEL*.",
+    "zh-Hans": "指向标记有“镇民”和“错误”的玩家。将标记有“镇民”的玩家标记展示给洗衣妇。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Washerwoman",
+  "how_to_run": {
+    "cn": "在为首个夜晚进行准备时，将洗衣妇的“镇民”提示标记放置在任意一个镇民角色标记旁，然后将洗衣妇的“错误”提示标记放置在任意其他角色标记旁。\n在首个夜晚里，唤醒洗衣妇，并指向标记有“镇民”和“错误”的玩家。将标记有“镇民”的玩家标记展示给洗衣妇。让洗衣妇重新入睡。在说书人方便的时候，移除洗衣妇的提示标记。",
+    "en": "While preparing the first night, put the Washerwoman's TOWNSFOLK reminder token by any Townsfolk character token, and put the Washerwoman's WRONG reminder token by any other character token.\nDuring the first night, wake the Washerwoman and point to the players marked TOWNSFOLK and WRONG. Show the character token marked TOWNSFOLK to the Washerwoman. Put the Washerwoman to sleep. Remove the Washerwoman's reminder tokens when convenient."
+  },
   "examples": {
-    "en": [
-      "Evin is the Chef, and Amy is the Ravenkeeper. The Washerwoman learns that either Evin or Amy is the Chef.",
-      "Julian is the Imp, and Alex is the Virgin. The Washerwoman learns that either Julian or Alex is the Virgin.",
-      "Marianna is the Spy, and Sarah is the Scarlet Woman. The Washerwoman learns that one of them is the Ravenkeeper. Here, the Spy is registering as a Townsfolk—in this case, the Ravenkeeper."
-    ],
     "cn": [
       "小文是厨师，小米是守鸦人。洗衣妇得知要么小文是厨师，要么小米是厨师。",
       "小佳是小恶魔，小艾是贞洁者。洗衣妇得知要么小佳是贞洁者，要么小艾是贞洁者。",
       "小明是间谍，小美是红唇女郎。洗衣妇得知他俩其中一人是守鸦人。此时，间谍被当作了一名镇民——在这个例子里，被当作了守鸦人。"
+    ],
+    "en": [
+      "Evin is the Chef, and Amy is the Ravenkeeper. The Washerwoman learns that either Evin or Amy is the Chef.",
+      "Julian is the Imp, and Alex is the Virgin. The Washerwoman learns that either Julian or Alex is the Virgin.",
+      "Marianna is the Spy, and Sarah is the Scarlet Woman. The Washerwoman learns that one of them is the Ravenkeeper. Here, the Spy is registering as a Townsfolk—in this case, the Ravenkeeper."
     ]
   },
   "tips": {
+    "cn": [
+      "洗衣妇这个角色看起来非常强大。虽然你无法从邪恶阵营的玩家身上获取信息，但你能够确定一个善良角色。你需要时刻关注这个善良角色，因为一旦他获得了有用的信息，就等同于你也得到了这手信息。如果这个善良角色是拥有可以做出选择的有效能力，你也能够帮助他让的能力发挥出更好的效果。",
+      "与其他角色相比，处于醉酒或中毒状态的洗衣妇还是比较容易发现自己获取了错误信息的。让我们看看其他角色。厨师是很难确定自己获得的信息\"1\"是否正确的。如果某位玩家告诉你他是某个镇民角色，而说书人又告诉你这位玩家是另一个镇民角色，这表明你很可能处于醉酒或中毒状态。你可以用这条信息为自己的队伍创建优势，因为如果你是酒鬼，那其他人就不可能再是酒鬼了。因为你能轻松辨别你得到的信息正确还是错误，这也就意味着当你获得的信息看起来比较可信的时候，你就会对自己的角色更加确信。",
+      "要去识别这两位玩家中哪一位是镇民的方法，不是在公聊时直接问他们，也不是去挨个私聊。最好的方式是在其中一位玩家被质疑时告诉其他玩家你所知道的信息，而且最好在他们自曝之前说出来，这样能够让他们更加相信你。",
+      "如果你在第一天就选择分享你的信息并且很快将它们说出来，善良阵营玩家就能够获得一个坚实的推理基础。这在你查验到场上存在其他信息获取类镇民角色（如占卜师或共情者）时非常有效。",
+      "等到游戏的最后一个白天（或在游戏后期）去分享你的信息也会非常有用。如果你能保证你查验到的镇民能活到最后一天，你就能在剩余存活玩家中排除一个恶魔！这种方式让你能够轻松地辨别出谁是恶魔，或者至少让原本三选一的难题变成二选一。",
+      "与你所查验到的镇民玩家交流，并且秘密地让他知晓你得知了他的角色。这样，你就有机会和他组成同盟，并且能够在其中一人被提名时互相替对方辩护。不要告诉其他人你的同盟是谁，因为邪恶阵营的玩家也会知道。不论是与像占卜师这样恶魔非常想要杀害的人结盟，还是与像守鸦人或士兵这样恶魔会极力避免杀害的人结盟，这一策略都十分有用。",
+      "在与你所辨识的镇民私聊并确认他们的角色后，你可以在其他玩家面前用一个假的角色来伪装他。如果你想要使这位镇民免受投毒者或其他角色的影响，或是想要引诱邪恶阵营的玩家去攻击一位已经使用过能力的镇民（例如厨师），这种策略都会非常有用。",
+      "有些时候，说书人会指向邪恶阵营的玩家并告诉你他可能是一个镇民角色。如果你认为这种情况发生的话，不要直接说出你获取到的是哪个镇民角色。你可以编一个假的镇民角色并试图让邪恶阵营的玩家承认自己是这个角色。或者你也可以尝试让善良阵营的玩家在你曝出他的真实角色之前把自己的角色告知与你，这会让你更加相信他……但也会让他降低对你的信任。你们两个可以在没有提前私聊的情况下同时公开你们的角色。这会帮助大家更快地确认你们都在讲真话。",
+      "公开哪个角色在场，但不说是哪位玩家。这种情况邪恶阵营将会得到很少的信息，但是那位镇民就会信任你，并且在将来他公开他的角色时会显得更可信。",
+      "你也可以声明自己就是洗衣妇，然后指向一个你认为是邪恶阵营的玩家，说他是一位你所知道的镇民。一个投机取巧的邪恶阵营玩家就可能会抓住这个机会并且表现得像个善良阵营玩家，并且说他们确实就是这个镇民角色。但在你的眼里，你会清楚地知道，他在说谎。",
+      "当心间谍！他可能会被你错认作镇民。你所得知的调查员可能根本就不是调查员……"
+    ],
     "en": [
       "The Washerwoman is deceptively powerful. Even though you don't gain information on the evil players, you can confirm the identity of a good player. This player should be your focus for the game, because if they have great information, then you have that information too. If they have a useful ability that they choose to use, you can help them use it wisely.",
       "When the Washerwoman  is poisoned or is actually the Drunk, they will often get information that is easy to figure out is incorrect—at least compared to other characters. While the Chef has no clue as to whether their \"1\" is incorrect, if both of the players the Storyteller pointed at tell you they're a different character to the one the Storyteller showed you, it is likely that you are the Drunk or poisoned. You can use this information to your team's advantage: if you know you are the Drunk, you know nobody else is; if you think you were poisoned on the first night, nobody else could have been. Furthermore, if your information seems like it's correct, it probably is, because of how easy it is to tell when it's wrong.",
@@ -51,24 +76,12 @@
       "You could claim to be the Washerwoman and point to a player you suspect is evil, stating that they are the Townsfolk you learned about. An opportunistic evil player may pounce on an opportunity to appear good, and claim that they are, in fact, the Townsfolk you learned about, thus outing them to you as, at the very least, a liar.",
       "Beware of the Spy! They may register as a Townsfolk character to you. That player who you think is the Investigator may not be the Investigator after all...",
       "Remember that while the Spy is likely to know that you've seen them as a Townsfolk, they won't know which Townsfolk you've seen them as."
-    ],
-    "cn": [
-      "洗衣妇这个角色看起来非常强大。虽然你无法从邪恶阵营的玩家身上获取信息，但你能够确定一个善良角色。你需要时刻关注这个善良角色，因为一旦他获得了有用的信息，就等同于你也得到了这手信息。如果这个善良角色是拥有可以做出选择的有效能力，你也能够帮助他让的能力发挥出更好的效果。",
-      "与其他角色相比，处于醉酒或中毒状态的洗衣妇还是比较容易发现自己获取了错误信息的。让我们看看其他角色。厨师是很难确定自己获得的信息\"1\"是否正确的。如果某位玩家告诉你他是某个镇民角色，而说书人又告诉你这位玩家是另一个镇民角色，这表明你很可能处于醉酒或中毒状态。你可以用这条信息为自己的队伍创建优势，因为如果你是酒鬼，那其他人就不可能再是酒鬼了。因为你能轻松辨别你得到的信息正确还是错误，这也就意味着当你获得的信息看起来比较可信的时候，你就会对自己的角色更加确信。",
-      "要去识别这两位玩家中哪一位是镇民的方法，不是在公聊时直接问他们，也不是去挨个私聊。最好的方式是在其中一位玩家被质疑时告诉其他玩家你所知道的信息，而且最好在他们自曝之前说出来，这样能够让他们更加相信你。",
-      "如果你在第一天就选择分享你的信息并且很快将它们说出来，善良阵营玩家就能够获得一个坚实的推理基础。这在你查验到场上存在其他信息获取类镇民角色（如占卜师或共情者）时非常有效。",
-      "等到游戏的最后一个白天（或在游戏后期）去分享你的信息也会非常有用。如果你能保证你查验到的镇民能活到最后一天，你就能在剩余存活玩家中排除一个恶魔！这种方式让你能够轻松地辨别出谁是恶魔，或者至少让原本三选一的难题变成二选一。",
-      "与你所查验到的镇民玩家交流，并且秘密地让他知晓你得知了他的角色。这样，你就有机会和他组成同盟，并且能够在其中一人被提名时互相替对方辩护。不要告诉其他人你的同盟是谁，因为邪恶阵营的玩家也会知道。不论是与像占卜师这样恶魔非常想要杀害的人结盟，还是与像守鸦人或士兵这样恶魔会极力避免杀害的人结盟，这一策略都十分有用。",
-      "在与你所辨识的镇民私聊并确认他们的角色后，你可以在其他玩家面前用一个假的角色来伪装他。如果你想要使这位镇民免受投毒者或其他角色的影响，或是想要引诱邪恶阵营的玩家去攻击一位已经使用过能力的镇民（例如厨师），这种策略都会非常有用。",
-      "有些时候，说书人会指向邪恶阵营的玩家并告诉你他可能是一个镇民角色。如果你认为这种情况发生的话，不要直接说出你获取到的是哪个镇民角色。你可以编一个假的镇民角色并试图让邪恶阵营的玩家承认自己是这个角色。或者你也可以尝试让善良阵营的玩家在你曝出他的真实角色之前把自己的角色告知与你，这会让你更加相信他……但也会让他降低对你的信任。你们两个可以在没有提前私聊的情况下同时公开你们的角色。这会帮助大家更快地确认你们都在讲真话。",
-      "公开哪个角色在场，但不说是哪位玩家。这种情况邪恶阵营将会得到很少的信息，但是那位镇民就会信任你，并且在将来他公开他的角色时会显得更可信。",
-      "你也可以声明自己就是洗衣妇，然后指向一个你认为是邪恶阵营的玩家，说他是一位你所知道的镇民。一个投机取巧的邪恶阵营玩家就可能会抓住这个机会并且表现得像个善良阵营玩家，并且说他们确实就是这个镇民角色。但在你的眼里，你会清楚地知道，他在说谎。",
-      "当心间谍！他可能会被你错认作镇民。你所得知的调查员可能根本就不是调查员……"
     ]
   },
-  "how_to_run": {
-    "en": "While preparing the first night, put the Washerwoman's TOWNSFOLK reminder token by any Townsfolk character token, and put the Washerwoman's WRONG reminder token by any other character token.\nDuring the first night, wake the Washerwoman and point to the players marked TOWNSFOLK and WRONG. Show the character token marked TOWNSFOLK to the Washerwoman. Put the Washerwoman to sleep. Remove the Washerwoman's reminder tokens when convenient.",
-    "cn": "在为首个夜晚进行准备时，将洗衣妇的“镇民”提示标记放置在任意一个镇民角色标记旁，然后将洗衣妇的“错误”提示标记放置在任意其他角色标记旁。\n在首个夜晚里，唤醒洗衣妇，并指向标记有“镇民”和“错误”的玩家。将标记有“镇民”的玩家标记展示给洗衣妇。让洗衣妇重新入睡。在说书人方便的时候，移除洗衣妇的提示标记。"
-  },
+  "url_param": "Washerwoman",
+  "editions": [
+    "trouble_brewing"
+  ],
+  "artist": "Aidan Roberts",
   "token_url": "https://wiki.bloodontheclocktower.com/images/8/85/Icon_washerwoman.png"
 }

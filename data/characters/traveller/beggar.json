@@ -1,46 +1,43 @@
 {
   "id": "beggar",
+  "type": "traveller",
   "name": {
     "en": "Beggar",
+    "es-419": "Mendigo",
+    "sv": "Tiggaren",
+    "zh-Hans": "乞丐",
     "cn": "乞丐"
   },
-  "type": "traveller",
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": false,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Beggar",
   "ability": {
     "en": "You must use a vote token to vote. If a dead player gives you theirs, you learn their alignment. You are sober and healthy.",
+    "es-419": "Necesitas usar una ficha de voto para poder votar. Si un jugador muerto te dona la suya, tú aprendes su alineamiento. Tú estás sobrio y saludable.",
+    "sv": "Du kan bara rösta med en röstbricka. Om en död spelare ger dig sin får du veta hens lag. Du är frisk och nykter.",
+    "zh-Hans": "你只能使用投票标记才能投票。死亡的玩家可以将他的投票标记给你，如果他这么做，你会得知他的阵营。你不会中毒和醉酒。",
     "cn": "你只能使用投票标记才能投票。\n死亡的玩家可以将他的投票标记给你，如果他这么做，你会得知他的阵营。\n你不会中毒和醉酒。"
   },
   "flavor_text": {
     "en": "\"Alms for the poor, good Sir? Spare a coin, Madam? Thank you. God bless! You're a right kind soul and no mistake! I'll have some swanky nosh tonight, I will!\"",
+    "es-419": "¿Una limosna para los más pobres, buen hombre? ¿Una moneda de sobra, señora? Muchas gracias, ¡Que Dios le bendiga! ¡Usted es un alma bondadosa y sin falta! ¡Hoy tendré una comida elegante, sí que sí!",
+    "sv": "Allmosor till en fattig, min gode herre? Har du en slant över, madam? Tack. Gud signe dig! Du är en ädel själ! Idag får jag mig ett rejält skrovmål!",
+    "zh-Hans": "行行好吧，先生？哪怕是一枚硬币，夫人？谢天谢地，上天保佑！你真是个善良的人！今晚我要好好地吃上一顿，一定要！",
     "cn": "“行行好吧，先生？哪怕是一枚硬币，夫人？谢天谢地，上天保佑！你真是个善良的人！今晚我要好好地吃上一顿，一定要！”"
   },
+  "source_url": "https://wiki.bloodontheclocktower.com/Beggar",
+  "how_to_run": {
+    "cn": "除非乞丐拥有投票标记，否则乞丐不能投票。乞丐每次投票时都会失去一个投票标记。\n在白天时，一个已死亡的玩家可以宣布将他的投票标记交给乞丐。将投票标记放到乞丐角色标记旁，并私底下告知乞丐这名玩家的阵营。",
+    "en": "The Beggar cannot vote unless they have a vote token. They lose one vote token each time they vote.\nDuring the day, a dead player can declare that they give their vote token to the Beggar. Transfer the vote token to the Beggar and privately tell the Beggar the alignment of that player."
+  },
   "examples": {
-    "en": [
-      "The Beggar cannot vote. On the fourth day, the Monk gives her vote token to the Beggar. The Beggar may now vote (once), and learns that the player is good. The Beggar is evil and tells the group that the Monk player is evil.",
-      "The good Beggar has three vote tokens. The Recluse gives the Beggar their vote token, and the Beggar learns that they are evil. That day, the Beggar dies, and loses all their vote tokens except for one."
-    ],
     "cn": [
       "乞丐不能投票。在第四个白天，小美将她的投票标记给了乞丐。乞丐现在可以进行一次投票，并且得知了小美是善良的。由于乞丐是邪恶的，所以告诉了其他玩家小美是邪恶的。",
       "善良的乞丐有3个投票标记。道哥把他的投票标记给乞丐，乞丐得知道哥是邪恶的。那一天，乞丐死亡并且失去了他先前获得的所有投票标记，但是会获得一个投票标记。"
+    ],
+    "en": [
+      "The Beggar cannot vote. On the fourth day, the Monk gives her vote token to the Beggar. The Beggar may now vote (once), and learns that the player is good. The Beggar is evil and tells the group that the Monk player is evil.",
+      "The good Beggar has three vote tokens. The Recluse gives the Beggar their vote token, and the Beggar learns that they are evil. That day, the Beggar dies, and loses all their vote tokens except for one."
     ]
   },
   "tips": {
-    "en": [
-      "You definitely want to learn the alignment of at least one player, but don't get too greedy. Learning 1 or 2 players' alignments could mean that 1 or 2 good players can no longer vote - this is probably acceptable. But learning 5 players' alignment could mean that 5 good players can no longer vote - and that gives evil the majority vote at the next execution, granting evil the win. Gain a vote token or two... or three... but know when to stop.",
-      "Tell the truth about good players who give you their vote token. You trust them. They will probably trust you. Have a private conversation about your combined strategy for the future, and tell the group that they are good. You can trust whatever information this good player has due to their character ability, so use that to your advantage and let them help you decide who to vote for.",
-      "Lie about a good player who gave you their vote token. If you tell the group that a good player is in fact evil, the Demon or its Minions may seek you out and tell you who they are, believing that you are evil too. This could be amazing information. Either way, you'll want to tell the group that you were lying before the game ends, and reveal your strategy to them, otherwise they may believe that you are evil, or that the good player who selflessly gave you their token is evil.",
-      "If an evil player is foolish enough or brave enough to give you their vote token, tell the truth about their alignment. Tell the group that the player is evil, and be prepared for that player to accuse you of being evil. Since it is rare for evil players to give their vote to a good beggar (but some will do so because it is so unexpected), you may find it difficult to convince the group that they are evil. It will be easier to convince the group if you can get a good player's vote token as well, as that good player will probably help you.",
-      "If an evil player has given you their vote token, you may want to lie about their alignment. Tell the group they they are good - this may convince the evil players that you are evil, and will encourage more evil players to give you their vote token. On the final day, you can reveal the truth.",
-      "You can't vote. So, when you do get a vote token, use it very, very wisely. This is especially important because you may have removed a good player's ability to vote when you took their token, which means that good has less voting power overall. Make your vote count by saving it until the final day, or waiting to use it when your vote will decide whether a player is executed or not.",
-      "Be proactive in getting players to give you their vote token. Ask. Demand. Bargain. Beg. Others will not usually volunteer to give you their token, because they have other things on their mind, but will often consider it if you pester them a little."
-    ],
     "cn": [
       "你绝对会想知道至少一位玩家的阵营，但是也别太贪了。知道1到2位玩家的阵营也意味着这些善良阵营玩家再也不能投票了——这可能也是能接受的。但是你如果知道五名玩家的阵营，这就意味着有5位善良阵营玩家不能再投票了——这将会在下次处决时给邪恶阵营留有大多数的票权，将邪恶阵营推向胜利。获得一枚投票标记或两枚...或三枚...但你要知道适时停止。",
       "如实说出哪些善良玩家曾给过你他们的投票标记。你相信他们。他们也可能会相信你。有关你们即将要实行的组合策略进行一次私聊，并且告诉大家他是善良阵营的。你可以相信这个善良玩家通过自身能力获取到的任何信息，以此作为自己的优势且让他们来帮助你决定到底要投票给谁。",
@@ -56,11 +53,21 @@
       "如实讲出邪恶玩家的阵营来与其他玩家建立信任。但很少有人这样做。非常少。由于一位邪恶乞丐不太可能会如实告诉大家一位邪恶玩家的真实阵营，所以当你这么做的时候，就很可能被大家相信。然而你会想要保证这样的代价是值得的。如果这位邪恶玩家已经被严重怀疑了，或者这名邪恶玩家已经是第三个或第四个给你投票标记的人了，这时这样做还是值得的。在这样一种情况下，让大家相信你是善良的会给你带来优势且让你活下来。",
       "谨慎使用你的票或者就把它们丢在一边。不论你怎么做，都不重要。重要的是你看起来像是在谨慎投票，而且还特意留了一票到最后一天再用。最后一天才是最重要的，所以在那之前你的投票只是为了让你看起来更可信，以此来保证自己活到最后一天。",
       "积极主动地求其他玩家将他的投票标记给你。求，一而再再而三地求，或者跟他商量着来。其他人通常不会自愿将他们的投票标记交给你，因为他们有自己的想法，但要是你一直缠着他，他一般也能考虑一下。"
+    ],
+    "en": [
+      "You definitely want to learn the alignment of at least one player, but don't get too greedy. Learning 1 or 2 players' alignments could mean that 1 or 2 good players can no longer vote - this is probably acceptable. But learning 5 players' alignment could mean that 5 good players can no longer vote - and that gives evil the majority vote at the next execution, granting evil the win. Gain a vote token or two... or three... but know when to stop.",
+      "Tell the truth about good players who give you their vote token. You trust them. They will probably trust you. Have a private conversation about your combined strategy for the future, and tell the group that they are good. You can trust whatever information this good player has due to their character ability, so use that to your advantage and let them help you decide who to vote for.",
+      "Lie about a good player who gave you their vote token. If you tell the group that a good player is in fact evil, the Demon or its Minions may seek you out and tell you who they are, believing that you are evil too. This could be amazing information. Either way, you'll want to tell the group that you were lying before the game ends, and reveal your strategy to them, otherwise they may believe that you are evil, or that the good player who selflessly gave you their token is evil.",
+      "If an evil player is foolish enough or brave enough to give you their vote token, tell the truth about their alignment. Tell the group that the player is evil, and be prepared for that player to accuse you of being evil. Since it is rare for evil players to give their vote to a good beggar (but some will do so because it is so unexpected), you may find it difficult to convince the group that they are evil. It will be easier to convince the group if you can get a good player's vote token as well, as that good player will probably help you.",
+      "If an evil player has given you their vote token, you may want to lie about their alignment. Tell the group they they are good - this may convince the evil players that you are evil, and will encourage more evil players to give you their vote token. On the final day, you can reveal the truth.",
+      "You can't vote. So, when you do get a vote token, use it very, very wisely. This is especially important because you may have removed a good player's ability to vote when you took their token, which means that good has less voting power overall. Make your vote count by saving it until the final day, or waiting to use it when your vote will decide whether a player is executed or not.",
+      "Be proactive in getting players to give you their vote token. Ask. Demand. Bargain. Beg. Others will not usually volunteer to give you their token, because they have other things on their mind, but will often consider it if you pester them a little."
     ]
   },
-  "how_to_run": {
-    "en": "The Beggar cannot vote unless they have a vote token. They lose one vote token each time they vote.\nDuring the day, a dead player can declare that they give their vote token to the Beggar. Transfer the vote token to the Beggar and privately tell the Beggar the alignment of that player.",
-    "cn": "除非乞丐拥有投票标记，否则乞丐不能投票。乞丐每次投票时都会失去一个投票标记。\n在白天时，一个已死亡的玩家可以宣布将他的投票标记交给乞丐。将投票标记放到乞丐角色标记旁，并私底下告知乞丐这名玩家的阵营。"
-  },
+  "url_param": "Beggar",
+  "editions": [
+    "experimental"
+  ],
+  "artist": "Aidan Roberts",
   "token_url": "https://wiki.bloodontheclocktower.com/images/e/e3/Icon_beggar.png"
 }

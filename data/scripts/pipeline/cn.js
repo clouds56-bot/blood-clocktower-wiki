@@ -10,7 +10,8 @@ const cheerio = require('cheerio');
 
 const BASE_URL = 'https://clocktower-wiki.gstonegames.com/index.php?title=';
 const CACHE_DIR = path.join(__dirname, '..', '..', '.cache', 'html-cn');
-const OUTPUT_FILE = path.join(__dirname, '..', '..', 'characters.wiki.cn.jsonl');
+const OUTPUT_DIR = path.join(__dirname, '..', '..', 'extracted');
+const OUTPUT_FILE = path.join(OUTPUT_DIR, 'characters.wiki.cn.jsonl');
 
 const SCRIPTS = [
   '%E6%9A%97%E6%B5%81%E6%B6%8C%E5%8A%A8', // Trouble Brewing
@@ -124,16 +125,35 @@ function extractCharacterData(html, cnName, urlParam) {
   const howToRun = extractSection($, '运作方式');
   const tips = extractTips($);
 
-  return {
-    chinese_name: cnName,
-    english_name: englishName,
+  const id = englishName
+    ? englishName
+      .toLowerCase()
+      .replace(/[^a-z0-9]/g, '_')
+      .replace(/_+/g, '_')
+      .replace(/^_|_$/g, '')
+    : null;
+
+  const row = {
+    id,
+    en_name: englishName,
+    name: cnName,
     ability: ability || null,
-    flavor_text: flavorText,
-    examples: examples,
-    how_to_run: howToRun,
-    tips: tips,
-    urlParam: urlParam
+    flavor: flavorText || null,
+    how_to_run: howToRun || null,
+    examples: examples || null,
+    tips: tips || null,
+    url_param: urlParam
   };
+
+  const compact = {};
+  for (const [key, value] of Object.entries(row)) {
+    if (value === null || value === undefined) continue;
+    if (typeof value === 'string' && value.trim() === '') continue;
+    if (Array.isArray(value) && value.length === 0) continue;
+    compact[key] = value;
+  }
+
+  return compact;
 }
 
 async function scrapeScriptPage(scriptUrlParam) {
@@ -174,6 +194,8 @@ async function scrapeScriptPage(scriptUrlParam) {
 }
 
 async function main() {
+  fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+
   const allData = [];
   const seenUrls = new Set();
 
@@ -190,11 +212,10 @@ async function main() {
         const html = await fetchWithCache(url, char.urlParam);
         const data = extractCharacterData(html, char.name, char.urlParam);
         
-        if (data.english_name) {
-          allData.push(data);
-        } else {
+        if (!data.en_name) {
           console.log(`    ⚠️ No English name found for ${char.name}`);
         }
+        allData.push(data);
       } catch (err) {
         console.error(`    ❌ Error fetching ${char.name}: ${err.message}`);
       }

@@ -1,49 +1,57 @@
 {
   "id": "bureaucrat",
+  "type": "traveller",
   "name": {
     "en": "Bureaucrat",
+    "es-419": "Burócrata",
+    "sv": "Byråkraten",
+    "zh-Hans": "官员",
     "cn": "官员"
   },
-  "type": "traveller",
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "Aidan Roberts",
-  "jinxes": [],
-  "source_url": "https://wiki.bloodontheclocktower.com/Bureaucrat",
   "ability": {
     "en": "Each night, choose a player (not yourself): their vote counts as 3 votes tomorrow.",
+    "es-419": "Cada noche, escoge un jugador (no tú mismo): su voto cuenta como 3 votos mañana.",
+    "sv": "Varje natt väljer du en spelare (inte dig själv); imorgon räknas hens röst som 3.",
+    "zh-Hans": "每个夜晚，你要选择除你以外的一名玩家：明天白天，他的投票算作三票。",
     "cn": "每个夜晚，你要选择除你以外的一名玩家：明天白天，他的投票算作三票。"
   },
   "flavor_text": {
     "en": "\"Sign here please. And here. And here. Aaaaaaaaand here. This should all be sorted and tallied by the end of the day, assuming everyone's signatures are legible. We haven't had a mix-up in the paperwork for ages. Yesterday noon, if memory serves...\"",
+    "es-419": "Firma aquí por favor. Y aquí. Y aquí. Y taaaaaaaambién aquí. Todo deberá estar solucionado y contabilizado al final del día, asumiendo que todas las firmas son legibles. ¡No hemos tenido problema alguno con el papeleo hace ufff! Desde ayer al mediodía, si la memoria no me falla…",
+    "sv": "Skriv på här. Och här. Och här. Ooooooch här. Det borde vara allt, förutsatt att allas underskrifter är läsliga. Vi har inte haft något strul på en evighet. Igår förmiddag, om jag minns rätt…",
+    "zh-Hans": "请在这签名，还有这里，还有这，还...有这。如果每个人的签名都清晰可辨，在今天就应该可以把所有文件都整理统计好。这种简单的文书工作，我们已经很久没犯错了。从昨天中午到现在都没有，如果没记错的话……",
     "cn": "“请在这签名，还有这里，还有这，还...有这。如果每个人的签名都清晰可辨，在今天就应该可以把所有文件都整理统计好。这种简单的文书工作，我们已经很久没犯错了。从昨天中午到现在都没有，如果没记错的话……”"
   },
+  "first_night": {
+    "en": "The Bureaucrat chooses a player. :reminder:",
+    "es-419": "El Burócrata escoge un jugador. :reminder:",
+    "sv": "Byråkraten väljer en spelare. :reminder:",
+    "zh-Hans": "官员选择一名玩家。:reminder:"
+  },
+  "other_nights": {
+    "en": "The Bureaucrat chooses a player. :reminder:",
+    "es-419": "El Burócrata escoge un jugador. :reminder:",
+    "sv": "Byråkraten väljer en spelare. :reminder:",
+    "zh-Hans": "官员选择一名玩家。:reminder:"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Bureaucrat",
+  "how_to_run": {
+    "cn": "每个夜晚，唤醒官员。让官员指向任意一名玩家。用官员的“3票”提示标记那名被选中的玩家。让官员入睡。\n每次当你正在为一名被“3票”提示标记的玩家投票统计时，以3票而不是1票的形式计数。（唱票时如常地大声说出来。）",
+    "en": "Each night, wake the Bureaucrat. They point at any player. Mark the chosen player with the Bureaucrat’s 3 VOTES reminder. Put the Bureaucrat to sleep.\nEach time you tally the vote of a player marked 3 VOTES, count it as three votes instead of one. (Count this out loud, as normal.)"
+  },
   "examples": {
-    "en": [
-      "The Bureaucrat chooses Evin. The next day, when the first vote is being tallied, the Storyteller counts \"1... 2... 3... 4-5-6... 7.” The nominated player now has seven votes for their execution, and the nomination process continues.",
-      "The Bureaucrat chooses Filip. The next day, Filip has a triple vote, which he uses during four nominations.",
-      "The Bureaucrat chooses Douglas, who is dead. The next day, Douglas uses his vote token to vote, and his vote counts as triple."
-    ],
     "cn": [
       "官员选择了小文。下一个白天，当第一次投票正在计票时，说书人数道：“1...2...3...4·5·6...7”。被提名的玩家在这次处决投票中获得了7票，玩家继续提名。",
       "官员选择了小艾。下一个白天，小艾在4次提名中都进行了投票，每一次他都投了3票。",
       "官员选择了已死亡的道哥。下一个白天，道哥使用了他的投票标记进行投票，他的投票会被算作3票。"
+    ],
+    "en": [
+      "The Bureaucrat chooses Evin. The next day, when the first vote is being tallied, the Storyteller counts \"1... 2... 3... 4-5-6... 7.” The nominated player now has seven votes for their execution, and the nomination process continues.",
+      "The Bureaucrat chooses Filip. The next day, Filip has a triple vote, which he uses during four nominations.",
+      "The Bureaucrat chooses Douglas, who is dead. The next day, Douglas uses his vote token to vote, and his vote counts as triple."
     ]
   },
   "tips": {
-    "en": [
-      "When picking who to give your extra votes to, prioritize living players. Dead players get a single vote for the rest of the game, and will be reluctant to spend it before a critical moment, even with your ability giving them an extra punch. (Similarly, be wary of characters like the Butler, who can have their voting restricted because of their ability.)",
-      "Find a good player you trust or who has been confirmed in some way, and pair up with them. Characters like a Virgin who has caused an execution or anyone confirmed by a Washerwoman are great options of trustworthy players you can work with. This also has the benefit of making you look good, as you are publicly aligning yourself with a good player.",
-      "Watch how people vote, especially the people you choose. Depending on who is on the chopping block, players will change their vote - it's very unlikely that a Minion would vote for their Demon knowing they have 3 votes, for example. If a player doesn't take advantage of your power at a critical moment (or worse, does), then they are telling you a lot about their priorities and who they are aligned with.",
-      "Ask the town to help you choose who the person that receives your extra votes should be! If you don't have any strong leads on a reliable good player to trust, crowd-sourcing a solution will not only help the town trust you, but uncover good potential options for you to pick.",
-      "Communicate with the town about who you have picked - not only does keeping an open and honest policy help the town believe that you have a good alignment, but it helps the group when coordinating information and votes to get someone killed.",
-      "Deliberately lie about who you picked so that you can observe the behaviour of the player you 'picked'. While secretly giving your votes to a trustworthy player, pick someone who you want more of a read on, and see how they behave when they think they have extra voting power.",
-      "You are especially deadly on the final night - your ability means that one person can single-handedly kick off an execution. If you choose an evil player, good will have to work extra hard to make up the difference. Consider asking to be exiled before nominations begin - a good player may lose out on the extra kick you have to offer, but at least you know for sure your ability isn't going to cause more harm than good.",
-      "The Thief is your counterpart among Travellers, causing votes to count negatively... but if you both choose the same player, your abilities combine to give someone -3 votes! If you both trust the Thief and have a strong lead on an evil player, this can be a devastating way to undermine the evil team, cancelling out three evil votes!"
-    ],
     "cn": [
       "选择给出你的额外票时，优先选择存活玩家。死亡玩家在剩余游戏中仅剩一票，不到关键时刻是不会愿意用掉的，即便你的能力会给他们一个额外的加成。（同样的，也当心管家这样的角色，因为他的投票受到自身能力的限制。）",
       "找到一名你相信的善良玩家，或是已经通过某种方式被证明阵营的玩家，与他们配合协作。像贞洁者这样能够引起处决的角色或是被洗衣妇证实的任何角色都是你可以选择信任且合作的。这也会同样让你的阵营看起来很善良，因为你公然站队到了一位善良玩家身边。",
@@ -57,11 +65,22 @@
       "另一种策略就是一直选择善良玩家直到出现了某个完美的时机。如果你在游戏前半程所选择的玩家是善良的，且被大家所信任的话，这样做能获得最好的效果。以这种方式选择善良玩家将会让你收获许多信任，这样你就可以在最后一刻背叛他们，在最后一天或其他相当重要的时刻给邪恶玩家三倍票数。",
       "在最后一天选择一名邪恶玩家。尽管在最后一天选择一名善良玩家会让你看起来更可信，但一个有着三倍票数的善良玩家对你的阵营来说是个巨大的危险，且远超于你那伪善所能带来的任何好处。相反，最后一天一个有着三倍票数的邪恶玩家能够赢下这场游戏。",
       "如果你能找到恰当的理由，选择死亡的邪恶玩家。死亡玩家通常比活着的玩家更受到信任，因此将三倍票数给一名死去的爪牙不仅能让自己的阵营看起来更善良，还可以把多的这两票不留情面地拍在邪恶阵营希望被提名走的人身上。一个有着三倍票数的死亡邪恶玩家确实能够最大化激发他的进攻潜力，只要他还被大家相信是善良的。"
+    ],
+    "en": [
+      "When picking who to give your extra votes to, prioritize living players. Dead players get a single vote for the rest of the game, and will be reluctant to spend it before a critical moment, even with your ability giving them an extra punch. (Similarly, be wary of characters like the Butler, who can have their voting restricted because of their ability.)",
+      "Find a good player you trust or who has been confirmed in some way, and pair up with them. Characters like a Virgin who has caused an execution or anyone confirmed by a Washerwoman are great options of trustworthy players you can work with. This also has the benefit of making you look good, as you are publicly aligning yourself with a good player.",
+      "Watch how people vote, especially the people you choose. Depending on who is on the chopping block, players will change their vote - it's very unlikely that a Minion would vote for their Demon knowing they have 3 votes, for example. If a player doesn't take advantage of your power at a critical moment (or worse, does), then they are telling you a lot about their priorities and who they are aligned with.",
+      "Ask the town to help you choose who the person that receives your extra votes should be! If you don't have any strong leads on a reliable good player to trust, crowd-sourcing a solution will not only help the town trust you, but uncover good potential options for you to pick.",
+      "Communicate with the town about who you have picked - not only does keeping an open and honest policy help the town believe that you have a good alignment, but it helps the group when coordinating information and votes to get someone killed.",
+      "Deliberately lie about who you picked so that you can observe the behaviour of the player you 'picked'. While secretly giving your votes to a trustworthy player, pick someone who you want more of a read on, and see how they behave when they think they have extra voting power.",
+      "You are especially deadly on the final night - your ability means that one person can single-handedly kick off an execution. If you choose an evil player, good will have to work extra hard to make up the difference. Consider asking to be exiled before nominations begin - a good player may lose out on the extra kick you have to offer, but at least you know for sure your ability isn't going to cause more harm than good.",
+      "The Thief is your counterpart among Travellers, causing votes to count negatively... but if you both choose the same player, your abilities combine to give someone -3 votes! If you both trust the Thief and have a strong lead on an evil player, this can be a devastating way to undermine the evil team, cancelling out three evil votes!"
     ]
   },
-  "how_to_run": {
-    "en": "Each night, wake the Bureaucrat. They point at any player. Mark the chosen player with the Bureaucrat’s 3 VOTES reminder. Put the Bureaucrat to sleep.\nEach time you tally the vote of a player marked 3 VOTES, count it as three votes instead of one. (Count this out loud, as normal.)",
-    "cn": "每个夜晚，唤醒官员。让官员指向任意一名玩家。用官员的“3票”提示标记那名被选中的玩家。让官员入睡。\n每次当你正在为一名被“3票”提示标记的玩家投票统计时，以3票而不是1票的形式计数。（唱票时如常地大声说出来。）"
-  },
+  "url_param": "Bureaucrat",
+  "editions": [
+    "experimental"
+  ],
+  "artist": "Aidan Roberts",
   "token_url": "https://wiki.bloodontheclocktower.com/images/b/b1/Icon_bureaucrat.png"
 }

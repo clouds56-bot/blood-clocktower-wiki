@@ -1,0 +1,1148 @@
+{
+  "source": "script_tool",
+  "source_url": "https://script.bloodontheclocktower.com/",
+  "special_items": [
+    "dusk",
+    "minioninfo",
+    "demoninfo",
+    "dawn"
+  ],
+  "first_night": [
+    {
+      "number": 1,
+      "id": "dusk",
+      "kind": "special"
+    },
+    {
+      "number": 2,
+      "id": "angel",
+      "kind": "character",
+      "team": "fabled"
+    },
+    {
+      "number": 3,
+      "id": "buddhist",
+      "kind": "character",
+      "team": "fabled"
+    },
+    {
+      "number": 4,
+      "id": "toymaker",
+      "kind": "character",
+      "team": "fabled"
+    },
+    {
+      "number": 5,
+      "id": "storm_catcher",
+      "kind": "character",
+      "team": "loric"
+    },
+    {
+      "number": 6,
+      "id": "wraith",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 7,
+      "id": "lord_of_typhon",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 8,
+      "id": "kazali",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 9,
+      "id": "apprentice",
+      "kind": "character",
+      "team": "traveller"
+    },
+    {
+      "number": 10,
+      "id": "barista",
+      "kind": "character",
+      "team": "traveller"
+    },
+    {
+      "number": 11,
+      "id": "bureaucrat",
+      "kind": "character",
+      "team": "traveller"
+    },
+    {
+      "number": 12,
+      "id": "thief",
+      "kind": "character",
+      "team": "traveller"
+    },
+    {
+      "number": 13,
+      "id": "boffin",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 14,
+      "id": "philosopher",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 15,
+      "id": "alchemist",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 16,
+      "id": "poppy_grower",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 17,
+      "id": "yaggababble",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 18,
+      "id": "magician",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 19,
+      "id": "minioninfo",
+      "kind": "special"
+    },
+    {
+      "number": 20,
+      "id": "snitch",
+      "kind": "character",
+      "team": "outsider"
+    },
+    {
+      "number": 21,
+      "id": "lunatic",
+      "kind": "character",
+      "team": "outsider"
+    },
+    {
+      "number": 22,
+      "id": "summoner",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 23,
+      "id": "demoninfo",
+      "kind": "special"
+    },
+    {
+      "number": 24,
+      "id": "king",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 25,
+      "id": "sailor",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 26,
+      "id": "marionette",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 27,
+      "id": "engineer",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 28,
+      "id": "preacher",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 29,
+      "id": "lil_monsta",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 30,
+      "id": "lleech",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 31,
+      "id": "xaan",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 32,
+      "id": "poisoner",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 33,
+      "id": "widow",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 34,
+      "id": "courtier",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 35,
+      "id": "wizard",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 36,
+      "id": "snake_charmer",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 37,
+      "id": "godfather",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 38,
+      "id": "organ_grinder",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 39,
+      "id": "devil_s_advocate",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 40,
+      "id": "evil_twin",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 41,
+      "id": "witch",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 42,
+      "id": "cerenovus",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 43,
+      "id": "fearmonger",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 44,
+      "id": "harpy",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 45,
+      "id": "mezepheles",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 46,
+      "id": "pukka",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 47,
+      "id": "pixie",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 48,
+      "id": "huntsman",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 49,
+      "id": "damsel",
+      "kind": "character",
+      "team": "outsider"
+    },
+    {
+      "number": 50,
+      "id": "amnesiac",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 51,
+      "id": "washerwoman",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 52,
+      "id": "librarian",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 53,
+      "id": "investigator",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 54,
+      "id": "chef",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 55,
+      "id": "empath",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 56,
+      "id": "fortune_teller",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 57,
+      "id": "butler",
+      "kind": "character",
+      "team": "outsider"
+    },
+    {
+      "number": 58,
+      "id": "grandmother",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 59,
+      "id": "clockmaker",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 60,
+      "id": "dreamer",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 61,
+      "id": "seamstress",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 62,
+      "id": "steward",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 63,
+      "id": "knight",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 64,
+      "id": "noble",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 65,
+      "id": "balloonist",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 66,
+      "id": "shugenja",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 67,
+      "id": "village_idiot",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 68,
+      "id": "bounty_hunter",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 69,
+      "id": "nightwatchman",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 70,
+      "id": "cult_leader",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 71,
+      "id": "spy",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 72,
+      "id": "ogre",
+      "kind": "character",
+      "team": "outsider"
+    },
+    {
+      "number": 73,
+      "id": "high_priestess",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 74,
+      "id": "general",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 75,
+      "id": "chambermaid",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 76,
+      "id": "mathematician",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 77,
+      "id": "dawn",
+      "kind": "special"
+    },
+    {
+      "number": 78,
+      "id": "leviathan",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 79,
+      "id": "vizier",
+      "kind": "character",
+      "team": "minion"
+    }
+  ],
+  "other_nights": [
+    {
+      "number": 1,
+      "id": "dusk",
+      "kind": "special"
+    },
+    {
+      "number": 2,
+      "id": "duchess",
+      "kind": "character",
+      "team": "fabled"
+    },
+    {
+      "number": 3,
+      "id": "toymaker",
+      "kind": "character",
+      "team": "fabled"
+    },
+    {
+      "number": 4,
+      "id": "wraith",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 5,
+      "id": "cacklejack",
+      "kind": "character",
+      "team": "traveller"
+    },
+    {
+      "number": 6,
+      "id": "barista",
+      "kind": "character",
+      "team": "traveller"
+    },
+    {
+      "number": 7,
+      "id": "bureaucrat",
+      "kind": "character",
+      "team": "traveller"
+    },
+    {
+      "number": 8,
+      "id": "thief",
+      "kind": "character",
+      "team": "traveller"
+    },
+    {
+      "number": 9,
+      "id": "harlot",
+      "kind": "character",
+      "team": "traveller"
+    },
+    {
+      "number": 10,
+      "id": "bone_collector",
+      "kind": "character",
+      "team": "traveller"
+    },
+    {
+      "number": 11,
+      "id": "philosopher",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 12,
+      "id": "poppy_grower",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 13,
+      "id": "sailor",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 14,
+      "id": "engineer",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 15,
+      "id": "preacher",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 16,
+      "id": "xaan",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 17,
+      "id": "poisoner",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 18,
+      "id": "courtier",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 19,
+      "id": "innkeeper",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 20,
+      "id": "wizard",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 21,
+      "id": "gambler",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 22,
+      "id": "acrobat",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 23,
+      "id": "snake_charmer",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 24,
+      "id": "monk",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 25,
+      "id": "organ_grinder",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 26,
+      "id": "devil_s_advocate",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 27,
+      "id": "witch",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 28,
+      "id": "cerenovus",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 29,
+      "id": "pit_hag",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 30,
+      "id": "fearmonger",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 31,
+      "id": "harpy",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 32,
+      "id": "mezepheles",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 33,
+      "id": "scarlet_woman",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 34,
+      "id": "summoner",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 35,
+      "id": "lunatic",
+      "kind": "character",
+      "team": "outsider"
+    },
+    {
+      "number": 36,
+      "id": "exorcist",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 37,
+      "id": "lycanthrope",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 38,
+      "id": "princess",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 39,
+      "id": "legion",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 40,
+      "id": "imp",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 41,
+      "id": "zombuul",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 42,
+      "id": "pukka",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 43,
+      "id": "shabaloth",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 44,
+      "id": "po",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 45,
+      "id": "fang_gu",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 46,
+      "id": "no_dashii",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 47,
+      "id": "vortox",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 48,
+      "id": "lord_of_typhon",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 49,
+      "id": "vigormortis",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 50,
+      "id": "ojo",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 51,
+      "id": "al_hadikhia",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 52,
+      "id": "lleech",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 53,
+      "id": "lil_monsta",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 54,
+      "id": "yaggababble",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 55,
+      "id": "kazali",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 56,
+      "id": "assassin",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 57,
+      "id": "godfather",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 58,
+      "id": "gossip",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 59,
+      "id": "hatter",
+      "kind": "character",
+      "team": "outsider"
+    },
+    {
+      "number": 60,
+      "id": "barber",
+      "kind": "character",
+      "team": "outsider"
+    },
+    {
+      "number": 61,
+      "id": "sweetheart",
+      "kind": "character",
+      "team": "outsider"
+    },
+    {
+      "number": 62,
+      "id": "plague_doctor",
+      "kind": "character",
+      "team": "outsider"
+    },
+    {
+      "number": 63,
+      "id": "sage",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 64,
+      "id": "banshee",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 65,
+      "id": "professor",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 66,
+      "id": "choirboy",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 67,
+      "id": "huntsman",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 68,
+      "id": "damsel",
+      "kind": "character",
+      "team": "outsider"
+    },
+    {
+      "number": 69,
+      "id": "amnesiac",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 70,
+      "id": "farmer",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 71,
+      "id": "tinker",
+      "kind": "character",
+      "team": "outsider"
+    },
+    {
+      "number": 72,
+      "id": "moonchild",
+      "kind": "character",
+      "team": "outsider"
+    },
+    {
+      "number": 73,
+      "id": "grandmother",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 74,
+      "id": "tor",
+      "kind": "character",
+      "team": "loric"
+    },
+    {
+      "number": 75,
+      "id": "ravenkeeper",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 76,
+      "id": "empath",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 77,
+      "id": "fortune_teller",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 78,
+      "id": "undertaker",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 79,
+      "id": "dreamer",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 80,
+      "id": "flowergirl",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 81,
+      "id": "town_crier",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 82,
+      "id": "oracle",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 83,
+      "id": "seamstress",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 84,
+      "id": "juggler",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 85,
+      "id": "balloonist",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 86,
+      "id": "village_idiot",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 87,
+      "id": "king",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 88,
+      "id": "bounty_hunter",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 89,
+      "id": "nightwatchman",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 90,
+      "id": "cult_leader",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 91,
+      "id": "butler",
+      "kind": "character",
+      "team": "outsider"
+    },
+    {
+      "number": 92,
+      "id": "spy",
+      "kind": "character",
+      "team": "minion"
+    },
+    {
+      "number": 93,
+      "id": "high_priestess",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 94,
+      "id": "general",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 95,
+      "id": "chambermaid",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 96,
+      "id": "mathematician",
+      "kind": "character",
+      "team": "townsfolk"
+    },
+    {
+      "number": 97,
+      "id": "riot",
+      "kind": "character",
+      "team": "demon"
+    },
+    {
+      "number": 98,
+      "id": "dawn",
+      "kind": "special"
+    },
+    {
+      "number": 99,
+      "id": "leviathan",
+      "kind": "character",
+      "team": "demon"
+    }
+  ],
+  "special": {
+    "dusk": {
+      "name": {
+        "en": "Dusk",
+        "zh-Hans": "黄昏",
+        "sv": "Skymning",
+        "es-419": "Anochecer"
+      },
+      "first_night_reminder": {
+        "en": "Start the Night Phase.",
+        "zh-Hans": "夜晚阶段开始。",
+        "sv": "Inled nattfasen.",
+        "es-419": "Empieza la Fase de la Noche."
+      },
+      "other_night_reminder": {
+        "en": "Start the Night Phase.",
+        "zh-Hans": "夜晚阶段开始。",
+        "sv": "Inled nattfasen.",
+        "es-419": "Empieza la Fase de la Noche."
+      }
+    },
+    "minioninfo": {
+      "name": {
+        "en": "Minion Info",
+        "zh-Hans": "爪牙信息",
+        "sv": "Kumpan-info",
+        "es-419": "Información del Secuaz"
+      },
+      "first_night_reminder": {
+        "en": "If there are 7 or more players, wake all Minions: Show the *THIS IS THE DEMON* token. Point to the Demon. Show the *THESE ARE YOUR MINIONS* token. Point to the other Minions.",
+        "zh-Hans": "如果有七名或更多玩家，唤醒所有爪牙：\n 展示“他是恶魔”信息标记。指向恶魔。",
+        "sv": "Om det finns 7 eller fler spelare, väck alla Kumpaner. Visa kortet *DET HÄR ÄR DEMONEN*. Peka på Demonen. Visa kortet *DET HÄR ÄR DINA KUMPANER*. Peka på de andra Kumpanerna.",
+        "es-419": "Si hay 7 o más jugadores, despierta a todos los Secuaces:\n\tMuéstrales la ficha de *ESTE ES EL DEMONIO*. Apunta al Demonio.\n\tMuéstrales la ficha de *ESTOS SON TUS SECUACES*. Apunta a los otros Secuaces."
+      },
+      "other_night_reminder": {}
+    },
+    "demoninfo": {
+      "name": {
+        "en": "Demon Info",
+        "zh-Hans": "恶魔信息",
+        "sv": "Demon-info",
+        "es-419": "Información del Demonio"
+      },
+      "first_night_reminder": {
+        "en": "If there are 7 or more players, wake the Demon: Show the *THESE ARE YOUR MINIONS* token. Point to all Minions. Show the *THESE CHARACTERS ARE NOT IN PLAY* token. Show 3 not-in-play good character tokens.",
+        "zh-Hans": "如果有七名或更多玩家，唤醒恶魔：展示“他们是你的爪牙”信息标记。指向所有爪牙。展示“这些角色不在场”信息标记。展示三个不在场的善良角色。如果其他对恶魔暴露的角色在场，不要让恶魔入睡，而是一并给出相关信息后再让恶魔入睡。",
+        "sv": "Väck Demonen om det finns 7 eller fler spelare. Visa kortet *DET HÄR ÄR DINA KUMPANER*. Peka på alla Kumpaner. Visa kortet *DE HÄR ROLLERNA ÄR INTE I SPEL*. Visa tre goda roller som inte är i spel.",
+        "es-419": "Si hay 7 o más jugadores, despierta al Demonio:\n\tMuéstrale la ficha de *ESTOS SON TUS SECUACES*. Apunta a todos los Secuaces.\n\tMuéstrale la ficha de *ESTOS ROLES NO ESTÁN EN JUEGO*. Muéstrale las fichas de 3 roles buenos fuera de juego."
+      },
+      "other_night_reminder": {}
+    },
+    "dawn": {
+      "name": {
+        "en": "Dawn",
+        "zh-Hans": "黎明",
+        "sv": "Gryning",
+        "es-419": "Amanecer"
+      },
+      "first_night_reminder": {
+        "en": "Wait for a few seconds. End the Night Phase.",
+        "zh-Hans": "稍等一会。结束夜晚阶段。",
+        "sv": "Vänta några sekunder. Avsluta nattfasen.",
+        "es-419": "Espera unos segundos. Termina la Fase de la Noche."
+      },
+      "other_night_reminder": {
+        "en": "Wait for a few seconds. End the Night Phase.",
+        "zh-Hans": "稍等一会。结束夜晚阶段。",
+        "sv": "Vänta några sekunder. Avsluta nattfasen.",
+        "es-419": "Espera unos segundos. Termina la Fase de la Noche."
+      }
+    }
+  }
+}

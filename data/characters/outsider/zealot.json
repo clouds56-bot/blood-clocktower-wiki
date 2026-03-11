@@ -1,15 +1,73 @@
 {
   "id": "zealot",
+  "type": "outsider",
   "name": {
     "en": "Zealot",
+    "es-419": "Fanático",
+    "sv": "Fanatikern",
+    "zh-Hans": "狂热者",
     "cn": "狂热者"
   },
-  "type": "outsider",
+  "ability": {
+    "en": "If there are 5 or more players alive, you must vote for every nomination.",
+    "es-419": "Si hay 5 o más jugadores vivos, debes votar en cada nominación.",
+    "sv": "Om minst 5 spelare lever måste du alltid rösta för avrättning.",
+    "zh-Hans": "如果有大于等于五名玩家存活，你必须在所有提名中投票。",
+    "cn": "如果有大于等于五名玩家存活，你必须在所有提名中投票。"
+  },
+  "flavor_text": {
+    "en": "\"I enjoy talking to you. Your mind appeals to me. It resembles my own mind except that you happen to be insane.\"",
+    "es-419": "Me gusta hablar contigo. Tu mente me atrae. Me recuerda a mi propia mente, excepto que tú estás loco.",
+    "sv": "Jag tycker om att prata med dig. Ditt sinne tilltalar mig. Det liknar mitt, förutom det att du råkar vara helt från vettet.",
+    "zh-Hans": "和你聊天让我很享受。你的想法很有吸引力，和我的想法很相似。除非……这只是你的疯言疯语。",
+    "cn": "“和你聊天让我很享受。你的想法很有吸引力，和我的想法很相似。除非……这只是你的疯言疯语。”"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Zealot",
+  "how_to_run": {
+    "cn": "在每次提名中，如果当前有五名或更多玩家存活，狂热者必须举手投票。\n如果狂热者不小心忘记了投票，不要统计他的票。因为如果你统计了票数，实际总票数会比原本总票数多，因此所有玩家都会知道谁是狂热者，这对邪恶阵营来说非常不公平。人总会犯错。继续进行游戏，并在稍后私下提示狂热者。",
+    "en": "During each nomination, if there are 5 or more players alive, the Zealot must raise their hand to vote.\nIf the Zealot accidentally forgets to vote, do not tally the Zealot's vote. If you do tally the vote, the total will be more than it should be, and all players will know which player is the Zealot, which is unfair for the evil team. Mistakes happen. Just play on and have a private chat later."
+  },
+  "examples": {
+    "cn": [
+      "有七名玩家存活。狂热者在对戏法师、召唤师、食人魔和报丧女妖的提名中都参与了投票。在下一个白天，有五名玩家存活。狂热者在对瘟疫医生和女祭司的提名中都参与了投票。在下一个白天，只有三名玩家存活。狂热者在对牙噶巴卜的提名中参与了投票，但没有在对女祭司的提名中投票。",
+      "有九名玩家存活。狂热者死亡了。在这之后，他在三个白天都没有投票，并在只有三名玩家存活时使用自己的投票标记在对农夫提名中进行了投票。"
+    ],
+    "en": [
+      "If the Zealot accidentally forgets to vote, do not tally the Zealot's vote. If you do tally the vote, the total will be more than it should be, and all players will know which player is the Zealot, which is unfair for the evil team. Mistakes happen. Just play on and have a private chat later.",
+      "There are 7 players alive. The Zealot votes for the Alsaahir, the Summoner, Ogre, and the Banshee. The next day, there are 5 players alive. The Zealot votes for the Yaggababble, and the High Priestess. The next day, there are 3 players alive. The Zealot votes for the Yaggababble, but chooses not to vote for the High Priestess.",
+      "There are 9 players alive. The Zealot is dead. The Zealot doesn't vote for 3 days, and uses their vote token when just 3 players are alive to vote for the Farmer."
+    ]
+  },
+  "tips": {
+    "cn": [
+      "投票！！！！！！",
+      "积极参与关于应该提名谁的讨论。虽然你必须对每次提名进行投票，但你可以通过说服其他玩家提名你更愿意投票的人来掌控处决的主动权。",
+      "假装成那些从其他玩家被处决中获益的角色，例如送葬者或食人族。这可能会让玩家之间感到疑惑——你总是投票是因为你是狂热者，还是因为你真的很想看到某个人被处决？",
+      "告诉大家你是狂热者。如果其他玩家知道你会对每次提名投票，这将帮助他们决定他们想投票支持谁。",
+      "你要明白，由于你对所有提名都投票，其他人可能会对你产生怀疑。",
+      "如果有旅行者加入游戏，鼓励他们扮演官员或窃贼！",
+      "与团队合作，将游戏推进到存活玩家少于5人的那一天，这样你就可以自由地投票。",
+      "如果你在游戏接近尾声时还活着，充分利用最后一天吧！这很可能是游戏中第一次你能自主决定如何投票的机会。",
+      "如果剧本中有狂热者这个角色，要非常仔细地观察投票，来判断游戏中是否有狂热者参与。",
+      "如果你是一个希望在夜晚被杀的角色，参与所有的投票，以说服邪恶阵营你是狂热者。"
+    ],
+    "en": [
+      "VOTE!!!!",
+      "Actively take part in conversations about who should be nominated. While you must vote on every nomination, you can gain agency over executions by convincing other players to nominate people you'd prefer to vote on.",
+      "Pretend to be a character that benefits from other players' executions, like the Undertaker or the Cannibal. This might help create confusion amongst players - are you voting all the time because you're the Zealot, or do you just really want to see someone executed?",
+      "Tell everyone you are the Zealot. If other players are aware that you will be voting on every nomination, that will help them decide who they want to vote for.",
+      "Be aware that people might find you suspicious because you are voting on everything.",
+      "If a Traveller is joining the game, encourage them to play as the Bureaucrat or the Thief!",
+      "Work with your team to get the game to a day where fewer than 5 players live, so you can vote how you like.",
+      "If you are alive towards the end of the game, make the most of the final day! It's likely the first time in the game that you will have agency over your own votes.",
+      "If there is a Zealot on the script, watch votes very carefully to figure out if there is a Zealot in play.",
+      "If you are a character who wants to die in the night, vote on everything to convince the evil team that you are the Zealot."
+    ]
+  },
+  "url_param": "Zealot",
   "editions": [
     "experimental"
   ],
-  "first_night": false,
-  "other_nights": false,
   "artist": "John Grist",
   "jinxes": [
     {
@@ -25,55 +83,5 @@
       "reason": "The Zealot might register as evil to the Vizier."
     }
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Zealot",
-  "ability": {
-    "en": "If there are 5 or more players alive, you must vote for every nomination.",
-    "cn": "如果有大于等于五名玩家存活，你必须在所有提名中投票。"
-  },
-  "flavor_text": {
-    "en": "\"I enjoy talking to you. Your mind appeals to me. It resembles my own mind except that you happen to be insane.\"",
-    "cn": "“和你聊天让我很享受。你的想法很有吸引力，和我的想法很相似。除非……这只是你的疯言疯语。”"
-  },
-  "examples": {
-    "en": [
-      "If the Zealot accidentally forgets to vote, do not tally the Zealot's vote. If you do tally the vote, the total will be more than it should be, and all players will know which player is the Zealot, which is unfair for the evil team. Mistakes happen. Just play on and have a private chat later.",
-      "There are 7 players alive. The Zealot votes for the Alsaahir, the Summoner, Ogre, and the Banshee. The next day, there are 5 players alive. The Zealot votes for the Yaggababble, and the High Priestess. The next day, there are 3 players alive. The Zealot votes for the Yaggababble, but chooses not to vote for the High Priestess.",
-      "There are 9 players alive. The Zealot is dead. The Zealot doesn't vote for 3 days, and uses their vote token when just 3 players are alive to vote for the Farmer."
-    ],
-    "cn": [
-      "有七名玩家存活。狂热者在对戏法师、召唤师、食人魔和报丧女妖的提名中都参与了投票。在下一个白天，有五名玩家存活。狂热者在对瘟疫医生和女祭司的提名中都参与了投票。在下一个白天，只有三名玩家存活。狂热者在对牙噶巴卜的提名中参与了投票，但没有在对女祭司的提名中投票。",
-      "有九名玩家存活。狂热者死亡了。在这之后，他在三个白天都没有投票，并在只有三名玩家存活时使用自己的投票标记在对农夫提名中进行了投票。"
-    ]
-  },
-  "tips": {
-    "en": [
-      "VOTE!!!!",
-      "Actively take part in conversations about who should be nominated. While you must vote on every nomination, you can gain agency over executions by convincing other players to nominate people you'd prefer to vote on.",
-      "Pretend to be a character that benefits from other players' executions, like the Undertaker or the Cannibal. This might help create confusion amongst players - are you voting all the time because you're the Zealot, or do you just really want to see someone executed?",
-      "Tell everyone you are the Zealot. If other players are aware that you will be voting on every nomination, that will help them decide who they want to vote for.",
-      "Be aware that people might find you suspicious because you are voting on everything.",
-      "If a Traveller is joining the game, encourage them to play as the Bureaucrat or the Thief!",
-      "Work with your team to get the game to a day where fewer than 5 players live, so you can vote how you like.",
-      "If you are alive towards the end of the game, make the most of the final day! It's likely the first time in the game that you will have agency over your own votes.",
-      "If there is a Zealot on the script, watch votes very carefully to figure out if there is a Zealot in play.",
-      "If you are a character who wants to die in the night, vote on everything to convince the evil team that you are the Zealot."
-    ],
-    "cn": [
-      "投票！！！！！！",
-      "积极参与关于应该提名谁的讨论。虽然你必须对每次提名进行投票，但你可以通过说服其他玩家提名你更愿意投票的人来掌控处决的主动权。",
-      "假装成那些从其他玩家被处决中获益的角色，例如送葬者或食人族。这可能会让玩家之间感到疑惑——你总是投票是因为你是狂热者，还是因为你真的很想看到某个人被处决？",
-      "告诉大家你是狂热者。如果其他玩家知道你会对每次提名投票，这将帮助他们决定他们想投票支持谁。",
-      "你要明白，由于你对所有提名都投票，其他人可能会对你产生怀疑。",
-      "如果有旅行者加入游戏，鼓励他们扮演官员或窃贼！",
-      "与团队合作，将游戏推进到存活玩家少于5人的那一天，这样你就可以自由地投票。",
-      "如果你在游戏接近尾声时还活着，充分利用最后一天吧！这很可能是游戏中第一次你能自主决定如何投票的机会。",
-      "如果剧本中有狂热者这个角色，要非常仔细地观察投票，来判断游戏中是否有狂热者参与。",
-      "如果你是一个希望在夜晚被杀的角色，参与所有的投票，以说服邪恶阵营你是狂热者。"
-    ]
-  },
-  "how_to_run": {
-    "en": "During each nomination, if there are 5 or more players alive, the Zealot must raise their hand to vote.\nIf the Zealot accidentally forgets to vote, do not tally the Zealot's vote. If you do tally the vote, the total will be more than it should be, and all players will know which player is the Zealot, which is unfair for the evil team. Mistakes happen. Just play on and have a private chat later.",
-    "cn": "在每次提名中，如果当前有五名或更多玩家存活，狂热者必须举手投票。\n如果狂热者不小心忘记了投票，不要统计他的票。因为如果你统计了票数，实际总票数会比原本总票数多，因此所有玩家都会知道谁是狂热者，这对邪恶阵营来说非常不公平。人总会犯错。继续进行游戏，并在稍后私下提示狂热者。"
-  },
   "token_url": "https://wiki.bloodontheclocktower.com/images/1/16/Icon_zealot.png"
 }

@@ -1,15 +1,79 @@
 {
   "id": "preacher",
+  "type": "townsfolk",
   "name": {
     "en": "Preacher",
+    "es-419": "Predicador",
+    "sv": "Predikanten",
+    "zh-Hans": "传教士",
     "cn": "传教士"
   },
-  "type": "townsfolk",
+  "ability": {
+    "en": "Each night, choose a player: a Minion, if chosen, learns this. All chosen Minions have no ability.",
+    "es-419": "Cada noche, escoge un jugador: si un Secuaz ha sido escogido, él aprende esto. Todos los Secuaces escogidos no tienen su habilidad.",
+    "sv": "Varje natt väljer du en spelare; om du väljer en Kumpan får hen veta det. Valda Kumpaner har ingen förmåga.",
+    "zh-Hans": "每个夜晚，你要选择一名玩家：如果你选中了爪牙，他会得知被传教士选中。所有被你选中的爪牙失去能力。",
+    "cn": "每个夜晚，你要选择一名玩家：如果你选中了爪牙，他会得知被传教士选中。\n所有被你选中的爪牙失去能力。"
+  },
+  "flavor_text": {
+    "en": "\"It is better to be rich and healthy than poor and sick.\"",
+    "es-419": "Es mejor ser rico y saludable que pobre y enfermo.",
+    "sv": "Hellre rik och frisk än fattig och sjuk.",
+    "zh-Hans": "富有和健康总比贫穷和疾病要好。",
+    "cn": "“富有和健康总比贫穷和疾病要好。”"
+  },
+  "first_night": {
+    "en": "The Preacher chooses a player. :reminder: If they chose a Minion: Put the Preacher to sleep. Wake the target. Show the *THIS CHARACTER SELECTED YOU* & Preacher tokens.",
+    "es-419": "El Predicador escoge un jugador. :reminder: Si él escogió un Secuaz: Pon al Predicador a dormir. Despierta al jugador escogido. Muéstrale la ficha de *ESTE ROL TE HA SELECCIONADO* y la ficha del Predicador.",
+    "sv": "Predikanten väljer en spelare. :reminder: Söv Predikanten. Om Predikanten valde en Kumpan: Väck Kumpanen. Visa kortet *DU PÅVERKAS AV* och Predikantens rollbricka.",
+    "zh-Hans": "传教士选择一名玩家。:reminder:如果他选中一名爪牙，在那名爪牙的角色标记旁放置“失去能力”提示标记。让传教士重新入睡。如可能，则唤醒今晚被传教士选中的爪牙，向他展示“该角色的能力对你生效”信息标记以及传教士角色标记。"
+  },
+  "other_nights": {
+    "en": "The Preacher chooses a player. :reminder: If they chose a Minion: Put the Preacher to sleep. Wake the target. Show the *THIS CHARACTER SELECTED YOU* & Preacher tokens.",
+    "es-419": "El Predicador escoge un jugador. :reminder: Si él escogió un Secuaz: Pon al Predicador a dormir. Despierta al jugador escogido. Muéstrale la ficha de *ESTE ROL TE HA SELECCIONADO* y la ficha del Predicador.",
+    "sv": "Predikanten väljer en spelare. :reminder: Söv Predikanten. Om Predikanten valde en Kumpan: Väck Kumpanen. Visa kortet *DU PÅVERKAS AV* och Predikantens rollbricka.",
+    "zh-Hans": "传教士选择一名玩家。:reminder:如果他选中一名爪牙，在那名爪牙的角色标记旁放置“失去能力”提示标记。让传教士重新入睡。如可能，则唤醒今晚被传教士选中的爪牙，向他展示“该角色的能力对你生效”信息标记以及传教士角色标记。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Preacher",
+  "how_to_run": {
+    "cn": "每个夜晚，唤醒传教士并让他选择一名玩家。如果他选中一名爪牙，在那名爪牙的角色标记旁放置“失去能力”提示标记。让传教士重新入睡。如可能，则唤醒今晚被传教士选中的爪牙，向他展示“该角色的能力对你生效”信息标记以及传教士角色标记。让这名爪牙重新入睡。\n在传教士存活期间，所有被标记“失去能力”的爪牙不会拥有能力。",
+    "en": "Each night, wake the Preacher. They point to a player. Put the Preacher to sleep. If the Preacher choose a Minion, mark that Minion with a NO ABILITY reminder, wake the Minion and show them the THIS CHARACTER SELECTED YOU info token then the Preacher token, then put them to sleep.\nAll Minions marked NO ABILITY have no ability while the Preacher is alive."
+  },
+  "examples": {
+    "cn": [
+      "小艾是传教士。第一个夜晚，传教士选择了恐惧之灵。恐惧之灵失去能力并得知被传教士选中。第二个夜晚，传教士选择了猎手。无事发生，因为猎手不是爪牙。第三个夜晚，传教士选择了珀。无事发生，因为珀不是爪牙。第四个夜晚，传教士选择了投毒者。投毒者失去能力，并得知被传教士选中。",
+      "传教士之前已经选择了间谍、圣徒、酒鬼和哥布林。间谍和哥布林失去能力，所以间谍每晚都不能查看魔典，而哥布林不能通过被处决而获胜。随后传教士醉酒，间谍和哥布林能力恢复。间谍当晚可以查看魔典，哥布林被处决会获胜。传教士清醒后，间谍和哥布林再次失去能力。随后间谍死亡，传教士死亡。哥布林能力恢复，但间谍无法再查看魔典，因为他已经死亡了。"
+    ],
+    "en": [
+      "The Preacher points to Alex, who is the Engineer. Nothing happens.",
+      "The Preacher points to Lachlan, who is the Cerenovus. Lachlan wakes to learn that he has been preached, and is not woken to use his ability.",
+      "Doug is the Preacher. He points to Marianna, who is the Pit-Hag. Marianna wakes to learn that she has been preached, and is not woken to use her ability. The following night, the Poisoner points to Doug. Because Doug is now poisoned, Marianna wakes to use her ability."
+    ]
+  },
+  "tips": {
+    "cn": [
+      "传教士的能力可以阻断爪牙的能力。但是他们会得知这点并且能在你死后夺回能力。虽然你无法得知你是否成功地命中一个爪牙，但你可以在次日小心观察你的目标，观察他们的行为是否发生了变化。如果他们有变化，并且似乎突然提升了对处决的热情，那么你很可能命中了一个爪牙。",
+      "小心揭露你是传教士的事实！你的能力是邪恶阵营的眼中钉，能够做到比如缴械他们的炸弹人或是智取他们的灵言师这样的事。仅是爪牙能力能被夺取这个威胁本身也足以瓦解邪恶阵营的精心谋划，从而使得你具有很高的死亡优先级。试着伪装成更无害的镇民，甚至是一个诸如管家或是理发师这样的外来者！",
+      "如果一名玩家表现可疑并保持沉默，那他就是一个合适目标。尽管善良玩家与邪恶玩家都有试图低调的理由，但你的能力对那些并非爪牙而仅仅只是想遁出视线的善良玩家没有效果。在暗中狙击他们不会有任何损失。",
+      "在第一天，仔细倾听那些公开宣称的人们。要记得爪牙不会获得伪装因而往往是最后才会公开现身的人。那些陷入同角色宣称或是仅在游戏后期才现身的玩家是你能力的合适目标。",
+      "如果你必须在两个潜在爪牙之中选择一个，那就选择那个能造成最多持续输出的。命中一个已经杀人的刺客对你的阵营而言不算多大成就，一个失去能力的寡妇仍然已经看过魔典，虽然他们失去了投毒的能力。一个麻脸巫婆将会是一个更紧急的优先目标！",
+      "一旦你死亡，并且你怀疑你已经无效化了一些爪牙，那此时现身是非常重要的事——你现在已经死亡，那些能力又恢复并对你的小镇构成了威胁！",
+      "传教士可以以死亡玩家为目标！虽然这在大多数情况下没什么用，但这让你对亡骨魔或是邪恶的集骨者形成了奇妙的反制。一些未来会登场的爪牙可能在死亡后也保留他们的能力——但并不能在你的能力下保留！"
+    ],
+    "en": [
+      "The Preacher’s ability can turn Minion abilities off. They learn this but will get it back as soon as you’re dead. While you don’t know whether you’ve successfully hit a Minion or not, watch your targets carefully the next day and see if their behaviour changes. If they do, and they suddenly seem more enthusiastic for executions, then you’ve probably got a Minion.",
+      "Be careful about revealing that you are the Preacher! Your ability is a thorn in the side of the evil team, defusing their Boomdandy or outsmarting their Mezepheles. Even just the threat of taking a Minion's ability away could unravel the evil team's elaborate plan, and thus make you a priority for death. Try to bluff as a more innocuous Townsfolk, or even an Outsider like the Butler or the Barber!",
+      "If a player is acting suspicious and they’re keeping to themselves, that’s a good target for you. While both good and evil players have reasons for trying not to be noticed, you have no effect on good players who aren’t actually Minions just trying to keep out of sight. You have nothing to lose for taking the shot in the dark!",
+      "On the first day, listen carefully for people who are making public claims. Remember that Minions do not get bluffs and tend to be the last to come out publicly. The players who get embroiled in double claims or only come out later into the game are very good targets for your ability.",
+      "If you have to pick between two potential Minions, pick the one doing the most ongoing damage. Hitting an Assassin after they've already killed doesn't really achieve too much for your team, but a Widow losing their ability has still seen the Grimoire, but will lose their ability to poison. A Pit-Hag would be a even more urgent priority again!",
+      "Once you're dead, coming out is important if you suspect you've disabled some Minions - now that you're dead, those abilities are back online now and a threat to your town!",
+      "The Preacher can target dead players! While this may not be helpful most of the time, this does make you a surprise counter to the Vigormortis and an evil aligned Bone Collector. Some future Minions may even keep their abilities while dead - not that this keeps them safe from you!"
+    ]
+  },
+  "url_param": "Preacher",
   "editions": [
     "experimental"
   ],
-  "first_night": false,
-  "other_nights": true,
   "artist": "John Grist",
   "jinxes": [
     {
@@ -25,49 +89,5 @@
       "reason": "If the Vizier loses their ability, they learn this, and cannot die during the day."
     }
   ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Preacher",
-  "ability": {
-    "en": "Each night, choose a player: a Minion, if chosen, learns this. All chosen Minions have no ability.",
-    "cn": "每个夜晚，你要选择一名玩家：如果你选中了爪牙，他会得知被传教士选中。\n所有被你选中的爪牙失去能力。"
-  },
-  "flavor_text": {
-    "en": "\"It is better to be rich and healthy than poor and sick.\"",
-    "cn": "“富有和健康总比贫穷和疾病要好。”"
-  },
-  "examples": {
-    "en": [
-      "The Preacher points to Alex, who is the Engineer. Nothing happens.",
-      "The Preacher points to Lachlan, who is the Cerenovus. Lachlan wakes to learn that he has been preached, and is not woken to use his ability.",
-      "Doug is the Preacher. He points to Marianna, who is the Pit-Hag. Marianna wakes to learn that she has been preached, and is not woken to use her ability. The following night, the Poisoner points to Doug. Because Doug is now poisoned, Marianna wakes to use her ability."
-    ],
-    "cn": [
-      "小艾是传教士。第一个夜晚，传教士选择了恐惧之灵。恐惧之灵失去能力并得知被传教士选中。第二个夜晚，传教士选择了猎手。无事发生，因为猎手不是爪牙。第三个夜晚，传教士选择了珀。无事发生，因为珀不是爪牙。第四个夜晚，传教士选择了投毒者。投毒者失去能力，并得知被传教士选中。",
-      "传教士之前已经选择了间谍、圣徒、酒鬼和哥布林。间谍和哥布林失去能力，所以间谍每晚都不能查看魔典，而哥布林不能通过被处决而获胜。随后传教士醉酒，间谍和哥布林能力恢复。间谍当晚可以查看魔典，哥布林被处决会获胜。传教士清醒后，间谍和哥布林再次失去能力。随后间谍死亡，传教士死亡。哥布林能力恢复，但间谍无法再查看魔典，因为他已经死亡了。"
-    ]
-  },
-  "tips": {
-    "en": [
-      "The Preacher’s ability can turn Minion abilities off. They learn this but will get it back as soon as you’re dead. While you don’t know whether you’ve successfully hit a Minion or not, watch your targets carefully the next day and see if their behaviour changes. If they do, and they suddenly seem more enthusiastic for executions, then you’ve probably got a Minion.",
-      "Be careful about revealing that you are the Preacher! Your ability is a thorn in the side of the evil team, defusing their Boomdandy or outsmarting their Mezepheles. Even just the threat of taking a Minion's ability away could unravel the evil team's elaborate plan, and thus make you a priority for death. Try to bluff as a more innocuous Townsfolk, or even an Outsider like the Butler or the Barber!",
-      "If a player is acting suspicious and they’re keeping to themselves, that’s a good target for you. While both good and evil players have reasons for trying not to be noticed, you have no effect on good players who aren’t actually Minions just trying to keep out of sight. You have nothing to lose for taking the shot in the dark!",
-      "On the first day, listen carefully for people who are making public claims. Remember that Minions do not get bluffs and tend to be the last to come out publicly. The players who get embroiled in double claims or only come out later into the game are very good targets for your ability.",
-      "If you have to pick between two potential Minions, pick the one doing the most ongoing damage. Hitting an Assassin after they've already killed doesn't really achieve too much for your team, but a Widow losing their ability has still seen the Grimoire, but will lose their ability to poison. A Pit-Hag would be a even more urgent priority again!",
-      "Once you're dead, coming out is important if you suspect you've disabled some Minions - now that you're dead, those abilities are back online now and a threat to your town!",
-      "The Preacher can target dead players! While this may not be helpful most of the time, this does make you a surprise counter to the Vigormortis and an evil aligned Bone Collector. Some future Minions may even keep their abilities while dead - not that this keeps them safe from you!"
-    ],
-    "cn": [
-      "传教士的能力可以阻断爪牙的能力。但是他们会得知这点并且能在你死后夺回能力。虽然你无法得知你是否成功地命中一个爪牙，但你可以在次日小心观察你的目标，观察他们的行为是否发生了变化。如果他们有变化，并且似乎突然提升了对处决的热情，那么你很可能命中了一个爪牙。",
-      "小心揭露你是传教士的事实！你的能力是邪恶阵营的眼中钉，能够做到比如缴械他们的炸弹人或是智取他们的灵言师这样的事。仅是爪牙能力能被夺取这个威胁本身也足以瓦解邪恶阵营的精心谋划，从而使得你具有很高的死亡优先级。试着伪装成更无害的镇民，甚至是一个诸如管家或是理发师这样的外来者！",
-      "如果一名玩家表现可疑并保持沉默，那他就是一个合适目标。尽管善良玩家与邪恶玩家都有试图低调的理由，但你的能力对那些并非爪牙而仅仅只是想遁出视线的善良玩家没有效果。在暗中狙击他们不会有任何损失。",
-      "在第一天，仔细倾听那些公开宣称的人们。要记得爪牙不会获得伪装因而往往是最后才会公开现身的人。那些陷入同角色宣称或是仅在游戏后期才现身的玩家是你能力的合适目标。",
-      "如果你必须在两个潜在爪牙之中选择一个，那就选择那个能造成最多持续输出的。命中一个已经杀人的刺客对你的阵营而言不算多大成就，一个失去能力的寡妇仍然已经看过魔典，虽然他们失去了投毒的能力。一个麻脸巫婆将会是一个更紧急的优先目标！",
-      "一旦你死亡，并且你怀疑你已经无效化了一些爪牙，那此时现身是非常重要的事——你现在已经死亡，那些能力又恢复并对你的小镇构成了威胁！",
-      "传教士可以以死亡玩家为目标！虽然这在大多数情况下没什么用，但这让你对亡骨魔或是邪恶的集骨者形成了奇妙的反制。一些未来会登场的爪牙可能在死亡后也保留他们的能力——但并不能在你的能力下保留！"
-    ]
-  },
-  "how_to_run": {
-    "en": "Each night, wake the Preacher. They point to a player. Put the Preacher to sleep. If the Preacher choose a Minion, mark that Minion with a NO ABILITY reminder, wake the Minion and show them the THIS CHARACTER SELECTED YOU info token then the Preacher token, then put them to sleep.\nAll Minions marked NO ABILITY have no ability while the Preacher is alive.",
-    "cn": "每个夜晚，唤醒传教士并让他选择一名玩家。如果他选中一名爪牙，在那名爪牙的角色标记旁放置“失去能力”提示标记。让传教士重新入睡。如可能，则唤醒今晚被传教士选中的爪牙，向他展示“该角色的能力对你生效”信息标记以及传教士角色标记。让这名爪牙重新入睡。\n在传教士存活期间，所有被标记“失去能力”的爪牙不会拥有能力。"
-  },
   "token_url": "https://wiki.bloodontheclocktower.com/images/8/82/Icon_preacher.png"
 }

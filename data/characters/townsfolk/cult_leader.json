@@ -1,60 +1,56 @@
 {
   "id": "cult_leader",
+  "type": "townsfolk",
   "name": {
     "en": "Cult Leader",
+    "es-419": "Cultista",
+    "sv": "Kultledaren",
+    "zh-Hans": "异教领袖",
     "cn": "异教领袖"
   },
-  "type": "townsfolk",
-  "editions": [
-    "experimental"
-  ],
-  "first_night": false,
-  "other_nights": true,
-  "artist": "Anica Kelsen",
-  "jinxes": [
-    {
-      "id": "boffin",
-      "reason": "If the Demon has the Cult Leader ability, they can’t turn good due to this ability."
-    },
-    {
-      "id": "pit_hag",
-      "reason": "If the Pit-Hag turns an evil player into the Cult Leader, they can't turn good due to their own ability."
-    }
-  ],
-  "source_url": "https://wiki.bloodontheclocktower.com/Cult_Leader",
   "ability": {
     "en": "Each night, you become the alignment of an alive neighbor. If all good players choose to join your cult, your team wins.",
+    "es-419": "Cada noche, tú te vuelves del alineamiento de uno de tus vecinos vivos. Si todos los jugadores buenos eligen unirse a tu culto, tu equipo gana.",
+    "sv": "Varje natt hamnar du på en levande grannes lag. Om alla goda spelare går med i din kult vinner ditt lag.",
+    "zh-Hans": "每个夜晚，你会转变为与你邻近的一名存活的玩家的阵营。每个白天，你可以提议所有玩家加入你的教派，如果所有善良玩家同意加入，你的阵营获胜。",
     "cn": "每个夜晚，你会转变为与你邻近的一名存活的玩家的阵营。\n每个白天，你可以提议所有玩家加入你的教派，如果所有善良玩家同意加入，你的阵营获胜。"
   },
   "flavor_text": {
     "en": "\"Thinking themselves wise, they became fools.\"",
+    "es-419": "Creyéndose sabios, se volvieron necios.",
+    "sv": "De ville gälla för visa, men blev till dårar.",
+    "zh-Hans": "他们自诩聪明，却成了傻瓜。",
     "cn": "“他们自诩聪明，却成了傻瓜。”"
   },
+  "first_night": {
+    "en": "The Cult Leader might change alignment. If so, show the *YOU ARE* info token & give a thumb signal.",
+    "es-419": "El Cultista quizás cambie de alineamiento. Si es así, muéstrale la ficha de *TÚ ERES* y un pulgar arriba o abajo de acuerdo a su nuevo alineamiento.",
+    "sv": "Kultledaren kanske byter lag. Visa hen i så fall kortet *DU ÄR* och en tumsignal.",
+    "zh-Hans": "如果异教领袖的阵营发生了改变，对他展示“你是”信息标记，然后用大拇指朝向对应的方向来告诉他当前的阵营。"
+  },
+  "other_nights": {
+    "en": "The Cult Leader might change alignment. If so, show the *YOU ARE* info token & give a thumb signal.",
+    "es-419": "El Cultista quizás cambie de alineamiento. De ser así, muéstrale la ficha de *TÚ ERES* y un pulgar arriba o abajo de acuerdo a su nuevo alineamiento.",
+    "sv": "Kultledaren kanske byter lag. Visa hen i så fall kortet *DU ÄR* och en tumsignal.",
+    "zh-Hans": "如果异教领袖的阵营发生了改变，对他展示“你是”信息标记，然后用大拇指朝向对应的方向来告诉他当前的阵营。"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Cult_Leader",
+  "how_to_run": {
+    "cn": "每个夜晚，为异教领袖指定一名与他邻近的存活玩家。异教领袖的阵营现在变成了那名玩家的阵营。根据异教领袖当前的阵营，调整他的角色标记的放置情况（如果是善良阵营，常规放置；如果是邪恶阵营，倒转放置）。\n如果因此使得异教领袖的阵营发生了改变，唤醒异教领袖。对他展示“你是”信息标记，然后用大拇指朝向对应的方向来告诉他当前的阵营。让异教领袖重新入睡。\n在每个白天，任意玩家都可以宣传自己是异教领袖，并提议所有玩家加入他的教派。每名玩家在每个白天最多只能提议一次。\n如果有人发起了提议，使用与提名投票相似的统计方式，从该玩家开始顺时针统计所有人是否愿意加入教派。但注意，这不是一次提名，与提名和投票相关的能力不会生效，统计的结果也不会造成处决。\n如果发起提议的玩家是异教领袖，检查此次提议是否使得所有的善良玩家都同意加入（包括已死亡的玩家在内）。如果是，那么异教领袖的阵营立即获胜。",
+    "en": "Each night, turn the Cult Leader character token right side up (if both alive neighbors are good) or upside down (if both alive neighbors are evil) or either (if one alive neighbor is good and the other alive neighbor is evil). If the Cult Leader's alignment changes, wake the Cult Leader and give a thumbs up or a thumbs down, then put the Cult Leader to sleep. If the Cult Leader’s alignment doesn’t change, do not wake them.\nDuring the day, the Cult Leader may declare that they wish to use their ability. If so, enter the circle and run a vote in the same way that you would for an Exile. If all good players raise their hand, declare which team has won. If not all good players raise their hand, nothing happens."
+  },
   "examples": {
+    "cn": [
+      "异教领袖的邻近玩家是农夫和魔术师。在首个夜晚，异教领袖的阵营保持善良不变。随后魔术师被处决并死亡，异教领袖的邻近存活玩家现在是农夫和提线木偶。说书人决定让异教领袖转为邪恶阵营。在下一个夜晚，即使异教领袖的邻近存活玩家没有发生变化，仍然是农夫和提线木偶，说书人决定让异教领袖转为善良阵营。",
+      "异教领袖是邪恶阵营的。他提议所有玩家加入他的教派，但只有一半的善良玩家举手加入。无事发生。在当晚，异教领袖转为了善良阵营。在下一个白天，异教领袖提议所有玩家加入他的教派。邪恶玩家都没有举手，但所有的善良玩家举手了。游戏结束，善良阵营获胜，因为此时异教领袖是善良的。"
+    ],
     "en": [
       "On day 3, the good Cult Leader’s living neighbors are the good Town Crier and the evil Goblin. The Cult Leader requests to form a cult, and all good players vote to join the cult. The game ends and the good team wins!",
       "The Cult Leader neighbors the No Dashii. On day 2, the Cult Leader attempts to form a cult. All players vote to join the cult, but a cult is not formed, because the Cult Leader is poisoned.",
       "The Cult Leader’s living neighbors are the evil Poisoner and the good Fortune Teller. The Poisoner chooses the Cult Leader, and the Kazali kills the Fortune Teller. The Cult Leader’s living neighbors are now the evil Poisoner and the evil Wizard. While the Cult Leader’s living neighbors are both evil, the Cult Leader doesn’t turn evil, because they cannot change alignment while poisoned."
-    ],
-    "cn": [
-      "异教领袖的邻近玩家是农夫和魔术师。在首个夜晚，异教领袖的阵营保持善良不变。随后魔术师被处决并死亡，异教领袖的邻近存活玩家现在是农夫和提线木偶。说书人决定让异教领袖转为邪恶阵营。在下一个夜晚，即使异教领袖的邻近存活玩家没有发生变化，仍然是农夫和提线木偶，说书人决定让异教领袖转为善良阵营。",
-      "异教领袖是邪恶阵营的。他提议所有玩家加入他的教派，但只有一半的善良玩家举手加入。无事发生。在当晚，异教领袖转为了善良阵营。在下一个白天，异教领袖提议所有玩家加入他的教派。邪恶玩家都没有举手，但所有的善良玩家举手了。游戏结束，善良阵营获胜，因为此时异教领袖是善良的。"
     ]
   },
   "tips": {
-    "en": [
-      "Come out as the Cult Leader early, as your chances of being good are much higher early in the game. It is true that on the first night you can turn evil, but this will probably not be the case. However, that being said, the town may be hesitant to gun for a Cult Leader win on the first day as this feels like a cheap win and they won't have much evidence either way about your alignment.",
-      "Come out late as the Cult Leader since you'll have more information to share. However, beware, players are prone to distrusting Cult Leaders towards the end of the game as the chance you are evil increases near the end of the game because good players are more likely to have died than evil, so your living neighbours get increasingly likely to be evil in the late game.",
-      "Come out as the Cult Leader while evil (without admitting that you are evil), because it will be easier to get the evil team to back your plays for executions and Cult Leader votes.",
-      "Get other players to use detection abilities on your neighbours to verify your claims. Get the Chambermaid or the Seamstress to pick both your neighbours at night, to verify your claims of alignment.",
-      "Try and execute players between you and those verified as good by Townsfolk, such as the Virgin or the Noble, as this will help make the town trust that you are good for a Cult Leader victory.",
-      "Don't admit you are evil until you are good again, or else you might get executed and locked into evil. However, if it's the final day, coming out as evil can destroy the good team for an easy win. If you were evil the night before and you're good now, you can tell the group that you have been evil and that therefore one of your neighbours must be evil.",
-      "Ignore the Cult Leader's cult joining ability, and just quietly learn if you have evil neighbours like an Empath. Over the course of the game, keep a mental note of when you have been evil, especially if your neighbours die across the course of the game. Then you'll have some good information on which players are probably good and probably evil.",
-      "Always use the Cult Leader's cult joining ability, and observe voter behaviour. Evil knows if you're next to an evil player, and are more likely to vote on you then. Cult Leaders can have a hard time convincing the whole group to vote, as there is usually one good player that holds back thinking \"what if they're evil?\". That's okay, you can still learn a lot just by watching how players vote, because evil players are much more enthusiastic to vote as their vote doesn't impact the outcome anyway.",
-      "During the end game, if players are not sure about who the Demon is, you have a victory condition that can be a Hail Mary. If the odds of finding the Demon are worse than 50/50, then a Cult Leader offers better odds. If it is suddenly clear based on voter patterns that the Demon has escaped execution, you can offer a backup plan. You might be evil, but it's still a better chance at victory for the good team, than knowing that the Demon cannot be executed.",
-      "Remember on the final day, if there are only 3 players alive and you're one of them, you are next to the Demon. If the third player is evil, then all three of you are evil, meaning no one will nominate the Demon for an easy evil victory. If you're good, then you know for sure that the Demon is only evil player left alive.",
-      "Player count is important: in games with 9, 12, or 15 players, you have the highest good to evil player ratio. This means that your chances of being good are higher, but you also have more people to convince to join your cult. In a 9 player game, there are 7 good players and only 2 evil players, so while the chances of you being next to an evil player are much lower, you still have 6 other people to convince to join your cult."
-    ],
     "cn": [
       "尽早承认是异教领袖，因为游戏早期你的成功几率要高很多。虽然，在第一晚你可能转变为邪恶阵营，但大多数时候并不会如此。然而尽管如此，大家可能会犹豫是否在第一天为异教领袖胜利条件而举手，因为这感觉像一次廉价的胜利（像赌运气），他们没有太多关于你当前阵营的证据。",
       "稍晚承认是异教领袖，因为此时你可以提供更多可以分享的信息。但是要注意，玩家倾向于在游戏晚期怀疑异教领袖，因为随着游戏接近尾声，你转变为邪恶阵营的概率越来越高，善良玩家比邪恶玩家更容易死亡，所以你的存活相邻玩家在游戏后期时越来越可能是邪恶的。",
@@ -67,11 +63,35 @@
       "在游戏快结束时，如果玩家不能确定恶魔是谁，你的胜利条件可能是最后的福音。如果找到恶魔的概率低于五五开，那么异教领袖提供的概率更高。如果投票形式意外地明确了恶魔逃过了处决，还会有一个备用计划。也许你是邪恶阵营，但对于善良阵营来说，这仍然是一个更好的获胜契机，而不是知道没能处决恶魔。",
       "记得在最后一天时，如果只有三名玩家存活而你是其中之一，那你一定在恶魔边上。如果第三名玩家是邪恶的，那你们三人都是邪恶的，这意味着不会有人能提名恶魔，邪恶阵营可以轻易获胜。如果你是善良的，那你能确定邪恶阵营只有恶魔还存活。",
       "玩家人数非常重要，在九人、十二人或十五人游戏中，你拥有最高的善恶比（善良玩家的比例最高），这意味着你有更高的概率是善良阵营，但也等于你需要说服更多人加入你的教派。在一个九人游戏中，有七名善良玩家，只有两名邪恶玩家，所以虽然你与邪恶玩家邻座的概率要低很多，但你需要说服其他多达六人加入你的教派。"
+    ],
+    "en": [
+      "Come out as the Cult Leader early, as your chances of being good are much higher early in the game. It is true that on the first night you can turn evil, but this will probably not be the case. However, that being said, the town may be hesitant to gun for a Cult Leader win on the first day as this feels like a cheap win and they won't have much evidence either way about your alignment.",
+      "Come out late as the Cult Leader since you'll have more information to share. However, beware, players are prone to distrusting Cult Leaders towards the end of the game as the chance you are evil increases near the end of the game because good players are more likely to have died than evil, so your living neighbours get increasingly likely to be evil in the late game.",
+      "Come out as the Cult Leader while evil (without admitting that you are evil), because it will be easier to get the evil team to back your plays for executions and Cult Leader votes.",
+      "Get other players to use detection abilities on your neighbours to verify your claims. Get the Chambermaid or the Seamstress to pick both your neighbours at night, to verify your claims of alignment.",
+      "Try and execute players between you and those verified as good by Townsfolk, such as the Virgin or the Noble, as this will help make the town trust that you are good for a Cult Leader victory.",
+      "Don't admit you are evil until you are good again, or else you might get executed and locked into evil. However, if it's the final day, coming out as evil can destroy the good team for an easy win. If you were evil the night before and you're good now, you can tell the group that you have been evil and that therefore one of your neighbours must be evil.",
+      "Ignore the Cult Leader's cult joining ability, and just quietly learn if you have evil neighbours like an Empath. Over the course of the game, keep a mental note of when you have been evil, especially if your neighbours die across the course of the game. Then you'll have some good information on which players are probably good and probably evil.",
+      "Always use the Cult Leader's cult joining ability, and observe voter behaviour. Evil knows if you're next to an evil player, and are more likely to vote on you then. Cult Leaders can have a hard time convincing the whole group to vote, as there is usually one good player that holds back thinking \"what if they're evil?\". That's okay, you can still learn a lot just by watching how players vote, because evil players are much more enthusiastic to vote as their vote doesn't impact the outcome anyway.",
+      "During the end game, if players are not sure about who the Demon is, you have a victory condition that can be a Hail Mary. If the odds of finding the Demon are worse than 50/50, then a Cult Leader offers better odds. If it is suddenly clear based on voter patterns that the Demon has escaped execution, you can offer a backup plan. You might be evil, but it's still a better chance at victory for the good team, than knowing that the Demon cannot be executed.",
+      "Remember on the final day, if there are only 3 players alive and you're one of them, you are next to the Demon. If the third player is evil, then all three of you are evil, meaning no one will nominate the Demon for an easy evil victory. If you're good, then you know for sure that the Demon is only evil player left alive.",
+      "Player count is important: in games with 9, 12, or 15 players, you have the highest good to evil player ratio. This means that your chances of being good are higher, but you also have more people to convince to join your cult. In a 9 player game, there are 7 good players and only 2 evil players, so while the chances of you being next to an evil player are much lower, you still have 6 other people to convince to join your cult."
     ]
   },
-  "how_to_run": {
-    "en": "Each night, turn the Cult Leader character token right side up (if both alive neighbors are good) or upside down (if both alive neighbors are evil) or either (if one alive neighbor is good and the other alive neighbor is evil). If the Cult Leader's alignment changes, wake the Cult Leader and give a thumbs up or a thumbs down, then put the Cult Leader to sleep. If the Cult Leader’s alignment doesn’t change, do not wake them.\nDuring the day, the Cult Leader may declare that they wish to use their ability. If so, enter the circle and run a vote in the same way that you would for an Exile. If all good players raise their hand, declare which team has won. If not all good players raise their hand, nothing happens.",
-    "cn": "每个夜晚，为异教领袖指定一名与他邻近的存活玩家。异教领袖的阵营现在变成了那名玩家的阵营。根据异教领袖当前的阵营，调整他的角色标记的放置情况（如果是善良阵营，常规放置；如果是邪恶阵营，倒转放置）。\n如果因此使得异教领袖的阵营发生了改变，唤醒异教领袖。对他展示“你是”信息标记，然后用大拇指朝向对应的方向来告诉他当前的阵营。让异教领袖重新入睡。\n在每个白天，任意玩家都可以宣传自己是异教领袖，并提议所有玩家加入他的教派。每名玩家在每个白天最多只能提议一次。\n如果有人发起了提议，使用与提名投票相似的统计方式，从该玩家开始顺时针统计所有人是否愿意加入教派。但注意，这不是一次提名，与提名和投票相关的能力不会生效，统计的结果也不会造成处决。\n如果发起提议的玩家是异教领袖，检查此次提议是否使得所有的善良玩家都同意加入（包括已死亡的玩家在内）。如果是，那么异教领袖的阵营立即获胜。"
-  },
+  "url_param": "Cult_Leader",
+  "editions": [
+    "experimental"
+  ],
+  "artist": "Anica Kelsen",
+  "jinxes": [
+    {
+      "id": "boffin",
+      "reason": "If the Demon has the Cult Leader ability, they can’t turn good due to this ability."
+    },
+    {
+      "id": "pit_hag",
+      "reason": "If the Pit-Hag turns an evil player into the Cult Leader, they can't turn good due to their own ability."
+    }
+  ],
   "token_url": "https://wiki.bloodontheclocktower.com/images/6/6c/Icon_cultleader.png"
 }
