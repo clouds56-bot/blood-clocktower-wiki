@@ -11,7 +11,64 @@
   "first_night": false,
   "other_nights": false,
   "artist": "Lachlan Bastiaen",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "alchemist",
+      "reason": "The Alchemist-Summoner does not get bluffs, and chooses which Demon but not which player. If they die before this happens, evil wins. [No Demon]"
+    },
+    {
+      "id": "clockmaker",
+      "reason": "The Summoner registers as the Demon to the Clockmaker."
+    },
+    {
+      "id": "courtier",
+      "reason": "If the living Summoner has no ability, the Storyteller has the Summoner ability."
+    },
+    {
+      "id": "engineer",
+      "reason": "If the living Summoner is removed from play, the Storyteller has the Summoner ability."
+    },
+    {
+      "id": "hatter",
+      "reason": "If the Summoner creates a second living Demon, deaths tonight are arbitrary."
+    },
+    {
+      "id": "kazali",
+      "reason": "If the Summoner creates a second living Demon, deaths tonight are arbitrary."
+    },
+    {
+      "id": "legion",
+      "reason": "If Legion is summoned, all evil players become Legion."
+    },
+    {
+      "id": "lord_of_typhon",
+      "reason": "If a Lord of Typhon is summoned, they must neighbor a Minion & their other neighbor becomes an evil Minion."
+    },
+    {
+      "id": "marionette",
+      "reason": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor."
+    },
+    {
+      "id": "pit_hag",
+      "reason": "If the Summoner creates a second living Demon, deaths tonight are arbitrary."
+    },
+    {
+      "id": "poppy_grower",
+      "reason": "If the Poppy Grower is alive on the 3rd night, the Summoner chooses which Demon but not which player."
+    },
+    {
+      "id": "preacher",
+      "reason": "If the living Summoner has no ability, the Storyteller has the Summoner ability."
+    },
+    {
+      "id": "pukka",
+      "reason": "The Summoner may summon a Pukka on the 2nd night instead of the 3rd."
+    },
+    {
+      "id": "zombuul",
+      "reason": "If the Summoner summons a dead player into the Zombuul, the Zombuul has already \"died once\"."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Summoner",
   "ability": {
     "en": "You get 3 bluffs. On the 3rd night, choose a player: they become an evil Demon of your choice. [No Demon]",

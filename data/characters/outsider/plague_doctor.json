@@ -11,7 +11,44 @@
   "first_night": false,
   "other_nights": false,
   "artist": "Aidan Roberts",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "baron",
+      "reason": "If the Storyteller would gain the Baron ability, up to two players become Outsiders."
+    },
+    {
+      "id": "boomdandy",
+      "reason": "If the Storyteller would gain the Boomdandy ability, a player becomes the Boomdandy."
+    },
+    {
+      "id": "evil_twin",
+      "reason": "If the Storyteller would gain the Evil Twin ability, a player becomes the Evil Twin."
+    },
+    {
+      "id": "fearmonger",
+      "reason": "If the Storyteller would gain the Fearmonger ability, a Minion gains it, and learns this."
+    },
+    {
+      "id": "goblin",
+      "reason": "If the Storyteller would gain the Goblin ability, a Minion gains it, and learns this."
+    },
+    {
+      "id": "marionette",
+      "reason": "If the Storyteller would gain the Marionette ability, one of the Demon's good neighbors becomes the Marionette."
+    },
+    {
+      "id": "scarlet_woman",
+      "reason": "If the Storyteller would gain the Scarlet Woman ability, a Minion gains it, and learns this."
+    },
+    {
+      "id": "spy",
+      "reason": "If the Storyteller would gain the Spy ability, a Minion gains it, and learns this."
+    },
+    {
+      "id": "wraith",
+      "reason": "If the Storyteller would gain the Wraith ability, a Minion gains it, and learns this."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Plague_Doctor",
   "ability": {
     "en": "When you die, the Storyteller gains a Minion ability.",

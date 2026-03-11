@@ -11,7 +11,16 @@
   "first_night": false,
   "other_nights": true,
   "artist": "Aidan Roberts",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "cannibal",
+      "reason": "If the Cannibal gains the Butler ability, the Cannibal learns this."
+    },
+    {
+      "id": "organ_grinder",
+      "reason": "If the Organ Grinder is causing eyes closed voting, the Butler may raise their hand to vote but their vote is only counted if their master voted too."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Butler",
   "ability": {
     "en": "Each night, choose a player (not yourself): tomorrow, you may only vote if they are voting too.",

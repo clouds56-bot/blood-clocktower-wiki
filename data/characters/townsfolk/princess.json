@@ -11,7 +11,16 @@
   "first_night": false,
   "other_nights": false,
   "artist": "Chloe McDougall",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "al_hadikhia",
+      "reason": "If the Princess nominated & executed a player on their 1st day, no one dies to the Al-Hadikhia tonight."
+    },
+    {
+      "id": "cannibal",
+      "reason": "If the Cannibal nominated, executed, & killed the Princess today, the Demon doesn’t kill tonight."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Princess",
   "ability": {
     "en": "On your 1st day, if you nominated & executed a player, the Demon doesn’t kill tonight.",

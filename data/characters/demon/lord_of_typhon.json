@@ -11,7 +11,12 @@
   "first_night": false,
   "other_nights": false,
   "artist": "Chloe McDougall",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "summoner",
+      "reason": "If a Lord of Typhon is summoned, they must neighbor a Minion & their other neighbor becomes an evil Minion."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Lord_of_Typhon",
   "ability": {
     "en": "Each night*, choose a player: they die. [Evil characters are in a line. You are in the middle. +1 Minion. -? to +? Outsiders]",

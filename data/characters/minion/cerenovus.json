@@ -11,7 +11,12 @@
   "first_night": false,
   "other_nights": true,
   "artist": "John Grist",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "goblin",
+      "reason": "The Cerenovus may choose to make a player mad that they are the Goblin."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Cerenovus",
   "ability": {
     "en": "Each night, choose a player & a good character: they are \"mad\" they are this character tomorrow, or might be executed.",

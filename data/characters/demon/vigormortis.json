@@ -11,7 +11,12 @@
   "first_night": false,
   "other_nights": false,
   "artist": "Steven Medway",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "mastermind",
+      "reason": "A Mastermind that has their ability keeps it if the Vigormortis dies."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Vigormortis",
   "ability": {
     "en": "Each night*, choose a player: they die. Minions you kill keep their ability & poison 1 Townsfolk neighbor. [-1 Outsider]",

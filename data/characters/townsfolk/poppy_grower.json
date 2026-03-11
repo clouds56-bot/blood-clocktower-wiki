@@ -11,7 +11,24 @@
   "first_night": true,
   "other_nights": false,
   "artist": "Z. Benetatos",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "lil_monsta",
+      "reason": "If Lil' Monsta & the Poppy Grower are alive, Minions wake one by one, until one of them chooses to take the Lil' Monsta token."
+    },
+    {
+      "id": "spy",
+      "reason": "If the Poppy Grower has their ability, the Spy does not see the Grimoire."
+    },
+    {
+      "id": "summoner",
+      "reason": "If the Poppy Grower is alive on the 3rd night, the Summoner chooses which Demon but not which player."
+    },
+    {
+      "id": "widow",
+      "reason": "If the Poppy Grower has their ability, the Widow does not see the Grimoire."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Poppy_Grower",
   "ability": {
     "en": "Minions & Demons do not know each other. If you die, they learn who each other are that night.",

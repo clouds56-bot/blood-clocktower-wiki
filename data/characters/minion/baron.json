@@ -11,7 +11,16 @@
   "first_night": false,
   "other_nights": false,
   "artist": "Aidan Roberts",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "heretic",
+      "reason": "Only 1 jinxed character can be in play."
+    },
+    {
+      "id": "plague_doctor",
+      "reason": "If the Storyteller would gain the Baron ability, up to two players become Outsiders."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Baron",
   "ability": {
     "en": "There are extra Outsiders in play. [+2 Outsiders]",

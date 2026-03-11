@@ -11,7 +11,16 @@
   "first_night": false,
   "other_nights": false,
   "artist": "Aidan Roberts",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "leviathan",
+      "reason": "If the Leviathan and the Mayor are alive on day 5 & no execution occurs, good wins."
+    },
+    {
+      "id": "riot",
+      "reason": "The Mayor may choose to stop the riot. If they do so when only 1 Riot is alive, good wins. Otherwise, evil wins."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Mayor",
   "ability": {
     "en": "If only 3 players live & no execution occurs, your team wins. If you die at night, another player might die instead.",

@@ -11,7 +11,16 @@
   "first_night": true,
   "other_nights": false,
   "artist": "John Grist",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "leviathan",
+      "reason": "If the Leviathan is in play and the Grandchild dies by execution, evil wins."
+    },
+    {
+      "id": "riot",
+      "reason": "If Riot is in play and the Grandchild dies by execution, evil wins."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Grandmother",
   "ability": {
     "en": "You start knowing a good player & their character. If the Demon kills them, you die too.",

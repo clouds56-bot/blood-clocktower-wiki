@@ -11,7 +11,20 @@
   "first_night": true,
   "other_nights": false,
   "artist": "John Grist",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "pit_hag",
+      "reason": "If a Pit-Hag creates a Damsel, the Storyteller chooses which player it is."
+    },
+    {
+      "id": "spy",
+      "reason": "If the Spy is (or has been) in play, the Damsel is poisoned."
+    },
+    {
+      "id": "widow",
+      "reason": "If the Widow is (or has been) in play, the Damsel is poisoned."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Damsel",
   "ability": {
     "en": "All Minions know a Damsel is in play. If a Minion publicly guesses you (once), your team loses.",

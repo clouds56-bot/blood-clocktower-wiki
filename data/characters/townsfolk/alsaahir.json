@@ -11,7 +11,12 @@
   "first_night": false,
   "other_nights": false,
   "artist": "Chloe McDougall",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "vizier",
+      "reason": "The Storyteller doesn't declare the Vizier is in play."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Alsaahir",
   "ability": {
     "en": "Each day, if you publicly guess which players are Minion(s) and which are Demon(s), good wins.",

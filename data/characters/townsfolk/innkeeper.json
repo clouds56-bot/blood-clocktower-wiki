@@ -11,7 +11,16 @@
   "first_night": false,
   "other_nights": true,
   "artist": "John Grist",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "leviathan",
+      "reason": "If the Leviathan nominates and executes an Innkeeper-protected player, good wins."
+    },
+    {
+      "id": "riot",
+      "reason": "If Riot nominates and executes an Innkeeper-protected player, good wins."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Innkeeper",
   "ability": {
     "en": "Each night*, choose 2 players: they can't die tonight, but 1 is drunk until dusk.",

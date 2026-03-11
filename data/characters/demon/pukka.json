@@ -11,7 +11,12 @@
   "first_night": false,
   "other_nights": true,
   "artist": "Aidan Roberts",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "summoner",
+      "reason": "The Summoner may summon a Pukka on the 2nd night instead of the 3rd."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Pukka",
   "ability": {
     "en": "Each night, choose a player: they are poisoned. The previously poisoned player dies then becomes healthy.",

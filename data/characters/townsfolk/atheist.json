@@ -11,7 +11,12 @@
   "first_night": false,
   "other_nights": false,
   "artist": "Marianna Carr",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "riot",
+      "reason": "During a riot, if the Storyteller is nominated, players vote. If they are \"about to die\", the game ends. If not, they nominate again."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Atheist",
   "ability": {
     "en": "The Storyteller can break the game rules, and if executed, good wins, even if you are dead. [No evil characters]",

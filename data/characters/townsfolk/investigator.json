@@ -11,7 +11,12 @@
   "first_night": true,
   "other_nights": false,
   "artist": "Aidan Roberts",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "vizier",
+      "reason": "The Storyteller doesn't declare the Vizier is in play."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Investigator",
   "ability": {
     "en": "You start knowing that 1 of 2 players is a particular Minion.",

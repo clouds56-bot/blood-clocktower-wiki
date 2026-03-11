@@ -11,7 +11,12 @@
   "first_night": false,
   "other_nights": true,
   "artist": "Aidan Roberts",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "mathematician",
+      "reason": "The Chambermaid can detect if the Mathematician will wake tonight."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Chambermaid",
   "ability": {
     "en": "Each night, choose 2 alive players (not yourself): you learn how many woke tonight due to their ability.",

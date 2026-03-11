@@ -11,7 +11,12 @@
   "first_night": false,
   "other_nights": false,
   "artist": "John Grist",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "marionette",
+      "reason": "If the Marionette thinks that they are the Huntsman, the Damsel was added during setup."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Huntsman",
   "ability": {
     "en": "Once per game, at night, choose a living player: the Damsel, if chosen, becomes a not-in-play Townsfolk. [+the Damsel]",

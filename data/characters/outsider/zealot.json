@@ -11,7 +11,20 @@
   "first_night": false,
   "other_nights": false,
   "artist": "John Grist",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "cannibal",
+      "reason": "If the Cannibal gains the Zealot ability, the Cannibal learns this."
+    },
+    {
+      "id": "legion",
+      "reason": "The Zealot might register as evil to Legion."
+    },
+    {
+      "id": "vizier",
+      "reason": "The Zealot might register as evil to the Vizier."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Zealot",
   "ability": {
     "en": "If there are 5 or more players alive, you must vote for every nomination.",

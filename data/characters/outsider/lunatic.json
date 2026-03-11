@@ -11,7 +11,12 @@
   "first_night": false,
   "other_nights": false,
   "artist": "Aidan Roberts",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "mathematician",
+      "reason": "The Mathematician might learn if the Lunatic attacks a different player than the real Demon attacked."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Lunatic",
   "ability": {
     "en": "You think you are a Demon, but you are not. The Demon knows who you are & who you choose at night.",

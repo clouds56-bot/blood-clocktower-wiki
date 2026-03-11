@@ -11,7 +11,20 @@
   "first_night": false,
   "other_nights": false,
   "artist": "Lachlan Bastiaen",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "bounty_hunter",
+      "reason": "If the Kazali turns the Bounty Hunter into a Minion, an evil Townsfolk is not created."
+    },
+    {
+      "id": "marionette",
+      "reason": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor."
+    },
+    {
+      "id": "summoner",
+      "reason": "If the Summoner creates a second living Demon, deaths tonight are arbitrary."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Kazali",
   "ability": {
     "en": "Each night*, choose a player: they die. [You choose which players are which Minions. -? to +? Outsiders]",

@@ -11,7 +11,16 @@
   "first_night": false,
   "other_nights": false,
   "artist": "Aidan Roberts",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "ogre",
+      "reason": "If the Recluse registers as evil to the Ogre, the Ogre learns that they are evil."
+    },
+    {
+      "id": "sage",
+      "reason": "The Recluse might register as the Demon to the Sage."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Recluse",
   "ability": {
     "en": "You might register as evil & as a Minion or Demon, even if dead.",

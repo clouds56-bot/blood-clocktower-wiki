@@ -11,7 +11,16 @@
   "first_night": true,
   "other_nights": false,
   "artist": "John Grist",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "leviathan",
+      "reason": "If the Leviathan is in play, and at least 1 player is dead, the King learns an alive character each night."
+    },
+    {
+      "id": "riot",
+      "reason": "If Riot is in play, and at least 1 player is dead, the King learns an alive character each night."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/King",
   "ability": {
     "en": "Each night, if the dead equal or outnumber the living, you learn 1 alive character. The Demon knows you are the King.",

@@ -11,7 +11,44 @@
   "first_night": false,
   "other_nights": true,
   "artist": "Aidan Roberts",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "cult_leader",
+      "reason": "If the Pit-Hag turns an evil player into the Cult Leader, they can't turn good due to their own ability."
+    },
+    {
+      "id": "damsel",
+      "reason": "If a Pit-Hag creates a Damsel, the Storyteller chooses which player it is."
+    },
+    {
+      "id": "goon",
+      "reason": "If the Pit-Hag turns an evil player into the Goon, they can't turn good due to their own ability."
+    },
+    {
+      "id": "heretic",
+      "reason": "Only 1 jinxed character can be in play."
+    },
+    {
+      "id": "leviathan",
+      "reason": "The Leviathan cannot enter play after day 5."
+    },
+    {
+      "id": "ogre",
+      "reason": "If the Pit-Hag turns an evil player into the Ogre, they can't turn good due to their own ability."
+    },
+    {
+      "id": "politician",
+      "reason": "If the Pit-Hag turns an evil player into the Politician, they can't turn good due to their own ability."
+    },
+    {
+      "id": "summoner",
+      "reason": "If the Summoner creates a second living Demon, deaths tonight are arbitrary."
+    },
+    {
+      "id": "village_idiot",
+      "reason": "If there is a spare token, the Pit-Hag can create an extra Village Idiot. If so, the drunk Village Idiot might change."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Pit-Hag",
   "ability": {
     "en": "Each night*, choose a player & a character they become (if not in play). If a Demon is made, deaths tonight are arbitrary.",

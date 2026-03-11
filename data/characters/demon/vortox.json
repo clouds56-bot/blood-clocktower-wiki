@@ -11,7 +11,12 @@
   "first_night": false,
   "other_nights": false,
   "artist": "Anica Kelsen",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "banshee",
+      "reason": "If the Vortox kills the Banshee, all players learn that the Banshee has died."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Vortox",
   "ability": {
     "en": "Each night*, choose a player: they die. Townsfolk abilities yield false info. Each day, if no-one is executed, evil wins.",

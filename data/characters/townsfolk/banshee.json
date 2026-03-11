@@ -11,7 +11,20 @@
   "first_night": false,
   "other_nights": false,
   "artist": "Chloe McDougall",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "leviathan",
+      "reason": "Each night*, the Leviathan chooses an alive good player (different to previous nights): a chosen Banshee dies & gains their ability."
+    },
+    {
+      "id": "riot",
+      "reason": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Banshee dies & gains their ability."
+    },
+    {
+      "id": "vortox",
+      "reason": "If the Vortox kills the Banshee, all players learn that the Banshee has died."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Banshee",
   "ability": {
     "en": "If the Demon kills you, all players learn this. From now on, you may nominate twice per day and vote twice per nomination.”",

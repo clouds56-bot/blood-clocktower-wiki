@@ -11,7 +11,16 @@
   "first_night": false,
   "other_nights": false,
   "artist": "Aidan Roberts",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "boffin",
+      "reason": "The Demon cannot have the Drunk ability."
+    },
+    {
+      "id": "mathematician",
+      "reason": "The Mathematician might learn if the Drunk's ability yielded false info or failed to work properly."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Drunk",
   "ability": {
     "en": "You do not know you are the Drunk. You think you are a Townsfolk character, but you are not.",

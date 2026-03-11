@@ -11,7 +11,12 @@
   "first_night": false,
   "other_nights": false,
   "artist": "Aidan Roberts",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "cannibal",
+      "reason": "If the Juggler guesses on their first day and dies by execution, tonight the living Cannibal learns how many guesses the Juggler got correct."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Juggler",
   "ability": {
     "en": "On your 1st day, publicly guess up to 5 players' characters. That night, you learn how many you got correct.",

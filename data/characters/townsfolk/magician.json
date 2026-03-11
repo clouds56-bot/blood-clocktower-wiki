@@ -11,7 +11,36 @@
   "first_night": true,
   "other_nights": false,
   "artist": "John Grist",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "legion",
+      "reason": "The Magician wakes with Legion and might register as evil. Legion knows if a Magician is in play, but not which player it is."
+    },
+    {
+      "id": "lil_monsta",
+      "reason": "If the Magician is alive, the Storyteller chooses which Minion babysits Lil' Monsta."
+    },
+    {
+      "id": "marionette",
+      "reason": "If the Magician is alive, the Demon doesn't know which neighbor is the Marionette."
+    },
+    {
+      "id": "spy",
+      "reason": "When the Spy sees the Grimoire, the Demon and Magician's character tokens are removed."
+    },
+    {
+      "id": "vizier",
+      "reason": "If the Vizier is in play, the Magician has no ability but is immune to the Vizier's ability."
+    },
+    {
+      "id": "widow",
+      "reason": "When the Widow sees the Grimoire, the Demon and Magician's character tokens are removed."
+    },
+    {
+      "id": "wraith",
+      "reason": "After each execution, the living Magician may publicly guess a living player as the Wraith. If correct, the Demon must choose the Wraith tonight."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Magician",
   "ability": {
     "en": "The Demon thinks you are a Minion. Minions think you are a Demon.",

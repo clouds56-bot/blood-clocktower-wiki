@@ -11,7 +11,16 @@
   "first_night": false,
   "other_nights": true,
   "artist": "Aidan Roberts",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "summoner",
+      "reason": "If the living Summoner has no ability, the Storyteller has the Summoner ability."
+    },
+    {
+      "id": "vizier",
+      "reason": "If the Vizier loses their ability, they learn this, and cannot die during the day."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Courtier",
   "ability": {
     "en": "Once per game, at night, choose a character: they are drunk for 3 nights & 3 days.",

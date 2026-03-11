@@ -11,7 +11,20 @@
   "first_night": false,
   "other_nights": true,
   "artist": "John Grist",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "legion",
+      "reason": "If the Preacher chooses Legion, Legion keeps their ability, but the Preacher might learn they are Legion."
+    },
+    {
+      "id": "summoner",
+      "reason": "If the living Summoner has no ability, the Storyteller has the Summoner ability."
+    },
+    {
+      "id": "vizier",
+      "reason": "If the Vizier loses their ability, they learn this, and cannot die during the day."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Preacher",
   "ability": {
     "en": "Each night, choose a player: a Minion, if chosen, learns this. All chosen Minions have no ability.",

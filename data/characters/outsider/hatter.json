@@ -11,7 +11,24 @@
   "first_night": false,
   "other_nights": false,
   "artist": "Aidan Roberts, Chloe McDougall, Steven Medway",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "legion",
+      "reason": "If Legion is created, all evil players become Legion. If Legion is in play, the Hatter has no ability."
+    },
+    {
+      "id": "leviathan",
+      "reason": "The Leviathan cannot enter play after day 5."
+    },
+    {
+      "id": "lil_monsta",
+      "reason": "If the Hatter dies & the Demon chooses Lil' Monsta, they also choose a Minion to become."
+    },
+    {
+      "id": "summoner",
+      "reason": "If the Summoner creates a second living Demon, deaths tonight are arbitrary."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Hatter",
   "ability": {
     "en": "If you died today or tonight, the Minion & Demon players may choose new Minion & Demon characters to be.",

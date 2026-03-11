@@ -12,7 +12,44 @@
   "first_night": false,
   "other_nights": false,
   "artist": "Anica Kelsen",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "alchemist",
+      "reason": "An Alchemist-Marionette has no Marionette ability & the Marionette is in play."
+    },
+    {
+      "id": "balloonist",
+      "reason": "If the Marionette thinks that they are the Balloonist, an Outsider might have been added during setup."
+    },
+    {
+      "id": "huntsman",
+      "reason": "If the Marionette thinks that they are the Huntsman, the Damsel was added during setup."
+    },
+    {
+      "id": "kazali",
+      "reason": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor."
+    },
+    {
+      "id": "lil_monsta",
+      "reason": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor."
+    },
+    {
+      "id": "magician",
+      "reason": "If the Magician is alive, the Demon doesn't know which neighbor is the Marionette."
+    },
+    {
+      "id": "mathematician",
+      "reason": "The Mathematician might learn if the Marionette's ability yielded false info or failed to work properly."
+    },
+    {
+      "id": "plague_doctor",
+      "reason": "If the Storyteller would gain the Marionette ability, one of the Demon's good neighbors becomes the Marionette."
+    },
+    {
+      "id": "summoner",
+      "reason": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Marionette",
   "ability": {
     "en": "You think you are a good character, but you are not. The Demon knows who you are. [You neighbor the Demon]",

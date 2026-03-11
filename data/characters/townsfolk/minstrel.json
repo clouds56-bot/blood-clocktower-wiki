@@ -11,7 +11,12 @@
   "first_night": false,
   "other_nights": false,
   "artist": "John Grist",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "legion",
+      "reason": "If Legion died by execution today, Legion keeps their ability, but the Minstrel might learn they are Legion."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Minstrel",
   "ability": {
     "en": "When a Minion dies by execution, all other players (except Travellers) are drunk until dusk tomorrow.",

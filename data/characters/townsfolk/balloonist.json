@@ -11,7 +11,12 @@
   "first_night": false,
   "other_nights": false,
   "artist": "Anica Kelsen",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "marionette",
+      "reason": "If the Marionette thinks that they are the Balloonist, an Outsider might have been added during setup."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Balloonist",
   "ability": {
     "en": "Each night, you learn a player of a different character type than last night. [+0 or +1 Outsider]",

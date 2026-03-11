@@ -11,7 +11,12 @@
   "first_night": false,
   "other_nights": false,
   "artist": "John Grist",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "plague_doctor",
+      "reason": "If the Storyteller would gain the Boomdandy ability, a player becomes the Boomdandy."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Boomdandy",
   "ability": {
     "en": "If you are executed, all but 3 players die. After a 10 to 1 countdown, the player with the most players pointing at them, dies.",

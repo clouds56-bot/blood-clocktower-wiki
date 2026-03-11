@@ -11,7 +11,12 @@
   "first_night": false,
   "other_nights": false,
   "artist": "John Grist",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "lil_monsta",
+      "reason": "If the Psychopath is babysitting Lil' Monsta, they die when executed."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Psychopath",
   "ability": {
     "en": "Each day, before nominations, you may publicly choose a player: they die. If executed, you only die if you lose roshambo.",

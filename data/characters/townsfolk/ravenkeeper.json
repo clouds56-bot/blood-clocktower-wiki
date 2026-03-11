@@ -11,7 +11,16 @@
   "first_night": false,
   "other_nights": false,
   "artist": "Aidan Roberts",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "leviathan",
+      "reason": "Each night*, the Leviathan chooses an alive player (different to previous nights): a chosen Ravenkeeper uses their ability but does not die."
+    },
+    {
+      "id": "riot",
+      "reason": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Ravenkeeper uses their ability but does not die."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Ravenkeeper",
   "ability": {
     "en": "If you die at night, you are woken to choose a player: you learn their character.",

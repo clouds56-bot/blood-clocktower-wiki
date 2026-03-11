@@ -11,7 +11,40 @@
   "first_night": false,
   "other_nights": false,
   "artist": "Lachlan Bastiaen",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "alchemist",
+      "reason": "If the Alchemist has the Boffin ability, the Alchemist does not learn what ability the Demon has."
+    },
+    {
+      "id": "cult_leader",
+      "reason": "If the Demon has the Cult Leader ability, they can’t turn good due to this ability."
+    },
+    {
+      "id": "drunk",
+      "reason": "The Demon cannot have the Drunk ability."
+    },
+    {
+      "id": "goon",
+      "reason": "If the Demon has the Goon ability, they can’t turn good due to this ability."
+    },
+    {
+      "id": "heretic",
+      "reason": "The Demon cannot have the Heretic ability."
+    },
+    {
+      "id": "ogre",
+      "reason": "The Demon cannot have the Ogre ability."
+    },
+    {
+      "id": "politician",
+      "reason": "The Demon cannot have the Politician ability."
+    },
+    {
+      "id": "village_idiot",
+      "reason": "If there is a spare token, the Boffin can give the Demon the Village Idiot ability."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Boffin",
   "ability": {
     "en": "The Demon (even if drunk or poisoned) has a not-in-play good character's ability. You both know which.",

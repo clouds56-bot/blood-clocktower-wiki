@@ -11,7 +11,24 @@
   "first_night": false,
   "other_nights": false,
   "artist": "John Grist",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "butler",
+      "reason": "If the Cannibal gains the Butler ability, the Cannibal learns this."
+    },
+    {
+      "id": "juggler",
+      "reason": "If the Juggler guesses on their first day and dies by execution, tonight the living Cannibal learns how many guesses the Juggler got correct."
+    },
+    {
+      "id": "princess",
+      "reason": "If the Cannibal nominated, executed, & killed the Princess today, the Demon doesn’t kill tonight."
+    },
+    {
+      "id": "zealot",
+      "reason": "If the Cannibal gains the Zealot ability, the Cannibal learns this."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Cannibal",
   "ability": {
     "en": "You have the ability of the recently killed executee. If they are evil, you are poisoned until a good player dies by execution.",

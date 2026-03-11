@@ -11,7 +11,16 @@
   "first_night": true,
   "other_nights": false,
   "artist": "Chloe McDougall",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "boffin",
+      "reason": "If there is a spare token, the Boffin can give the Demon the Village Idiot ability."
+    },
+    {
+      "id": "pit_hag",
+      "reason": "If there is a spare token, the Pit-Hag can create an extra Village Idiot. If so, the drunk Village Idiot might change."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Village_Idiot",
   "ability": {
     "en": "Each night, choose a player: you learn their alignment. [+0 to +2 Village Idiots. 1 of the extras is drunk]",

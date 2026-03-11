@@ -11,7 +11,44 @@
   "first_night": true,
   "other_nights": false,
   "artist": "Chloe McDougall",
-  "jinxes": [],
+  "jinxes": [
+    {
+      "id": "alsaahir",
+      "reason": "The Storyteller doesn't declare the Vizier is in play."
+    },
+    {
+      "id": "courtier",
+      "reason": "If the Vizier loses their ability, they learn this, and cannot die during the day."
+    },
+    {
+      "id": "fearmonger",
+      "reason": "The Vizier wakes with the Fearmonger, learns who they choose and cannot choose to immediately execute that player."
+    },
+    {
+      "id": "investigator",
+      "reason": "The Storyteller doesn't declare the Vizier is in play."
+    },
+    {
+      "id": "lil_monsta",
+      "reason": "If the Vizier is babysitting Lil' Monsta, they die when executed."
+    },
+    {
+      "id": "magician",
+      "reason": "If the Vizier is in play, the Magician has no ability but is immune to the Vizier's ability."
+    },
+    {
+      "id": "politician",
+      "reason": "The Politician might register as evil to the Vizier."
+    },
+    {
+      "id": "preacher",
+      "reason": "If the Vizier loses their ability, they learn this, and cannot die during the day."
+    },
+    {
+      "id": "zealot",
+      "reason": "The Zealot might register as evil to the Vizier."
+    }
+  ],
   "source_url": "https://wiki.bloodontheclocktower.com/Vizier",
   "ability": {
     "en": "All players know you are the Vizier. You cannot die during the day. If good voted, you may choose to execute immediately.",
