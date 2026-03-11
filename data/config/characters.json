@@ -145,6 +145,42 @@
       "vortox": { "en": "Vortox", "cn": "涡流" },
       "yaggababble": { "en": "Yaggababble", "cn": "牙噶巴卜" },
       "zombuul": { "en": "Zombuul", "cn": "僵怖" }
+    },
+    "travellers": {
+      "apprentice": { "en": "Apprentice", "cn": "学徒" },
+      "barista": { "en": "Barista", "cn": "咖啡师" },
+      "beggar": { "en": "Beggar", "cn": "乞丐" },
+      "bishop": { "en": "Bishop", "cn": "主教" },
+      "bone_collector": { "en": "Bone Collector", "en_url_param": "Bone_Collector", "cn": "拾骨者" },
+      "bureaucrat": { "en": "Bureaucrat", "cn": "官僚" },
+      "butcher": { "en": "Butcher", "cn": "屠夫" },
+      "cacklejack": { "en": "Cacklejack", "cn": "狂笑怪" },
+      "deviant": { "en": "Deviant", "cn": "异类" },
+      "gangster": { "en": "Gangster", "cn": "匪徒" },
+      "gnome": { "en": "Gnome", "cn": "地精" },
+      "gunslinger": { "en": "Gunslinger", "cn": "枪手" },
+      "harlot": { "en": "Harlot", "cn": "妓女" },
+      "judge": { "en": "Judge", "cn": "法官" },
+      "matron": { "en": "Matron", "cn": "女管家" },
+      "scapegoat": { "en": "Scapegoat", "cn": "替罪羊" },
+      "thief": { "en": "Thief", "cn": "小偷" },
+      "voudon": { "en": "Voudon", "cn": "巫毒教徒" }
+    },
+    "fabled": {
+      "angel": { "en": "Angel", "cn": "天使" },
+      "buddhist": { "en": "Buddhist", "cn": "佛教徒" },
+      "deus_ex_fiasco": { "en": "Deus ex Fiasco", "en_url_param": "Deus_ex_Fiasco", "cn": "机械降神" },
+      "djinn": { "en": "Djinn", "cn": "精灵" },
+      "doomsayer": { "en": "Doomsayer", "cn": "末日预言者" },
+      "duchess": { "en": "Duchess", "cn": "公爵夫人" },
+      "ferryman": { "en": "Ferryman", "cn": "渡船人" },
+      "fibbin": { "en": "Fibbin", "cn": "谎言精" },
+      "fiddler": { "en": "Fiddler", "cn": "小提琴手" },
+      "hells_librarian": { "en": "Hell's Librarian", "en_url_param": "Hell%27s_Librarian", "cn": "地狱图书管理员" },
+      "revolutionary": { "en": "Revolutionary", "cn": "革命者" },
+      "sentinel": { "en": "Sentinel", "cn": "哨兵" },
+      "spirit_of_ivory": { "en": "Spirit of Ivory", "en_url_param": "Spirit_of_Ivory", "cn": "象牙之灵" },
+      "toymaker": { "en": "Toymaker", "cn": "玩具匠" }
     }
   }
 }

@@ -1,0 +1,32 @@
+{
+  "id": "sentinel",
+  "type": "fabled",
+  "name": {
+    "en": "Sentinel",
+    "cn": "哨兵"
+  },
+  "ability": {
+    "en": "There might be 1 extra or 1 fewer Outsider in play."
+  },
+  "flavor_text": {
+    "en": "\"Name, please.\n\t\t\t\tPapers, please.\n\t\t\t\tWeapons, please.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Caitlin Murphy",
+  "jinxes": [],
+  "examples": {
+    "en": [
+      "There are seven players in this game. There are no characters on the character list that add Outsiders. The Demon bluffs as the Saint. A Sentinel is in play, so the good players are not sure if there is actually a Saint or not.",
+      "There are nine players in this game. Even though a Baron is on the character list, the good players know no Baron is in play because the Witch just killed a player, so there should be just two Outsiders in play. However, the Outsiders cannot be trusted because a Sentinel is in play. Indeed, there is one less Outsider than normal in this game, and the Witch is bluffing as the Butler."
+    ]
+  },
+  "how_to_run": {
+    "en": "At the start of the game, declare that the Sentinel is in play. Add the Sentinel token to the Grimoire."
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Sentinel",
+  "image": "assets/tokens/sentinel.png"
+}

@@ -1,0 +1,33 @@
+{
+  "id": "buddhist",
+  "type": "fabled",
+  "name": {
+    "en": "Buddhist",
+    "cn": "佛教徒"
+  },
+  "ability": {
+    "en": "For the first 2 minutes of each day, veteran players may not talk."
+  },
+  "flavor_text": {
+    "en": "\"You throw thorns. Falling in my silence, they become flowers.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Marianna Carr",
+  "jinxes": [],
+  "examples": {
+    "en": [
+      "If no device is available to set a two-minute timer, then use your best judgment as to what is two minutes, and inform the veterans when you feel that the time is up.\n\n\nLike the Angel and the Revolutionary, you’ll want to ask for a player’s consent before affecting them with the Buddhist. Something like this is best: “Do you mind if I make you a Buddhist for this game? You are really good at the game, and I want to give the new players a chance to figure things out for themselves. Is that okay?”",
+      "Lachlan and Lewis are veterans in a game of mostly new players. To encourage the new players to talk, the Storyteller puts the Buddhist in play. Lachlan and Lewis may not talk for the first two minutes each day, after which, they may talk freely.",
+      "Evin is affected by the Buddhist. He is a Minion and simply listens to what people are saying for the first two minutes, allowing him to bluff as a not-in-play character later on."
+    ]
+  },
+  "how_to_run": {
+    "en": "At the start of the game, declare that the Buddhist is in play. Add the Buddhist token to the Grimoire. Declare which players are Buddhists, with their consent. Those players must stay silent for the first two minutes of each day."
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Buddhist",
+  "image": "assets/tokens/buddhist.png"
+}

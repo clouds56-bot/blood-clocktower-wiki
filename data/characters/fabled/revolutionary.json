@@ -1,0 +1,33 @@
+{
+  "id": "revolutionary",
+  "type": "fabled",
+  "name": {
+    "en": "Revolutionary",
+    "cn": "革命者"
+  },
+  "ability": {
+    "en": "2 neighboring players are known to be the same alignment. Once per game, 1 of them registers falsely."
+  },
+  "flavor_text": {
+    "en": "\"United we feigned.\n\t\t\t\tDivided, we stalled.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "examples": {
+    "en": [
+      "The Revolutionary should only be in play if both players want it to be. Ask for their consent before the game begins.",
+      "Mathew is deaf. He teams up with Davo, via the Revolutionary. Mathew draws the Poisoner, and Davo draws the Imp. They can scheme in private, using sign language, so that Mathew can still participate.",
+      "Hannah is 12 years old. She is keen to play, but does not understand many of the intricacies of how the characters work. She gets the Ravenkeeper and teams up with her father, who is the Fortune Teller."
+    ]
+  },
+  "how_to_run": {
+    "en": "When setting up the game, before giving the bag to the players, declare that the Revolutionary is in play and which two neighboring players are Revolutionaries. Add the Revolutionary token to the Grimoire. Mark the Revolutionaries with the REGISTER FALSELY? reminder between their character tokens."
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Revolutionary",
+  "image": "assets/tokens/revolutionary.png"
+}

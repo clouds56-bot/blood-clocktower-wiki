@@ -1,0 +1,32 @@
+{
+  "id": "fiddler",
+  "type": "fabled",
+  "name": {
+    "en": "Fiddler",
+    "cn": "小提琴手"
+  },
+  "ability": {
+    "en": "Once per game, the Demon secretly chooses an opposing player: all players choose which of these 2 players win."
+  },
+  "flavor_text": {
+    "en": "\"I'll wager mi lyef ye cannae best me in a fiddle contest, ye boss-eyed snook! We'll go out on the lash, get the pub jammers an' have a right craic. I'll be layin' ma boots into ya come mornin' ye rumbly muppet.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "examples": {
+    "en": [
+      "The game begins but will need to end in 45 minutes due to a freak lightning storm approaching the neighbourhood, so the Storyteller adds the Fiddler. After 40 minutes, the Fiddler activates. The players choose the good player to win, so good wins.",
+      "There are just four players left alive. Each day, nobody nominates. Each night, the Demon chooses a dead player to kill. Since this could go on indefinitely, the Storyteller adds the Fiddler so that\nthe game can end."
+    ]
+  },
+  "how_to_run": {
+    "en": "At any time, if you expect to run out of time, declare that the Fiddler is in play and declare the time when the game will end. Add the Fiddler token to the Grimoire."
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Fiddler",
+  "image": "assets/tokens/fiddler.png"
+}

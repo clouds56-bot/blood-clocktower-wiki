@@ -21,7 +21,9 @@ const TYPE_MAPPING = {
   townsfolk: 'townsfolk',
   outsiders: 'outsider',
   minions: 'minion',
-  demons: 'demon'
+  demons: 'demon',
+  travellers: 'traveller',
+  fabled: 'fabled'
 };
 
 // Edition mapping from wiki text

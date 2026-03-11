@@ -1,0 +1,40 @@
+{
+  "id": "deviant",
+  "type": "traveller",
+  "name": {
+    "en": "Deviant",
+    "cn": "异类"
+  },
+  "ability": {
+    "en": "If you were funny today, you cannot die by exile."
+  },
+  "flavor_text": {
+    "en": "\"Twas the lady's quip, forsooth.\""
+  },
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "John Grist",
+  "jinxes": [],
+  "examples": {
+    "en": [
+      "It is best to be forgiving and treat even a slightly funny Deviant as funny. It can be tough to be funny when one is expected to be, after all.\n\n\nIf the player would prefer, you may determine different criteria for whether the Deviant is exiled. If being “funny” is difficult, you may reward the Deviant who “creates a positive mood” or “is helpful to others” instead. The Deviant is not a serious character, and it is meant to encourage laughter, lightheartedness, and fun, so adjust the Deviant rules to your players’ needs and talents.",
+      "The evil Deviant cracks a few jokes, and gets a few laughs, but the players nevertheless decide to exile them. Even though there are enough votes, the Storyteller decides to keep the Deviant alive.",
+      "On the third day, the Deviant was slightly funny, and cannot be exiled. On the fourth day, the Deviant was not very funny, and is successfully exiled."
+    ]
+  },
+  "tips": {
+    "en": [
+      "Oh man. If you are hoping that this wiki entry will teach you how to be funny, you are in trouble. See if you can get a giggle. Do your best, and use your words to lighten the mood - even setting a good vibe might be enough to avoid dying. Above all, relax, be yourself, and be ok with not being funny, should it pan out that way. Sometimes we all fall flat. Good luck :)",
+      "If you are the Deviant, but find it too much of a challenge to be funny on call, talk to the Storyteller. Together, you may determine different criteria for whether the Deviant is exiled. Instead of “being funny”, you could “create a positive mood” or “be helpful to others” instead. The Deviant is not a serious character, and its purpose is to provide an avenue for laughter, lightheartedness, and fun, so talk to the Storyteller about adjusting the Deviant criteria to your needs and talents.",
+      "Some personal favorite comedy routines for people in need of inspiration:  Steve Wright and Larry Miller."
+    ]
+  },
+  "how_to_run": {
+    "en": "If the Deviant would be exiled, you may declare that the Deviant\nremains alive."
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Deviant",
+  "image": "assets/tokens/deviant.png"
+}

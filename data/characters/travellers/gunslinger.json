@@ -1,0 +1,47 @@
+{
+  "id": "gunslinger",
+  "type": "traveller",
+  "name": {
+    "en": "Gunslinger",
+    "cn": "枪手"
+  },
+  "ability": {
+    "en": "Each day, after the 1st vote has been tallied, you may choose a player that voted: they die."
+  },
+  "flavor_text": {
+    "en": "\"It's time someone took matters into their own hands. That someone... is me.\""
+  },
+  "editions": [
+    "trouble_brewing"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "examples": {
+    "en": [
+      "If the Gunslinger is a new player, you may wish to remind them that they can use their ability.\n\n\nWhen the Gunslinger wants to use their ability, you may need to ask all players who voted to raise their hand again, so the Gunslinger doesn’t accidentally choose a player that didn’t vote.",
+      "The Imp has been nominated. There are 10 players alive, and five votes for the Imp, so the Imp is about to die. The Gunslinger chooses a voting player to die. They die, and the nomination continues, with the Imp still about to die.",
+      "The players exile the Thief. Then, the Butler is nominated for execution and gets one vote. This is the first nomination for execution, since the Thief’s exile does not count. The Gunslinger  chooses to kill the single voting player. Later that day, the Saint is nominated and six players vote. The Gunslinger  cannot use their ability now because this is not the first vote for execution today."
+    ]
+  },
+  "tips": {
+    "en": [
+      "Hot diggity, you're the Gunslinger ! Enjoy it while you can!",
+      "Deaths caused by your ability are not executions, and as such, they don't cause the day to end, and nor does the character you shot get seen by the Undertaker.",
+      "You get the opportunity to kill a player each day. Make the most of it, and remember to let the Storyteller know that you wish to use your ability. Doing so every day practically doubles the good team's chance of killing the Demon. Normally, each day / night, 2 players die - one due to the Demon attack, and one due to the daily execution. If you use your ability each day, two thirds of all deaths are chosen by the good team. These are great odds.",
+      "Pay attention to the vibe of the group. Sometimes, the good players will not want you to kill a player each day. If you go against their desires, they may Exile you as soon as they can. Pay attention and get your fingers off the trigger if you want to stay alive.",
+      "Pay attention to who isn't voting on the first nomination each day. Minions may be a bit laissez faire, but Demon players quickly learn how dangerous it can be to vote when you are in play. Demons will usually not vote if they think there is even a small chance that you will shoot them. Use this information to your advantage! By executing those players that seem fearful of voting, you may luck upon the Demon. Or, you may startle the Demon into voting, which gives you a chance of killing them single-handedly.",
+      "It's ok if a few innocent bystanders die. Don't be afraid to take out a supposed Undertaker or a suspicious looking Recluse. As long as you kill a Minion or two as well, it was probably worth it.",
+      "You are the perfect way to deal with the Saint. They can't be executed? You don't execute!",
+      "If you live until just 3 players are left alive, be very wary of who you kill. The Demon may try to psyche you out and get you to kill a Minion (or a good player), which will reduce the player count to just 2 players... and evil wins. Beware.",
+      "Ignore all of the above advice, and never use your ability. Sit. Wait. Watch. Be passive and silent and unassuming. Watch people's body language and listen to what arguments they are making. When you think that you know who the Demon is, say nothing, and wait until that player votes on the first nomination of the day - then BOOM. Either you've won the game and have one very surprised dead Demon, or you blew it and killed a nobody.",
+      "If there are 3 or more other Travellers in the game, you know that 1 of them is probably evil. It may be worth taking out an evil Traveller before they can do too much harm."
+    ]
+  },
+  "how_to_run": {
+    "en": "Each day, immediately after the first vote for execution is tallied, the Gunslinger can declare that they wish to use their ability. If so, the Gunslinger points at any player who voted for this execution. The chosen player dies."
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Gunslinger",
+  "image": "assets/tokens/gunslinger.png"
+}

@@ -42,7 +42,7 @@ async function fetchWithCache(url, urlParam) {
  * Get all character JSON files
  */
 function getCharacterFiles() {
-  const types = ['townsfolk', 'outsiders', 'minions', 'demons'];
+  const types = ['townsfolk', 'outsiders', 'minions', 'demons', 'travellers', 'fabled'];
   const files = [];
 
   for (const type of types) {

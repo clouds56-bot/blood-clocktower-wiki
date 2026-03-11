@@ -1,0 +1,45 @@
+{
+  "id": "scapegoat",
+  "type": "traveller",
+  "name": {
+    "en": "Scapegoat",
+    "cn": "替罪羊"
+  },
+  "ability": {
+    "en": "If a player of your alignment is executed, you might be executed instead."
+  },
+  "flavor_text": {
+    "en": "\"Good evening! Thank you for inviting me to the ball. I'm not from around here, but you sure seem like a friendly bunch, by golly. I'm sure we'll get along just dandy. What's all that rope for?\""
+  },
+  "editions": [
+    "trouble_brewing"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "examples": {
+    "en": [
+      "It is best to use the Scapegoat’s ability before the final day, because a Scapegoat that remains alive on the final day will almost certainly be exiled. You should always use an evil Scapegoat’s ability to prevent evil from losing the game.",
+      "The Fortune Teller is about to be executed, but the Storyteller chooses to execute the good Scapegoat instead. The Fortune Teller lives and the Scapegoat dies. That night, the Undertaker learns that a Scapegoat was executed today.",
+      "The Poisoner is about to be executed, but the Storyteller chooses to execute the evil Scapegoat instead. The Storyteller could have let the Poisoner die as normal, but chose not to.",
+      "The Spy is about to be executed. The good Scapegoat dies instead."
+    ]
+  },
+  "tips": {
+    "en": [
+      "Stay alive, however you can. Lay low and don't tempt the Demon into attacking you. Avoid getting exiled until after your ability triggers. If you can live long enough for you to die in place of an executed player, that helps enormously. The Storyteller will often wait for the second half of the game for your ability to make your ability trigger, so be patient, and play it safe.",
+      "When the Storyteller declares that the players kill you instead of the normal executee, this is great! Talk to the player you saved in private. You know that they are good, and they know that you are good. Work together, vote together, and win together. Encourage them to tell you any information that they have due to their character ability, and any information that they have due to other private conversations they have had. Do whatever you can to keep this player alive, and save your vote for when they vote too.",
+      "Vote liberally, and try to convince others to do the same. If you execute an evil player, that's great! The Demon will often bluff as a powerful information-gathering character that the good team doesn't want to execute, so taking a chance on executing the Fortune Teller might help your teammate enormoursly. If you execute a good player, you might be executed instead, which is what you want - you can keep that very real Fortune Teller alive!",
+      "After you have talked to the player whose life you saved, do whatever you can to convince the rest of the group that they are good. You have two publicly known facts to help you do this:\nMost Travellers are good. The odds that you are good, are good, therefore the odds that the player you saved is good, are good.\nBoth you and the player you saved are the same alignment. If there is a Chef or Empath in play, their information would need to be congruent with you both being the same alignment. If an Investigator or Fortune Teller is in-play, their information may be incongruent with you both being evil. It is rare that a piece of information such as \"two players are the same alignment\" becomes publicly known, so use it to the full.Most Travellers are good. The odds that you are good, are good, therefore the odds that the player you saved is good, are good.Both you and the player you saved are the same alignment. If there is a Chef or Empath in play, their information would need to be congruent with you both being the same alignment. If an Investigator or Fortune Teller is in-play, their information may be incongruent with you both being evil. It is rare that a piece of information such as \"two players are the same alignment\" becomes publicly known, so use it to the full.",
+      "Beware of the Spy! If they get the votes, you, the poor, innocent, good Scapegoat might be executed instead! You at least learn that they weren't the Demon when you were executed, so it's not all bad news!",
+      "Feeling devious? Go up to a player you don't trust and tell them you're evil. Convince them to get themselves executed so you can 'prove' you're on the same team - only to watch them get executed for their crime of believing you. One Minion (or even Demon!) down.",
+      "To help convince the group that you are good, make the argument that another Traveller in the game is evil. Whether they are actually good or evil doesn't really matter to you. What does matter is that if the group thinks that one of them is evil, they will believe that you are good, because the chance of there being 2 evil Travellers is small. A group that believes that you are the good Traveller will keep you alive long enough for you to use your ability, and will believe that the player whose life you save is good too. And you never know, maybe the Traveller that you are throwing under the bus actually is evil after all!"
+    ]
+  },
+  "how_to_run": {
+    "en": "If a player of the same alignment as the Scapegoat would be executed, you may choose that the Scapegoat is executed instead. The Scapegoat dies."
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Scapegoat",
+  "image": "assets/tokens/scapegoat.png"
+}

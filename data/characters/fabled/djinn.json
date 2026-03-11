@@ -1,0 +1,32 @@
+{
+  "id": "djinn",
+  "type": "fabled",
+  "name": {
+    "en": "Djinn",
+    "cn": "精灵"
+  },
+  "ability": {
+    "en": "Use the Djinn's special rule. All players know what it is."
+  },
+  "flavor_text": {
+    "en": "\"نحن لسنا هنا.\n\t\t\t\tانت لست حقيقي.\n\t\t\t\tكل شيء هو وهم.\n\t\t\t\tأسئلتك هي جبل نار في يوم صافٍ.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "John Grist",
+  "jinxes": [],
+  "examples": {
+    "en": [
+      "The Pit-Hag and the Heretic are Jinxed. At the start of the game, the Storyteller reads out the Djinn's special rule: “A Pit-Hag cannot create a Heretic.” Later in the game, the Pit-Hag tries to create a Heretic. The Storyteller shakes their head, and the Pit-Hag must choose another character to create.",
+      "The Spy and the Magician are Jinxed. At the start of the game, the Storyteller reads out the Djinn's special rule: \"When the Spy sees the grimoire, the Demon and the Magician's character tokens are removed.\" There is no Spy and no Magician in play, but the Storyteller reads this aloud anyway so that the good team doesn't know which Minion is in play."
+    ]
+  },
+  "how_to_run": {
+    "en": "At the start of the game, if there are jinxed characters on the character sheet, declare that the Djinn is in play and inform the group of all Djinn special rules for this game. (Do this even if there are no jinxed characters in play.)"
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Djinn",
+  "image": "assets/tokens/djinn.png"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "ferryman",
+  "type": "fabled",
+  "name": {
+    "en": "Ferryman",
+    "cn": "渡船人"
+  },
+  "ability": {
+    "en": "On the final day, all dead players regain their vote token."
+  },
+  "flavor_text": {
+    "en": "\"When righteous dreams come, they have the weight of truth.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Chloe McDougall",
+  "jinxes": [],
+  "examples": {
+    "en": [
+      "Most of the group is new. Two players, Amy and Doug, forgot they were dead in the excitement of voting. The Storyteller puts the Ferryman in play. Later in the game, when there are three players left alive, the Storyteller declares that it is the final day. Amy and Doug regain their vote tokens.",
+      "It is the start of the final day. 17 players are dead and three players are alive. 10 dead players have used their vote tokens. In order to create a more fun and engaging final day, the Storyteller adds the Ferryman and those dead players regain their vote tokens. After a riotously entertaining final day, the Storyteller is celebrated for maximizing the players’ enjoyment."
+    ]
+  },
+  "how_to_run": {
+    "en": "During the game, when you notice that it would be a good idea to add it, declare that the Ferryman is in play. Add the Ferryman token to the Grimoire."
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Ferryman",
+  "image": "assets/tokens/ferryman.png"
+}

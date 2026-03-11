@@ -1,0 +1,32 @@
+{
+  "id": "fibbin",
+  "type": "fabled",
+  "name": {
+    "en": "Fibbin",
+    "cn": "谎言精"
+  },
+  "ability": {
+    "en": "Once per game, 1 good player might get incorrect information."
+  },
+  "flavor_text": {
+    "en": "\"Tee-hee-hee.\n\t\t\t\tTee. Hee. Hee.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "examples": {
+    "en": [
+      "On the first night, all players get correct information. On the second night, the Empath learns they are neighbouring one evil player, but both their neighbours are actually good. For the rest of the game, all good players get correct information.",
+      "The Virgin is nominated by a Townsfolk. This Townsfolk is executed immediately because the Fibbin cannot make an ability malfunction. Later, the Monk protects a player. Again, the Monk's ability cannot fail due to the Fibbin ability. Later, the Ravenkeeper dies at night and gets false information, because information from an ability can be affected by the Fibbin ability."
+    ]
+  },
+  "how_to_run": {
+    "en": "At the start of the game, declare that the Fibbin is in play. Add the Fibbin token to the Grimoire."
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Fibbin",
+  "image": "assets/tokens/fibbin.png"
+}

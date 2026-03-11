@@ -1,0 +1,33 @@
+{
+  "id": "doomsayer",
+  "type": "fabled",
+  "name": {
+    "en": "Doomsayer",
+    "cn": "末日预言者"
+  },
+  "ability": {
+    "en": "If 4 or more players live, each living player may publicly choose (once per game) that a player of their own alignment dies."
+  },
+  "flavor_text": {
+    "en": "\"And on the Seventh Day, there shall be a great flood and a pestilence upon the People of the Village of the Ravens! The dead shall rise and the living shall repent! O Woe! O Unholy day! Only by great sacrifice shall they prevail! So sayeth the Sages of Nostros and so sayeth I.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "examples": {
+    "en": [
+      "You won’t want to kill the Demon this way, unless the game can continue afterwards for some reason, such as if a Scarlet Woman is in play.",
+      "The Monk uses the Doomsayer ability, and the Washerwoman dies. Later that day, the Poisoner uses the Doomsayer ability, and the Baron dies.",
+      "An evil Thief uses the Doomsayer ability, and the Scarlet Woman dies. Later, the Spy uses the Doomsayer ability, and the good Gunslinger dies. Later, the Demon uses the Doomsayer ability, and the Spy dies."
+    ]
+  },
+  "how_to_run": {
+    "en": "At any time, declare that the Doomsayer is in play. Add the Doomsayer token to the Grimoire."
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Doomsayer",
+  "image": "assets/tokens/doomsayer.png"
+}

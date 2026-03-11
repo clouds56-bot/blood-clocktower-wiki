@@ -1,0 +1,44 @@
+{
+  "id": "cacklejack",
+  "type": "traveller",
+  "name": {
+    "en": "Cacklejack",
+    "cn": "狂笑怪"
+  },
+  "ability": {
+    "en": "Each day, choose a player: a different player changes character tonight."
+  },
+  "flavor_text": {
+    "en": "\"Wire α To wire β. LigHt oN. BuZZer off. GAzOinks! Arms STra1ght. FingER 2 nose. hOooLd stiLL. BoiNgo-banGo! Ha-ha-ha!\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": null,
+  "jinxes": [],
+  "examples": {
+    "en": [
+      "Remember that the night order is just a guide. The Cacklejack may act at any point in the night if you need it to.",
+      "During the day, the Cacklejack chooses Evin. That night, Amy changes from the Acrobat into the Clockmaker. Amy learns a 2.",
+      "During the day, the Cacklejack chooses Abdallah. That night, Julian changes from the Drunk into the Flowergirl. Julian does not learn that he is now sober.",
+      "During the day, the Cacklejack chooses Alex. That night, Lachlan changes from the Leviathan into the Shabaloth. Lachlan has fun."
+    ]
+  },
+  "tips": {
+    "en": [
+      "Talk to everyone! Figure out which players have abilities they’d like to keep, like a powerful Fortune Teller or a curious Amnesiac, and choose one of those players with your ability each day.",
+      "Avoid choosing players whose abilities can harm the good team, like the Recluse or the Barber, in the hopes that the Storyteller will Cacklejack them into a more helpful character for your team.",
+      "Be intentional about whether your choices are public or private. If you publicly choose the socially trusted Undertaker, the good team is likely to think you’re a good Cacklejack, but the public announcement might tip off the evil team, allowing evil players to deduce that your chosen player is a powerful Townsfolk. If you make your choice privately, you’ll hide it from evil players, but good players will have less incentive to trust you and believe you’re telling the truth about your choice.",
+      "Reflect on who wants to change and who doesn’t, and consider whether this lines up with the characters these players are claiming to be. A Clockmaker who is begging not to be picked could be evil, or they could be a good player lying about their ability. Similarly, a player claiming High Priestess who desperately wants to be picked might be a Mutant or a “You start knowing” character looking to gain additional information from a new ability.",
+      "Each day, ask players if their character changed in the night, in order to figure out who was affected by your ability! If no one is claiming to have changed, it’s possible that an evil player was changed, or a player changed in a way they cannot detect (such as a Townsfolk becoming a Marionette or a Drunk). If a player is claiming to have changed in a way that benefits the good team, it’s more likely they are good.",
+      "Meta the Storyteller. If players are becoming especially powerful good characters, the Storyteller might be signalling that the good team is losing and needs more helpful information. If players are changing arbitrarily, the good team may be on the right track and not need additional help from your ability."
+    ]
+  },
+  "how_to_run": {
+    "en": "Each day, the Cacklejack chooses a player. Mark them with the NOT ME reminder."
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Cacklejack",
+  "image": "assets/tokens/cacklejack.png"
+}

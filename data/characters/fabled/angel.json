@@ -1,0 +1,33 @@
+{
+  "id": "angel",
+  "type": "fabled",
+  "name": {
+    "en": "Angel",
+    "cn": "天使"
+  },
+  "ability": {
+    "en": "Something bad might happen to whoever is most responsible for the death of a new player."
+  },
+  "flavor_text": {
+    "en": "\"Let those who are without sin dare to raise their hand to my chosen, for I shall strike such fools down with the fury and righteousness of a thousand storms.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "examples": {
+    "en": [
+      "The Angel only protects a player if that player wants it to. Ask for their consent before the game begins.\n\n\nThe “something bad” that happens is up to you. However, it is recommended to either make the penalty that the player dies, that the player loses their ability for a day, or that the player may not vote for a day. A light penalty works much better than a severe one.\n\n\nRemove the Angel on the final day, so that players feel free to execute players protected by the Angel.",
+      "The Angel protects Sarah. The Demon attacks and kills her. As punishment, the Demon cannot attack on the next night.",
+      "Ben is the Demon and is protected by the Angel. The players do not execute him until the final day, at which point they may execute him without penalty."
+    ]
+  },
+  "how_to_run": {
+    "en": "At the start of the game, declare that the Angel is in play. Declare which player or players it is protecting, with their consent. Add the Angel token and their reminders to the Grimoire, and mark each protected player with a PROTECTED reminder."
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Angel",
+  "image": "assets/tokens/angel.png"
+}

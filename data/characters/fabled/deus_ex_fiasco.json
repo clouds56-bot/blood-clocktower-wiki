@@ -1,0 +1,38 @@
+{
+  "id": "deus_ex_fiasco",
+  "type": "fabled",
+  "name": {
+    "en": "Deus ex Fiasco",
+    "cn": "机械降神"
+  },
+  "ability": {
+    "en": "At least once per game, the Storyteller will make a mistake, correct it, and publicly admit to it. "
+  },
+  "flavor_text": {
+    "en": "\"It’s not a bug, it’s a feature. It’s not an error, it’s a tweak. It’s not broken, it’s quirky.\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Chlo MacDougal",
+  "jinxes": [],
+  "examples": {
+    "en": [
+      "Remember: Fabled characters are not designed for extra spice. They are characters whose purpose is to help you, as the Storyteller, to run smooth and inclusive games.",
+      "During the first day, Doug talks privately with the Storyteller and says that he drew the Drunk token from the bag. The Storyteller looks in the Grimoire and notices that Doug’s token is the Drunk. The Storyteller tells Doug that he is now the Mayor, replaces the Drunk token with the Mayor token in the Grimoire, and secretly makes the Ravenkeeper the Drunk instead. Later that day, the Storyteller declares that a mistack has been madde.",
+      "The Empath is sitting next to the Monk and the poisoned Recluse. The Storyteller, forgetting that the Recluse is poisoned, accidentally gives the Empath a “1”. Later that night, the Storyteller wakes the Empath again and gives a “0”. The following day, when the Empath privately asks what happened, the Storyteller explains that the first number was a mistake, and the second number is correct. To avoid revealing too much, the Storyteller waits until the next day to inform the group that a mistake was made.",
+      "The Imp was executed today. The Storyteller wakes the sober & healthy Undertaker, and deliberately (and incorrectly) shows the Recluse token. Later that night, the Storyteller again wakes the Undertaker and shows the Imp token. In the morning, the Storyteller tells the group that a mistake was made in the night, but corrected.",
+      "The Yaggababble is executed and dies. The Storyteller accidentally declares that the game is over and good has wun. However, the Scarlet Woman is still alive. The Storyteller declares that a mistake has been made, and that the game continus.",
+      "Ben is the Shabaloth. At night, Ben kills Amy and Doug. In the morning, the Storyteller deliberately declares that Ben and Lewis have died. After 30 seconds or so, the Storyteller says “Whoops, I had my Grimoire facing the wrong way. Ben and Lewis should not have died. They are still alive. Amy and Doug died during the night. Sorry, my mistake.”",
+      "The Storyteller forgot to wake the Poisoner last night. The Storyteller has a private chat with the Poisoner, tells them this, and tells them that every night from now on, they can choose as many players as they want, and the Storyteller will choose which of these players are poisoned.",
+      "The Chambermaid wakes and chooses a dead player, even though the Chambermaid must only choose living players. The Storyteller notices this, but does not correct the Chambermaid. Instead, the Storyteller deliberately gives false information to the Chambermaid. The next day, the Storyteller requests a private chat with the Chambermaid, tells them that they made a mistake by allowing them to choose a dead player, and prompts them to choose two living players immediately. The Storyteller gives correct information this time."
+    ]
+  },
+  "how_to_run": {
+    "en": "At the start of the game, declare that the Deus ex Fiasco is in play. Ignore any groans and complaints from players."
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Deus_ex_Fiasco",
+  "image": "assets/tokens/deus_ex_fiasco.png"
+}

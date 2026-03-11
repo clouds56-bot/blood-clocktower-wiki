@@ -1,0 +1,40 @@
+{
+  "id": "apprentice",
+  "type": "traveller",
+  "name": {
+    "en": "Apprentice",
+    "cn": "学徒"
+  },
+  "ability": {
+    "en": "On your 1st night, you gain a Townsfolk ability (if good) or a Minion ability (if evil)."
+  },
+  "flavor_text": {
+    "en": "\"For years have I traveled, studying the ways of The Craft. Which craft, you ask? Simply that of the simple folk. Nothing to worry about. Not yet.\""
+  },
+  "editions": [
+    "bad_moon_rising"
+  ],
+  "first_night": true,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "examples": {
+    "en": [
+      "You will almost certainly want to choose a not-in-play character ability, because there is only one of each character token and the Apprentice needs to use that token.",
+      "The evil Apprentice gains the Assassin ability. That night, they kill the Fool.",
+      "The good Apprentice gains the Chambermaid ability. From now on, they learn who wakes at night. Later, the Gambler guesses that the Apprentice is the Tea Lady. The Gambler dies, because the Apprentice is not the Tea Lady, but the Apprentice."
+    ]
+  },
+  "tips": {
+    "en": [
+      "The strategy that you employ will depend almost entirely on which Townsfolk ability you gain. If you become the Gambler, then play the game as you would a normal Gambler. If you become a Sailor, then play the game as if you were a Sailor.",
+      "Feel free to lie about which character ability you gained. If you lie that you gained the Courtier's power, you may successfully lure the Demon into attacking you. The good team losing a Traveller at night is a much more favorable outcome than the good team losing a Townsfolk (because Travellers don't count as players for evil's \"two players left alive\" victory condition), so by tricking the Demon into attacking you, you've helped the good team. Similarly, you can lie about who you are to prevent the evil team from attacking you. An Assassin is unlikely to use their precious ability to kill an Apprentice Fool... but they may do so to remove an Apprentice Exorcist!",
+      "It is possible that you become the same character as someone else in play, but it is unlikely. Since there is only 1 of each token, the Storyteller will more often give you a not-in-play character's ability. Treat any players claiming to be the same character as you with suspicion."
+    ]
+  },
+  "how_to_run": {
+    "en": "During the first night after the Apprentice enters play, wake the Apprentice. Show them the YOU ARE info token, then a Townsfolk or Minion token. In the Grimoire, replace the Apprentice token with that character token, and mark them with the IS THE APPRENTICE reminder. That player remains the Apprentice but gains the ability of their character token."
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Apprentice",
+  "image": "assets/tokens/apprentice.png"
+}

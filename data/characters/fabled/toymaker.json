@@ -1,0 +1,32 @@
+{
+  "id": "toymaker",
+  "type": "fabled",
+  "name": {
+    "en": "Toymaker",
+    "cn": "玩具匠"
+  },
+  "ability": {
+    "en": "The Demon may choose not to attack & must do this at least once per game. Evil players get normal starting info."
+  },
+  "flavor_text": {
+    "en": "\"It buzzes! It walks down stairs! It keeps you warm at night! It tastes like sugar! The kiddies love it! Introducing... the brand new... Warm'o-buzzy-wuzzy-walk'a'bot-thingy-contraption! Fun for all ages!\""
+  },
+  "editions": [
+    "experimental"
+  ],
+  "first_night": false,
+  "other_nights": false,
+  "artist": "Aidan Roberts",
+  "jinxes": [],
+  "examples": {
+    "en": [
+      "On the second night, when five players are alive, the Imp chooses not to attack, which allows it to act during the final night. On the third night, when four players are alive, it kills a player.",
+      "On the second night, the Imp kills a player. On the third night, when just three players are alive, the Imp cannot attack because it is the final night."
+    ]
+  },
+  "how_to_run": {
+    "en": "At the start of the game, declare that the Toymaker is in play.\nAdd the Toymaker token to the Grimoire, and mark the Demon with the Toymaker’s FINAL NIGHT: NO ATTACK reminder."
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Toymaker",
+  "image": "assets/tokens/toymaker.png"
+}

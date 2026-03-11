@@ -1,0 +1,49 @@
+{
+  "id": "harlot",
+  "type": "traveller",
+  "name": {
+    "en": "Harlot",
+    "cn": "妓女"
+  },
+  "ability": {
+    "en": "Each night*, choose a living player: if they agree, you learn their character, but you both might die."
+  },
+  "flavor_text": {
+    "en": "\"Enchanté, Sailor. You look like you need someone to really listen to your troubles. I'm a good listener. Very, very good.\""
+  },
+  "editions": [
+    "sects_violets"
+  ],
+  "first_night": false,
+  "other_nights": true,
+  "artist": "Caitlin Murphy",
+  "jinxes": [],
+  "examples": {
+    "en": [
+      "When choosing whether to kill players, do what you feel is the most interesting and balanced. If the Demon reveals to the Harlot, you should not end the game by killing them.",
+      "The good Harlot wakes and chooses the Philosopher, who chooses to reveal. The next night, the Harlot chooses the No Dashii, who chooses not to reveal. The next night, the Harlot chooses the Mutant, who chooses to reveal. The Storyteller decides that the Harlot and Mutant die tonight.",
+      "The evil Harlot chooses the Sage, who reveals. The next day, the Harlot says the Sage is actually the Witch."
+    ]
+  },
+  "tips": {
+    "en": [
+      "Early in the game, learn as many players' characters as possible. If you can learn a player's character each night for 2 or 3 nights, this information might be enough for the good team to win the game. Even if you and another player die in the process, you can still talk, and your information is just as valid and helpful. Early in the game, an extra good player dying is hardly much of a sacrifice for the incredible knowledge you gain.",
+      "Late in the game, if you are still alive, be much more frugal and cautious with who you choose to encounter each night. At this stage, a good player dying may end the game, or put the good team in a very precarious position. Listen to the players talk, and decide which characters are expendable, and which players are not.",
+      "In Blood On The Clocktower, information trumps death. The Harlot is no exception. The information that you gain is well worth dying for, and well worth another player dying for, too. Communicate this fact to the group on day 1. Communicate this fact to the group on day 2. Communicate this fact every day until players agree to meet you at night time. The best case scenario is that you learn their character, and you both live - which is fantastic. The worst case scenario is that you learn their character, and you both die - which is still pretty good.",
+      "Choose players unexpectedly of a night time. Don't tell them beforehand that you plan to choose them. Evil players will usually say \"no\" immediately, whilst good players are more likely to hesitate longer, since they have a more difficult decision to make. If the Storyteller wakes you after a longer than normal time, you may have found a good player. This dynamic may not be true for your group. Use your best judgement.",
+      "Talk to players during the day to arrange a tryst, so that they are not surprised by you selecting them come dusk. Talk to as many players as possible each day, and find the ones who are keen to meet you tonight. This way, you can be sure to use your ability as much as possible, and learn as much information as possible. There is no point wasting your ability on people who refuse to let you learn their character.",
+      "Be suspicious of people who refuse to meet you at night. They may be a good character that want to stay alive as long as possible, such as a Flowergirl or a Savant, they might be evil, or they might be lying to you for other reasons.",
+      "Be prepared for evil players to reveal their character to you, even if they know that you are good. It is rare, but it does happen. Some evil players that you choose at night will reveal that they are evil because they are afraid that you will think that they are evil anyway if they don't. They may think that they have a much better chance convincing the group that they are good, but you are evil, once you tell the group what you learnt. Be prepared to go one-on-one with such a player - either they will get executed, you will get exiled or more likely both.",
+      "Tell the truth about good players you learn. This builds trust with them, and increases the likelihood that other good players will agree to meet you at night so they can reveal their character to you too.",
+      "Lie about good players you learn. The good player will think that you are evil, but there is a chance that evil players will think that you are evil too. Some games have been won by a crafty good Traveller who looks as evil as sin and starts a private conversation with a suspected evil player by saying \"The Demon wants you to exile me\", or \"I'm going to choose a Minion tonight, and make them look good\", and then judging the reactions of the Minion or Demon player. This strategy is risky, as you'll probably never be able to convince the good team that you are actually good unless evil takes the bait and takes you into their fold.",
+      "Lie about the characters of the good players you learn to the group, but plot in secret with the players whose characters you know. For example, if you learn that a certain player is the Sweetheart, you can tell them privately that you know who they are (they will believe you if they have not told anyone else they were the Sweetheart), but you both tell the group that they are the Clockmaker. The Demon will not want to kill the Clockmaker but will want to kill the Sweetheart, and you've just saved their life.",
+      "Tell the truth about evil players you learn. You know they are evil. Get them executed. If you learn that a player is a particular Demon, that is huge information for the group to use. If you learn that a particular Minion is in play, this can forewarn the group that a Pit-Hag, Witch or Cerenovus is working behind the scenes, and that the good team should be aware of it.",
+      "Lie about evil players you learn. This builds trust with both the evil team and the good team. The evil team may think that you are evil... and reveal information that they shouldn't. The good team will probably think that you are good... and keep you alive. After you've learnt another player or two's character, you can reveal that the first player you learn was actually evil."
+    ]
+  },
+  "how_to_run": {
+    "en": "Each night, wake the Harlot. The Harlot points at any player. Put the Harlot to sleep. Wake the chosen player, show them the THIS CHARACTER SELECTED YOU' info token, then the Harlot token. That player either nods their head yes or shakes their head no. Put that player to sleep."
+  },
+  "source_url": "https://wiki.bloodontheclocktower.com/Harlot",
+  "image": "assets/tokens/harlot.png"
+}
