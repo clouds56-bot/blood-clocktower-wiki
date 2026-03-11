@@ -24,19 +24,19 @@
       "snake_charmer",
       "town_crier"
     ],
-    "outsiders": [
+    "outsider": [
       "barber",
       "klutz",
       "mutant",
       "sweetheart"
     ],
-    "minions": [
+    "minion": [
       "cerenovus",
       "evil_twin",
       "pit_hag",
       "witch"
     ],
-    "demons": [
+    "demon": [
       "fang_gu",
       "no_dashii",
       "vigormortis",
@@ -60,17 +60,17 @@
       {
         "number": 3,
         "character": "evil_twin",
-        "type": "minions"
+        "type": "minion"
       },
       {
         "number": 4,
         "character": "witch",
-        "type": "minions"
+        "type": "minion"
       },
       {
         "number": 5,
         "character": "cerenovus",
-        "type": "minions"
+        "type": "minion"
       },
       {
         "number": 6,
@@ -97,37 +97,37 @@
       {
         "number": 1,
         "character": "pit_hag",
-        "type": "minions"
+        "type": "minion"
       },
       {
         "number": 2,
         "character": "fang_gu",
-        "type": "demons"
+        "type": "demon"
       },
       {
         "number": 3,
         "character": "vigormortis",
-        "type": "demons"
+        "type": "demon"
       },
       {
         "number": 4,
         "character": "no_dashii",
-        "type": "demons"
+        "type": "demon"
       },
       {
         "number": 5,
         "character": "vortox",
-        "type": "demons"
+        "type": "demon"
       },
       {
         "number": 6,
         "character": "barber",
-        "type": "outsiders"
+        "type": "outsider"
       },
       {
         "number": 7,
         "character": "sweetheart",
-        "type": "outsiders"
+        "type": "outsider"
       },
       {
         "number": 8,

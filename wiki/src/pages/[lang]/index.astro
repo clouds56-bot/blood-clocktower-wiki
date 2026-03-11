@@ -19,10 +19,10 @@ const base = getBasePath(validatedLang);
 const getCharCount = (edition: any) => {
   const chars = edition.data.characters || {};
   const townsfolk = chars.townsfolk?.length || 0;
-  const outsiders = chars.outsiders?.length || 0;
-  const minions = chars.minions?.length || 0;
-  const demons = chars.demons?.length || 0;
-  return { townsfolk, outsiders, minions, demons, total: townsfolk + outsiders + minions + demons };
+  const outsider = chars.outsider?.length || 0;
+  const minion = chars.minion?.length || 0;
+  const demon = chars.demon?.length || 0;
+  return { townsfolk, outsider, minion, demon, total: townsfolk + outsider + minion + demon };
 };
 ---
 

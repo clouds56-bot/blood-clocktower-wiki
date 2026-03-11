@@ -24,19 +24,19 @@
       "sailor",
       "tea_lady"
     ],
-    "outsiders": [
+    "outsider": [
       "goon",
       "lunatic",
       "moonchild",
       "tinker"
     ],
-    "minions": [
+    "minion": [
       "assassin",
       "devil_s_advocate",
       "godfather",
       "mastermind"
     ],
-    "demons": [
+    "demon": [
       "po",
       "pukka",
       "shabaloth",
@@ -50,7 +50,7 @@
       {
         "number": 1,
         "character": "lunatic",
-        "type": "outsiders"
+        "type": "outsider"
       },
       {
         "number": 2,
@@ -65,17 +65,17 @@
       {
         "number": 4,
         "character": "godfather",
-        "type": "minions"
+        "type": "minion"
       },
       {
         "number": 5,
         "character": "devil_s_advocate",
-        "type": "minions"
+        "type": "minion"
       },
       {
         "number": 6,
         "character": "pukka",
-        "type": "demons"
+        "type": "demon"
       },
       {
         "number": 7,
@@ -107,22 +107,22 @@
       {
         "number": 4,
         "character": "zombuul",
-        "type": "demons"
+        "type": "demon"
       },
       {
         "number": 5,
         "character": "shabaloth",
-        "type": "demons"
+        "type": "demon"
       },
       {
         "number": 6,
         "character": "po",
-        "type": "demons"
+        "type": "demon"
       },
       {
         "number": 7,
         "character": "assassin",
-        "type": "minions"
+        "type": "minion"
       },
       {
         "number": 8,
@@ -137,12 +137,12 @@
       {
         "number": 10,
         "character": "tinker",
-        "type": "outsiders"
+        "type": "outsider"
       },
       {
         "number": 11,
         "character": "moonchild",
-        "type": "outsiders"
+        "type": "outsider"
       }
     ]
   },

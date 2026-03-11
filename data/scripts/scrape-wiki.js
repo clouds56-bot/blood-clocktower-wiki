@@ -16,13 +16,12 @@ const BASE_URL = 'https://wiki.bloodontheclocktower.com';
 const OUTPUT_DIR = path.join(__dirname, '..', 'characters');
 const CACHE_DIR = path.join(__dirname, '..', '.cache', 'html');
 
-// Type mapping from category names (plural) to schema type (singular)
 const TYPE_MAPPING = {
   townsfolk: 'townsfolk',
-  outsiders: 'outsider',
-  minions: 'minion',
-  demons: 'demon',
-  travellers: 'traveller',
+  outsider: 'outsider',
+  minion: 'minion',
+  demon: 'demon',
+  traveller: 'traveller',
   fabled: 'fabled'
 };
 

@@ -34,7 +34,7 @@
       "princess",
       "village_idiot"
     ],
-    "outsiders": [
+    "outsider": [
       "damsel",
       "golem",
       "hatter",
@@ -47,7 +47,7 @@
       "snitch",
       "zealot"
     ],
-    "minions": [
+    "minion": [
       "boffin",
       "boomdandy",
       "fearmonger",
@@ -64,7 +64,7 @@
       "wraith",
       "xaan"
     ],
-    "demons": [
+    "demon": [
       "al_hadikhia",
       "kazali",
       "legion",

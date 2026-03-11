@@ -27,12 +27,30 @@ const characterMap = new Map(characters.map((c) => [c.id, c]));
 
 const typeLabels: Record<string, any> = {
   townsfolk: { en: 'Townsfolk', cn: '镇民' },
-  outsiders: { en: 'Outsiders', cn: '外来者' },
-  minions: { en: 'Minions', cn: '爪牙' },
-  demons: { en: 'Demons', cn: '恶魔' },
+  outsider: { en: 'Outsiders', cn: '外来者' },
+  minion: { en: 'Minions', cn: '爪牙' },
+  demon: { en: 'Demons', cn: '恶魔' },
+  traveller: { en: 'Travellers', cn: '旅行者' },
+  fabled: { en: 'Fabled', cn: '传奇' },
+  loric: { en: 'Loric', cn: 'Loric' },
+};
+
+const typeBadgeLabels: Record<string, any> = {
+  townsfolk: { en: 'Townsfolk', cn: '镇民' },
+  outsider: { en: 'Outsider', cn: '外来者' },
+  minion: { en: 'Minion', cn: '爪牙' },
+  demon: { en: 'Demon', cn: '恶魔' },
+  traveller: { en: 'Traveller', cn: '旅行者' },
+  fabled: { en: 'Fabled', cn: '传奇' },
+  loric: { en: 'Loric', cn: 'Loric' },
 };
 
 const getTypeLabel = (type: string) => typeLabels[type]?.[validatedLang] || type;
+const getTypeBadgeLabel = (type: string) => typeBadgeLabels[type]?.[validatedLang] || type;
+const isGoodType = (type: string) =>
+  type === 'townsfolk' || type === 'outsider' || type === 'traveller' || type === 'fabled';
+
+const getCharacterPath = (type: string, id: string) => `${type}/${id}`;
 
 const resolveImageSrc = (c: any) => {
   const imgField = c.data?.image;
@@ -74,7 +92,7 @@ const resolveImageSrc = (c: any) => {
     <section class="mb-10">
       <h2 class="font-display text-2xl mb-6 text-[color:var(--ink-50)] border-b soft-divider pb-2">{t('editions.characters')}</h2>
 
-      {['townsfolk', 'outsiders', 'minions', 'demons'].map((type) => {
+      {['townsfolk', 'outsider', 'minion', 'demon'].map((type) => {
         const chars = data.characters?.[type] || [];
         if (chars.length === 0) return null;
 
@@ -83,13 +101,13 @@ const resolveImageSrc = (c: any) => {
             <h3 class="font-display text-xl mb-4 text-[color:var(--ink-50)]">{getTypeLabel(type)}</h3>
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
               {chars.map((charId: string) => {
-                const fullCharId = `${type}/${charId}`;
+                const fullCharId = getCharacterPath(type, charId);
                 const char = characterMap.get(fullCharId) || characterMap.get(charId);
                 const charName = char?.data.name?.[validatedLang] || char?.data.name?.en || charId;
                 const charSubtitle = validatedLang === 'en' ? char?.data.name?.cn : char?.data.name?.en;
                 const summary = char?.data.summary?.[validatedLang] || char?.data.summary?.en || '';
                 const imageSrc = char ? resolveImageSrc(char) : '';
-                const isGood = ['townsfolk', 'outsiders'].includes(type);
+                const isGood = isGoodType(type);
                 const charPath = char ? char.id : fullCharId;
 
                 return (
@@ -107,7 +125,7 @@ const resolveImageSrc = (c: any) => {
                       {charSubtitle && <p class="text-xs sm:text-sm text-[color:var(--ink-200)] mt-1">{charSubtitle}</p>}
                       <div class="mt-2 flex items-center justify-center gap-2 text-xs uppercase tracking-widest text-[color:var(--ink-200)]">
                         <span class={`px-2 py-1 rounded-full border ${isGood ? 'border-[rgba(90,162,255,0.6)] text-[color:var(--accent-blue)]' : 'border-[rgba(255,90,90,0.6)] text-[color:var(--accent-red)]'}`}>
-                          {getTypeLabel(type).replace(/s$/, '')}
+                          {getTypeBadgeLabel(type)}
                         </span>
                       </div>
                       {summary && <p class="mt-2 text-xs text-[color:var(--ink-200)] line-clamp-2 leading-relaxed">{summary}</p>}
@@ -130,11 +148,12 @@ const resolveImageSrc = (c: any) => {
             <h3 class="font-display text-xl mb-4 text-[color:var(--ink-50)]">{t('editions.first_night')}</h3>
             <div class="space-y-2">
               {data.night_order.first_night.map((item: any) => {
-                const char = characterMap.get(`${item.type}/${item.character}`);
+                const fullCharId = getCharacterPath(item.type, item.character);
+                const char = characterMap.get(fullCharId) || characterMap.get(item.character);
                 const charName = char?.data.name?.[validatedLang] || char?.data.name?.en || item.character;
-                const typeLabel = typeLabels[item.type]?.[validatedLang] || item.type;
-                const isGood = ['townsfolk', 'outsiders'].includes(item.type);
-                const charPath = char ? char.id : `${item.type}/${item.character}`;
+                const typeLabel = getTypeLabel(item.type);
+                const isGood = isGoodType(item.type);
+                const charPath = char ? char.id : fullCharId;
 
                 return (
                   <div class="flex items-center gap-3 surface-panel rounded-xl p-3 border border-[rgba(215,180,106,0.2)]">
@@ -161,11 +180,12 @@ const resolveImageSrc = (c: any) => {
             <h3 class="font-display text-xl mb-4 text-[color:var(--ink-50)]">{t('editions.other_nights')}</h3>
             <div class="space-y-2">
               {data.night_order.other_nights.map((item: any) => {
-                const char = characterMap.get(`${item.type}/${item.character}`);
+                const fullCharId = getCharacterPath(item.type, item.character);
+                const char = characterMap.get(fullCharId) || characterMap.get(item.character);
                 const charName = char?.data.name?.[validatedLang] || char?.data.name?.en || item.character;
-                const typeLabel = typeLabels[item.type]?.[validatedLang] || item.type;
-                const isGood = ['townsfolk', 'outsiders'].includes(item.type);
-                const charPath = char ? char.id : `${item.type}/${item.character}`;
+                const typeLabel = getTypeLabel(item.type);
+                const isGood = isGoodType(item.type);
+                const charPath = char ? char.id : fullCharId;
 
                 return (
                   <div class="flex items-center gap-3 surface-panel rounded-xl p-3 border border-[rgba(215,180,106,0.2)]">

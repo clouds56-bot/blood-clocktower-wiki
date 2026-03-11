@@ -70,7 +70,7 @@ function getCandidateWikiUrls(data) {
  * Get all character JSON files
  */
 function getCharacterFiles() {
-  const types = ['townsfolk', 'outsiders', 'minions', 'demons', 'travellers', 'fabled', 'loric'];
+  const types = ['townsfolk', 'outsider', 'minion', 'demon', 'traveller', 'fabled', 'loric'];
   const files = [];
 
   for (const type of types) {

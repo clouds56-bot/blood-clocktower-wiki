@@ -49,10 +49,10 @@ function parseJsonl(filePath) {
 
 function teamToType(team) {
   if (team === 'townsfolk') return 'townsfolk';
-  if (team === 'outsider') return 'outsiders';
-  if (team === 'minion') return 'minions';
-  if (team === 'demon') return 'demons';
-  if (team === 'traveller') return 'travellers';
+  if (team === 'outsider') return 'outsider';
+  if (team === 'minion') return 'minion';
+  if (team === 'demon') return 'demon';
+  if (team === 'traveller') return 'traveller';
   if (team === 'fabled') return 'fabled';
   if (team === 'loric') return 'loric';
   return null;
@@ -86,10 +86,10 @@ function detectTypeFromId(id) {
     'toymaker'
   ]);
 
-  if (DEMONS.has(id)) return 'demons';
-  if (MINIONS.has(id)) return 'minions';
-  if (OUTSIDERS.has(id)) return 'outsiders';
-  if (TRAVELLERS.has(id)) return 'travellers';
+  if (DEMONS.has(id)) return 'demon';
+  if (MINIONS.has(id)) return 'minion';
+  if (OUTSIDERS.has(id)) return 'outsider';
+  if (TRAVELLERS.has(id)) return 'traveller';
   if (FABLED.has(id)) return 'fabled';
   return 'townsfolk';
 }
@@ -114,10 +114,10 @@ function toConfigLangKey(locale) {
 function buildConfigFromTool(toolFiles, wikiFiles) {
   const byType = {
     townsfolk: {},
-    outsiders: {},
-    minions: {},
-    demons: {},
-    travellers: {},
+    outsider: {},
+    minion: {},
+    demon: {},
+    traveller: {},
     fabled: {},
     loric: {}
   };
@@ -337,7 +337,7 @@ function writeCharacters(combined) {
   for (const char of combined.values()) {
     const type = char.type || detectTypeFromId(char.id);
     // Remove stale file from old type directory if it exists
-    for (const t of ['townsfolk','outsiders','minions','demons','travellers','fabled','loric']) {
+    for (const t of ['townsfolk','outsider','minion','demon','traveller','fabled','loric']) {
       if (t === type) continue;
       const stale = path.join(OUTPUT_DIR, t, `${char.id}.json`);
       if (fs.existsSync(stale)) fs.unlinkSync(stale);

@@ -97,16 +97,16 @@ function parseEnglishEdition(html, editionId) {
 function parseChineseCharacters($, cnToId) {
   const characters = {
     townsfolk: [],
-    outsiders: [],
-    minions: [],
-    demons: []
+    outsider: [],
+    minion: [],
+    demon: []
   };
 
   const typeMappings = {
     '镇民': 'townsfolk',
-    '外来者': 'outsiders',
-    '爪牙': 'minions',
-    '恶魔': 'demons'
+    '外来者': 'outsider',
+    '爪牙': 'minion',
+    '恶魔': 'demon'
   };
 
   for (const [cnType, enType] of Object.entries(typeMappings)) {
@@ -246,9 +246,9 @@ async function scrapeEdition(editionId, editionConfig, charactersMapping) {
     description: {},
     characters: {
       townsfolk: [],
-      outsiders: [],
-      minions: [],
-      demons: []
+      outsider: [],
+      minion: [],
+      demon: []
     },
     min_players: null,
     max_players: null,

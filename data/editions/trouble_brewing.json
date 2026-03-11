@@ -24,19 +24,19 @@
       "virgin",
       "washerwoman"
     ],
-    "outsiders": [
+    "outsider": [
       "butler",
       "drunk",
       "recluse",
       "saint"
     ],
-    "minions": [
+    "minion": [
       "baron",
       "poisoner",
       "scarlet_woman",
       "spy"
     ],
-    "demons": [
+    "demon": [
       "imp"
     ]
   },
@@ -47,12 +47,12 @@
       {
         "number": 1,
         "character": "spy",
-        "type": "minions"
+        "type": "minion"
       },
       {
         "number": 2,
         "character": "poisoner",
-        "type": "minions"
+        "type": "minion"
       },
       {
         "number": 3,
@@ -87,7 +87,7 @@
       {
         "number": 9,
         "character": "butler",
-        "type": "outsiders"
+        "type": "outsider"
       }
     ],
     "other_nights": [
@@ -99,12 +99,12 @@
       {
         "number": 2,
         "character": "scarlet_woman",
-        "type": "minions"
+        "type": "minion"
       },
       {
         "number": 3,
         "character": "imp",
-        "type": "demons"
+        "type": "demon"
       },
       {
         "number": 4,

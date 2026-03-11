@@ -18,10 +18,10 @@ const base = getBasePath(validatedLang);
 const getCharCount = (edition: any) => {
   const chars = edition.data.characters || {};
   const townsfolk = chars.townsfolk?.length || 0;
-  const outsiders = chars.outsiders?.length || 0;
-  const minions = chars.minions?.length || 0;
-  const demons = chars.demons?.length || 0;
-  return { townsfolk, outsiders, minions, demons, total: townsfolk + outsiders + minions + demons };
+  const outsider = chars.outsider?.length || 0;
+  const minion = chars.minion?.length || 0;
+  const demon = chars.demon?.length || 0;
+  return { townsfolk, outsider, minion, demon, total: townsfolk + outsider + minion + demon };
 };
 ---
 
@@ -96,13 +96,13 @@ const getCharCount = (edition: any) => {
                 {counts.townsfolk} {validatedLang === 'cn' ? '镇民' : 'Townsfolk'}
               </span>
               <span class="px-3 py-1 rounded-full border border-[rgba(90,162,255,0.4)] text-[color:var(--accent-blue)]">
-                {counts.outsiders} {validatedLang === 'cn' ? '外来者' : 'Outsiders'}
+                {counts.outsider} {validatedLang === 'cn' ? '外来者' : 'Outsiders'}
               </span>
               <span class="px-3 py-1 rounded-full border border-[rgba(255,90,90,0.4)] text-[color:var(--accent-red)]">
-                {counts.minions} {validatedLang === 'cn' ? '爪牙' : 'Minions'}
+                {counts.minion} {validatedLang === 'cn' ? '爪牙' : 'Minions'}
               </span>
               <span class="px-3 py-1 rounded-full border border-[rgba(255,90,90,0.4)] text-[color:var(--accent-red)]">
-                {counts.demons} {validatedLang === 'cn' ? '恶魔' : 'Demons'}
+                {counts.demon} {validatedLang === 'cn' ? '恶魔' : 'Demons'}
               </span>
             </div>
           </div>

@@ -196,7 +196,7 @@ async function scrapeTestCharacters() {
   const testCharacters = [
     { type: 'townsfolk', id: 'chef' },
     { type: 'townsfolk', id: 'washerwoman' },
-    { type: 'demons', id: 'imp' }
+    { type: 'demon', id: 'imp' }
   ];
   
   const mapping = loadMapping().characters;

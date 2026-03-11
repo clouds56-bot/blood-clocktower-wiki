@@ -416,7 +416,7 @@
         "cn": "无神论者"
       }
     },
-    "outsiders": {
+    "outsider": {
       "hermit": {
         "en": "Hermit",
         "es": "Ermitaño",
@@ -556,7 +556,7 @@
         "cn": "解谜大师"
       }
     },
-    "minions": {
+    "minion": {
       "mezepheles": {
         "en": "Mezepheles",
         "es": "Mezéfeles",
@@ -720,7 +720,7 @@
         "cn": "男爵"
       }
     },
-    "demons": {
+    "demon": {
       "yaggababble": {
         "en": "Yaggababble",
         "es": "Yaggablabla",
@@ -836,7 +836,7 @@
         "cn": "利维坦"
       }
     },
-    "travellers": {
+    "traveller": {
       "thief": {
         "en": "Thief",
         "es": "Ladrón",

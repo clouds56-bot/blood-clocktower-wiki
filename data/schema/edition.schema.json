@@ -31,17 +31,17 @@
           "items": { "type": "string" },
           "description": "Array of character IDs"
         },
-        "outsiders": {
+        "outsider": {
           "type": "array",
           "items": { "type": "string" },
           "description": "Array of character IDs"
         },
-        "minions": {
+        "minion": {
           "type": "array",
           "items": { "type": "string" },
           "description": "Array of character IDs"
         },
-        "demons": {
+        "demon": {
           "type": "array",
           "items": { "type": "string" },
           "description": "Array of character IDs"
