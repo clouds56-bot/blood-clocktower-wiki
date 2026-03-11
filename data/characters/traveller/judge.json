@@ -65,5 +65,6 @@
     "experimental"
   ],
   "artist": "John Grist",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/5/59/Icon_judge.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/5/59/Icon_judge.png",
+  "image": "assets/tokens/judge.png"
 }

@@ -119,5 +119,6 @@
       "reason": "The Zealot might register as evil to Legion."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/c/cb/Icon_legion.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/c/cb/Icon_legion.png",
+  "image": "assets/tokens/legion.png"
 }

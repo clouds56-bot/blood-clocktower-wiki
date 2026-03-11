@@ -76,6 +76,6 @@
       "reason": "If Riot nominates and executes an Innkeeper-protected player, good wins."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/0/0c/Icon_innkeeper.png",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/0/0c/Icon_innkeeper.png",
   "image": "assets/tokens/innkeeper.png"
 }

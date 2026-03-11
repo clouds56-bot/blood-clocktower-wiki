@@ -62,18 +62,21 @@ function detectTypeFromId(id) {
   const DEMONS = new Set([
     'al_hadikhia', 'fang_gu', 'imp', 'kazali', 'legion', 'leviathan', 'lil_monsta', 'lleech',
     'lord_of_typhon', 'no_dashii', 'ojo', 'po', 'pukka', 'riot', 'shabaloth', 'vigormortis',
-    'vortox', 'yaggababble', 'zombuul', 'ocha', 'hun_dun', 'taotie', 'qiongqi', 'taowu'
+    'vortox', 'yaggababble', 'zombuul', 'ocha',
+    'hun_dun', 'tao_tie', 'qiong_qi', 'tao_wu'
   ]);
   const MINIONS = new Set([
     'assassin', 'baron', 'boffin', 'boomdandy', 'cerenovus', 'devil_s_advocate', 'evil_twin',
     'fearmonger', 'goblin', 'godfather', 'harpy', 'marionette', 'mastermind', 'mezepheles',
     'organ_grinder', 'pit_hag', 'poisoner', 'psychopath', 'scarlet_woman', 'spy', 'summoner',
-    'vizier', 'widow', 'witch', 'wizard', 'wraith', 'xaan'
+    'vizier', 'widow', 'witch', 'wizard', 'wraith', 'xaan',
+    'rascal', 'corpse_walker', 'vixen'
   ]);
   const OUTSIDERS = new Set([
     'barber', 'butler', 'damsel', 'drunk', 'golem', 'goon', 'hatter', 'heretic', 'hermit',
     'klutz', 'lunatic', 'moonchild', 'mutant', 'ogre', 'plague_doctor', 'politician',
-    'puzzlemaster', 'recluse', 'saint', 'snitch', 'sweetheart', 'tinker', 'zealot'
+    'puzzlemaster', 'recluse', 'saint', 'snitch', 'sweetheart', 'tinker', 'zealot',
+    'pedant', 'enlightened_one', 'turncoat', 'bug_keeper'
   ]);
   const TRAVELLERS = new Set([
     'apprentice', 'barista', 'beggar', 'bishop', 'bone_collector', 'bureaucrat', 'butcher',
@@ -144,7 +147,7 @@ function buildConfigFromTool(toolFiles, wikiFiles) {
     const rows = parseJsonl(file);
     for (const row of rows) {
       const id = row.id;
-      if (!id) continue;
+      if (!id || !row.ability || !row.en_name) continue;
 
       let targetType = null;
       for (const [type, chars] of Object.entries(byType)) {
@@ -153,7 +156,13 @@ function buildConfigFromTool(toolFiles, wikiFiles) {
           break;
         }
       }
-      if (!targetType) continue;
+
+      // If not found in tool files, create new entry for CN-only characters
+      if (!targetType) {
+        targetType = row.type || detectTypeFromId(id);
+        if (!byType[targetType][id]) byType[targetType][id] = {};
+        if (row.en_name) byType[targetType][id].en = row.en_name;
+      }
 
       if (row.name) {
         byType[targetType][id].cn = row.name;
@@ -267,9 +276,21 @@ function buildCombinedCharacters(toolFiles, wikiFiles, tokenFile) {
 
     for (const row of rows) {
       const id = row.id || idByName.get(row.name) || normalizeId(row.en_name || row.name);
-      if (!id || !combined.has(id)) continue;
+      if (!id) continue;
 
-      const existing = combined.get(id);
+      // Skip non-character entries (editions, scripts, etc.)
+      if (!row.ability && !row.en_name) continue;
+
+      // Create new entry for CN-only characters not in tool files
+      let existing = combined.get(id);
+      if (!existing) {
+        existing = {
+          id,
+          type: row.type || detectTypeFromId(id),
+          name: {}
+        };
+      }
+
       const patch = {};
 
       if (!existing.name) existing.name = {};
@@ -321,11 +342,18 @@ function buildCombinedCharacters(toolFiles, wikiFiles, tokenFile) {
     }
   }
 
-  // 3) Token rows
+  // 3) Token rows (rename token_url to image_url for consistency)
   for (const row of parseJsonl(tokenFile)) {
     if (!row.id || !combined.has(row.id)) continue;
     const existing = combined.get(row.id);
-    existing.token_url = row.token_url;
+    existing.image_url = row.token_url;
+    
+    // Check if image file exists and set relative path
+    const imagePath = path.join(OUTPUT_DIR, '..', 'assets', 'tokens', `${row.id}.png`);
+    if (fs.existsSync(imagePath)) {
+      existing.image = `assets/tokens/${row.id}.png`;
+    }
+    
     combined.set(row.id, existing);
   }
 

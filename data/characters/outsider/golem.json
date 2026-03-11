@@ -61,5 +61,6 @@
     "experimental"
   ],
   "artist": "Anica Kelsen",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/2/2b/Icon_golem.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/2/2b/Icon_golem.png",
+  "image": "assets/tokens/golem.png"
 }

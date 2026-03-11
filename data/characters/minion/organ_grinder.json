@@ -77,5 +77,6 @@
       "reason": "If the Organ Grinder is causing eyes closed voting, the Butler may raise their hand to vote but their vote is only counted if their master voted too."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/6/61/Icon_organgrinder.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/6/61/Icon_organgrinder.png",
+  "image": "assets/tokens/organ_grinder.png"
 }

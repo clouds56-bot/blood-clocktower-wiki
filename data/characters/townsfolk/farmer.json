@@ -89,6 +89,6 @@
       "reason": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but does not die."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/f/fe/Icon_farmer.png",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/f/fe/Icon_farmer.png",
   "image": "assets/tokens/farmer.png"
 }

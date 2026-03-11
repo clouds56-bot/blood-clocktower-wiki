@@ -414,6 +414,58 @@
         "es": "Ateo",
         "sv": "Ateisten",
         "cn": "无神论者"
+      },
+      "banxian": {
+        "en": "Banxian",
+        "cn": "半仙"
+      },
+      "face_changer": {
+        "en": "Face Changer",
+        "cn": "变脸师"
+      },
+      "firewatcher": {
+        "en": "Firewatcher",
+        "cn": "打更人"
+      },
+      "waiter": {
+        "en": "Waiter",
+        "cn": "店小二"
+      },
+      "diva": {
+        "en": "Diva",
+        "cn": "歌伶"
+      },
+      "heshang": {
+        "en": "Heshang",
+        "cn": "和尚"
+      },
+      "brocadier": {
+        "en": "Brocadier",
+        "cn": "锦衣卫"
+      },
+      "herb_doctor": {
+        "en": "Herb Doctor",
+        "cn": "郎中"
+      },
+      "stargazer": {
+        "en": "Stargazer",
+        "cn": "钦天监"
+      },
+      "enlightened_one": {
+        "en": "Enlightened One",
+        "cn": "悟道者"
+      },
+      "actor": {
+        "en": "Actor",
+        "cn": "戏子"
+      },
+      "rascal": {
+        "en": "Rascal",
+        "cn": "熊孩子"
+      },
+      "yin_yang_diviner": {
+        "en": "Yin-Yang Diviner",
+        "cn": "阴阳师"
       }
     },
     "outsider": {
@@ -554,6 +606,22 @@
         "es": "Descifrador",
         "sv": "Pusselmästaren",
         "cn": "解谜大师"
+      },
+      "turncoat": {
+        "en": "Turncoat",
+        "cn": "逆臣"
+      },
+      "mr_misfortune": {
+        "en": "Mr. Misfortune",
+        "cn": "煞星"
+      },
+      "ambassador": {
+        "en": "Ambassador",
+        "cn": "使节"
+      },
+      "pedant": {
+        "en": "Pedant",
+        "cn": "书生"
       }
     },
     "minion": {
@@ -718,6 +786,22 @@
         "es": "Barón",
         "sv": "Baronen",
         "cn": "男爵"
+      },
+      "corpse_walker": {
+        "en": "Corpse Walker",
+        "cn": "赶尸人"
+      },
+      "vixen": {
+        "en": "Vixen",
+        "cn": "狐媚娘"
+      },
+      "imperialist": {
+        "en": "Imperialist",
+        "cn": "禁卫军"
+      },
+      "bug_keeper": {
+        "en": "Bug Keeper",
+        "cn": "养蛊人"
       }
     },
     "demon": {
@@ -834,6 +918,22 @@
         "es": "Leviatán",
         "sv": "Leviatan",
         "cn": "利维坦"
+      },
+      "hun_dun": {
+        "en": "Hun Dun",
+        "cn": "混沌"
+      },
+      "qiong_qi": {
+        "en": "Qiong Qi",
+        "cn": "穷奇"
+      },
+      "tao_tie": {
+        "en": "Tao Tie",
+        "cn": "饕餮"
+      },
+      "tao_wu": {
+        "en": "Tao Wu",
+        "cn": "梼杌"
       }
     },
     "traveller": {
@@ -943,6 +1043,10 @@
         "es": "Vudú",
         "sv": "Vodúnisten",
         "cn": "巫毒师"
+      },
+      "pauper": {
+        "en": "Pauper",
+        "cn": "叫花子"
       }
     },
     "fabled": {
@@ -1029,6 +1133,10 @@
         "es": "Juguetero",
         "sv": "Leksaksmakaren",
         "cn": "玩具匠"
+      },
+      "qi_lin": {
+        "en": "Qi Lin",
+        "cn": "麒麟"
       }
     },
     "loric": {

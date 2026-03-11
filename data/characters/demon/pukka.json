@@ -87,5 +87,6 @@
       "reason": "The Summoner may summon a Pukka on the 2nd night instead of the 3rd."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/f/f4/Icon_pukka.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/f/f4/Icon_pukka.png",
+  "image": "assets/tokens/pukka.png"
 }

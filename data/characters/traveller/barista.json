@@ -71,5 +71,6 @@
     "sects_violets"
   ],
   "artist": "Aidan Roberts",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/2/24/Icon_barista.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/2/24/Icon_barista.png",
+  "image": "assets/tokens/barista.png"
 }

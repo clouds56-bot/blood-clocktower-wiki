@@ -64,5 +64,6 @@
     "bad_moon_rising"
   ],
   "artist": "Aidan Roberts",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/2/21/Icon_matron.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/2/21/Icon_matron.png",
+  "image": "assets/tokens/matron.png"
 }

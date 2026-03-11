@@ -132,5 +132,6 @@
       "reason": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/c/cf/Icon_marionette.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/c/cf/Icon_marionette.png",
+  "image": "assets/tokens/marionette.png"
 }

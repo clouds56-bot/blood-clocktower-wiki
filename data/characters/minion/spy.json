@@ -127,5 +127,6 @@
       "reason": "If the Poppy Grower has their ability, the Spy does not see the Grimoire."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/5/54/Icon_spy.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/5/54/Icon_spy.png",
+  "image": "assets/tokens/spy.png"
 }

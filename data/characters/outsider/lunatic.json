@@ -81,5 +81,6 @@
       "reason": "The Mathematician might learn if the Lunatic attacks a different player than the real Demon attacked."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/6/64/Icon_lunatic.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/6/64/Icon_lunatic.png",
+  "image": "assets/tokens/lunatic.png"
 }

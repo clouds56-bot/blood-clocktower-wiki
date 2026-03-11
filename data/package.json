@@ -11,7 +11,7 @@
     "scrape:token": "node scripts/pipeline/token.js",
     "build:special": "node scripts/pipeline/special.js",
     "build:characters": "node scripts/pipeline/build.js",
-    "scrape:all": "pnpm run scrape:tool && pnpm run scrape:github && pnpm run scrape:en && pnpm run scrape:cn && pnpm run scrape:token && pnpm run build:characters && pnpm run build:special",
+    "scrape:all": "pnpm run scrape:tool && pnpm run scrape:github && pnpm run scrape:en && pnpm run scrape:cn && pnpm run scrape:token && pnpm run build:characters && pnpm run build:special && pnpm run download-images",
     "scrape:editions": "node scripts/scrape-editions.js",
     "download-images": "node scripts/download-images.js",
     "test": "echo \"No tests\" && exit 0"

@@ -103,5 +103,6 @@
     "experimental"
   ],
   "artist": "Caitlin Murphy",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/f/f2/Icon_mezepheles.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/f/f2/Icon_mezepheles.png",
+  "image": "assets/tokens/mezepheles.png"
 }

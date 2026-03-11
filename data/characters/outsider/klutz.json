@@ -61,5 +61,6 @@
     "sects_violets"
   ],
   "artist": "Aidan Roberts",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/b/bc/Icon_klutz.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/b/bc/Icon_klutz.png",
+  "image": "assets/tokens/klutz.png"
 }

@@ -83,5 +83,6 @@
       "reason": "The Zealot might register as evil to the Vizier."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/1/16/Icon_zealot.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/1/16/Icon_zealot.png",
+  "image": "assets/tokens/zealot.png"
 }

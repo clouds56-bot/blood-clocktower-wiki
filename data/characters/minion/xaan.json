@@ -91,5 +91,6 @@
     "experimental"
   ],
   "artist": "Steven Medway",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/0/0c/Icon_xaan.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/0/0c/Icon_xaan.png",
+  "image": "assets/tokens/xaan.png"
 }

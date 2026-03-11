@@ -65,5 +65,6 @@
     "experimental"
   ],
   "artist": "Chloe McDougall",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/e/e0/Icon_gnome.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/e/e0/Icon_gnome.png",
+  "image": "assets/tokens/gnome.png"
 }

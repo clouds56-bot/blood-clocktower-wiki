@@ -24,6 +24,22 @@ const SCRIPTS = [
   '%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A' // Chinese exclusive
 ];
 
+const EDITION_MAPPING = {
+  'trouble brewing': 'trouble_brewing',
+  'bad moon rising': 'bad_moon_rising',
+  'sects & violets': 'sects_violets',
+  'experimental characters': 'experimental'
+};
+
+const TYPE_MAPPING = {
+  '镇民': 'townsfolk',
+  '外来者': 'outsider',
+  '爪牙': 'minion',
+  '恶魔': 'demon',
+  '旅行者': 'traveller',
+  '传奇角色': 'fabled'
+};
+
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 async function fetchWithCache(url, urlParam) {
@@ -98,6 +114,16 @@ function extractCharacterData(html, cnName, urlParam) {
     }
   });
 
+  // Extract Character Type
+  let type = null;
+  $('li').each(function() {
+    const text = $(this).text();
+    if (text.includes('角色类型：') || text.includes('角色类型:')) {
+      const typeCn = text.replace(/角色类型[：:]\s*/, '').trim();
+      type = TYPE_MAPPING[typeCn] || null;
+    }
+  });
+
   let ability = extractSection($, '角色能力');
   
   if (!ability) {
@@ -137,6 +163,7 @@ function extractCharacterData(html, cnName, urlParam) {
     id,
     en_name: englishName,
     name: cnName,
+    type: type,
     ability: ability || null,
     flavor: flavorText || null,
     how_to_run: howToRun || null,

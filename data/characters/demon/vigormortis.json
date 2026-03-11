@@ -83,5 +83,6 @@
       "reason": "A Mastermind that has their ability keeps it if the Vigormortis dies."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/1/1a/Icon_vigormortis.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/1/1a/Icon_vigormortis.png",
+  "image": "assets/tokens/vigormortis.png"
 }

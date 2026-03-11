@@ -90,5 +90,6 @@
     "experimental"
   ],
   "artist": "Caitlin Murphy",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/6/60/Icon_harlot.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/6/60/Icon_harlot.png",
+  "image": "assets/tokens/harlot.png"
 }

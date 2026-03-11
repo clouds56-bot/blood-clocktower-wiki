@@ -104,5 +104,6 @@
       "reason": "If a Lord of Typhon is summoned, they must neighbor a Minion & their other neighbor becomes an evil Minion."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/c/cf/Icon_lordoftyphon.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/c/cf/Icon_lordoftyphon.png",
+  "image": "assets/tokens/lord_of_typhon.png"
 }

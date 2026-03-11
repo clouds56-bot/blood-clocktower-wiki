@@ -76,5 +76,6 @@
     "sects_violets"
   ],
   "artist": "Anica Kelsen",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/1/1f/Icon_shabaloth.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/1/1f/Icon_shabaloth.png",
+  "image": "assets/tokens/shabaloth.png"
 }

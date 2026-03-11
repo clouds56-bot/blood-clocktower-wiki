@@ -92,5 +92,6 @@
     "trouble_brewing"
   ],
   "artist": "Aidan Roberts",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/b/b1/Icon_poisoner.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/b/b1/Icon_poisoner.png",
+  "image": "assets/tokens/poisoner.png"
 }

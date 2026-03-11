@@ -114,5 +114,6 @@
       "reason": "If the Vizier is babysitting Lil' Monsta, they die when executed."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/c/c3/Icon_lilmonsta.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/c/c3/Icon_lilmonsta.png",
+  "image": "assets/tokens/lil_monsta.png"
 }

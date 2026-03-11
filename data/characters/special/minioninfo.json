@@ -6,15 +6,16 @@
   ],
   "virtual": true,
   "name": {
+    "en": "Minion Info",
     "zh-Hans": "爪牙信息",
     "sv": "Kumpan-info",
-    "es-419": "Información del Secuaz",
-    "en": "Minioninfo"
+    "es-419": "Información del Secuaz"
   },
   "source": "script_tool",
   "source_url": "https://script.bloodontheclocktower.com/",
   "night_reminder": {
     "first_night": {
+      "en": "If there are 7 or more players, wake all Minions: Show the *THIS IS THE DEMON* token. Point to the Demon. Show the *THESE ARE YOUR MINIONS* token. Point to the other Minions.",
       "zh-Hans": "如果有七名或更多玩家，唤醒所有爪牙：\n 展示“他是恶魔”信息标记。指向恶魔。",
       "sv": "Om det finns 7 eller fler spelare, väck alla Kumpaner. Visa kortet *DET HÄR ÄR DEMONEN*. Peka på Demonen. Visa kortet *DET HÄR ÄR DINA KUMPANER*. Peka på de andra Kumpanerna.",
       "es-419": "Si hay 7 o más jugadores, despierta a todos los Secuaces:\n\tMuéstrales la ficha de *ESTE ES EL DEMONIO*. Apunta al Demonio.\n\tMuéstrales la ficha de *ESTOS SON TUS SECUACES*. Apunta a los otros Secuaces."

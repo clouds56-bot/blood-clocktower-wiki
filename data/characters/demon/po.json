@@ -67,5 +67,6 @@
     "bad_moon_rising"
   ],
   "artist": "Anica Kelsen",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/b/b2/Icon_po.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/b/b2/Icon_po.png",
+  "image": "assets/tokens/po.png"
 }

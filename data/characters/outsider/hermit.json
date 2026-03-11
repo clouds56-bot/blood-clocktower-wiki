@@ -55,5 +55,6 @@
   "editions": [
     "experimental"
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/b/b4/Icon_hermit.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/b/b4/Icon_hermit.png",
+  "image": "assets/tokens/hermit.png"
 }

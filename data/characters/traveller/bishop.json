@@ -61,5 +61,6 @@
     "experimental"
   ],
   "artist": "John Grist",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/7/71/Icon_bishop.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/7/71/Icon_bishop.png",
+  "image": "assets/tokens/bishop.png"
 }

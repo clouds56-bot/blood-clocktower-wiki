@@ -81,6 +81,6 @@
       "reason": "If the Cannibal gains the Zealot ability, the Cannibal learns this."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/8/8e/Icon_cannibal.png",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/8/8e/Icon_cannibal.png",
   "image": "assets/tokens/cannibal.png"
 }

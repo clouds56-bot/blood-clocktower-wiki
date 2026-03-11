@@ -99,5 +99,6 @@
       "reason": "The Vizier wakes with the Fearmonger, learns who they choose and cannot choose to immediately execute that player."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/1/11/Icon_fearmonger.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/1/11/Icon_fearmonger.png",
+  "image": "assets/tokens/fearmonger.png"
 }

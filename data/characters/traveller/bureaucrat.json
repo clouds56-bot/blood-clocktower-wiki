@@ -82,5 +82,6 @@
     "experimental"
   ],
   "artist": "Aidan Roberts",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/b/b1/Icon_bureaucrat.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/b/b1/Icon_bureaucrat.png",
+  "image": "assets/tokens/bureaucrat.png"
 }

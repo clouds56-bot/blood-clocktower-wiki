@@ -85,5 +85,6 @@
     "sects_violets"
   ],
   "artist": "Aidan Roberts",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/7/7b/Icon_witch.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/7/7b/Icon_witch.png",
+  "image": "assets/tokens/witch.png"
 }

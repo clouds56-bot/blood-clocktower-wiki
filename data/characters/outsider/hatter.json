@@ -85,5 +85,6 @@
       "reason": "If the Summoner creates a second living Demon, deaths tonight are arbitrary."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/4/44/Icon_hatter.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/4/44/Icon_hatter.png",
+  "image": "assets/tokens/hatter.png"
 }

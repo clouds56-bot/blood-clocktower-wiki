@@ -72,5 +72,6 @@
       "reason": "If the Pit-Hag turns an evil player into the Goon, they can't turn good due to their own ability."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/6/6f/Icon_goon.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/6/6f/Icon_goon.png",
+  "image": "assets/tokens/goon.png"
 }

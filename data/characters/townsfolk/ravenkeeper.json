@@ -85,6 +85,6 @@
       "reason": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Ravenkeeper uses their ability but does not die."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/e/ef/Icon_ravenkeeper.png",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/e/ef/Icon_ravenkeeper.png",
   "image": "assets/tokens/ravenkeeper.png"
 }

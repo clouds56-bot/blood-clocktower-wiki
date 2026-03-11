@@ -69,5 +69,6 @@
     "experimental"
   ],
   "artist": "Aidan Roberts",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/3/3a/Icon_scapegoat.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/3/3a/Icon_scapegoat.png",
+  "image": "assets/tokens/scapegoat.png"
 }

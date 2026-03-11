@@ -112,5 +112,6 @@
     "experimental"
   ],
   "artist": "Lachlan Bastiaen",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/b/b5/Icon_wizard.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/b/b5/Icon_wizard.png",
+  "image": "assets/tokens/wizard.png"
 }

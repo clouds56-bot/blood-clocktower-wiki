@@ -74,6 +74,6 @@
       "reason": "The Summoner registers as the Demon to the Clockmaker."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/3/3d/Icon_clockmaker.png",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/3/3d/Icon_clockmaker.png",
   "image": "assets/tokens/clockmaker.png"
 }

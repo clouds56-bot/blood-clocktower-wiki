@@ -6,20 +6,22 @@
   ],
   "virtual": true,
   "name": {
+    "en": "Dusk",
     "zh-Hans": "黄昏",
     "sv": "Skymning",
-    "es-419": "Anochecer",
-    "en": "Dusk"
+    "es-419": "Anochecer"
   },
   "source": "script_tool",
   "source_url": "https://script.bloodontheclocktower.com/",
   "night_reminder": {
     "first_night": {
+      "en": "Start the Night Phase.",
       "zh-Hans": "夜晚阶段开始。",
       "sv": "Inled nattfasen.",
       "es-419": "Empieza la Fase de la Noche."
     },
     "other_nights": {
+      "en": "Start the Night Phase.",
       "zh-Hans": "夜晚阶段开始。",
       "sv": "Inled nattfasen.",
       "es-419": "Empieza la Fase de la Noche."

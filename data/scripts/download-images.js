@@ -8,6 +8,7 @@ const path = require('path');
 const cheerio = require('cheerio');
 
 const WIKI_BASE = 'https://wiki.bloodontheclocktower.com';
+const CN_WIKI_BASE = 'https://clocktower-wiki.gstonegames.com/index.php?title=';
 const CHARACTERS_DIR = path.join(__dirname, '..', 'characters');
 const TOKENS_DIR = path.join(__dirname, '..', 'assets', 'tokens');
 const CACHE_DIR = path.join(__dirname, '..', '.cache', 'html');
@@ -55,6 +56,12 @@ function getCandidateWikiUrls(data) {
     urls.push(`${WIKI_BASE}/${slugFromName}`);
   }
 
+  // For CN-only characters, use url_param to construct Chinese wiki URL
+  if (data.url_param) {
+    urls.push(`${WIKI_BASE}/${data.url_param}`);
+    urls.push(`${CN_WIKI_BASE}${data.url_param}`);
+  }
+
   const deduped = [];
   const seen = new Set();
   for (const url of urls) {
@@ -90,21 +97,29 @@ function getCharacterFiles() {
 /**
  * Extract image URL from character wiki page
  */
-function extractImageUrl(html) {
+function extractImageUrl(html, pageUrl) {
   const $ = cheerio.load(html);
-  const img = $('.infobox img, #character-details img').first();
+  const img = $('.infobox img, #character-details img, #mw-content-text img, .mw-parser-output img').first();
 
   if (!img.length) return null;
 
+  const srcset = img.attr('srcset');
+  const dataSrc = img.attr('data-src');
   const src = img.attr('src');
-  if (!src) return null;
+  const rawUrl = (srcset ? srcset.split(',').pop().trim().split(' ')[0] : null) || dataSrc || src;
+  if (!rawUrl) return null;
 
-  // Convert relative URL to absolute
-  if (src.startsWith('/')) {
-    return `${WIKI_BASE}${src}`;
+  let imageUrl = rawUrl;
+  if (rawUrl.startsWith('/')) {
+    const origin = new URL(pageUrl).origin;
+    imageUrl = `${origin}${rawUrl}`;
   }
 
-  return src;
+  // Convert thumbnail URL to original full-size image URL.
+  // e.g. /images/thumb/b/b7/Banxian.png/200px-Banxian.png -> /images/b/b7/Banxian.png
+  imageUrl = imageUrl.replace(/\/images\/thumb\/(.+?)\/\d+px-[^/]+$/i, '/images/$1');
+
+  return imageUrl;
 }
 
 /**
@@ -133,10 +148,13 @@ async function downloadImage(url, outputPath) {
 /**
  * Update character JSON with image path
  */
-function updateCharacterJson(jsonPath, imagePath) {
+function updateCharacterJson(jsonPath, imagePath, imageUrl) {
   try {
     const data = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
     data.image = path.relative(path.join(__dirname, '..'), imagePath).replace(/\\/g, '/');
+    if (imageUrl) {
+      data.image_url = imageUrl;
+    }
     fs.writeFileSync(jsonPath, JSON.stringify(data, null, 2));
     return true;
   } catch (error) {
@@ -181,7 +199,7 @@ async function downloadAllImages() {
       console.log(`    ⏭️  Skipped (file exists)`);
       // If JSON missing an image path, set it to the existing file
       if (!data.image) {
-        const jsonUpdated = updateCharacterJson(jsonPath, outputPath);
+        const jsonUpdated = updateCharacterJson(jsonPath, outputPath, null);
         if (jsonUpdated) {
           console.log(`    ✅ JSON updated with existing image path`);
         } else {
@@ -200,7 +218,7 @@ async function downloadAllImages() {
       for (const wikiUrl of candidateWikiUrls) {
         const urlParam = wikiUrl.split('/').pop();
         const html = await fetchWithCache(wikiUrl, urlParam);
-        imageUrl = extractImageUrl(html);
+        imageUrl = extractImageUrl(html, wikiUrl);
         if (imageUrl) break;
       }
 
@@ -216,7 +234,7 @@ async function downloadAllImages() {
 
       if (success) {
         // Update JSON with image path
-        const jsonUpdated = updateCharacterJson(jsonPath, outputPath);
+        const jsonUpdated = updateCharacterJson(jsonPath, outputPath, imageUrl);
         if (jsonUpdated) {
           console.log(`    ✅ Updated: ${data.image}`);
           results.downloaded.push(characterId);

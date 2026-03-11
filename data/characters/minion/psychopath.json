@@ -90,5 +90,6 @@
       "reason": "If the Psychopath is babysitting Lil' Monsta, they die when executed."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/a/a3/Icon_psychopath.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/a/a3/Icon_psychopath.png",
+  "image": "assets/tokens/psychopath.png"
 }

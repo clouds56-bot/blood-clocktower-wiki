@@ -70,5 +70,6 @@
     "sects_violets"
   ],
   "artist": "Aidan Roberts",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/e/eb/Icon_nodashii.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/e/eb/Icon_nodashii.png",
+  "image": "assets/tokens/no_dashii.png"
 }

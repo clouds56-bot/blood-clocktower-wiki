@@ -97,5 +97,6 @@
       "reason": "The Spy registers as evil to the Ogre."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/2/25/Icon_ogre.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/2/25/Icon_ogre.png",
+  "image": "assets/tokens/ogre.png"
 }

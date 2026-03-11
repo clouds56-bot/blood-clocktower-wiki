@@ -72,5 +72,6 @@
       "reason": "If the Summoner summons a dead player into the Zombuul, the Zombuul has already \"died once\"."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/1/15/Icon_zombuul.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/1/15/Icon_zombuul.png",
+  "image": "assets/tokens/zombuul.png"
 }

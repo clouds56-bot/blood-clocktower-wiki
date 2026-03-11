@@ -78,6 +78,6 @@
       "reason": "If the Marionette thinks that they are the Huntsman, the Damsel was added during setup."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/a/a1/Icon_huntsman.png",
+  "image_url": "https://wiki.bloodontheclocktower.com/images/a/a1/Icon_huntsman.png",
   "image": "assets/tokens/huntsman.png"
 }

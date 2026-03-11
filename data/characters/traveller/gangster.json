@@ -74,5 +74,6 @@
     "experimental"
   ],
   "artist": "Anica Kelsen",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/a/a5/Icon_gangster.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/a/a5/Icon_gangster.png",
+  "image": "assets/tokens/gangster.png"
 }

@@ -123,5 +123,6 @@
       "reason": "If there is a spare token, the Pit-Hag can create an extra Village Idiot. If so, the drunk Village Idiot might change."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/6/6b/Icon_pithag.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/6/6b/Icon_pithag.png",
+  "image": "assets/tokens/pit_hag.png"
 }

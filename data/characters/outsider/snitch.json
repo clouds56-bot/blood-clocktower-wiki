@@ -68,5 +68,6 @@
     "experimental"
   ],
   "artist": "John Grist",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/c/c1/Icon_snitch.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/c/c1/Icon_snitch.png",
+  "image": "assets/tokens/snitch.png"
 }

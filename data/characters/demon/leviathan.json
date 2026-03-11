@@ -144,5 +144,6 @@
       "reason": "If the Leviathan nominates and executes the Soldier, good wins."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/a/a7/Icon_leviathan.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/a/a7/Icon_leviathan.png",
+  "image": "assets/tokens/leviathan.png"
 }

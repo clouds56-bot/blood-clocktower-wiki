@@ -73,5 +73,6 @@
     "experimental"
   ],
   "artist": "Caitlin Murphy",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/7/7a/Icon_puzzlemaster.png"
+  "image_url": "https://wiki.bloodontheclocktower.com/images/7/7a/Icon_puzzlemaster.png",
+  "image": "assets/tokens/puzzlemaster.png"
 }
