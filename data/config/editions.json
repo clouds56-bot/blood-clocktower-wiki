@@ -23,6 +23,12 @@
       "cn": "实验性角色",
       "en_url_param": null,
       "cn_url_param": "实验性角色"
+    },
+    "temple_fair": {
+      "en": "Temple Fair",
+      "cn": "华灯初上",
+      "en_url_param": null,
+      "cn_url_param": "华灯初上"
     }
   }
 }

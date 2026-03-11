@@ -1,0 +1,54 @@
+{
+  "id": "temple_fair",
+  "name": {
+    "en": "Temple Fair",
+    "cn": "华灯初上"
+  },
+  "description": {
+    "cn": "恰逢上元佳节，全民张灯结彩，欢庆新一年的到来。"
+  },
+  "characters": {
+    "townsfolk": [
+      "actor",
+      "banxian",
+      "brocadier",
+      "diva",
+      "enlightened_one",
+      "face_changer",
+      "firewatcher",
+      "herb_doctor",
+      "heshang",
+      "rascal",
+      "stargazer",
+      "waiter",
+      "yin_yang_diviner"
+    ],
+    "outsider": [
+      "ambassador",
+      "mr_misfortune",
+      "pedant",
+      "turncoat"
+    ],
+    "minion": [
+      "bug_keeper",
+      "corpse_walker",
+      "imperialist",
+      "vixen"
+    ],
+    "demon": [
+      "hun_dun",
+      "qiong_qi",
+      "tao_tie",
+      "tao_wu"
+    ]
+  },
+  "min_players": null,
+  "max_players": null,
+  "night_order": {
+    "first_night": [],
+    "other_nights": []
+  },
+  "source_url": {
+    "cn": "https://clocktower-wiki.gstonegames.com/index.php?title=%E5%8D%8E%E7%81%AF%E5%88%9D%E4%B8%8A"
+  }
+}
