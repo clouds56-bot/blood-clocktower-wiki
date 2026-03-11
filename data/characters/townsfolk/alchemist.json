@@ -83,5 +83,6 @@
       "reason": "An Alchemist-Wraith has no Wraith ability & a Wraith is in play. After each execution, a living Alchemist-Wraith may publicly guess a living player as the Wraith. If correct, the Demon must choose the Wraith tonight."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/5/54/Icon_alchemist.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/5/54/Icon_alchemist.png",
+  "image": "assets/tokens/alchemist.png"
 }

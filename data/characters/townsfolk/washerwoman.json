@@ -83,5 +83,6 @@
     "trouble_brewing"
   ],
   "artist": "Aidan Roberts",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/8/85/Icon_washerwoman.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/8/85/Icon_washerwoman.png",
+  "image": "assets/tokens/washerwoman.png"
 }

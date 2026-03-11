@@ -87,5 +87,6 @@
     "sects_violets"
   ],
   "artist": "Caitlin Murphy",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/f/f2/Icon_dreamer.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/f/f2/Icon_dreamer.png",
+  "image": "assets/tokens/dreamer.png"
 }

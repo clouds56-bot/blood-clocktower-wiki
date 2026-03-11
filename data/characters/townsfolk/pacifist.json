@@ -63,5 +63,6 @@
     "bad_moon_rising"
   ],
   "artist": "Aidan Roberts",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/5/5d/Icon_pacifist.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/5/5d/Icon_pacifist.png",
+  "image": "assets/tokens/pacifist.png"
 }

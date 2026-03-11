@@ -72,5 +72,6 @@
     "experimental"
   ],
   "artist": "John Grist",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/9/92/Icon_lycanthrope.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/9/92/Icon_lycanthrope.png",
+  "image": "assets/tokens/lycanthrope.png"
 }

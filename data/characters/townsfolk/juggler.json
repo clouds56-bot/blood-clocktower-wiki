@@ -79,5 +79,6 @@
       "reason": "If the Juggler guesses on their first day and dies by execution, tonight the living Cannibal learns how many guesses the Juggler got correct."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/4/42/Icon_juggler.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/4/42/Icon_juggler.png",
+  "image": "assets/tokens/juggler.png"
 }

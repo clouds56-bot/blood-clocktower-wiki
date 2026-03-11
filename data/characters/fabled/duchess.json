@@ -50,5 +50,6 @@
     "experimental"
   ],
   "artist": "Caitlin Murphy",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/8/87/Icon_duchess.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/8/87/Icon_duchess.png",
+  "image": "assets/tokens/duchess.png"
 }

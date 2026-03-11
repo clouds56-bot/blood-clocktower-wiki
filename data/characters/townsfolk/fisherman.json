@@ -76,5 +76,6 @@
     "experimental"
   ],
   "artist": "Anica Kelsen",
-  "token_url": "https://wiki.bloodontheclocktower.com/images/1/19/Icon_fisherman.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/1/19/Icon_fisherman.png",
+  "image": "assets/tokens/fisherman.png"
 }

@@ -83,5 +83,6 @@
       "reason": "If Riot is in play, and at least 1 player is dead, the King learns an alive character each night."
     }
   ],
-  "token_url": "https://wiki.bloodontheclocktower.com/images/d/dc/Icon_king.png"
+  "token_url": "https://wiki.bloodontheclocktower.com/images/d/dc/Icon_king.png",
+  "image": "assets/tokens/king.png"
 }
