@@ -5,24 +5,31 @@ Our overarching goal is to create an interactive wiki website for Blood on the C
 This file serves as the definitive guide for all agentic coding assistants (e.g., Cursor, GitHub Copilot, opencode, custom AI agents) operating within this repository. 
 
 ## 1. Project Overview & Structure
-- `/scripts/`: Node.js utilities for scraping the official English and Chinese wikis, and downloading assets.
-- `/specs/`: Technical specifications, scraper rules, and data policies.
-- `/characters/` & `/rules/`: Scraped JSON data following defined schemas.
-- `/assets/`: Downloaded images and media.
+- `data/`: scraping package and scraped data (characters, rules, assets, scripts)
+  - `data/scripts/` contains nodejs scraping scripts (CommonJS)
+  - `data/characters/`, `data/rules/`, `data/editions/` contain scraped JSON and content
+- `/specs/`: technical specifications, scraper rules, and data policies.
+- `/wiki/`: Astro frontend app (SSG) — dynamic `[lang]` routes are implemented under `wiki/src/pages/[lang]`.
+- `/assets/`: Downloaded images and media (mirrored into `wiki/public/assets` at build time)
 
 ## 2. Build, Lint, and Test Commands
 
-This repository is organised as a small pnpm workspace. The scraping package lives in `data/` and its scripts are under `data/scripts/`.
+This repository is organised as a small pnpm workspace with two packages:
+
+- `data/` — scraping utilities and scraped content (CommonJS Node scripts)
+- `wiki/` — Astro frontend app (ESM, TypeScript)
 
 Install dependencies (from the repo root):
 
 - `pnpm install`
 
-Run the scraping utilities (from the repo root):
+Common commands (run from repo root):
 
-- **Scrape Wiki (English)**: `pnpm run scrape` — runs `data/scripts/scrape-wiki.js`
-- **Scrape Chinese Wiki**: `pnpm run scrape:cn` — runs `data/scripts/scrape-chinese-wiki.js`
-- **Download Images**: `pnpm run download-images` — runs `data/scripts/download-images.js`
+- `pnpm --filter data run scrape` — Scrape English wiki (`data/scripts/scrape-wiki.js`)
+- `pnpm --filter data run scrape:cn` — Scrape Chinese wiki (`data/scripts/scrape-chinese-wiki.js`)
+- `pnpm --filter data run download-images` — Download assets referenced by scraped data
+- `pnpm --filter wiki run dev` — Run Astro dev server for the frontend
+- `pnpm --filter wiki run build` — Build the static site into `wiki/dist`
 
 You can also run the scripts directly with node if you prefer:
 
@@ -39,9 +46,11 @@ We encourage writing tests for pure functions (e.g., parsing logic, data transfo
   *Example*: `node --test-name-pattern="parseCharacterPage" tests/scrape-wiki.test.js`
 
 ### Linting & Formatting
+Prefer Prettier with 2-space indentation and the project's TypeScript settings for `wiki/`.
+
 If ESLint/Prettier is added to the project:
-- **Lint**: `npm run lint`
-- **Format**: `npm run format` (Prefer Prettier with 2-space indentation).
+- **Lint**: `pnpm --filter wiki run lint` (if a lint script is added)
+- **Format**: `pnpm --filter wiki run format`
 - Agents should proactively run linting commands after editing code if these scripts exist in `package.json`.
 
 ## 3. Code Style Guidelines
