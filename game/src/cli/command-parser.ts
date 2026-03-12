@@ -1,13 +1,15 @@
 import type { Command } from '../domain/commands.js';
-import type { Alignment, GamePhase, GameSubphase } from '../domain/types.js';
+import type { Alignment, GamePhase, GameState, GameSubphase, NominationRecord } from '../domain/types.js';
 
 export type CliLocalAction =
   | { type: 'help'; topic?: 'phase' | 'all' }
+  | { type: 'next_phase' }
   | { type: 'state'; format: 'brief' | 'json' }
   | { type: 'events'; count: number }
   | { type: 'players' }
   | { type: 'player'; player_id: string }
   | { type: 'new_game'; game_id: string }
+  | { type: 'quick_setup'; script: string; player_num: number; game_id?: string }
   | { type: 'quit' };
 
 export type ParsedCliLine =
@@ -19,6 +21,9 @@ export type ParsedCliLine =
 type DeathReason = 'execution' | 'night_death' | 'ability' | 'storyteller';
 
 function parse_int(value: string, field: string): number | null {
+  if (value.trim().length === 0) {
+    return null;
+  }
   const parsed = Number(value);
   if (!Number.isInteger(parsed)) {
     return null;
@@ -92,7 +97,63 @@ function invalid(message: string): ParsedCliLine {
   };
 }
 
-export function parse_cli_line(input: string): ParsedCliLine {
+function current_day_number(state?: GameState): number | null {
+  return state ? state.day_number : null;
+}
+
+function current_night_number(state?: GameState): number | null {
+  return state ? state.night_number : null;
+}
+
+function next_nomination_id(state?: GameState): string | null {
+  if (!state) {
+    return null;
+  }
+  return `n${state.day_state.nominations_today.length + 1}`;
+}
+
+function latest_nomination(state?: GameState): NominationRecord | null {
+  if (!state || state.day_state.nominations_today.length === 0) {
+    return null;
+  }
+  return state.day_state.nominations_today[state.day_state.nominations_today.length - 1] ?? null;
+}
+
+function find_nomination(state: GameState | undefined, nomination_id: string): NominationRecord | null {
+  if (!state) {
+    return null;
+  }
+  return state.day_state.nominations_today.find((item) => item.nomination_id === nomination_id) ?? null;
+}
+
+function default_opened_by_player_id(state?: GameState, nomination_id?: string): string | null {
+  if (!state) {
+    return null;
+  }
+  if (nomination_id) {
+    const nomination = find_nomination(state, nomination_id);
+    if (nomination) {
+      return nomination.nominator_player_id;
+    }
+  }
+  for (const player_id of state.seat_order) {
+    const player = state.players_by_id[player_id];
+    if (player?.alive) {
+      return player_id;
+    }
+  }
+  const first = Object.keys(state.players_by_id)[0];
+  return first ?? null;
+}
+
+function default_executed_player_id(state?: GameState): string | null {
+  if (!state) {
+    return null;
+  }
+  return state.day_state.executed_player_id;
+}
+
+export function parse_cli_line(input: string, state?: GameState): ParsedCliLine {
   const line = input.trim();
   if (line.length === 0) {
     return { ok: true, kind: 'empty' };
@@ -118,6 +179,9 @@ export function parse_cli_line(input: string): ParsedCliLine {
       return { ok: true, kind: 'local', action: { type: 'help', topic: 'phase' } };
     }
     return invalid('usage: help [all|phase]');
+  }
+  if (command === 'next-phase' || command === 'next' || command === 'n') {
+    return { ok: true, kind: 'local', action: { type: 'next_phase' } };
   }
   if (command === 'state') {
     const format = args[0] === 'json' ? 'json' : 'brief';
@@ -149,6 +213,25 @@ export function parse_cli_line(input: string): ParsedCliLine {
       return invalid('usage: new <game_id>');
     }
     return { ok: true, kind: 'local', action: { type: 'new_game', game_id } };
+  }
+
+  if (command === 'quick-setup' || command === 'quick-start' || command === 'start') {
+    const script = args[0];
+    const player_num = parse_int(args[1] ?? '', 'player_num');
+    const game_id = args[2];
+    if (!script || player_num === null) {
+      return invalid('usage: quick-setup <script> <player_num> [game_id]');
+    }
+    if (player_num < 5 || player_num > 15) {
+      return invalid('quick-setup currently supports player_num in range 5..15');
+    }
+    return {
+      ok: true,
+      kind: 'local',
+      action: game_id
+        ? { type: 'quick_setup', script, player_num, game_id }
+        : { type: 'quick_setup', script, player_num }
+    };
   }
 
   if (command === 'select-script') {
@@ -295,9 +378,12 @@ export function parse_cli_line(input: string): ParsedCliLine {
   }
 
   if (command === 'open-noms') {
-    const day_number = parse_int(args[0] ?? '', 'day_number');
+    const day_number =
+      args[0] === undefined
+        ? current_day_number(state)
+        : parse_int(args[0] ?? '', 'day_number');
     if (day_number === null) {
-      return invalid('usage: open-noms <day_number>');
+      return invalid('usage: open-noms [day_number]');
     }
     return {
       ok: true,
@@ -309,13 +395,33 @@ export function parse_cli_line(input: string): ParsedCliLine {
     };
   }
 
-  if (command === 'nominate') {
-    const nomination_id = args[0];
-    const day_number = parse_int(args[1] ?? '', 'day_number');
-    const nominator_player_id = args[2];
-    const nominee_player_id = args[3];
+  if (command === 'nominate' || command === 'nom') {
+    let nomination_id: string | null = null;
+    let day_number: number | null = null;
+    let nominator_player_id: string | undefined;
+    let nominee_player_id: string | undefined;
+
+    if (args.length === 2) {
+      nomination_id = next_nomination_id(state);
+      day_number = current_day_number(state);
+      nominator_player_id = args[0];
+      nominee_player_id = args[1];
+    } else if (args.length === 3) {
+      nomination_id = args[0] ?? null;
+      day_number = current_day_number(state);
+      nominator_player_id = args[1];
+      nominee_player_id = args[2];
+    } else {
+      nomination_id = args[0] ?? null;
+      day_number = parse_int(args[1] ?? '', 'day_number');
+      nominator_player_id = args[2];
+      nominee_player_id = args[3];
+    }
+
     if (!nomination_id || day_number === null || !nominator_player_id || !nominee_player_id) {
-      return invalid('usage: nominate <nomination_id> <day_number> <nominator_id> <nominee_id>');
+      return invalid(
+        'usage: nominate <nominator_id> <nominee_id> | nominate <nomination_id> <nominator_id> <nominee_id> | nominate <nomination_id> <day_number> <nominator_id> <nominee_id>'
+      );
     }
     return {
       ok: true,
@@ -333,11 +439,35 @@ export function parse_cli_line(input: string): ParsedCliLine {
   }
 
   if (command === 'open-vote') {
-    const nomination_id = args[0];
-    const nominee_player_id = args[1];
-    const opened_by_player_id = args[2];
+    let nomination_id: string | null = null;
+    let nominee_player_id: string | null = null;
+    let opened_by_player_id: string | null = null;
+
+    if (args.length === 0) {
+      const latest = latest_nomination(state);
+      nomination_id = latest?.nomination_id ?? null;
+      nominee_player_id = latest?.nominee_player_id ?? null;
+      opened_by_player_id = default_opened_by_player_id(state, nomination_id ?? undefined);
+    } else if (args.length === 1) {
+      nomination_id = args[0] ?? null;
+      const nomination = nomination_id && state ? find_nomination(state, nomination_id) : null;
+      nominee_player_id = nomination?.nominee_player_id ?? null;
+      opened_by_player_id = default_opened_by_player_id(state, nomination_id ?? undefined);
+    } else if (args.length === 2) {
+      nomination_id = args[0] ?? null;
+      opened_by_player_id = args[1] ?? null;
+      const nomination = nomination_id && state ? find_nomination(state, nomination_id) : null;
+      nominee_player_id = nomination?.nominee_player_id ?? null;
+    } else {
+      nomination_id = args[0] ?? null;
+      nominee_player_id = args[1] ?? null;
+      opened_by_player_id = args[2] ?? null;
+    }
+
     if (!nomination_id || !nominee_player_id || !opened_by_player_id) {
-      return invalid('usage: open-vote <nomination_id> <nominee_id> <opened_by_id>');
+      return invalid(
+        'usage: open-vote | open-vote <nomination_id> | open-vote <nomination_id> <opened_by_id> | open-vote <nomination_id> <nominee_id> <opened_by_id>'
+      );
     }
     return {
       ok: true,
@@ -354,11 +484,22 @@ export function parse_cli_line(input: string): ParsedCliLine {
   }
 
   if (command === 'vote') {
-    const nomination_id = args[0];
-    const voter_player_id = args[1];
-    const in_favor = parse_yes_no(args[2] ?? '');
+    let nomination_id: string | null = null;
+    let voter_player_id: string | undefined;
+    let in_favor: boolean | null = null;
+
+    if (args.length === 2) {
+      nomination_id = state?.day_state.active_vote?.nomination_id ?? null;
+      voter_player_id = args[0];
+      in_favor = parse_yes_no(args[1] ?? '');
+    } else {
+      nomination_id = args[0] ?? null;
+      voter_player_id = args[1];
+      in_favor = parse_yes_no(args[2] ?? '');
+    }
+
     if (!nomination_id || !voter_player_id || in_favor === null) {
-      return invalid('usage: vote <nomination_id> <voter_id> <yes|no>');
+      return invalid('usage: vote <voter_id> <yes|no> | vote <nomination_id> <voter_id> <yes|no>');
     }
     return {
       ok: true,
@@ -375,10 +516,16 @@ export function parse_cli_line(input: string): ParsedCliLine {
   }
 
   if (command === 'close-vote') {
-    const nomination_id = args[0];
-    const day_number = parse_int(args[1] ?? '', 'day_number');
+    const nomination_id =
+      args[0] === undefined
+        ? (state?.day_state.active_vote?.nomination_id ?? null)
+        : (args[0] ?? null);
+    const day_number =
+      args[1] === undefined
+        ? current_day_number(state)
+        : parse_int(args[1] ?? '', 'day_number');
     if (!nomination_id || day_number === null) {
-      return invalid('usage: close-vote <nomination_id> <day_number>');
+      return invalid('usage: close-vote [nomination_id] [day_number]');
     }
     return {
       ok: true,
@@ -394,9 +541,12 @@ export function parse_cli_line(input: string): ParsedCliLine {
   }
 
   if (command === 'resolve-exec') {
-    const day_number = parse_int(args[0] ?? '', 'day_number');
+    const day_number =
+      args[0] === undefined
+        ? current_day_number(state)
+        : parse_int(args[0] ?? '', 'day_number');
     if (day_number === null) {
-      return invalid('usage: resolve-exec <day_number>');
+      return invalid('usage: resolve-exec [day_number]');
     }
     return {
       ok: true,
@@ -409,9 +559,12 @@ export function parse_cli_line(input: string): ParsedCliLine {
   }
 
   if (command === 'resolve-conseq') {
-    const day_number = parse_int(args[0] ?? '', 'day_number');
+    const day_number =
+      args[0] === undefined
+        ? current_day_number(state)
+        : parse_int(args[0] ?? '', 'day_number');
     if (day_number === null) {
-      return invalid('usage: resolve-conseq <day_number>');
+      return invalid('usage: resolve-conseq [day_number]');
     }
     return {
       ok: true,
@@ -426,11 +579,17 @@ export function parse_cli_line(input: string): ParsedCliLine {
   if (command === 'apply-death') {
     const player_id = args[0];
     const reason = parse_death_reason(args[1] ?? '');
-    const day_number = parse_int(args[2] ?? '', 'day_number');
-    const night_number = parse_int(args[3] ?? '', 'night_number');
+    const day_number =
+      args[2] === undefined
+        ? current_day_number(state)
+        : parse_int(args[2] ?? '', 'day_number');
+    const night_number =
+      args[3] === undefined
+        ? current_night_number(state)
+        : parse_int(args[3] ?? '', 'night_number');
     if (!player_id || !reason || day_number === null || night_number === null) {
       return invalid(
-        'usage: apply-death <player_id> <execution|night_death|ability|storyteller> <day_number> <night_number>'
+        'usage: apply-death <player_id> <execution|night_death|ability|storyteller> [day_number] [night_number]'
       );
     }
     return {
@@ -449,10 +608,13 @@ export function parse_cli_line(input: string): ParsedCliLine {
   }
 
   if (command === 'survive-exec') {
-    const player_id = args[0];
-    const day_number = parse_int(args[1] ?? '', 'day_number');
+    const player_id = args[0] ?? default_executed_player_id(state);
+    const day_number =
+      args[1] === undefined
+        ? current_day_number(state)
+        : parse_int(args[1] ?? '', 'day_number');
     if (!player_id || day_number === null) {
-      return invalid('usage: survive-exec <player_id> <day_number>');
+      return invalid('usage: survive-exec [player_id] [day_number]');
     }
     return {
       ok: true,
@@ -468,10 +630,16 @@ export function parse_cli_line(input: string): ParsedCliLine {
   }
 
   if (command === 'check-win') {
-    const day_number = parse_int(args[0] ?? '', 'day_number');
-    const night_number = parse_int(args[1] ?? '', 'night_number');
+    const day_number =
+      args[0] === undefined
+        ? current_day_number(state)
+        : parse_int(args[0] ?? '', 'day_number');
+    const night_number =
+      args[1] === undefined
+        ? current_night_number(state)
+        : parse_int(args[1] ?? '', 'night_number');
     if (day_number === null || night_number === null) {
-      return invalid('usage: check-win <day_number> <night_number>');
+      return invalid('usage: check-win [day_number] [night_number]');
     }
     return {
       ok: true,
@@ -488,9 +656,9 @@ export function parse_cli_line(input: string): ParsedCliLine {
 
   if (command === 'force-win') {
     const winning_team = parse_alignment(args[0] ?? '');
-    const rationale = args.slice(1).join(' ').trim();
-    if (!winning_team || rationale.length === 0) {
-      return invalid('usage: force-win <good|evil> <rationale...>');
+    const rationale = args.slice(1).join(' ').trim() || 'cli_forced_victory';
+    if (!winning_team) {
+      return invalid('usage: force-win <good|evil> [rationale...]');
     }
     return {
       ok: true,
@@ -506,9 +674,12 @@ export function parse_cli_line(input: string): ParsedCliLine {
   }
 
   if (command === 'end-day') {
-    const day_number = parse_int(args[0] ?? '', 'day_number');
+    const day_number =
+      args[0] === undefined
+        ? current_day_number(state)
+        : parse_int(args[0] ?? '', 'day_number');
     if (day_number === null) {
-      return invalid('usage: end-day <day_number>');
+      return invalid('usage: end-day [day_number]');
     }
     return {
       ok: true,

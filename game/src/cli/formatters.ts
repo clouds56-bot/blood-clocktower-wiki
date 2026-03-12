@@ -53,24 +53,25 @@ export function format_help(topic: 'phase' | 'all'): string {
   if (topic === 'phase') {
     return [
       'phase flow (phase 3 + 3.1):',
-      '  phase first_night night_wake_sequence 0 1',
-      '  phase day open_discussion 1 1',
-      '  open-noms 1',
-      '  nominate n1 1 p1 p2',
-      '  open-vote n1 p2 p1',
-      '  vote n1 p1 yes',
-      '  close-vote n1 1',
-      '  resolve-exec 1',
-      '  resolve-conseq 1   (or survive-exec <player> 1)',
-      '  check-win 1 1',
-      '  end-day 1'
+      '  next-phase',
+      '  open-noms',
+      '  nominate p1 p2',
+      '  open-vote',
+      '  vote p1 yes',
+      '  close-vote',
+      '  resolve-exec',
+      '  resolve-conseq   (or survive-exec)',
+      '  check-win',
+      '  end-day'
     ].join('\n');
   }
 
   return [
     'local commands:',
     '  help [all|phase]',
+    '  next-phase | next | n',
     '  new <game_id>',
+    '  quick-setup | quick-start | start <script> <player_num> [game_id]',
     '  state [brief|json]',
     '  events [count]',
     '  players',
@@ -88,17 +89,19 @@ export function format_help(topic: 'phase' | 'all'): string {
     '  phase <phase> <subphase> <day_number> <night_number>',
     '',
     'engine day/death/win commands:',
-    '  open-noms <day_number>',
-    '  nominate <nomination_id> <day_number> <nominator_id> <nominee_id>',
-    '  open-vote <nomination_id> <nominee_id> <opened_by_id>',
-    '  vote <nomination_id> <voter_id> <yes|no>',
-    '  close-vote <nomination_id> <day_number>',
-    '  resolve-exec <day_number>',
-    '  resolve-conseq <day_number>',
-    '  apply-death <player_id> <execution|night_death|ability|storyteller> <day_number> <night_number>',
-    '  survive-exec <player_id> <day_number>',
-    '  check-win <day_number> <night_number>',
-    '  force-win <good|evil> <rationale...>',
-    '  end-day <day_number>'
+    '  open-noms [day_number]',
+    '  nominate | nom <nominator_id> <nominee_id>',
+    '  nominate | nom <nomination_id> <nominator_id> <nominee_id>',
+    '  nominate | nom <nomination_id> <day_number> <nominator_id> <nominee_id>',
+    '  open-vote [nomination_id] [opened_by_id]',
+    '  vote <voter_id> <yes|no> | vote <nomination_id> <voter_id> <yes|no>',
+    '  close-vote [nomination_id] [day_number]',
+    '  resolve-exec [day_number]',
+    '  resolve-conseq [day_number]',
+    '  apply-death <player_id> <execution|night_death|ability|storyteller> [day_number] [night_number]',
+    '  survive-exec [player_id] [day_number]',
+    '  check-win [day_number] [night_number]',
+    '  force-win <good|evil> [rationale...]',
+    '  end-day [day_number]'
   ].join('\n');
 }

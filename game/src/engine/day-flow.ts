@@ -87,7 +87,10 @@ export function handle_nominate_player(
   }
 
   if (!state.day_state.nomination_window_open || state.subphase !== 'nomination_window') {
-    return error('nomination_window_not_open', 'nomination requires nomination_window subphase');
+    return error(
+      'nomination_window_not_open',
+      `nomination requires nomination_window subphase with open window; got phase=${state.phase} subphase=${state.subphase} nomination_window_open=${state.day_state.nomination_window_open}`
+    );
   }
 
   const nominator = state.players_by_id[command.payload.nominator_player_id];
