@@ -96,34 +96,5 @@
     }
   ],
   "image": "assets/tokens/zealot.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Zealot",
-  "jinxed_by": [
-    {
-      "id": "cannibal",
-      "reason": {
-        "en": "If the Cannibal gains the Zealot ability, the Cannibal learns this.",
-        "cn": "如果食人族获得了狂热者的能力，他会得知这一信息。",
-        "es": "Si el Caníbal gana la habilidad del Fanático, el Caníbal aprende esto.",
-        "sv": "Om Kannibalen får Fanatikerns förmåga så får Kannibalen veta det."
-      }
-    },
-    {
-      "id": "legion",
-      "reason": {
-        "en": "The Zealot might register as evil to Legion.",
-        "cn": "狂热者可能会被军团当作邪恶玩家。",
-        "es": "El Fanático quizás se registre como malvado para la Legión.",
-        "sv": "Fanatikern kanske registreras som ond för Legionen."
-      }
-    },
-    {
-      "id": "vizier",
-      "reason": {
-        "en": "The Zealot might register as evil to the Vizier.",
-        "cn": "维齐尔的能力可能会将狂热者当作邪恶阵营。",
-        "es": "El Fanático quizás se registre como malvado para el Visir.",
-        "sv": "Fanatikern kanske registreras som ond för Vesiren."
-      }
-    }
-  ]
+  "source_url": "https://wiki.bloodontheclocktower.com/Zealot"
 }

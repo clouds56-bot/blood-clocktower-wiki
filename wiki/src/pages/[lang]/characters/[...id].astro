@@ -40,7 +40,6 @@ const characterMetaById = new Map(
 );
 const characterJinxRelations = [
   ...(data.jinxes || []),
-  ...(data.jinxed_by || []),
 ].map((jinx: { id: string; reason?: string | Record<string, string> }) => {
   const target = characterMetaById.get(jinx.id);
   const nameCn = target?.nameCn;

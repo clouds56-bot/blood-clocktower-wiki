@@ -100,25 +100,5 @@
     }
   ],
   "image": "assets/tokens/engineer.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Engineer",
-  "jinxed_by": [
-    {
-      "id": "legion",
-      "reason": {
-        "en": "If Legion is created, all evil players become Legion. If Legion is in play, the Engineer starts knowing this but has no ability.",
-        "cn": "如果工程师创造了军团，所有邪恶玩家会变成军团。如果军团在场，工程师不会拥有能力并改为得知这一信息。",
-        "es": "Si la Legión es creada, todos los jugadores malvados se convierten en Legión. Si la Legión está en juego, el Ingeniero empieza sabiendo esto, pero no tiene ninguna habilidad.",
-        "sv": "Om Legionen skapas så blir alla onda spelare till Legionen. Om Legionen är i spel så vet Ingenjören om det men har ingen förmåga."
-      }
-    },
-    {
-      "id": "summoner",
-      "reason": {
-        "en": "If the living Summoner is removed from play, the Storyteller has the Summoner ability.",
-        "cn": "如果存活的召唤师从游戏中离场，说书人会获得召唤师的能力。",
-        "es": "Si el Invocador vivo sale del juego, el Narrador posee la habilidad del Invocador.",
-        "sv": "Om den levande Åkallaren tas ur spel så får berättaren Åkallarens förmåga."
-      }
-    }
-  ]
+  "source_url": "https://wiki.bloodontheclocktower.com/Engineer"
 }

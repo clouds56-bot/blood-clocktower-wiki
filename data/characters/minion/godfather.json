@@ -88,16 +88,5 @@
     }
   ],
   "image": "assets/tokens/godfather.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Godfather",
-  "jinxed_by": [
-    {
-      "id": "heretic",
-      "reason": {
-        "en": "Only 1 jinxed character can be in play.",
-        "cn": "异端分子会被教父当作一个不在场的外来者，异端分子会知道是哪个外来者。",
-        "es": "Solo 1 de los roles conjurados puede estar en juego.",
-        "sv": "Endast 1 av rollerna får vara i spel."
-      }
-    }
-  ]
+  "source_url": "https://wiki.bloodontheclocktower.com/Godfather"
 }

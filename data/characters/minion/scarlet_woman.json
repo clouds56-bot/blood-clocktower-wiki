@@ -97,31 +97,5 @@
     }
   ],
   "image": "assets/tokens/scarlet_woman.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Scarlet_Woman",
-  "jinxed_by": [
-    {
-      "id": "al_hadikhia",
-      "reason": {
-        "en": "If there would be two Demons, one of which was the Scarlet Woman, the Scarlet Woman becomes the Scarlet Woman again."
-      }
-    },
-    {
-      "id": "fang_gu",
-      "reason": {
-        "en": "If there would be two Demons, one of which was the Scarlet Woman, the Scarlet Woman remains the Scarlet Woman."
-      }
-    },
-    {
-      "id": "lil_monsta",
-      "reason": {
-        "en": "If Lil' Monsta dies with 5 or more players alive, the Scarlet Woman babysits Lil' Monsta for the rest of the game."
-      }
-    },
-    {
-      "id": "plague_doctor",
-      "reason": {
-        "en": "If the Storyteller would gain the Scarlet Woman ability, a Minion gains it, and learns this."
-      }
-    }
-  ]
+  "source_url": "https://wiki.bloodontheclocktower.com/Scarlet_Woman"
 }

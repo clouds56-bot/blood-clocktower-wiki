@@ -100,25 +100,5 @@
     }
   ],
   "image": "assets/tokens/grandmother.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Grandmother",
-  "jinxed_by": [
-    {
-      "id": "leviathan",
-      "reason": {
-        "en": "If the Leviathan is in play and the Grandchild dies by execution, evil wins.",
-        "cn": "如果利维坦在场，孙子死于处决，邪恶阵营获胜。",
-        "es": "Si el Leviatán está en juego y el Nieto muere por ejecución, los malvados ganan.",
-        "sv": "Om Leviatan är i spel och barnbarnet dör av avrättning så vinner det onda laget."
-      }
-    },
-    {
-      "id": "riot",
-      "reason": {
-        "en": "If Riot is in play and the Grandchild dies by execution, evil wins.",
-        "cn": "如果暴乱在场，孙子死于处决，邪恶阵营获胜。",
-        "es": "Si el Disturbio está en juego y el Nieto muere por ejecución, los malvados ganan.",
-        "sv": "Om Kravallen är i spel och barnbarnet dör av avrättning så vinner det onda laget."
-      }
-    }
-  ]
+  "source_url": "https://wiki.bloodontheclocktower.com/Grandmother"
 }

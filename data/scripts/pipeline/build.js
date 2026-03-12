@@ -314,22 +314,26 @@ function applyJinxTranslationsAndReverseLinks(combined, jinxTranslations) {
     }
   }
 
-  for (const [id, incoming] of reverseById.entries()) {
-    const character = combined.get(id);
-    if (!character || incoming.length === 0) continue;
+  for (const character of combined.values()) {
+    const incoming = reverseById.get(character.id) || [];
+    const existing = Array.isArray(character.jinxes) ? character.jinxes : [];
 
-    const uniqueIncoming = [];
-    const seenSources = new Set();
-    for (const relation of incoming) {
-      if (!relation?.id || seenSources.has(relation.id)) continue;
-      seenSources.add(relation.id);
-      uniqueIncoming.push(relation);
+    const merged = [];
+    const seen = new Set();
+
+    for (const relation of [...existing, ...incoming]) {
+      if (!relation?.id || seen.has(relation.id)) continue;
+      seen.add(relation.id);
+      merged.push(relation);
     }
 
-    if (uniqueIncoming.length > 0) {
-      character.jinxed_by = uniqueIncoming;
-      combined.set(id, character);
+    if (merged.length > 0) {
+      character.jinxes = merged;
+    } else {
+      delete character.jinxes;
     }
+
+    delete character.jinxed_by;
   }
 }
 

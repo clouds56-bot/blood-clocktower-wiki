@@ -87,16 +87,5 @@
     }
   ],
   "image": "assets/tokens/vigormortis.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Vigormortis",
-  "jinxed_by": [
-    {
-      "id": "mastermind",
-      "reason": {
-        "en": "A Mastermind that has their ability keeps it if the Vigormortis dies.",
-        "cn": "如果亡骨魔死亡，被亡骨魔杀死的主谋依然保留能力。",
-        "es": "Una Mente Maestra que posee su habilidad la mantiene si el Vigormortis muere.",
-        "sv": "En Konspiratör som har sin förmåga behåller förmågan om Vigormortis dör."
-      }
-    }
-  ]
+  "source_url": "https://wiki.bloodontheclocktower.com/Vigormortis"
 }

@@ -90,19 +90,5 @@
     }
   ],
   "image": "assets/tokens/village_idiot.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Village_Idiot",
-  "jinxed_by": [
-    {
-      "id": "boffin",
-      "reason": {
-        "en": "If there is a spare token, the Boffin can give the Demon the Village Idiot ability."
-      }
-    },
-    {
-      "id": "pit_hag",
-      "reason": {
-        "en": "If there is a spare token, the Pit-Hag can create an extra Village Idiot. If so, the drunk Village Idiot might change."
-      }
-    }
-  ]
+  "source_url": "https://wiki.bloodontheclocktower.com/Village_Idiot"
 }

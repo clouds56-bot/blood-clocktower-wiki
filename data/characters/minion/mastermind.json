@@ -103,40 +103,5 @@
     }
   ],
   "image": "assets/tokens/mastermind.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Mastermind",
-  "jinxed_by": [
-    {
-      "id": "al_hadikhia",
-      "reason": {
-        "en": "If the Al-Hadikhia dies by execution, and the Mastermind is alive, the Al-Hadikhia chooses 3 good players tonight: if all 3 choose to live, evil wins. Otherwise, good wins."
-      }
-    },
-    {
-      "id": "alchemist",
-      "reason": {
-        "en": "An Alchemist-Mastermind has no Mastermind ability & the Mastermind is not-in-play.",
-        "cn": "如果炼金术士本应获得主谋的能力，那么他不会拥有该能力并改为主谋一定不在场。",
-        "es": "Un Alquimista-Mente Maestra no tiene la habilidad de la Mente Maestra, y además la Mente Maestra no está en juego.",
-        "sv": "En Alkemist-Konspiratör har inte Konspiratörens förmåga och Konspiratören är inte i spel."
-      }
-    },
-    {
-      "id": "lleech",
-      "reason": {
-        "en": "If the Mastermind is alive and the Lleech host dies by execution, the Lleech lives but loses their ability.",
-        "cn": "如果主谋存活且痢蛭的宿主死于处决，痢蛭存活但失去能力。",
-        "es": "Si la Mente Maestra está viva y la víctima de la Sanguijuela muere por ejecución, la Sanguijuela vive pero pierde su habilidad.",
-        "sv": "Om Konspiratören lever och Lleechs värd dör av avrättning så överlever Lleech men förlorar sin förmåga."
-      }
-    },
-    {
-      "id": "vigormortis",
-      "reason": {
-        "en": "A Mastermind that has their ability keeps it if the Vigormortis dies.",
-        "cn": "如果亡骨魔死亡，被亡骨魔杀死的主谋依然保留能力。",
-        "es": "Una Mente Maestra que posee su habilidad la mantiene si el Vigormortis muere.",
-        "sv": "En Konspiratör som har sin förmåga behåller förmågan om Vigormortis dör."
-      }
-    }
-  ]
+  "source_url": "https://wiki.bloodontheclocktower.com/Mastermind"
 }

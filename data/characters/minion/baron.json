@@ -89,22 +89,5 @@
     }
   ],
   "image": "assets/tokens/baron.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Baron",
-  "jinxed_by": [
-    {
-      "id": "heretic",
-      "reason": {
-        "en": "Only 1 jinxed character can be in play.",
-        "cn": "互为克星的角色在同一时间里只能有其中一个角色在场。",
-        "es": "Solo 1 de los roles conjurados puede estar en juego.",
-        "sv": "Endast 1 av rollerna får vara i spel."
-      }
-    },
-    {
-      "id": "plague_doctor",
-      "reason": {
-        "en": "If the Storyteller would gain the Baron ability, up to two players become Outsiders."
-      }
-    }
-  ]
+  "source_url": "https://wiki.bloodontheclocktower.com/Baron"
 }

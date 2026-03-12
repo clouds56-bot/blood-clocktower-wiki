@@ -87,25 +87,5 @@
     }
   ],
   "image": "assets/tokens/soldier.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Soldier",
-  "jinxed_by": [
-    {
-      "id": "leviathan",
-      "reason": {
-        "en": "If the Leviathan nominates and executes the Soldier, good wins.",
-        "cn": "如果利维坦提名并处决了士兵，善良阵营获胜。",
-        "es": "Si el Leviatán nomina y ejecuta al Soldado, los buenos ganan.",
-        "sv": "Om Leviatan nominerar och avrättar Soldaten så vinner goda laget."
-      }
-    },
-    {
-      "id": "riot",
-      "reason": {
-        "en": "If Riot nominates and executes the Soldier, good wins.",
-        "cn": "如果暴乱提名并处决了士兵，善良阵营获胜。",
-        "es": "Si el Disturbio nomina y ejecuta al Soldado, los buenos ganan.",
-        "sv": "Om Kravallen nominerar och avrättar Soldaten så vinner goda laget."
-      }
-    }
-  ]
+  "source_url": "https://wiki.bloodontheclocktower.com/Soldier"
 }

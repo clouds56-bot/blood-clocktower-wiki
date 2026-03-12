@@ -110,31 +110,5 @@
     }
   ],
   "image": "assets/tokens/damsel.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Damsel",
-  "jinxed_by": [
-    {
-      "id": "pit_hag",
-      "reason": {
-        "en": "If a Pit-Hag creates a Damsel, the Storyteller chooses which player it is."
-      }
-    },
-    {
-      "id": "spy",
-      "reason": {
-        "en": "If the Spy is (or has been) in play, the Damsel is poisoned.",
-        "cn": "如果间谍正在场或曾经在场，落难少女中毒。",
-        "es": "Si el Espía está (o ha estado) en juego, la Damisela está envenenada.",
-        "sv": "Om Spionen är (eller har varit) i spel så är Ungmön förgiftad."
-      }
-    },
-    {
-      "id": "widow",
-      "reason": {
-        "en": "If the Widow is (or has been) in play, the Damsel is poisoned.",
-        "cn": "如果寡妇正在场或曾经在场，落难少女中毒。",
-        "es": "Si la Viuda está (o ha estado) en juego, la Damisela está envenenada.",
-        "sv": "Om Änkan är (eller har varit) i spel så är Ungmön förgiftad."
-      }
-    }
-  ]
+  "source_url": "https://wiki.bloodontheclocktower.com/Damsel"
 }

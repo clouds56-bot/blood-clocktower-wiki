@@ -93,13 +93,5 @@
     }
   ],
   "image": "assets/tokens/evil_twin.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Evil_Twin",
-  "jinxed_by": [
-    {
-      "id": "plague_doctor",
-      "reason": {
-        "en": "If the Storyteller would gain the Evil Twin ability, a player becomes the Evil Twin."
-      }
-    }
-  ]
+  "source_url": "https://wiki.bloodontheclocktower.com/Evil_Twin"
 }

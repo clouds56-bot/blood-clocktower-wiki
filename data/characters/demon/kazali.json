@@ -102,31 +102,5 @@
     }
   ],
   "image": "assets/tokens/kazali.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Kazali",
-  "jinxed_by": [
-    {
-      "id": "bounty_hunter",
-      "reason": {
-        "en": "If the Kazali turns the Bounty Hunter into a Minion, an evil Townsfolk is not created."
-      }
-    },
-    {
-      "id": "marionette",
-      "reason": {
-        "en": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor.",
-        "cn": "如果提线木偶本应初始在场，他们会在恶魔之后进场并与恶魔邻座。",
-        "es": "Si hubiera una Marioneta en juego, ella entra en juego luego del Demonio y debe empezar como su vecina.",
-        "sv": "Om det skulle vara en Marionett i spel så läggs den till efter Demonen och måste börja som Demonens granne."
-      }
-    },
-    {
-      "id": "summoner",
-      "reason": {
-        "en": "If the Summoner creates a second living Demon, deaths tonight are arbitrary.",
-        "cn": "召唤师无法创造已经在场的恶魔。如果召唤师创造了一个不在场的恶魔，当晚的死亡由说书人决定。",
-        "es": "Si el Invocador crea un segundo Demonio vivo, las muertes esta noche son arbitrarias.",
-        "sv": "Om Åkallaren skapar en andra levande Demon så dör spelare godtyckligt inatt."
-      }
-    }
-  ]
+  "source_url": "https://wiki.bloodontheclocktower.com/Kazali"
 }

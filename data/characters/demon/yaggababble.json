@@ -102,16 +102,5 @@
     }
   ],
   "image": "assets/tokens/yaggababble.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Yaggababble",
-  "jinxed_by": [
-    {
-      "id": "exorcist",
-      "reason": {
-        "en": "If the Exorcist chooses the Yaggababble, the Yaggababble does not kill tonight.",
-        "cn": "如果驱魔人选中了牙噶巴卜，那么牙噶巴卜在当晚无法造成死亡。",
-        "es": "Si el Exorcista escoge al Yaggablabla, el Yaggablabla no mata esta noche.",
-        "sv": "Om Exorcisten väljer Yaggababbel så kan Yaggababbel inte döda någon inatt."
-      }
-    }
-  ]
+  "source_url": "https://wiki.bloodontheclocktower.com/Yaggababble"
 }

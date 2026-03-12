@@ -85,16 +85,5 @@
     }
   ],
   "image": "assets/tokens/lunatic.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Lunatic",
-  "jinxed_by": [
-    {
-      "id": "mathematician",
-      "reason": {
-        "en": "The Mathematician might learn if the Lunatic attacks a different player than the real Demon attacked.",
-        "cn": "数学家可能会得知疯子是否攻击了与真正的恶魔不同的目标。",
-        "es": "El Matemático quizás aprenda si el Lunático ataca a un jugador diferente al jugador atacado por el Demonio real.",
-        "sv": "Matematikern kanske får veta om Galningen attackerar någon annan än Demonen attackerar."
-      }
-    }
-  ]
+  "source_url": "https://wiki.bloodontheclocktower.com/Lunatic"
 }

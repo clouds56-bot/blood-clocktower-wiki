@@ -81,16 +81,5 @@
     }
   ],
   "image": "assets/tokens/huntsman.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Huntsman",
-  "jinxed_by": [
-    {
-      "id": "marionette",
-      "reason": {
-        "en": "If the Marionette thinks that they are the Huntsman, the Damsel was added during setup.",
-        "cn": "如果提线木偶抽到了巡山人，也会增加落难少女。",
-        "es": "Si la Marioneta cree que es el Cazador, la Damisela fue añadida durante la preparación del juego.",
-        "sv": "Om Marionetten tror sig vara Jägaren så har Ungmön lagts till."
-      }
-    }
-  ]
+  "source_url": "https://wiki.bloodontheclocktower.com/Huntsman"
 }

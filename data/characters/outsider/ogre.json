@@ -113,40 +113,5 @@
     }
   ],
   "image": "assets/tokens/ogre.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Ogre",
-  "jinxed_by": [
-    {
-      "id": "boffin",
-      "reason": {
-        "en": "The Demon cannot have the Ogre ability.",
-        "cn": "恶魔无法拥有食人魔的能力。",
-        "es": "El Demonio no puede poseer la habilidad del Ogro.",
-        "sv": "Demonen kan inte ha Resens förmåga."
-      }
-    },
-    {
-      "id": "pit_hag",
-      "reason": {
-        "en": "If the Pit-Hag turns an evil player into the Ogre, they can't turn good due to their own ability."
-      }
-    },
-    {
-      "id": "recluse",
-      "reason": {
-        "en": "If the Recluse registers as evil to the Ogre, the Ogre learns that they are evil.",
-        "cn": "如果陌客被食人魔当作邪恶阵营，食人魔会得知自己转变为邪恶。",
-        "es": "Si el Recluso se registra como malvado para el Ogro, el Ogro aprende que él es malvado.",
-        "sv": "Om Enstöringen registreras som ond för Resen får Resen veta att hen är ond."
-      }
-    },
-    {
-      "id": "spy",
-      "reason": {
-        "en": "The Spy registers as evil to the Ogre.",
-        "cn": "间谍必定被食人魔当作邪恶阵营。",
-        "es": "El Espía se registra como malvado para el Ogro.",
-        "sv": "Spionen registreras som ond för Resen."
-      }
-    }
-  ]
+  "source_url": "https://wiki.bloodontheclocktower.com/Ogre"
 }

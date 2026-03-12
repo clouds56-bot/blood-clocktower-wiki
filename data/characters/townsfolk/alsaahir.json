@@ -91,16 +91,5 @@
     }
   ],
   "image": "assets/tokens/alsaahir.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Alsaahir",
-  "jinxed_by": [
-    {
-      "id": "vizier",
-      "reason": {
-        "en": "The Storyteller doesn't declare the Vizier is in play.",
-        "cn": "说书人不会宣布维齐尔在场。",
-        "es": "El Narrador no declara que el Visir está en juego.",
-        "sv": "Berättaren meddelar inte att Vesiren är i spel."
-      }
-    }
-  ]
+  "source_url": "https://wiki.bloodontheclocktower.com/Alsaahir"
 }

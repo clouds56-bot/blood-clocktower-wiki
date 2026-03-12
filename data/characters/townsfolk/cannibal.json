@@ -99,43 +99,5 @@
     }
   ],
   "image": "assets/tokens/cannibal.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Cannibal",
-  "jinxed_by": [
-    {
-      "id": "butler",
-      "reason": {
-        "en": "If the Cannibal gains the Butler ability, the Cannibal learns this.",
-        "cn": "如果食人族获得了管家的能力，他会得知这一信息。",
-        "es": "Si el Caníbal gana la habilidad del Mayordomo, el Caníbal aprende esto.",
-        "sv": "Om Kannibalen får Butlerns förmåga så får Kannibalen veta det."
-      }
-    },
-    {
-      "id": "juggler",
-      "reason": {
-        "en": "If the Juggler guesses on their first day and dies by execution, tonight the living Cannibal learns how many guesses the Juggler got correct.",
-        "cn": "如果杂耍艺人在自己的首个白天猜测后在当天死于处决，当晚食人族会替杂耍艺人得知对应的信息。",
-        "es": "Si el Malabarista adivina en su primer día y muere por ejecución, esta noche el Caníbal vivo aprende cuántos intentos consiguió correctamente el Malabarista.",
-        "sv": "Om Jonglören gissar på första dagen och dör av avrättning så får den levande Kannibalen inatt veta hur många rätt Jonglören hade."
-      }
-    },
-    {
-      "id": "princess",
-      "reason": {
-        "en": "If the Cannibal nominated, executed, & killed the Princess today, the Demon doesn’t kill tonight.",
-        "cn": "如果食人族提名并处决了公主且公主因此死亡，当晚恶魔不会造成死亡。",
-        "es": "Si el Caníbal nominó, ejecutó, y mató a la Princesa hoy, el Demonio no mata esta noche.",
-        "sv": "Om Kannibalen nominerade, avrättade och dödade Prinsessan idag så kan Demonen inte döda inatt."
-      }
-    },
-    {
-      "id": "zealot",
-      "reason": {
-        "en": "If the Cannibal gains the Zealot ability, the Cannibal learns this.",
-        "cn": "如果食人族获得了狂热者的能力，他会得知这一信息。",
-        "es": "Si el Caníbal gana la habilidad del Fanático, el Caníbal aprende esto.",
-        "sv": "Om Kannibalen får Fanatikerns förmåga så får Kannibalen veta det."
-      }
-    }
-  ]
+  "source_url": "https://wiki.bloodontheclocktower.com/Cannibal"
 }

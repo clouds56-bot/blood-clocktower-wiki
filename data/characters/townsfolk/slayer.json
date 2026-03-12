@@ -81,16 +81,5 @@
     }
   ],
   "image": "assets/tokens/slayer.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Slayer",
-  "jinxed_by": [
-    {
-      "id": "lleech",
-      "reason": {
-        "en": "If the Slayer slays the Lleech host, the host dies.",
-        "cn": "如果猎手选择了痢蛭的宿主，则宿主会死亡。",
-        "es": "Si el Exterminador extermina a la víctima de la Sanguijuela, la víctima muere.",
-        "sv": "Om Dråparen dräper Lleechs värd så dör värden."
-      }
-    }
-  ]
+  "source_url": "https://wiki.bloodontheclocktower.com/Slayer"
 }

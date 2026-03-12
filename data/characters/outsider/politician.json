@@ -110,40 +110,5 @@
     }
   ],
   "image": "assets/tokens/politician.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Politician",
-  "jinxed_by": [
-    {
-      "id": "boffin",
-      "reason": {
-        "en": "The Demon cannot have the Politician ability.",
-        "cn": "恶魔无法拥有政客的能力。",
-        "es": "El Demonio no puede poseer la habilidad del Político.",
-        "sv": "Demonen kan inte ha Politikerns förmåga."
-      }
-    },
-    {
-      "id": "legion",
-      "reason": {
-        "en": "The Politician might register as evil to Legion.",
-        "cn": "政客可能会被军团当作邪恶玩家。",
-        "es": "El Político quizás se registre como malvado para la Legión.",
-        "sv": "Politikern kanske registreras som ond för Legionen."
-      }
-    },
-    {
-      "id": "pit_hag",
-      "reason": {
-        "en": "If the Pit-Hag turns an evil player into the Politician, they can't turn good due to their own ability."
-      }
-    },
-    {
-      "id": "vizier",
-      "reason": {
-        "en": "The Politician might register as evil to the Vizier.",
-        "cn": "维齐尔的能力可能会将政客当作邪恶阵营。",
-        "es": "El Político quizás se registre como malvado para el Visir.",
-        "sv": "Politikern kanske registreras som ond för Vesiren."
-      }
-    }
-  ]
+  "source_url": "https://wiki.bloodontheclocktower.com/Politician"
 }

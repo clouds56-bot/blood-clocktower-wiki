@@ -126,49 +126,5 @@
     }
   ],
   "image": "assets/tokens/lil_monsta.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Lil%27_Monsta",
-  "jinxed_by": [
-    {
-      "id": "hatter",
-      "reason": {
-        "en": "If the Hatter dies & the Demon chooses Lil' Monsta, they also choose a Minion to become."
-      }
-    },
-    {
-      "id": "magician",
-      "reason": {
-        "en": "If the Magician is alive, the Storyteller chooses which Minion babysits Lil' Monsta."
-      }
-    },
-    {
-      "id": "marionette",
-      "reason": {
-        "en": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor."
-      }
-    },
-    {
-      "id": "poppy_grower",
-      "reason": {
-        "en": "If Lil' Monsta & the Poppy Grower are alive, Minions wake one by one, until one of them chooses to take the Lil' Monsta token."
-      }
-    },
-    {
-      "id": "psychopath",
-      "reason": {
-        "en": "If the Psychopath is babysitting Lil' Monsta, they die when executed."
-      }
-    },
-    {
-      "id": "scarlet_woman",
-      "reason": {
-        "en": "If Lil' Monsta dies with 5 or more players alive, the Scarlet Woman babysits Lil' Monsta for the rest of the game."
-      }
-    },
-    {
-      "id": "vizier",
-      "reason": {
-        "en": "If the Vizier is babysitting Lil' Monsta, they die when executed."
-      }
-    }
-  ]
+  "source_url": "https://wiki.bloodontheclocktower.com/Lil%27_Monsta"
 }

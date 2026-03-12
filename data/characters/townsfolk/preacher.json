@@ -103,34 +103,5 @@
     }
   ],
   "image": "assets/tokens/preacher.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Preacher",
-  "jinxed_by": [
-    {
-      "id": "legion",
-      "reason": {
-        "en": "If the Preacher chooses Legion, Legion keeps their ability, but the Preacher might learn they are Legion.",
-        "cn": "如果传教士选中了军团，军团仍然保留能力，但传教士可能会得知自己选中了军团。",
-        "es": "Si el Predicador escoge a la Legión, la Legión mantiene su habilidad, pero el Predicador quizás aprenda que ella es la Legión.",
-        "sv": "Om Predikanten väljer Legionen så får Legionen behålla sin förmåga, men Predikanten kanske får veta att hen är Legionen."
-      }
-    },
-    {
-      "id": "summoner",
-      "reason": {
-        "en": "If the living Summoner has no ability, the Storyteller has the Summoner ability.",
-        "cn": "如果存活的召唤师失去能力，说书人会获得召唤师能力。",
-        "es": "Si el Invocador vivo no posee habilidad, el Narrador tiene la habilidad del Invocador.",
-        "sv": "Om den levande Åkallaren inte har någon förmåga så har berättaren Åkallarens förmåga."
-      }
-    },
-    {
-      "id": "vizier",
-      "reason": {
-        "en": "If the Vizier loses their ability, they learn this, and cannot die during the day.",
-        "cn": "如果维齐尔失去能力，他会得知此事，但不会在白天死亡。",
-        "es": "Si el Visir pierde su habilidad, él aprende esto, y no puede morir durante el día.",
-        "sv": "Om Vesiren förlorar sin förmåga så får hen veta det och kan inte dö på dagen."
-      }
-    }
-  ]
+  "source_url": "https://wiki.bloodontheclocktower.com/Preacher"
 }

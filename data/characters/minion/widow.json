@@ -140,49 +140,5 @@
     }
   ],
   "image": "assets/tokens/widow.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Widow",
-  "jinxed_by": [
-    {
-      "id": "alchemist",
-      "reason": {
-        "en": "An Alchemist-Widow has no Widow ability & a Widow is in play. After each execution, a living Alchemist-Widow may publicly guess a living player as the Widow. If correct, the Demon must choose the Widow tonight.",
-        "cn": "如果炼金术士本应获得寡妇的能力，那么他不会拥有该能力并改为寡妇一定在场。每次处决后，存活的炼金术士可以公开猜测一名存活玩家是寡妇：如果猜对了，恶魔今晚必须选择寡妇。",
-        "es": "El Alquimista-Viuda no tiene la habilidad de la Viuda, y además la Viuda está en juego. Luego de cada ejecución, un Alquimista-Viuda vivo puede públicamente adivinar qué jugador vivo es la Viuda. Si adivina correctamente, el Demonio debe escoger a la Viuda esta noche.",
-        "sv": "En Alkemist-Änka har inte Änkans förmåga och Änkan är i spel. Efter varje avrättning får den levande Alkemist-Änkan öppet gissa vilken levande spelare som är Änkan. Om hen gissar rätt måste Demonen välja Änkan inatt."
-      }
-    },
-    {
-      "id": "damsel",
-      "reason": {
-        "en": "If the Widow is (or has been) in play, the Damsel is poisoned.",
-        "cn": "如果寡妇正在场或曾经在场，落难少女中毒。",
-        "es": "Si la Viuda está (o ha estado) en juego, la Damisela está envenenada.",
-        "sv": "Om Änkan är (eller har varit) i spel så är Ungmön förgiftad."
-      }
-    },
-    {
-      "id": "heretic",
-      "reason": {
-        "en": "Only 1 jinxed character can be in play.",
-        "cn": "异端分子会被寡妇当作一个不在场的外来者，异端分子会知道是哪个外来者。",
-        "es": "Solo 1 de los roles conjurados puede estar en juego.",
-        "sv": "Endast 1 av rollerna får vara i spel."
-      }
-    },
-    {
-      "id": "magician",
-      "reason": {
-        "en": "When the Widow sees the Grimoire, the Demon and Magician's character tokens are removed.",
-        "cn": "当寡妇查看魔典时，魔术师和恶魔的标记会被说书人移除。",
-        "es": "Cuando la Viuda mira el Grimorio, las fichas de rol del Demonio y del Mago son removidas.",
-        "sv": "När Änkan ser grimoaren så är Demonens och Magikerns rollbrickor borttagna."
-      }
-    },
-    {
-      "id": "poppy_grower",
-      "reason": {
-        "en": "If the Poppy Grower has their ability, the Widow does not see the Grimoire."
-      }
-    }
-  ]
+  "source_url": "https://wiki.bloodontheclocktower.com/Widow"
 }
