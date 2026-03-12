@@ -10,6 +10,7 @@ export const cn = {
   'char.back': '← 返回角色列表',
   'char.ability': '能力',
   'char.tips': '提示与技巧',
+  'char.reminders': '提示标记',
   'char.examples': '示例',
   'char.how_to_run': '如何运行',
   'char.view_official': '在官方维基上查看',

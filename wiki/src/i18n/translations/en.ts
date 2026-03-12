@@ -10,6 +10,7 @@ export const en = {
   'char.back': '← Back to Characters',
   'char.ability': 'Ability',
   'char.tips': 'Tips & Tricks',
+  'char.reminders': 'Reminders',
   'char.examples': 'Examples',
   'char.how_to_run': 'How to Run',
   'char.view_official': 'View on Official Wiki',

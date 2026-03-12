@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { defaultLang, useTranslations, getBasePath, getSupportedLangs, getAssetUrl } from '../../../i18n/utils';
+import remindersData from '../../../../../data/config/reminders.json';
 
 const supportedLangCodes = getSupportedLangs().map(({ code }) => code);
 
@@ -20,6 +21,9 @@ const data = char.data;
 const { lang } = Astro.params;
 const validatedLang = lang && supportedLangCodes.includes(lang) ? lang : defaultLang;
 const { t } = useTranslations(validatedLang);
+
+const characterId = data.id || char.id.split('/').pop();
+const characterReminders = remindersData.reminders.filter(r => r.character_id === characterId);
 ---
 
 <BaseLayout title={`${data.name?.[validatedLang] || data.name?.en || data.id} | Wiki`}>
@@ -117,6 +121,21 @@ const { t } = useTranslations(validatedLang);
       <section class="mt-10 pt-6 border-t soft-divider">
         <h2 class="font-display text-2xl mb-4 text-[color:var(--ink-50)]">{t('char.how_to_run')}</h2>
         <p class="text-[color:var(--ink-200)]">{data.how_to_run?.[validatedLang]}</p>
+      </section>
+    )}
+
+    {characterReminders.length > 0 && (
+      <section class="mt-10 pt-6 border-t soft-divider">
+        <h2 class="font-display text-2xl mb-4 text-[color:var(--ink-50)]">{t('char.reminders')}</h2>
+        <div class="flex flex-wrap gap-3">
+          {characterReminders.map(r => (
+            <div class="bg-[color:var(--bg-800)] px-4 py-2 rounded-lg border border-[rgba(215,180,106,0.3)]">
+              <span class="text-[color:var(--ink-50)] font-medium">
+                {r.name?.[validatedLang] || r.name?.en || r.id}
+              </span>
+            </div>
+          ))}
+        </div>
       </section>
     )}
 
