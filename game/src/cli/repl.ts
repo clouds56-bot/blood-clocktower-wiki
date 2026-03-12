@@ -11,6 +11,8 @@ import {
   format_event,
   format_help,
   format_player,
+  format_prompt,
+  format_prompt_list,
   format_players_table,
   format_state_brief,
   format_state_json
@@ -449,6 +451,21 @@ function handle_local_action(context: CliContext, action: CliLocalAction): boole
     return true;
   }
 
+  if (action.type === 'prompts') {
+    process.stdout.write(`${format_prompt_list(context.state)}\n`);
+    return true;
+  }
+
+  if (action.type === 'prompt') {
+    const prompt = context.state.prompts_by_id[action.prompt_id];
+    if (!prompt) {
+      process.stdout.write(`prompt not found: ${action.prompt_id}\n`);
+      return true;
+    }
+    process.stdout.write(`${format_prompt(prompt)}\n`);
+    return true;
+  }
+
   if (action.type === 'new_game') {
     context.state = create_initial_state(action.game_id);
     context.event_log = [];
@@ -472,7 +489,7 @@ export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void
     next_command_index: 1
   };
 
-  process.stdout.write('Clocktower Engine CLI (Phase 3.1)\n');
+  process.stdout.write('Clocktower Engine CLI (Phase 4)\n');
   process.stdout.write(`${paint('type "help" for commands', 'yellow')}\n`);
   process.stdout.write(`${format_state_brief(context.state)}\n`);
 

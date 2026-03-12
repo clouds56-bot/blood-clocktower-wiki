@@ -77,3 +77,12 @@ test('validate_invariants checks ended game outcome fields', () => {
   const missingOutcome = issues.find((issue) => issue.code === 'ended_game_missing_outcome');
   assert.ok(missingOutcome);
 });
+
+test('validate_invariants detects dangling pending prompt ids', () => {
+  const state = create_initial_state('g1');
+  state.pending_prompts = ['pr_missing'];
+
+  const issues = validate_invariants(state);
+  const dangling = issues.find((issue) => issue.code === 'pending_prompt_missing');
+  assert.ok(dangling);
+});

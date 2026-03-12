@@ -1,5 +1,12 @@
 import type { Command } from '../domain/commands.js';
-import type { Alignment, GamePhase, GameState, GameSubphase, NominationRecord } from '../domain/types.js';
+import type {
+  Alignment,
+  GamePhase,
+  GameState,
+  GameSubphase,
+  NominationRecord,
+  PromptVisibility
+} from '../domain/types.js';
 
 export type CliLocalAction =
   | { type: 'help'; topic?: 'phase' | 'all' }
@@ -9,6 +16,8 @@ export type CliLocalAction =
   | { type: 'events'; count: number }
   | { type: 'players' }
   | { type: 'player'; player_id: string }
+  | { type: 'prompts' }
+  | { type: 'prompt'; prompt_id: string }
   | { type: 'new_game'; game_id: string }
   | { type: 'quick_setup'; script: string; player_num: number; game_id?: string }
   | { type: 'quit' };
@@ -86,6 +95,13 @@ function parse_yes_no(value: string): boolean | null {
 
 function parse_death_reason(value: string): DeathReason | null {
   if (value === 'execution' || value === 'night_death' || value === 'ability' || value === 'storyteller') {
+    return value;
+  }
+  return null;
+}
+
+function parse_prompt_visibility(value: string): PromptVisibility | null {
+  if (value === 'storyteller' || value === 'player' || value === 'public') {
     return value;
   }
   return null;
@@ -207,6 +223,16 @@ export function parse_cli_line(input: string, state?: GameState): ParsedCliLine 
       return invalid('usage: player <player_id>');
     }
     return { ok: true, kind: 'local', action: { type: 'player', player_id } };
+  }
+  if (command === 'prompts') {
+    return { ok: true, kind: 'local', action: { type: 'prompts' } };
+  }
+  if (command === 'prompt') {
+    const prompt_id = args[0];
+    if (!prompt_id) {
+      return invalid('usage: prompt <prompt_id>');
+    }
+    return { ok: true, kind: 'local', action: { type: 'prompt', prompt_id } };
   }
   if (command === 'new') {
     const game_id = args[0];
@@ -708,6 +734,71 @@ export function parse_cli_line(input: string, state?: GameState): ParsedCliLine 
         payload: {
           winning_team,
           rationale
+        }
+      }
+    };
+  }
+
+  if (command === 'create-prompt') {
+    const prompt_id = args[0];
+    const kind = args[1];
+    const visibility = parse_prompt_visibility(args[2] ?? '');
+    const reason = args.slice(3).join(' ').trim();
+    if (!prompt_id || !kind || !visibility || reason.length === 0) {
+      return invalid('usage: create-prompt <prompt_id> <kind> <storyteller|player|public> <reason...>');
+    }
+    return {
+      ok: true,
+      kind: 'engine',
+      command: {
+        command_type: 'CreatePrompt',
+        payload: {
+          prompt_id,
+          kind,
+          reason,
+          visibility,
+          options: []
+        }
+      }
+    };
+  }
+
+  if (command === 'resolve-prompt') {
+    const prompt_id = args[0];
+    const selected_option_id = args[1] === undefined || args[1] === '-' ? null : (args[1] ?? null);
+    const notes_text = args.slice(2).join(' ').trim();
+    if (!prompt_id) {
+      return invalid('usage: resolve-prompt <prompt_id> [selected_option_id|-] [notes...]');
+    }
+    return {
+      ok: true,
+      kind: 'engine',
+      command: {
+        command_type: 'ResolvePrompt',
+        payload: {
+          prompt_id,
+          selected_option_id,
+          freeform: null,
+          notes: notes_text.length > 0 ? notes_text : null
+        }
+      }
+    };
+  }
+
+  if (command === 'cancel-prompt') {
+    const prompt_id = args[0];
+    const reason = args.slice(1).join(' ').trim();
+    if (!prompt_id || reason.length === 0) {
+      return invalid('usage: cancel-prompt <prompt_id> <reason...>');
+    }
+    return {
+      ok: true,
+      kind: 'engine',
+      command: {
+        command_type: 'CancelPrompt',
+        payload: {
+          prompt_id,
+          reason
         }
       }
     };

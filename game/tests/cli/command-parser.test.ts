@@ -92,6 +92,18 @@ test('parse local commands', () => {
   if (events.ok && events.kind === 'local' && events.action.type === 'events') {
     assert.equal(events.action.count, 5);
   }
+
+  const prompts = parse_cli_line('prompts');
+  assert.equal(prompts.ok, true);
+  if (prompts.ok && prompts.kind === 'local') {
+    assert.equal(prompts.action.type, 'prompts');
+  }
+
+  const prompt = parse_cli_line('prompt pr1');
+  assert.equal(prompt.ok, true);
+  if (prompt.ok && prompt.kind === 'local' && prompt.action.type === 'prompt') {
+    assert.equal(prompt.action.prompt_id, 'pr1');
+  }
 });
 
 test('parse engine nominate command', () => {
@@ -135,6 +147,40 @@ test('invalid command gives usage', () => {
   assert.equal(parsed.ok, false);
   if (!parsed.ok) {
     assert.match(parsed.message, /usage: vote/);
+  }
+});
+
+test('parse prompt engine commands', () => {
+  const create = parse_cli_line('create-prompt pr1 false_info storyteller choose false info');
+  assert.equal(create.ok, true);
+  if (create.ok && create.kind === 'engine' && create.command.command_type === 'CreatePrompt') {
+    assert.deepEqual(create.command.payload, {
+      prompt_id: 'pr1',
+      kind: 'false_info',
+      reason: 'choose false info',
+      visibility: 'storyteller',
+      options: []
+    });
+  }
+
+  const resolve = parse_cli_line('resolve-prompt pr1 option_a note text');
+  assert.equal(resolve.ok, true);
+  if (resolve.ok && resolve.kind === 'engine' && resolve.command.command_type === 'ResolvePrompt') {
+    assert.deepEqual(resolve.command.payload, {
+      prompt_id: 'pr1',
+      selected_option_id: 'option_a',
+      freeform: null,
+      notes: 'note text'
+    });
+  }
+
+  const cancel = parse_cli_line('cancel-prompt pr1 no longer needed');
+  assert.equal(cancel.ok, true);
+  if (cancel.ok && cancel.kind === 'engine' && cancel.command.command_type === 'CancelPrompt') {
+    assert.deepEqual(cancel.command.payload, {
+      prompt_id: 'pr1',
+      reason: 'no longer needed'
+    });
   }
 });
 

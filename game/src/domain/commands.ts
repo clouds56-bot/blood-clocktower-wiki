@@ -1,4 +1,12 @@
-import type { Alignment, CommandId, GamePhase, GameSubphase, PlayerId } from './types.js';
+import type {
+  Alignment,
+  CommandId,
+  GamePhase,
+  GameSubphase,
+  PlayerId,
+  PromptOption,
+  PromptVisibility
+} from './types.js';
 
 export interface BaseCommand {
   command_id: CommandId;
@@ -25,6 +33,9 @@ export type CommandType =
   | 'ResolveExecutionConsequences'
   | 'ApplyDeath'
   | 'MarkPlayerSurvivedExecution'
+  | 'CreatePrompt'
+  | 'ResolvePrompt'
+  | 'CancelPrompt'
   | 'CheckWinConditions'
   | 'DeclareForcedVictory'
   | 'EndDay';
@@ -184,6 +195,35 @@ export interface MarkPlayerSurvivedExecutionCommand extends BaseCommand {
   };
 }
 
+export interface CreatePromptCommand extends BaseCommand {
+  command_type: 'CreatePrompt';
+  payload: {
+    prompt_id: string;
+    kind: string;
+    reason: string;
+    visibility: PromptVisibility;
+    options: PromptOption[];
+  };
+}
+
+export interface ResolvePromptCommand extends BaseCommand {
+  command_type: 'ResolvePrompt';
+  payload: {
+    prompt_id: string;
+    selected_option_id: string | null;
+    freeform: string | null;
+    notes: string | null;
+  };
+}
+
+export interface CancelPromptCommand extends BaseCommand {
+  command_type: 'CancelPrompt';
+  payload: {
+    prompt_id: string;
+    reason: string;
+  };
+}
+
 export interface CheckWinConditionsCommand extends BaseCommand {
   command_type: 'CheckWinConditions';
   payload: {
@@ -219,6 +259,9 @@ export type Command =
   | ResolveExecutionConsequencesCommand
   | ApplyDeathCommand
   | MarkPlayerSurvivedExecutionCommand
+  | CreatePromptCommand
+  | ResolvePromptCommand
+  | CancelPromptCommand
   | CheckWinConditionsCommand
   | DeclareForcedVictoryCommand
   | EndDayCommand;

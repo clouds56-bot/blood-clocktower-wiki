@@ -166,6 +166,50 @@ export function validate_invariants(state: GameState): InvariantIssue[] {
     }
   }
 
+  const seen_pending_prompt_ids = new Set<string>();
+  for (const [index, prompt_id] of state.pending_prompts.entries()) {
+    if (seen_pending_prompt_ids.has(prompt_id)) {
+      issues.push({
+        code: 'duplicate_pending_prompt_id',
+        message: `pending_prompts contains duplicate prompt id: ${prompt_id}`,
+        path: `pending_prompts.${index}`,
+        severity: 'error'
+      });
+    }
+    seen_pending_prompt_ids.add(prompt_id);
+
+    const prompt = state.prompts_by_id[prompt_id];
+    if (!prompt) {
+      issues.push({
+        code: 'pending_prompt_missing',
+        message: `pending_prompts references missing prompt: ${prompt_id}`,
+        path: `pending_prompts.${index}`,
+        severity: 'error'
+      });
+      continue;
+    }
+
+    if (prompt.status !== 'pending') {
+      issues.push({
+        code: 'pending_prompt_not_pending',
+        message: `pending prompt ${prompt_id} has non-pending status ${prompt.status}`,
+        path: `prompts_by_id.${prompt_id}.status`,
+        severity: 'error'
+      });
+    }
+  }
+
+  for (const [prompt_id, prompt] of Object.entries(state.prompts_by_id)) {
+    if (prompt.status !== 'pending' && prompt.resolved_at_event_id === null) {
+      issues.push({
+        code: 'resolved_prompt_missing_event_id',
+        message: `prompt ${prompt_id} is ${prompt.status} but has no resolved_at_event_id`,
+        path: `prompts_by_id.${prompt_id}.resolved_at_event_id`,
+        severity: 'error'
+      });
+    }
+  }
+
   if (state.status !== 'ended' && state.winning_team !== null) {
     issues.push({
       code: 'winning_team_present_before_end',

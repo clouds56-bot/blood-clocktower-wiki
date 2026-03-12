@@ -17,6 +17,11 @@ import {
   handle_resolve_execution_consequences
 } from './death-flow.js';
 import { handle_check_win_conditions, handle_declare_forced_victory } from './win-check.js';
+import {
+  handle_cancel_prompt,
+  handle_create_prompt,
+  handle_resolve_prompt
+} from '../adjudication/prompts.js';
 
 const MUTATING_COMMANDS: Set<Command['command_type']> = new Set([
   'SelectScript',
@@ -36,6 +41,9 @@ const MUTATING_COMMANDS: Set<Command['command_type']> = new Set([
   'ResolveExecutionConsequences',
   'ApplyDeath',
   'MarkPlayerSurvivedExecution',
+  'CreatePrompt',
+  'ResolvePrompt',
+  'CancelPrompt',
   'CheckWinConditions',
   'DeclareForcedVictory',
   'EndDay'
@@ -77,6 +85,12 @@ export function handle_command(
       return handle_apply_death(state, command, created_at);
     case 'MarkPlayerSurvivedExecution':
       return handle_mark_player_survived_execution(state, command, created_at);
+    case 'CreatePrompt':
+      return handle_create_prompt(state, command, created_at);
+    case 'ResolvePrompt':
+      return handle_resolve_prompt(state, command, created_at);
+    case 'CancelPrompt':
+      return handle_cancel_prompt(state, command, created_at);
     case 'CheckWinConditions':
       return handle_check_win_conditions(state, command, created_at);
     case 'DeclareForcedVictory':

@@ -1,5 +1,5 @@
 import type { DomainEvent } from '../domain/events.js';
-import type { GameState, PlayerState } from '../domain/types.js';
+import type { GameState, PlayerState, PromptState } from '../domain/types.js';
 
 const ANSI = {
   reset: '\x1b[0m',
@@ -98,10 +98,43 @@ export function format_players_table(state: GameState): string {
   return ['player_id\tdisplay_name\tlife\tdead_vote', ...rows].join('\n');
 }
 
+export function format_prompt_list(state: GameState): string {
+  if (state.pending_prompts.length === 0) {
+    return 'no pending prompts';
+  }
+
+  const rows = state.pending_prompts.map((prompt_id) => {
+    const prompt = state.prompts_by_id[prompt_id];
+    if (!prompt) {
+      return `${prompt_id}\t<missing>`;
+    }
+    return `${prompt.prompt_id}\t${prompt.kind}\t${prompt.visibility}\t${prompt.reason}`;
+  });
+
+  return ['prompt_id\tkind\tvisibility\treason', ...rows].join('\n');
+}
+
+export function format_prompt(prompt: PromptState): string {
+  const options = prompt.options.length === 0
+    ? 'none'
+    : prompt.options.map((option) => `${option.option_id}:${option.label}`).join(', ');
+  const selected_option_id = prompt.resolution_payload?.selected_option_id ?? 'null';
+  const freeform = prompt.resolution_payload?.freeform ?? 'null';
+
+  return [
+    `prompt_id=${prompt.prompt_id} status=${prompt.status}`,
+    `kind=${prompt.kind} visibility=${prompt.visibility}`,
+    `reason=${prompt.reason}`,
+    `options=${options}`,
+    `selected_option_id=${selected_option_id} freeform=${freeform}`,
+    `notes=${prompt.notes ?? 'null'} created_at_event_id=${prompt.created_at_event_id} resolved_at_event_id=${prompt.resolved_at_event_id ?? 'null'}`
+  ].join('\n');
+}
+
 export function format_help(topic: 'phase' | 'all'): string {
   if (topic === 'phase') {
     return [
-      paint('phase flow (phase 3 + 3.1):', 'cyan'),
+      paint('phase flow (phase 4):', 'cyan'),
       '  next-phase   (auto: open-noms/open-vote/close-vote/resolve-exec/resolve-conseq when applicable)',
       '  open-noms',
       '  nominate p1 p2',
@@ -125,6 +158,8 @@ export function format_help(topic: 'phase' | 'all'): string {
     '  events [count]',
     '  players',
     '  player <player_id>',
+    '  prompts',
+    '  prompt <prompt_id>',
     '  quit | exit',
     '',
     paint('engine setup commands:', 'cyan'),
@@ -151,6 +186,9 @@ export function format_help(topic: 'phase' | 'all'): string {
     '  survive-exec [player_id] [day_number]',
     '  check-win [day_number] [night_number]',
     '  force-win <good|evil> [rationale...]',
+    '  create-prompt <prompt_id> <kind> <storyteller|player|public> <reason...>',
+    '  resolve-prompt <prompt_id> [selected_option_id|-] [notes...]',
+    '  cancel-prompt <prompt_id> <reason...>',
     '  end-day [day_number]'
   ].join('\n');
 }

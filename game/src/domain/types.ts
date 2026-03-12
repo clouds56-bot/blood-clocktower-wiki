@@ -26,6 +26,38 @@ export type GameSubphase = DaySubphase | NightSubphase | SetupSubphase | EndedSu
 
 export type Alignment = 'good' | 'evil';
 
+export type PromptVisibility = 'storyteller' | 'player' | 'public';
+
+export interface PromptOption {
+  option_id: string;
+  label: string;
+}
+
+export interface PromptResolutionPayload {
+  selected_option_id: string | null;
+  freeform: string | null;
+}
+
+export interface PromptState {
+  prompt_id: string;
+  kind: string;
+  reason: string;
+  visibility: PromptVisibility;
+  options: PromptOption[];
+  status: 'pending' | 'resolved' | 'cancelled';
+  created_at_event_id: EventId;
+  resolved_at_event_id: EventId | null;
+  resolution_payload: PromptResolutionPayload | null;
+  notes: string | null;
+}
+
+export interface StorytellerNoteRecord {
+  note_id: string;
+  prompt_id: string | null;
+  text: string;
+  created_at_event_id: EventId;
+}
+
 export interface NominationRecord {
   nomination_id: string;
   nominator_player_id: PlayerId;
@@ -98,6 +130,9 @@ export interface GameState {
   day_state: DayState;
   execution_history: ExecutionRecord[];
   death_history: DeathRecord[];
+  prompts_by_id: Record<string, PromptState>;
+  pending_prompts: string[];
+  storyteller_notes: StorytellerNoteRecord[];
   winning_team: Alignment | null;
   end_reason: string | null;
   ended_at_event_id: EventId | null;
@@ -131,6 +166,10 @@ export type InvariantIssueCode =
   | 'alive_player_spent_dead_vote'
   | 'invalid_phase_subphase_combination'
   | 'active_vote_nomination_missing'
+  | 'duplicate_pending_prompt_id'
+  | 'pending_prompt_missing'
+  | 'pending_prompt_not_pending'
+  | 'resolved_prompt_missing_event_id'
   | 'winning_team_present_before_end'
   | 'ended_game_missing_outcome';
 

@@ -1,4 +1,16 @@
-import type { Alignment, DomainEventEnvelope, EditionId, GameId, GamePhase, GameSubphase, IsoTimestamp, PlayerId, ScriptId } from './types.js';
+import type {
+  Alignment,
+  DomainEventEnvelope,
+  EditionId,
+  GameId,
+  GamePhase,
+  GameSubphase,
+  IsoTimestamp,
+  PlayerId,
+  PromptOption,
+  PromptVisibility,
+  ScriptId
+} from './types.js';
 
 export interface BaseDomainEvent extends DomainEventEnvelope {
   event_type: DomainEventType;
@@ -26,6 +38,11 @@ export type DomainEventType =
   | 'ExecutionConsequencesResolved'
   | 'PlayerDied'
   | 'DeadVoteConsumed'
+  | 'PromptQueued'
+  | 'PromptResolved'
+  | 'PromptCancelled'
+  | 'StorytellerChoiceMade'
+  | 'StorytellerRulingRecorded'
   | 'WinCheckCompleted'
   | 'GameWon'
   | 'ForcedVictoryDeclared'
@@ -215,6 +232,52 @@ export interface DeadVoteConsumedEvent extends BaseDomainEvent {
   };
 }
 
+export interface PromptQueuedEvent extends BaseDomainEvent {
+  event_type: 'PromptQueued';
+  payload: {
+    prompt_id: string;
+    kind: string;
+    reason: string;
+    visibility: PromptVisibility;
+    options: PromptOption[];
+  };
+}
+
+export interface PromptResolvedEvent extends BaseDomainEvent {
+  event_type: 'PromptResolved';
+  payload: {
+    prompt_id: string;
+    selected_option_id: string | null;
+    freeform: string | null;
+    notes: string | null;
+  };
+}
+
+export interface PromptCancelledEvent extends BaseDomainEvent {
+  event_type: 'PromptCancelled';
+  payload: {
+    prompt_id: string;
+    reason: string;
+  };
+}
+
+export interface StorytellerChoiceMadeEvent extends BaseDomainEvent {
+  event_type: 'StorytellerChoiceMade';
+  payload: {
+    prompt_id: string;
+    selected_option_id: string | null;
+    freeform: string | null;
+  };
+}
+
+export interface StorytellerRulingRecordedEvent extends BaseDomainEvent {
+  event_type: 'StorytellerRulingRecorded';
+  payload: {
+    prompt_id: string | null;
+    note: string;
+  };
+}
+
 export interface WinCheckCompletedEvent extends BaseDomainEvent {
   event_type: 'WinCheckCompleted';
   payload: {
@@ -270,6 +333,11 @@ export type DomainEvent =
   | ExecutionConsequencesResolvedEvent
   | PlayerDiedEvent
   | DeadVoteConsumedEvent
+  | PromptQueuedEvent
+  | PromptResolvedEvent
+  | PromptCancelledEvent
+  | StorytellerChoiceMadeEvent
+  | StorytellerRulingRecordedEvent
   | WinCheckCompletedEvent
   | GameWonEvent
   | ForcedVictoryDeclaredEvent
