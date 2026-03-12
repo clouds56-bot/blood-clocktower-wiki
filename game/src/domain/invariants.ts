@@ -18,6 +18,30 @@ function has_required_player_fields(player: Partial<PlayerState>): boolean {
   );
 }
 
+function is_subphase_valid_for_phase(phase: GameState['phase'], subphase: GameState['subphase']): boolean {
+  if (phase === 'setup') {
+    return subphase === 'idle';
+  }
+  if (phase === 'first_night' || phase === 'night') {
+    return (
+      subphase === 'dusk' ||
+      subphase === 'night_wake_sequence' ||
+      subphase === 'immediate_interrupt_resolution' ||
+      subphase === 'dawn'
+    );
+  }
+  if (phase === 'day') {
+    return (
+      subphase === 'open_discussion' ||
+      subphase === 'nomination_window' ||
+      subphase === 'vote_in_progress' ||
+      subphase === 'execution_resolution' ||
+      subphase === 'day_end'
+    );
+  }
+  return phase === 'ended' && subphase === 'complete';
+}
+
 export function validate_invariants(state: GameState): InvariantIssue[] {
   const issues: InvariantIssue[] = [];
 
@@ -61,6 +85,15 @@ export function validate_invariants(state: GameState): InvariantIssue[] {
     issues.push({
       code: 'invalid_subphase',
       message: 'subphase must be a valid game subphase',
+      path: 'subphase',
+      severity: 'error'
+    });
+  }
+
+  if (!is_subphase_valid_for_phase(state.phase, state.subphase)) {
+    issues.push({
+      code: 'invalid_phase_subphase_combination',
+      message: `subphase ${state.subphase} is invalid for phase ${state.phase}`,
       path: 'subphase',
       severity: 'error'
     });
@@ -113,6 +146,20 @@ export function validate_invariants(state: GameState): InvariantIssue[] {
         message: `alive player ${player_key} should not have spent dead vote`,
         path: `players_by_id.${player_key}.dead_vote_available`,
         severity: 'warning'
+      });
+    }
+  }
+
+  if (state.day_state.active_vote) {
+    const active_nomination_exists = state.day_state.nominations_today.some(
+      (nomination) => nomination.nomination_id === state.day_state.active_vote?.nomination_id
+    );
+    if (!active_nomination_exists) {
+      issues.push({
+        code: 'active_vote_nomination_missing',
+        message: 'active vote references a nomination that does not exist in nominations_today',
+        path: 'day_state.active_vote.nomination_id',
+        severity: 'error'
       });
     }
   }

@@ -1,4 +1,4 @@
-import type { GameState } from './types.js';
+import { create_empty_day_state, type GameState } from './types.js';
 
 export function create_initial_state(game_id: string): GameState {
   return {
@@ -12,6 +12,8 @@ export function create_initial_state(game_id: string): GameState {
     night_number: 0,
     players_by_id: {},
     seat_order: [],
+    day_state: create_empty_day_state(),
+    execution_history: [],
     domain_events: []
   };
 }
