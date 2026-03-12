@@ -99,3 +99,68 @@ test('cannot resolve prompt twice', () => {
     assert.equal(result.error.code, 'prompt_not_pending');
   }
 });
+
+test('resolve unknown prompt is rejected deterministically', () => {
+  const state = create_initial_state('g1');
+
+  const result = handle_command(
+    state,
+    {
+      command_id: 'c_unknown',
+      command_type: 'ResolvePrompt',
+      actor_id: 'test',
+      payload: {
+        prompt_id: 'missing_prompt',
+        selected_option_id: null,
+        freeform: null,
+        notes: null
+      }
+    },
+    '2026-03-13T00:00:00.000Z'
+  );
+
+  assert.equal(result.ok, false);
+  if (!result.ok) {
+    assert.equal(result.error.code, 'prompt_not_found');
+  }
+});
+
+test('resolve prompt emits adjudication event stream', () => {
+  let state = create_initial_state('g1');
+  state = run(state, {
+    command_type: 'CreatePrompt',
+    payload: {
+      prompt_id: 'pr_emit',
+      kind: 'false_info',
+      reason: 'select misinformation target',
+      visibility: 'storyteller',
+      options: [{ option_id: 'opt_a', label: 'Option A' }]
+    }
+  });
+
+  const result = handle_command(
+    state,
+    {
+      command_id: 'c_emit',
+      command_type: 'ResolvePrompt',
+      actor_id: 'storyteller',
+      payload: {
+        prompt_id: 'pr_emit',
+        selected_option_id: 'opt_a',
+        freeform: null,
+        notes: 'chosen for balance'
+      }
+    },
+    '2026-03-13T00:00:00.000Z'
+  );
+
+  assert.equal(result.ok, true);
+  if (!result.ok) {
+    assert.fail(`unexpected engine error ${result.error.code}: ${result.error.message}`);
+  }
+
+  assert.deepEqual(
+    result.value.map((event) => event.event_type),
+    ['PromptResolved', 'StorytellerChoiceMade', 'StorytellerRulingRecorded']
+  );
+});

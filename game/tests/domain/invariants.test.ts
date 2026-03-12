@@ -86,3 +86,30 @@ test('validate_invariants detects dangling pending prompt ids', () => {
   const dangling = issues.find((issue) => issue.code === 'pending_prompt_missing');
   assert.ok(dangling);
 });
+
+test('validate_invariants detects duplicate/non-pending prompt queue entries', () => {
+  const state = create_initial_state('g1');
+  state.prompts_by_id.pr1 = {
+    prompt_id: 'pr1',
+    kind: 'choice',
+    reason: 'pick one',
+    visibility: 'storyteller',
+    options: [],
+    status: 'resolved',
+    created_at_event_id: 'e1',
+    resolved_at_event_id: 'e2',
+    resolution_payload: {
+      selected_option_id: null,
+      freeform: null
+    },
+    notes: null
+  };
+  state.pending_prompts = ['pr1', 'pr1'];
+
+  const issues = validate_invariants(state);
+  const duplicate = issues.find((issue) => issue.code === 'duplicate_pending_prompt_id');
+  const nonPending = issues.find((issue) => issue.code === 'pending_prompt_not_pending');
+
+  assert.ok(duplicate);
+  assert.ok(nonPending);
+});
