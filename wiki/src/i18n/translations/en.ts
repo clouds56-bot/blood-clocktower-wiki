@@ -12,6 +12,7 @@ export const en = {
   'char.tips': 'Tips & Tricks',
   'char.reminders': 'Reminders',
   'char.examples': 'Examples',
+  'char.jinxes': 'Jinxes',
   'char.how_to_run': 'How to Run',
   'char.view_official': 'View on Official Wiki',
   'editions.title': 'Editions',

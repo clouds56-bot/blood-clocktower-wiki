@@ -24,6 +24,27 @@ const { t } = useTranslations(validatedLang);
 
 const characterId = data.id || char.id.split('/').pop();
 const characterReminders = remindersData.reminders.filter(r => r.character_id === characterId);
+const allCharacters = await getCollection('characters');
+const characterMetaById = new Map(
+  allCharacters.map((entry) => {
+    const id = entry.data.id || entry.id.split('/').pop();
+    return [
+      id,
+      {
+        name: entry.data.name?.[validatedLang] || entry.data.name?.en || id,
+        routeId: entry.id,
+      },
+    ];
+  })
+);
+const characterJinxes = (data.jinxes || []).map((jinx: { id: string; reason?: string }) => {
+  const target = characterMetaById.get(jinx.id);
+  return {
+    ...jinx,
+    name: target?.name || jinx.id,
+    routeId: target?.routeId,
+  };
+});
 ---
 
 <BaseLayout title={`${data.name?.[validatedLang] || data.name?.en || data.id} | Wiki`}>
@@ -63,6 +84,54 @@ const characterReminders = remindersData.reminders.filter(r => r.character_id ==
               </span>
             ))}
           </div>
+
+          {data.flavor?.[validatedLang] && (
+            <blockquote class="mt-5 italic text-[color:var(--ink-200)] border-l-4 border-[rgba(215,180,106,0.45)] pl-4 py-1">
+              {data.flavor?.[validatedLang]}
+              {data.flavor?.[validatedLang === 'en' ? 'cn' : 'en'] && (
+                <div class="mt-2">{data.flavor?.[validatedLang === 'en' ? 'cn' : 'en']}</div>
+              )}
+            </blockquote>
+          )}
+
+          {(characterReminders.length > 0 || characterJinxes.length > 0) && (
+            <div class="mt-5 space-y-3">
+              {characterReminders.length > 0 && (
+                <div>
+                  <p class="uppercase tracking-[0.28em] text-xs text-[color:var(--ink-200)] mb-2">{t('char.reminders')}</p>
+                  <div class="flex flex-wrap gap-2">
+                    {characterReminders.map((r) => (
+                      <span class="px-3 py-1 rounded-full border border-[rgba(215,180,106,0.3)] text-[color:var(--ink-50)] text-xs uppercase tracking-wide">
+                        {r.name?.[validatedLang] || r.name?.en || r.id}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {characterJinxes.length > 0 && (
+                <div>
+                  <p class="uppercase tracking-[0.28em] text-xs text-[color:var(--ink-200)] mb-2">{t('char.jinxes')}</p>
+                  <div class="flex flex-wrap gap-2">
+                    {characterJinxes.map((jinx) => (
+                      jinx.routeId ? (
+                        <a
+                          href={`${getBasePath(validatedLang)}/characters/${jinx.routeId}`}
+                          class="px-3 py-1 rounded-full border border-[rgba(255,255,255,0.18)] text-[color:var(--ink-100)] text-xs uppercase tracking-wide hover:border-[rgba(215,180,106,0.5)] hover:text-[color:var(--accent-gold)] transition"
+                        >
+                          {jinx.name}
+                        </a>
+                      ) : (
+                        <span class="px-3 py-1 rounded-full border border-[rgba(255,255,255,0.18)] text-[color:var(--ink-100)] text-xs uppercase tracking-wide">
+                          {jinx.name}
+                        </span>
+                      )
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </header>
@@ -79,43 +148,62 @@ const characterReminders = remindersData.reminders.filter(r => r.character_id ==
       </section>
     )}
 
-    {data.flavor?.[validatedLang] && (
-      <blockquote class="italic text-[color:var(--ink-200)] mb-8 border-l-4 border-[rgba(215,180,106,0.45)] pl-4 py-1">
-        {data.flavor?.[validatedLang]}
-        {data.flavor?.[validatedLang === 'en' ? 'cn' : 'en'] && (
-          <div class="mt-2">{data.flavor?.[validatedLang === 'en' ? 'cn' : 'en']}</div>
-        )}
-      </blockquote>
+    {characterReminders.length > 0 && (
+      <section class="mb-8">
+        <h2 class="font-display text-2xl mb-4 text-[color:var(--ink-50)]">{t('char.reminders')}</h2>
+        <div class="space-y-3">
+          {characterReminders.map((r) => (
+            <div class="bg-[color:var(--bg-800)] px-4 py-3 rounded-xl border border-[rgba(215,180,106,0.28)]">
+              <div class="text-[color:var(--ink-50)] font-medium">
+                {r.name?.[validatedLang] || r.name?.en || r.id}
+              </div>
+              <div class="text-xs text-[color:var(--ink-300)] mt-1">{r.id}</div>
+            </div>
+          ))}
+        </div>
+      </section>
     )}
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-      {data.tips?.[validatedLang] && data.tips?.[validatedLang].length > 0 && (
-        <section class="surface-panel rounded-2xl p-5 sm:p-6">
-          <h2 class="font-display text-2xl mb-4 text-[color:var(--ink-50)] border-b soft-divider pb-2">{t('char.tips')}</h2>
-          <ul class="space-y-4">
-            {data.tips?.[validatedLang].map((tip: string) => (
-              <li class="flex gap-3 text-[color:var(--ink-200)]">
-                <span class="text-[color:var(--accent-gold)] mt-1">✦</span>
-                <span>{tip}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
+    {(data.tips?.[validatedLang]?.length > 0 || data.examples?.[validatedLang]?.length > 0) && (
+      <section class="mt-8 space-y-4">
+        {data.tips?.[validatedLang] && data.tips?.[validatedLang].length > 0 && (
+          <details class="surface-panel rounded-2xl p-5 sm:p-6 group">
+            <summary class="cursor-pointer list-none flex items-center justify-between gap-4">
+              <h2 class="font-display text-2xl text-[color:var(--ink-50)]">{t('char.tips')}</h2>
+              <span class="text-xs uppercase tracking-[0.2em] text-[color:var(--ink-200)] group-open:text-[color:var(--accent-gold)] transition">
+                {data.tips?.[validatedLang].length}
+              </span>
+            </summary>
+            <ul class="space-y-4 mt-4 pt-4 border-t soft-divider">
+              {data.tips?.[validatedLang].map((tip: string) => (
+                <li class="flex gap-3 text-[color:var(--ink-200)]">
+                  <span class="text-[color:var(--accent-gold)] mt-1">✦</span>
+                  <span>{tip}</span>
+                </li>
+              ))}
+            </ul>
+          </details>
+        )}
 
-      {data.examples?.[validatedLang] && data.examples?.[validatedLang].length > 0 && (
-        <section class="surface-panel rounded-2xl p-5 sm:p-6">
-          <h2 class="font-display text-2xl mb-4 text-[color:var(--ink-50)] border-b soft-divider pb-2">{t('char.examples')}</h2>
-          <ul class="space-y-4">
-            {data.examples?.[validatedLang].map((ex: string) => (
-              <li class="bg-[color:var(--bg-800)] p-4 rounded-xl border border-[rgba(215,180,106,0.2)] text-[color:var(--ink-200)] text-sm">
-                {ex}
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-    </div>
+        {data.examples?.[validatedLang] && data.examples?.[validatedLang].length > 0 && (
+          <details class="surface-panel rounded-2xl p-5 sm:p-6 group">
+            <summary class="cursor-pointer list-none flex items-center justify-between gap-4">
+              <h2 class="font-display text-2xl text-[color:var(--ink-50)]">{t('char.examples')}</h2>
+              <span class="text-xs uppercase tracking-[0.2em] text-[color:var(--ink-200)] group-open:text-[color:var(--accent-gold)] transition">
+                {data.examples?.[validatedLang].length}
+              </span>
+            </summary>
+            <ul class="space-y-4 mt-4 pt-4 border-t soft-divider">
+              {data.examples?.[validatedLang].map((ex: string) => (
+                <li class="bg-[color:var(--bg-800)] p-4 rounded-xl border border-[rgba(215,180,106,0.2)] text-[color:var(--ink-200)] text-sm">
+                  {ex}
+                </li>
+              ))}
+            </ul>
+          </details>
+        )}
+      </section>
+    )}
 
     {data.how_to_run?.[validatedLang] && (
       <section class="mt-10 pt-6 border-t soft-divider">
@@ -124,15 +212,22 @@ const characterReminders = remindersData.reminders.filter(r => r.character_id ==
       </section>
     )}
 
-    {characterReminders.length > 0 && (
+    {characterJinxes.length > 0 && (
       <section class="mt-10 pt-6 border-t soft-divider">
-        <h2 class="font-display text-2xl mb-4 text-[color:var(--ink-50)]">{t('char.reminders')}</h2>
-        <div class="flex flex-wrap gap-3">
-          {characterReminders.map(r => (
-            <div class="bg-[color:var(--bg-800)] px-4 py-2 rounded-lg border border-[rgba(215,180,106,0.3)]">
-              <span class="text-[color:var(--ink-50)] font-medium">
-                {r.name?.[validatedLang] || r.name?.en || r.id}
-              </span>
+        <h2 class="font-display text-2xl mb-4 text-[color:var(--ink-50)]">{t('char.jinxes')}</h2>
+        <div class="space-y-3">
+          {characterJinxes.map((jinx) => (
+            <div class="bg-[color:var(--bg-800)] p-4 rounded-xl border border-[rgba(215,180,106,0.22)]">
+              <div class="text-[color:var(--ink-50)] font-medium">
+                {jinx.routeId ? (
+                  <a href={`${getBasePath(validatedLang)}/characters/${jinx.routeId}`} class="hover:text-[color:var(--accent-gold)] transition">
+                    {jinx.name}
+                  </a>
+                ) : (
+                  jinx.name
+                )}
+              </div>
+              {jinx.reason && <p class="text-[color:var(--ink-200)] mt-2 text-sm">{jinx.reason}</p>}
             </div>
           ))}
         </div>

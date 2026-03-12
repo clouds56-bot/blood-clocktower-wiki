@@ -12,6 +12,7 @@ export const cn = {
   'char.tips': '提示与技巧',
   'char.reminders': '提示标记',
   'char.examples': '示例',
+  'char.jinxes': '相克角色',
   'char.how_to_run': '如何运行',
   'char.view_official': '在官方维基上查看',
   'editions.title': '剧本',
