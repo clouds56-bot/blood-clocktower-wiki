@@ -15,7 +15,14 @@ export type CommandType =
   | 'AssignCharacter'
   | 'AssignPerceivedCharacter'
   | 'AssignAlignment'
-  | 'AdvancePhase';
+  | 'AdvancePhase'
+  | 'OpenNominationWindow'
+  | 'NominatePlayer'
+  | 'OpenVote'
+  | 'CastVote'
+  | 'CloseVote'
+  | 'ResolveExecution'
+  | 'EndDay';
 
 export interface CreateGameCommand extends BaseCommand {
   command_type: 'CreateGame';
@@ -88,6 +95,63 @@ export interface AdvancePhaseCommand extends BaseCommand {
   };
 }
 
+export interface OpenNominationWindowCommand extends BaseCommand {
+  command_type: 'OpenNominationWindow';
+  payload: {
+    day_number: number;
+  };
+}
+
+export interface NominatePlayerCommand extends BaseCommand {
+  command_type: 'NominatePlayer';
+  payload: {
+    nomination_id: string;
+    day_number: number;
+    nominator_player_id: PlayerId;
+    nominee_player_id: PlayerId;
+  };
+}
+
+export interface OpenVoteCommand extends BaseCommand {
+  command_type: 'OpenVote';
+  payload: {
+    nomination_id: string;
+    nominee_player_id: PlayerId;
+    opened_by_player_id: PlayerId;
+  };
+}
+
+export interface CastVoteCommand extends BaseCommand {
+  command_type: 'CastVote';
+  payload: {
+    nomination_id: string;
+    voter_player_id: PlayerId;
+    in_favor: boolean;
+  };
+}
+
+export interface CloseVoteCommand extends BaseCommand {
+  command_type: 'CloseVote';
+  payload: {
+    nomination_id: string;
+    day_number: number;
+  };
+}
+
+export interface ResolveExecutionCommand extends BaseCommand {
+  command_type: 'ResolveExecution';
+  payload: {
+    day_number: number;
+  };
+}
+
+export interface EndDayCommand extends BaseCommand {
+  command_type: 'EndDay';
+  payload: {
+    day_number: number;
+  };
+}
+
 export type Command =
   | CreateGameCommand
   | SelectScriptCommand
@@ -97,7 +161,14 @@ export type Command =
   | AssignCharacterCommand
   | AssignPerceivedCharacterCommand
   | AssignAlignmentCommand
-  | AdvancePhaseCommand;
+  | AdvancePhaseCommand
+  | OpenNominationWindowCommand
+  | NominatePlayerCommand
+  | OpenVoteCommand
+  | CastVoteCommand
+  | CloseVoteCommand
+  | ResolveExecutionCommand
+  | EndDayCommand;
 
 export interface CommandValidationIssue {
   code: string;

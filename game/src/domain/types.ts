@@ -26,6 +26,38 @@ export type GameSubphase = DaySubphase | NightSubphase | SetupSubphase | EndedSu
 
 export type Alignment = 'good' | 'evil';
 
+export interface NominationRecord {
+  nomination_id: string;
+  nominator_player_id: PlayerId;
+  nominee_player_id: PlayerId;
+  day_number: number;
+  vote_total: number | null;
+  threshold: number | null;
+}
+
+export interface ActiveVote {
+  nomination_id: string;
+  nominee_player_id: PlayerId;
+  opened_by_player_id: PlayerId;
+  votes_by_player_id: Record<PlayerId, boolean>;
+}
+
+export interface DayState {
+  has_nominated_today: Record<PlayerId, boolean>;
+  has_been_nominated_today: Record<PlayerId, boolean>;
+  nominations_today: NominationRecord[];
+  active_vote: ActiveVote | null;
+  nomination_window_open: boolean;
+  execution_attempted_today: boolean;
+  execution_occurred_today: boolean;
+}
+
+export interface ExecutionRecord {
+  day_number: number;
+  player_id: PlayerId;
+  nomination_id: string;
+}
+
 export interface PlayerState {
   player_id: PlayerId;
   display_name: string;
@@ -51,6 +83,8 @@ export interface GameState {
   night_number: number;
   players_by_id: Record<PlayerId, PlayerState>;
   seat_order: PlayerId[];
+  day_state: DayState;
+  execution_history: ExecutionRecord[];
   domain_events: DomainEventEnvelope[];
 }
 
@@ -58,7 +92,7 @@ export interface DomainEventEnvelope {
   event_id: EventId;
   event_type: string;
   created_at: IsoTimestamp;
-  actor_id?: string;
+  actor_id?: string | undefined;
 }
 
 export interface InvariantIssue {
@@ -78,7 +112,9 @@ export type InvariantIssueCode =
   | 'seat_order_duplicate_player'
   | 'player_key_mismatch'
   | 'player_missing_required_field'
-  | 'alive_player_spent_dead_vote';
+  | 'alive_player_spent_dead_vote'
+  | 'invalid_phase_subphase_combination'
+  | 'active_vote_nomination_missing';
 
 export const VALID_GAME_STATUS: readonly GameStatus[] = ['setup', 'in_progress', 'ended'];
 
@@ -97,3 +133,15 @@ export const VALID_GAME_SUBPHASE: readonly GameSubphase[] = [
   'idle',
   'complete'
 ];
+
+export function create_empty_day_state(): DayState {
+  return {
+    has_nominated_today: {},
+    has_been_nominated_today: {},
+    nominations_today: [],
+    active_vote: null,
+    nomination_window_open: false,
+    execution_attempted_today: false,
+    execution_occurred_today: false
+  };
+}

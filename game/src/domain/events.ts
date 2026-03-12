@@ -13,7 +13,16 @@ export type DomainEventType =
   | 'CharacterAssigned'
   | 'PerceivedCharacterAssigned'
   | 'AlignmentAssigned'
-  | 'PhaseAdvanced';
+  | 'PhaseAdvanced'
+  | 'NominationWindowOpened'
+  | 'NominationMade'
+  | 'VoteOpened'
+  | 'VoteCast'
+  | 'VoteClosed'
+  | 'ExecutionResolutionCompleted'
+  | 'ExecutionOccurred'
+  | 'PlayerExecuted'
+  | 'PlayerSurvivedExecution';
 
 export interface GameCreatedEvent extends BaseDomainEvent {
   event_type: 'GameCreated';
@@ -86,6 +95,84 @@ export interface PhaseAdvancedEvent extends BaseDomainEvent {
   };
 }
 
+export interface NominationWindowOpenedEvent extends BaseDomainEvent {
+  event_type: 'NominationWindowOpened';
+  payload: {
+    day_number: number;
+  };
+}
+
+export interface NominationMadeEvent extends BaseDomainEvent {
+  event_type: 'NominationMade';
+  payload: {
+    nomination_id: string;
+    day_number: number;
+    nominator_player_id: PlayerId;
+    nominee_player_id: PlayerId;
+  };
+}
+
+export interface VoteOpenedEvent extends BaseDomainEvent {
+  event_type: 'VoteOpened';
+  payload: {
+    nomination_id: string;
+    nominee_player_id: PlayerId;
+    opened_by_player_id: PlayerId;
+  };
+}
+
+export interface VoteCastEvent extends BaseDomainEvent {
+  event_type: 'VoteCast';
+  payload: {
+    nomination_id: string;
+    voter_player_id: PlayerId;
+    in_favor: boolean;
+  };
+}
+
+export interface VoteClosedEvent extends BaseDomainEvent {
+  event_type: 'VoteClosed';
+  payload: {
+    nomination_id: string;
+    day_number: number;
+    vote_total: number;
+    threshold: number;
+  };
+}
+
+export interface ExecutionResolutionCompletedEvent extends BaseDomainEvent {
+  event_type: 'ExecutionResolutionCompleted';
+  payload: {
+    day_number: number;
+    had_execution: boolean;
+  };
+}
+
+export interface ExecutionOccurredEvent extends BaseDomainEvent {
+  event_type: 'ExecutionOccurred';
+  payload: {
+    day_number: number;
+    nomination_id: string;
+    player_id: PlayerId;
+  };
+}
+
+export interface PlayerExecutedEvent extends BaseDomainEvent {
+  event_type: 'PlayerExecuted';
+  payload: {
+    day_number: number;
+    player_id: PlayerId;
+  };
+}
+
+export interface PlayerSurvivedExecutionEvent extends BaseDomainEvent {
+  event_type: 'PlayerSurvivedExecution';
+  payload: {
+    day_number: number;
+    player_id: PlayerId;
+  };
+}
+
 export type DomainEvent =
   | GameCreatedEvent
   | ScriptSelectedEvent
@@ -95,4 +182,13 @@ export type DomainEvent =
   | CharacterAssignedEvent
   | PerceivedCharacterAssignedEvent
   | AlignmentAssignedEvent
-  | PhaseAdvancedEvent;
+  | PhaseAdvancedEvent
+  | NominationWindowOpenedEvent
+  | NominationMadeEvent
+  | VoteOpenedEvent
+  | VoteCastEvent
+  | VoteClosedEvent
+  | ExecutionResolutionCompletedEvent
+  | ExecutionOccurredEvent
+  | PlayerExecutedEvent
+  | PlayerSurvivedExecutionEvent;
