@@ -31,7 +31,8 @@ const characterMetaById = new Map(
     return [
       id,
       {
-        name: entry.data.name?.[validatedLang] || entry.data.name?.en || id,
+        nameEn: entry.data.name?.en,
+        nameCn: entry.data.name?.cn,
         routeId: entry.id,
       },
     ];
@@ -39,9 +40,14 @@ const characterMetaById = new Map(
 );
 const characterJinxes = (data.jinxes || []).map((jinx: { id: string; reason?: string }) => {
   const target = characterMetaById.get(jinx.id);
+  const nameCn = target?.nameCn;
+  const nameEn = target?.nameEn;
+  const name = validatedLang === 'cn' ? (nameCn || nameEn || jinx.id) : (nameEn || nameCn || jinx.id);
+  const altName = validatedLang === 'cn' && nameEn ? nameEn : undefined;
   return {
     ...jinx,
-    name: target?.name || jinx.id,
+    name,
+    altName,
     routeId: target?.routeId,
   };
 });
@@ -87,10 +93,11 @@ const characterJinxes = (data.jinxes || []).map((jinx: { id: string; reason?: st
 
           {data.flavor?.[validatedLang] && (
             <blockquote class="mt-5 italic text-[color:var(--ink-200)] border-l-4 border-[rgba(215,180,106,0.45)] pl-4 py-1">
-              {data.flavor?.[validatedLang]}
-              {data.flavor?.[validatedLang === 'en' ? 'cn' : 'en'] && (
-                <div class="mt-2">{data.flavor?.[validatedLang === 'en' ? 'cn' : 'en']}</div>
+              {validatedLang === 'cn' ? data.flavor?.cn : data.flavor?.en}
+              {validatedLang === 'cn' && data.flavor?.en && (
+                <div class="mt-2 text-[color:var(--ink-300)] text-sm normal-case">{data.flavor.en}</div>
               )}
+              {validatedLang !== 'cn' && data.flavor?.cn ? null : null}
             </blockquote>
           )}
 
@@ -100,11 +107,16 @@ const characterJinxes = (data.jinxes || []).map((jinx: { id: string; reason?: st
                 <div>
                   <p class="uppercase tracking-[0.28em] text-xs text-[color:var(--ink-200)] mb-2">{t('char.reminders')}</p>
                   <div class="flex flex-wrap gap-2">
-                    {characterReminders.map((r) => (
-                      <span class="px-3 py-1 rounded-full border border-[rgba(215,180,106,0.3)] text-[color:var(--ink-50)] text-xs uppercase tracking-wide">
-                        {r.name?.[validatedLang] || r.name?.en || r.id}
-                      </span>
-                    ))}
+                    {characterReminders.map((r) => {
+                      const name = validatedLang === 'cn' ? (r.name?.cn || r.name?.en) : (r.name?.en || r.name?.cn);
+                      const alt = validatedLang === 'cn' ? r.name?.en : undefined;
+                      return (
+                        <span class="px-3 py-1 rounded-full border border-[rgba(215,180,106,0.3)] text-[color:var(--ink-50)] text-xs uppercase tracking-wide">
+                          {name}
+                          {alt && <span class="ml-2 text-[color:var(--ink-300)] text-xs normal-case">{alt}</span>}
+                        </span>
+                      );
+                    })}
                   </div>
                 </div>
               )}
@@ -113,20 +125,28 @@ const characterJinxes = (data.jinxes || []).map((jinx: { id: string; reason?: st
                 <div>
                   <p class="uppercase tracking-[0.28em] text-xs text-[color:var(--ink-200)] mb-2">{t('char.jinxes')}</p>
                   <div class="flex flex-wrap gap-2">
-                    {characterJinxes.map((jinx) => (
-                      jinx.routeId ? (
+                    {characterJinxes.map((jinx) => {
+                      const display = jinx.name;
+                      const alt = jinx.altName;
+                      const content = (
+                        <>
+                          <span>{display}</span>
+                          {alt && validatedLang === 'cn' && <span class="ml-2 text-[color:var(--ink-300)] text-xs normal-case">{alt}</span>}
+                        </>
+                      );
+                      return jinx.routeId ? (
                         <a
                           href={`${getBasePath(validatedLang)}/characters/${jinx.routeId}`}
                           class="px-3 py-1 rounded-full border border-[rgba(255,255,255,0.18)] text-[color:var(--ink-100)] text-xs uppercase tracking-wide hover:border-[rgba(215,180,106,0.5)] hover:text-[color:var(--accent-gold)] transition"
                         >
-                          {jinx.name}
+                          {content}
                         </a>
                       ) : (
                         <span class="px-3 py-1 rounded-full border border-[rgba(255,255,255,0.18)] text-[color:var(--ink-100)] text-xs uppercase tracking-wide">
-                          {jinx.name}
+                          {content}
                         </span>
-                      )
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               )}
@@ -152,14 +172,17 @@ const characterJinxes = (data.jinxes || []).map((jinx: { id: string; reason?: st
       <section class="mb-8">
         <h2 class="font-display text-2xl mb-4 text-[color:var(--ink-50)]">{t('char.reminders')}</h2>
         <div class="space-y-3">
-          {characterReminders.map((r) => (
-            <div class="bg-[color:var(--bg-800)] px-4 py-3 rounded-xl border border-[rgba(215,180,106,0.28)]">
-              <div class="text-[color:var(--ink-50)] font-medium">
-                {r.name?.[validatedLang] || r.name?.en || r.id}
+          {characterReminders.map((r) => {
+            const name = validatedLang === 'cn' ? (r.name?.cn || r.name?.en) : (r.name?.en || r.name?.cn);
+            const alt = validatedLang === 'cn' ? r.name?.en : undefined;
+            return (
+              <div class="bg-[color:var(--bg-800)] px-4 py-3 rounded-xl border border-[rgba(215,180,106,0.28)]">
+                <div class="text-[color:var(--ink-50)] font-medium">{name}</div>
+                {alt && <div class="text-[color:var(--ink-300)] text-sm mt-1 normal-case">{alt}</div>}
+                <div class="text-xs text-[color:var(--ink-300)] mt-1">{r.id}</div>
               </div>
-              <div class="text-xs text-[color:var(--ink-300)] mt-1">{r.id}</div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
     )}
