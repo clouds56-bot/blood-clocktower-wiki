@@ -22,6 +22,27 @@ interface CliContext {
   next_command_index: number;
 }
 
+const ANSI = {
+  reset: '\x1b[0m',
+  red: '\x1b[31m',
+  green: '\x1b[32m',
+  yellow: '\x1b[33m'
+} as const;
+
+function color_enabled(): boolean {
+  if (process.env.NO_COLOR) {
+    return false;
+  }
+  return Boolean(process.stdout.isTTY);
+}
+
+function paint(text: string, color: keyof typeof ANSI): string {
+  if (!color_enabled() || color === 'reset') {
+    return text;
+  }
+  return `${ANSI[color]}${text}${ANSI.reset}`;
+}
+
 function now_iso(): string {
   return new Date().toISOString();
 }
@@ -118,7 +139,7 @@ function run_quick_setup(context: CliContext, script_input: string, player_num: 
     const result = handle_command(context.state, full_command, now_iso());
     if (!result.ok) {
       process.stdout.write(
-        `quick_setup_error code=${result.error.code} message=${result.error.message} command=${command.command_type}\n`
+        `${paint('quick_setup_error', 'red')} code=${result.error.code} message=${result.error.message} command=${command.command_type}\n`
       );
       return;
     }
@@ -141,7 +162,9 @@ function run_engine_command(context: CliContext, command: Omit<Command, 'command
 
   const result = handle_command(context.state, full_command, now_iso());
   if (!result.ok) {
-    process.stdout.write(`engine_error code=${result.error.code} message=${result.error.message}\n`);
+    process.stdout.write(
+      `${paint('engine_error', 'red')} code=${result.error.code} message=${result.error.message}\n`
+    );
     return;
   }
 
@@ -150,11 +173,11 @@ function run_engine_command(context: CliContext, command: Omit<Command, 'command
   context.event_log.push(...events);
 
   if (events.length === 0) {
-    process.stdout.write('ok (no events)\n');
+    process.stdout.write(`${paint('ok', 'green')} (no events)\n`);
     return;
   }
 
-  process.stdout.write(`ok emitted=${events.length}\n`);
+  process.stdout.write(`${paint('ok', 'green')} emitted=${events.length}\n`);
   const start_index = context.event_log.length - events.length + 1;
   events.forEach((event, event_index) => {
     process.stdout.write(`${format_event(event, start_index + event_index)}\n`);
@@ -344,7 +367,7 @@ export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void
   };
 
   process.stdout.write('Clocktower Engine CLI (Phase 3.1)\n');
-  process.stdout.write('type "help" for commands\n');
+  process.stdout.write(`${paint('type "help" for commands', 'yellow')}\n`);
   process.stdout.write(`${format_state_brief(context.state)}\n`);
 
   const rl = readline.createInterface({

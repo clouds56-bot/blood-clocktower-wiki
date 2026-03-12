@@ -1,6 +1,55 @@
 import type { DomainEvent } from '../domain/events.js';
 import type { GameState, PlayerState } from '../domain/types.js';
 
+const ANSI = {
+  reset: '\x1b[0m',
+  red: '\x1b[31m',
+  green: '\x1b[32m',
+  yellow: '\x1b[33m',
+  blue: '\x1b[34m',
+  magenta: '\x1b[35m',
+  cyan: '\x1b[36m',
+  gray: '\x1b[90m'
+} as const;
+
+function color_enabled(): boolean {
+  if (process.env.NO_COLOR) {
+    return false;
+  }
+  return Boolean(process.stdout.isTTY);
+}
+
+function paint(text: string, color: keyof typeof ANSI): string {
+  if (!color_enabled() || color === 'reset') {
+    return text;
+  }
+  return `${ANSI[color]}${text}${ANSI.reset}`;
+}
+
+function event_color(event_type: DomainEvent['event_type']): keyof typeof ANSI {
+  if (event_type === 'GameEnded' || event_type === 'GameWon' || event_type === 'ForcedVictoryDeclared') {
+    return 'magenta';
+  }
+  if (event_type === 'PlayerDied' || event_type === 'PlayerExecuted') {
+    return 'red';
+  }
+  if (event_type === 'PhaseAdvanced') {
+    return 'blue';
+  }
+  if (
+    event_type === 'NominationMade' ||
+    event_type === 'VoteOpened' ||
+    event_type === 'VoteCast' ||
+    event_type === 'VoteClosed'
+  ) {
+    return 'yellow';
+  }
+  if (event_type === 'WinCheckCompleted' || event_type === 'ExecutionResolutionCompleted') {
+    return 'cyan';
+  }
+  return 'gray';
+}
+
 export function format_state_brief(state: GameState): string {
   const players = Object.values(state.players_by_id);
   const alive_count = players.filter((player) => player.alive).length;
@@ -21,7 +70,7 @@ export function format_state_json(state: GameState): string {
 }
 
 export function format_event(event: DomainEvent, index: number): string {
-  return `#${index} ${event.event_type} ${JSON.stringify(event.payload)}`;
+  return `#${index} ${paint(event.event_type, event_color(event.event_type))} ${JSON.stringify(event.payload)}`;
 }
 
 export function format_player(player: PlayerState): string {
@@ -37,7 +86,7 @@ export function format_player(player: PlayerState): string {
 export function format_players_table(state: GameState): string {
   const rows = Object.values(state.players_by_id)
     .map((player) => {
-      const life = player.alive ? 'alive' : 'dead';
+      const life = player.alive ? paint('alive', 'green') : paint('dead', 'red');
       return `${player.player_id}\t${player.display_name}\t${life}\tdead_vote=${player.dead_vote_available}`;
     })
     .sort();
@@ -52,7 +101,7 @@ export function format_players_table(state: GameState): string {
 export function format_help(topic: 'phase' | 'all'): string {
   if (topic === 'phase') {
     return [
-      'phase flow (phase 3 + 3.1):',
+      paint('phase flow (phase 3 + 3.1):', 'cyan'),
       '  next-phase',
       '  open-noms',
       '  nominate p1 p2',
@@ -67,7 +116,7 @@ export function format_help(topic: 'phase' | 'all'): string {
   }
 
   return [
-    'local commands:',
+    paint('local commands:', 'cyan'),
     '  help [all|phase]',
     '  next-phase | next | n',
     '  new <game_id>',
@@ -78,7 +127,7 @@ export function format_help(topic: 'phase' | 'all'): string {
     '  player <player_id>',
     '  quit | exit',
     '',
-    'engine setup commands:',
+    paint('engine setup commands:', 'cyan'),
     '  select-script <script_id>',
     '  select-edition <edition_id>',
     '  add-player <player_id> <display_name>',
@@ -88,7 +137,7 @@ export function format_help(topic: 'phase' | 'all'): string {
     '  assign-alignment <player_id> <good|evil>',
     '  phase <phase> <subphase> <day_number> <night_number>',
     '',
-    'engine day/death/win commands:',
+    paint('engine day/death/win commands:', 'cyan'),
     '  open-noms [day_number]',
     '  nominate | nom <nominator_id> <nominee_id>',
     '  nominate | nom <nomination_id> <nominator_id> <nominee_id>',
