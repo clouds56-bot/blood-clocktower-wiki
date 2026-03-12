@@ -15,7 +15,7 @@ const EXTRACTED_DIR = path.join(DATA_DIR, 'extracted');
 const CONFIG_PATH = path.join(DATA_DIR, 'config', 'characters.json');
 const OUTPUT_DIR = path.join(DATA_DIR, 'characters');
 
-const TOOL_GLOB_PREFIX = 'characters.tool.';
+const TRANSLATIONS_GLOB_PREFIX = 'characters.tool.';
 const WIKI_GLOB_PREFIX = 'characters.wiki.';
 
 function normalizeId(name) {
@@ -114,7 +114,7 @@ function toConfigLangKey(locale) {
   return locale;
 }
 
-function buildConfigFromTool(toolFiles, wikiFiles) {
+function buildConfigFromTranslations(translationFiles, wikiFiles) {
   const byType = {
     townsfolk: {},
     outsider: {},
@@ -125,7 +125,7 @@ function buildConfigFromTool(toolFiles, wikiFiles) {
     loric: {}
   };
 
-  for (const file of toolFiles) {
+  for (const file of translationFiles) {
     const locale = toConfigLangKey(localeFromFile(file));
     const rows = parseJsonl(file);
     for (const row of rows) {
@@ -157,7 +157,7 @@ function buildConfigFromTool(toolFiles, wikiFiles) {
         }
       }
 
-      // If not found in tool files, create new entry for CN-only characters
+      // If not found in translation files, create new entry for CN-only characters
       if (!targetType) {
         targetType = row.type || detectTypeFromId(id);
         if (!byType[targetType][id]) byType[targetType][id] = {};
@@ -209,11 +209,11 @@ function mergeInto(base, patch) {
   return merged;
 }
 
-function buildCombinedCharacters(toolFiles, wikiFiles, tokenFile) {
+function buildCombinedCharacters(translationFiles, wikiFiles, tokenFile) {
   const combined = new Map();
 
-  // 1) Tool rows first (source of truth of ID)
-  for (const file of toolFiles) {
+  // 1) Translation rows first (source of truth of ID)
+  for (const file of translationFiles) {
     const locale = toLangKey(localeFromFile(file));
     const rows = parseJsonl(file);
 
@@ -281,7 +281,7 @@ function buildCombinedCharacters(toolFiles, wikiFiles, tokenFile) {
       // Skip non-character entries (editions, scripts, etc.)
       if (!row.ability && !row.en_name) continue;
 
-      // Create new entry for CN-only characters not in tool files
+      // Create new entry for CN-only characters not in translation files
       let existing = combined.get(id);
       if (!existing) {
         existing = {
@@ -390,21 +390,21 @@ function main() {
     .filter(name => name.endsWith('.jsonl'))
     .map(name => path.join(EXTRACTED_DIR, name));
 
-  const toolFiles = files.filter(f => path.basename(f).startsWith(TOOL_GLOB_PREFIX));
+  const translationFiles = files.filter(f => path.basename(f).startsWith(TRANSLATIONS_GLOB_PREFIX));
   const wikiFiles = files.filter(f => path.basename(f).startsWith(WIKI_GLOB_PREFIX));
   const tokenFile = path.join(EXTRACTED_DIR, 'characters.token.jsonl');
 
-  if (toolFiles.length === 0) {
-    throw new Error('No extracted tool JSONL files found. Run scrape:tool first.');
+  if (translationFiles.length === 0) {
+    throw new Error('No extracted translation JSONL files found. Run scrape:translations first.');
   }
 
-  // b) generate config/characters.json from tool ids/names first
-  const config = buildConfigFromTool(toolFiles, wikiFiles);
+  // b) generate config/characters.json from translation ids/names first
+  const config = buildConfigFromTranslations(translationFiles, wikiFiles);
   fs.writeFileSync(CONFIG_PATH, JSON.stringify(config, null, 2) + '\n', 'utf8');
   console.log(`✅ Wrote config mapping to ${CONFIG_PATH}`);
 
   // c) merge all jsonl (wiki takes priority)
-  const combined = buildCombinedCharacters(toolFiles, wikiFiles, tokenFile);
+  const combined = buildCombinedCharacters(translationFiles, wikiFiles, tokenFile);
   const count = writeCharacters(combined);
 
   console.log(`✅ Built ${count} character JSON files in ${OUTPUT_DIR}`);

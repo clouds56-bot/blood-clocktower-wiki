@@ -51,7 +51,7 @@ function buildSpecialCharacter(id, specialData) {
 
 function main() {
   if (!fs.existsSync(NIGHT_ORDER_FILE)) {
-    console.error('Error: nightorder.tool.json not found. Run pipeline/tool.js first.');
+    console.error('Error: nightorder.tool.json not found. Run pipeline/github.js first.');
     process.exit(1);
   }
 

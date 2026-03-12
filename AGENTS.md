@@ -26,7 +26,7 @@ Run all commands from repo root unless noted.
 
 - Scrape English: `pnpm --filter data run scrape:en`
 - Scrape Chinese: `pnpm --filter data run scrape:cn`
-- Scrape tools: `pnpm --filter data run scrape:tool`
+- Scrape translations: `pnpm --filter data run scrape:translations`
 - Scrape GitHub data: `pnpm --filter data run scrape:github`
 - Scrape tokens: `pnpm --filter data run scrape:token`
 - Scrape EN reminders: `pnpm --filter data run scrape:reminders:en`
@@ -41,6 +41,7 @@ You can also run pipelines directly with Node when debugging:
 
 - `node data/scripts/pipeline/en.js`
 - `node data/scripts/pipeline/cn.js`
+- `node data/scripts/pipeline/translations.js`
 - `node data/scripts/pipeline/build.js`
 
 ### Wiki package (`wiki/`)

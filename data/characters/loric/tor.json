@@ -24,7 +24,7 @@
     "sv": "Om en spelare dog inatt, visa kortet *DU ÄR* följt av spelarens rollbricka och tummen upp eller ner.",
     "zh-Hans": "如果一名玩家在白天死亡，私下告诉他角色和阵营。如果一名玩家在夜晚死亡，唤醒他并向他依次展示“你是”信息标记，他的角色标记，“你是”信息标记和竖起或倒置的大拇指。"
   },
-  "source_url": "https://script.bloodontheclocktower.com/",
+  "source_url": "https://raw.githubusercontent.com/ThePandemoniumInstitute/botc-translations/main/game/zh_Hans.json",
   "how_to_run": {
     "cn": "在设置调整阶段，不要把盲抽袋给玩家。由说书人从盲抽袋抽取角色标记，并把它们放置在魔典中。\n如果一名玩家在白天死亡，私下告诉他角色和阵营。如果一名玩家在夜晚死亡，唤醒他并向他依次展示“你是”信息标记，他的角色标记，“你是”信息标记和竖起或倒置的大拇指。"
   },

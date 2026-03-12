@@ -3,17 +3,20 @@
   "type": "loric",
   "name": {
     "en": "Ventriloquist",
+    "sv": "Buktalaren",
     "cn": "腹语师"
   },
   "ability": {
     "en": "If a player is mad as a fresh character during their nomination, they might not die if executed today.",
+    "sv": "Om en spelare är galen som en ny roll under sin nominering kanske hen inte dör om hen avrättas idag.",
     "cn": "如果一名玩家在被提名时“疯狂”地证明自己是一个新的角色，他可能不会死于当天的处决。"
   },
   "flavor_text": {
     "en": "Well, folks, gather ‘round! This here’s my pal Charlie, and he’s got a mouth on him that’d make a mule blush. But don’t worry folks, I do all the talkin’... or do I?",
+    "sv": "Samla er, gott folk! Det här är min kompis Charlie, och han är så ful i munnen att han kan få en mula att rodna. Men oroa er inte; jag sköter snacket… Eller gör jag?",
     "cn": "“来来来，各位看官都围过来！这是我的老搭档查理，他那张嘴啊，能把驴都说羞了。不过别担心，各位——开口说话的一直是我……对吧？”"
   },
-  "source_url": "https://script.bloodontheclocktower.com/",
+  "source_url": "https://raw.githubusercontent.com/ThePandemoniumInstitute/botc-translations/main/game/zh_Hans.json",
   "how_to_run": {
     "cn": "当一名玩家被提名时，在投票结束之前，如果他对一个与之前不同的角色“疯狂”（即使这之中有他真实的角色）。如果这名玩家即将被处决，在他的角色标记旁放置“疯狂”提示标记。\n如果处决发生，被处决者的角色标记旁有放置腹语师的“疯狂”提示标记，宣布他被处决，你可以宣布他没有死亡。"
   },

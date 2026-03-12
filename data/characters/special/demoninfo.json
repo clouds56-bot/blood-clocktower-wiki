@@ -7,18 +7,18 @@
   "virtual": true,
   "name": {
     "en": "Demon Info",
-    "zh-Hans": "恶魔信息",
-    "sv": "Demon-info",
-    "es-419": "Información del Demonio"
+    "cn": "恶魔信息",
+    "es": "Información del Demonio",
+    "sv": "Demon-info"
   },
   "source": "script_tool",
   "source_url": "https://script.bloodontheclocktower.com/",
   "night_reminder": {
     "first_night": {
       "en": "If there are 7 or more players, wake the Demon: Show the *THESE ARE YOUR MINIONS* token. Point to all Minions. Show the *THESE CHARACTERS ARE NOT IN PLAY* token. Show 3 not-in-play good character tokens.",
-      "zh-Hans": "如果有七名或更多玩家，唤醒恶魔：展示“他们是你的爪牙”信息标记。指向所有爪牙。展示“这些角色不在场”信息标记。展示三个不在场的善良角色。如果其他对恶魔暴露的角色在场，不要让恶魔入睡，而是一并给出相关信息后再让恶魔入睡。",
-      "sv": "Väck Demonen om det finns 7 eller fler spelare. Visa kortet *DET HÄR ÄR DINA KUMPANER*. Peka på alla Kumpaner. Visa kortet *DE HÄR ROLLERNA ÄR INTE I SPEL*. Visa tre goda roller som inte är i spel.",
-      "es-419": "Si hay 7 o más jugadores, despierta al Demonio:\n\tMuéstrale la ficha de *ESTOS SON TUS SECUACES*. Apunta a todos los Secuaces.\n\tMuéstrale la ficha de *ESTOS ROLES NO ESTÁN EN JUEGO*. Muéstrale las fichas de 3 roles buenos fuera de juego."
+      "cn": "如果有七名或更多玩家，唤醒恶魔：展示“他们是你的爪牙”信息标记。指向所有爪牙。展示“这些角色不在场”信息标记。展示三个不在场的善良角色。如果其他对恶魔暴露的角色在场，不要让恶魔入睡，而是一并给出相关信息后再让恶魔入睡。",
+      "es": "Si hay 7 o más jugadores, despierta al Demonio:\n\tMuéstrale la ficha de *ESTOS SON TUS SECUACES*. Apunta a todos los Secuaces.\n\tMuéstrale la ficha de *ESTOS ROLES NO ESTÁN EN JUEGO*. Muéstrale las fichas de 3 roles buenos fuera de juego.",
+      "sv": "Väck Demonen om det finns 7 eller fler spelare. Visa kortet *DET HÄR ÄR DINA KUMPANER*. Peka på alla Kumpaner. Visa kortet *DE HÄR ROLLERNA ÄR INTE I SPEL*. Visa tre goda roller som inte är i spel."
     },
     "other_nights": {}
   }

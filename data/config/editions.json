@@ -1,18 +1,18 @@
 {
   "editions": {
-    "trouble_brewing": {
+    "tb": {
       "en": "Trouble Brewing",
       "cn": "暗流涌动",
       "en_url_param": "Trouble_Brewing",
       "cn_url_param": "暗流涌动"
     },
-    "bad_moon_rising": {
+    "bmr": {
       "en": "Bad Moon Rising",
       "cn": "黯月初升",
       "en_url_param": "Bad_Moon_Rising",
       "cn_url_param": "黯月初升"
     },
-    "sects_violets": {
+    "snv": {
       "en": "Sects & Violets",
       "cn": "梦殒春宵",
       "en_url_param": "Sects_%26_Violets",

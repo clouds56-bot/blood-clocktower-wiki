@@ -1,6 +1,9 @@
 {
-  "source": "script_tool",
-  "source_url": "https://script.bloodontheclocktower.com/",
+  "source": "github_botc_release",
+  "source_url": {
+    "roles": "https://raw.githubusercontent.com/ThePandemoniumInstitute/botc-release/main/resources/data/roles.json",
+    "nightsheet": "https://raw.githubusercontent.com/ThePandemoniumInstitute/botc-release/main/resources/data/nightsheet.json"
+  },
   "special_items": [
     "dusk",
     "minioninfo",
@@ -1077,71 +1080,71 @@
     "dusk": {
       "name": {
         "en": "Dusk",
-        "zh-Hans": "黄昏",
-        "sv": "Skymning",
-        "es-419": "Anochecer"
+        "cn": "黄昏",
+        "es": "Anochecer",
+        "sv": "Skymning"
       },
       "first_night_reminder": {
         "en": "Start the Night Phase.",
-        "zh-Hans": "夜晚阶段开始。",
-        "sv": "Inled nattfasen.",
-        "es-419": "Empieza la Fase de la Noche."
+        "cn": "夜晚阶段开始。",
+        "es": "Empieza la Fase de la Noche.",
+        "sv": "Inled nattfasen."
       },
       "other_night_reminder": {
         "en": "Start the Night Phase.",
-        "zh-Hans": "夜晚阶段开始。",
-        "sv": "Inled nattfasen.",
-        "es-419": "Empieza la Fase de la Noche."
+        "cn": "夜晚阶段开始。",
+        "es": "Empieza la Fase de la Noche.",
+        "sv": "Inled nattfasen."
       }
     },
     "minioninfo": {
       "name": {
         "en": "Minion Info",
-        "zh-Hans": "爪牙信息",
-        "sv": "Kumpan-info",
-        "es-419": "Información del Secuaz"
+        "cn": "爪牙信息",
+        "es": "Información del Secuaz",
+        "sv": "Kumpan-info"
       },
       "first_night_reminder": {
         "en": "If there are 7 or more players, wake all Minions: Show the *THIS IS THE DEMON* token. Point to the Demon. Show the *THESE ARE YOUR MINIONS* token. Point to the other Minions.",
-        "zh-Hans": "如果有七名或更多玩家，唤醒所有爪牙：\n 展示“他是恶魔”信息标记。指向恶魔。",
-        "sv": "Om det finns 7 eller fler spelare, väck alla Kumpaner. Visa kortet *DET HÄR ÄR DEMONEN*. Peka på Demonen. Visa kortet *DET HÄR ÄR DINA KUMPANER*. Peka på de andra Kumpanerna.",
-        "es-419": "Si hay 7 o más jugadores, despierta a todos los Secuaces:\n\tMuéstrales la ficha de *ESTE ES EL DEMONIO*. Apunta al Demonio.\n\tMuéstrales la ficha de *ESTOS SON TUS SECUACES*. Apunta a los otros Secuaces."
+        "cn": "如果有七名或更多玩家，唤醒所有爪牙：\n 展示“他是恶魔”信息标记。指向恶魔。",
+        "es": "Si hay 7 o más jugadores, despierta a todos los Secuaces:\n\tMuéstrales la ficha de *ESTE ES EL DEMONIO*. Apunta al Demonio.\n\tMuéstrales la ficha de *ESTOS SON TUS SECUACES*. Apunta a los otros Secuaces.",
+        "sv": "Om det finns 7 eller fler spelare, väck alla Kumpaner. Visa kortet *DET HÄR ÄR DEMONEN*. Peka på Demonen. Visa kortet *DET HÄR ÄR DINA KUMPANER*. Peka på de andra Kumpanerna."
       },
       "other_night_reminder": {}
     },
     "demoninfo": {
       "name": {
         "en": "Demon Info",
-        "zh-Hans": "恶魔信息",
-        "sv": "Demon-info",
-        "es-419": "Información del Demonio"
+        "cn": "恶魔信息",
+        "es": "Información del Demonio",
+        "sv": "Demon-info"
       },
       "first_night_reminder": {
         "en": "If there are 7 or more players, wake the Demon: Show the *THESE ARE YOUR MINIONS* token. Point to all Minions. Show the *THESE CHARACTERS ARE NOT IN PLAY* token. Show 3 not-in-play good character tokens.",
-        "zh-Hans": "如果有七名或更多玩家，唤醒恶魔：展示“他们是你的爪牙”信息标记。指向所有爪牙。展示“这些角色不在场”信息标记。展示三个不在场的善良角色。如果其他对恶魔暴露的角色在场，不要让恶魔入睡，而是一并给出相关信息后再让恶魔入睡。",
-        "sv": "Väck Demonen om det finns 7 eller fler spelare. Visa kortet *DET HÄR ÄR DINA KUMPANER*. Peka på alla Kumpaner. Visa kortet *DE HÄR ROLLERNA ÄR INTE I SPEL*. Visa tre goda roller som inte är i spel.",
-        "es-419": "Si hay 7 o más jugadores, despierta al Demonio:\n\tMuéstrale la ficha de *ESTOS SON TUS SECUACES*. Apunta a todos los Secuaces.\n\tMuéstrale la ficha de *ESTOS ROLES NO ESTÁN EN JUEGO*. Muéstrale las fichas de 3 roles buenos fuera de juego."
+        "cn": "如果有七名或更多玩家，唤醒恶魔：展示“他们是你的爪牙”信息标记。指向所有爪牙。展示“这些角色不在场”信息标记。展示三个不在场的善良角色。如果其他对恶魔暴露的角色在场，不要让恶魔入睡，而是一并给出相关信息后再让恶魔入睡。",
+        "es": "Si hay 7 o más jugadores, despierta al Demonio:\n\tMuéstrale la ficha de *ESTOS SON TUS SECUACES*. Apunta a todos los Secuaces.\n\tMuéstrale la ficha de *ESTOS ROLES NO ESTÁN EN JUEGO*. Muéstrale las fichas de 3 roles buenos fuera de juego.",
+        "sv": "Väck Demonen om det finns 7 eller fler spelare. Visa kortet *DET HÄR ÄR DINA KUMPANER*. Peka på alla Kumpaner. Visa kortet *DE HÄR ROLLERNA ÄR INTE I SPEL*. Visa tre goda roller som inte är i spel."
       },
       "other_night_reminder": {}
     },
     "dawn": {
       "name": {
         "en": "Dawn",
-        "zh-Hans": "黎明",
-        "sv": "Gryning",
-        "es-419": "Amanecer"
+        "cn": "黎明",
+        "es": "Amanecer",
+        "sv": "Gryning"
       },
       "first_night_reminder": {
         "en": "Wait for a few seconds. End the Night Phase.",
-        "zh-Hans": "稍等一会。结束夜晚阶段。",
-        "sv": "Vänta några sekunder. Avsluta nattfasen.",
-        "es-419": "Espera unos segundos. Termina la Fase de la Noche."
+        "cn": "稍等一会。结束夜晚阶段。",
+        "es": "Espera unos segundos. Termina la Fase de la Noche.",
+        "sv": "Vänta några sekunder. Avsluta nattfasen."
       },
       "other_night_reminder": {
         "en": "Wait for a few seconds. End the Night Phase.",
-        "zh-Hans": "稍等一会。结束夜晚阶段。",
-        "sv": "Vänta några sekunder. Avsluta nattfasen.",
-        "es-419": "Espera unos segundos. Termina la Fase de la Noche."
+        "cn": "稍等一会。结束夜晚阶段。",
+        "es": "Espera unos segundos. Termina la Fase de la Noche.",
+        "sv": "Vänta några sekunder. Avsluta nattfasen."
       }
     }
   }

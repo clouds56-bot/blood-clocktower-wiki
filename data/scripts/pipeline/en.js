@@ -23,9 +23,9 @@ const CATEGORIES = [
 ];
 
 const EDITION_MAPPING = {
-  'trouble brewing': 'trouble_brewing',
-  'bad moon rising': 'bad_moon_rising',
-  'sects & violets': 'sects_violets',
+  'trouble brewing': 'tb',
+  'bad moon rising': 'bmr',
+  'sects & violets': 'snv',
   'experimental characters': 'experimental'
 };
 

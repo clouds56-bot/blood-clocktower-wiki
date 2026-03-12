@@ -28,7 +28,7 @@
     "sv": "Meddela vilken roll som är stormfångad. Om rollen är i spel, markera den spelaren som *STORMFÅNGAD*. Väck varje ond spelarna, visa rollbrickan och peka på den markerade spelaren. Om rollen inte är i spel, väck de onda spelarna och visa kortet *DE HÄR ROLLERNA ÄR INTE I SPEL* samt rollbrickan.",
     "zh-Hans": "在游戏开始时，宣布暴风捕手在场。将暴风捕手的角色标记放入魔典。宣布暴风捕手对哪个善良角色“青睐有加”。如果被暴风捕手选择的角色在场，使用暴风捕手的“不会死亡”提示标记标记那个角色。分别依次唤醒每个邪恶玩家。如果有善良角色标记了暴风捕手的“不会死亡”提示标记，对邪恶玩家展示“这名玩家是”信息标记，对应的善良角色标记，并指向对应的善良玩家。"
   },
-  "source_url": "https://script.bloodontheclocktower.com/",
+  "source_url": "https://raw.githubusercontent.com/ThePandemoniumInstitute/botc-translations/main/game/zh_Hans.json",
   "how_to_run": {
     "cn": "在游戏开始时，宣布暴风捕手在场。将暴风捕手的角色标记放入魔典。宣布暴风捕手对哪个善良角色“青睐有加”。如果被暴风捕手选择的角色在场，使用暴风捕手的“不会死亡”提示标记标记那个角色。\n在首个夜晚，分别依次唤醒每个邪恶玩家。如果有善良角色标记了暴风捕手的“不会死亡”提示标记，对邪恶玩家展示“这名玩家是”信息标记，对应的善良角色标记，并指向对应的善良玩家，然后让邪恶玩家重新入睡。如果没有玩家被暴风捕手标记，对邪恶玩家展示“这些角色不在场”信息标记和对应的善良角色标记，然后让邪恶玩家重新入睡。\n如果被暴风捕手的“不会死亡”提示标记标记的角色被处决，那么他死亡。如果他会因为其他方式死亡，那么他保持存活。"
   },

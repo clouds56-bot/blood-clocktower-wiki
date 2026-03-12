@@ -19,7 +19,7 @@
     "zh-Hans": "四者陨落于生灭之隙，四者归返于流转之途。四者心住于道法，四者不复终结于终。",
     "cn": "“四者陨落于生灭之隙，”\n“四者归返于流转之途。”\n“四者心住于道法，”\n“四者不复终结于终。”\n（印度语）"
   },
-  "source_url": "https://script.bloodontheclocktower.com/",
+  "source_url": "https://raw.githubusercontent.com/ThePandemoniumInstitute/botc-translations/main/game/zh_Hans.json",
   "how_to_run": {
     "cn": "如果一名玩家死亡了，他变成你选择的旅行者角色。公开宣布他是哪个旅行者。\n如果已经有四名玩家死亡并变成了旅行者，其他玩家将正常死亡，不再变为旅行者。\n可选规则：如果恶魔死亡变成了旅行者，一名爪牙玩家变成这个恶魔。"
   },

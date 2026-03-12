@@ -1,317 +1,11 @@
 {
   "characters": {
     "townsfolk": {
-      "steward": {
-        "en": "Steward",
-        "es": "Administrador",
-        "sv": "Uppassaren",
-        "cn": "事务官"
-      },
-      "knight": {
-        "en": "Knight",
-        "es": "Caballero",
-        "sv": "Riddaren",
-        "cn": "骑士"
-      },
-      "chef": {
-        "en": "Chef",
-        "es": "Cocinero",
-        "sv": "Kocken",
-        "cn": "厨师"
-      },
-      "noble": {
-        "en": "Noble",
-        "es": "Noble",
-        "sv": "Adelsmannen",
-        "cn": "贵族"
-      },
-      "investigator": {
-        "en": "Investigator",
-        "es": "Investigador",
-        "sv": "Detektiven",
-        "cn": "调查员"
-      },
-      "washerwoman": {
-        "en": "Washerwoman",
-        "es": "Lavandera",
-        "sv": "Tvätterskan",
-        "cn": "洗衣妇"
-      },
-      "clockmaker": {
-        "en": "Clockmaker",
-        "es": "Relojero",
-        "sv": "Urmakaren",
-        "cn": "钟表匠"
-      },
-      "grandmother": {
-        "en": "Grandmother",
-        "es": "Abuela",
-        "sv": "Farmorn",
-        "cn": "祖母"
-      },
-      "librarian": {
-        "en": "Librarian",
-        "es": "Bibliotecario",
-        "sv": "Bibliotekarien",
-        "cn": "图书管理员"
-      },
-      "shugenja": {
-        "en": "Shugenja",
-        "es": "Shugenja",
-        "sv": "Shugenjan",
-        "cn": "修行者"
-      },
-      "pixie": {
-        "en": "Pixie",
-        "es": "Hada",
-        "sv": "Älvan",
-        "cn": "小精灵"
-      },
-      "bounty_hunter": {
-        "en": "Bounty Hunter",
-        "es": "Cazarrecompensas",
-        "sv": "Prisjägaren",
-        "cn": "赏金猎人"
-      },
-      "empath": {
-        "en": "Empath",
-        "es": "Empático",
-        "sv": "Empaten",
-        "cn": "共情者"
-      },
-      "high_priestess": {
-        "en": "High Priestess",
-        "es": "Sacerdotisa",
-        "sv": "Prästinnan",
-        "cn": "女祭司"
-      },
-      "sailor": {
-        "en": "Sailor",
-        "es": "Marinero",
-        "sv": "Matrosen",
-        "cn": "水手"
-      },
-      "balloonist": {
-        "en": "Balloonist",
-        "es": "Aeronauta",
-        "sv": "Ballongfararen",
-        "cn": "气球驾驶员"
-      },
-      "general": {
-        "en": "General",
-        "es": "General",
-        "sv": "Generalen",
-        "cn": "将军"
-      },
-      "preacher": {
-        "en": "Preacher",
-        "es": "Predicador",
-        "sv": "Predikanten",
-        "cn": "传教士"
-      },
-      "chambermaid": {
-        "en": "Chambermaid",
-        "es": "Sirvienta",
-        "sv": "Husan",
-        "cn": "侍女"
-      },
-      "village_idiot": {
-        "en": "Village Idiot",
-        "es": "Tonto del Pueblo",
-        "sv": "Byfånen",
-        "cn": "村夫"
-      },
-      "snake_charmer": {
-        "en": "Snake Charmer",
-        "es": "Encantador de Serpientes",
-        "sv": "Ormtjusaren",
-        "cn": "舞蛇人"
-      },
-      "mathematician": {
-        "en": "Mathematician",
-        "es": "Matemático",
-        "sv": "Matematikern",
-        "cn": "数学家"
-      },
-      "king": {
-        "en": "King",
-        "es": "Rey",
-        "sv": "Kungen",
-        "cn": "国王"
-      },
-      "dreamer": {
-        "en": "Dreamer",
-        "es": "Soñador",
-        "sv": "Drömmaren",
-        "cn": "筑梦师"
-      },
-      "fortune_teller": {
-        "en": "Fortune Teller",
-        "es": "Adivino",
-        "sv": "Spådamen",
-        "cn": "占卜师"
-      },
-      "cult_leader": {
-        "en": "Cult Leader",
-        "es": "Cultista",
-        "sv": "Kultledaren",
-        "cn": "异教领袖"
-      },
-      "flowergirl": {
-        "en": "Flowergirl",
-        "es": "Niña de las Flores",
-        "sv": "Floristen",
-        "cn": "卖花女孩"
-      },
-      "town_crier": {
-        "en": "Town Crier",
-        "es": "Pregonero",
-        "sv": "Härolden",
-        "cn": "城镇公告员"
-      },
-      "oracle": {
-        "en": "Oracle",
-        "es": "Oráculo",
-        "sv": "Oraklet",
-        "cn": "神谕者"
-      },
-      "undertaker": {
-        "en": "Undertaker",
-        "es": "Enterrador",
-        "sv": "Dödgrävaren",
-        "cn": "送葬者"
-      },
-      "innkeeper": {
-        "en": "Innkeeper",
-        "es": "Posadero",
-        "sv": "Gästgivaren",
-        "cn": "旅店老板"
-      },
-      "monk": {
-        "en": "Monk",
-        "es": "Monje",
-        "sv": "Munken",
-        "cn": "僧侣"
-      },
-      "gambler": {
-        "en": "Gambler",
-        "es": "Ludópata",
-        "sv": "Dobblaren",
-        "cn": "赌徒"
-      },
       "acrobat": {
         "en": "Acrobat",
         "es": "Acróbata",
         "sv": "Akrobaten",
         "cn": "杂技演员"
-      },
-      "exorcist": {
-        "en": "Exorcist",
-        "es": "Exorcista",
-        "sv": "Exorcisten",
-        "cn": "驱魔人"
-      },
-      "lycanthrope": {
-        "en": "Lycanthrope",
-        "es": "Licántropo",
-        "sv": "Lykantropen",
-        "cn": "半兽人"
-      },
-      "gossip": {
-        "en": "Gossip",
-        "es": "Chismoso",
-        "sv": "Skvallerbyttan",
-        "cn": "造谣者"
-      },
-      "savant": {
-        "en": "Savant",
-        "es": "Erudito",
-        "sv": "Savanten",
-        "cn": "博学者"
-      },
-      "alsaahir": {
-        "en": "Alsaahir",
-        "es": "Alsaahir",
-        "sv": "al Saahir",
-        "cn": "戏法师"
-      },
-      "engineer": {
-        "en": "Engineer",
-        "es": "Ingeniero",
-        "sv": "Ingenjören",
-        "cn": "工程师"
-      },
-      "nightwatchman": {
-        "en": "Nightwatchman",
-        "es": "Vigilante",
-        "sv": "Nattvakten",
-        "cn": "守夜人"
-      },
-      "courtier": {
-        "en": "Courtier",
-        "es": "Cortesano",
-        "sv": "Hovmästaren",
-        "cn": "侍臣"
-      },
-      "seamstress": {
-        "en": "Seamstress",
-        "es": "Costurera",
-        "sv": "Sömmerskan",
-        "cn": "女裁缝"
-      },
-      "philosopher": {
-        "en": "Philosopher",
-        "es": "Filósofo",
-        "sv": "Filosofen",
-        "cn": "哲学家"
-      },
-      "huntsman": {
-        "en": "Huntsman",
-        "es": "Cazador",
-        "sv": "Jägaren",
-        "cn": "巡山人"
-      },
-      "professor": {
-        "en": "Professor",
-        "es": "Profesor",
-        "sv": "Professorn",
-        "cn": "教授"
-      },
-      "artist": {
-        "en": "Artist",
-        "es": "Artista",
-        "sv": "Konstnären",
-        "cn": "艺术家"
-      },
-      "slayer": {
-        "en": "Slayer",
-        "es": "Exterminador",
-        "sv": "Dråparen",
-        "cn": "猎手"
-      },
-      "fisherman": {
-        "en": "Fisherman",
-        "es": "Pescador",
-        "sv": "Fiskaren",
-        "cn": "渔夫"
-      },
-      "princess": {
-        "en": "Princess",
-        "es": "Princesa",
-        "sv": "Prinsessan",
-        "cn": "公主"
-      },
-      "juggler": {
-        "en": "Juggler",
-        "es": "Malabarista",
-        "sv": "Jonglören",
-        "cn": "杂耍艺人"
-      },
-      "soldier": {
-        "en": "Soldier",
-        "es": "Soldado",
-        "sv": "Soldaten",
-        "cn": "士兵"
       },
       "alchemist": {
         "en": "Alchemist",
@@ -319,11 +13,11 @@
         "sv": "Alkemisten",
         "cn": "炼金术士"
       },
-      "cannibal": {
-        "en": "Cannibal",
-        "es": "Caníbal",
-        "sv": "Kannibalen",
-        "cn": "食人族"
+      "alsaahir": {
+        "en": "Alsaahir",
+        "es": "Alsaahir",
+        "sv": "al Saahir",
+        "cn": "戏法师"
       },
       "amnesiac": {
         "en": "Amnesiac",
@@ -331,17 +25,299 @@
         "sv": "Virrpannan",
         "cn": "失忆者"
       },
+      "artist": {
+        "en": "Artist",
+        "es": "Artista",
+        "sv": "Konstnären",
+        "cn": "艺术家"
+      },
+      "atheist": {
+        "en": "Atheist",
+        "es": "Ateo",
+        "sv": "Ateisten",
+        "cn": "无神论者"
+      },
+      "balloonist": {
+        "en": "Balloonist",
+        "es": "Aeronauta",
+        "sv": "Ballongfararen",
+        "cn": "气球驾驶员"
+      },
+      "banshee": {
+        "en": "Banshee",
+        "es": "Llorona",
+        "sv": "Bansheen",
+        "cn": "报丧女妖"
+      },
+      "bounty_hunter": {
+        "en": "Bounty Hunter",
+        "es": "Cazarrecompensas",
+        "sv": "Prisjägaren",
+        "cn": "赏金猎人"
+      },
+      "cannibal": {
+        "en": "Cannibal",
+        "es": "Caníbal",
+        "sv": "Kannibalen",
+        "cn": "食人族"
+      },
+      "chambermaid": {
+        "en": "Chambermaid",
+        "es": "Sirvienta",
+        "sv": "Husan",
+        "cn": "侍女"
+      },
+      "chef": {
+        "en": "Chef",
+        "es": "Cocinero",
+        "sv": "Kocken",
+        "cn": "厨师"
+      },
+      "choirboy": {
+        "en": "Choirboy",
+        "es": "Niño del Coro",
+        "sv": "Korgossen",
+        "cn": "唱诗男孩"
+      },
+      "clockmaker": {
+        "en": "Clockmaker",
+        "es": "Relojero",
+        "sv": "Urmakaren",
+        "cn": "钟表匠"
+      },
+      "courtier": {
+        "en": "Courtier",
+        "es": "Cortesano",
+        "sv": "Hovmästaren",
+        "cn": "侍臣"
+      },
+      "cult_leader": {
+        "en": "Cult Leader",
+        "es": "Cultista",
+        "sv": "Kultledaren",
+        "cn": "异教领袖"
+      },
+      "dreamer": {
+        "en": "Dreamer",
+        "es": "Soñador",
+        "sv": "Drömmaren",
+        "cn": "筑梦师"
+      },
+      "empath": {
+        "en": "Empath",
+        "es": "Empático",
+        "sv": "Empaten",
+        "cn": "共情者"
+      },
+      "engineer": {
+        "en": "Engineer",
+        "es": "Ingeniero",
+        "sv": "Ingenjören",
+        "cn": "工程师"
+      },
+      "exorcist": {
+        "en": "Exorcist",
+        "es": "Exorcista",
+        "sv": "Exorcisten",
+        "cn": "驱魔人"
+      },
       "farmer": {
         "en": "Farmer",
         "es": "Granjero",
         "sv": "Bonden",
         "cn": "农夫"
       },
+      "fisherman": {
+        "en": "Fisherman",
+        "es": "Pescador",
+        "sv": "Fiskaren",
+        "cn": "渔夫"
+      },
+      "flowergirl": {
+        "en": "Flowergirl",
+        "es": "Niña de las Flores",
+        "sv": "Floristen",
+        "cn": "卖花女孩"
+      },
+      "fool": {
+        "en": "Fool",
+        "es": "Bufón",
+        "sv": "Narren",
+        "cn": "弄臣"
+      },
+      "fortune_teller": {
+        "en": "Fortune Teller",
+        "es": "Adivino",
+        "sv": "Spådamen",
+        "cn": "占卜师"
+      },
+      "gambler": {
+        "en": "Gambler",
+        "es": "Ludópata",
+        "sv": "Dobblaren",
+        "cn": "赌徒"
+      },
+      "general": {
+        "en": "General",
+        "es": "General",
+        "sv": "Generalen",
+        "cn": "将军"
+      },
+      "gossip": {
+        "en": "Gossip",
+        "es": "Chismoso",
+        "sv": "Skvallerbyttan",
+        "cn": "造谣者"
+      },
+      "grandmother": {
+        "en": "Grandmother",
+        "es": "Abuela",
+        "sv": "Farmorn",
+        "cn": "祖母"
+      },
+      "high_priestess": {
+        "en": "High Priestess",
+        "es": "Sacerdotisa",
+        "sv": "Prästinnan",
+        "cn": "女祭司"
+      },
+      "huntsman": {
+        "en": "Huntsman",
+        "es": "Cazador",
+        "sv": "Jägaren",
+        "cn": "巡山人"
+      },
+      "innkeeper": {
+        "en": "Innkeeper",
+        "es": "Posadero",
+        "sv": "Gästgivaren",
+        "cn": "旅店老板"
+      },
+      "investigator": {
+        "en": "Investigator",
+        "es": "Investigador",
+        "sv": "Detektiven",
+        "cn": "调查员"
+      },
+      "juggler": {
+        "en": "Juggler",
+        "es": "Malabarista",
+        "sv": "Jonglören",
+        "cn": "杂耍艺人"
+      },
+      "king": {
+        "en": "King",
+        "es": "Rey",
+        "sv": "Kungen",
+        "cn": "国王"
+      },
+      "knight": {
+        "en": "Knight",
+        "es": "Caballero",
+        "sv": "Riddaren",
+        "cn": "骑士"
+      },
+      "librarian": {
+        "en": "Librarian",
+        "es": "Bibliotecario",
+        "sv": "Bibliotekarien",
+        "cn": "图书管理员"
+      },
+      "lycanthrope": {
+        "en": "Lycanthrope",
+        "es": "Licántropo",
+        "sv": "Lykantropen",
+        "cn": "半兽人"
+      },
+      "magician": {
+        "en": "Magician",
+        "es": "Mago",
+        "sv": "Magikern",
+        "cn": "魔术师"
+      },
+      "mathematician": {
+        "en": "Mathematician",
+        "es": "Matemático",
+        "sv": "Matematikern",
+        "cn": "数学家"
+      },
+      "mayor": {
+        "en": "Mayor",
+        "es": "Alcalde",
+        "sv": "Borgmästaren",
+        "cn": "镇长"
+      },
       "minstrel": {
         "en": "Minstrel",
         "es": "Trovador",
         "sv": "Trubaduren",
         "cn": "吟游诗人"
+      },
+      "monk": {
+        "en": "Monk",
+        "es": "Monje",
+        "sv": "Munken",
+        "cn": "僧侣"
+      },
+      "nightwatchman": {
+        "en": "Nightwatchman",
+        "es": "Vigilante",
+        "sv": "Nattvakten",
+        "cn": "守夜人"
+      },
+      "noble": {
+        "en": "Noble",
+        "es": "Noble",
+        "sv": "Adelsmannen",
+        "cn": "贵族"
+      },
+      "oracle": {
+        "en": "Oracle",
+        "es": "Oráculo",
+        "sv": "Oraklet",
+        "cn": "神谕者"
+      },
+      "pacifist": {
+        "en": "Pacifist",
+        "es": "Pacifista",
+        "sv": "Pacifisten",
+        "cn": "和平主义者"
+      },
+      "philosopher": {
+        "en": "Philosopher",
+        "es": "Filósofo",
+        "sv": "Filosofen",
+        "cn": "哲学家"
+      },
+      "pixie": {
+        "en": "Pixie",
+        "es": "Hada",
+        "sv": "Älvan",
+        "cn": "小精灵"
+      },
+      "poppy_grower": {
+        "en": "Poppy Grower",
+        "es": "Cultivador de Amapolas",
+        "sv": "Vallmoodlaren",
+        "cn": "罂粟种植者"
+      },
+      "preacher": {
+        "en": "Preacher",
+        "es": "Predicador",
+        "sv": "Predikanten",
+        "cn": "传教士"
+      },
+      "princess": {
+        "en": "Princess",
+        "es": "Princesa",
+        "sv": "Prinsessan",
+        "cn": "公主"
+      },
+      "professor": {
+        "en": "Professor",
+        "es": "Profesor",
+        "sv": "Professorn",
+        "cn": "教授"
       },
       "ravenkeeper": {
         "en": "Ravenkeeper",
@@ -355,17 +331,53 @@
         "sv": "Gurun",
         "cn": "贤者"
       },
-      "choirboy": {
-        "en": "Choirboy",
-        "es": "Niño del Coro",
-        "sv": "Korgossen",
-        "cn": "唱诗男孩"
+      "sailor": {
+        "en": "Sailor",
+        "es": "Marinero",
+        "sv": "Matrosen",
+        "cn": "水手"
       },
-      "banshee": {
-        "en": "Banshee",
-        "es": "Llorona",
-        "sv": "Bansheen",
-        "cn": "报丧女妖"
+      "savant": {
+        "en": "Savant",
+        "es": "Erudito",
+        "sv": "Savanten",
+        "cn": "博学者"
+      },
+      "seamstress": {
+        "en": "Seamstress",
+        "es": "Costurera",
+        "sv": "Sömmerskan",
+        "cn": "女裁缝"
+      },
+      "shugenja": {
+        "en": "Shugenja",
+        "es": "Shugenja",
+        "sv": "Shugenjan",
+        "cn": "修行者"
+      },
+      "slayer": {
+        "en": "Slayer",
+        "es": "Exterminador",
+        "sv": "Dråparen",
+        "cn": "猎手"
+      },
+      "snake_charmer": {
+        "en": "Snake Charmer",
+        "es": "Encantador de Serpientes",
+        "sv": "Ormtjusaren",
+        "cn": "舞蛇人"
+      },
+      "soldier": {
+        "en": "Soldier",
+        "es": "Soldado",
+        "sv": "Soldaten",
+        "cn": "士兵"
+      },
+      "steward": {
+        "en": "Steward",
+        "es": "Administrador",
+        "sv": "Uppassaren",
+        "cn": "事务官"
       },
       "tea_lady": {
         "en": "Tea Lady",
@@ -373,17 +385,23 @@
         "sv": "Tekokerskan",
         "cn": "茶艺师"
       },
-      "mayor": {
-        "en": "Mayor",
-        "es": "Alcalde",
-        "sv": "Borgmästaren",
-        "cn": "镇长"
+      "town_crier": {
+        "en": "Town Crier",
+        "es": "Pregonero",
+        "sv": "Härolden",
+        "cn": "城镇公告员"
       },
-      "fool": {
-        "en": "Fool",
-        "es": "Bufón",
-        "sv": "Narren",
-        "cn": "弄臣"
+      "undertaker": {
+        "en": "Undertaker",
+        "es": "Enterrador",
+        "sv": "Dödgrävaren",
+        "cn": "送葬者"
+      },
+      "village_idiot": {
+        "en": "Village Idiot",
+        "es": "Tonto del Pueblo",
+        "sv": "Byfånen",
+        "cn": "村夫"
       },
       "virgin": {
         "en": "Virgin",
@@ -391,29 +409,11 @@
         "sv": "Jungfrun",
         "cn": "贞洁者"
       },
-      "magician": {
-        "en": "Magician",
-        "es": "Mago",
-        "sv": "Magikern",
-        "cn": "魔术师"
-      },
-      "poppy_grower": {
-        "en": "Poppy Grower",
-        "es": "Cultivador de Amapolas",
-        "sv": "Vallmoodlaren",
-        "cn": "罂粟种植者"
-      },
-      "pacifist": {
-        "en": "Pacifist",
-        "es": "Pacifista",
-        "sv": "Pacifisten",
-        "cn": "和平主义者"
-      },
-      "atheist": {
-        "en": "Atheist",
-        "es": "Ateo",
-        "sv": "Ateisten",
-        "cn": "无神论者"
+      "washerwoman": {
+        "en": "Washerwoman",
+        "es": "Lavandera",
+        "sv": "Tvätterskan",
+        "cn": "洗衣妇"
       },
       "banxian": {
         "en": "Banxian",
@@ -469,11 +469,11 @@
       }
     },
     "outsider": {
-      "hermit": {
-        "en": "Hermit",
-        "es": "Ermitaño",
-        "sv": "Eremiten",
-        "cn": "隐士"
+      "barber": {
+        "en": "Barber",
+        "es": "Barbero",
+        "sv": "Barberaren",
+        "cn": "理发师"
       },
       "butler": {
         "en": "Butler",
@@ -481,23 +481,11 @@
         "sv": "Butlern",
         "cn": "管家"
       },
-      "goon": {
-        "en": "Goon",
-        "es": "Matón",
-        "sv": "Hejduken",
-        "cn": "莽夫"
-      },
-      "ogre": {
-        "en": "Ogre",
-        "es": "Ogro",
-        "sv": "Resen",
-        "cn": "食人魔"
-      },
-      "lunatic": {
-        "en": "Lunatic",
-        "es": "Lunático",
-        "sv": "Galningen",
-        "cn": "疯子"
+      "damsel": {
+        "en": "Damsel",
+        "es": "Damisela",
+        "sv": "Ungmön",
+        "cn": "落难少女"
       },
       "drunk": {
         "en": "Drunk",
@@ -505,59 +493,17 @@
         "sv": "Fyllot",
         "cn": "酒鬼"
       },
-      "tinker": {
-        "en": "Tinker",
-        "es": "Mil Oficios",
-        "sv": "Mekaren",
-        "cn": "修补匠"
-      },
-      "recluse": {
-        "en": "Recluse",
-        "es": "Recluso",
-        "sv": "Enstöringen",
-        "cn": "陌客"
-      },
       "golem": {
         "en": "Golem",
         "es": "Gólem",
         "sv": "Golem",
         "cn": "魔像"
       },
-      "sweetheart": {
-        "en": "Sweetheart",
-        "es": "Tesorito",
-        "sv": "Kärestan",
-        "cn": "心上人"
-      },
-      "plague_doctor": {
-        "en": "Plague Doctor",
-        "es": "Doctor de la Peste",
-        "sv": "Pestläkaren",
-        "cn": "瘟疫医生"
-      },
-      "klutz": {
-        "en": "Klutz",
-        "es": "Torpe",
-        "sv": "Klanten",
-        "cn": "呆瓜"
-      },
-      "moonchild": {
-        "en": "Moonchild",
-        "es": "Hijo de la Luna",
-        "sv": "Månflickan",
-        "cn": "月之子"
-      },
-      "saint": {
-        "en": "Saint",
-        "es": "Santo",
-        "sv": "Helgonet",
-        "cn": "圣徒"
-      },
-      "barber": {
-        "en": "Barber",
-        "es": "Barbero",
-        "sv": "Barberaren",
-        "cn": "理发师"
+      "goon": {
+        "en": "Goon",
+        "es": "Matón",
+        "sv": "Hejduken",
+        "cn": "莽夫"
       },
       "hatter": {
         "en": "Hatter",
@@ -565,11 +511,53 @@
         "sv": "Hattmakaren",
         "cn": "帽匠"
       },
+      "heretic": {
+        "en": "Heretic",
+        "es": "Hereje",
+        "sv": "Kättaren",
+        "cn": "异端分子"
+      },
+      "hermit": {
+        "en": "Hermit",
+        "es": "Ermitaño",
+        "sv": "Eremiten",
+        "cn": "隐士"
+      },
+      "klutz": {
+        "en": "Klutz",
+        "es": "Torpe",
+        "sv": "Klanten",
+        "cn": "呆瓜"
+      },
+      "lunatic": {
+        "en": "Lunatic",
+        "es": "Lunático",
+        "sv": "Galningen",
+        "cn": "疯子"
+      },
+      "moonchild": {
+        "en": "Moonchild",
+        "es": "Hijo de la Luna",
+        "sv": "Månflickan",
+        "cn": "月之子"
+      },
       "mutant": {
         "en": "Mutant",
         "es": "Mutante",
         "sv": "Mutanten",
         "cn": "畸形秀演员"
+      },
+      "ogre": {
+        "en": "Ogre",
+        "es": "Ogro",
+        "sv": "Resen",
+        "cn": "食人魔"
+      },
+      "plague_doctor": {
+        "en": "Plague Doctor",
+        "es": "Doctor de la Peste",
+        "sv": "Pestläkaren",
+        "cn": "瘟疫医生"
       },
       "politician": {
         "en": "Politician",
@@ -577,17 +565,23 @@
         "sv": "Politikern",
         "cn": "政客"
       },
-      "zealot": {
-        "en": "Zealot",
-        "es": "Fanático",
-        "sv": "Fanatikern",
-        "cn": "狂热者"
+      "puzzlemaster": {
+        "en": "Puzzlemaster",
+        "es": "Descifrador",
+        "sv": "Pusselmästaren",
+        "cn": "解谜大师"
       },
-      "damsel": {
-        "en": "Damsel",
-        "es": "Damisela",
-        "sv": "Ungmön",
-        "cn": "落难少女"
+      "recluse": {
+        "en": "Recluse",
+        "es": "Recluso",
+        "sv": "Enstöringen",
+        "cn": "陌客"
+      },
+      "saint": {
+        "en": "Saint",
+        "es": "Santo",
+        "sv": "Helgonet",
+        "cn": "圣徒"
       },
       "snitch": {
         "en": "Snitch",
@@ -595,17 +589,23 @@
         "sv": "Golaren",
         "cn": "告密者"
       },
-      "heretic": {
-        "en": "Heretic",
-        "es": "Hereje",
-        "sv": "Kättaren",
-        "cn": "异端分子"
+      "sweetheart": {
+        "en": "Sweetheart",
+        "es": "Tesorito",
+        "sv": "Kärestan",
+        "cn": "心上人"
       },
-      "puzzlemaster": {
-        "en": "Puzzlemaster",
-        "es": "Descifrador",
-        "sv": "Pusselmästaren",
-        "cn": "解谜大师"
+      "tinker": {
+        "en": "Tinker",
+        "es": "Mil Oficios",
+        "sv": "Mekaren",
+        "cn": "修补匠"
+      },
+      "zealot": {
+        "en": "Zealot",
+        "es": "Fanático",
+        "sv": "Fanatikern",
+        "cn": "狂热者"
       },
       "turncoat": {
         "en": "Turncoat",
@@ -625,155 +625,17 @@
       }
     },
     "minion": {
-      "mezepheles": {
-        "en": "Mezepheles",
-        "es": "Mezéfeles",
-        "sv": "Mezefeles",
-        "cn": "灵言师"
-      },
-      "godfather": {
-        "en": "Godfather",
-        "es": "Padrino",
-        "sv": "Gudfadern",
-        "cn": "教父"
-      },
-      "poisoner": {
-        "en": "Poisoner",
-        "es": "Envenenador",
-        "sv": "Giftblandaren",
-        "cn": "投毒者"
-      },
-      "devil_s_advocate": {
-        "en": "Devil's Advocate",
-        "es": "Abogado del Diablo",
-        "sv": "Advokaten",
-        "cn": "魔鬼代言人"
-      },
-      "spy": {
-        "en": "Spy",
-        "es": "Espía",
-        "sv": "Spionen",
-        "cn": "间谍"
-      },
-      "harpy": {
-        "en": "Harpy",
-        "es": "Harpía",
-        "sv": "Vittran",
-        "cn": "鹰身女妖"
-      },
-      "witch": {
-        "en": "Witch",
-        "es": "Bruja",
-        "sv": "Häxan",
-        "cn": "女巫"
-      },
-      "cerenovus": {
-        "en": "Cerenovus",
-        "es": "Cerenovus",
-        "sv": "Cerenovus",
-        "cn": "洗脑师"
-      },
-      "fearmonger": {
-        "en": "Fearmonger",
-        "es": "Alarmista",
-        "sv": "Skräckspridaren",
-        "cn": "恐惧之灵"
-      },
-      "pit_hag": {
-        "en": "Pit-Hag",
-        "es": "Vieja del Pozo",
-        "sv": "Trollpackan",
-        "cn": "麻脸巫婆"
-      },
-      "psychopath": {
-        "en": "Psychopath",
-        "es": "Sicópata",
-        "sv": "Psykopaten",
-        "cn": "精神病患者"
-      },
       "assassin": {
         "en": "Assassin",
         "es": "Asesino",
         "sv": "Lönnmördaren",
         "cn": "刺客"
       },
-      "wizard": {
-        "en": "Wizard",
-        "es": "Hechicero",
-        "sv": "Trollkarlen",
-        "cn": "巫师"
-      },
-      "widow": {
-        "en": "Widow",
-        "es": "Viuda",
-        "sv": "Änkan",
-        "cn": "寡妇"
-      },
-      "xaan": {
-        "en": "Xaan",
-        "es": "Xaan",
-        "sv": "Xaan",
-        "cn": "限"
-      },
-      "marionette": {
-        "en": "Marionette",
-        "es": "Marioneta",
-        "sv": "Marionetten",
-        "cn": "提线木偶"
-      },
-      "wraith": {
-        "en": "Wraith",
-        "es": "Espectro",
-        "sv": "Vålnaden",
-        "cn": "亡魂"
-      },
-      "summoner": {
-        "en": "Summoner",
-        "es": "Invocador",
-        "sv": "Åkallaren",
-        "cn": "召唤师"
-      },
-      "evil_twin": {
-        "en": "Evil Twin",
-        "es": "Gemelo Malvado",
-        "sv": "Onda Tvillingen",
-        "cn": "镜像双子"
-      },
-      "goblin": {
-        "en": "Goblin",
-        "es": "Duende",
-        "sv": "Vätten",
-        "cn": "哥布林"
-      },
-      "boomdandy": {
-        "en": "Boomdandy",
-        "es": "Guapetardo",
-        "sv": "Krutdandyn",
-        "cn": "炸弹人"
-      },
-      "mastermind": {
-        "en": "Mastermind",
-        "es": "Mente Maestra",
-        "sv": "Konspiratören",
-        "cn": "主谋"
-      },
-      "scarlet_woman": {
-        "en": "Scarlet Woman",
-        "es": "Mujer Escarlata",
-        "sv": "Röda Damen",
-        "cn": "红唇女郎"
-      },
-      "vizier": {
-        "en": "Vizier",
-        "es": "Visir",
-        "sv": "Vesiren",
-        "cn": "维齐尔"
-      },
-      "organ_grinder": {
-        "en": "Organ Grinder",
-        "es": "Organillero",
-        "sv": "Positivhalaren",
-        "cn": "街头风琴手"
+      "baron": {
+        "en": "Baron",
+        "es": "Barón",
+        "sv": "Baronen",
+        "cn": "男爵"
       },
       "boffin": {
         "en": "Boffin",
@@ -781,11 +643,149 @@
         "sv": "Labbråttan",
         "cn": "科学怪人"
       },
-      "baron": {
-        "en": "Baron",
-        "es": "Barón",
-        "sv": "Baronen",
-        "cn": "男爵"
+      "boomdandy": {
+        "en": "Boomdandy",
+        "es": "Guapetardo",
+        "sv": "Krutdandyn",
+        "cn": "炸弹人"
+      },
+      "cerenovus": {
+        "en": "Cerenovus",
+        "es": "Cerenovus",
+        "sv": "Cerenovus",
+        "cn": "洗脑师"
+      },
+      "devil_s_advocate": {
+        "en": "Devil's Advocate",
+        "es": "Abogado del Diablo",
+        "sv": "Advokaten",
+        "cn": "魔鬼代言人"
+      },
+      "evil_twin": {
+        "en": "Evil Twin",
+        "es": "Gemelo Malvado",
+        "sv": "Onda Tvillingen",
+        "cn": "镜像双子"
+      },
+      "fearmonger": {
+        "en": "Fearmonger",
+        "es": "Alarmista",
+        "sv": "Skräckspridaren",
+        "cn": "恐惧之灵"
+      },
+      "goblin": {
+        "en": "Goblin",
+        "es": "Duende",
+        "sv": "Vätten",
+        "cn": "哥布林"
+      },
+      "godfather": {
+        "en": "Godfather",
+        "es": "Padrino",
+        "sv": "Gudfadern",
+        "cn": "教父"
+      },
+      "harpy": {
+        "en": "Harpy",
+        "es": "Harpía",
+        "sv": "Vittran",
+        "cn": "鹰身女妖"
+      },
+      "marionette": {
+        "en": "Marionette",
+        "es": "Marioneta",
+        "sv": "Marionetten",
+        "cn": "提线木偶"
+      },
+      "mastermind": {
+        "en": "Mastermind",
+        "es": "Mente Maestra",
+        "sv": "Konspiratören",
+        "cn": "主谋"
+      },
+      "mezepheles": {
+        "en": "Mezepheles",
+        "es": "Mezéfeles",
+        "sv": "Mezefeles",
+        "cn": "灵言师"
+      },
+      "organ_grinder": {
+        "en": "Organ Grinder",
+        "es": "Organillero",
+        "sv": "Positivhalaren",
+        "cn": "街头风琴手"
+      },
+      "pit_hag": {
+        "en": "Pit-Hag",
+        "es": "Vieja del Pozo",
+        "sv": "Trollpackan",
+        "cn": "麻脸巫婆"
+      },
+      "poisoner": {
+        "en": "Poisoner",
+        "es": "Envenenador",
+        "sv": "Giftblandaren",
+        "cn": "投毒者"
+      },
+      "psychopath": {
+        "en": "Psychopath",
+        "es": "Sicópata",
+        "sv": "Psykopaten",
+        "cn": "精神病患者"
+      },
+      "scarlet_woman": {
+        "en": "Scarlet Woman",
+        "es": "Mujer Escarlata",
+        "sv": "Röda Damen",
+        "cn": "红唇女郎"
+      },
+      "spy": {
+        "en": "Spy",
+        "es": "Espía",
+        "sv": "Spionen",
+        "cn": "间谍"
+      },
+      "summoner": {
+        "en": "Summoner",
+        "es": "Invocador",
+        "sv": "Åkallaren",
+        "cn": "召唤师"
+      },
+      "vizier": {
+        "en": "Vizier",
+        "es": "Visir",
+        "sv": "Vesiren",
+        "cn": "维齐尔"
+      },
+      "widow": {
+        "en": "Widow",
+        "es": "Viuda",
+        "sv": "Änkan",
+        "cn": "寡妇"
+      },
+      "witch": {
+        "en": "Witch",
+        "es": "Bruja",
+        "sv": "Häxan",
+        "cn": "女巫"
+      },
+      "wizard": {
+        "en": "Wizard",
+        "es": "Hechicero",
+        "sv": "Trollkarlen",
+        "cn": "巫师"
+      },
+      "wraith": {
+        "en": "Wraith",
+        "es": "Espectro",
+        "sv": "Vålnaden",
+        "cn": "亡魂"
+      },
+      "xaan": {
+        "en": "Xaan",
+        "es": "Xaan",
+        "sv": "Xaan",
+        "cn": "限"
       },
       "corpse_walker": {
         "en": "Corpse Walker",
@@ -805,29 +805,17 @@
       }
     },
     "demon": {
-      "yaggababble": {
-        "en": "Yaggababble",
-        "es": "Yaggablabla",
-        "sv": "Yaggababbel",
-        "cn": "牙噶巴卜"
+      "al_hadikhia": {
+        "en": "Al-Hadikhia",
+        "es": "Al-Hadikhia",
+        "sv": "al Hadikhia",
+        "cn": "哈迪寂亚"
       },
-      "pukka": {
-        "en": "Pukka",
-        "es": "Pukka",
-        "sv": "Pukka",
-        "cn": "普卡"
-      },
-      "lil_monsta": {
-        "en": "Lil' Monsta",
-        "es": "Monstruito",
-        "sv": "Lillmonstret",
-        "cn": "小怪宝"
-      },
-      "no_dashii": {
-        "en": "No Dashii",
-        "es": "No Dashii",
-        "sv": "No Dashii",
-        "cn": "诺-达鲺"
+      "fang_gu": {
+        "en": "Fang Gu",
+        "es": "Fang Gu",
+        "sv": "Fang Gu",
+        "cn": "方古"
       },
       "imp": {
         "en": "Imp",
@@ -835,11 +823,47 @@
         "sv": "Djävulen",
         "cn": "小恶魔"
       },
-      "shabaloth": {
-        "en": "Shabaloth",
-        "es": "Shabaloth",
-        "sv": "Shabaloth",
-        "cn": "沙巴洛斯"
+      "kazali": {
+        "en": "Kazali",
+        "es": "Kazali",
+        "sv": "Kazali",
+        "cn": "卡扎力"
+      },
+      "legion": {
+        "en": "Legion",
+        "es": "Legión",
+        "sv": "Legionen",
+        "cn": "军团"
+      },
+      "leviathan": {
+        "en": "Leviathan",
+        "es": "Leviatán",
+        "sv": "Leviatan",
+        "cn": "利维坦"
+      },
+      "lil_monsta": {
+        "en": "Lil' Monsta",
+        "es": "Monstruito",
+        "sv": "Lillmonstret",
+        "cn": "小怪宝"
+      },
+      "lleech": {
+        "en": "Lleech",
+        "es": "Sanguijuela",
+        "sv": "Lleech",
+        "cn": "痢蛭"
+      },
+      "lord_of_typhon": {
+        "en": "Lord of Typhon",
+        "es": "Señor del Tifón",
+        "sv": "Tyfons Herre",
+        "cn": "堤丰之首"
+      },
+      "no_dashii": {
+        "en": "No Dashii",
+        "es": "No Dashii",
+        "sv": "No Dashii",
+        "cn": "诺-达鲺"
       },
       "ojo": {
         "en": "Ojo",
@@ -847,23 +871,29 @@
         "sv": "Ojo",
         "cn": "奥赫"
       },
-      "kazali": {
-        "en": "Kazali",
-        "es": "Kazali",
-        "sv": "Kazali",
-        "cn": "卡扎力"
-      },
       "po": {
         "en": "Po",
         "es": "Po",
         "sv": "Po",
         "cn": "珀"
       },
-      "zombuul": {
-        "en": "Zombuul",
-        "es": "Zombuul",
-        "sv": "Zombuul",
-        "cn": "僵怖"
+      "pukka": {
+        "en": "Pukka",
+        "es": "Pukka",
+        "sv": "Pukka",
+        "cn": "普卡"
+      },
+      "riot": {
+        "en": "Riot",
+        "es": "Disturbio",
+        "sv": "Kravallen",
+        "cn": "暴乱"
+      },
+      "shabaloth": {
+        "en": "Shabaloth",
+        "es": "Shabaloth",
+        "sv": "Shabaloth",
+        "cn": "沙巴洛斯"
       },
       "vigormortis": {
         "en": "Vigormortis",
@@ -877,47 +907,17 @@
         "sv": "Vortox",
         "cn": "涡流"
       },
-      "legion": {
-        "en": "Legion",
-        "es": "Legión",
-        "sv": "Legionen",
-        "cn": "军团"
+      "yaggababble": {
+        "en": "Yaggababble",
+        "es": "Yaggablabla",
+        "sv": "Yaggababbel",
+        "cn": "牙噶巴卜"
       },
-      "fang_gu": {
-        "en": "Fang Gu",
-        "es": "Fang Gu",
-        "sv": "Fang Gu",
-        "cn": "方古"
-      },
-      "lord_of_typhon": {
-        "en": "Lord of Typhon",
-        "es": "Señor del Tifón",
-        "sv": "Tyfons Herre",
-        "cn": "堤丰之首"
-      },
-      "lleech": {
-        "en": "Lleech",
-        "es": "Sanguijuela",
-        "sv": "Lleech",
-        "cn": "痢蛭"
-      },
-      "al_hadikhia": {
-        "en": "Al-Hadikhia",
-        "es": "Al-Hadikhia",
-        "sv": "al Hadikhia",
-        "cn": "哈迪寂亚"
-      },
-      "riot": {
-        "en": "Riot",
-        "es": "Disturbio",
-        "sv": "Kravallen",
-        "cn": "暴乱"
-      },
-      "leviathan": {
-        "en": "Leviathan",
-        "es": "Leviatán",
-        "sv": "Leviatan",
-        "cn": "利维坦"
+      "zombuul": {
+        "en": "Zombuul",
+        "es": "Zombuul",
+        "sv": "Zombuul",
+        "cn": "僵怖"
       },
       "hun_dun": {
         "en": "Hun Dun",
@@ -937,17 +937,11 @@
       }
     },
     "traveller": {
-      "thief": {
-        "en": "Thief",
-        "es": "Ladrón",
-        "sv": "Tjuven",
-        "cn": "窃贼"
-      },
-      "bureaucrat": {
-        "en": "Bureaucrat",
-        "es": "Burócrata",
-        "sv": "Byråkraten",
-        "cn": "官员"
+      "apprentice": {
+        "en": "Apprentice",
+        "es": "Aprendiz",
+        "sv": "Lärlingen",
+        "cn": "学徒"
       },
       "barista": {
         "en": "Barista",
@@ -955,11 +949,29 @@
         "sv": "Baristan",
         "cn": "咖啡师"
       },
-      "harlot": {
-        "en": "Harlot",
-        "es": "Meretriz",
-        "sv": "Skökan",
-        "cn": "流莺"
+      "beggar": {
+        "en": "Beggar",
+        "es": "Mendigo",
+        "sv": "Tiggaren",
+        "cn": "乞丐"
+      },
+      "bishop": {
+        "en": "Bishop",
+        "es": "Obispo",
+        "sv": "Biskopen",
+        "cn": "主教"
+      },
+      "bone_collector": {
+        "en": "Bone Collector",
+        "es": "Coleccionista de Huesos",
+        "sv": "Bensamlaren",
+        "cn": "集骨者"
+      },
+      "bureaucrat": {
+        "en": "Bureaucrat",
+        "es": "Burócrata",
+        "sv": "Byråkraten",
+        "cn": "官员"
       },
       "butcher": {
         "en": "Butcher",
@@ -972,17 +984,11 @@
         "sv": "Kackeljack",
         "cn": "笑匠"
       },
-      "gunslinger": {
-        "en": "Gunslinger",
-        "es": "Pistolero",
-        "sv": "Skytten",
-        "cn": "枪手"
-      },
-      "matron": {
-        "en": "Matron",
-        "es": "Matrona",
-        "sv": "Föreståndarinnan",
-        "cn": "女舍监"
+      "deviant": {
+        "en": "Deviant",
+        "es": "Chiflado",
+        "sv": "Avvikaren",
+        "cn": "怪咖"
       },
       "gangster": {
         "en": "Gangster",
@@ -990,11 +996,23 @@
         "sv": "Gangstern",
         "cn": "黑帮"
       },
-      "bone_collector": {
-        "en": "Bone Collector",
-        "es": "Coleccionista de Huesos",
-        "sv": "Bensamlaren",
-        "cn": "集骨者"
+      "gnome": {
+        "en": "Gnome",
+        "es": "Gnomo",
+        "sv": "Pysslingen",
+        "cn": "侏儒"
+      },
+      "gunslinger": {
+        "en": "Gunslinger",
+        "es": "Pistolero",
+        "sv": "Skytten",
+        "cn": "枪手"
+      },
+      "harlot": {
+        "en": "Harlot",
+        "es": "Meretriz",
+        "sv": "Skökan",
+        "cn": "流莺"
       },
       "judge": {
         "en": "Judge",
@@ -1002,23 +1020,11 @@
         "sv": "Domaren",
         "cn": "法官"
       },
-      "apprentice": {
-        "en": "Apprentice",
-        "es": "Aprendiz",
-        "sv": "Lärlingen",
-        "cn": "学徒"
-      },
-      "beggar": {
-        "en": "Beggar",
-        "es": "Mendigo",
-        "sv": "Tiggaren",
-        "cn": "乞丐"
-      },
-      "deviant": {
-        "en": "Deviant",
-        "es": "Chiflado",
-        "sv": "Avvikaren",
-        "cn": "怪咖"
+      "matron": {
+        "en": "Matron",
+        "es": "Matrona",
+        "sv": "Föreståndarinnan",
+        "cn": "女舍监"
       },
       "scapegoat": {
         "en": "Scapegoat",
@@ -1026,17 +1032,11 @@
         "sv": "Syndabocken",
         "cn": "替罪羊"
       },
-      "gnome": {
-        "en": "Gnome",
-        "es": "Gnomo",
-        "sv": "Pysslingen",
-        "cn": "侏儒"
-      },
-      "bishop": {
-        "en": "Bishop",
-        "es": "Obispo",
-        "sv": "Biskopen",
-        "cn": "主教"
+      "thief": {
+        "en": "Thief",
+        "es": "Ladrón",
+        "sv": "Tjuven",
+        "cn": "窃贼"
       },
       "voudon": {
         "en": "Voudon",
@@ -1140,16 +1140,16 @@
       }
     },
     "loric": {
+      "big_wig": {
+        "en": "Big Wig",
+        "sv": "Talmannen",
+        "cn": "首席律师"
+      },
       "bootlegger": {
         "en": "Bootlegger",
         "es": "Contrabandista",
         "sv": "Hembrännaren",
         "cn": "私货商人"
-      },
-      "big_wig": {
-        "en": "Big Wig",
-        "sv": "Talmannen",
-        "cn": "首席律师"
       },
       "gardener": {
         "en": "Gardener",
@@ -1180,6 +1180,7 @@
       },
       "ventriloquist": {
         "en": "Ventriloquist",
+        "sv": "Buktalaren",
         "cn": "腹语师"
       },
       "zenomancer": {

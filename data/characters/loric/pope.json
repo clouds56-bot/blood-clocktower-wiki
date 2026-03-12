@@ -19,7 +19,7 @@
     "zh-Hans": "……至美之名。",
     "cn": "“……至美之名。”"
   },
-  "source_url": "https://script.bloodontheclocktower.com/",
+  "source_url": "https://raw.githubusercontent.com/ThePandemoniumInstitute/botc-translations/main/game/zh_Hans.json",
   "how_to_run": {
     "cn": "在游戏设置时，将任意数量的镇民角色标记替换为在场的镇民或外来者重复角色标记。你可以重复进行此操作。\n在恶魔信息环节，你可以将这些重复的角色标记中的一个、两个或三个作为伪装给恶魔展示。\n请慎重地把已经在场的角色作为伪装提供给恶魔。有些角色可能对邪恶阵营的游戏难度过高。"
   },

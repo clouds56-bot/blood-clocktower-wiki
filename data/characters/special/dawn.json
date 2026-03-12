@@ -7,24 +7,24 @@
   "virtual": true,
   "name": {
     "en": "Dawn",
-    "zh-Hans": "黎明",
-    "sv": "Gryning",
-    "es-419": "Amanecer"
+    "cn": "黎明",
+    "es": "Amanecer",
+    "sv": "Gryning"
   },
   "source": "script_tool",
   "source_url": "https://script.bloodontheclocktower.com/",
   "night_reminder": {
     "first_night": {
       "en": "Wait for a few seconds. End the Night Phase.",
-      "zh-Hans": "稍等一会。结束夜晚阶段。",
-      "sv": "Vänta några sekunder. Avsluta nattfasen.",
-      "es-419": "Espera unos segundos. Termina la Fase de la Noche."
+      "cn": "稍等一会。结束夜晚阶段。",
+      "es": "Espera unos segundos. Termina la Fase de la Noche.",
+      "sv": "Vänta några sekunder. Avsluta nattfasen."
     },
     "other_nights": {
       "en": "Wait for a few seconds. End the Night Phase.",
-      "zh-Hans": "稍等一会。结束夜晚阶段。",
-      "sv": "Vänta några sekunder. Avsluta nattfasen.",
-      "es-419": "Espera unos segundos. Termina la Fase de la Noche."
+      "cn": "稍等一会。结束夜晚阶段。",
+      "es": "Espera unos segundos. Termina la Fase de la Noche.",
+      "sv": "Vänta några sekunder. Avsluta nattfasen."
     }
   }
 }
