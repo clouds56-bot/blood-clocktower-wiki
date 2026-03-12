@@ -68,13 +68,43 @@
   "jinxes": [
     {
       "id": "boffin",
-      "reason": "The Demon cannot have the Drunk ability."
+      "reason": {
+        "en": "The Demon cannot have the Drunk ability.",
+        "cn": "恶魔不能获得酒鬼的能力。",
+        "es": "El Demonio no puede poseer la habilidad del Borracho.",
+        "sv": "Demonen kan inte ha Fyllots förmåga."
+      }
     },
     {
       "id": "mathematician",
-      "reason": "The Mathematician might learn if the Drunk's ability yielded false info or failed to work properly."
+      "reason": {
+        "en": "The Mathematician might learn if the Drunk's ability yielded false info or failed to work properly.",
+        "cn": "数学家可能会得知酒鬼产生了错误信息或“能力未正常生效”。",
+        "es": "El Matemático quizás aprenda si la habilidad del Borracho resultó en información falsa, o si no logró funcionar adecuadamente.",
+        "sv": "Matematikern kanske får veta om Fyllots förmåga gav falsk info eller inte fungerade korrekt."
+      }
     }
   ],
   "image": "assets/tokens/drunk.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Drunk"
+  "source_url": "https://wiki.bloodontheclocktower.com/Drunk",
+  "jinxed_by": [
+    {
+      "id": "boffin",
+      "reason": {
+        "en": "The Demon cannot have the Drunk ability.",
+        "cn": "恶魔不能获得酒鬼的能力。",
+        "es": "El Demonio no puede poseer la habilidad del Borracho.",
+        "sv": "Demonen kan inte ha Fyllots förmåga."
+      }
+    },
+    {
+      "id": "mathematician",
+      "reason": {
+        "en": "The Mathematician might learn if the Drunk's ability yielded false info or failed to work properly.",
+        "cn": "数学家可能会得知酒鬼产生了错误信息或“能力未正常生效”。",
+        "es": "El Matemático quizás aprenda si la habilidad del Borracho resultó en información falsa, o si no logró funcionar adecuadamente.",
+        "sv": "Matematikern kanske får veta om Fyllots förmåga gav falsk info eller inte fungerade korrekt."
+      }
+    }
+  ]
 }

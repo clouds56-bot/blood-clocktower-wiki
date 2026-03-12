@@ -84,13 +84,31 @@
   "jinxes": [
     {
       "id": "boffin",
-      "reason": "If the Demon has the Cult Leader ability, they can’t turn good due to this ability."
+      "reason": {
+        "en": "If the Demon has the Cult Leader ability, they can’t turn good due to this ability."
+      }
     },
     {
       "id": "pit_hag",
-      "reason": "If the Pit-Hag turns an evil player into the Cult Leader, they can't turn good due to their own ability."
+      "reason": {
+        "en": "If the Pit-Hag turns an evil player into the Cult Leader, they can't turn good due to their own ability."
+      }
     }
   ],
   "image": "assets/tokens/cult_leader.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Cult_Leader"
+  "source_url": "https://wiki.bloodontheclocktower.com/Cult_Leader",
+  "jinxed_by": [
+    {
+      "id": "boffin",
+      "reason": {
+        "en": "If the Demon has the Cult Leader ability, they can’t turn good due to this ability."
+      }
+    },
+    {
+      "id": "pit_hag",
+      "reason": {
+        "en": "If the Pit-Hag turns an evil player into the Cult Leader, they can't turn good due to their own ability."
+      }
+    }
+  ]
 }

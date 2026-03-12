@@ -75,13 +75,43 @@
   "jinxes": [
     {
       "id": "leviathan",
-      "reason": "If the Leviathan is in play, and at least 1 player is dead, the King learns an alive character each night."
+      "reason": {
+        "en": "If the Leviathan is in play, and at least 1 player is dead, the King learns an alive character each night.",
+        "cn": "如果利维坦在场，当至少一名玩家死亡时，国王每晚就会得知一个存活的角色。",
+        "es": "Si el Leviatán está en juego, y al menos 1 jugador está muerto, el Rey aprende un rol vivo cada noche.",
+        "sv": "Om Leviatan är i spel och minst 1 spelare är död så får Kungen veta om en levande roll varje natt."
+      }
     },
     {
       "id": "riot",
-      "reason": "If Riot is in play, and at least 1 player is dead, the King learns an alive character each night."
+      "reason": {
+        "en": "If Riot is in play, and at least 1 player is dead, the King learns an alive character each night.",
+        "cn": "如果暴乱在场，当至少一名玩家死亡时，国王每晚就会得知一个存活的角色。",
+        "es": "Si el Disturbio está en juego, y al menos 1 jugador está muerto, el Rey aprende un rol vivo cada noche.",
+        "sv": "Om Kravallen är i spel och minst 1 spelare är död så får Kungen veta om en levande roll varje natt."
+      }
     }
   ],
   "image": "assets/tokens/king.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/King"
+  "source_url": "https://wiki.bloodontheclocktower.com/King",
+  "jinxed_by": [
+    {
+      "id": "leviathan",
+      "reason": {
+        "en": "If the Leviathan is in play, and at least 1 player is dead, the King learns an alive character each night.",
+        "cn": "如果利维坦在场，当至少一名玩家死亡时，国王每晚就会得知一个存活的角色。",
+        "es": "Si el Leviatán está en juego, y al menos 1 jugador está muerto, el Rey aprende un rol vivo cada noche.",
+        "sv": "Om Leviatan är i spel och minst 1 spelare är död så får Kungen veta om en levande roll varje natt."
+      }
+    },
+    {
+      "id": "riot",
+      "reason": {
+        "en": "If Riot is in play, and at least 1 player is dead, the King learns an alive character each night.",
+        "cn": "如果暴乱在场，当至少一名玩家死亡时，国王每晚就会得知一个存活的角色。",
+        "es": "Si el Disturbio está en juego, y al menos 1 jugador está muerto, el Rey aprende un rol vivo cada noche.",
+        "sv": "Om Kravallen är i spel och minst 1 spelare är död så får Kungen veta om en levande roll varje natt."
+      }
+    }
+  ]
 }

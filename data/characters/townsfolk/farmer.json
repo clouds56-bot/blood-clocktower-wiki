@@ -79,13 +79,43 @@
   "jinxes": [
     {
       "id": "leviathan",
-      "reason": "Each night*, the Leviathan chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but does not die."
+      "reason": {
+        "en": "Each night*, the Leviathan chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but does not die.",
+        "cn": "每个夜晚*，利维坦要选择一名存活玩家（与之前的每个夜晚不同）：如果农夫被选择，他的能力生效但不会死亡。",
+        "es": "Cada noche*, el Leviatán escoge un jugador bueno vivo (diferente a las noches previas): un Granjero escogido usa su habilidad pero no muere.",
+        "sv": "Varje natt* väljer Leviatan en levande god spelare (en ny varje natt); en vald Bonde använder sin förmåga men dör inte."
+      }
     },
     {
       "id": "riot",
-      "reason": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but does not die."
+      "reason": {
+        "en": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but does not die.",
+        "cn": "每个夜晚*，暴乱要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果农夫被选择，他的能力生效但不会死亡。",
+        "es": "Cada noche*, el Disturbio escoge un jugador bueno vivo (diferente a las noches previas): un Granjero escogido usa su habilidad pero no muere.",
+        "sv": "Varje natt* väljer Kravallen en levande god spelare (en ny varje natt); en vald Bonde använder sin förmåga men dör inte."
+      }
     }
   ],
   "image": "assets/tokens/farmer.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Farmer"
+  "source_url": "https://wiki.bloodontheclocktower.com/Farmer",
+  "jinxed_by": [
+    {
+      "id": "leviathan",
+      "reason": {
+        "en": "Each night*, the Leviathan chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but does not die.",
+        "cn": "每个夜晚*，利维坦要选择一名存活玩家（与之前的每个夜晚不同）：如果农夫被选择，他的能力生效但不会死亡。",
+        "es": "Cada noche*, el Leviatán escoge un jugador bueno vivo (diferente a las noches previas): un Granjero escogido usa su habilidad pero no muere.",
+        "sv": "Varje natt* väljer Leviatan en levande god spelare (en ny varje natt); en vald Bonde använder sin förmåga men dör inte."
+      }
+    },
+    {
+      "id": "riot",
+      "reason": {
+        "en": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but does not die.",
+        "cn": "每个夜晚*，暴乱要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果农夫被选择，他的能力生效但不会死亡。",
+        "es": "Cada noche*, el Disturbio escoge un jugador bueno vivo (diferente a las noches previas): un Granjero escogido usa su habilidad pero no muere.",
+        "sv": "Varje natt* väljer Kravallen en levande god spelare (en ny varje natt); en vald Bonde använder sin förmåga men dör inte."
+      }
+    }
+  ]
 }

@@ -67,13 +67,43 @@
   "jinxes": [
     {
       "id": "ogre",
-      "reason": "If the Recluse registers as evil to the Ogre, the Ogre learns that they are evil."
+      "reason": {
+        "en": "If the Recluse registers as evil to the Ogre, the Ogre learns that they are evil.",
+        "cn": "如果陌客被食人魔当作邪恶阵营，食人魔会得知自己转变为邪恶。",
+        "es": "Si el Recluso se registra como malvado para el Ogro, el Ogro aprende que él es malvado.",
+        "sv": "Om Enstöringen registreras som ond för Resen får Resen veta att hen är ond."
+      }
     },
     {
       "id": "sage",
-      "reason": "The Recluse might register as the Demon to the Sage."
+      "reason": {
+        "en": "The Recluse might register as the Demon to the Sage.",
+        "cn": "陌客可能会被贤者当作杀死他的恶魔。",
+        "es": "El Recluso quizás se registre como el Demonio para el Sabio.",
+        "sv": "Enstöringen kanske registreras som Demonen för Gurun."
+      }
     }
   ],
   "image": "assets/tokens/recluse.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Recluse"
+  "source_url": "https://wiki.bloodontheclocktower.com/Recluse",
+  "jinxed_by": [
+    {
+      "id": "ogre",
+      "reason": {
+        "en": "If the Recluse registers as evil to the Ogre, the Ogre learns that they are evil.",
+        "cn": "如果陌客被食人魔当作邪恶阵营，食人魔会得知自己转变为邪恶。",
+        "es": "Si el Recluso se registra como malvado para el Ogro, el Ogro aprende que él es malvado.",
+        "sv": "Om Enstöringen registreras som ond för Resen får Resen veta att hen är ond."
+      }
+    },
+    {
+      "id": "sage",
+      "reason": {
+        "en": "The Recluse might register as the Demon to the Sage.",
+        "cn": "陌客可能会被贤者当作杀死他的恶魔。",
+        "es": "El Recluso quizás se registre como el Demonio para el Sabio.",
+        "sv": "Enstöringen kanske registreras som Demonen för Gurun."
+      }
+    }
+  ]
 }

@@ -1,0 +1,799 @@
+{
+  "source": "botc_translations",
+  "source_base_url": "https://raw.githubusercontent.com/ThePandemoniumInstitute/botc-translations/main/game",
+  "generated_at": "2026-03-12T06:39:21.542Z",
+  "locales": [
+    "en",
+    "cn",
+    "es",
+    "sv"
+  ],
+  "jinxes": {
+    "alchemist-boffin": {
+      "en": "If the Alchemist has the Boffin ability, the Alchemist does not learn what ability the Demon has.",
+      "cn": "如果炼金术士拥有科学怪人的能力，炼金术士不会得知恶魔因此获得了哪个角色的能力。",
+      "es": "Si el Alquimista tiene la habilidad del Científico, el Alquimista no aprende qué habilidad tiene el Demonio.",
+      "sv": "Om Alkemisten har Labbråttans förmåga så får Alkemisten inte veta vilken förmåga Demonen har."
+    },
+    "alchemist-marionette": {
+      "en": "An Alchemist-Marionette has no Marionette ability & the Marionette is in play.",
+      "cn": "如果炼金术士本应获得提线木偶的能力，那么他不会拥有该能力并改为提线木偶一定在场。",
+      "es": "Un Alquimista-Marioneta no tiene la habilidad de la Marioneta, y además la Marioneta está en juego.",
+      "sv": "En Alkemist-Marionett har inte Marionettens förmåga och Marionetten är i spel."
+    },
+    "alchemist-mastermind": {
+      "en": "An Alchemist-Mastermind has no Mastermind ability & the Mastermind is not-in-play.",
+      "cn": "如果炼金术士本应获得主谋的能力，那么他不会拥有该能力并改为主谋一定不在场。",
+      "es": "Un Alquimista-Mente Maestra no tiene la habilidad de la Mente Maestra, y además la Mente Maestra no está en juego.",
+      "sv": "En Alkemist-Konspiratör har inte Konspiratörens förmåga och Konspiratören är inte i spel."
+    },
+    "alchemist-organgrinder": {
+      "en": "If the Alchemist has the Organ Grinder ability, the Organ Grinder is in play. If both are sober, both are drunk.",
+      "cn": "如果炼金术士获得街头风琴手的能力，街头风琴手一定在场。如果炼金术士和街头风琴手都是清醒的，改为他们都醉酒。",
+      "es": "Si el Alquimista tiene la habilidad del Organillero, el Organillero está en juego. Si ambos están sobrios, ambos están borrachos.",
+      "sv": "Om Alkemisten har Positivhalarens förmåga så är Positivhalaren i spel, och om båda är nyktra så är båda fulla."
+    },
+    "alchemist-spy": {
+      "en": "An Alchemist-Spy has no Spy ability & a Spy is in play. After each execution, a living Alchemist-Spy may publicly guess a living player as the Spy. If correct, the Demon must choose the Spy tonight.",
+      "cn": "如果炼金术士本应获得间谍的能力，那么他不会拥有该能力并改为间谍一定在场。每次处决后，存活的炼金术士可以公开猜测一名存活玩家是间谍：如果猜对了，恶魔今晚必须选择间谍。",
+      "es": "Un Alquimista-Espía no tiene la habilidad del Espía, y además el Espía está en juego. Luego de cada ejecución, un Alquimista-Espía vivo puede públicamente adivinar qué jugador vivo es el Espía. Si adivina correctamente, el Demonio debe escoger al Espía esta noche.",
+      "sv": "En Alkemist-Spion har inte Spionens förmåga och Spionen är i spel. Efter varje avrättning får den levande Alkemist-Spionen öppet gissa vilken levande spelare som är Spionen. Om hen gissar rätt måste Demonen välja Spionen inatt."
+    },
+    "alchemist-summoner": {
+      "en": "The Alchemist-Summoner does not get bluffs, and chooses which Demon but not which player. If they die before this happens, evil wins. [No Demon]",
+      "cn": "获得召唤师能力的炼金术士不会获得伪装。他要选择一个恶魔角色，但不选择玩家，由说书人决定哪一名玩家变成邪恶的恶魔。如果他在选择之前死亡，邪恶阵营获胜。[无恶魔在场]",
+      "es": "El Alquimista-Invocador no recibe coartadas, y escoge qué Demonio pero no qué jugador. Si él muere antes de que esto pueda ocurrir, los malvados ganan. [Ningún Demonio]",
+      "sv": "En Alkemist-Åkallare får inga bluffar, och väljer Demon men inte spelare. Om hen dör innan det händer så vinner det onda laget. [Ingen Demon]"
+    },
+    "alchemist-widow": {
+      "en": "An Alchemist-Widow has no Widow ability & a Widow is in play. After each execution, a living Alchemist-Widow may publicly guess a living player as the Widow. If correct, the Demon must choose the Widow tonight.",
+      "cn": "如果炼金术士本应获得寡妇的能力，那么他不会拥有该能力并改为寡妇一定在场。每次处决后，存活的炼金术士可以公开猜测一名存活玩家是寡妇：如果猜对了，恶魔今晚必须选择寡妇。",
+      "es": "El Alquimista-Viuda no tiene la habilidad de la Viuda, y además la Viuda está en juego. Luego de cada ejecución, un Alquimista-Viuda vivo puede públicamente adivinar qué jugador vivo es la Viuda. Si adivina correctamente, el Demonio debe escoger a la Viuda esta noche.",
+      "sv": "En Alkemist-Änka har inte Änkans förmåga och Änkan är i spel. Efter varje avrättning får den levande Alkemist-Änkan öppet gissa vilken levande spelare som är Änkan. Om hen gissar rätt måste Demonen välja Änkan inatt."
+    },
+    "alchemist-wraith": {
+      "en": "An Alchemist-Wraith has no Wraith ability & a Wraith is in play. After each execution, a living Alchemist-Wraith may publicly guess a living player as the Wraith. If correct, the Demon must choose the Wraith tonight.",
+      "cn": "如果炼金术士本应获得亡魂的能力，那么他不会拥有该能力并改为亡魂一定在场。每次处决后，存活的炼金术士可以公开猜测一名存活玩家是亡魂：如果猜对了，恶魔当晚必须选择亡魂。",
+      "es": "El Alquimista-Espectro no tiene la habilidad del Espectro, y además el Espectro está en juego. Luego de cada ejecución, un Alquimista-Espectro vivo puede adivinar públicamente qué jugador vivo es el Espectro. Si adivina correctamente, el Demonio debe escoger al Espectro esta noche.",
+      "sv": "En Alkemist-Vålnad har inte Vålnadens förmåga och Vålnaden är i spel. Efter varje avrättning får den levande Alkemist-Vålnaden öppet gissa vilken levande spelare som är Vålnaden. Om hen gissar rätt måste Demonen välja Vålnaden inatt."
+    },
+    "alhadikhia-mastermind": {
+      "en": "If the Al-Hadikhia dies by execution, and the Mastermind is alive, the Al-Hadikhia chooses 3 good players tonight: if all 3 choose to live, evil wins. Otherwise, good wins.",
+      "cn": "如果哈迪寂亚死于处决，且主谋存活，当晚哈迪寂亚要选择三名善良玩家：如果他们都选择存活，邪恶阵营获胜。否则，善良阵营获胜。",
+      "es": "Si el Al-Hadikhia muere por ejecución, y la Mente Maestra esta viva, el Al-Hadikhia escoge 3 jugadores buenos esta noche: si todos los 3 escogen vivir, los malvados ganan. De lo contrario, los buenos ganan.",
+      "sv": "Om al Hadikhia dör av avrättning och Konspiratören lever så väljer al Hadikhia 3 goda spelare inatt; om alla 3 väljer att leva så vinner de onda, annars vinner de goda."
+    },
+    "alhadikhia-princess": {
+      "en": "If the Princess nominated & executed a player on their 1st day, no one dies to the Al-Hadikhia tonight.",
+      "cn": "如果公主在首个白天提名并处决了一名玩家，没有人会因为哈迪寂亚而死亡。",
+      "es": "Si la Princesa nominó y ejecutó a un jugador en su 1er día, nadie muere a manos del Al-Hadikhia esta noche.",
+      "sv": "Om Prinsessan nominerade och avrättade en spelare på sin första dag så dör ingen av al Hadikhias förmåga inatt."
+    },
+    "alhadikhia-scarletwoman": {
+      "en": "If there would be two Demons, one of which was the Scarlet Woman, the Scarlet Woman becomes the Scarlet Woman again.",
+      "cn": "如果即将有两名恶魔在场，则红唇女郎变成的恶魔会变回红唇女郎。",
+      "es": "Si hubiera dos Demonios, uno de los cuales fue anteriormente la Mujer Escarlata, la Mujer Escarlata se convierte en la Mujer Escarlata nuevamente.",
+      "sv": "Om det skulle finnas två Demoner varav en var Röda Damen så blir Röda Damen till Röda Damen igen."
+    },
+    "alsaahir-vizier": {
+      "en": "The Storyteller doesn't declare the Vizier is in play.",
+      "cn": "说书人不会宣布维齐尔在场。",
+      "es": "El Narrador no declara que el Visir está en juego.",
+      "sv": "Berättaren meddelar inte att Vesiren är i spel."
+    },
+    "atheist-riot": {
+      "en": "During a riot, if the Storyteller is nominated, players vote. If they are \"about to die\", the game ends. If not, they nominate again.",
+      "cn": "在暴乱的提名链中，如果说书人被提名，玩家要进行投票。如果说书人\"即将被处决”，游戏结束，否则，他们重新发起提名。",
+      "es": "Durante el disturbio, si el Narrador es nominado, los jugadores votan. Si él está \"a punto de morir\", el juego termina. Si no, él nomina nuevamente.",
+      "sv": "Om berättaren nomineras under kravallerna måste spelarna rösta. Om berättaren döms avslutas spelet, annars nominerar berättaren igen."
+    },
+    "balloonist-marionette": {
+      "en": "If the Marionette thinks that they are the Balloonist, an Outsider might have been added during setup.",
+      "cn": "如果提线木偶抽到了气球驾驶员，在设置调整阶段可能会+1外来者。",
+      "es": "Si la Marioneta cree que es el Aeronauta, un Extranjero quizás haya sido agregado durante la preparación del juego.",
+      "sv": "Om Marionetten tror sig vara Ballongfararen så kanske 1 extra Utböling har lagts till."
+    },
+    "banshee-leviathan": {
+      "en": "Each night*, the Leviathan chooses an alive good player (different to previous nights): a chosen Banshee dies & gains their ability.",
+      "cn": "每个夜晚*，利维坦要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果报丧女妖被选择，他死亡并能力生效。",
+      "es": "Cada noche*, el Leviatán escoge un jugador bueno vivo (diferente a las noches previas): una Llorona escogida muere y además gana su habilidad.",
+      "sv": "Varje natt* väljer Leviatan en levande god spelare (en ny varje natt); en vald Banshee dör och får sin förmåga."
+    },
+    "banshee-riot": {
+      "en": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Banshee dies & gains their ability.",
+      "cn": "每个夜晚*，暴乱要选择一名存活玩家（与之前的每个夜晚不同）：如果报丧女妖被选择，他死亡并能力生效。",
+      "es": "Cada noche*, el Disturbio escoge un jugador bueno vivo (diferente a las noches previas): una Llorona escogida muere y además gana su habilidad.",
+      "sv": "Varje natt* väljer Kravallen en levande god spelare (en ny varje natt); en vald Banshee dör och får sin förmåga."
+    },
+    "banshee-vortox": {
+      "en": "If the Vortox kills the Banshee, all players learn that the Banshee has died.",
+      "cn": "如果涡流杀死了报丧女妖，玩家仍然会得知正确信息。",
+      "es": "Si el Vórtice mata a la Llorona, todos los jugadores aprenden que la Llorona ha muerto.",
+      "sv": "Om Vortox dödar Bansheen så får alla spelare veta att Bansheen har dött."
+    },
+    "baron-heretic": {
+      "en": "Only 1 jinxed character can be in play.",
+      "cn": "互为克星的角色在同一时间里只能有其中一个角色在场。",
+      "es": "Solo 1 de los roles conjurados puede estar en juego.",
+      "sv": "Endast 1 av rollerna får vara i spel."
+    },
+    "baron-plaguedoctor": {
+      "en": "If the Storyteller would gain the Baron ability, up to two players become Outsiders.",
+      "cn": "如果说书人获得了男爵的能力，改为至多两名玩家会变成外来者。",
+      "es": "Si el Narrador fuera a ganar la habilidad del Barón, hasta 2 jugadores se convierten en Extranjeros.",
+      "sv": "Om berättaren skulle få Baronens förmåga så blir upp till två spelare till Utbölingar."
+    },
+    "boffin-cultleader": {
+      "en": "If the Demon has the Cult Leader ability, they can’t turn good due to this ability.",
+      "cn": "如果恶魔拥有异教领袖的能力，他无法因为该能力转变为善良阵营。",
+      "es": "Si el Demonio posee la habilidad del Cultista, él no se puede volver bueno debido a esta habilidad.",
+      "sv": "Om Demonen har Kultledarens förmåga så kan hen inte bli god av den förmågan."
+    },
+    "boffin-drunk": {
+      "en": "The Demon cannot have the Drunk ability.",
+      "cn": "恶魔不能获得酒鬼的能力。",
+      "es": "El Demonio no puede poseer la habilidad del Borracho.",
+      "sv": "Demonen kan inte ha Fyllots förmåga."
+    },
+    "boffin-goon": {
+      "en": "If the Demon has the Goon ability, they can’t turn good due to this ability.",
+      "cn": "如果恶魔拥有莽夫的能力，他无法因为该能力转变为善良阵营。",
+      "es": "Si el Demonio posee la habilidad del Matón, él no se puede volver bueno debido a esta habilidad.",
+      "sv": "Om Demonen har Hejdukens förmåga så kan hen inte bli god av den förmågan."
+    },
+    "boffin-heretic": {
+      "en": "The Demon cannot have the Heretic ability.",
+      "cn": "恶魔无法拥有异端分子的能力。",
+      "es": "El Demonio no puede poseer la habilidad del Hereje.",
+      "sv": "Demonen kan inte ha Kättarens förmåga."
+    },
+    "boffin-ogre": {
+      "en": "The Demon cannot have the Ogre ability.",
+      "cn": "恶魔无法拥有食人魔的能力。",
+      "es": "El Demonio no puede poseer la habilidad del Ogro.",
+      "sv": "Demonen kan inte ha Resens förmåga."
+    },
+    "boffin-politician": {
+      "en": "The Demon cannot have the Politician ability.",
+      "cn": "恶魔无法拥有政客的能力。",
+      "es": "El Demonio no puede poseer la habilidad del Político.",
+      "sv": "Demonen kan inte ha Politikerns förmåga."
+    },
+    "boffin-villageidiot": {
+      "en": "If there is a spare token, the Boffin can give the Demon the Village Idiot ability.",
+      "cn": "如果村夫在场数量不足3人，科学怪人可以让恶魔拥有村夫的能力。",
+      "es": "Si hay una ficha disponible, el Científico le puede otorgar la habilidad del Tonto del Pueblo al Demonio.",
+      "sv": "Om det finns en ledig bricka så kan Labbråttan ge Demonen Byfånens förmåga."
+    },
+    "boomdandy-plaguedoctor": {
+      "en": "If the Storyteller would gain the Boomdandy ability, a player becomes the Boomdandy.",
+      "cn": "如果说书人本应获得炸弹人的能力，改为一名玩家会变成炸弹人。",
+      "es": "Si el Narrador fuera a ganar la habilidad del Guapetardo, un jugador se convierte en el Guapetardo.",
+      "sv": "Om berättaren skulle få Krutdandyns förmåga så blir en spelare Krutdandyn."
+    },
+    "bountyhunter-kazali": {
+      "en": "If the Kazali turns the Bounty Hunter into a Minion, an evil Townsfolk is not created.",
+      "cn": "如果卡扎力把赏金猎人变成了爪牙，赏金猎人不会带来邪恶的镇民。",
+      "es": "Si el Kazali convierte al Cazarrecompensas en un Secuaz, no se crea un Ciudadano malvado.",
+      "sv": "Om Kazali gör Prisjägaren till en Kumpan så blir ingen Bybo ond av Prisjägarens förmåga."
+    },
+    "bountyhunter-philosopher": {
+      "en": "If the Philosopher gains the Bounty Hunter ability, a Townsfolk might turn evil.",
+      "cn": "如果哲学家获得了赏金猎人的能力，可能会有一名镇民玩家转变为邪恶。",
+      "es": "Si el Filósofo gana la habilidad del Cazarrecompensas, un Ciudadano quizás se vuelva malvado.",
+      "sv": "Om Filosofen får Prisjägarens förmåga så kanske en Bybo blir ond."
+    },
+    "butler-cannibal": {
+      "en": "If the Cannibal gains the Butler ability, the Cannibal learns this.",
+      "cn": "如果食人族获得了管家的能力，他会得知这一信息。",
+      "es": "Si el Caníbal gana la habilidad del Mayordomo, el Caníbal aprende esto.",
+      "sv": "Om Kannibalen får Butlerns förmåga så får Kannibalen veta det."
+    },
+    "butler-organgrinder": {
+      "en": "If the Organ Grinder is causing eyes closed voting, the Butler may raise their hand to vote but their vote is only counted if their master voted too.",
+      "cn": "如果街头风琴手使得玩家需要闭眼投票，管家可以自由举手投票，但只在他的主人投票时他的票才会被统计。",
+      "es": "Si el Organillero está causando una votación con los ojos cerrados, el Mayordomo puede levantar su mano para votar, pero su voto se contabiliza solamente si su amo votó también.",
+      "sv": "Om Positivhalaren gör att alla blundar när de röstar så får Butlern rösta, men rösten räknas bara om husbonden också röstade."
+    },
+    "cannibal-juggler": {
+      "en": "If the Juggler guesses on their first day and dies by execution, tonight the living Cannibal learns how many guesses the Juggler got correct.",
+      "cn": "如果杂耍艺人在自己的首个白天猜测后在当天死于处决，当晚食人族会替杂耍艺人得知对应的信息。",
+      "es": "Si el Malabarista adivina en su primer día y muere por ejecución, esta noche el Caníbal vivo aprende cuántos intentos consiguió correctamente el Malabarista.",
+      "sv": "Om Jonglören gissar på första dagen och dör av avrättning så får den levande Kannibalen inatt veta hur många rätt Jonglören hade."
+    },
+    "cannibal-princess": {
+      "en": "If the Cannibal nominated, executed, & killed the Princess today, the Demon doesn’t kill tonight.",
+      "cn": "如果食人族提名并处决了公主且公主因此死亡，当晚恶魔不会造成死亡。",
+      "es": "Si el Caníbal nominó, ejecutó, y mató a la Princesa hoy, el Demonio no mata esta noche.",
+      "sv": "Om Kannibalen nominerade, avrättade och dödade Prinsessan idag så kan Demonen inte döda inatt."
+    },
+    "cannibal-zealot": {
+      "en": "If the Cannibal gains the Zealot ability, the Cannibal learns this.",
+      "cn": "如果食人族获得了狂热者的能力，他会得知这一信息。",
+      "es": "Si el Caníbal gana la habilidad del Fanático, el Caníbal aprende esto.",
+      "sv": "Om Kannibalen får Fanatikerns förmåga så får Kannibalen veta det."
+    },
+    "cerenovus-goblin": {
+      "en": "The Cerenovus may choose to make a player mad that they are the Goblin.",
+      "cn": "洗脑师可以选择将玩家洗脑成哥布林。",
+      "es": "El Cerenovus puede escoger hacer a un jugador loco de que es el Duende.",
+      "sv": "Cerenovus får välja att en spelare ska vara galen att hen är Vätten."
+    },
+    "chambermaid-mathematician": {
+      "en": "The Chambermaid can detect if the Mathematician will wake tonight.",
+      "cn": "侍女会得知数学家是否醒来，即使她是在数学家之前醒来。",
+      "es": "La Sirvienta puede detectar si el Matemático se despertará esta noche.",
+      "sv": "Husan får veta om Matematikern kommer att vakna inatt."
+    },
+    "clockmaker-summoner": {
+      "en": "The Summoner registers as the Demon to the Clockmaker.",
+      "cn": "召唤师会被钟表匠当作恶魔。",
+      "es": "El Invocador se registra como el Demonio para el Relojero.",
+      "sv": "Åkallaren registreras som Demonen för Urmakaren."
+    },
+    "courtier-summoner": {
+      "en": "If the living Summoner has no ability, the Storyteller has the Summoner ability.",
+      "cn": "如果召唤师因为侍臣的能力在第三个夜晚醉酒，由召唤师来选择创造哪种恶魔，由说书人来决定哪名玩家发生转变。",
+      "es": "Si el Invocador vivo no posee habilidad, el Narrador tiene la habilidad del Invocador.",
+      "sv": "Om den levande Åkallaren inte har någon förmåga så har berättaren Åkallarens förmåga."
+    },
+    "courtier-vizier": {
+      "en": "If the Vizier loses their ability, they learn this, and cannot die during the day.",
+      "cn": "如果维齐尔失去能力，他会得知这一信息。如果侍臣在剧本列表中，且维齐尔在具有能力时被处决，他的阵营获胜。",
+      "es": "Si el Visir pierde su habilidad, él aprende esto, y no puede morir durante el día.",
+      "sv": "Om Vesiren förlorar sin förmåga så får hen veta det och kan inte dö på dagen."
+    },
+    "cultleader-pithag": {
+      "en": "If the Pit-Hag turns an evil player into the Cult Leader, they can't turn good due to their own ability.",
+      "cn": "被麻脸巫婆创造的邪恶异教领袖无法因为自身能力转变为善良阵营。",
+      "es": "Si la Vieja del Pozo convierte a un jugador malvado en el Cultista, él no puede convertirse en bueno debido a su propia habilidad.",
+      "sv": "Om Trollpackan gör en ond spelare till Kultledaren så kan den spelaren inte bli god av sin egen förmåga."
+    },
+    "damsel-pithag": {
+      "en": "If a Pit-Hag creates a Damsel, the Storyteller chooses which player it is.",
+      "cn": "如果麻脸巫婆创造了落难少女，改为由说书人来决定哪一名玩家变成落难少女。",
+      "es": "Si la Vieja del Pozo crea una Damisela, el Narrador escoge al jugador.",
+      "sv": "Om Trollpackan skapar en Ungmö så bestämmer berättaren vilken spelare det blir."
+    },
+    "damsel-spy": {
+      "en": "If the Spy is (or has been) in play, the Damsel is poisoned.",
+      "cn": "如果间谍正在场或曾经在场，落难少女中毒。",
+      "es": "Si el Espía está (o ha estado) en juego, la Damisela está envenenada.",
+      "sv": "Om Spionen är (eller har varit) i spel så är Ungmön förgiftad."
+    },
+    "damsel-widow": {
+      "en": "If the Widow is (or has been) in play, the Damsel is poisoned.",
+      "cn": "如果寡妇正在场或曾经在场，落难少女中毒。",
+      "es": "Si la Viuda está (o ha estado) en juego, la Damisela está envenenada.",
+      "sv": "Om Änkan är (eller har varit) i spel så är Ungmön förgiftad."
+    },
+    "drunk-mathematician": {
+      "en": "The Mathematician might learn if the Drunk's ability yielded false info or failed to work properly.",
+      "cn": "数学家可能会得知酒鬼产生了错误信息或“能力未正常生效”。",
+      "es": "El Matemático quizás aprenda si la habilidad del Borracho resultó en información falsa, o si no logró funcionar adecuadamente.",
+      "sv": "Matematikern kanske får veta om Fyllots förmåga gav falsk info eller inte fungerade korrekt."
+    },
+    "engineer-legion": {
+      "en": "If Legion is created, all evil players become Legion. If Legion is in play, the Engineer starts knowing this but has no ability.",
+      "cn": "如果工程师创造了军团，所有邪恶玩家会变成军团。如果军团在场，工程师不会拥有能力并改为得知这一信息。",
+      "es": "Si la Legión es creada, todos los jugadores malvados se convierten en Legión. Si la Legión está en juego, el Ingeniero empieza sabiendo esto, pero no tiene ninguna habilidad.",
+      "sv": "Om Legionen skapas så blir alla onda spelare till Legionen. Om Legionen är i spel så vet Ingenjören om det men har ingen förmåga."
+    },
+    "engineer-summoner": {
+      "en": "If the living Summoner is removed from play, the Storyteller has the Summoner ability.",
+      "cn": "如果存活的召唤师从游戏中离场，说书人会获得召唤师的能力。",
+      "es": "Si el Invocador vivo sale del juego, el Narrador posee la habilidad del Invocador.",
+      "sv": "Om den levande Åkallaren tas ur spel så får berättaren Åkallarens förmåga."
+    },
+    "eviltwin-plaguedoctor": {
+      "en": "If the Storyteller would gain the Evil Twin ability, a player becomes the Evil Twin.",
+      "cn": "如果说书人本应获得镜像双子的能力，改为一名玩家会变成镜像双子。",
+      "es": "Si el Narrador fuera a ganar la habilidad del Gemelo Malvado, un jugador se convierte en el Gemelo Malvado.",
+      "sv": "Om berättaren skulle få Onda Tvillingens förmåga så blir en spelare Onda Tvillingen."
+    },
+    "exorcist-leviathan": {
+      "en": "If the Leviathan nominates and executes the Exorcist-chosen player, good wins.",
+      "cn": "如果利维坦提名并处决了驱魔人选择的那名玩家，善良阵营获胜。",
+      "es": "Si el Leviatán nomina y ejecuta al jugador seleccionado por el Exorcista, los buenos ganan.",
+      "sv": "Om Leviatan nominerar och avrättar den Exorcist-valda spelaren så vinner goda laget."
+    },
+    "exorcist-riot": {
+      "en": "If Riot nominates and executes the Exorcist-chosen player, good wins.",
+      "cn": "如果暴乱提名并处决了驱魔人上个夜晚选择的那名玩家，善良阵营获胜。",
+      "es": "Si el Disturbio nomina y ejecuta al jugador seleccionado por el Exorcista, los buenos ganan.",
+      "sv": "Om Kravallen nominerar och avrättar den Exorcist-valda spelaren så vinner goda laget."
+    },
+    "exorcist-yaggababble": {
+      "en": "If the Exorcist chooses the Yaggababble, the Yaggababble does not kill tonight.",
+      "cn": "如果驱魔人选中了牙噶巴卜，那么牙噶巴卜在当晚无法造成死亡。",
+      "es": "Si el Exorcista escoge al Yaggablabla, el Yaggablabla no mata esta noche.",
+      "sv": "Om Exorcisten väljer Yaggababbel så kan Yaggababbel inte döda någon inatt."
+    },
+    "fanggu-scarletwoman": {
+      "en": "If there would be two Demons, one of which was the Scarlet Woman, the Scarlet Woman remains the Scarlet Woman.",
+      "cn": "如果即将有两名恶魔在场，红唇女郎不会变成恶魔。",
+      "es": "Si hubiera dos Demonios, uno de los cuales fue la Mujer Escarlata, la Mujer Escarlata permanece como la Mujer Escarlata.",
+      "sv": "Om det skulle finnas två Demoner varav en var Röda Damen så blir Röda Damen inte till en Demon."
+    },
+    "farmer-leviathan": {
+      "en": "Each night*, the Leviathan chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but does not die.",
+      "cn": "每个夜晚*，利维坦要选择一名存活玩家（与之前的每个夜晚不同）：如果农夫被选择，他的能力生效但不会死亡。",
+      "es": "Cada noche*, el Leviatán escoge un jugador bueno vivo (diferente a las noches previas): un Granjero escogido usa su habilidad pero no muere.",
+      "sv": "Varje natt* väljer Leviatan en levande god spelare (en ny varje natt); en vald Bonde använder sin förmåga men dör inte."
+    },
+    "farmer-riot": {
+      "en": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but does not die.",
+      "cn": "每个夜晚*，暴乱要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果农夫被选择，他的能力生效但不会死亡。",
+      "es": "Cada noche*, el Disturbio escoge un jugador bueno vivo (diferente a las noches previas): un Granjero escogido usa su habilidad pero no muere.",
+      "sv": "Varje natt* väljer Kravallen en levande god spelare (en ny varje natt); en vald Bonde använder sin förmåga men dör inte."
+    },
+    "fearmonger-plaguedoctor": {
+      "en": "If the Storyteller would gain the Fearmonger ability, a Minion gains it, and learns this.",
+      "cn": "如果说书人本应获得恐惧之灵的能力，改为一名爪牙玩家获得此能力，且他会得知此事。",
+      "es": "Si el Narrador fuera a ganar la habilidad del Alarmista, en lugar de esto, un Secuaz gana esta habilidad y la aprende.",
+      "sv": "Om berättaren skulle få Skräckspridarens förmåga så får en Kumpan förmågan, och får veta detta."
+    },
+    "fearmonger-vizier": {
+      "en": "The Vizier wakes with the Fearmonger, learns who they choose and cannot choose to immediately execute that player.",
+      "cn": "在恐惧之灵因为自己的能力被唤醒时，维齐尔会一同被唤醒。他会得知恐惧之灵选择了哪名玩家，并且无法使用自己的能力让那名玩家立即被处决。",
+      "es": "El Visir se despierta junto al Alarmista, aprende a quién escoge, y no puede elegir ejecutar a ese jugador inmediatamente.",
+      "sv": "Vesiren vaknar med Skräckspridaren, får veta vem Skräckspridaren väljer och får inte välja att avrätta den spelaren."
+    },
+    "goblin-plaguedoctor": {
+      "en": "If the Storyteller would gain the Goblin ability, a Minion gains it, and learns this.",
+      "cn": "如果说书人本应获得哥布林的能力，改为一名爪牙玩家获得此能力，且他会得知此事。",
+      "es": "Si el Narrador fuera a ganar la habilidad del Duende, en lugar de esto, un Secuaz gana esta habilidad y la aprende.",
+      "sv": "Om berättaren skulle få Vättens förmåga så får en Kumpan förmågan, och får veta detta."
+    },
+    "godfather-heretic": {
+      "en": "Only 1 jinxed character can be in play.",
+      "cn": "异端分子会被教父当作一个不在场的外来者，异端分子会知道是哪个外来者。",
+      "es": "Solo 1 de los roles conjurados puede estar en juego.",
+      "sv": "Endast 1 av rollerna får vara i spel."
+    },
+    "goon-pithag": {
+      "en": "If the Pit-Hag turns an evil player into the Goon, they can't turn good due to their own ability.",
+      "cn": "被麻脸巫婆创造的邪恶莽夫无法因为自身能力转变为善良阵营。",
+      "es": "Si la Vieja del Pozo convierte a un jugador malvado en el Matón, él no puede convertirse en bueno debido a su propia habilidad.",
+      "sv": "Om Trollpackan gör en ond spelare till Hejduken så kan den spelaren inte bli god av sin egen förmåga."
+    },
+    "grandmother-leviathan": {
+      "en": "If the Leviathan is in play and the Grandchild dies by execution, evil wins.",
+      "cn": "如果利维坦在场，孙子死于处决，邪恶阵营获胜。",
+      "es": "Si el Leviatán está en juego y el Nieto muere por ejecución, los malvados ganan.",
+      "sv": "Om Leviatan är i spel och barnbarnet dör av avrättning så vinner det onda laget."
+    },
+    "grandmother-riot": {
+      "en": "If Riot is in play and the Grandchild dies by execution, evil wins.",
+      "cn": "如果暴乱在场，孙子死于处决，邪恶阵营获胜。",
+      "es": "Si el Disturbio está en juego y el Nieto muere por ejecución, los malvados ganan.",
+      "sv": "Om Kravallen är i spel och barnbarnet dör av avrättning så vinner det onda laget."
+    },
+    "hatter-legion": {
+      "en": "If Legion is created, all evil players become Legion. If Legion is in play, the Hatter has no ability.",
+      "cn": "如果帽匠创造了军团，所有邪恶玩家会变成军团。如果军团在场，帽匠不会拥有能力。",
+      "es": "Si la Legión es creada, todos los jugadores malvados se convierten en Legión. Si la Legión está en juego, el Sombrerero no tiene ninguna habilidad.",
+      "sv": "Om Legionen skapas så blir alla onda spelare till Legionen. Om Legionen är i spel så har Hattmakaren ingen förmåga."
+    },
+    "hatter-leviathan": {
+      "en": "The Leviathan cannot enter play after day 5.",
+      "cn": "利维坦不能在第五天之后加入游戏。",
+      "es": "El Leviatán no puede entrar al juego luego del día 5.",
+      "sv": "Leviatan kan inte skapas efter dag 5."
+    },
+    "hatter-lilmonsta": {
+      "en": "If the Hatter dies & the Demon chooses Lil' Monsta, they also choose a Minion to become.",
+      "cn": "如果帽匠死亡，恶魔选择了小怪宝，则还需要选择变成一个爪牙角色。",
+      "es": "Si el Sombrerero muere y el Demonio escoge al Monstruito, él también escoge en qué Secuaz se convierte.",
+      "sv": "Om Hattmakaren dör och Demonen väljer Lillmonstret så väljer hen också en Kumpan att bli."
+    },
+    "hatter-summoner": {
+      "en": "If the Summoner creates a second living Demon, deaths tonight are arbitrary.",
+      "cn": "召唤师无法创造已经在场的恶魔。如果召唤师创造了一个不在场的恶魔，当晚的死亡由说书人决定。",
+      "es": "Si el Invocador crea un segundo Demonio vivo, las muertes esta noche son arbitrarias.",
+      "sv": "Om Åkallaren skapar en andra levande Demon så dör spelare godtyckligt inatt."
+    },
+    "heretic-lleech": {
+      "en": "Only 1 jinxed character can be in play.",
+      "cn": "互为克星的角色在同一时间里只能有其中一个角色在场。",
+      "es": "Solo 1 de los roles conjurados puede estar en juego.",
+      "sv": "Endast 1 av rollerna får vara i spel."
+    },
+    "heretic-pithag": {
+      "en": "Only 1 jinxed character can be in play.",
+      "cn": "互为克星的角色在同一时间里只能有其中一个角色在场。",
+      "es": "Solo 1 de los roles conjurados puede estar en juego.",
+      "sv": "Endast 1 av rollerna får vara i spel."
+    },
+    "heretic-spy": {
+      "en": "Only 1 jinxed character can be in play.",
+      "cn": "异端分子会被间谍当作一个不在场的外来者，异端分子会知道是哪个外来者。",
+      "es": "Solo 1 de los roles conjurados puede estar en juego.",
+      "sv": "Endast 1 av rollerna får vara i spel."
+    },
+    "heretic-widow": {
+      "en": "Only 1 jinxed character can be in play.",
+      "cn": "异端分子会被寡妇当作一个不在场的外来者，异端分子会知道是哪个外来者。",
+      "es": "Solo 1 de los roles conjurados puede estar en juego.",
+      "sv": "Endast 1 av rollerna får vara i spel."
+    },
+    "huntsman-marionette": {
+      "en": "If the Marionette thinks that they are the Huntsman, the Damsel was added during setup.",
+      "cn": "如果提线木偶抽到了巡山人，也会增加落难少女。",
+      "es": "Si la Marioneta cree que es el Cazador, la Damisela fue añadida durante la preparación del juego.",
+      "sv": "Om Marionetten tror sig vara Jägaren så har Ungmön lagts till."
+    },
+    "innkeeper-leviathan": {
+      "en": "If the Leviathan nominates and executes an Innkeeper-protected player, good wins.",
+      "cn": "如果利维坦提名并处决了旅店老板上个夜晚保护的其中一名玩家，善良阵营获胜。",
+      "es": "Si el Leviatán nomina y ejecuta a un jugador protegido por el Posadero, los buenos ganan.",
+      "sv": "Om Leviatan nominerar och avrättar en Gästgivar-skyddad spelare så vinner goda laget."
+    },
+    "innkeeper-riot": {
+      "en": "If Riot nominates and executes an Innkeeper-protected player, good wins.",
+      "cn": "如果暴乱提名并处决了旅店老板上个夜晚保护的其中一名玩家，善良阵营获胜。",
+      "es": "Si el Disturbio nomina y ejecuta a un jugador protegido por el Posadero, los buenos ganan.",
+      "sv": "Om Kravallen nominerar och avrättar en Gästgivar-skyddad spelare så vinner goda laget."
+    },
+    "investigator-vizier": {
+      "en": "The Storyteller doesn't declare the Vizier is in play.",
+      "cn": "说书人不会宣布维齐尔在场。",
+      "es": "El Narrador no declara que el Visir está en juego.",
+      "sv": "Berättaren meddelar inte att Vesiren är i spel."
+    },
+    "kazali-marionette": {
+      "en": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor.",
+      "cn": "如果提线木偶本应初始在场，他们会在恶魔之后进场并与恶魔邻座。",
+      "es": "Si hubiera una Marioneta en juego, ella entra en juego luego del Demonio y debe empezar como su vecina.",
+      "sv": "Om det skulle vara en Marionett i spel så läggs den till efter Demonen och måste börja som Demonens granne."
+    },
+    "kazali-summoner": {
+      "en": "If the Summoner creates a second living Demon, deaths tonight are arbitrary.",
+      "cn": "召唤师无法创造已经在场的恶魔。如果召唤师创造了一个不在场的恶魔，当晚的死亡由说书人决定。",
+      "es": "Si el Invocador crea un segundo Demonio vivo, las muertes esta noche son arbitrarias.",
+      "sv": "Om Åkallaren skapar en andra levande Demon så dör spelare godtyckligt inatt."
+    },
+    "king-leviathan": {
+      "en": "If the Leviathan is in play, and at least 1 player is dead, the King learns an alive character each night.",
+      "cn": "如果利维坦在场，当至少一名玩家死亡时，国王每晚就会得知一个存活的角色。",
+      "es": "Si el Leviatán está en juego, y al menos 1 jugador está muerto, el Rey aprende un rol vivo cada noche.",
+      "sv": "Om Leviatan är i spel och minst 1 spelare är död så får Kungen veta om en levande roll varje natt."
+    },
+    "king-riot": {
+      "en": "If Riot is in play, and at least 1 player is dead, the King learns an alive character each night.",
+      "cn": "如果暴乱在场，当至少一名玩家死亡时，国王每晚就会得知一个存活的角色。",
+      "es": "Si el Disturbio está en juego, y al menos 1 jugador está muerto, el Rey aprende un rol vivo cada noche.",
+      "sv": "Om Kravallen är i spel och minst 1 spelare är död så får Kungen veta om en levande roll varje natt."
+    },
+    "legion-magician": {
+      "en": "The Magician wakes with Legion and might register as evil. Legion knows if a Magician is in play, but not which player it is.",
+      "cn": "魔术师会和军团一同被唤醒，并可能被当作邪恶阵营。军团会知道魔术师是否在场，但不会得知具体是哪一名玩家。",
+      "es": "El Mago se despierta junto a la Legión y quizás se registre como malvado. La Legión sabe si un Mago está en juego, pero no qué jugador es.",
+      "sv": "Magikern vaknar med Legionen och kanske registreras som ond. Legionen vet ifall Magikern är i spel, men inte vilken spelare det är."
+    },
+    "legion-minstrel": {
+      "en": "If Legion died by execution today, Legion keeps their ability, but the Minstrel might learn they are Legion.",
+      "cn": "如果军团死于处决，所有军团保留能力，但吟游诗人可能会在当晚得知今天白天死于处决的玩家是军团。",
+      "es": "Si la Legión muere por ejecución hoy, la Legión mantiene su habilidad, pero el Trovador quizás aprenda que ella es la Legión.",
+      "sv": "Om Legionen dog av avrättning idag så behåller Legionen sin förmåga, men Trubaduren kanske får veta att hen är Legionen."
+    },
+    "legion-politician": {
+      "en": "The Politician might register as evil to Legion.",
+      "cn": "政客可能会被军团当作邪恶玩家。",
+      "es": "El Político quizás se registre como malvado para la Legión.",
+      "sv": "Politikern kanske registreras som ond för Legionen."
+    },
+    "legion-preacher": {
+      "en": "If the Preacher chooses Legion, Legion keeps their ability, but the Preacher might learn they are Legion.",
+      "cn": "如果传教士选中了军团，军团仍然保留能力，但传教士可能会得知自己选中了军团。",
+      "es": "Si el Predicador escoge a la Legión, la Legión mantiene su habilidad, pero el Predicador quizás aprenda que ella es la Legión.",
+      "sv": "Om Predikanten väljer Legionen så får Legionen behålla sin förmåga, men Predikanten kanske får veta att hen är Legionen."
+    },
+    "legion-summoner": {
+      "en": "If Legion is summoned, all evil players become Legion.",
+      "cn": "如果召唤师召唤了军团，所有邪恶玩家会变成军团。",
+      "es": "Si la Legión es invocada, todos los jugadores malvados se convierten en la Legión.",
+      "sv": "Om Legionen åkallas så blir alla onda spelare till Legionen."
+    },
+    "legion-zealot": {
+      "en": "The Zealot might register as evil to Legion.",
+      "cn": "狂热者可能会被军团当作邪恶玩家。",
+      "es": "El Fanático quizás se registre como malvado para la Legión.",
+      "sv": "Fanatikern kanske registreras som ond för Legionen."
+    },
+    "leviathan-mayor": {
+      "en": "If the Leviathan and the Mayor are alive on day 5 & no execution occurs, good wins.",
+      "cn": "如果利维坦和镇长在第五天存活且没有处决发生，善良阵营获胜。",
+      "es": "Si el Leviatán y el Alcalde están vivos en el día 5 y ninguna ejecución ocurre, los buenos ganan.",
+      "sv": "Om Leviatan och Borgmästaren lever dag 5 och ingen avrättas så vinner det goda laget."
+    },
+    "leviathan-monk": {
+      "en": "If the Leviathan nominates and executes the Monk-protected player, good wins.",
+      "cn": "如果利维坦提名并处决了僧侣上个夜晚保护的那名玩家，善良阵营获胜。",
+      "es": "Si el Leviatán nomina y ejecuta al jugador protegido por el Monje, los buenos ganan.",
+      "sv": "Om Leviatan nominerar och avrättar den Munk-skyddade spelaren så vinner goda laget."
+    },
+    "leviathan-pithag": {
+      "en": "The Leviathan cannot enter play after day 5.",
+      "cn": "利维坦不能在第五天之后加入游戏。",
+      "es": "El Leviatán no puede entrar al juego luego del día 5.",
+      "sv": "Leviatan kan inte skapas efter dag 5."
+    },
+    "leviathan-ravenkeeper": {
+      "en": "Each night*, the Leviathan chooses an alive player (different to previous nights): a chosen Ravenkeeper uses their ability but does not die.",
+      "cn": "每个夜晚*，利维坦要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果守鸦人被选择，他的能力生效但不会死亡。",
+      "es": "Cada noche*, el Leviatán escoge un jugador vivo (diferente a las noches previas): un Guardián de Cuervos escogido usa su habilidad pero no muere.",
+      "sv": "Varje natt* väljer Leviatan en levande god spelare (en ny varje natt); en vald Korpskötare använder sin förmåga men dör inte."
+    },
+    "leviathan-sage": {
+      "en": "Each night*, the Leviathan chooses an alive good player (different to previous nights): a chosen Sage uses their ability but does not die.",
+      "cn": "每个夜晚*，利维坦要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果贤者被选择，他的能力生效但不会死亡。",
+      "es": "Cada noche*, el Leviatán escoge un jugador bueno vivo (diferente a las noches previas): un Sabio escogido usa su habilidad pero no muere.",
+      "sv": "Varje natt* väljer Leviatan en levande god spelare (en ny varje natt); en vald Guru använder sin förmåga men dör inte."
+    },
+    "leviathan-soldier": {
+      "en": "If the Leviathan nominates and executes the Soldier, good wins.",
+      "cn": "如果利维坦提名并处决了士兵，善良阵营获胜。",
+      "es": "Si el Leviatán nomina y ejecuta al Soldado, los buenos ganan.",
+      "sv": "Om Leviatan nominerar och avrättar Soldaten så vinner goda laget."
+    },
+    "lilmonsta-magician": {
+      "en": "If the Magician is alive, the Storyteller chooses which Minion babysits Lil' Monsta.",
+      "cn": "如果魔术师存活，由说书人决定谁照看小怪宝。",
+      "es": "Si el Mago está vivo, el Narrador escoge qué Secuaz cuida del Monstruito.",
+      "sv": "Om Magikern lever så väljer berättaren vilken Kumpan som tar hand om Lillmonstret."
+    },
+    "lilmonsta-marionette": {
+      "en": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor.",
+      "cn": "如果提线木偶本应初始在场，他们会在恶魔之后进场并与恶魔邻座。",
+      "es": "Si hubiera una Marioneta en juego, ella entra en juego luego del Demonio y debe empezar como su vecina.",
+      "sv": "Om det skulle vara en Marionett i spel så läggs den till efter Demonen och måste börja som Demonens granne."
+    },
+    "lilmonsta-poppygrower": {
+      "en": "If Lil' Monsta & the Poppy Grower are alive, Minions wake one by one, until one of them chooses to take the Lil' Monsta token.",
+      "cn": "如果罂粟种植者在场，爪牙们会依次单独被唤醒，直到其中一名玩家选择照看小怪宝。",
+      "es": "Si el Monstruito y el Cultivador de Amapolas están vivos, los Secuaces se despiertan uno por uno, hasta que uno de ellos elija tomar la ficha del Monstruito.",
+      "sv": "Om Lillmonstret och Vallmoodlaren lever så vaknar Kumpanerna en och en tills någon väljer att ta hand om Lillmonstret."
+    },
+    "lilmonsta-psychopath": {
+      "en": "If the Psychopath is babysitting Lil' Monsta, they die when executed.",
+      "cn": "如果精神病患者正照看小怪宝，他会在被处决时死亡。",
+      "es": "Si el Sicópata está cuidando del Monstruito, él muere cuando es ejecutado.",
+      "sv": "Om Psykopaten tar hand om Lillmonstret så dör hen av avrättning."
+    },
+    "lilmonsta-scarletwoman": {
+      "en": "If Lil' Monsta dies with 5 or more players alive, the Scarlet Woman babysits Lil' Monsta for the rest of the game.",
+      "cn": "如果在五名及以上的玩家存活时照看小怪宝的玩家死亡，之后红唇女郎必须要一直照看小怪宝。",
+      "es": "Si el Monstruito muere con 5 o más jugadores vivos, la Mujer Escarlata cuida del Monstruito por el resto del juego.",
+      "sv": "Om Lillmonstret dör när minst 5 spelare lever så tar Röda Damen hand om Lillmonstret resten av spelet."
+    },
+    "lilmonsta-vizier": {
+      "en": "If the Vizier is babysitting Lil' Monsta, they die when executed.",
+      "cn": "如果维齐尔正照看小怪宝，他会在被处决时死亡。",
+      "es": "Si el Visir está cuidando del Monstruito, él muere cuando es ejecutado.",
+      "sv": "Om Vesiren tar hand om Lillmonstret så dör hen av avrättning."
+    },
+    "lleech-mastermind": {
+      "en": "If the Mastermind is alive and the Lleech host dies by execution, the Lleech lives but loses their ability.",
+      "cn": "如果主谋存活且痢蛭的宿主死于处决，痢蛭存活但失去能力。",
+      "es": "Si la Mente Maestra está viva y la víctima de la Sanguijuela muere por ejecución, la Sanguijuela vive pero pierde su habilidad.",
+      "sv": "Om Konspiratören lever och Lleechs värd dör av avrättning så överlever Lleech men förlorar sin förmåga."
+    },
+    "lleech-slayer": {
+      "en": "If the Slayer slays the Lleech host, the host dies.",
+      "cn": "如果猎手选择了痢蛭的宿主，则宿主会死亡。",
+      "es": "Si el Exterminador extermina a la víctima de la Sanguijuela, la víctima muere.",
+      "sv": "Om Dråparen dräper Lleechs värd så dör värden."
+    },
+    "lordoftyphon-summoner": {
+      "en": "If a Lord of Typhon is summoned, they must neighbor a Minion & their other neighbor becomes an evil Minion.",
+      "cn": "如果召唤师创造了堤丰之首，则堤丰之首必须与一名爪牙相邻，且堤丰之首另一侧的玩家会变成一个邪恶的爪牙。",
+      "es": "Si el Señor del Tifón es invocado, deberá ser vecino de un Secuaz, y además su otro vecino se convierte en un Secuaz malvado.",
+      "sv": "Om Åkallaren skapar Tyfons Herre så måste Tyfons Herre sitta granne med en Kumpan, och den andra grannen blir en ond Kumpan."
+    },
+    "lunatic-mathematician": {
+      "en": "The Mathematician might learn if the Lunatic attacks a different player than the real Demon attacked.",
+      "cn": "数学家可能会得知疯子是否攻击了与真正的恶魔不同的目标。",
+      "es": "El Matemático quizás aprenda si el Lunático ataca a un jugador diferente al jugador atacado por el Demonio real.",
+      "sv": "Matematikern kanske får veta om Galningen attackerar någon annan än Demonen attackerar."
+    },
+    "magician-marionette": {
+      "en": "If the Magician is alive, the Demon doesn't know which neighbor is the Marionette.",
+      "cn": "如果魔术师存活，恶魔不会得知谁是提线木偶。",
+      "es": "Si el Mago está vivo, el Demonio no sabe cuál de sus vecinos es la Marioneta.",
+      "sv": "Om Magikern lever så får Demonen inte veta vilken granne som är Marionetten."
+    },
+    "magician-spy": {
+      "en": "When the Spy sees the Grimoire, the Demon and Magician's character tokens are removed.",
+      "cn": "当间谍查看魔典时，魔术师和恶魔的角色标记会被说书人移除。",
+      "es": "Cuando el Espía mira el Grimorio, las fichas de rol del Demonio y del Mago son removidas.",
+      "sv": "När Spionen ser grimoaren så är Demonens och Magikerns rollbrickor borttagna."
+    },
+    "magician-vizier": {
+      "en": "If the Vizier is in play, the Magician has no ability but is immune to the Vizier's ability.",
+      "cn": "如果维齐尔在场，魔术师不会拥有能力，但他会免疫维齐尔的能力。",
+      "es": "Si el Visir está en juego, el Mago no tiene ninguna habilidad pero es inmune a la habilidad del Visir.",
+      "sv": "Om Vesiren är i spel så har Magikern ingen förmåga men är immun mot Vesirens förmåga."
+    },
+    "magician-widow": {
+      "en": "When the Widow sees the Grimoire, the Demon and Magician's character tokens are removed.",
+      "cn": "当寡妇查看魔典时，魔术师和恶魔的标记会被说书人移除。",
+      "es": "Cuando la Viuda mira el Grimorio, las fichas de rol del Demonio y del Mago son removidas.",
+      "sv": "När Änkan ser grimoaren så är Demonens och Magikerns rollbrickor borttagna."
+    },
+    "magician-wraith": {
+      "en": "After each execution, the living Magician may publicly guess a living player as the Wraith. If correct, the Demon must choose the Wraith tonight.",
+      "cn": "每次处决后，存活的魔术师可以公开猜测一名存活玩家是亡魂：如果猜对了，恶魔当晚必须选择亡魂。",
+      "es": "Luego de cada ejecución, un Mago vivo puede públicamente adivinar qué jugador vivo es el Espectro. Si adivina correctamente, el Demonio debe escoger al Espectro esta noche.",
+      "sv": "Efter varje avrättning får den levande Magikern öppet gissa vilken levande spelare som är Vålnaden. Om hen gissar rätt måste Demonen välja Vålnaden inatt."
+    },
+    "marionette-mathematician": {
+      "en": "The Mathematician might learn if the Marionette's ability yielded false info or failed to work properly.",
+      "cn": "数学家可能会得知提线木偶产生了错误信息或“能力未正常生效”。",
+      "es": "El Matemático quizás aprenda si la habilidad de la Marioneta resultó en información falsa, o si no logró funcionar adecuadamente.",
+      "sv": "Matematikern kanske får veta om Marionettens förmåga gav falsk info eller inte fungerade korrekt."
+    },
+    "marionette-plaguedoctor": {
+      "en": "If the Storyteller would gain the Marionette ability, one of the Demon's good neighbors becomes the Marionette.",
+      "cn": "如果说书人本应获得提线木偶的能力，改为一名与恶魔邻近的善良玩家变成提线木偶。",
+      "es": "Si el Narrador fuera a ganar la habilidad de la Marioneta, uno de los vecinos buenos del Demonio se convierte en la Marioneta.",
+      "sv": "Om berättaren skulle få Marionettens förmåga så blir en av Demonens goda grannar Marionetten."
+    },
+    "marionette-summoner": {
+      "en": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor.",
+      "cn": "如果提线木偶本应初始在场，他们会在恶魔之后进场并与恶魔邻座。",
+      "es": "Si hubiera una Marioneta en juego, ella entra en juego luego del Demonio y debe empezar como su vecina.",
+      "sv": "Om det skulle vara en Marionett i spel så läggs den till efter Demonen och måste börja som Demonens granne."
+    },
+    "mastermind-vigormortis": {
+      "en": "A Mastermind that has their ability keeps it if the Vigormortis dies.",
+      "cn": "如果亡骨魔死亡，被亡骨魔杀死的主谋依然保留能力。",
+      "es": "Una Mente Maestra que posee su habilidad la mantiene si el Vigormortis muere.",
+      "sv": "En Konspiratör som har sin förmåga behåller förmågan om Vigormortis dör."
+    },
+    "mayor-riot": {
+      "en": "The Mayor may choose to stop the riot. If they do so when only 1 Riot is alive, good wins. Otherwise, evil wins.",
+      "cn": "镇长可以停止暴乱的提名链。如果他这样做了，并且场上只有一名暴乱存活，善良阵营获胜；否则，邪恶阵营获胜。",
+      "es": "El Alcalde puede elegir detener el disturbio. Si él decide hacerlo cuando solo 1 Disturbio está vivo, los buenos ganan. De lo contrario, los malvados ganan.",
+      "sv": "Borgmästaren får välja att avsluta kravallerna. Om hen gör det när bara 1 Kravall lever så vinner goda, annars vinner onda."
+    },
+    "monk-riot": {
+      "en": "If Riot nominates and executes the Monk-protected player, good wins.",
+      "cn": "如果暴乱提名并处决了僧侣上个夜晚保护的那名玩家，善良阵营获胜。",
+      "es": "Si el Disturbio nomina y ejecuta al jugador protegido por el Monje, los buenos ganan.",
+      "sv": "Om Kravallen nominerar och avrättar den Munk-skyddade spelaren så vinner goda laget."
+    },
+    "ogre-pithag": {
+      "en": "If the Pit-Hag turns an evil player into the Ogre, they can't turn good due to their own ability.",
+      "cn": "被麻脸巫婆创造的邪恶食人魔无法因为自身能力转变为善良阵营。",
+      "es": "Si la Vieja del Pozo convierte a un jugador malvado en el Ogro, él no puede convertirse en bueno debido a su propia habilidad.",
+      "sv": "Om Trollpackan gör en ond spelare till Resen så kan den spelaren inte bli god av sin egen förmåga."
+    },
+    "ogre-recluse": {
+      "en": "If the Recluse registers as evil to the Ogre, the Ogre learns that they are evil.",
+      "cn": "如果陌客被食人魔当作邪恶阵营，食人魔会得知自己转变为邪恶。",
+      "es": "Si el Recluso se registra como malvado para el Ogro, el Ogro aprende que él es malvado.",
+      "sv": "Om Enstöringen registreras som ond för Resen får Resen veta att hen är ond."
+    },
+    "ogre-spy": {
+      "en": "The Spy registers as evil to the Ogre.",
+      "cn": "间谍必定被食人魔当作邪恶阵营。",
+      "es": "El Espía se registra como malvado para el Ogro.",
+      "sv": "Spionen registreras som ond för Resen."
+    },
+    "pithag-politician": {
+      "en": "If the Pit-Hag turns an evil player into the Politician, they can't turn good due to their own ability.",
+      "cn": "被麻脸巫婆创造的邪恶政客无法因为自身能力转变为善良阵营。",
+      "es": "Si la Vieja del Pozo convierte a un jugador malvado en el Político, él no puede convertirse en bueno debido a su propia habilidad.",
+      "sv": "Om Trollpackan gör en ond spelare till Politikern så kan den spelaren inte bli god av sin egen förmåga."
+    },
+    "pithag-summoner": {
+      "en": "If the Summoner creates a second living Demon, deaths tonight are arbitrary.",
+      "cn": "如果召唤师创造了第二个存活的恶魔，当晚的死亡由说书人决定。",
+      "es": "Si el Invocador crea un segundo Demonio vivo, las muertes esta noche son arbitrarias.",
+      "sv": "Om Åkallaren skapar en andra levande Demon så dör spelare godtyckligt inatt."
+    },
+    "pithag-villageidiot": {
+      "en": "If there is a spare token, the Pit-Hag can create an extra Village Idiot. If so, the drunk Village Idiot might change.",
+      "cn": "如果村夫在场数量不足3人，麻脸巫婆可以创造新的村夫。如果她这么做，村夫的醉酒效果可能会更换目标。",
+      "es": "Si hay una ficha disponible, la Vieja del Pozo puede crear un Tonto del Pueblo adicional. De ser así, el Tonto del Pueblo borracho quizás cambie.",
+      "sv": "Om det finns en ledig bricka så kan Trollpackan skapa en extra Byfåne. Detta kanske ändrar vilken av Byfånarna som är full."
+    },
+    "plaguedoctor-scarletwoman": {
+      "en": "If the Storyteller would gain the Scarlet Woman ability, a Minion gains it, and learns this.",
+      "cn": "如果说书人本应获得红唇女郎的能力，改为一名爪牙玩家获得此能力，且他会得知此事。",
+      "es": "Si el Narrador fuera a ganar la habilidad de la Mujer Escarlata, en lugar de esto, un Secuaz gana esta habilidad y la aprende.",
+      "sv": "Om berättaren skulle få Röda Damens förmåga så får en Kumpan förmågan, och får veta detta."
+    },
+    "plaguedoctor-spy": {
+      "en": "If the Storyteller would gain the Spy ability, a Minion gains it, and learns this.",
+      "cn": "如果说书人本应获得间谍的能力，改为一名爪牙玩家获得此能力，且他会得知此事。",
+      "es": "Si el Narrador fuera a ganar la habilidad del Espía, en lugar de esto, un Secuaz gana esta habilidad y la aprende.",
+      "sv": "Om berättaren skulle få Spionens förmåga så får en Kumpan förmågan, och får veta detta."
+    },
+    "plaguedoctor-wraith": {
+      "en": "If the Storyteller would gain the Wraith ability, a Minion gains it, and learns this.",
+      "cn": "如果说书人本应获得亡魂的能力，改为一名爪牙玩家获得此能力，且他会得知此事。",
+      "es": "Si el Narrador fuera a ganar la habilidad del Espectro, en lugar de esto, un Secuaz gana esta habilidad y la aprende.",
+      "sv": "Om berättaren skulle få Vålnadens förmåga så får en Kumpan förmågan, och får veta detta."
+    },
+    "politician-vizier": {
+      "en": "The Politician might register as evil to the Vizier.",
+      "cn": "维齐尔的能力可能会将政客当作邪恶阵营。",
+      "es": "El Político quizás se registre como malvado para el Visir.",
+      "sv": "Politikern kanske registreras som ond för Vesiren."
+    },
+    "poppygrower-spy": {
+      "en": "If the Poppy Grower has their ability, the Spy does not see the Grimoire.",
+      "cn": "如果罂粟种植者拥有能力，间谍无法查看魔典。",
+      "es": "Si el Cultivador de Amapolas posee su habilidad, el Espía no observa el Grimorio.",
+      "sv": "Om Vallmoodlaren har sin förmåga så får Spionen inte se grimoaren."
+    },
+    "poppygrower-summoner": {
+      "en": "If the Poppy Grower is alive on the 3rd night, the Summoner chooses which Demon but not which player.",
+      "cn": "如果罂粟种植者在第三个夜晚存活，由召唤师来选择创造哪种恶魔，由说书人来决定哪名玩家发生转变。",
+      "es": "Si el Cultivador de Amapolas está vivo en la 3era noche, el Invocador escoge qué Demonio pero no qué jugador.",
+      "sv": "Om Vallmoodlaren lever den tredje natten så väljer Åkallaren Demon men inte spelare."
+    },
+    "poppygrower-widow": {
+      "en": "If the Poppy Grower has their ability, the Widow does not see the Grimoire.",
+      "cn": "如果罂粟种植者拥有能力，寡妇无法查看魔典。",
+      "es": "Si el Cultivador de Amapolas posee su habilidad, la Viuda no observa el Grimorio.",
+      "sv": "Om Vallmoodlaren har sin förmåga så får Änkan inte se grimoaren."
+    },
+    "preacher-summoner": {
+      "en": "If the living Summoner has no ability, the Storyteller has the Summoner ability.",
+      "cn": "如果存活的召唤师失去能力，说书人会获得召唤师能力。",
+      "es": "Si el Invocador vivo no posee habilidad, el Narrador tiene la habilidad del Invocador.",
+      "sv": "Om den levande Åkallaren inte har någon förmåga så har berättaren Åkallarens förmåga."
+    },
+    "preacher-vizier": {
+      "en": "If the Vizier loses their ability, they learn this, and cannot die during the day.",
+      "cn": "如果维齐尔失去能力，他会得知此事，但不会在白天死亡。",
+      "es": "Si el Visir pierde su habilidad, él aprende esto, y no puede morir durante el día.",
+      "sv": "Om Vesiren förlorar sin förmåga så får hen veta det och kan inte dö på dagen."
+    },
+    "pukka-summoner": {
+      "en": "The Summoner may summon a Pukka on the 2nd night instead of the 3rd.",
+      "cn": "召唤师可以在第二个夜晚召唤普卡来替代第三个夜晚的召唤。",
+      "es": "El Invocador puede invocar al Pukka en la 2da noche en lugar de la 3era.",
+      "sv": "Åkallaren får skapa en Pukka den andra natten istället för den tredje."
+    },
+    "ravenkeeper-riot": {
+      "en": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Ravenkeeper uses their ability but does not die.",
+      "cn": "每个夜晚*，暴乱要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果守鸦人被选择，他的能力生效但不会死亡。",
+      "es": "Cada noche*, el Disturbio escoge un jugador bueno vivo (diferente a las noches previas): un Guardián de Cuervos escogido usa su habilidad pero no muere.",
+      "sv": "Varje natt* väljer Kravallen en levande god spelare (en ny varje natt); en vald Korpskötare använder sin förmåga men dör inte."
+    },
+    "recluse-sage": {
+      "en": "The Recluse might register as the Demon to the Sage.",
+      "cn": "陌客可能会被贤者当作杀死他的恶魔。",
+      "es": "El Recluso quizás se registre como el Demonio para el Sabio.",
+      "sv": "Enstöringen kanske registreras som Demonen för Gurun."
+    },
+    "riot-sage": {
+      "en": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Sage uses their ability but does not die.",
+      "cn": "每个夜晚*，暴乱要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果贤者被选择，他的能力生效但不会死亡。",
+      "es": "Cada noche*, el Disturbio escoge un jugador bueno vivo (diferente a las noches previas): un Sabio escogido usa su habilidad pero no muere.",
+      "sv": "Varje natt* väljer Kravallen en levande god spelare (en ny varje natt); en vald Guru använder sin förmåga men dör inte."
+    },
+    "riot-soldier": {
+      "en": "If Riot nominates and executes the Soldier, good wins.",
+      "cn": "如果暴乱提名并处决了士兵，善良阵营获胜。",
+      "es": "Si el Disturbio nomina y ejecuta al Soldado, los buenos ganan.",
+      "sv": "Om Kravallen nominerar och avrättar Soldaten så vinner goda laget."
+    },
+    "summoner-zombuul": {
+      "en": "If the Summoner summons a dead player into the Zombuul, the Zombuul has already \"died once\".",
+      "cn": "如果召唤师将一名已死亡的玩家变成了僵怖，该玩家会变成“已经死过一次”的僵怖。",
+      "es": "Si el Invocador invoca al Zombuul en un jugador muerto, el Zombuul ya ha \"muerto una vez\".",
+      "sv": "Om Åkallaren gör en död spelare till Zombuul så har den Zombuulen redan ”dött en gång”."
+    },
+    "vizier-zealot": {
+      "en": "The Zealot might register as evil to the Vizier.",
+      "cn": "维齐尔的能力可能会将狂热者当作邪恶阵营。",
+      "es": "El Fanático quizás se registre como malvado para el Visir.",
+      "sv": "Fanatikern kanske registreras som ond för Vesiren."
+    }
+  }
+}

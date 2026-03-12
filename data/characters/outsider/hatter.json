@@ -67,21 +67,73 @@
   "jinxes": [
     {
       "id": "legion",
-      "reason": "If Legion is created, all evil players become Legion. If Legion is in play, the Hatter has no ability."
+      "reason": {
+        "en": "If Legion is created, all evil players become Legion. If Legion is in play, the Hatter has no ability.",
+        "cn": "如果帽匠创造了军团，所有邪恶玩家会变成军团。如果军团在场，帽匠不会拥有能力。",
+        "es": "Si la Legión es creada, todos los jugadores malvados se convierten en Legión. Si la Legión está en juego, el Sombrerero no tiene ninguna habilidad.",
+        "sv": "Om Legionen skapas så blir alla onda spelare till Legionen. Om Legionen är i spel så har Hattmakaren ingen förmåga."
+      }
     },
     {
       "id": "leviathan",
-      "reason": "The Leviathan cannot enter play after day 5."
+      "reason": {
+        "en": "The Leviathan cannot enter play after day 5.",
+        "cn": "利维坦不能在第五天之后加入游戏。",
+        "es": "El Leviatán no puede entrar al juego luego del día 5.",
+        "sv": "Leviatan kan inte skapas efter dag 5."
+      }
     },
     {
       "id": "lil_monsta",
-      "reason": "If the Hatter dies & the Demon chooses Lil' Monsta, they also choose a Minion to become."
+      "reason": {
+        "en": "If the Hatter dies & the Demon chooses Lil' Monsta, they also choose a Minion to become."
+      }
     },
     {
       "id": "summoner",
-      "reason": "If the Summoner creates a second living Demon, deaths tonight are arbitrary."
+      "reason": {
+        "en": "If the Summoner creates a second living Demon, deaths tonight are arbitrary.",
+        "cn": "召唤师无法创造已经在场的恶魔。如果召唤师创造了一个不在场的恶魔，当晚的死亡由说书人决定。",
+        "es": "Si el Invocador crea un segundo Demonio vivo, las muertes esta noche son arbitrarias.",
+        "sv": "Om Åkallaren skapar en andra levande Demon så dör spelare godtyckligt inatt."
+      }
     }
   ],
   "image": "assets/tokens/hatter.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Hatter"
+  "source_url": "https://wiki.bloodontheclocktower.com/Hatter",
+  "jinxed_by": [
+    {
+      "id": "legion",
+      "reason": {
+        "en": "If Legion is created, all evil players become Legion. If Legion is in play, the Hatter has no ability.",
+        "cn": "如果帽匠创造了军团，所有邪恶玩家会变成军团。如果军团在场，帽匠不会拥有能力。",
+        "es": "Si la Legión es creada, todos los jugadores malvados se convierten en Legión. Si la Legión está en juego, el Sombrerero no tiene ninguna habilidad.",
+        "sv": "Om Legionen skapas så blir alla onda spelare till Legionen. Om Legionen är i spel så har Hattmakaren ingen förmåga."
+      }
+    },
+    {
+      "id": "leviathan",
+      "reason": {
+        "en": "The Leviathan cannot enter play after day 5.",
+        "cn": "利维坦不能在第五天之后加入游戏。",
+        "es": "El Leviatán no puede entrar al juego luego del día 5.",
+        "sv": "Leviatan kan inte skapas efter dag 5."
+      }
+    },
+    {
+      "id": "lil_monsta",
+      "reason": {
+        "en": "If the Hatter dies & the Demon chooses Lil' Monsta, they also choose a Minion to become."
+      }
+    },
+    {
+      "id": "summoner",
+      "reason": {
+        "en": "If the Summoner creates a second living Demon, deaths tonight are arbitrary.",
+        "cn": "召唤师无法创造已经在场的恶魔。如果召唤师创造了一个不在场的恶魔，当晚的死亡由说书人决定。",
+        "es": "Si el Invocador crea un segundo Demonio vivo, las muertes esta noche son arbitrarias.",
+        "sv": "Om Åkallaren skapar en andra levande Demon så dör spelare godtyckligt inatt."
+      }
+    }
+  ]
 }

@@ -92,57 +92,235 @@
   "jinxes": [
     {
       "id": "banshee",
-      "reason": "Each night*, the Leviathan chooses an alive good player (different to previous nights): a chosen Banshee dies & gains their ability."
+      "reason": {
+        "en": "Each night*, the Leviathan chooses an alive good player (different to previous nights): a chosen Banshee dies & gains their ability.",
+        "cn": "每个夜晚*，利维坦要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果报丧女妖被选择，他死亡并能力生效。",
+        "es": "Cada noche*, el Leviatán escoge un jugador bueno vivo (diferente a las noches previas): una Llorona escogida muere y además gana su habilidad.",
+        "sv": "Varje natt* väljer Leviatan en levande god spelare (en ny varje natt); en vald Banshee dör och får sin förmåga."
+      }
     },
     {
       "id": "exorcist",
-      "reason": "If the Leviathan nominates and executes the Exorcist-chosen player, good wins."
+      "reason": {
+        "en": "If the Leviathan nominates and executes the Exorcist-chosen player, good wins.",
+        "cn": "如果利维坦提名并处决了驱魔人选择的那名玩家，善良阵营获胜。",
+        "es": "Si el Leviatán nomina y ejecuta al jugador seleccionado por el Exorcista, los buenos ganan.",
+        "sv": "Om Leviatan nominerar och avrättar den Exorcist-valda spelaren så vinner goda laget."
+      }
     },
     {
       "id": "farmer",
-      "reason": "Each night*, the Leviathan chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but does not die."
+      "reason": {
+        "en": "Each night*, the Leviathan chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but does not die.",
+        "cn": "每个夜晚*，利维坦要选择一名存活玩家（与之前的每个夜晚不同）：如果农夫被选择，他的能力生效但不会死亡。",
+        "es": "Cada noche*, el Leviatán escoge un jugador bueno vivo (diferente a las noches previas): un Granjero escogido usa su habilidad pero no muere.",
+        "sv": "Varje natt* väljer Leviatan en levande god spelare (en ny varje natt); en vald Bonde använder sin förmåga men dör inte."
+      }
     },
     {
       "id": "grandmother",
-      "reason": "If the Leviathan is in play and the Grandchild dies by execution, evil wins."
+      "reason": {
+        "en": "If the Leviathan is in play and the Grandchild dies by execution, evil wins.",
+        "cn": "如果利维坦在场，孙子死于处决，邪恶阵营获胜。",
+        "es": "Si el Leviatán está en juego y el Nieto muere por ejecución, los malvados ganan.",
+        "sv": "Om Leviatan är i spel och barnbarnet dör av avrättning så vinner det onda laget."
+      }
     },
     {
       "id": "hatter",
-      "reason": "The Leviathan cannot enter play after day 5."
+      "reason": {
+        "en": "The Leviathan cannot enter play after day 5.",
+        "cn": "利维坦不能在第五天之后加入游戏。",
+        "es": "El Leviatán no puede entrar al juego luego del día 5.",
+        "sv": "Leviatan kan inte skapas efter dag 5."
+      }
     },
     {
       "id": "innkeeper",
-      "reason": "If the Leviathan nominates and executes an Innkeeper-protected player, good wins."
+      "reason": {
+        "en": "If the Leviathan nominates and executes an Innkeeper-protected player, good wins.",
+        "cn": "如果利维坦提名并处决了旅店老板上个夜晚保护的其中一名玩家，善良阵营获胜。",
+        "es": "Si el Leviatán nomina y ejecuta a un jugador protegido por el Posadero, los buenos ganan.",
+        "sv": "Om Leviatan nominerar och avrättar en Gästgivar-skyddad spelare så vinner goda laget."
+      }
     },
     {
       "id": "king",
-      "reason": "If the Leviathan is in play, and at least 1 player is dead, the King learns an alive character each night."
+      "reason": {
+        "en": "If the Leviathan is in play, and at least 1 player is dead, the King learns an alive character each night.",
+        "cn": "如果利维坦在场，当至少一名玩家死亡时，国王每晚就会得知一个存活的角色。",
+        "es": "Si el Leviatán está en juego, y al menos 1 jugador está muerto, el Rey aprende un rol vivo cada noche.",
+        "sv": "Om Leviatan är i spel och minst 1 spelare är död så får Kungen veta om en levande roll varje natt."
+      }
     },
     {
       "id": "mayor",
-      "reason": "If the Leviathan and the Mayor are alive on day 5 & no execution occurs, good wins."
+      "reason": {
+        "en": "If the Leviathan and the Mayor are alive on day 5 & no execution occurs, good wins.",
+        "cn": "如果利维坦和镇长在第五天存活且没有处决发生，善良阵营获胜。",
+        "es": "Si el Leviatán y el Alcalde están vivos en el día 5 y ninguna ejecución ocurre, los buenos ganan.",
+        "sv": "Om Leviatan och Borgmästaren lever dag 5 och ingen avrättas så vinner det goda laget."
+      }
     },
     {
       "id": "monk",
-      "reason": "If the Leviathan nominates and executes the Monk-protected player, good wins."
+      "reason": {
+        "en": "If the Leviathan nominates and executes the Monk-protected player, good wins.",
+        "cn": "如果利维坦提名并处决了僧侣上个夜晚保护的那名玩家，善良阵营获胜。",
+        "es": "Si el Leviatán nomina y ejecuta al jugador protegido por el Monje, los buenos ganan.",
+        "sv": "Om Leviatan nominerar och avrättar den Munk-skyddade spelaren så vinner goda laget."
+      }
     },
     {
       "id": "pit_hag",
-      "reason": "The Leviathan cannot enter play after day 5."
+      "reason": {
+        "en": "The Leviathan cannot enter play after day 5."
+      }
     },
     {
       "id": "ravenkeeper",
-      "reason": "Each night*, the Leviathan chooses an alive player (different to previous nights): a chosen Ravenkeeper uses their ability but does not die."
+      "reason": {
+        "en": "Each night*, the Leviathan chooses an alive player (different to previous nights): a chosen Ravenkeeper uses their ability but does not die.",
+        "cn": "每个夜晚*，利维坦要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果守鸦人被选择，他的能力生效但不会死亡。",
+        "es": "Cada noche*, el Leviatán escoge un jugador vivo (diferente a las noches previas): un Guardián de Cuervos escogido usa su habilidad pero no muere.",
+        "sv": "Varje natt* väljer Leviatan en levande god spelare (en ny varje natt); en vald Korpskötare använder sin förmåga men dör inte."
+      }
     },
     {
       "id": "sage",
-      "reason": "Each night*, the Leviathan chooses an alive good player (different to previous nights): a chosen Sage uses their ability but does not die."
+      "reason": {
+        "en": "Each night*, the Leviathan chooses an alive good player (different to previous nights): a chosen Sage uses their ability but does not die.",
+        "cn": "每个夜晚*，利维坦要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果贤者被选择，他的能力生效但不会死亡。",
+        "es": "Cada noche*, el Leviatán escoge un jugador bueno vivo (diferente a las noches previas): un Sabio escogido usa su habilidad pero no muere.",
+        "sv": "Varje natt* väljer Leviatan en levande god spelare (en ny varje natt); en vald Guru använder sin förmåga men dör inte."
+      }
     },
     {
       "id": "soldier",
-      "reason": "If the Leviathan nominates and executes the Soldier, good wins."
+      "reason": {
+        "en": "If the Leviathan nominates and executes the Soldier, good wins.",
+        "cn": "如果利维坦提名并处决了士兵，善良阵营获胜。",
+        "es": "Si el Leviatán nomina y ejecuta al Soldado, los buenos ganan.",
+        "sv": "Om Leviatan nominerar och avrättar Soldaten så vinner goda laget."
+      }
     }
   ],
   "image": "assets/tokens/leviathan.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Leviathan"
+  "source_url": "https://wiki.bloodontheclocktower.com/Leviathan",
+  "jinxed_by": [
+    {
+      "id": "banshee",
+      "reason": {
+        "en": "Each night*, the Leviathan chooses an alive good player (different to previous nights): a chosen Banshee dies & gains their ability.",
+        "cn": "每个夜晚*，利维坦要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果报丧女妖被选择，他死亡并能力生效。",
+        "es": "Cada noche*, el Leviatán escoge un jugador bueno vivo (diferente a las noches previas): una Llorona escogida muere y además gana su habilidad.",
+        "sv": "Varje natt* väljer Leviatan en levande god spelare (en ny varje natt); en vald Banshee dör och får sin förmåga."
+      }
+    },
+    {
+      "id": "exorcist",
+      "reason": {
+        "en": "If the Leviathan nominates and executes the Exorcist-chosen player, good wins.",
+        "cn": "如果利维坦提名并处决了驱魔人选择的那名玩家，善良阵营获胜。",
+        "es": "Si el Leviatán nomina y ejecuta al jugador seleccionado por el Exorcista, los buenos ganan.",
+        "sv": "Om Leviatan nominerar och avrättar den Exorcist-valda spelaren så vinner goda laget."
+      }
+    },
+    {
+      "id": "farmer",
+      "reason": {
+        "en": "Each night*, the Leviathan chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but does not die.",
+        "cn": "每个夜晚*，利维坦要选择一名存活玩家（与之前的每个夜晚不同）：如果农夫被选择，他的能力生效但不会死亡。",
+        "es": "Cada noche*, el Leviatán escoge un jugador bueno vivo (diferente a las noches previas): un Granjero escogido usa su habilidad pero no muere.",
+        "sv": "Varje natt* väljer Leviatan en levande god spelare (en ny varje natt); en vald Bonde använder sin förmåga men dör inte."
+      }
+    },
+    {
+      "id": "grandmother",
+      "reason": {
+        "en": "If the Leviathan is in play and the Grandchild dies by execution, evil wins.",
+        "cn": "如果利维坦在场，孙子死于处决，邪恶阵营获胜。",
+        "es": "Si el Leviatán está en juego y el Nieto muere por ejecución, los malvados ganan.",
+        "sv": "Om Leviatan är i spel och barnbarnet dör av avrättning så vinner det onda laget."
+      }
+    },
+    {
+      "id": "hatter",
+      "reason": {
+        "en": "The Leviathan cannot enter play after day 5.",
+        "cn": "利维坦不能在第五天之后加入游戏。",
+        "es": "El Leviatán no puede entrar al juego luego del día 5.",
+        "sv": "Leviatan kan inte skapas efter dag 5."
+      }
+    },
+    {
+      "id": "innkeeper",
+      "reason": {
+        "en": "If the Leviathan nominates and executes an Innkeeper-protected player, good wins.",
+        "cn": "如果利维坦提名并处决了旅店老板上个夜晚保护的其中一名玩家，善良阵营获胜。",
+        "es": "Si el Leviatán nomina y ejecuta a un jugador protegido por el Posadero, los buenos ganan.",
+        "sv": "Om Leviatan nominerar och avrättar en Gästgivar-skyddad spelare så vinner goda laget."
+      }
+    },
+    {
+      "id": "king",
+      "reason": {
+        "en": "If the Leviathan is in play, and at least 1 player is dead, the King learns an alive character each night.",
+        "cn": "如果利维坦在场，当至少一名玩家死亡时，国王每晚就会得知一个存活的角色。",
+        "es": "Si el Leviatán está en juego, y al menos 1 jugador está muerto, el Rey aprende un rol vivo cada noche.",
+        "sv": "Om Leviatan är i spel och minst 1 spelare är död så får Kungen veta om en levande roll varje natt."
+      }
+    },
+    {
+      "id": "mayor",
+      "reason": {
+        "en": "If the Leviathan and the Mayor are alive on day 5 & no execution occurs, good wins.",
+        "cn": "如果利维坦和镇长在第五天存活且没有处决发生，善良阵营获胜。",
+        "es": "Si el Leviatán y el Alcalde están vivos en el día 5 y ninguna ejecución ocurre, los buenos ganan.",
+        "sv": "Om Leviatan och Borgmästaren lever dag 5 och ingen avrättas så vinner det goda laget."
+      }
+    },
+    {
+      "id": "monk",
+      "reason": {
+        "en": "If the Leviathan nominates and executes the Monk-protected player, good wins.",
+        "cn": "如果利维坦提名并处决了僧侣上个夜晚保护的那名玩家，善良阵营获胜。",
+        "es": "Si el Leviatán nomina y ejecuta al jugador protegido por el Monje, los buenos ganan.",
+        "sv": "Om Leviatan nominerar och avrättar den Munk-skyddade spelaren så vinner goda laget."
+      }
+    },
+    {
+      "id": "pit_hag",
+      "reason": {
+        "en": "The Leviathan cannot enter play after day 5."
+      }
+    },
+    {
+      "id": "ravenkeeper",
+      "reason": {
+        "en": "Each night*, the Leviathan chooses an alive player (different to previous nights): a chosen Ravenkeeper uses their ability but does not die.",
+        "cn": "每个夜晚*，利维坦要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果守鸦人被选择，他的能力生效但不会死亡。",
+        "es": "Cada noche*, el Leviatán escoge un jugador vivo (diferente a las noches previas): un Guardián de Cuervos escogido usa su habilidad pero no muere.",
+        "sv": "Varje natt* väljer Leviatan en levande god spelare (en ny varje natt); en vald Korpskötare använder sin förmåga men dör inte."
+      }
+    },
+    {
+      "id": "sage",
+      "reason": {
+        "en": "Each night*, the Leviathan chooses an alive good player (different to previous nights): a chosen Sage uses their ability but does not die.",
+        "cn": "每个夜晚*，利维坦要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果贤者被选择，他的能力生效但不会死亡。",
+        "es": "Cada noche*, el Leviatán escoge un jugador bueno vivo (diferente a las noches previas): un Sabio escogido usa su habilidad pero no muere.",
+        "sv": "Varje natt* väljer Leviatan en levande god spelare (en ny varje natt); en vald Guru använder sin förmåga men dör inte."
+      }
+    },
+    {
+      "id": "soldier",
+      "reason": {
+        "en": "If the Leviathan nominates and executes the Soldier, good wins.",
+        "cn": "如果利维坦提名并处决了士兵，善良阵营获胜。",
+        "es": "Si el Leviatán nomina y ejecuta al Soldado, los buenos ganan.",
+        "sv": "Om Leviatan nominerar och avrättar Soldaten så vinner goda laget."
+      }
+    }
+  ]
 }

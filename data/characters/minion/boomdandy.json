@@ -86,9 +86,19 @@
   "jinxes": [
     {
       "id": "plague_doctor",
-      "reason": "If the Storyteller would gain the Boomdandy ability, a player becomes the Boomdandy."
+      "reason": {
+        "en": "If the Storyteller would gain the Boomdandy ability, a player becomes the Boomdandy."
+      }
     }
   ],
   "image": "assets/tokens/boomdandy.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Boomdandy"
+  "source_url": "https://wiki.bloodontheclocktower.com/Boomdandy",
+  "jinxed_by": [
+    {
+      "id": "plague_doctor",
+      "reason": {
+        "en": "If the Storyteller would gain the Boomdandy ability, a player becomes the Boomdandy."
+      }
+    }
+  ]
 }

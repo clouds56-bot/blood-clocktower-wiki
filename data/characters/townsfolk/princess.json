@@ -61,13 +61,37 @@
   "jinxes": [
     {
       "id": "al_hadikhia",
-      "reason": "If the Princess nominated & executed a player on their 1st day, no one dies to the Al-Hadikhia tonight."
+      "reason": {
+        "en": "If the Princess nominated & executed a player on their 1st day, no one dies to the Al-Hadikhia tonight."
+      }
     },
     {
       "id": "cannibal",
-      "reason": "If the Cannibal nominated, executed, & killed the Princess today, the Demon doesn’t kill tonight."
+      "reason": {
+        "en": "If the Cannibal nominated, executed, & killed the Princess today, the Demon doesn’t kill tonight.",
+        "cn": "如果食人族提名并处决了公主且公主因此死亡，当晚恶魔不会造成死亡。",
+        "es": "Si el Caníbal nominó, ejecutó, y mató a la Princesa hoy, el Demonio no mata esta noche.",
+        "sv": "Om Kannibalen nominerade, avrättade och dödade Prinsessan idag så kan Demonen inte döda inatt."
+      }
     }
   ],
   "image": "assets/tokens/princess.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Princess"
+  "source_url": "https://wiki.bloodontheclocktower.com/Princess",
+  "jinxed_by": [
+    {
+      "id": "al_hadikhia",
+      "reason": {
+        "en": "If the Princess nominated & executed a player on their 1st day, no one dies to the Al-Hadikhia tonight."
+      }
+    },
+    {
+      "id": "cannibal",
+      "reason": {
+        "en": "If the Cannibal nominated, executed, & killed the Princess today, the Demon doesn’t kill tonight.",
+        "cn": "如果食人族提名并处决了公主且公主因此死亡，当晚恶魔不会造成死亡。",
+        "es": "Si el Caníbal nominó, ejecutó, y mató a la Princesa hoy, el Demonio no mata esta noche.",
+        "sv": "Om Kannibalen nominerade, avrättade och dödade Prinsessan idag så kan Demonen inte döda inatt."
+      }
+    }
+  ]
 }

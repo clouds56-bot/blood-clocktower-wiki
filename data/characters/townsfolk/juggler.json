@@ -73,9 +73,25 @@
   "jinxes": [
     {
       "id": "cannibal",
-      "reason": "If the Juggler guesses on their first day and dies by execution, tonight the living Cannibal learns how many guesses the Juggler got correct."
+      "reason": {
+        "en": "If the Juggler guesses on their first day and dies by execution, tonight the living Cannibal learns how many guesses the Juggler got correct.",
+        "cn": "如果杂耍艺人在自己的首个白天猜测后在当天死于处决，当晚食人族会替杂耍艺人得知对应的信息。",
+        "es": "Si el Malabarista adivina en su primer día y muere por ejecución, esta noche el Caníbal vivo aprende cuántos intentos consiguió correctamente el Malabarista.",
+        "sv": "Om Jonglören gissar på första dagen och dör av avrättning så får den levande Kannibalen inatt veta hur många rätt Jonglören hade."
+      }
     }
   ],
   "image": "assets/tokens/juggler.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Juggler"
+  "source_url": "https://wiki.bloodontheclocktower.com/Juggler",
+  "jinxed_by": [
+    {
+      "id": "cannibal",
+      "reason": {
+        "en": "If the Juggler guesses on their first day and dies by execution, tonight the living Cannibal learns how many guesses the Juggler got correct.",
+        "cn": "如果杂耍艺人在自己的首个白天猜测后在当天死于处决，当晚食人族会替杂耍艺人得知对应的信息。",
+        "es": "Si el Malabarista adivina en su primer día y muere por ejecución, esta noche el Caníbal vivo aprende cuántos intentos consiguió correctamente el Malabarista.",
+        "sv": "Om Jonglören gissar på första dagen och dör av avrättning så får den levande Kannibalen inatt veta hur många rätt Jonglören hade."
+      }
+    }
+  ]
 }

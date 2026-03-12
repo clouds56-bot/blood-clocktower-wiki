@@ -66,13 +66,43 @@
   "jinxes": [
     {
       "id": "leviathan",
-      "reason": "If the Leviathan nominates and executes an Innkeeper-protected player, good wins."
+      "reason": {
+        "en": "If the Leviathan nominates and executes an Innkeeper-protected player, good wins.",
+        "cn": "如果利维坦提名并处决了旅店老板上个夜晚保护的其中一名玩家，善良阵营获胜。",
+        "es": "Si el Leviatán nomina y ejecuta a un jugador protegido por el Posadero, los buenos ganan.",
+        "sv": "Om Leviatan nominerar och avrättar en Gästgivar-skyddad spelare så vinner goda laget."
+      }
     },
     {
       "id": "riot",
-      "reason": "If Riot nominates and executes an Innkeeper-protected player, good wins."
+      "reason": {
+        "en": "If Riot nominates and executes an Innkeeper-protected player, good wins.",
+        "cn": "如果暴乱提名并处决了旅店老板上个夜晚保护的其中一名玩家，善良阵营获胜。",
+        "es": "Si el Disturbio nomina y ejecuta a un jugador protegido por el Posadero, los buenos ganan.",
+        "sv": "Om Kravallen nominerar och avrättar en Gästgivar-skyddad spelare så vinner goda laget."
+      }
     }
   ],
   "image": "assets/tokens/innkeeper.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Innkeeper"
+  "source_url": "https://wiki.bloodontheclocktower.com/Innkeeper",
+  "jinxed_by": [
+    {
+      "id": "leviathan",
+      "reason": {
+        "en": "If the Leviathan nominates and executes an Innkeeper-protected player, good wins.",
+        "cn": "如果利维坦提名并处决了旅店老板上个夜晚保护的其中一名玩家，善良阵营获胜。",
+        "es": "Si el Leviatán nomina y ejecuta a un jugador protegido por el Posadero, los buenos ganan.",
+        "sv": "Om Leviatan nominerar och avrättar en Gästgivar-skyddad spelare så vinner goda laget."
+      }
+    },
+    {
+      "id": "riot",
+      "reason": {
+        "en": "If Riot nominates and executes an Innkeeper-protected player, good wins.",
+        "cn": "如果暴乱提名并处决了旅店老板上个夜晚保护的其中一名玩家，善良阵营获胜。",
+        "es": "Si el Disturbio nomina y ejecuta a un jugador protegido por el Posadero, los buenos ganan.",
+        "sv": "Om Kravallen nominerar och avrättar en Gästgivar-skyddad spelare så vinner goda laget."
+      }
+    }
+  ]
 }

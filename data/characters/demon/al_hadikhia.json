@@ -85,17 +85,43 @@
   "jinxes": [
     {
       "id": "mastermind",
-      "reason": "If the Al-Hadikhia dies by execution, and the Mastermind is alive, the Al-Hadikhia chooses 3 good players tonight: if all 3 choose to live, evil wins. Otherwise, good wins."
+      "reason": {
+        "en": "If the Al-Hadikhia dies by execution, and the Mastermind is alive, the Al-Hadikhia chooses 3 good players tonight: if all 3 choose to live, evil wins. Otherwise, good wins."
+      }
     },
     {
       "id": "princess",
-      "reason": "If the Princess nominated & executed a player on their 1st day, no one dies to the Al-Hadikhia tonight."
+      "reason": {
+        "en": "If the Princess nominated & executed a player on their 1st day, no one dies to the Al-Hadikhia tonight."
+      }
     },
     {
       "id": "scarlet_woman",
-      "reason": "If there would be two Demons, one of which was the Scarlet Woman, the Scarlet Woman becomes the Scarlet Woman again."
+      "reason": {
+        "en": "If there would be two Demons, one of which was the Scarlet Woman, the Scarlet Woman becomes the Scarlet Woman again."
+      }
     }
   ],
   "image": "assets/tokens/al_hadikhia.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Al-Hadikhia"
+  "source_url": "https://wiki.bloodontheclocktower.com/Al-Hadikhia",
+  "jinxed_by": [
+    {
+      "id": "mastermind",
+      "reason": {
+        "en": "If the Al-Hadikhia dies by execution, and the Mastermind is alive, the Al-Hadikhia chooses 3 good players tonight: if all 3 choose to live, evil wins. Otherwise, good wins."
+      }
+    },
+    {
+      "id": "princess",
+      "reason": {
+        "en": "If the Princess nominated & executed a player on their 1st day, no one dies to the Al-Hadikhia tonight."
+      }
+    },
+    {
+      "id": "scarlet_woman",
+      "reason": {
+        "en": "If there would be two Demons, one of which was the Scarlet Woman, the Scarlet Woman becomes the Scarlet Woman again."
+      }
+    }
+  ]
 }

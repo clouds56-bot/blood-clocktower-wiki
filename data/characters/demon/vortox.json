@@ -81,9 +81,25 @@
   "jinxes": [
     {
       "id": "banshee",
-      "reason": "If the Vortox kills the Banshee, all players learn that the Banshee has died."
+      "reason": {
+        "en": "If the Vortox kills the Banshee, all players learn that the Banshee has died.",
+        "cn": "如果涡流杀死了报丧女妖，玩家仍然会得知正确信息。",
+        "es": "Si el Vórtice mata a la Llorona, todos los jugadores aprenden que la Llorona ha muerto.",
+        "sv": "Om Vortox dödar Bansheen så får alla spelare veta att Bansheen har dött."
+      }
     }
   ],
   "image": "assets/tokens/vortox.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Vortox"
+  "source_url": "https://wiki.bloodontheclocktower.com/Vortox",
+  "jinxed_by": [
+    {
+      "id": "banshee",
+      "reason": {
+        "en": "If the Vortox kills the Banshee, all players learn that the Banshee has died.",
+        "cn": "如果涡流杀死了报丧女妖，玩家仍然会得知正确信息。",
+        "es": "Si el Vórtice mata a la Llorona, todos los jugadores aprenden que la Llorona ha muerto.",
+        "sv": "Om Vortox dödar Bansheen så får alla spelare veta att Bansheen har dött."
+      }
+    }
+  ]
 }

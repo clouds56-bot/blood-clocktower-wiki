@@ -75,9 +75,25 @@
   "jinxes": [
     {
       "id": "vizier",
-      "reason": "The Storyteller doesn't declare the Vizier is in play."
+      "reason": {
+        "en": "The Storyteller doesn't declare the Vizier is in play.",
+        "cn": "说书人不会宣布维齐尔在场。",
+        "es": "El Narrador no declara que el Visir está en juego.",
+        "sv": "Berättaren meddelar inte att Vesiren är i spel."
+      }
     }
   ],
   "image": "assets/tokens/investigator.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Investigator"
+  "source_url": "https://wiki.bloodontheclocktower.com/Investigator",
+  "jinxed_by": [
+    {
+      "id": "vizier",
+      "reason": {
+        "en": "The Storyteller doesn't declare the Vizier is in play.",
+        "cn": "说书人不会宣布维齐尔在场。",
+        "es": "El Narrador no declara que el Visir está en juego.",
+        "sv": "Berättaren meddelar inte att Vesiren är i spel."
+      }
+    }
+  ]
 }

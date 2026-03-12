@@ -82,9 +82,25 @@
   "jinxes": [
     {
       "id": "summoner",
-      "reason": "The Summoner may summon a Pukka on the 2nd night instead of the 3rd."
+      "reason": {
+        "en": "The Summoner may summon a Pukka on the 2nd night instead of the 3rd.",
+        "cn": "召唤师可以在第二个夜晚召唤普卡来替代第三个夜晚的召唤。",
+        "es": "El Invocador puede invocar al Pukka en la 2da noche en lugar de la 3era.",
+        "sv": "Åkallaren får skapa en Pukka den andra natten istället för den tredje."
+      }
     }
   ],
   "image": "assets/tokens/pukka.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Pukka"
+  "source_url": "https://wiki.bloodontheclocktower.com/Pukka",
+  "jinxed_by": [
+    {
+      "id": "summoner",
+      "reason": {
+        "en": "The Summoner may summon a Pukka on the 2nd night instead of the 3rd.",
+        "cn": "召唤师可以在第二个夜晚召唤普卡来替代第三个夜晚的召唤。",
+        "es": "El Invocador puede invocar al Pukka en la 2da noche en lugar de la 3era.",
+        "sv": "Åkallaren får skapa en Pukka den andra natten istället för den tredje."
+      }
+    }
+  ]
 }

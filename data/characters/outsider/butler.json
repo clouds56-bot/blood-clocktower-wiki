@@ -76,13 +76,37 @@
   "jinxes": [
     {
       "id": "cannibal",
-      "reason": "If the Cannibal gains the Butler ability, the Cannibal learns this."
+      "reason": {
+        "en": "If the Cannibal gains the Butler ability, the Cannibal learns this.",
+        "cn": "如果食人族获得了管家的能力，他会得知这一信息。",
+        "es": "Si el Caníbal gana la habilidad del Mayordomo, el Caníbal aprende esto.",
+        "sv": "Om Kannibalen får Butlerns förmåga så får Kannibalen veta det."
+      }
     },
     {
       "id": "organ_grinder",
-      "reason": "If the Organ Grinder is causing eyes closed voting, the Butler may raise their hand to vote but their vote is only counted if their master voted too."
+      "reason": {
+        "en": "If the Organ Grinder is causing eyes closed voting, the Butler may raise their hand to vote but their vote is only counted if their master voted too."
+      }
     }
   ],
   "image": "assets/tokens/butler.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Butler"
+  "source_url": "https://wiki.bloodontheclocktower.com/Butler",
+  "jinxed_by": [
+    {
+      "id": "cannibal",
+      "reason": {
+        "en": "If the Cannibal gains the Butler ability, the Cannibal learns this.",
+        "cn": "如果食人族获得了管家的能力，他会得知这一信息。",
+        "es": "Si el Caníbal gana la habilidad del Mayordomo, el Caníbal aprende esto.",
+        "sv": "Om Kannibalen får Butlerns förmåga så får Kannibalen veta det."
+      }
+    },
+    {
+      "id": "organ_grinder",
+      "reason": {
+        "en": "If the Organ Grinder is causing eyes closed voting, the Butler may raise their hand to vote but their vote is only counted if their master voted too."
+      }
+    }
+  ]
 }

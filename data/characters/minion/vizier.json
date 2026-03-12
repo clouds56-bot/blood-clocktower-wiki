@@ -82,41 +82,163 @@
   "jinxes": [
     {
       "id": "alsaahir",
-      "reason": "The Storyteller doesn't declare the Vizier is in play."
+      "reason": {
+        "en": "The Storyteller doesn't declare the Vizier is in play.",
+        "cn": "说书人不会宣布维齐尔在场。",
+        "es": "El Narrador no declara que el Visir está en juego.",
+        "sv": "Berättaren meddelar inte att Vesiren är i spel."
+      }
     },
     {
       "id": "courtier",
-      "reason": "If the Vizier loses their ability, they learn this, and cannot die during the day."
+      "reason": {
+        "en": "If the Vizier loses their ability, they learn this, and cannot die during the day.",
+        "cn": "如果维齐尔失去能力，他会得知这一信息。如果侍臣在剧本列表中，且维齐尔在具有能力时被处决，他的阵营获胜。",
+        "es": "Si el Visir pierde su habilidad, él aprende esto, y no puede morir durante el día.",
+        "sv": "Om Vesiren förlorar sin förmåga så får hen veta det och kan inte dö på dagen."
+      }
     },
     {
       "id": "fearmonger",
-      "reason": "The Vizier wakes with the Fearmonger, learns who they choose and cannot choose to immediately execute that player."
+      "reason": {
+        "en": "The Vizier wakes with the Fearmonger, learns who they choose and cannot choose to immediately execute that player.",
+        "cn": "在恐惧之灵因为自己的能力被唤醒时，维齐尔会一同被唤醒。他会得知恐惧之灵选择了哪名玩家，并且无法使用自己的能力让那名玩家立即被处决。",
+        "es": "El Visir se despierta junto al Alarmista, aprende a quién escoge, y no puede elegir ejecutar a ese jugador inmediatamente.",
+        "sv": "Vesiren vaknar med Skräckspridaren, får veta vem Skräckspridaren väljer och får inte välja att avrätta den spelaren."
+      }
     },
     {
       "id": "investigator",
-      "reason": "The Storyteller doesn't declare the Vizier is in play."
+      "reason": {
+        "en": "The Storyteller doesn't declare the Vizier is in play.",
+        "cn": "说书人不会宣布维齐尔在场。",
+        "es": "El Narrador no declara que el Visir está en juego.",
+        "sv": "Berättaren meddelar inte att Vesiren är i spel."
+      }
     },
     {
       "id": "lil_monsta",
-      "reason": "If the Vizier is babysitting Lil' Monsta, they die when executed."
+      "reason": {
+        "en": "If the Vizier is babysitting Lil' Monsta, they die when executed."
+      }
     },
     {
       "id": "magician",
-      "reason": "If the Vizier is in play, the Magician has no ability but is immune to the Vizier's ability."
+      "reason": {
+        "en": "If the Vizier is in play, the Magician has no ability but is immune to the Vizier's ability.",
+        "cn": "如果维齐尔在场，魔术师不会拥有能力，但他会免疫维齐尔的能力。",
+        "es": "Si el Visir está en juego, el Mago no tiene ninguna habilidad pero es inmune a la habilidad del Visir.",
+        "sv": "Om Vesiren är i spel så har Magikern ingen förmåga men är immun mot Vesirens förmåga."
+      }
     },
     {
       "id": "politician",
-      "reason": "The Politician might register as evil to the Vizier."
+      "reason": {
+        "en": "The Politician might register as evil to the Vizier.",
+        "cn": "维齐尔的能力可能会将政客当作邪恶阵营。",
+        "es": "El Político quizás se registre como malvado para el Visir.",
+        "sv": "Politikern kanske registreras som ond för Vesiren."
+      }
     },
     {
       "id": "preacher",
-      "reason": "If the Vizier loses their ability, they learn this, and cannot die during the day."
+      "reason": {
+        "en": "If the Vizier loses their ability, they learn this, and cannot die during the day.",
+        "cn": "如果维齐尔失去能力，他会得知此事，但不会在白天死亡。",
+        "es": "Si el Visir pierde su habilidad, él aprende esto, y no puede morir durante el día.",
+        "sv": "Om Vesiren förlorar sin förmåga så får hen veta det och kan inte dö på dagen."
+      }
     },
     {
       "id": "zealot",
-      "reason": "The Zealot might register as evil to the Vizier."
+      "reason": {
+        "en": "The Zealot might register as evil to the Vizier.",
+        "cn": "维齐尔的能力可能会将狂热者当作邪恶阵营。",
+        "es": "El Fanático quizás se registre como malvado para el Visir.",
+        "sv": "Fanatikern kanske registreras som ond för Vesiren."
+      }
     }
   ],
   "image": "assets/tokens/vizier.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Vizier"
+  "source_url": "https://wiki.bloodontheclocktower.com/Vizier",
+  "jinxed_by": [
+    {
+      "id": "alsaahir",
+      "reason": {
+        "en": "The Storyteller doesn't declare the Vizier is in play.",
+        "cn": "说书人不会宣布维齐尔在场。",
+        "es": "El Narrador no declara que el Visir está en juego.",
+        "sv": "Berättaren meddelar inte att Vesiren är i spel."
+      }
+    },
+    {
+      "id": "courtier",
+      "reason": {
+        "en": "If the Vizier loses their ability, they learn this, and cannot die during the day.",
+        "cn": "如果维齐尔失去能力，他会得知这一信息。如果侍臣在剧本列表中，且维齐尔在具有能力时被处决，他的阵营获胜。",
+        "es": "Si el Visir pierde su habilidad, él aprende esto, y no puede morir durante el día.",
+        "sv": "Om Vesiren förlorar sin förmåga så får hen veta det och kan inte dö på dagen."
+      }
+    },
+    {
+      "id": "fearmonger",
+      "reason": {
+        "en": "The Vizier wakes with the Fearmonger, learns who they choose and cannot choose to immediately execute that player.",
+        "cn": "在恐惧之灵因为自己的能力被唤醒时，维齐尔会一同被唤醒。他会得知恐惧之灵选择了哪名玩家，并且无法使用自己的能力让那名玩家立即被处决。",
+        "es": "El Visir se despierta junto al Alarmista, aprende a quién escoge, y no puede elegir ejecutar a ese jugador inmediatamente.",
+        "sv": "Vesiren vaknar med Skräckspridaren, får veta vem Skräckspridaren väljer och får inte välja att avrätta den spelaren."
+      }
+    },
+    {
+      "id": "investigator",
+      "reason": {
+        "en": "The Storyteller doesn't declare the Vizier is in play.",
+        "cn": "说书人不会宣布维齐尔在场。",
+        "es": "El Narrador no declara que el Visir está en juego.",
+        "sv": "Berättaren meddelar inte att Vesiren är i spel."
+      }
+    },
+    {
+      "id": "lil_monsta",
+      "reason": {
+        "en": "If the Vizier is babysitting Lil' Monsta, they die when executed."
+      }
+    },
+    {
+      "id": "magician",
+      "reason": {
+        "en": "If the Vizier is in play, the Magician has no ability but is immune to the Vizier's ability.",
+        "cn": "如果维齐尔在场，魔术师不会拥有能力，但他会免疫维齐尔的能力。",
+        "es": "Si el Visir está en juego, el Mago no tiene ninguna habilidad pero es inmune a la habilidad del Visir.",
+        "sv": "Om Vesiren är i spel så har Magikern ingen förmåga men är immun mot Vesirens förmåga."
+      }
+    },
+    {
+      "id": "politician",
+      "reason": {
+        "en": "The Politician might register as evil to the Vizier.",
+        "cn": "维齐尔的能力可能会将政客当作邪恶阵营。",
+        "es": "El Político quizás se registre como malvado para el Visir.",
+        "sv": "Politikern kanske registreras som ond för Vesiren."
+      }
+    },
+    {
+      "id": "preacher",
+      "reason": {
+        "en": "If the Vizier loses their ability, they learn this, and cannot die during the day.",
+        "cn": "如果维齐尔失去能力，他会得知此事，但不会在白天死亡。",
+        "es": "Si el Visir pierde su habilidad, él aprende esto, y no puede morir durante el día.",
+        "sv": "Om Vesiren förlorar sin förmåga så får hen veta det och kan inte dö på dagen."
+      }
+    },
+    {
+      "id": "zealot",
+      "reason": {
+        "en": "The Zealot might register as evil to the Vizier.",
+        "cn": "维齐尔的能力可能会将狂热者当作邪恶阵营。",
+        "es": "El Fanático quizás se registre como malvado para el Visir.",
+        "sv": "Fanatikern kanske registreras som ond för Vesiren."
+      }
+    }
+  ]
 }

@@ -89,13 +89,37 @@
   "jinxes": [
     {
       "id": "plague_doctor",
-      "reason": "If the Storyteller would gain the Fearmonger ability, a Minion gains it, and learns this."
+      "reason": {
+        "en": "If the Storyteller would gain the Fearmonger ability, a Minion gains it, and learns this."
+      }
     },
     {
       "id": "vizier",
-      "reason": "The Vizier wakes with the Fearmonger, learns who they choose and cannot choose to immediately execute that player."
+      "reason": {
+        "en": "The Vizier wakes with the Fearmonger, learns who they choose and cannot choose to immediately execute that player.",
+        "cn": "在恐惧之灵因为自己的能力被唤醒时，维齐尔会一同被唤醒。他会得知恐惧之灵选择了哪名玩家，并且无法使用自己的能力让那名玩家立即被处决。",
+        "es": "El Visir se despierta junto al Alarmista, aprende a quién escoge, y no puede elegir ejecutar a ese jugador inmediatamente.",
+        "sv": "Vesiren vaknar med Skräckspridaren, får veta vem Skräckspridaren väljer och får inte välja att avrätta den spelaren."
+      }
     }
   ],
   "image": "assets/tokens/fearmonger.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Fearmonger"
+  "source_url": "https://wiki.bloodontheclocktower.com/Fearmonger",
+  "jinxed_by": [
+    {
+      "id": "plague_doctor",
+      "reason": {
+        "en": "If the Storyteller would gain the Fearmonger ability, a Minion gains it, and learns this."
+      }
+    },
+    {
+      "id": "vizier",
+      "reason": {
+        "en": "The Vizier wakes with the Fearmonger, learns who they choose and cannot choose to immediately execute that player.",
+        "cn": "在恐惧之灵因为自己的能力被唤醒时，维齐尔会一同被唤醒。他会得知恐惧之灵选择了哪名玩家，并且无法使用自己的能力让那名玩家立即被处决。",
+        "es": "El Visir se despierta junto al Alarmista, aprende a quién escoge, y no puede elegir ejecutar a ese jugador inmediatamente.",
+        "sv": "Vesiren vaknar med Skräckspridaren, får veta vem Skräckspridaren väljer och får inte välja att avrätta den spelaren."
+      }
+    }
+  ]
 }

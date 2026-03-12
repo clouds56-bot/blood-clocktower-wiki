@@ -88,13 +88,37 @@
   "jinxes": [
     {
       "id": "cerenovus",
-      "reason": "The Cerenovus may choose to make a player mad that they are the Goblin."
+      "reason": {
+        "en": "The Cerenovus may choose to make a player mad that they are the Goblin.",
+        "cn": "洗脑师可以选择将玩家洗脑成哥布林。",
+        "es": "El Cerenovus puede escoger hacer a un jugador loco de que es el Duende.",
+        "sv": "Cerenovus får välja att en spelare ska vara galen att hen är Vätten."
+      }
     },
     {
       "id": "plague_doctor",
-      "reason": "If the Storyteller would gain the Goblin ability, a Minion gains it, and learns this."
+      "reason": {
+        "en": "If the Storyteller would gain the Goblin ability, a Minion gains it, and learns this."
+      }
     }
   ],
   "image": "assets/tokens/goblin.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Goblin"
+  "source_url": "https://wiki.bloodontheclocktower.com/Goblin",
+  "jinxed_by": [
+    {
+      "id": "cerenovus",
+      "reason": {
+        "en": "The Cerenovus may choose to make a player mad that they are the Goblin.",
+        "cn": "洗脑师可以选择将玩家洗脑成哥布林。",
+        "es": "El Cerenovus puede escoger hacer a un jugador loco de que es el Duende.",
+        "sv": "Cerenovus får välja att en spelare ska vara galen att hen är Vätten."
+      }
+    },
+    {
+      "id": "plague_doctor",
+      "reason": {
+        "en": "If the Storyteller would gain the Goblin ability, a Minion gains it, and learns this."
+      }
+    }
+  ]
 }

@@ -57,61 +57,241 @@
   "jinxes": [
     {
       "id": "alchemist",
-      "reason": "The Alchemist-Summoner does not get bluffs, and chooses which Demon but not which player. If they die before this happens, evil wins. [No Demon]"
+      "reason": {
+        "en": "The Alchemist-Summoner does not get bluffs, and chooses which Demon but not which player. If they die before this happens, evil wins. [No Demon]",
+        "cn": "获得召唤师能力的炼金术士不会获得伪装。他要选择一个恶魔角色，但不选择玩家，由说书人决定哪一名玩家变成邪恶的恶魔。如果他在选择之前死亡，邪恶阵营获胜。[无恶魔在场]",
+        "es": "El Alquimista-Invocador no recibe coartadas, y escoge qué Demonio pero no qué jugador. Si él muere antes de que esto pueda ocurrir, los malvados ganan. [Ningún Demonio]",
+        "sv": "En Alkemist-Åkallare får inga bluffar, och väljer Demon men inte spelare. Om hen dör innan det händer så vinner det onda laget. [Ingen Demon]"
+      }
     },
     {
       "id": "clockmaker",
-      "reason": "The Summoner registers as the Demon to the Clockmaker."
+      "reason": {
+        "en": "The Summoner registers as the Demon to the Clockmaker.",
+        "cn": "召唤师会被钟表匠当作恶魔。",
+        "es": "El Invocador se registra como el Demonio para el Relojero.",
+        "sv": "Åkallaren registreras som Demonen för Urmakaren."
+      }
     },
     {
       "id": "courtier",
-      "reason": "If the living Summoner has no ability, the Storyteller has the Summoner ability."
+      "reason": {
+        "en": "If the living Summoner has no ability, the Storyteller has the Summoner ability.",
+        "cn": "如果召唤师因为侍臣的能力在第三个夜晚醉酒，由召唤师来选择创造哪种恶魔，由说书人来决定哪名玩家发生转变。",
+        "es": "Si el Invocador vivo no posee habilidad, el Narrador tiene la habilidad del Invocador.",
+        "sv": "Om den levande Åkallaren inte har någon förmåga så har berättaren Åkallarens förmåga."
+      }
     },
     {
       "id": "engineer",
-      "reason": "If the living Summoner is removed from play, the Storyteller has the Summoner ability."
+      "reason": {
+        "en": "If the living Summoner is removed from play, the Storyteller has the Summoner ability.",
+        "cn": "如果存活的召唤师从游戏中离场，说书人会获得召唤师的能力。",
+        "es": "Si el Invocador vivo sale del juego, el Narrador posee la habilidad del Invocador.",
+        "sv": "Om den levande Åkallaren tas ur spel så får berättaren Åkallarens förmåga."
+      }
     },
     {
       "id": "hatter",
-      "reason": "If the Summoner creates a second living Demon, deaths tonight are arbitrary."
+      "reason": {
+        "en": "If the Summoner creates a second living Demon, deaths tonight are arbitrary.",
+        "cn": "召唤师无法创造已经在场的恶魔。如果召唤师创造了一个不在场的恶魔，当晚的死亡由说书人决定。",
+        "es": "Si el Invocador crea un segundo Demonio vivo, las muertes esta noche son arbitrarias.",
+        "sv": "Om Åkallaren skapar en andra levande Demon så dör spelare godtyckligt inatt."
+      }
     },
     {
       "id": "kazali",
-      "reason": "If the Summoner creates a second living Demon, deaths tonight are arbitrary."
+      "reason": {
+        "en": "If the Summoner creates a second living Demon, deaths tonight are arbitrary.",
+        "cn": "召唤师无法创造已经在场的恶魔。如果召唤师创造了一个不在场的恶魔，当晚的死亡由说书人决定。",
+        "es": "Si el Invocador crea un segundo Demonio vivo, las muertes esta noche son arbitrarias.",
+        "sv": "Om Åkallaren skapar en andra levande Demon så dör spelare godtyckligt inatt."
+      }
     },
     {
       "id": "legion",
-      "reason": "If Legion is summoned, all evil players become Legion."
+      "reason": {
+        "en": "If Legion is summoned, all evil players become Legion.",
+        "cn": "如果召唤师召唤了军团，所有邪恶玩家会变成军团。",
+        "es": "Si la Legión es invocada, todos los jugadores malvados se convierten en la Legión.",
+        "sv": "Om Legionen åkallas så blir alla onda spelare till Legionen."
+      }
     },
     {
       "id": "lord_of_typhon",
-      "reason": "If a Lord of Typhon is summoned, they must neighbor a Minion & their other neighbor becomes an evil Minion."
+      "reason": {
+        "en": "If a Lord of Typhon is summoned, they must neighbor a Minion & their other neighbor becomes an evil Minion."
+      }
     },
     {
       "id": "marionette",
-      "reason": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor."
+      "reason": {
+        "en": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor.",
+        "cn": "如果提线木偶本应初始在场，他们会在恶魔之后进场并与恶魔邻座。",
+        "es": "Si hubiera una Marioneta en juego, ella entra en juego luego del Demonio y debe empezar como su vecina.",
+        "sv": "Om det skulle vara en Marionett i spel så läggs den till efter Demonen och måste börja som Demonens granne."
+      }
     },
     {
       "id": "pit_hag",
-      "reason": "If the Summoner creates a second living Demon, deaths tonight are arbitrary."
+      "reason": {
+        "en": "If the Summoner creates a second living Demon, deaths tonight are arbitrary."
+      }
     },
     {
       "id": "poppy_grower",
-      "reason": "If the Poppy Grower is alive on the 3rd night, the Summoner chooses which Demon but not which player."
+      "reason": {
+        "en": "If the Poppy Grower is alive on the 3rd night, the Summoner chooses which Demon but not which player."
+      }
     },
     {
       "id": "preacher",
-      "reason": "If the living Summoner has no ability, the Storyteller has the Summoner ability."
+      "reason": {
+        "en": "If the living Summoner has no ability, the Storyteller has the Summoner ability.",
+        "cn": "如果存活的召唤师失去能力，说书人会获得召唤师能力。",
+        "es": "Si el Invocador vivo no posee habilidad, el Narrador tiene la habilidad del Invocador.",
+        "sv": "Om den levande Åkallaren inte har någon förmåga så har berättaren Åkallarens förmåga."
+      }
     },
     {
       "id": "pukka",
-      "reason": "The Summoner may summon a Pukka on the 2nd night instead of the 3rd."
+      "reason": {
+        "en": "The Summoner may summon a Pukka on the 2nd night instead of the 3rd.",
+        "cn": "召唤师可以在第二个夜晚召唤普卡来替代第三个夜晚的召唤。",
+        "es": "El Invocador puede invocar al Pukka en la 2da noche en lugar de la 3era.",
+        "sv": "Åkallaren får skapa en Pukka den andra natten istället för den tredje."
+      }
     },
     {
       "id": "zombuul",
-      "reason": "If the Summoner summons a dead player into the Zombuul, the Zombuul has already \"died once\"."
+      "reason": {
+        "en": "If the Summoner summons a dead player into the Zombuul, the Zombuul has already \"died once\".",
+        "cn": "如果召唤师将一名已死亡的玩家变成了僵怖，该玩家会变成“已经死过一次”的僵怖。",
+        "es": "Si el Invocador invoca al Zombuul en un jugador muerto, el Zombuul ya ha \"muerto una vez\".",
+        "sv": "Om Åkallaren gör en död spelare till Zombuul så har den Zombuulen redan ”dött en gång”."
+      }
     }
   ],
   "image": "assets/tokens/summoner.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Summoner"
+  "source_url": "https://wiki.bloodontheclocktower.com/Summoner",
+  "jinxed_by": [
+    {
+      "id": "alchemist",
+      "reason": {
+        "en": "The Alchemist-Summoner does not get bluffs, and chooses which Demon but not which player. If they die before this happens, evil wins. [No Demon]",
+        "cn": "获得召唤师能力的炼金术士不会获得伪装。他要选择一个恶魔角色，但不选择玩家，由说书人决定哪一名玩家变成邪恶的恶魔。如果他在选择之前死亡，邪恶阵营获胜。[无恶魔在场]",
+        "es": "El Alquimista-Invocador no recibe coartadas, y escoge qué Demonio pero no qué jugador. Si él muere antes de que esto pueda ocurrir, los malvados ganan. [Ningún Demonio]",
+        "sv": "En Alkemist-Åkallare får inga bluffar, och väljer Demon men inte spelare. Om hen dör innan det händer så vinner det onda laget. [Ingen Demon]"
+      }
+    },
+    {
+      "id": "clockmaker",
+      "reason": {
+        "en": "The Summoner registers as the Demon to the Clockmaker.",
+        "cn": "召唤师会被钟表匠当作恶魔。",
+        "es": "El Invocador se registra como el Demonio para el Relojero.",
+        "sv": "Åkallaren registreras som Demonen för Urmakaren."
+      }
+    },
+    {
+      "id": "courtier",
+      "reason": {
+        "en": "If the living Summoner has no ability, the Storyteller has the Summoner ability.",
+        "cn": "如果召唤师因为侍臣的能力在第三个夜晚醉酒，由召唤师来选择创造哪种恶魔，由说书人来决定哪名玩家发生转变。",
+        "es": "Si el Invocador vivo no posee habilidad, el Narrador tiene la habilidad del Invocador.",
+        "sv": "Om den levande Åkallaren inte har någon förmåga så har berättaren Åkallarens förmåga."
+      }
+    },
+    {
+      "id": "engineer",
+      "reason": {
+        "en": "If the living Summoner is removed from play, the Storyteller has the Summoner ability.",
+        "cn": "如果存活的召唤师从游戏中离场，说书人会获得召唤师的能力。",
+        "es": "Si el Invocador vivo sale del juego, el Narrador posee la habilidad del Invocador.",
+        "sv": "Om den levande Åkallaren tas ur spel så får berättaren Åkallarens förmåga."
+      }
+    },
+    {
+      "id": "hatter",
+      "reason": {
+        "en": "If the Summoner creates a second living Demon, deaths tonight are arbitrary.",
+        "cn": "召唤师无法创造已经在场的恶魔。如果召唤师创造了一个不在场的恶魔，当晚的死亡由说书人决定。",
+        "es": "Si el Invocador crea un segundo Demonio vivo, las muertes esta noche son arbitrarias.",
+        "sv": "Om Åkallaren skapar en andra levande Demon så dör spelare godtyckligt inatt."
+      }
+    },
+    {
+      "id": "kazali",
+      "reason": {
+        "en": "If the Summoner creates a second living Demon, deaths tonight are arbitrary.",
+        "cn": "召唤师无法创造已经在场的恶魔。如果召唤师创造了一个不在场的恶魔，当晚的死亡由说书人决定。",
+        "es": "Si el Invocador crea un segundo Demonio vivo, las muertes esta noche son arbitrarias.",
+        "sv": "Om Åkallaren skapar en andra levande Demon så dör spelare godtyckligt inatt."
+      }
+    },
+    {
+      "id": "legion",
+      "reason": {
+        "en": "If Legion is summoned, all evil players become Legion.",
+        "cn": "如果召唤师召唤了军团，所有邪恶玩家会变成军团。",
+        "es": "Si la Legión es invocada, todos los jugadores malvados se convierten en la Legión.",
+        "sv": "Om Legionen åkallas så blir alla onda spelare till Legionen."
+      }
+    },
+    {
+      "id": "lord_of_typhon",
+      "reason": {
+        "en": "If a Lord of Typhon is summoned, they must neighbor a Minion & their other neighbor becomes an evil Minion."
+      }
+    },
+    {
+      "id": "marionette",
+      "reason": {
+        "en": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor.",
+        "cn": "如果提线木偶本应初始在场，他们会在恶魔之后进场并与恶魔邻座。",
+        "es": "Si hubiera una Marioneta en juego, ella entra en juego luego del Demonio y debe empezar como su vecina.",
+        "sv": "Om det skulle vara en Marionett i spel så läggs den till efter Demonen och måste börja som Demonens granne."
+      }
+    },
+    {
+      "id": "pit_hag",
+      "reason": {
+        "en": "If the Summoner creates a second living Demon, deaths tonight are arbitrary."
+      }
+    },
+    {
+      "id": "poppy_grower",
+      "reason": {
+        "en": "If the Poppy Grower is alive on the 3rd night, the Summoner chooses which Demon but not which player."
+      }
+    },
+    {
+      "id": "preacher",
+      "reason": {
+        "en": "If the living Summoner has no ability, the Storyteller has the Summoner ability.",
+        "cn": "如果存活的召唤师失去能力，说书人会获得召唤师能力。",
+        "es": "Si el Invocador vivo no posee habilidad, el Narrador tiene la habilidad del Invocador.",
+        "sv": "Om den levande Åkallaren inte har någon förmåga så har berättaren Åkallarens förmåga."
+      }
+    },
+    {
+      "id": "pukka",
+      "reason": {
+        "en": "The Summoner may summon a Pukka on the 2nd night instead of the 3rd.",
+        "cn": "召唤师可以在第二个夜晚召唤普卡来替代第三个夜晚的召唤。",
+        "es": "El Invocador puede invocar al Pukka en la 2da noche en lugar de la 3era.",
+        "sv": "Åkallaren får skapa en Pukka den andra natten istället för den tredje."
+      }
+    },
+    {
+      "id": "zombuul",
+      "reason": {
+        "en": "If the Summoner summons a dead player into the Zombuul, the Zombuul has already \"died once\".",
+        "cn": "如果召唤师将一名已死亡的玩家变成了僵怖，该玩家会变成“已经死过一次”的僵怖。",
+        "es": "Si el Invocador invoca al Zombuul en un jugador muerto, el Zombuul ya ha \"muerto una vez\".",
+        "sv": "Om Åkallaren gör en död spelare till Zombuul så har den Zombuulen redan ”dött en gång”."
+      }
+    }
+  ]
 }

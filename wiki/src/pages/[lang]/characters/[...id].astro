@@ -38,16 +38,24 @@ const characterMetaById = new Map(
     ];
   })
 );
-const characterJinxes = (data.jinxes || []).map((jinx: { id: string; reason?: string }) => {
+const characterJinxRelations = [
+  ...(data.jinxes || []),
+  ...(data.jinxed_by || []),
+].map((jinx: { id: string; reason?: string | Record<string, string> }) => {
   const target = characterMetaById.get(jinx.id);
   const nameCn = target?.nameCn;
   const nameEn = target?.nameEn;
   const name = validatedLang === 'cn' ? (nameCn || nameEn || jinx.id) : (nameEn || nameCn || jinx.id);
   const altName = validatedLang === 'cn' && nameEn ? nameEn : undefined;
+  const reasonObj = typeof jinx.reason === 'object' && jinx.reason !== null ? jinx.reason : null;
+  const reason = reasonObj
+    ? (reasonObj[validatedLang] || reasonObj.en || Object.values(reasonObj)[0])
+    : jinx.reason;
   return {
     ...jinx,
     name,
     altName,
+    reason,
     routeId: target?.routeId,
   };
 });
@@ -101,7 +109,7 @@ const characterJinxes = (data.jinxes || []).map((jinx: { id: string; reason?: st
             </blockquote>
           )}
 
-          {(characterReminders.length > 0 || characterJinxes.length > 0) && (
+          {(characterReminders.length > 0 || characterJinxRelations.length > 0) && (
             <div class="mt-5 space-y-3">
               {characterReminders.length > 0 && (
                 <div>
@@ -121,11 +129,11 @@ const characterJinxes = (data.jinxes || []).map((jinx: { id: string; reason?: st
                 </div>
               )}
 
-              {characterJinxes.length > 0 && (
+              {characterJinxRelations.length > 0 && (
                 <div>
                   <p class="uppercase tracking-[0.28em] text-xs text-[color:var(--ink-200)] mb-2">{t('char.jinxes')}</p>
                   <div class="flex flex-wrap gap-2">
-                    {characterJinxes.map((jinx) => {
+                    {characterJinxRelations.map((jinx) => {
                       const display = jinx.name;
                       const alt = jinx.altName;
                       const content = (
@@ -235,11 +243,11 @@ const characterJinxes = (data.jinxes || []).map((jinx: { id: string; reason?: st
       </section>
     )}
 
-    {characterJinxes.length > 0 && (
+    {characterJinxRelations.length > 0 && (
       <section class="mt-10 pt-6 border-t soft-divider">
         <h2 class="font-display text-2xl mb-4 text-[color:var(--ink-50)]">{t('char.jinxes')}</h2>
         <div class="space-y-3">
-          {characterJinxes.map((jinx) => (
+          {characterJinxRelations.map((jinx) => (
             <div class="bg-[color:var(--bg-800)] p-4 rounded-xl border border-[rgba(215,180,106,0.22)]">
               <div class="text-[color:var(--ink-50)] font-medium">
                 {jinx.routeId ? (

@@ -92,17 +92,61 @@
   "jinxes": [
     {
       "id": "heretic",
-      "reason": "Only 1 jinxed character can be in play."
+      "reason": {
+        "en": "Only 1 jinxed character can be in play.",
+        "cn": "互为克星的角色在同一时间里只能有其中一个角色在场。",
+        "es": "Solo 1 de los roles conjurados puede estar en juego.",
+        "sv": "Endast 1 av rollerna får vara i spel."
+      }
     },
     {
       "id": "mastermind",
-      "reason": "If the Mastermind is alive and the Lleech host dies by execution, the Lleech lives but loses their ability."
+      "reason": {
+        "en": "If the Mastermind is alive and the Lleech host dies by execution, the Lleech lives but loses their ability.",
+        "cn": "如果主谋存活且痢蛭的宿主死于处决，痢蛭存活但失去能力。",
+        "es": "Si la Mente Maestra está viva y la víctima de la Sanguijuela muere por ejecución, la Sanguijuela vive pero pierde su habilidad.",
+        "sv": "Om Konspiratören lever och Lleechs värd dör av avrättning så överlever Lleech men förlorar sin förmåga."
+      }
     },
     {
       "id": "slayer",
-      "reason": "If the Slayer slays the Lleech host, the host dies."
+      "reason": {
+        "en": "If the Slayer slays the Lleech host, the host dies.",
+        "cn": "如果猎手选择了痢蛭的宿主，则宿主会死亡。",
+        "es": "Si el Exterminador extermina a la víctima de la Sanguijuela, la víctima muere.",
+        "sv": "Om Dråparen dräper Lleechs värd så dör värden."
+      }
     }
   ],
   "image": "assets/tokens/lleech.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Lleech"
+  "source_url": "https://wiki.bloodontheclocktower.com/Lleech",
+  "jinxed_by": [
+    {
+      "id": "heretic",
+      "reason": {
+        "en": "Only 1 jinxed character can be in play.",
+        "cn": "互为克星的角色在同一时间里只能有其中一个角色在场。",
+        "es": "Solo 1 de los roles conjurados puede estar en juego.",
+        "sv": "Endast 1 av rollerna får vara i spel."
+      }
+    },
+    {
+      "id": "mastermind",
+      "reason": {
+        "en": "If the Mastermind is alive and the Lleech host dies by execution, the Lleech lives but loses their ability.",
+        "cn": "如果主谋存活且痢蛭的宿主死于处决，痢蛭存活但失去能力。",
+        "es": "Si la Mente Maestra está viva y la víctima de la Sanguijuela muere por ejecución, la Sanguijuela vive pero pierde su habilidad.",
+        "sv": "Om Konspiratören lever och Lleechs värd dör av avrättning så överlever Lleech men förlorar sin förmåga."
+      }
+    },
+    {
+      "id": "slayer",
+      "reason": {
+        "en": "If the Slayer slays the Lleech host, the host dies.",
+        "cn": "如果猎手选择了痢蛭的宿主，则宿主会死亡。",
+        "es": "Si el Exterminador extermina a la víctima de la Sanguijuela, la víctima muere.",
+        "sv": "Om Dråparen dräper Lleechs värd så dör värden."
+      }
+    }
+  ]
 }

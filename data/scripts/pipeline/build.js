@@ -14,6 +14,7 @@ const DATA_DIR = path.join(__dirname, '..', '..');
 const EXTRACTED_DIR = path.join(DATA_DIR, 'extracted');
 const CONFIG_PATH = path.join(DATA_DIR, 'config', 'characters.json');
 const OUTPUT_DIR = path.join(DATA_DIR, 'characters');
+const JINX_TRANSLATIONS_FILE = path.join(EXTRACTED_DIR, 'jinxes.tool.json');
 
 const TRANSLATIONS_GLOB_PREFIX = 'characters.tool.';
 const WIKI_GLOB_PREFIX = 'characters.wiki.';
@@ -45,6 +46,11 @@ function parseJsonl(filePath) {
     .split('\n')
     .filter(Boolean)
     .map(line => JSON.parse(line));
+}
+
+function parseJsonFile(filePath) {
+  if (!fs.existsSync(filePath)) return null;
+  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
 }
 
 function teamToType(team) {
@@ -244,7 +250,90 @@ function normalizeFlavorText(locale, value) {
   return normalized;
 }
 
-function buildCombinedCharacters(translationFiles, wikiFiles, tokenFile) {
+function buildJinxTranslationMap(payload) {
+  const out = new Map();
+  const jinxes = payload?.jinxes;
+  if (!jinxes || typeof jinxes !== 'object' || Array.isArray(jinxes)) {
+    return out;
+  }
+
+  for (const [pair, reasons] of Object.entries(jinxes)) {
+    if (!pair || !reasons || typeof reasons !== 'object' || Array.isArray(reasons)) continue;
+    out.set(pair, reasons);
+  }
+
+  return out;
+}
+
+function applyJinxTranslationsAndReverseLinks(combined, jinxTranslations) {
+  const reverseById = new Map();
+
+  for (const character of combined.values()) {
+    if (!Array.isArray(character.jinxes)) continue;
+
+    const localizedJinxes = [];
+    const seenTargets = new Set();
+
+    for (const rawJinx of character.jinxes) {
+      const targetId = normalizeId(rawJinx?.id);
+      if (!targetId || seenTargets.has(targetId)) continue;
+
+      const pairKey = `${character.id}-${targetId}`;
+      const reversePairKey = `${targetId}-${character.id}`;
+      const translated = jinxTranslations.get(pairKey) || jinxTranslations.get(reversePairKey) || {};
+
+      const rawReason = rawJinx?.reason;
+      const reasonByLang = compactObject({
+        en: typeof rawReason === 'object' ? rawReason.en : rawReason || translated.en,
+        cn: typeof rawReason === 'object' ? rawReason.cn : translated.cn,
+        es: typeof rawReason === 'object' ? rawReason.es : translated.es,
+        sv: typeof rawReason === 'object' ? rawReason.sv : translated.sv
+      });
+
+      const jinx = compactObject({
+        id: targetId,
+        reason: Object.keys(reasonByLang).length > 0 ? reasonByLang : null
+      });
+
+      localizedJinxes.push(jinx);
+      seenTargets.add(targetId);
+
+      const reverseEntry = compactObject({
+        id: character.id,
+        reason: jinx.reason
+      });
+
+      if (!reverseById.has(targetId)) reverseById.set(targetId, []);
+      reverseById.get(targetId).push(reverseEntry);
+    }
+
+    if (localizedJinxes.length > 0) {
+      character.jinxes = localizedJinxes;
+    } else {
+      delete character.jinxes;
+    }
+  }
+
+  for (const [id, incoming] of reverseById.entries()) {
+    const character = combined.get(id);
+    if (!character || incoming.length === 0) continue;
+
+    const uniqueIncoming = [];
+    const seenSources = new Set();
+    for (const relation of incoming) {
+      if (!relation?.id || seenSources.has(relation.id)) continue;
+      seenSources.add(relation.id);
+      uniqueIncoming.push(relation);
+    }
+
+    if (uniqueIncoming.length > 0) {
+      character.jinxed_by = uniqueIncoming;
+      combined.set(id, character);
+    }
+  }
+}
+
+function buildCombinedCharacters(translationFiles, wikiFiles, tokenFile, jinxTranslations) {
   const combined = new Map();
 
   // 1) Translation rows first (source of truth of ID)
@@ -414,6 +503,8 @@ function buildCombinedCharacters(translationFiles, wikiFiles, tokenFile) {
     normalizeZhHans(character.tips);
   }
 
+  applyJinxTranslationsAndReverseLinks(combined, jinxTranslations);
+
   return combined;
 }
 
@@ -447,6 +538,7 @@ function main() {
   const translationFiles = files.filter(f => path.basename(f).startsWith(TRANSLATIONS_GLOB_PREFIX));
   const wikiFiles = files.filter(f => path.basename(f).startsWith(WIKI_GLOB_PREFIX));
   const tokenFile = path.join(EXTRACTED_DIR, 'characters.token.jsonl');
+  const jinxTranslations = buildJinxTranslationMap(parseJsonFile(JINX_TRANSLATIONS_FILE));
 
   if (translationFiles.length === 0) {
     throw new Error('No extracted translation JSONL files found. Run scrape:translations first.');
@@ -458,7 +550,7 @@ function main() {
   console.log(`✅ Wrote config mapping to ${CONFIG_PATH}`);
 
   // c) merge all jsonl (wiki takes priority)
-  const combined = buildCombinedCharacters(translationFiles, wikiFiles, tokenFile);
+  const combined = buildCombinedCharacters(translationFiles, wikiFiles, tokenFile, jinxTranslations);
   const count = writeCharacters(combined);
 
   console.log(`✅ Built ${count} character JSON files in ${OUTPUT_DIR}`);

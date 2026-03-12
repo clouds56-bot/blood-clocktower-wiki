@@ -45,53 +45,223 @@
   "jinxes": [
     {
       "id": "atheist",
-      "reason": "During a riot, if the Storyteller is nominated, players vote. If they are \"about to die\", the game ends. If not, they nominate again."
+      "reason": {
+        "en": "During a riot, if the Storyteller is nominated, players vote. If they are \"about to die\", the game ends. If not, they nominate again.",
+        "cn": "在暴乱的提名链中，如果说书人被提名，玩家要进行投票。如果说书人\"即将被处决”，游戏结束，否则，他们重新发起提名。",
+        "es": "Durante el disturbio, si el Narrador es nominado, los jugadores votan. Si él está \"a punto de morir\", el juego termina. Si no, él nomina nuevamente.",
+        "sv": "Om berättaren nomineras under kravallerna måste spelarna rösta. Om berättaren döms avslutas spelet, annars nominerar berättaren igen."
+      }
     },
     {
       "id": "banshee",
-      "reason": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Banshee dies & gains their ability."
+      "reason": {
+        "en": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Banshee dies & gains their ability.",
+        "cn": "每个夜晚*，暴乱要选择一名存活玩家（与之前的每个夜晚不同）：如果报丧女妖被选择，他死亡并能力生效。",
+        "es": "Cada noche*, el Disturbio escoge un jugador bueno vivo (diferente a las noches previas): una Llorona escogida muere y además gana su habilidad.",
+        "sv": "Varje natt* väljer Kravallen en levande god spelare (en ny varje natt); en vald Banshee dör och får sin förmåga."
+      }
     },
     {
       "id": "exorcist",
-      "reason": "If Riot nominates and executes the Exorcist-chosen player, good wins."
+      "reason": {
+        "en": "If Riot nominates and executes the Exorcist-chosen player, good wins.",
+        "cn": "如果暴乱提名并处决了驱魔人上个夜晚选择的那名玩家，善良阵营获胜。",
+        "es": "Si el Disturbio nomina y ejecuta al jugador seleccionado por el Exorcista, los buenos ganan.",
+        "sv": "Om Kravallen nominerar och avrättar den Exorcist-valda spelaren så vinner goda laget."
+      }
     },
     {
       "id": "farmer",
-      "reason": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but does not die."
+      "reason": {
+        "en": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but does not die.",
+        "cn": "每个夜晚*，暴乱要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果农夫被选择，他的能力生效但不会死亡。",
+        "es": "Cada noche*, el Disturbio escoge un jugador bueno vivo (diferente a las noches previas): un Granjero escogido usa su habilidad pero no muere.",
+        "sv": "Varje natt* väljer Kravallen en levande god spelare (en ny varje natt); en vald Bonde använder sin förmåga men dör inte."
+      }
     },
     {
       "id": "grandmother",
-      "reason": "If Riot is in play and the Grandchild dies by execution, evil wins."
+      "reason": {
+        "en": "If Riot is in play and the Grandchild dies by execution, evil wins.",
+        "cn": "如果暴乱在场，孙子死于处决，邪恶阵营获胜。",
+        "es": "Si el Disturbio está en juego y el Nieto muere por ejecución, los malvados ganan.",
+        "sv": "Om Kravallen är i spel och barnbarnet dör av avrättning så vinner det onda laget."
+      }
     },
     {
       "id": "innkeeper",
-      "reason": "If Riot nominates and executes an Innkeeper-protected player, good wins."
+      "reason": {
+        "en": "If Riot nominates and executes an Innkeeper-protected player, good wins.",
+        "cn": "如果暴乱提名并处决了旅店老板上个夜晚保护的其中一名玩家，善良阵营获胜。",
+        "es": "Si el Disturbio nomina y ejecuta a un jugador protegido por el Posadero, los buenos ganan.",
+        "sv": "Om Kravallen nominerar och avrättar en Gästgivar-skyddad spelare så vinner goda laget."
+      }
     },
     {
       "id": "king",
-      "reason": "If Riot is in play, and at least 1 player is dead, the King learns an alive character each night."
+      "reason": {
+        "en": "If Riot is in play, and at least 1 player is dead, the King learns an alive character each night.",
+        "cn": "如果暴乱在场，当至少一名玩家死亡时，国王每晚就会得知一个存活的角色。",
+        "es": "Si el Disturbio está en juego, y al menos 1 jugador está muerto, el Rey aprende un rol vivo cada noche.",
+        "sv": "Om Kravallen är i spel och minst 1 spelare är död så får Kungen veta om en levande roll varje natt."
+      }
     },
     {
       "id": "mayor",
-      "reason": "The Mayor may choose to stop the riot. If they do so when only 1 Riot is alive, good wins. Otherwise, evil wins."
+      "reason": {
+        "en": "The Mayor may choose to stop the riot. If they do so when only 1 Riot is alive, good wins. Otherwise, evil wins.",
+        "cn": "镇长可以停止暴乱的提名链。如果他这样做了，并且场上只有一名暴乱存活，善良阵营获胜；否则，邪恶阵营获胜。",
+        "es": "El Alcalde puede elegir detener el disturbio. Si él decide hacerlo cuando solo 1 Disturbio está vivo, los buenos ganan. De lo contrario, los malvados ganan.",
+        "sv": "Borgmästaren får välja att avsluta kravallerna. Om hen gör det när bara 1 Kravall lever så vinner goda, annars vinner onda."
+      }
     },
     {
       "id": "monk",
-      "reason": "If Riot nominates and executes the Monk-protected player, good wins."
+      "reason": {
+        "en": "If Riot nominates and executes the Monk-protected player, good wins.",
+        "cn": "如果暴乱提名并处决了僧侣上个夜晚保护的那名玩家，善良阵营获胜。",
+        "es": "Si el Disturbio nomina y ejecuta al jugador protegido por el Monje, los buenos ganan.",
+        "sv": "Om Kravallen nominerar och avrättar den Munk-skyddade spelaren så vinner goda laget."
+      }
     },
     {
       "id": "ravenkeeper",
-      "reason": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Ravenkeeper uses their ability but does not die."
+      "reason": {
+        "en": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Ravenkeeper uses their ability but does not die.",
+        "cn": "每个夜晚*，暴乱要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果守鸦人被选择，他的能力生效但不会死亡。",
+        "es": "Cada noche*, el Disturbio escoge un jugador bueno vivo (diferente a las noches previas): un Guardián de Cuervos escogido usa su habilidad pero no muere.",
+        "sv": "Varje natt* väljer Kravallen en levande god spelare (en ny varje natt); en vald Korpskötare använder sin förmåga men dör inte."
+      }
     },
     {
       "id": "sage",
-      "reason": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Sage uses their ability but does not die."
+      "reason": {
+        "en": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Sage uses their ability but does not die.",
+        "cn": "每个夜晚*，暴乱要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果贤者被选择，他的能力生效但不会死亡。",
+        "es": "Cada noche*, el Disturbio escoge un jugador bueno vivo (diferente a las noches previas): un Sabio escogido usa su habilidad pero no muere.",
+        "sv": "Varje natt* väljer Kravallen en levande god spelare (en ny varje natt); en vald Guru använder sin förmåga men dör inte."
+      }
     },
     {
       "id": "soldier",
-      "reason": "If Riot nominates and executes the Soldier, good wins."
+      "reason": {
+        "en": "If Riot nominates and executes the Soldier, good wins.",
+        "cn": "如果暴乱提名并处决了士兵，善良阵营获胜。",
+        "es": "Si el Disturbio nomina y ejecuta al Soldado, los buenos ganan.",
+        "sv": "Om Kravallen nominerar och avrättar Soldaten så vinner goda laget."
+      }
     }
   ],
   "image": "assets/tokens/riot.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Riot"
+  "source_url": "https://wiki.bloodontheclocktower.com/Riot",
+  "jinxed_by": [
+    {
+      "id": "atheist",
+      "reason": {
+        "en": "During a riot, if the Storyteller is nominated, players vote. If they are \"about to die\", the game ends. If not, they nominate again.",
+        "cn": "在暴乱的提名链中，如果说书人被提名，玩家要进行投票。如果说书人\"即将被处决”，游戏结束，否则，他们重新发起提名。",
+        "es": "Durante el disturbio, si el Narrador es nominado, los jugadores votan. Si él está \"a punto de morir\", el juego termina. Si no, él nomina nuevamente.",
+        "sv": "Om berättaren nomineras under kravallerna måste spelarna rösta. Om berättaren döms avslutas spelet, annars nominerar berättaren igen."
+      }
+    },
+    {
+      "id": "banshee",
+      "reason": {
+        "en": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Banshee dies & gains their ability.",
+        "cn": "每个夜晚*，暴乱要选择一名存活玩家（与之前的每个夜晚不同）：如果报丧女妖被选择，他死亡并能力生效。",
+        "es": "Cada noche*, el Disturbio escoge un jugador bueno vivo (diferente a las noches previas): una Llorona escogida muere y además gana su habilidad.",
+        "sv": "Varje natt* väljer Kravallen en levande god spelare (en ny varje natt); en vald Banshee dör och får sin förmåga."
+      }
+    },
+    {
+      "id": "exorcist",
+      "reason": {
+        "en": "If Riot nominates and executes the Exorcist-chosen player, good wins.",
+        "cn": "如果暴乱提名并处决了驱魔人上个夜晚选择的那名玩家，善良阵营获胜。",
+        "es": "Si el Disturbio nomina y ejecuta al jugador seleccionado por el Exorcista, los buenos ganan.",
+        "sv": "Om Kravallen nominerar och avrättar den Exorcist-valda spelaren så vinner goda laget."
+      }
+    },
+    {
+      "id": "farmer",
+      "reason": {
+        "en": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but does not die.",
+        "cn": "每个夜晚*，暴乱要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果农夫被选择，他的能力生效但不会死亡。",
+        "es": "Cada noche*, el Disturbio escoge un jugador bueno vivo (diferente a las noches previas): un Granjero escogido usa su habilidad pero no muere.",
+        "sv": "Varje natt* väljer Kravallen en levande god spelare (en ny varje natt); en vald Bonde använder sin förmåga men dör inte."
+      }
+    },
+    {
+      "id": "grandmother",
+      "reason": {
+        "en": "If Riot is in play and the Grandchild dies by execution, evil wins.",
+        "cn": "如果暴乱在场，孙子死于处决，邪恶阵营获胜。",
+        "es": "Si el Disturbio está en juego y el Nieto muere por ejecución, los malvados ganan.",
+        "sv": "Om Kravallen är i spel och barnbarnet dör av avrättning så vinner det onda laget."
+      }
+    },
+    {
+      "id": "innkeeper",
+      "reason": {
+        "en": "If Riot nominates and executes an Innkeeper-protected player, good wins.",
+        "cn": "如果暴乱提名并处决了旅店老板上个夜晚保护的其中一名玩家，善良阵营获胜。",
+        "es": "Si el Disturbio nomina y ejecuta a un jugador protegido por el Posadero, los buenos ganan.",
+        "sv": "Om Kravallen nominerar och avrättar en Gästgivar-skyddad spelare så vinner goda laget."
+      }
+    },
+    {
+      "id": "king",
+      "reason": {
+        "en": "If Riot is in play, and at least 1 player is dead, the King learns an alive character each night.",
+        "cn": "如果暴乱在场，当至少一名玩家死亡时，国王每晚就会得知一个存活的角色。",
+        "es": "Si el Disturbio está en juego, y al menos 1 jugador está muerto, el Rey aprende un rol vivo cada noche.",
+        "sv": "Om Kravallen är i spel och minst 1 spelare är död så får Kungen veta om en levande roll varje natt."
+      }
+    },
+    {
+      "id": "mayor",
+      "reason": {
+        "en": "The Mayor may choose to stop the riot. If they do so when only 1 Riot is alive, good wins. Otherwise, evil wins.",
+        "cn": "镇长可以停止暴乱的提名链。如果他这样做了，并且场上只有一名暴乱存活，善良阵营获胜；否则，邪恶阵营获胜。",
+        "es": "El Alcalde puede elegir detener el disturbio. Si él decide hacerlo cuando solo 1 Disturbio está vivo, los buenos ganan. De lo contrario, los malvados ganan.",
+        "sv": "Borgmästaren får välja att avsluta kravallerna. Om hen gör det när bara 1 Kravall lever så vinner goda, annars vinner onda."
+      }
+    },
+    {
+      "id": "monk",
+      "reason": {
+        "en": "If Riot nominates and executes the Monk-protected player, good wins.",
+        "cn": "如果暴乱提名并处决了僧侣上个夜晚保护的那名玩家，善良阵营获胜。",
+        "es": "Si el Disturbio nomina y ejecuta al jugador protegido por el Monje, los buenos ganan.",
+        "sv": "Om Kravallen nominerar och avrättar den Munk-skyddade spelaren så vinner goda laget."
+      }
+    },
+    {
+      "id": "ravenkeeper",
+      "reason": {
+        "en": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Ravenkeeper uses their ability but does not die.",
+        "cn": "每个夜晚*，暴乱要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果守鸦人被选择，他的能力生效但不会死亡。",
+        "es": "Cada noche*, el Disturbio escoge un jugador bueno vivo (diferente a las noches previas): un Guardián de Cuervos escogido usa su habilidad pero no muere.",
+        "sv": "Varje natt* väljer Kravallen en levande god spelare (en ny varje natt); en vald Korpskötare använder sin förmåga men dör inte."
+      }
+    },
+    {
+      "id": "sage",
+      "reason": {
+        "en": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Sage uses their ability but does not die.",
+        "cn": "每个夜晚*，暴乱要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果贤者被选择，他的能力生效但不会死亡。",
+        "es": "Cada noche*, el Disturbio escoge un jugador bueno vivo (diferente a las noches previas): un Sabio escogido usa su habilidad pero no muere.",
+        "sv": "Varje natt* väljer Kravallen en levande god spelare (en ny varje natt); en vald Guru använder sin förmåga men dör inte."
+      }
+    },
+    {
+      "id": "soldier",
+      "reason": {
+        "en": "If Riot nominates and executes the Soldier, good wins.",
+        "cn": "如果暴乱提名并处决了士兵，善良阵营获胜。",
+        "es": "Si el Disturbio nomina y ejecuta al Soldado, los buenos ganan.",
+        "sv": "Om Kravallen nominerar och avrättar Soldaten så vinner goda laget."
+      }
+    }
+  ]
 }

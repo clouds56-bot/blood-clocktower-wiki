@@ -69,13 +69,31 @@
   "jinxes": [
     {
       "id": "alchemist",
-      "reason": "If the Alchemist has the Organ Grinder ability, the Organ Grinder is in play. If both are sober, both are drunk."
+      "reason": {
+        "en": "If the Alchemist has the Organ Grinder ability, the Organ Grinder is in play. If both are sober, both are drunk."
+      }
     },
     {
       "id": "butler",
-      "reason": "If the Organ Grinder is causing eyes closed voting, the Butler may raise their hand to vote but their vote is only counted if their master voted too."
+      "reason": {
+        "en": "If the Organ Grinder is causing eyes closed voting, the Butler may raise their hand to vote but their vote is only counted if their master voted too."
+      }
     }
   ],
   "image": "assets/tokens/organ_grinder.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Organ_Grinder"
+  "source_url": "https://wiki.bloodontheclocktower.com/Organ_Grinder",
+  "jinxed_by": [
+    {
+      "id": "alchemist",
+      "reason": {
+        "en": "If the Alchemist has the Organ Grinder ability, the Organ Grinder is in play. If both are sober, both are drunk."
+      }
+    },
+    {
+      "id": "butler",
+      "reason": {
+        "en": "If the Organ Grinder is causing eyes closed voting, the Butler may raise their hand to vote but their vote is only counted if their master voted too."
+      }
+    }
+  ]
 }

@@ -67,9 +67,25 @@
   "jinxes": [
     {
       "id": "riot",
-      "reason": "During a riot, if the Storyteller is nominated, players vote. If they are \"about to die\", the game ends. If not, they nominate again."
+      "reason": {
+        "en": "During a riot, if the Storyteller is nominated, players vote. If they are \"about to die\", the game ends. If not, they nominate again.",
+        "cn": "在暴乱的提名链中，如果说书人被提名，玩家要进行投票。如果说书人\"即将被处决”，游戏结束，否则，他们重新发起提名。",
+        "es": "Durante el disturbio, si el Narrador es nominado, los jugadores votan. Si él está \"a punto de morir\", el juego termina. Si no, él nomina nuevamente.",
+        "sv": "Om berättaren nomineras under kravallerna måste spelarna rösta. Om berättaren döms avslutas spelet, annars nominerar berättaren igen."
+      }
     }
   ],
   "image": "assets/tokens/atheist.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Atheist"
+  "source_url": "https://wiki.bloodontheclocktower.com/Atheist",
+  "jinxed_by": [
+    {
+      "id": "riot",
+      "reason": {
+        "en": "During a riot, if the Storyteller is nominated, players vote. If they are \"about to die\", the game ends. If not, they nominate again.",
+        "cn": "在暴乱的提名链中，如果说书人被提名，玩家要进行投票。如果说书人\"即将被处决”，游戏结束，否则，他们重新发起提名。",
+        "es": "Durante el disturbio, si el Narrador es nominado, los jugadores votan. Si él está \"a punto de morir\", el juego termina. Si no, él nomina nuevamente.",
+        "sv": "Om berättaren nomineras under kravallerna måste spelarna rösta. Om berättaren döms avslutas spelet, annars nominerar berättaren igen."
+      }
+    }
+  ]
 }

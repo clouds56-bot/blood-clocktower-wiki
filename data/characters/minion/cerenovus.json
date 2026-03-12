@@ -93,9 +93,25 @@
   "jinxes": [
     {
       "id": "goblin",
-      "reason": "The Cerenovus may choose to make a player mad that they are the Goblin."
+      "reason": {
+        "en": "The Cerenovus may choose to make a player mad that they are the Goblin.",
+        "cn": "洗脑师可以选择将玩家洗脑成哥布林。",
+        "es": "El Cerenovus puede escoger hacer a un jugador loco de que es el Duende.",
+        "sv": "Cerenovus får välja att en spelare ska vara galen att hen är Vätten."
+      }
     }
   ],
   "image": "assets/tokens/cerenovus.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Cerenovus"
+  "source_url": "https://wiki.bloodontheclocktower.com/Cerenovus",
+  "jinxed_by": [
+    {
+      "id": "goblin",
+      "reason": {
+        "en": "The Cerenovus may choose to make a player mad that they are the Goblin.",
+        "cn": "洗脑师可以选择将玩家洗脑成哥布林。",
+        "es": "El Cerenovus puede escoger hacer a un jugador loco de que es el Duende.",
+        "sv": "Cerenovus får välja att en spelare ska vara galen att hen är Vätten."
+      }
+    }
+  ]
 }

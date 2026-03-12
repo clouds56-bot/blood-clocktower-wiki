@@ -67,9 +67,25 @@
   "jinxes": [
     {
       "id": "summoner",
-      "reason": "If the Summoner summons a dead player into the Zombuul, the Zombuul has already \"died once\"."
+      "reason": {
+        "en": "If the Summoner summons a dead player into the Zombuul, the Zombuul has already \"died once\".",
+        "cn": "如果召唤师将一名已死亡的玩家变成了僵怖，该玩家会变成“已经死过一次”的僵怖。",
+        "es": "Si el Invocador invoca al Zombuul en un jugador muerto, el Zombuul ya ha \"muerto una vez\".",
+        "sv": "Om Åkallaren gör en död spelare till Zombuul så har den Zombuulen redan ”dött en gång”."
+      }
     }
   ],
   "image": "assets/tokens/zombuul.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Zombuul"
+  "source_url": "https://wiki.bloodontheclocktower.com/Zombuul",
+  "jinxed_by": [
+    {
+      "id": "summoner",
+      "reason": {
+        "en": "If the Summoner summons a dead player into the Zombuul, the Zombuul has already \"died once\".",
+        "cn": "如果召唤师将一名已死亡的玩家变成了僵怖，该玩家会变成“已经死过一次”的僵怖。",
+        "es": "Si el Invocador invoca al Zombuul en un jugador muerto, el Zombuul ya ha \"muerto una vez\".",
+        "sv": "Om Åkallaren gör en död spelare till Zombuul så har den Zombuulen redan ”dött en gång”."
+      }
+    }
+  ]
 }

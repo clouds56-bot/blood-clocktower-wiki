@@ -77,13 +77,43 @@
   "jinxes": [
     {
       "id": "summoner",
-      "reason": "If the living Summoner has no ability, the Storyteller has the Summoner ability."
+      "reason": {
+        "en": "If the living Summoner has no ability, the Storyteller has the Summoner ability.",
+        "cn": "如果召唤师因为侍臣的能力在第三个夜晚醉酒，由召唤师来选择创造哪种恶魔，由说书人来决定哪名玩家发生转变。",
+        "es": "Si el Invocador vivo no posee habilidad, el Narrador tiene la habilidad del Invocador.",
+        "sv": "Om den levande Åkallaren inte har någon förmåga så har berättaren Åkallarens förmåga."
+      }
     },
     {
       "id": "vizier",
-      "reason": "If the Vizier loses their ability, they learn this, and cannot die during the day."
+      "reason": {
+        "en": "If the Vizier loses their ability, they learn this, and cannot die during the day.",
+        "cn": "如果维齐尔失去能力，他会得知这一信息。如果侍臣在剧本列表中，且维齐尔在具有能力时被处决，他的阵营获胜。",
+        "es": "Si el Visir pierde su habilidad, él aprende esto, y no puede morir durante el día.",
+        "sv": "Om Vesiren förlorar sin förmåga så får hen veta det och kan inte dö på dagen."
+      }
     }
   ],
   "image": "assets/tokens/courtier.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Courtier"
+  "source_url": "https://wiki.bloodontheclocktower.com/Courtier",
+  "jinxed_by": [
+    {
+      "id": "summoner",
+      "reason": {
+        "en": "If the living Summoner has no ability, the Storyteller has the Summoner ability.",
+        "cn": "如果召唤师因为侍臣的能力在第三个夜晚醉酒，由召唤师来选择创造哪种恶魔，由说书人来决定哪名玩家发生转变。",
+        "es": "Si el Invocador vivo no posee habilidad, el Narrador tiene la habilidad del Invocador.",
+        "sv": "Om den levande Åkallaren inte har någon förmåga så har berättaren Åkallarens förmåga."
+      }
+    },
+    {
+      "id": "vizier",
+      "reason": {
+        "en": "If the Vizier loses their ability, they learn this, and cannot die during the day.",
+        "cn": "如果维齐尔失去能力，他会得知这一信息。如果侍臣在剧本列表中，且维齐尔在具有能力时被处决，他的阵营获胜。",
+        "es": "Si el Visir pierde su habilidad, él aprende esto, y no puede morir durante el día.",
+        "sv": "Om Vesiren förlorar sin förmåga så får hen veta det och kan inte dö på dagen."
+      }
+    }
+  ]
 }

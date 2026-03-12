@@ -63,13 +63,43 @@
   "jinxes": [
     {
       "id": "leviathan",
-      "reason": "If the Leviathan and the Mayor are alive on day 5 & no execution occurs, good wins."
+      "reason": {
+        "en": "If the Leviathan and the Mayor are alive on day 5 & no execution occurs, good wins.",
+        "cn": "如果利维坦和镇长在第五天存活且没有处决发生，善良阵营获胜。",
+        "es": "Si el Leviatán y el Alcalde están vivos en el día 5 y ninguna ejecución ocurre, los buenos ganan.",
+        "sv": "Om Leviatan och Borgmästaren lever dag 5 och ingen avrättas så vinner det goda laget."
+      }
     },
     {
       "id": "riot",
-      "reason": "The Mayor may choose to stop the riot. If they do so when only 1 Riot is alive, good wins. Otherwise, evil wins."
+      "reason": {
+        "en": "The Mayor may choose to stop the riot. If they do so when only 1 Riot is alive, good wins. Otherwise, evil wins.",
+        "cn": "镇长可以停止暴乱的提名链。如果他这样做了，并且场上只有一名暴乱存活，善良阵营获胜；否则，邪恶阵营获胜。",
+        "es": "El Alcalde puede elegir detener el disturbio. Si él decide hacerlo cuando solo 1 Disturbio está vivo, los buenos ganan. De lo contrario, los malvados ganan.",
+        "sv": "Borgmästaren får välja att avsluta kravallerna. Om hen gör det när bara 1 Kravall lever så vinner goda, annars vinner onda."
+      }
     }
   ],
   "image": "assets/tokens/mayor.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Mayor"
+  "source_url": "https://wiki.bloodontheclocktower.com/Mayor",
+  "jinxed_by": [
+    {
+      "id": "leviathan",
+      "reason": {
+        "en": "If the Leviathan and the Mayor are alive on day 5 & no execution occurs, good wins.",
+        "cn": "如果利维坦和镇长在第五天存活且没有处决发生，善良阵营获胜。",
+        "es": "Si el Leviatán y el Alcalde están vivos en el día 5 y ninguna ejecución ocurre, los buenos ganan.",
+        "sv": "Om Leviatan och Borgmästaren lever dag 5 och ingen avrättas så vinner det goda laget."
+      }
+    },
+    {
+      "id": "riot",
+      "reason": {
+        "en": "The Mayor may choose to stop the riot. If they do so when only 1 Riot is alive, good wins. Otherwise, evil wins.",
+        "cn": "镇长可以停止暴乱的提名链。如果他这样做了，并且场上只有一名暴乱存活，善良阵营获胜；否则，邪恶阵营获胜。",
+        "es": "El Alcalde puede elegir detener el disturbio. Si él decide hacerlo cuando solo 1 Disturbio está vivo, los buenos ganan. De lo contrario, los malvados ganan.",
+        "sv": "Borgmästaren får välja att avsluta kravallerna. Om hen gör det när bara 1 Kravall lever så vinner goda, annars vinner onda."
+      }
+    }
+  ]
 }

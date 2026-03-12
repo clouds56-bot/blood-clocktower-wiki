@@ -76,13 +76,43 @@
   "jinxes": [
     {
       "id": "leviathan",
-      "reason": "If the Leviathan nominates and executes the Monk-protected player, good wins."
+      "reason": {
+        "en": "If the Leviathan nominates and executes the Monk-protected player, good wins.",
+        "cn": "如果利维坦提名并处决了僧侣上个夜晚保护的那名玩家，善良阵营获胜。",
+        "es": "Si el Leviatán nomina y ejecuta al jugador protegido por el Monje, los buenos ganan.",
+        "sv": "Om Leviatan nominerar och avrättar den Munk-skyddade spelaren så vinner goda laget."
+      }
     },
     {
       "id": "riot",
-      "reason": "If Riot nominates and executes the Monk-protected player, good wins."
+      "reason": {
+        "en": "If Riot nominates and executes the Monk-protected player, good wins.",
+        "cn": "如果暴乱提名并处决了僧侣上个夜晚保护的那名玩家，善良阵营获胜。",
+        "es": "Si el Disturbio nomina y ejecuta al jugador protegido por el Monje, los buenos ganan.",
+        "sv": "Om Kravallen nominerar och avrättar den Munk-skyddade spelaren så vinner goda laget."
+      }
     }
   ],
   "image": "assets/tokens/monk.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Monk"
+  "source_url": "https://wiki.bloodontheclocktower.com/Monk",
+  "jinxed_by": [
+    {
+      "id": "leviathan",
+      "reason": {
+        "en": "If the Leviathan nominates and executes the Monk-protected player, good wins.",
+        "cn": "如果利维坦提名并处决了僧侣上个夜晚保护的那名玩家，善良阵营获胜。",
+        "es": "Si el Leviatán nomina y ejecuta al jugador protegido por el Monje, los buenos ganan.",
+        "sv": "Om Leviatan nominerar och avrättar den Munk-skyddade spelaren så vinner goda laget."
+      }
+    },
+    {
+      "id": "riot",
+      "reason": {
+        "en": "If Riot nominates and executes the Monk-protected player, good wins.",
+        "cn": "如果暴乱提名并处决了僧侣上个夜晚保护的那名玩家，善良阵营获胜。",
+        "es": "Si el Disturbio nomina y ejecuta al jugador protegido por el Monje, los buenos ganan.",
+        "sv": "Om Kravallen nominerar och avrättar den Munk-skyddade spelaren så vinner goda laget."
+      }
+    }
+  ]
 }

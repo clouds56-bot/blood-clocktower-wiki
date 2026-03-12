@@ -62,13 +62,37 @@
   "jinxes": [
     {
       "id": "boffin",
-      "reason": "If the Demon has the Goon ability, they can’t turn good due to this ability."
+      "reason": {
+        "en": "If the Demon has the Goon ability, they can’t turn good due to this ability.",
+        "cn": "如果恶魔拥有莽夫的能力，他无法因为该能力转变为善良阵营。",
+        "es": "Si el Demonio posee la habilidad del Matón, él no se puede volver bueno debido a esta habilidad.",
+        "sv": "Om Demonen har Hejdukens förmåga så kan hen inte bli god av den förmågan."
+      }
     },
     {
       "id": "pit_hag",
-      "reason": "If the Pit-Hag turns an evil player into the Goon, they can't turn good due to their own ability."
+      "reason": {
+        "en": "If the Pit-Hag turns an evil player into the Goon, they can't turn good due to their own ability."
+      }
     }
   ],
   "image": "assets/tokens/goon.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Goon"
+  "source_url": "https://wiki.bloodontheclocktower.com/Goon",
+  "jinxed_by": [
+    {
+      "id": "boffin",
+      "reason": {
+        "en": "If the Demon has the Goon ability, they can’t turn good due to this ability.",
+        "cn": "如果恶魔拥有莽夫的能力，他无法因为该能力转变为善良阵营。",
+        "es": "Si el Demonio posee la habilidad del Matón, él no se puede volver bueno debido a esta habilidad.",
+        "sv": "Om Demonen har Hejdukens förmåga så kan hen inte bli god av den förmågan."
+      }
+    },
+    {
+      "id": "pit_hag",
+      "reason": {
+        "en": "If the Pit-Hag turns an evil player into the Goon, they can't turn good due to their own ability."
+      }
+    }
+  ]
 }

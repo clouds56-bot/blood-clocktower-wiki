@@ -85,9 +85,19 @@
   "jinxes": [
     {
       "id": "lil_monsta",
-      "reason": "If the Psychopath is babysitting Lil' Monsta, they die when executed."
+      "reason": {
+        "en": "If the Psychopath is babysitting Lil' Monsta, they die when executed."
+      }
     }
   ],
   "image": "assets/tokens/psychopath.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Psychopath"
+  "source_url": "https://wiki.bloodontheclocktower.com/Psychopath",
+  "jinxed_by": [
+    {
+      "id": "lil_monsta",
+      "reason": {
+        "en": "If the Psychopath is babysitting Lil' Monsta, they die when executed."
+      }
+    }
+  ]
 }

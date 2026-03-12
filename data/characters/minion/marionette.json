@@ -94,41 +94,157 @@
   "jinxes": [
     {
       "id": "alchemist",
-      "reason": "An Alchemist-Marionette has no Marionette ability & the Marionette is in play."
+      "reason": {
+        "en": "An Alchemist-Marionette has no Marionette ability & the Marionette is in play.",
+        "cn": "如果炼金术士本应获得提线木偶的能力，那么他不会拥有该能力并改为提线木偶一定在场。",
+        "es": "Un Alquimista-Marioneta no tiene la habilidad de la Marioneta, y además la Marioneta está en juego.",
+        "sv": "En Alkemist-Marionett har inte Marionettens förmåga och Marionetten är i spel."
+      }
     },
     {
       "id": "balloonist",
-      "reason": "If the Marionette thinks that they are the Balloonist, an Outsider might have been added during setup."
+      "reason": {
+        "en": "If the Marionette thinks that they are the Balloonist, an Outsider might have been added during setup.",
+        "cn": "如果提线木偶抽到了气球驾驶员，在设置调整阶段可能会+1外来者。",
+        "es": "Si la Marioneta cree que es el Aeronauta, un Extranjero quizás haya sido agregado durante la preparación del juego.",
+        "sv": "Om Marionetten tror sig vara Ballongfararen så kanske 1 extra Utböling har lagts till."
+      }
     },
     {
       "id": "huntsman",
-      "reason": "If the Marionette thinks that they are the Huntsman, the Damsel was added during setup."
+      "reason": {
+        "en": "If the Marionette thinks that they are the Huntsman, the Damsel was added during setup.",
+        "cn": "如果提线木偶抽到了巡山人，也会增加落难少女。",
+        "es": "Si la Marioneta cree que es el Cazador, la Damisela fue añadida durante la preparación del juego.",
+        "sv": "Om Marionetten tror sig vara Jägaren så har Ungmön lagts till."
+      }
     },
     {
       "id": "kazali",
-      "reason": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor."
+      "reason": {
+        "en": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor.",
+        "cn": "如果提线木偶本应初始在场，他们会在恶魔之后进场并与恶魔邻座。",
+        "es": "Si hubiera una Marioneta en juego, ella entra en juego luego del Demonio y debe empezar como su vecina.",
+        "sv": "Om det skulle vara en Marionett i spel så läggs den till efter Demonen och måste börja som Demonens granne."
+      }
     },
     {
       "id": "lil_monsta",
-      "reason": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor."
+      "reason": {
+        "en": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor."
+      }
     },
     {
       "id": "magician",
-      "reason": "If the Magician is alive, the Demon doesn't know which neighbor is the Marionette."
+      "reason": {
+        "en": "If the Magician is alive, the Demon doesn't know which neighbor is the Marionette.",
+        "cn": "如果魔术师存活，恶魔不会得知谁是提线木偶。",
+        "es": "Si el Mago está vivo, el Demonio no sabe cuál de sus vecinos es la Marioneta.",
+        "sv": "Om Magikern lever så får Demonen inte veta vilken granne som är Marionetten."
+      }
     },
     {
       "id": "mathematician",
-      "reason": "The Mathematician might learn if the Marionette's ability yielded false info or failed to work properly."
+      "reason": {
+        "en": "The Mathematician might learn if the Marionette's ability yielded false info or failed to work properly.",
+        "cn": "数学家可能会得知提线木偶产生了错误信息或“能力未正常生效”。",
+        "es": "El Matemático quizás aprenda si la habilidad de la Marioneta resultó en información falsa, o si no logró funcionar adecuadamente.",
+        "sv": "Matematikern kanske får veta om Marionettens förmåga gav falsk info eller inte fungerade korrekt."
+      }
     },
     {
       "id": "plague_doctor",
-      "reason": "If the Storyteller would gain the Marionette ability, one of the Demon's good neighbors becomes the Marionette."
+      "reason": {
+        "en": "If the Storyteller would gain the Marionette ability, one of the Demon's good neighbors becomes the Marionette."
+      }
     },
     {
       "id": "summoner",
-      "reason": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor."
+      "reason": {
+        "en": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor.",
+        "cn": "如果提线木偶本应初始在场，他们会在恶魔之后进场并与恶魔邻座。",
+        "es": "Si hubiera una Marioneta en juego, ella entra en juego luego del Demonio y debe empezar como su vecina.",
+        "sv": "Om det skulle vara en Marionett i spel så läggs den till efter Demonen och måste börja som Demonens granne."
+      }
     }
   ],
   "image": "assets/tokens/marionette.png",
-  "source_url": "https://wiki.bloodontheclocktower.com/Marionette"
+  "source_url": "https://wiki.bloodontheclocktower.com/Marionette",
+  "jinxed_by": [
+    {
+      "id": "alchemist",
+      "reason": {
+        "en": "An Alchemist-Marionette has no Marionette ability & the Marionette is in play.",
+        "cn": "如果炼金术士本应获得提线木偶的能力，那么他不会拥有该能力并改为提线木偶一定在场。",
+        "es": "Un Alquimista-Marioneta no tiene la habilidad de la Marioneta, y además la Marioneta está en juego.",
+        "sv": "En Alkemist-Marionett har inte Marionettens förmåga och Marionetten är i spel."
+      }
+    },
+    {
+      "id": "balloonist",
+      "reason": {
+        "en": "If the Marionette thinks that they are the Balloonist, an Outsider might have been added during setup.",
+        "cn": "如果提线木偶抽到了气球驾驶员，在设置调整阶段可能会+1外来者。",
+        "es": "Si la Marioneta cree que es el Aeronauta, un Extranjero quizás haya sido agregado durante la preparación del juego.",
+        "sv": "Om Marionetten tror sig vara Ballongfararen så kanske 1 extra Utböling har lagts till."
+      }
+    },
+    {
+      "id": "huntsman",
+      "reason": {
+        "en": "If the Marionette thinks that they are the Huntsman, the Damsel was added during setup.",
+        "cn": "如果提线木偶抽到了巡山人，也会增加落难少女。",
+        "es": "Si la Marioneta cree que es el Cazador, la Damisela fue añadida durante la preparación del juego.",
+        "sv": "Om Marionetten tror sig vara Jägaren så har Ungmön lagts till."
+      }
+    },
+    {
+      "id": "kazali",
+      "reason": {
+        "en": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor.",
+        "cn": "如果提线木偶本应初始在场，他们会在恶魔之后进场并与恶魔邻座。",
+        "es": "Si hubiera una Marioneta en juego, ella entra en juego luego del Demonio y debe empezar como su vecina.",
+        "sv": "Om det skulle vara en Marionett i spel så läggs den till efter Demonen och måste börja som Demonens granne."
+      }
+    },
+    {
+      "id": "lil_monsta",
+      "reason": {
+        "en": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor."
+      }
+    },
+    {
+      "id": "magician",
+      "reason": {
+        "en": "If the Magician is alive, the Demon doesn't know which neighbor is the Marionette.",
+        "cn": "如果魔术师存活，恶魔不会得知谁是提线木偶。",
+        "es": "Si el Mago está vivo, el Demonio no sabe cuál de sus vecinos es la Marioneta.",
+        "sv": "Om Magikern lever så får Demonen inte veta vilken granne som är Marionetten."
+      }
+    },
+    {
+      "id": "mathematician",
+      "reason": {
+        "en": "The Mathematician might learn if the Marionette's ability yielded false info or failed to work properly.",
+        "cn": "数学家可能会得知提线木偶产生了错误信息或“能力未正常生效”。",
+        "es": "El Matemático quizás aprenda si la habilidad de la Marioneta resultó en información falsa, o si no logró funcionar adecuadamente.",
+        "sv": "Matematikern kanske får veta om Marionettens förmåga gav falsk info eller inte fungerade korrekt."
+      }
+    },
+    {
+      "id": "plague_doctor",
+      "reason": {
+        "en": "If the Storyteller would gain the Marionette ability, one of the Demon's good neighbors becomes the Marionette."
+      }
+    },
+    {
+      "id": "summoner",
+      "reason": {
+        "en": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor.",
+        "cn": "如果提线木偶本应初始在场，他们会在恶魔之后进场并与恶魔邻座。",
+        "es": "Si hubiera una Marioneta en juego, ella entra en juego luego del Demonio y debe empezar como su vecina.",
+        "sv": "Om det skulle vara en Marionett i spel så läggs den till efter Demonen och måste börja som Demonens granne."
+      }
+    }
+  ]
 }
