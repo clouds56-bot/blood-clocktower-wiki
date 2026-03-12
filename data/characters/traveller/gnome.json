@@ -3,26 +3,22 @@
   "type": "traveller",
   "name": {
     "en": "Gnome",
-    "es-419": "Gnomo",
+    "es": "Gnomo",
     "sv": "Pysslingen",
-    "zh-Hans": "侏儒",
     "cn": "侏儒"
   },
   "ability": {
     "en": "All players start knowing a player of your alignment. You may choose to kill anyone who nominates them.",
-    "es-419": "Todos los jugadores empiezan conociendo un jugador de tu alineamiento. Tú puedes elegir matar a cualquiera que lo nomine.",
+    "es": "Todos los jugadores empiezan conociendo un jugador de tu alineamiento. Tú puedes elegir matar a cualquiera que lo nomine.",
     "sv": "Alla får veta en spelare på ditt lag. Du får välja att döda spelare som nominerar hen.",
-    "zh-Hans": "当你加入游戏时，所有玩家会得知一名与你阵营相同的玩家。每当他被提名时，你可以杀死提名者。",
     "cn": "当你加入游戏时，所有玩家会得知一名与你阵营相同的玩家。每当他被提名时，你可以杀死提名者。"
   },
-  "flavor_text": {
-    "en": "\"Four the score or seven beers, no shows are goes for me and my. A prank to crack the cranks and planks o' the floor foundation length, so incontravertabubbilly mini. The large essays down streams of joyce, no greater than is scene, not inherdt, Ha-urrumph.o.\"",
-    "es-419": "Cuatro puntos o siete cervezas, y si no vienen, más para mí y mi amigo. Un chascarro que agarro al charro bien chaparro hasta el fondo del pedal innegabilibombástico. Los grandes ensayos descienden por corrientes de felicidadidad, nada más grande que lo que se ve no se hereda. Tarán.",
+  "flavor": {
+    "en": "Four the score or seven beers, no shows are goes for me and my. A prank to crack the cranks and planks o' the floor foundation length, so incontravertabubbilly mini. The large essays down streams of joyce, no greater than is scene, not inherdt, Ha-urrumph.o.",
+    "es": "Cuatro puntos o siete cervezas, y si no vienen, más para mí y mi amigo. Un chascarro que agarro al charro bien chaparro hasta el fondo del pedal innegabilibombástico. Los grandes ensayos descienden por corrientes de felicidadidad, nada más grande que lo que se ve no se hereda. Tarán.",
     "sv": "Vad det är bra att jag har dig. Vad det är bra att du har mig. Vad det är bra att vi har oss, och jättebra är det förstås att vi får träffas varje dag, och va tillsammans, du och jag, för ingen, nä ingen, vill va ensam.",
-    "zh-Hans": "有备而来，有悲而来，无人搭台，自己开嗨！一场整人好戏，整得人惨兮兮，吱吱作响板板，又怕翻了盘盘。那些长篇大论顺着乔伊斯的溪流在流淌，不算最辉煌，也还够气场，却也挺像样——哈，响亮！",
-    "cn": "“有备而来，有悲而来，无人搭台，自己开嗨！一场整人好戏，整得人惨兮兮，吱吱作响板板，又怕翻了盘盘。那些长篇大论顺着乔伊斯的溪流在流淌，不算最辉煌，也还够气场，却也挺像样——哈，响亮！”"
+    "cn": "有备而来，有悲而来，无人搭台，自己开嗨！一场整人好戏，整得人惨兮兮，吱吱作响板板，又怕翻了盘盘。那些长篇大论顺着乔伊斯的溪流在流淌，不算最辉煌，也还够气场，却也挺像样——哈，响亮！"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Gnome",
   "how_to_run": {
     "cn": "当侏儒加入游戏时，通过将“同伴”提示标记放置到一个与侏儒相同阵营玩家的角色标记旁来表示侏儒的“同伴”。宣布这名玩家和侏儒的阵营相同。\n如果这名玩家被提名，在投票开始前，如果侏儒宣布他要使用能力，提名同伴的玩家死亡。",
     "en": "During the day, as soon as the Gnome has entered play, mark a player of the same alignment with the AMIGO reminder. Declare that this player is the same alignment as the Gnome.\nIf this player is nominated, but before you have started the voting process, if the Gnome player declares that they wish to use their ability, the nominator dies."
@@ -66,5 +62,6 @@
     "experimental"
   ],
   "artist": "Chloe McDougall",
-  "image": "assets/tokens/gnome.png"
+  "image": "assets/tokens/gnome.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Gnome"
 }

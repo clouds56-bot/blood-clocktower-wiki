@@ -3,38 +3,34 @@
   "type": "minion",
   "name": {
     "en": "Xaan",
-    "es-419": "Xaan",
+    "es": "Xaan",
     "sv": "Xaan",
-    "zh-Hans": "限",
     "cn": "限"
   },
   "ability": {
     "en": "On night X, all Townsfolk are poisoned until dusk. [X Outsiders]",
-    "es-419": "En la noche X, todos los Ciudadanos están envenenados hasta el siguiente anochecer. [X Extranjeros]",
+    "es": "En la noche X, todos los Ciudadanos están envenenados hasta el siguiente anochecer. [X Extranjeros]",
     "sv": "På natt X är alla Bybor förgiftade till skymningen. [X Utbölingar]",
-    "zh-Hans": "在等同于初始外来者数量的夜晚，所有镇民玩家中毒直到下个黄昏。[外来者数量任意]",
     "cn": "在等同于初始外来者数量的夜晚，所有镇民玩家中毒直到下个黄昏。[外来者数量任意]"
   },
-  "flavor_text": {
-    "en": "\"Down they fall. One by one. By two, by three, by five.\"",
-    "es-419": "Van cayendo. Uno por uno. De a dos, de a tres, de a cinco.",
+  "flavor": {
+    "en": "Down they fall. One by one. By two, by three, by five.",
+    "es": "Van cayendo. Uno por uno. De a dos, de a tres, de a cinco.",
     "sv": "Se dem falla. En efter en. Efter två, efter tre, efter fem.",
-    "zh-Hans": "他们接连倒下。一个，又一个。两个，三个，五个。",
-    "cn": "“他们接连倒下。一个，又一个。两个，三个，五个。”"
+    "cn": "他们接连倒下。一个，又一个。两个，三个，五个。"
   },
   "first_night": {
     "en": "If X is 1, mark the Xaan with the *X* reminder token. :reminder: :reminder:",
-    "es-419": "Marca al Xaan con la ficha de recordatorio *NOCHE 1*. Si X es 1, marca al Xaan con la ficha de recordatorio *X*. :reminder: :reminder:",
+    "es": "Marca al Xaan con la ficha de recordatorio *NOCHE 1*. Si X es 1, marca al Xaan con la ficha de recordatorio *X*. :reminder: :reminder:",
     "sv": "Om X är 1, märk Xaan med påminnelsen *X*. :reminder: :reminder:",
-    "zh-Hans": "把“第一晚”提示标记放置在限的角色标记旁。如果X是1，标记限的“X”提示标记。:reminder: :reminder:"
+    "zh": "把“第一晚”提示标记放置在限的角色标记旁。如果X是1，标记限的“X”提示标记。:reminder: :reminder:"
   },
   "other_nights": {
     "en": "Change the Xaan reminder token to the relevant night. If it is night X, mark the Xaan with the *X* reminder token. :reminder: :reminder:",
-    "es-419": "Cambia la ficha de recordatorio del Xaan a la noche adecuada. Si es la noche X, marca al Xaan con la ficha de recordatorio *X*. :reminder: :reminder:",
+    "es": "Cambia la ficha de recordatorio del Xaan a la noche adecuada. Si es la noche X, marca al Xaan con la ficha de recordatorio *X*. :reminder: :reminder:",
     "sv": "Byt ut Xaans påminnelse till den aktuella natten. Om det är natt X, märk istället Xaan med påminnelsen *X*. :reminder: :reminder:",
-    "zh-Hans": "在每一夜正常改变限的提示标记，在和初始外来者数量等同的那个夜晚，把“X”提示标记放置在魔典中央。:reminder: :reminder:"
+    "zh": "在每一夜正常改变限的提示标记，在和初始外来者数量等同的那个夜晚，把“X”提示标记放置在魔典中央。:reminder: :reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Xaan",
   "how_to_run": {
     "cn": "在游戏设置时，加入或移除任意数量的外来者角色标记，也可以不变。确认角色标记的总数量和玩家数量匹配。移除所有不需要使用的限的提示标记。\n在首个夜晚，把“第一晚”提示标记放置在限的角色标记旁。在第二个夜晚，把“第二晚”提示标记替换“第一晚”提示标记。在第三个夜晚，把“第三晚”提示标记替换“第二晚”提示标记……在和初始外来者数量等同的那个夜晚，把“大限将至”提示标记放置在魔典中央，并在下个黄昏移除。当“大限将至”提示标记被放置时，所有镇民玩家中毒。",
     "en": "While setting up the game, before putting character tokens in the bag, add or remove any number of Outsider tokens, including zero. Remove any unnecessary Xaan reminders.\nOn the 1st night, add the NIGHT 1 Xaan reminder to the Grimoire. On the 2nd night, add the NIGHT 2 Xaan reminder to the Grimoire. On the 3rd night, add the NIGHT 3 Xaan reminder to the Grimoire. On the night that equals the number of Outsiders in play when the game began, add the X reminder to the Grimoire, and remove it the following dusk.\nWhen the X reminder is in the Grimoire, all Townsfolk players are poisoned."
@@ -92,5 +88,6 @@
     "experimental"
   ],
   "artist": "Steven Medway",
-  "image": "assets/tokens/xaan.png"
+  "image": "assets/tokens/xaan.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Xaan"
 }

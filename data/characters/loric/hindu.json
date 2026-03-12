@@ -4,22 +4,19 @@
   "name": {
     "en": "Hindu",
     "sv": "Hindun",
-    "zh-Hans": "印度教教徒",
     "cn": "印度教教徒"
   },
   "ability": {
     "en": "The first 4 players to die are immediately reincarnated as Travellers of the same alignment.",
     "sv": "De första 4 spelarna som dör återupplivas omedelbart som Resenärer på samma lag.",
-    "zh-Hans": "最先死亡的四名玩家会立刻以相同阵营的旅行者转世重生。",
     "cn": "最先死亡的四名玩家会立刻以相同阵营的旅行者转世重生。"
   },
-  "flavor_text": {
+  "flavor": {
     "en": "चत्वारो मृत्युमध्ये पतन्ति, चत्वारो यात्री पुनरुद्गताः। चत्वारो धर्मे स्थितचित्तवृत्तेः, चत्वार एषां न पुनः क्षयः॥",
     "sv": "चत्वारो मृत्युमध्ये पतन्ति, चत्वारो यात्री पुनरुद्गताः। चत्वारो धर्मे स्थितचित्तवृत्तेः, चत्वार एषां न पुनः क्षयः॥",
-    "zh-Hans": "四者陨落于生灭之隙，四者归返于流转之途。四者心住于道法，四者不复终结于终。",
-    "cn": "“四者陨落于生灭之隙，”\n“四者归返于流转之途。”\n“四者心住于道法，”\n“四者不复终结于终。”\n（印度语）"
+    "zh": "四者陨落于生灭之隙，四者归返于流转之途。四者心住于道法，四者不复终结于终。",
+    "cn": "四者陨落于生灭之隙，\n四者归返于流转之途。\n四者心住于道法，\n四者不复终结于终。\n（印度语）"
   },
-  "source_url": "https://raw.githubusercontent.com/ThePandemoniumInstitute/botc-translations/main/game/zh_Hans.json",
   "how_to_run": {
     "cn": "如果一名玩家死亡了，他变成你选择的旅行者角色。公开宣布他是哪个旅行者。\n如果已经有四名玩家死亡并变成了旅行者，其他玩家将正常死亡，不再变为旅行者。\n可选规则：如果恶魔死亡变成了旅行者，一名爪牙玩家变成这个恶魔。"
   },

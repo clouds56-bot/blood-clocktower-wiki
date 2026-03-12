@@ -3,26 +3,22 @@
   "type": "fabled",
   "name": {
     "en": "Hell's Librarian",
-    "es-419": "Bibliotecario del Infierno",
+    "es": "Bibliotecario del Infierno",
     "sv": "Stränga Vikarien",
-    "zh-Hans": "地狱藏书员",
     "cn": "地狱藏书员"
   },
   "ability": {
     "en": "Something bad might happen to whoever talks when the Storyteller has asked for silence.",
-    "es-419": "Algo malo quizás le ocurra a todo aquel que hable cuando el Narrador ha pedido silencio.",
+    "es": "Algo malo quizás le ocurra a todo aquel que hable cuando el Narrador ha pedido silencio.",
     "sv": "Något dåligt kanske händer den som pratar när berättaren har bett om tystnad.",
-    "zh-Hans": "当说书人宣布安静时，仍在说话的玩家可能会遭遇一些不好的事情。",
     "cn": "当说书人宣布安静时，仍在说话的玩家可能会遭遇一些不好的事情。"
   },
-  "flavor_text": {
-    "en": "\"Shhhhhh. Please be quiet. It is best not to disturb the Librarian. I've heard it has a temper.\"",
-    "es-419": "Shhhhhh. Silencio, por favor. Es mejor no molestar al Bibliotecario. Me han dicho que tiene mal carácter.",
+  "flavor": {
+    "en": "Shhhhhh. Please be quiet. It is best not to disturb the Librarian. I've heard it has a temper.",
+    "es": "Shhhhhh. Silencio, por favor. Es mejor no molestar al Bibliotecario. Me han dicho que tiene mal carácter.",
     "sv": "Schhhhh. Du måste vara tyst. Det är bäst att inte störa vikarien; den lär ha ett himla temperament.",
-    "zh-Hans": "嘘……请安静。最好不要打扰到藏书员，我知道他脾气可不小。",
-    "cn": "“嘘……请安静。最好不要打扰到藏书员，我知道他脾气可不小。”"
+    "cn": "嘘……请安静。最好不要打扰到藏书员，我知道他脾气可不小。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Hell%27s_Librarian",
   "how_to_run": {
     "cn": "在任何时候，宣布地狱藏书员加入游戏。将地狱藏书员标记和对应“不好的事”提示标记放入魔典中。\n在任何时候，你都可以要求所有玩家保持安静一段时间。如果有需要的话，可以提醒他们地狱藏书员现在加入了游戏。当你在进行游戏的时候，如果总是因为玩家说话或者其他原因被打断时，你可以让他们知道有一些不好的事情会发生在他们身上。你可以用“不好的事”提示标记来标记这名玩家，代表他现在已经中毒了，或者是处于疯狂状态，或者是他今天不能投票，或者只是作为提醒，具体效果之后再做决定。\n就像天使一样，“不好的事”是由你决定的。但我们建议你用死亡、失去能力一天或者是当天不能投票作为惩罚。轻度的惩罚总会比严重的惩罚要来的好一些。",
     "en": "At any time, declare that the Hell’s Librarian is in play. Add the Hell’s Librarian token and their SOMETHING BAD reminder to the Grimoire.\nAt any time, you can ask the group for silence for a particular period of time. Remind them that the Hell’s Librarian is in play if needed. If a player talks or otherwise interrupts and makes your job difficult during that time, you can let them know that something bad happens to them. You may need to mark their character token with the SOMETHING BAD reminder, to remind you that they are now poisoned, or mad, or can’t vote today, or simply as a reminder to decide on what to do later.\nLike the Angel, the “something bad” that might happen is up to you. However, it is recommended to either make the penalty that the player dies, that the player loses their ability for a day, or that the player may not vote for a day. A light penalty works much better than a severe one."
@@ -42,5 +38,6 @@
     "experimental"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/hell_s_librarian.png"
+  "image": "assets/tokens/hell_s_librarian.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Hell%27s_Librarian"
 }

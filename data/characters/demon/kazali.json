@@ -3,38 +3,35 @@
   "type": "demon",
   "name": {
     "en": "Kazali",
-    "es-419": "Kazali",
+    "es": "Kazali",
     "sv": "Kazali",
-    "zh-Hans": "卡扎力",
     "cn": "卡扎力"
   },
   "ability": {
     "en": "Each night*, choose a player: they die. [You choose which players are which Minions. -? to +? Outsiders]",
-    "es-419": "Cada noche*, escoge un jugador: él muere. [Tú eliges cuáles jugadores son cuáles Secuaces. -? a +? Extranjeros]",
+    "es": "Cada noche*, escoge un jugador: él muere. [Tú eliges cuáles jugadores son cuáles Secuaces. -? a +? Extranjeros]",
     "sv": "Varje natt* väljer du en spelare; hen dör. [Du väljer vilka spelare som är vilka Kumpaner. ±? Utbölingar]",
-    "zh-Hans": "每个夜晚*，你要选择一名玩家：他死亡。[由你决定谁是什么爪牙，-或+任意数量外来者]",
     "cn": "每个夜晚*，你要选择一名玩家：他死亡。[由你决定谁是什么爪牙，-或+任意数量外来者]"
   },
-  "flavor_text": {
-    "en": "\"Gon(z)a7les6. Take cau8tun. The mech4an4ion is iNvert10d. E99ors insy6tum. Reco{7}fig.\"",
-    "es-419": "Gon(z)a7les6. Ten cu1d4d0. La mec4n4c4 está iNvert1d4. E99ores insytu. Reco{7}fig#r4r.",
+  "flavor": {
+    "en": "Gon(z)a7les6. Take cau8tun. The mech4an4ion is iNvert10d. E99ors insy6tum. Reco{7}fig.",
+    "es": "Gon(z)a7les6. Ten cu1d4d0. La mec4n4c4 está iNvert1d4. E99ores insytu. Reco{7}fig#r4r.",
     "sv": "Gon(z)a7les6. Var for60g. Hela mek4an4sm1n = iNvert10ad. F3l isy6tem. Omko{7}fig.",
-    "zh-Hans": "Gon(z)a{7}les6。请当Zn。机制已被FAN转。系统古攵阝章。重新配置。",
-    "cn": "“Gon(z)a7les6。请当Zn。机制已被FAN转。系统古攵阝章。重新{配}置。”"
+    "zh": "Gon(z)a{7}les6。请当Zn。机制已被FAN转。系统古攵阝章。重新配置。",
+    "cn": "Gon(z)a7les6。请当Zn。机制已被FAN转。系统古攵阝章。重新{配}置。"
   },
   "first_night": {
     "en": "The Kazali chooses which players are which Minions. Wake each target. Show the *YOU ARE* and Minion tokens & give a thumbs-down.",
-    "es-419": "Despierta al Kazali, y permítele elegir Secuaces.",
+    "es": "Despierta al Kazali, y permítele elegir Secuaces.",
     "sv": "Kazali väljer vilka spelare som är vilka Kumpaner. Väck varje Kumpan. Visa kortet *DU ÄR* och Kumpanbrickan och ge tummen ner.",
-    "zh-Hans": "唤醒卡扎力。让他选择爪牙角色以及对应的玩家。"
+    "zh": "唤醒卡扎力。让他选择爪牙角色以及对应的玩家。"
   },
   "other_nights": {
     "en": "The Kazali chooses a player. :reminder:",
-    "es-419": "El Kazali escoge un jugador. :reminder: ",
+    "es": "El Kazali escoge un jugador. :reminder: ",
     "sv": "Kazali väljer en spelare. :reminder:",
-    "zh-Hans": "卡扎力选择一名玩家。:reminder:"
+    "zh": "卡扎力选择一名玩家。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Kazali",
   "how_to_run": {
     "cn": "在游戏设置时，移除所有的爪牙角色标记，并加入镇民和/或外来者角色标记，加入的角色标记总数量与移除的爪牙角色标记数量相等。\n在首个夜晚，唤醒卡扎力。让他指向一名玩家，和角色列表上的一个爪牙角色。用这个爪牙的角色标记替换该玩家原本的角色标记，然后唤醒该玩家，对他展示“你是”信息标记和这个爪牙角色标记，然后展示向下的大拇指。重复这个流程，直到场上有与初始设置时同等数量的爪牙。让卡扎力重新入睡。\n除首个夜晚以外的每个夜晚，唤醒卡扎力。让他指向任意一名玩家。那名玩家死亡——在他角色标记旁放置“死亡”提示标记。让卡扎力重新入睡。\n根据具体剧本的不同，在设置时增加超过一个外来者角色可能会给善良阵营带来巨大的劣势。",
     "en": "While setting up the game, remove all Minion tokens and add Townsfolk or Outsider tokens.\nDuring the first night, wake the Kazali. The Kazali points at a player and a Minion on the character sheet. Replace their old character token with the Minion token, show them the “You Are” info token then the Minion character token, and give a thumbs down. Repeat until the normal number of Minions exist. Put the Kazali to sleep.\nEach night except the first, wake the Kazali. They point at any player. That player dies.\nDepending on the script, adding more than one Outsider can put the good team at a significant disadvantage."
@@ -92,5 +89,6 @@
       "reason": "If the Summoner creates a second living Demon, deaths tonight are arbitrary."
     }
   ],
-  "image": "assets/tokens/kazali.png"
+  "image": "assets/tokens/kazali.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Kazali"
 }

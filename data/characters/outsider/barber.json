@@ -3,32 +3,28 @@
   "type": "outsider",
   "name": {
     "en": "Barber",
-    "es-419": "Barbero",
+    "es": "Barbero",
     "sv": "Barberaren",
-    "zh-Hans": "理发师",
     "cn": "理发师"
   },
   "ability": {
     "en": "If you died today or tonight, the Demon may choose 2 players (not another Demon) to swap characters.",
-    "es-419": "Si has muerto hoy por el día or por la noche, el Demonio puede escoger 2 jugadores (pero no otro Demonio) para intercambiar roles.",
+    "es": "Si has muerto hoy por el día or por la noche, el Demonio puede escoger 2 jugadores (pero no otro Demonio) para intercambiar roles.",
     "sv": "Om du dog idag eller inatt får Demonen välja 2 spelare (inte en annan Demon) som byter roll med varandra.",
-    "zh-Hans": "如果你死亡，在当晚恶魔可以选择两名玩家（不能选择其他恶魔）交换角色。",
     "cn": "如果你死亡，在当晚恶魔可以选择两名玩家（不能选择其他恶魔）交换角色。"
   },
-  "flavor_text": {
-    "en": "\"Did you know that barbery and surgery were once the same profession? No? Well, now you do.\"",
-    "es-419": "¿Sabías que la barbería y la cirugía fueron alguna vez la misma profesión? ¿No? Pues, ahora lo sabes.",
+  "flavor": {
+    "en": "Did you know that barbery and surgery were once the same profession? No? Well, now you do.",
+    "es": "¿Sabías que la barbería y la cirugía fueron alguna vez la misma profesión? ¿No? Pues, ahora lo sabes.",
     "sv": "Visste du att barberare och kirurg en gång var samma yrke? Inte? Nu vet du.",
-    "zh-Hans": "对了，你以前知不知道，理发师和手术医生其实是同一个职业？不知道？那现在你知道了。",
-    "cn": "“对了，你以前知不知道，理发师和手术医生其实是同一个职业？不知道？那现在你知道了。”"
+    "cn": "对了，你以前知不知道，理发师和手术医生其实是同一个职业？不知道？那现在你知道了。"
   },
   "other_nights": {
     "en": "If the Barber died today or tonight, show the Demon the *THIS CHARACTER SELECTED YOU* & Barber tokens. If the Demon chose 2 players, wake one at a time. Show the *YOU ARE* token & their new character token.",
-    "es-419": "Si el Barbero ha muerto hoy por el día o por la noche, muéstrale al Demonio la ficha de *ESTE ROL TE HA SELECCIONADO* y la ficha del Barbero. Si el Demonio escoge 2 jugadores, despiértalos uno por uno. Muéstrales la ficha de *TÚ ERES* y su nueva ficha de rol.",
+    "es": "Si el Barbero ha muerto hoy por el día o por la noche, muéstrale al Demonio la ficha de *ESTE ROL TE HA SELECCIONADO* y la ficha del Barbero. Si el Demonio escoge 2 jugadores, despiértalos uno por uno. Muéstrales la ficha de *TÚ ERES* y su nueva ficha de rol.",
     "sv": "Om Barberaren dog idag eller inatt, visa Demonen kortet *DU PÅVERKAS AV* och Barberarens rollbricka. Om Demonen väljer 2 spelare, väck dem en i taget. Visa kortet *DU ÄR* och deras nya rollbricka.",
-    "zh-Hans": "在理发师死亡的夜晚，唤醒一名恶魔玩家。向他展示“该角色的能力对你生效”信息标记，理发师角色标记。如果恶魔指向两名玩家，交换那两名玩家的角色标记。然后分别单独唤醒两名被交换的玩家，并展示“你是”信息标记、新的角色标记，再让他们重新入睡。"
+    "zh": "在理发师死亡的夜晚，唤醒一名恶魔玩家。向他展示“该角色的能力对你生效”信息标记，理发师角色标记。如果恶魔指向两名玩家，交换那两名玩家的角色标记。然后分别单独唤醒两名被交换的玩家，并展示“你是”信息标记、新的角色标记，再让他们重新入睡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Barber",
   "how_to_run": {
     "cn": "如果理发师死亡，为他放置“今晚理发”提示标记。\n在理发师死亡的夜晚，唤醒一名恶魔玩家。向他展示“该角色的能力对你生效”信息标记，理发师角色标记。恶魔要么摇头，要么指向两名玩家。让恶魔重新入睡。移除“今晚理发”。\n如果恶魔指向两名玩家，交换那两名玩家的角色标记。然后分别单独唤醒两名被交换的玩家，并展示“你是”信息标记、新的角色标记，再让他们重新入睡。如果玩家的新角色标记与其所属阵营颜色不同，将其倒置以代表相反阵营。\n如果一名善良玩家变成爪牙或恶魔，或者是一名邪恶的玩家变成镇民或外来者，你可能需要提醒他阵营未改变。",
     "en": "If the Barber dies, mark them with the HAIRCUTS TONIGHT reminder.\nDuring that night, wake the Demon. Show them the THIS CHARACTER SELECTED YOU info token, then the Barber token. The Demon either shakes their head no or points to two players. Put the Demon to sleep. Remove the HAIRCUTS TONIGHT reminder.\nIf the Demon pointed to two players, swap the character tokens of the chosen players. One at a time, wake each swapped player, show them the YOU ARE info token and their new character token, then put them to sleep. If a player’s alignment does not match the color of their character token, turn it upside-down.\nIf a good player becomes a Minion or Demon, or an evil player becomes a Townsfolk or Outsider, you may wish to remind them that their alignment has not changed."
@@ -76,5 +72,6 @@
     "sects_violets"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/barber.png"
+  "image": "assets/tokens/barber.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Barber"
 }

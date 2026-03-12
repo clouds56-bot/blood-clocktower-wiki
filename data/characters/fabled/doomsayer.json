@@ -3,26 +3,22 @@
   "type": "fabled",
   "name": {
     "en": "Doomsayer",
-    "es-419": "Catastrofista",
+    "es": "Catastrofista",
     "sv": "Domedagsprofeten",
-    "zh-Hans": "末日预言者",
     "cn": "末日预言者"
   },
   "ability": {
     "en": "If 4 or more players live, each living player may publicly choose (once per game) that a player of their own alignment dies.",
-    "es-419": "Si 4 o más jugadores viven, cada jugador vivo puede escoger públicamente (una vez por juego) que un jugador de su propio alineamiento muera.",
+    "es": "Si 4 o más jugadores viven, cada jugador vivo puede escoger públicamente (una vez por juego) que un jugador de su propio alineamiento muera.",
     "sv": "Om minst 4 spelare lever får varje levande spelare öppet välja (en gång per spel) att en lagkamrat dör.",
-    "zh-Hans": "如果大于等于四名玩家存活，每名当前存活的玩家可以公开要求你杀死一名与他阵营相同的玩家（每名玩家限一次）。",
     "cn": "如果大于等于四名玩家存活，每名当前存活的玩家可以公开要求你杀死一名与他阵营相同的玩家（每名玩家限一次）。"
   },
-  "flavor_text": {
-    "en": "\"And on the Seventh Day, there shall be a great flood and a pestilence upon the People of the Village of the Ravens! The dead shall rise and the living shall repent! O Woe! O Unholy day! Only by great sacrifice shall they prevail! So sayeth the Sages of Nostros and so sayeth I.\"",
-    "es-419": "¡Y en el Séptimo Día, habrá una gran inundación y pestilencia sobre la gente de la Villa de los Cuervos! ¡Los muertos se levantarán y los vivos se arrepentirán! ¡Ay! ¡Ay día impío! ¡Solo con un gran sacrificio podrán prevalecer! Así lo declaran los Sabios de Nostros y así lo declaro yo.",
+  "flavor": {
+    "en": "And on the Seventh Day, there shall be a great flood and a pestilence upon the People of the Village of the Ravens! The dead shall rise and the living shall repent! O Woe! O Unholy day! Only by great sacrifice shall they prevail! So sayeth the Sages of Nostros and so sayeth I.",
+    "es": "¡Y en el Séptimo Día, habrá una gran inundación y pestilencia sobre la gente de la Villa de los Cuervos! ¡Los muertos se levantarán y los vivos se arrepentirán! ¡Ay! ¡Ay día impío! ¡Solo con un gran sacrificio podrán prevalecer! Así lo declaran los Sabios de Nostros y así lo declaro yo.",
     "sv": "Och på den sjunde dagen skall syndaflod och farsot drabba folket i korparnas by! De döda skall resa sig ur sina gravar och de levande skall få sona! Ve! Grymma dag! Endast stora uppoffringar kan rädda dem! Så säger Nostros vise och så säger jag.",
-    "zh-Hans": "而在第七天，洪水和瘟疫将席卷渡鸦村！死者终会复活，生者将遭挫折！哦！真是天灾人祸啊！哦！真是不幸的一天！只有付出巨大的牺牲才能熬过这一切！诺斯特罗斯的贤者是这么说的，我也是这么说的。",
-    "cn": "“而在第七天，洪水和瘟疫将席卷渡鸦村！死者终会复活，生者将遭挫折！哦！真是天灾人祸啊！哦！真是不幸的一天！只有付出巨大的牺牲才能熬过这一切！诺斯特罗斯的贤者是这么说的，我也是这么说的。”"
+    "cn": "而在第七天，洪水和瘟疫将席卷渡鸦村！死者终会复活，生者将遭挫折！哦！真是天灾人祸啊！哦！真是不幸的一天！只有付出巨大的牺牲才能熬过这一切！诺斯特罗斯的贤者是这么说的，我也是这么说的。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Doomsayer",
   "how_to_run": {
     "cn": "在任何时候，宣布末日预言者加入了游戏。将末日预言者标记放入魔典中。\n在白天的任何时间，如果有四名或以上的玩家存活，任何玩家都可以宣布使用末日预言者的能力。这时选择一名与该玩家同阵营的玩家，被选择的这名玩家死亡。\n你不应该通过这种方式杀死恶魔，除非游戏还能继续进行下去，比如红唇女郎在场。",
     "en": "At any time, declare that the Doomsayer is in play. Add the Doomsayer token to the Grimoire.\nAt any time during the day, if four or more players are alive, a player can declare that they wish to use the Doomsayer ability. When this happens, choose one player of the same alignment. The chosen player dies.\nYou won’t want to kill the Demon this way, unless the game can continue afterwards for some reason, such as if a Scarlet Woman is in play."
@@ -44,5 +40,6 @@
     "experimental"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/doomsayer.png"
+  "image": "assets/tokens/doomsayer.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Doomsayer"
 }

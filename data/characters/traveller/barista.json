@@ -3,38 +3,34 @@
   "type": "traveller",
   "name": {
     "en": "Barista",
-    "es-419": "Barista",
+    "es": "Barista",
     "sv": "Baristan",
-    "zh-Hans": "咖啡师",
     "cn": "咖啡师"
   },
   "ability": {
     "en": "Each night, until dusk, 1) a player becomes sober, healthy & gets true info, or 2) their ability works twice. They learn which.",
-    "es-419": "Cada noche, hasta el siguiente anochecer, 1) un jugador se vuelve sobrio, saludable y recibe información verdadera, o 2) su habilidad funciona dos veces. Él aprende cuál opción.",
+    "es": "Cada noche, hasta el siguiente anochecer, 1) un jugador se vuelve sobrio, saludable y recibe información verdadera, o 2) su habilidad funciona dos veces. Él aprende cuál opción.",
     "sv": "Varje natt, fram till skymningen, 1) blir en spelare frisk, nykter & får sann info, eller 2) dubblerar sin förmåga. Hen får veta vilket.",
-    "zh-Hans": "每个夜晚，直至下个黄昏，由说书人二选一：1）一名玩家解除并免受醉酒和中毒影响，且会得知正确信息；2）一名玩家的能力可以生效两次。该玩家会得知是哪个效果。",
     "cn": "每个夜晚，直至下个黄昏，由说书人二选一：1）一名玩家解除并免受醉酒和中毒影响，且会得知正确信息；2）一名玩家的能力可以生效两次。该玩家会得知是哪个效果。"
   },
-  "flavor_text": {
-    "en": "\"A cup of coffee with no cream, Monsieur? I’m terribly sorry, but we’re fresh out of cream — how about with no milk?\"",
-    "es-419": "¿Una tacita de café sin crema, Monsieur? Lo siento mucho, pero justo se nos acabó la crema — ¿qué tal una tacita de café sin leche?",
+  "flavor": {
+    "en": "A cup of coffee with no cream, Monsieur? I’m terribly sorry, but we’re fresh out of cream — how about with no milk?",
+    "es": "¿Una tacita de café sin crema, Monsieur? Lo siento mucho, pero justo se nos acabó la crema — ¿qué tal una tacita de café sin leche?",
     "sv": "Kaffe utan grädde? Jag är hemskt ledsen, men vi har slut på grädde – går det bra utan mjölk istället?",
-    "zh-Hans": "一杯不加奶油的咖啡，先生？我真的很抱歉，我们刚刚用完了所有的奶油——一杯不加牛奶的咖啡怎样？",
-    "cn": "“一杯不加奶油的咖啡，先生？我真的很抱歉，我们刚刚用完了所有的奶油——一杯不加牛奶的咖啡怎样？”"
+    "cn": "一杯不加奶油的咖啡，先生？我真的很抱歉，我们刚刚用完了所有的奶油——一杯不加牛奶的咖啡怎样？"
   },
   "first_night": {
     "en": "Choose a player. Wake them, show the *THIS CHARACTER SELECTED YOU* & Barista tokens, then give a finger signal. :reminder:",
-    "es-419": "Escoge un jugador, despiértalo y dile cuál de los poderes del Barista lo está afectando. Trátalo conforme a eso (sobrio/saludable/información verdadera o activa su habilidad dos veces).",
+    "es": "Escoge un jugador, despiértalo y dile cuál de los poderes del Barista lo está afectando. Trátalo conforme a eso (sobrio/saludable/información verdadera o activa su habilidad dos veces).",
     "sv": "Välj en spelare. Väck hen, visa kortet *DU PÅVERKAS AV* och Baristans rollbricka, och ge en fingersignal. :reminder:",
-    "zh-Hans": "选择一名玩家，唤醒并告知他咖啡师的哪种能力效果对他生效。根据此效果触发能力结算（清醒且健康或行动两次）。"
+    "zh": "选择一名玩家，唤醒并告知他咖啡师的哪种能力效果对他生效。根据此效果触发能力结算（清醒且健康或行动两次）。"
   },
   "other_nights": {
     "en": "Choose a player. Wake them, show the *THIS CHARACTER SELECTED YOU* & Barista tokens, then give a finger signal. :reminder:",
-    "es-419": "Escoge un jugador, despiértalo y dile cuál de los poderes del Barista lo está afectando. Trátalo conforme a eso (sobrio/saludable/información verdadera o activa su habilidad dos veces).",
+    "es": "Escoge un jugador, despiértalo y dile cuál de los poderes del Barista lo está afectando. Trátalo conforme a eso (sobrio/saludable/información verdadera o activa su habilidad dos veces).",
     "sv": "Välj en spelare. Väck hen, visa kortet *DU PÅVERKAS AV* och Baristans rollbricka, och ge en fingersignal. :reminder:",
-    "zh-Hans": "选择一名玩家，唤醒并告知他咖啡师的哪种能力效果对他生效。根据此效果触发能力结算（清醒且健康或行动两次）。"
+    "zh": "选择一名玩家，唤醒并告知他咖啡师的哪种能力效果对他生效。根据此效果触发能力结算（清醒且健康或行动两次）。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Barista",
   "how_to_run": {
     "cn": "每个夜晚，移除先前的标记并在任一角色标记旁放置咖啡师的“清醒且健康”标记或“行动两次”提示。唤醒那个角色的玩家并向他展示“该角色的能力对你生效”信息标记，咖啡师标记和一根手指（代表他现在清醒且健康）或两根手指（代表他要行动两次）。让这名玩家入睡。\n一个被标记了“清醒且健康”的玩家会变得清醒且健康（即使他同时被标记了醉酒或中毒）而且总是会得到正确信息（即使有能力会使他醉酒或中毒）。\n一个被标记了“行动两次”的玩家能在合适时机使用两次能力（如果能力是可选的，他能选择行动两次，如果能力是强制的，他必须行动两次）。如有需要，使用咖啡师的“？”提示标记来代表该玩家使用两次能力所需的角色提示标记。\n最好是让那些无法从行动两次中受益的角色变得清醒且健康，例如卖花女孩，城镇公告员或神谕者。 \n咖啡师能确保玩家获得正确信息，即使有一些能力会产生错误信息，例如占卜师，间谍或陌客。",
     "en": "Each night, remove previous reminders then put the Barista’s SOBER AND HEALTHY reminder or their ACTS TWICE reminder by any character token. Wake that character’s player and show them the THIS CHARACTER SELECTED YOU info token, the Barista token, then one finger (to show they are sober and healthy) or two fingers (to show they act twice). Put that player to sleep.\nA player marked SOBER AND HEALTHY is sober and healthy (even if they’re also marked DRUNK or POISONED) and always gets true information (even if an ability would make them drunk or poisoned).\nA player marked ACTS TWICE acts twice at the appropriate time. (If the ability is optional, they may use it twice. If it is mandatory, they must use it twice.) Use the Barista’s ? reminders if needed, to substitute for the character’s own reminders.\nSome characters are better off knowing they are sober and healthy, as they gain no benefit from acting twice, such as the Flowergirl, Town Crier, or Oracle.\n\n\nThe Barista ensures players get true information even if an ability causes false information, such as a Fortune Teller, Spy, or Recluse."
@@ -72,5 +68,6 @@
     "sects_violets"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/barista.png"
+  "image": "assets/tokens/barista.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Barista"
 }

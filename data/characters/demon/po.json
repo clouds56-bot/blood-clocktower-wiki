@@ -3,32 +3,29 @@
   "type": "demon",
   "name": {
     "en": "Po",
-    "es-419": "Po",
+    "es": "Po",
     "sv": "Po",
-    "zh-Hans": "珀",
     "cn": "珀"
   },
   "ability": {
     "en": "Each night*, you may choose a player: they die. If your last choice was no-one, choose 3 players tonight.",
-    "es-419": "Cada noche*, puedes escoger un jugador: él muere. Si tu última elección no fue nadie, escoge 3 jugadores esta noche.",
+    "es": "Cada noche*, puedes escoger un jugador: él muere. Si tu última elección no fue nadie, escoge 3 jugadores esta noche.",
     "sv": "Varje natt* får du välja en spelare; hen dör. Om du valde att inte döda senast väljer du 3 spelare inatt.",
-    "zh-Hans": "每个夜晚*，你可以选择一名玩家：他死亡。如果你上次选择时没有选择任何玩家，当晚你要选择三名玩家：他们死亡。",
+    "zh": "每个夜晚*，你可以选择一名玩家：他死亡。如果你上次选择时没有选择任何玩家，当晚你要选择三名玩家：他们死亡。",
     "cn": "每个夜晚*，你可以选择一名玩家：他死亡。\n如果你上次选择时没有选择任何玩家，当晚你要选择三名玩家：他们死亡。"
   },
-  "flavor_text": {
-    "en": "\"Would you like a flower? I'm so lonely.\"",
-    "es-419": "¿Te gustaría una flor? Estoy tan solo.",
+  "flavor": {
+    "en": "Would you like a flower? I'm so lonely.",
+    "es": "¿Te gustaría una flor? Estoy tan solo.",
     "sv": "Vill du ha en blomma? Jag är så ensam.",
-    "zh-Hans": "我给你一朵花，陪陪我好不好……",
-    "cn": "“我给你一朵花，陪陪我好不好……”"
+    "cn": "我给你一朵花，陪陪我好不好……"
   },
   "other_nights": {
     "en": "The Po may choose a player OR chooses 3 players if they chose no-one last night. :reminder: or :reminder: :reminder: :reminder:",
-    "es-419": "El Po puede escoger un jugador O escoge 3 jugadores si no escogió a nadie anoche. :reminder: o :reminder: :reminder: :reminder:",
+    "es": "El Po puede escoger un jugador O escoge 3 jugadores si no escogió a nadie anoche. :reminder: o :reminder: :reminder: :reminder:",
     "sv": "Po får välja en spelare. :reminder: Om Po är märkt *3 ATTACKER* så väljer Po tre spelare. :reminder: :reminder: :reminder:",
-    "zh-Hans": "珀可以选择一名玩家或在上一晚未选择任何玩家的情况下选择三名玩家。:reminder: 或者 :reminder: :reminder: :reminder:"
+    "zh": "珀可以选择一名玩家或在上一晚未选择任何玩家的情况下选择三名玩家。:reminder: 或者 :reminder: :reminder: :reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Po",
   "how_to_run": {
     "cn": "除了首个夜晚以外的每个夜晚，唤醒珀。珀要么摇头表示不选择任何人，要么指向任意一名玩家。让珀重新入睡。如果珀没有选择任何人，将“攻击三次”提示标记放置到珀的角色标记旁。如果珀选择了一名玩家，该玩家死亡——将“死亡”提示标记放置到该玩家的角色标记旁。\n如果唤醒珀行动时标有“攻击三次”，让珀依次指向三名玩家，每次一名。按照选择的顺序，每名所选玩家依次死亡——将“死亡”提示标记放置到这些玩家的角色标记旁。移除“攻击三次”提示标记。",
     "en": "Each night except the first, wake the Po. They either shake their head no or point at any player. Put the Po to sleep. If they shook their head no, mark the Po with the 3 ATTACKS reminder. If they chose a player, that player dies—mark them with a DEAD reminder.\nIf the Po wakes to act while marked 3 ATTACKS, they point at any three players, one at a time. In the order chosen, each chosen player dies—mark them with DEAD reminders. Remove the 3 ATTACKS reminder."
@@ -68,5 +65,6 @@
     "bad_moon_rising"
   ],
   "artist": "Anica Kelsen",
-  "image": "assets/tokens/po.png"
+  "image": "assets/tokens/po.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Po"
 }

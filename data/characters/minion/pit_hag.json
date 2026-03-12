@@ -3,32 +3,29 @@
   "type": "minion",
   "name": {
     "en": "Pit-Hag",
-    "es-419": "Vieja del Pozo",
+    "es": "Vieja del Pozo",
     "sv": "Trollpackan",
-    "zh-Hans": "麻脸巫婆",
     "cn": "麻脸巫婆"
   },
   "ability": {
     "en": "Each night*, choose a player & a character they become (if not in play). If a Demon is made, deaths tonight are arbitrary.",
-    "es-419": "Cada noche*, escoge un jugador y un rol en el que se convierte (si no está en juego). Si se hace un nuevo Demonio, las muertes esta noche son arbitrarias.",
+    "es": "Cada noche*, escoge un jugador y un rol en el que se convierte (si no está en juego). Si se hace un nuevo Demonio, las muertes esta noche son arbitrarias.",
     "sv": "Varje natt* väljer du en spelare och en roll hen blir (om den inte är i spel). Om en Demon skapas dör spelare godtyckligt.",
-    "zh-Hans": "每个夜晚*，你要选择一名玩家和一个角色，如果该角色不在场，他变成该角色。如果因此创造了一个恶魔，当晚的死亡由说书人决定。",
     "cn": "每个夜晚*，你要选择一名玩家和一个角色，如果该角色不在场，他变成该角色。如果因此创造了一个恶魔，当晚的死亡由说书人决定。"
   },
-  "flavor_text": {
-    "en": "\"Round about the cauldron go; In the poison'd entrails throw; Toad, that under cold stone; Days and nights has thirty-one; Sweated venom sleeping got; Boil thou first in the charmed pot.\"",
-    "es-419": "Vuelta y vuelta al caldero; las entrañas envenenadas van primero; Sapo nacido entre piedra y madero; Días y noches tantas como Enero; Veneno sudado con sueño ligero; en el pozo encantado te hiervo entero.",
+  "flavor": {
+    "en": "Round about the cauldron go; In the poison'd entrails throw; Toad, that under cold stone; Days and nights has thirty-one; Sweated venom sleeping got; Boil thou first in the charmed pot.",
+    "es": "Vuelta y vuelta al caldero; las entrañas envenenadas van primero; Sapo nacido entre piedra y madero; Días y noches tantas como Enero; Veneno sudado con sueño ligero; en el pozo encantado te hiervo entero.",
     "sv": "Kringom kitteln gå med flit; innanmätet kasta dit. Padda, du, som under sten, dar och nätter trettien, sov och sög av gift dig stinn – gå du först i kitteln in!",
-    "zh-Hans": "绕釜环行火融融，毒肝腐脏寘其中。蛤蟆蛰眠寒石底，三十一日夜相继；汗出淋漓化毒浆，投之鼎釜沸为汤。",
-    "cn": "“绕釜环行火融融，毒肝腐脏寘其中。\n蛤蟆蛰眠寒石底，三十一日夜相继；\n汗出淋漓化毒浆，投之鼎釜沸为汤。”"
+    "zh": "绕釜环行火融融，毒肝腐脏寘其中。蛤蟆蛰眠寒石底，三十一日夜相继；汗出淋漓化毒浆，投之鼎釜沸为汤。",
+    "cn": "绕釜环行火融融，毒肝腐脏寘其中。\n蛤蟆蛰眠寒石底，三十一日夜相继；\n汗出淋漓化毒浆，投之鼎釜沸为汤。"
   },
   "other_nights": {
     "en": "The Pit-Hag chooses a player & a character. If they chose a character that is not in play: Put the Pit-Hag to sleep. Wake the target. Show the *YOU ARE* token & their new character token.",
-    "es-419": "La Vieja del Pozo escoge un jugador y un rol. Si ella escoge un rol que no está en juego: Pon a la Vieja del Pozo a dormir. Despierta al jugador seleccionado. Muéstrale la ficha de *TÚ ERES* y su nueva ficha de rol.",
+    "es": "La Vieja del Pozo escoge un jugador y un rol. Si ella escoge un rol que no está en juego: Pon a la Vieja del Pozo a dormir. Despierta al jugador seleccionado. Muéstrale la ficha de *TÚ ERES* y su nueva ficha de rol.",
     "sv": "Trollpackan väljer en spelare och en roll. Söv Trollpackan. Om den valda rollen inte är i spel: Väck den valda spelaren. Visa kortet *DU ÄR* och den nya rollbrickan.",
-    "zh-Hans": "指向一名玩家和角色列表上的一个角色图标。让麻脸巫婆重新入睡。如果她选择的角色不在场，则唤醒所选玩家。依次向他展示“你是”信息标记、他的新角色标记。"
+    "zh": "指向一名玩家和角色列表上的一个角色图标。让麻脸巫婆重新入睡。如果她选择的角色不在场，则唤醒所选玩家。依次向他展示“你是”信息标记、他的新角色标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Pit-Hag",
   "how_to_run": {
     "cn": "除首夜外的每个夜晚，唤醒麻脸巫婆。让她指向一名玩家和角色列表上的一个角色图标。让麻脸巫婆重新入睡。\n如果她选择的角色在场，无事发生。\n如果她选择的角色不在场，则唤醒所选玩家。依次向他展示“你是”信息标记、他的新角色标记，然后让他重新入睡。用新角色标记替换他的旧角色标记。（你可能需要倒置角色标记，表示玩家阵营与该角色原本阵营相反。同样你可能也需要通过手势来提醒玩家，他的阵营没有改变。）\n如果有玩家因此变成恶魔，你能在当晚杀死任意数量的玩家或阻止被恶魔攻击的玩家死亡来平衡游戏。由你选择且未被恶魔选择的玩家的死亡视为被麻脸巫婆杀死。\n如果麻脸巫婆将恶魔变成另一种恶魔，最好是让今晚无人死亡，以此来提示善良阵营恶魔的角色发生了变化。你可以在唤醒恶魔并让他选择攻击目标后，再决定无人死亡。如果麻脸巫婆创造了新的邪恶恶魔，最好杀死老恶魔和一名其他玩家，以此提示善良阵营恶魔玩家已经改变了。如果麻脸巫婆创造了善良恶魔，最好杀死一个恶魔（如果是最后一夜），或让两个恶魔一同肆虐（如果不是最后一夜）但由于所有恶魔都死亡善良阵营才能获胜，所以请谨慎使用这种方法。",
     "en": "Each night except the first, wake the Pit-Hag. They point at any player and any character icon on their character sheet. Put the Pit-Hag to sleep.\nIf the chosen character is in play, nothing happens.\nIf the chosen character is not in play, wake the chosen player. Show them the YOU ARE info token, then their new character token, then put them to sleep. Replace their old character token with the new character token. (You may need to turn character tokens upside-down to remind you that a player’s alignment is opposite to the color of the token. You may need to remind the player that their alignment is unchanged, by giving a thumbs-up or thumbs-down.)\nIf a Demon is created, you may choose any players to kill or to protect throughout the night to balance the game. Additional deaths are considered attacks from the Pit-Hag.\nIf the Pit-Hag changes a Demon into a new Demon, it is best to make no death occur tonight, so the good team gets a clue that the Demon has changed. You can even wake the Demon, see who they choose to attack, and decide that no one dies. If the Pit-Hag creates a new evil Demon, it is best to kill the old Demon and some other player, to signal to the good team that the Demon has changed. If the Pit-Hag creates a good Demon, it is best to kill either Demon (if it is the final night), or to just let two Demons run amok (if it is not the final night)—but since all Demons must die for good to win, use caution."
@@ -124,5 +121,6 @@
       "reason": "If there is a spare token, the Pit-Hag can create an extra Village Idiot. If so, the drunk Village Idiot might change."
     }
   ],
-  "image": "assets/tokens/pit_hag.png"
+  "image": "assets/tokens/pit_hag.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Pit-Hag"
 }

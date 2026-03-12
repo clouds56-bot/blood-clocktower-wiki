@@ -3,38 +3,35 @@
   "type": "townsfolk",
   "name": {
     "en": "Preacher",
-    "es-419": "Predicador",
+    "es": "Predicador",
     "sv": "Predikanten",
-    "zh-Hans": "传教士",
     "cn": "传教士"
   },
   "ability": {
     "en": "Each night, choose a player: a Minion, if chosen, learns this. All chosen Minions have no ability.",
-    "es-419": "Cada noche, escoge un jugador: si un Secuaz ha sido escogido, él aprende esto. Todos los Secuaces escogidos no tienen su habilidad.",
+    "es": "Cada noche, escoge un jugador: si un Secuaz ha sido escogido, él aprende esto. Todos los Secuaces escogidos no tienen su habilidad.",
     "sv": "Varje natt väljer du en spelare; om du väljer en Kumpan får hen veta det. Valda Kumpaner har ingen förmåga.",
-    "zh-Hans": "每个夜晚，你要选择一名玩家：如果你选中了爪牙，他会得知被传教士选中。所有被你选中的爪牙失去能力。",
+    "zh": "每个夜晚，你要选择一名玩家：如果你选中了爪牙，他会得知被传教士选中。所有被你选中的爪牙失去能力。",
     "cn": "每个夜晚，你要选择一名玩家：如果你选中了爪牙，他会得知被传教士选中。\n所有被你选中的爪牙失去能力。"
   },
-  "flavor_text": {
-    "en": "\"It is better to be rich and healthy than poor and sick.\"",
-    "es-419": "Es mejor ser rico y saludable que pobre y enfermo.",
+  "flavor": {
+    "en": "It is better to be rich and healthy than poor and sick.",
+    "es": "Es mejor ser rico y saludable que pobre y enfermo.",
     "sv": "Hellre rik och frisk än fattig och sjuk.",
-    "zh-Hans": "富有和健康总比贫穷和疾病要好。",
-    "cn": "“富有和健康总比贫穷和疾病要好。”"
+    "cn": "富有和健康总比贫穷和疾病要好。"
   },
   "first_night": {
     "en": "The Preacher chooses a player. :reminder: If they chose a Minion: Put the Preacher to sleep. Wake the target. Show the *THIS CHARACTER SELECTED YOU* & Preacher tokens.",
-    "es-419": "El Predicador escoge un jugador. :reminder: Si él escogió un Secuaz: Pon al Predicador a dormir. Despierta al jugador escogido. Muéstrale la ficha de *ESTE ROL TE HA SELECCIONADO* y la ficha del Predicador.",
+    "es": "El Predicador escoge un jugador. :reminder: Si él escogió un Secuaz: Pon al Predicador a dormir. Despierta al jugador escogido. Muéstrale la ficha de *ESTE ROL TE HA SELECCIONADO* y la ficha del Predicador.",
     "sv": "Predikanten väljer en spelare. :reminder: Söv Predikanten. Om Predikanten valde en Kumpan: Väck Kumpanen. Visa kortet *DU PÅVERKAS AV* och Predikantens rollbricka.",
-    "zh-Hans": "传教士选择一名玩家。:reminder:如果他选中一名爪牙，在那名爪牙的角色标记旁放置“失去能力”提示标记。让传教士重新入睡。如可能，则唤醒今晚被传教士选中的爪牙，向他展示“该角色的能力对你生效”信息标记以及传教士角色标记。"
+    "zh": "传教士选择一名玩家。:reminder:如果他选中一名爪牙，在那名爪牙的角色标记旁放置“失去能力”提示标记。让传教士重新入睡。如可能，则唤醒今晚被传教士选中的爪牙，向他展示“该角色的能力对你生效”信息标记以及传教士角色标记。"
   },
   "other_nights": {
     "en": "The Preacher chooses a player. :reminder: If they chose a Minion: Put the Preacher to sleep. Wake the target. Show the *THIS CHARACTER SELECTED YOU* & Preacher tokens.",
-    "es-419": "El Predicador escoge un jugador. :reminder: Si él escogió un Secuaz: Pon al Predicador a dormir. Despierta al jugador escogido. Muéstrale la ficha de *ESTE ROL TE HA SELECCIONADO* y la ficha del Predicador.",
+    "es": "El Predicador escoge un jugador. :reminder: Si él escogió un Secuaz: Pon al Predicador a dormir. Despierta al jugador escogido. Muéstrale la ficha de *ESTE ROL TE HA SELECCIONADO* y la ficha del Predicador.",
     "sv": "Predikanten väljer en spelare. :reminder: Söv Predikanten. Om Predikanten valde en Kumpan: Väck Kumpanen. Visa kortet *DU PÅVERKAS AV* och Predikantens rollbricka.",
-    "zh-Hans": "传教士选择一名玩家。:reminder:如果他选中一名爪牙，在那名爪牙的角色标记旁放置“失去能力”提示标记。让传教士重新入睡。如可能，则唤醒今晚被传教士选中的爪牙，向他展示“该角色的能力对你生效”信息标记以及传教士角色标记。"
+    "zh": "传教士选择一名玩家。:reminder:如果他选中一名爪牙，在那名爪牙的角色标记旁放置“失去能力”提示标记。让传教士重新入睡。如可能，则唤醒今晚被传教士选中的爪牙，向他展示“该角色的能力对你生效”信息标记以及传教士角色标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Preacher",
   "how_to_run": {
     "cn": "每个夜晚，唤醒传教士并让他选择一名玩家。如果他选中一名爪牙，在那名爪牙的角色标记旁放置“失去能力”提示标记。让传教士重新入睡。如可能，则唤醒今晚被传教士选中的爪牙，向他展示“该角色的能力对你生效”信息标记以及传教士角色标记。让这名爪牙重新入睡。\n在传教士存活期间，所有被标记“失去能力”的爪牙不会拥有能力。",
     "en": "Each night, wake the Preacher. They point to a player. Put the Preacher to sleep. If the Preacher choose a Minion, mark that Minion with a NO ABILITY reminder, wake the Minion and show them the THIS CHARACTER SELECTED YOU info token then the Preacher token, then put them to sleep.\nAll Minions marked NO ABILITY have no ability while the Preacher is alive."
@@ -90,5 +87,6 @@
       "reason": "If the Vizier loses their ability, they learn this, and cannot die during the day."
     }
   ],
-  "image": "assets/tokens/preacher.png"
+  "image": "assets/tokens/preacher.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Preacher"
 }

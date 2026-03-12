@@ -3,32 +3,29 @@
   "type": "outsider",
   "name": {
     "en": "Moonchild",
-    "es-419": "Hijo de la Luna",
+    "es": "Hijo de la Luna",
     "sv": "Månflickan",
-    "zh-Hans": "月之子",
     "cn": "月之子"
   },
   "ability": {
     "en": "When you learn that you died, publicly choose 1 alive player. Tonight, if it was a good player, they die.",
-    "es-419": "Cuando aprendes que has muerto, escoge 1 jugador vivo públicamente. Esta noche, si es un jugador bueno, él muere.",
+    "es": "Cuando aprendes que has muerto, escoge 1 jugador vivo públicamente. Esta noche, si es un jugador bueno, él muere.",
     "sv": "När du får veta att du dött väljer du öppet 1 levande spelare. Om hen var god dör hen inatt.",
-    "zh-Hans": "当你得知你死亡时，你要公开选择一名存活的玩家。如果他是善良的，在当晚他会死亡。",
     "cn": "当你得知你死亡时，你要公开选择一名存活的玩家。如果他是善良的，在当晚他会死亡。"
   },
-  "flavor_text": {
-    "en": "\"Scorpio looks sideways at the lovers, and you have a choice to make. With silver cross my palm, and your fate shall be revealed. With steel cross my throat, and by the stars you shall regret it.\"",
-    "es-419": "Escorpio mira de reojo a los amantes, así que te toca tomar una decisión. Con plata cruza mi palma, y tu destino será revelado. Con acero cruza mi garganta, y por las estrellas te vas a arrepentir.",
+  "flavor": {
+    "en": "Scorpio looks sideways at the lovers, and you have a choice to make. With silver cross my palm, and your fate shall be revealed. With steel cross my throat, and by the stars you shall regret it.",
+    "es": "Escorpio mira de reojo a los amantes, así que te toca tomar una decisión. Con plata cruza mi palma, y tu destino será revelado. Con acero cruza mi garganta, y por las estrellas te vas a arrepentir.",
     "sv": "Skorpionen ser mot älskarna, och du har ett beslut att fatta. För silver till min hand, och ditt öde skall avslöjas. För stål mot min hals, och ditt öde skall beseglas.",
-    "zh-Hans": "天蝎座侧身遥望恋人，此刻即为抉择进行之时。以白银拂过我的掌心，你的宿命将在此地揭示。以钢铁穿过我的咽喉，群星在上你将追悔莫及。",
-    "cn": "“天蝎座侧身遥望恋人，此刻即为抉择进行之时。\n以白银拂过我的掌心，你的宿命将在此地揭示。\n以钢铁穿过我的咽喉，群星在上你将追悔莫及。”"
+    "zh": "天蝎座侧身遥望恋人，此刻即为抉择进行之时。以白银拂过我的掌心，你的宿命将在此地揭示。以钢铁穿过我的咽喉，群星在上你将追悔莫及。",
+    "cn": "天蝎座侧身遥望恋人，此刻即为抉择进行之时。\n以白银拂过我的掌心，你的宿命将在此地揭示。\n以钢铁穿过我的咽喉，群星在上你将追悔莫及。"
   },
   "other_nights": {
     "en": "If the Moonchild is due to kill a good player, they die. :reminder:",
-    "es-419": "Si al Hijo de la Luna le toca matar a un jugador bueno, ese jugador muere. :reminder:",
+    "es": "Si al Hijo de la Luna le toca matar a un jugador bueno, ese jugador muere. :reminder:",
     "sv": "Om Månflickan valde en god spelare så dör den valda spelaren. :reminder:",
-    "zh-Hans": "如果月之子所选玩家是善良的，他死亡。:reminder:"
+    "zh": "如果月之子所选玩家是善良的，他死亡。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Moonchild",
   "how_to_run": {
     "cn": "当你宣布月之子玩家死亡时，月之子需要选择任意一名存活玩家。如果所选玩家是善良的，将“死亡”提示标记放置到该玩家的角色标记旁。当晚，标有月之子的“死亡”提示标记的玩家死亡。\n如果月之子没有意识到自己必须在死亡时选择一名玩家，私下提醒该玩家。新手玩家可能没有弄清楚自己的角色是如何运作的。",
     "en": "When you declare that the Moonchild’s player has died, the Moonchild chooses any alive player. If the chosen player is good, mark their character token with the DEAD reminder. Tonight, the player marked with the Moonchild’s DEAD reminder dies.\nIf the Moonchild doesn’t realize that they must choose a player when they die, privately remind them. New players may not understand how their character works."
@@ -70,5 +67,6 @@
     "bad_moon_rising"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/moonchild.png"
+  "image": "assets/tokens/moonchild.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Moonchild"
 }

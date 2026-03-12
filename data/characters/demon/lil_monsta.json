@@ -3,38 +3,34 @@
   "type": "demon",
   "name": {
     "en": "Lil' Monsta",
-    "es-419": "Monstruito",
+    "es": "Monstruito",
     "sv": "Lillmonstret",
-    "zh-Hans": "小怪宝",
     "cn": "小怪宝"
   },
   "ability": {
     "en": "Each night, Minions choose who babysits Lil' Monsta & \"is the Demon\". Each night*, a player might die. [+1 Minion]",
-    "es-419": "Cada noche, los Secuaces eligen quién cuida al Monstruito y \"es el Demonio\". Cada noche*, un jugador quizás muera. [+1 Secuaz]",
+    "es": "Cada noche, los Secuaces eligen quién cuida al Monstruito y \"es el Demonio\". Cada noche*, un jugador quizás muera. [+1 Secuaz]",
     "sv": "Varje natt väljer Kumpanerna vem som vaktar Lillmonstret och räknas som Demon. Varje natt* kanske en spelare dör. [+1 Kumpan]",
-    "zh-Hans": "每个夜晚，所有爪牙要秘密决定由哪名玩家来照看小怪宝并且“是恶魔”。每个夜晚*，可能会有一名玩家死亡。[+1爪牙]",
     "cn": "每个夜晚，所有爪牙要秘密决定由哪名玩家来照看小怪宝并且“是恶魔”。每个夜晚*，可能会有一名玩家死亡。[+1爪牙]"
   },
-  "flavor_text": {
-    "en": "\"Step 1: Be cute.\n\t\t\t\tStep 2: World domination.\n\t\t\t\tStep 3: Bweakfast.\"",
-    "es-419": "Paso 1: Verme tierno. Paso 2: Dominación mundial. Paso 3: Desayunito.",
+  "flavor": {
+    "en": "Step 1: Be cute.\n\t\t\t\tStep 2: World domination.\n\t\t\t\tStep 3: Bweakfast.",
+    "es": "Paso 1: Verme tierno. Paso 2: Dominación mundial. Paso 3: Desayunito.",
     "sv": "Steg 1: Va söt. Steg 2: Ta övej väden. Steg 3: Äta fjukost.",
-    "zh-Hans": "步骤一：要变得可爱。步骤二：要统治世界。步骤三：先来点藻餐。",
-    "cn": "“步骤一：要变得可爱。步骤二：要统治世界。步骤三：先来点藻餐。”"
+    "cn": "步骤一：要变得可爱。步骤二：要统治世界。步骤三：先来点藻餐。"
   },
   "first_night": {
     "en": "Wake the Minions. They choose a player. :reminder: Put the Minions to sleep. Wake the target. Show the *YOU ARE* & Lil' Monsta tokens.",
-    "es-419": "Despierta a todos los Secuaces, permíteles elegir un cuidador. :reminder:",
+    "es": "Despierta a todos los Secuaces, permíteles elegir un cuidador. :reminder:",
     "sv": "Väck Kumpanerna. De väljer en spelare. :reminder: Söv Kumpanerna. Väck den valda spelaren. Visa kortet *DU ÄR* och Lillmonstrets rollbricka.",
-    "zh-Hans": "唤醒所有爪牙玩家。遵从他们的决定由谁来照看小怪宝 :reminder:。"
+    "zh": "唤醒所有爪牙玩家。遵从他们的决定由谁来照看小怪宝 :reminder:。"
   },
   "other_nights": {
     "en": "Wake the Minions. They choose a player. :reminder: Put the Minions to sleep. Wake the target. Show the *YOU ARE* & Lil' Monsta tokens. A player might die. :reminder:",
-    "es-419": "Despierta a todos los Secuaces, permíteles elegir un cuidador. :reminder: Un jugador quizás muera. :reminder:",
+    "es": "Despierta a todos los Secuaces, permíteles elegir un cuidador. :reminder: Un jugador quizás muera. :reminder:",
     "sv": "Väck Kumpanerna. De väljer en spelare. :reminder: Söv Kumpanerna. Väck den valda spelaren. Visa kortet *DU ÄR* och Lillmonstrets rollbricka. En spelare kanske dör. :reminder:",
-    "zh-Hans": "唤醒所有爪牙玩家。遵从他们的决定由谁来照看小怪宝。:reminder: 一名玩家可能死亡。:reminder:"
+    "zh": "唤醒所有爪牙玩家。遵从他们的决定由谁来照看小怪宝。:reminder: 一名玩家可能死亡。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Lil%27_Monsta",
   "how_to_run": {
     "cn": "在游戏开始前，请确保所有玩家都理解了小怪宝的能力。如有必要，你需要指出照看小怪宝的玩家并不会因此使得自己的角色和阵营发生变化。但照看小怪宝的玩家在照看期间内，在各种意义上都会是恶魔。\n（可选规则：你可以让照看小怪宝的玩家真真正正地拿着小怪宝的角色标记并秘密地藏好它。如果你选择使用这一条规则，也需要对所有玩家做出解释，并让所有玩家熟知小怪宝的角色标记是什么样子的。某些玩家可能没有方便藏匿小怪宝的口袋或者钱包之类的东西，而在游戏过程中暴露了自己持有的小怪宝角色标记会显而易见地表明你自己是恶魔。但同时需要注意的是，告知玩家在这种情况下强行搜查一名玩家的口袋，或是胁迫一名玩家展示自己手里握着的东西是不被允许的行为。同时你也需要声明，不小心失去了对小怪宝角色标记的控制，例如丢失或者给与其他玩家，都会导致自己没有成功照料好小怪宝，并因此使得小怪宝立即死亡。使用保管实物的方式来运作小怪宝的机制可能会带来一定的乐趣，但是你需要考虑到采取这一规则时可能对玩家带来的各方面的影响。）\n在游戏设置时，不要将小怪宝角色标记放入盲抽袋，而是额外添加一个爪牙角色标记。在游戏的首个夜晚，跳过爪牙信息和恶魔信息阶段。\n每个夜晚，在轮到小怪宝行动时，唤醒所有爪牙玩家。他们需要各自用手指向一名玩家，以此来安静地共同决定由谁来照看小怪宝。（爪牙不能在这个阶段用手势比划来交流其他信息。）\n（如果使用了可选规则：当照看小怪宝的玩家发生变化时，你需要从上一名照看小怪宝的玩家手里拿去小怪宝角色标记，并交给新的照看小怪宝的玩家。如果原本的玩家或是新的玩家不是爪牙，你需要先让所有爪牙玩家重新入睡后再执行这些操作。）\n唤醒新的照看小怪宝的玩家，对他展示“该角色的能力对你生效”信息标记和小怪宝角色标记。让该玩家重新入睡。在该玩家的角色标记旁放置小怪宝的“是恶魔”提示标记。\n随后，如果不是在首个夜晚，你需要为小怪宝的能力做出决定，并让一名玩家死亡。使用“死亡”提示标记来标记那名玩家，并放置帷幕标记。不要扮演一个无所不知的恶魔来进行杀戮，相反，你需要在某些时候做出能够帮助处于劣势的阵营的决定。\n照看小怪宝的玩家在游戏规则和玩家能力的交互上会被判定为是恶魔，这包含了游戏胜利的条件。但这名玩家的角色不是小怪宝，也不会获得小怪宝的能力，在他照看小怪宝的时候自己的角色和阵营也不会因此发生变化。\n你可能需要在夜晚利用小怪宝的能力杀死一到两名爪牙。如果在最后一天仍有两名及以上的爪牙存活，那么这对于善良阵营而言非常不公平，因为任意一个爪牙都有可能照顾小怪宝但善良玩家完全不知道是谁在照顾。为了避免这种情况以使得游戏对善良方更公平，请在游戏过程中杀死爪牙（有必要的话）以保证最后一天只剩一名爪牙存活。",
     "en": "During setup, remove Lil’ Monsta and add a Minion token. On the first night, skip the MINION INFO and DEMON INFO steps.\nEach night, wake all Minions. The majority will (eventually) point to one player. If they can’t decide, choose a player. (Give this player the Lil’ Monsta token and wait for them to hide it, if you want!) Mark them with the IS THE DEMON reminder token. Put all Minions to sleep. Then, if it is not the first night, a player might die – mark them with a DEAD reminder and a shroud.\nThe player marked IS THE DEMON registers as the Demon. If they die, declare that the game is over and good has won.\nYou may need to kill a Minion or two at night using the Lil’\nMonsta’s ability. On the final day, it would be unfair for the good team to have 2 or more Minions alive, since either Minions could have been chosen to babysit Lil’ Monsta without any way for the good team to know which. Avoid this, and make the game fairer for the good team by killing Minions so that only 1 remains on the final day."
@@ -115,5 +111,6 @@
       "reason": "If the Vizier is babysitting Lil' Monsta, they die when executed."
     }
   ],
-  "image": "assets/tokens/lil_monsta.png"
+  "image": "assets/tokens/lil_monsta.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Lil%27_Monsta"
 }

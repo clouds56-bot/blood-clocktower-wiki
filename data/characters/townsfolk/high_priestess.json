@@ -3,38 +3,34 @@
   "type": "townsfolk",
   "name": {
     "en": "High Priestess",
-    "es-419": "Sacerdotisa",
+    "es": "Sacerdotisa",
     "sv": "Prästinnan",
-    "zh-Hans": "女祭司",
     "cn": "女祭司"
   },
   "ability": {
     "en": "Each night, learn which player the Storyteller believes you should talk to most.",
-    "es-419": "Cada noche, aprende con qué jugador cree el Narrador que deberías hablar con mayor urgencia.",
+    "es": "Cada noche, aprende con qué jugador cree el Narrador que deberías hablar con mayor urgencia.",
     "sv": "Varje natt får du veta vilken spelare berättaren tycker att du främst borde prata med.",
-    "zh-Hans": "每个夜晚，你会得知一名说书人认为你最应该与其交流的玩家。",
     "cn": "每个夜晚，你会得知一名说书人认为你最应该与其交流的玩家。"
   },
-  "flavor_text": {
-    "en": "“There is life behind the personality that uses personalities as masks. There are times when life puts off the mask and deep answers to deep.”",
-    "es-419": "Hay vida detrás de la personalidad que usa personalidades como máscara. Hay momentos en que la vida te quita la máscara y revela respuestas profundas.",
+  "flavor": {
+    "en": "There is life behind the personality that uses personalities as masks. There are times when life puts off the mask and deep answers to deep.",
+    "es": "Hay vida detrás de la personalidad que usa personalidades como máscara. Hay momentos en que la vida te quita la máscara y revela respuestas profundas.",
     "sv": "Bakom personligheten finns ett liv som bär personligheter som masker. Ibland tar livet av sig masken, och djupet står till svars för djupet.",
-    "zh-Hans": "在人性的背后，存在着以人性为面具的生活。某些时候生活会摘下面具，以深刻的答案应对深刻的问题。",
-    "cn": "“在人性的背后，存在着以人性为面具的生活。某些时候生活会摘下面具，以深刻的答案应对深刻的问题。”"
+    "cn": "在人性的背后，存在着以人性为面具的生活。某些时候生活会摘下面具，以深刻的答案应对深刻的问题。"
   },
   "first_night": {
     "en": "Point to a player.",
-    "es-419": "Apunta a un jugador.",
+    "es": "Apunta a un jugador.",
     "sv": "Peka på en spelare.",
-    "zh-Hans": "指向一名玩家。"
+    "zh": "指向一名玩家。"
   },
   "other_nights": {
     "en": "Point to a player.",
-    "es-419": "Apunta a un jugador.",
+    "es": "Apunta a un jugador.",
     "sv": "Peka på en spelare.",
-    "zh-Hans": "指向一名玩家。"
+    "zh": "指向一名玩家。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/High_Priestess",
   "how_to_run": {
     "cn": "每个夜晚，唤醒女祭司。指向一名玩家。随后让女祭司重新入睡。",
     "en": "Each night, wake the High Priestess. Point to a player. Put the High Priestess to sleep."
@@ -81,5 +77,6 @@
     "experimental"
   ],
   "artist": "Chloe McDougall",
-  "image": "assets/tokens/high_priestess.png"
+  "image": "assets/tokens/high_priestess.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/High_Priestess"
 }

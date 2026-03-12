@@ -3,26 +3,22 @@
   "type": "minion",
   "name": {
     "en": "Boomdandy",
-    "es-419": "Guapetardo",
+    "es": "Guapetardo",
     "sv": "Krutdandyn",
-    "zh-Hans": "炸弹人",
     "cn": "炸弹人"
   },
   "ability": {
     "en": "If you are executed, all but 3 players die. After a 10 to 1 countdown, the player with the most players pointing at them, dies.",
-    "es-419": "Si eres ejecutado, todos los jugadores mueren excepto 3. Luego de una cuenta regresiva de 10 a 1, el jugador con la mayor cantidad de jugadores apuntándole, muere.",
+    "es": "Si eres ejecutado, todos los jugadores mueren excepto 3. Luego de una cuenta regresiva de 10 a 1, el jugador con la mayor cantidad de jugadores apuntándole, muere.",
     "sv": "Om du avrättas dör alla utom 3 spelare. Efter en nedräkning från 10 till 1 dör den spelare som flest pekar på.",
-    "zh-Hans": "如果你被处决，除三名玩家以外的其他所有玩家均会死亡。倒数十声后，被最多玩家手指指着的玩家死亡。",
     "cn": "如果你被处决，除三名玩家以外的其他所有玩家均会死亡。倒数十声后，被最多玩家手指指着的玩家死亡。"
   },
-  "flavor_text": {
-    "en": "\"Tick... Tick... Tick... TOCK.\"",
-    "es-419": "Tic... Tic... Tic... TAC.",
+  "flavor": {
+    "en": "Tick... Tick... Tick... TOCK.",
+    "es": "Tic... Tic... Tic... TAC.",
     "sv": "Vilken jävla smäll!",
-    "zh-Hans": "嘀…嘀…嘀…嗒。",
-    "cn": "“嘀…嘀…嘀…嗒。”"
+    "cn": "嘀…嘀…嘀…嗒。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Boomdandy",
   "how_to_run": {
     "cn": "如果炸弹人被处决，宣布炸弹人引爆了自己的炸弹。走进玩家座位围成的圆圈内，并用你的手指指向炸弹人，并顺时针开始转圈。（这会看起来像是统计投票一样。）当你的手指指向一名存活玩家时，说出“你还活着”或者“你死了”（如果他因为炸弹人的能力而死亡的话）。当你的手指走完一圈后，场上应该有包括恶魔在内的三名玩家仍然存活。然后，倒数十声。当倒数结束时，让所有玩家暂停（宣布“停下”），随即统计玩家用手指指向的结果。被最多手指指着的玩家死亡。这会因为只剩两名玩家存活而导致游戏结束，因此根据结果你需要宣布获胜的阵营。\n你可以延长或缩短每一次倒数之间的间隔——做任何看起来富有戏剧性的事情，可供善良阵营讨论以及决定下一名死亡的玩家。",
     "en": "If the Boomdandy is executed, declare that the Boomdandy has exploded. Enter the circle, put your hand out towards the Boomdandy, and rotate around the circle. (Similar to running a vote.) When your hand reaches a living player, say “You live” or say “You die” as that player dies. When you have completed the circle, three players will be alive, including the Demon. Then, count down from ten. After you say “one”, ask all players to immediately freeze (to stay still) while you count the number of players who are pointing at each player. The player with the most fingers pointed at them, dies. This will end the game, since just two players are alive, so declare which team has won.\nYour countdown should be longer than ten seconds, and as slow, dramatic, or erratic as you like!"
@@ -93,5 +89,6 @@
       "reason": "If the Storyteller would gain the Boomdandy ability, a player becomes the Boomdandy."
     }
   ],
-  "image": "assets/tokens/boomdandy.png"
+  "image": "assets/tokens/boomdandy.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Boomdandy"
 }

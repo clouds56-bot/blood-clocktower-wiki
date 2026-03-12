@@ -3,32 +3,29 @@
   "type": "demon",
   "name": {
     "en": "Fang Gu",
-    "es-419": "Fang Gu",
+    "es": "Fang Gu",
     "sv": "Fang Gu",
-    "zh-Hans": "方古",
     "cn": "方古"
   },
   "ability": {
     "en": "Each night*, choose a player: they die. The 1st Outsider this kills becomes an evil Fang Gu & you die instead. [+1 Outsider]",
-    "es-419": "Cada noche*, escoge un jugador: él muere. El 1er Extranjero que esto mata se convierte en un Fang Gu malvado y tú mueres en su lugar. [+1 Extranjero]",
+    "es": "Cada noche*, escoge un jugador: él muere. El 1er Extranjero que esto mata se convierte en un Fang Gu malvado y tú mueres en su lugar. [+1 Extranjero]",
     "sv": "Varje natt* väljer du en spelare; hen dör. Första Utbölingen som dör så blir en ond Fang Gu och du dör istället. [+1 Utböling]",
-    "zh-Hans": "每个夜晚*，你要选择一名玩家：他死亡。被该能力杀死的外来者改为变成邪恶的方古且你代替他死亡，但每局游戏仅能成功转化一次。[+1外来者]",
+    "zh": "每个夜晚*，你要选择一名玩家：他死亡。被该能力杀死的外来者改为变成邪恶的方古且你代替他死亡，但每局游戏仅能成功转化一次。[+1外来者]",
     "cn": "每个夜晚*，你要选择一名玩家：他死亡。\n被该能力杀死的外来者改为变成邪恶的方古且你代替他死亡，但每局游戏仅能成功转化一次。[+1外来者]"
   },
-  "flavor_text": {
-    "en": "\"Your walls and your weapons are but smoke in dreams.\"",
-    "es-419": "Tus murallas y tus armas son tan solo humo en sueños.",
+  "flavor": {
+    "en": "Your walls and your weapons are but smoke in dreams.",
+    "es": "Tus murallas y tus armas son tan solo humo en sueños.",
     "sv": "Era murar och era vapen är blott drömmars rök.",
-    "zh-Hans": "你那高墙和锐器不过是虚无缥缈的泡影。",
-    "cn": "“你那高墙和锐器不过是虚无缥缈的泡影。”"
+    "cn": "你那高墙和锐器不过是虚无缥缈的泡影。"
   },
   "other_nights": {
     "en": "The Fang Gu chooses a player. :reminder: If they chose an Outsider (once only): Replace the Outsider token with the spare Fang Gu token. Put the Fang Gu to sleep. Wake the target. Show the *YOU ARE* and Fang Gu tokens & give a thumbs-down. :reminder:",
-    "es-419": "El Fang Gu escoge un jugador. :reminder: Si él escoge un Extranjero (solo una vez): Reemplaza la ficha del Extranjero con la ficha extra del Fang Gu. Pon al Fang Gu a dormir. Despierta al jugador objetivo. Muéstrale la ficha de *TÚ ERES* y la ficha del Fang Gu y muéstrale un pulgar abajo. :reminder:",
+    "es": "El Fang Gu escoge un jugador. :reminder: Si él escoge un Extranjero (solo una vez): Reemplaza la ficha del Extranjero con la ficha extra del Fang Gu. Pon al Fang Gu a dormir. Despierta al jugador objetivo. Muéstrale la ficha de *TÚ ERES* y la ficha del Fang Gu y muéstrale un pulgar abajo. :reminder:",
     "sv": "Fang Gu väljer en spelare. :reminder: Om hen valde en Utböling (endast en gång), byt ut Utbölingens bricka mot den andra Fang Gu-brickan. Söv Fang Gu. Väck den valda spelaren. Visa kortet *DU ÄR* och Fang Gu-brickan samt tummen ner. :reminder:",
-    "zh-Hans": "方古选择一名玩家。 :reminder:如果选中外来者（限一次）：方古重新入睡。用多出的方古标记替换他的角色标记，且他转为邪恶阵营。唤醒被选择的外来者。依次向他展示“你是”信息标记、向下的大拇指、方古角色标记。:reminder:"
+    "zh": "方古选择一名玩家。 :reminder:如果选中外来者（限一次）：方古重新入睡。用多出的方古标记替换他的角色标记，且他转为邪恶阵营。唤醒被选择的外来者。依次向他展示“你是”信息标记、向下的大拇指、方古角色标记。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Fang_Gu",
   "how_to_run": {
     "cn": "在初始设置时，将角色标记放入盲抽袋前，把一个镇民角色标记替换为一个外来者角色标记。\n除首个夜晚外的每个夜晚，唤醒方古。让他指向一名玩家。让方古重新入睡。\n如果被选择的玩家不是外来者，为那名玩家放置“死亡”提示标记。\n如果被选择的玩家是外来者，且“限一次”提示标记已经被放置在魔典中，也为那名玩家放置“死亡”标记。\n如果被选择的玩家是外来者，且“限一次”提示标记不在魔典中，在原来的方古旁放置“死亡”提示标记。唤醒被选择的外来者。依次向他展示“你是”信息标记、向下的大拇指、方古角色标记。用多出的方古标记替换他的角色标记，且他转为邪恶阵营。让新方古重新入睡。把“限一次”标记放在魔典中心。（与“每局游戏限一次”能力不同，这个标记在接下来的游戏中始终留在那里，即使方古死亡或改变角色。）",
     "en": "While setting up the game, before putting character tokens in the bag, add one extra Outsider character token and remove one Townsfolk character token.\nEach night except the first, wake the Fang Gu. They point at any player. Put the Fang Gu to sleep.\nIf the chosen player is not an Outsider, that player dies—mark them with the DEAD reminder.\nIf the chosen player is an Outsider and the ONCE reminder is in the center of the Grimoire, that player dies—mark them with the DEAD reminder.\nIf the chosen player is an Outsider and the ONCE reminder is not in the centre of the Grimoire, the Fang Gu dies—mark them with the DEAD reminder. Wake the chosen Outsider. Show them the YOU ARE info token, then the Fang Gu token, then the YOU ARE info token, then a thumbs-down. Change their character to a Fang Gu—swap their character token with the spare Fang Gu token. They become evil. Put the new Fang Gu to sleep. Put the ONCE reminder in the center of the Grimoire. (Unlike “Once per game” abilities, this reminder stays there for the rest of the game. Don’t remove it, even if the Fang Gu dies or changes character.)"
@@ -79,5 +76,6 @@
       "reason": "If there would be two Demons, one of which was the Scarlet Woman, the Scarlet Woman remains the Scarlet Woman."
     }
   ],
-  "image": "assets/tokens/fang_gu.png"
+  "image": "assets/tokens/fang_gu.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Fang_Gu"
 }

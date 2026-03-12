@@ -3,32 +3,29 @@
   "type": "townsfolk",
   "name": {
     "en": "Washerwoman",
-    "es-419": "Lavandera",
+    "es": "Lavandera",
     "sv": "Tvätterskan",
-    "zh-Hans": "洗衣妇",
     "cn": "洗衣妇"
   },
   "ability": {
     "en": "You start knowing that 1 of 2 players is a particular Townsfolk.",
-    "es-419": "Empiezas conociendo que 1 de 2 jugadores es un Ciudadano en particular.",
+    "es": "Empiezas conociendo que 1 de 2 jugadores es un Ciudadano en particular.",
     "sv": "I början vet du att 1 av 2 spelare är en viss Bybo.",
-    "zh-Hans": "在你的首个夜晚，你会得知两名玩家和一个镇民角色：这两名玩家之一是该角色。",
     "cn": "在你的首个夜晚，你会得知两名玩家和一个镇民角色：这两名玩家之一是该角色。"
   },
-  "flavor_text": {
-    "en": "\"Bloodstains on a dinner jacket? No, this is cooking sherry. How careless.\"",
-    "es-419": "¿Manchas de sangre en una chaqueta formal? No, es vino para cocinar. Qué descuidados.",
+  "flavor": {
+    "en": "Bloodstains on a dinner jacket? No, this is cooking sherry. How careless.",
+    "es": "¿Manchas de sangre en una chaqueta formal? No, es vino para cocinar. Qué descuidados.",
     "sv": "Blodfläckar på smokingen? Nej, det är matlagningssherry. Så vårdslöst.",
-    "zh-Hans": "晚礼服上的血渍？才不是呢，这只是洒上了雪莉酒。真粗心！",
-    "cn": "“晚礼服上的血渍？\n才不是呢，这只是洒上了雪莉酒。真粗心！”"
+    "zh": "晚礼服上的血渍？才不是呢，这只是洒上了雪莉酒。真粗心！",
+    "cn": "晚礼服上的血渍？\n才不是呢，这只是洒上了雪莉酒。真粗心！"
   },
   "first_night": {
     "en": "Show the Townsfolk character token. Point to both the *TOWNSFOLK* and *WRONG* players.",
-    "es-419": "Muéstrale la ficha de rol de un Ciudadano. Apunta tanto al *CIUDADANO* como al jugador *EQUIVOCADO*.",
+    "es": "Muéstrale la ficha de rol de un Ciudadano. Apunta tanto al *CIUDADANO* como al jugador *EQUIVOCADO*.",
     "sv": "Visa Bybons rollbricka. Peka på spelarna märkta *BYBO* och *FEL*.",
-    "zh-Hans": "指向标记有“镇民”和“错误”的玩家。将标记有“镇民”的玩家标记展示给洗衣妇。"
+    "zh": "指向标记有“镇民”和“错误”的玩家。将标记有“镇民”的玩家标记展示给洗衣妇。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Washerwoman",
   "how_to_run": {
     "cn": "在为首个夜晚进行准备时，将洗衣妇的“镇民”提示标记放置在任意一个镇民角色标记旁，然后将洗衣妇的“错误”提示标记放置在任意其他角色标记旁。\n在首个夜晚里，唤醒洗衣妇，并指向标记有“镇民”和“错误”的玩家。将标记有“镇民”的玩家标记展示给洗衣妇。让洗衣妇重新入睡。在说书人方便的时候，移除洗衣妇的提示标记。",
     "en": "While preparing the first night, put the Washerwoman's TOWNSFOLK reminder token by any Townsfolk character token, and put the Washerwoman's WRONG reminder token by any other character token.\nDuring the first night, wake the Washerwoman and point to the players marked TOWNSFOLK and WRONG. Show the character token marked TOWNSFOLK to the Washerwoman. Put the Washerwoman to sleep. Remove the Washerwoman's reminder tokens when convenient."
@@ -84,5 +81,6 @@
     "trouble_brewing"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/washerwoman.png"
+  "image": "assets/tokens/washerwoman.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Washerwoman"
 }

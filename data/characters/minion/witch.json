@@ -3,38 +3,34 @@
   "type": "minion",
   "name": {
     "en": "Witch",
-    "es-419": "Bruja",
+    "es": "Bruja",
     "sv": "Häxan",
-    "zh-Hans": "女巫",
     "cn": "女巫"
   },
   "ability": {
     "en": "Each night, choose a player: if they nominate tomorrow, they die. If just 3 players live, you lose this ability.",
-    "es-419": "Cada noche, escoge un jugador: si él nomina mañana, él muere. Si solo 3 jugadores viven, pierdes esta habilidad.",
+    "es": "Cada noche, escoge un jugador: si él nomina mañana, él muere. Si solo 3 jugadores viven, pierdes esta habilidad.",
     "sv": "Varje natt väljer du en spelare; om hen nominerar imorgon dör hen. Om bara 3 spelare lever förlorar du denna förmåga.",
-    "zh-Hans": "每个夜晚，你要选择一名玩家：如果他明天白天发起提名，他死亡。如果只有三名存活的玩家，你失去此能力。",
     "cn": "每个夜晚，你要选择一名玩家：如果他明天白天发起提名，他死亡。如果只有三名存活的玩家，你失去此能力。"
   },
-  "flavor_text": {
-    "en": "\"Three drops of goat's blood. A lock of hair, torn in anger. The name is spoken, the shadow cast. Walk left foot first down that brambled path, and don't look back.\"",
-    "es-419": "Tres gotas de sangre de cabra. Un mechón de pelo, arrancado con furia. Pronuncia el nombre, proyecta la sombra. Camina con el pie izquierdo primero por ese sendero de arbustos, y no mires atrás.",
+  "flavor": {
+    "en": "Three drops of goat's blood. A lock of hair, torn in anger. The name is spoken, the shadow cast. Walk left foot first down that brambled path, and don't look back.",
+    "es": "Tres gotas de sangre de cabra. Un mechón de pelo, arrancado con furia. Pronuncia el nombre, proyecta la sombra. Camina con el pie izquierdo primero por ese sendero de arbustos, y no mires atrás.",
     "sv": "Tre droppar getblod. En hårlock, avsliten i vrede. Namnet är talat, skuggan är kastad. Gå med vänster fot först längs törnestigen, och se dig inte om.",
-    "zh-Hans": "山羊之血，三滴落下。一绺头发，怒意迸发。名字被说出，阴影被放大。左脚踏上荆棘路，莫要回头看它。",
-    "cn": "“山羊之血，三滴落下。一绺头发，怒意迸发。名字被说出，阴影被放大。左脚踏上荆棘路，莫要回头看它。”"
+    "cn": "山羊之血，三滴落下。一绺头发，怒意迸发。名字被说出，阴影被放大。左脚踏上荆棘路，莫要回头看它。"
   },
   "first_night": {
     "en": "The Witch chooses a player. :reminder:",
-    "es-419": "La Bruja escoge un jugador. :reminder:",
+    "es": "La Bruja escoge un jugador. :reminder:",
     "sv": "Häxan väljer en spelare. :reminder:",
-    "zh-Hans": "女巫选择一名玩家。:reminder:"
+    "zh": "女巫选择一名玩家。:reminder:"
   },
   "other_nights": {
     "en": "The Witch chooses a player. :reminder:",
-    "es-419": "La Bruja escoge un jugador. :reminder:",
+    "es": "La Bruja escoge un jugador. :reminder:",
     "sv": "Häxan väljer en spelare. :reminder:",
-    "zh-Hans": "女巫选择一名玩家。:reminder:"
+    "zh": "女巫选择一名玩家。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Witch",
   "how_to_run": {
     "cn": "每个夜晚，唤醒女巫。让她指向一名玩家。让女巫重新入睡。在被选择的玩家角色标记旁放置“被诅咒”提示标记。下个白天，如果被标记为“被诅咒”的玩家发起了提名，立即宣布他死亡。（提名正常进行）",
     "en": "Each night, wake the Witch. They point at any player. Put the Witch to sleep. Mark the chosen player with the CURSED reminder.\nThe next day, if the player marked CURSED makes a nomination, immediately declare that they die. (Nominations continue as normal.)"
@@ -86,5 +82,6 @@
     "sects_violets"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/witch.png"
+  "image": "assets/tokens/witch.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Witch"
 }

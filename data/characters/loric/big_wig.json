@@ -4,22 +4,19 @@
   "name": {
     "en": "Big Wig",
     "sv": "Talmannen",
-    "zh-Hans": "首席律师",
     "cn": "首席律师"
   },
   "ability": {
     "en": "Each nominee chooses a player: until voting, only they may speak & they are mad the nominee is good or they might die.",
     "sv": "Nominerade väljer en spelare; fram till röstning får bara hen prata och hen är galen att den nominerade är god, eller kanske dör.",
-    "zh-Hans": "每个被提名者要选择一名玩家：在投票前，只有他可以发言，并且他要“疯狂”地证明被提名者是善良的，否则他可能死亡。",
     "cn": "每个被提名者要选择一名玩家：在投票前，只有他可以发言，并且他要“疯狂”地证明被提名者是善良的，否则他可能死亡。"
   },
-  "flavor_text": {
+  "flavor": {
     "en": "Vanity asks ‘Is it popular?’ Cowardice asks ‘Is it safe?’ Conscience asks ‘Is it right?’ Who among us will ask: ‘Is it true?’",
     "sv": "Fåfängan frågar om det är populärt. Fegheten frågar om det är säkert. Samvetet frågar om det är rätt. Vem av oss frågar om det är sant?",
-    "zh-Hans": "虚荣会问：‘这受欢迎吗？’懦弱会问：‘这安全吗？’良知会问：‘这对吗？’那我们之中，谁敢问一句：‘这是真的吗？’",
-    "cn": "“虚荣会问：‘这受欢迎吗？’\n懦弱会问：‘这安全吗？’\n良知会问：‘这对吗？’\n那我们之中，谁敢问一句：\n‘这是真的吗？’”"
+    "zh": "虚荣会问：‘这受欢迎吗？’懦弱会问：‘这安全吗？’良知会问：‘这对吗？’那我们之中，谁敢问一句：‘这是真的吗？’",
+    "cn": "虚荣会问：‘这受欢迎吗？’\n懦弱会问：‘这安全吗？’\n良知会问：‘这对吗？’\n那我们之中，谁敢问一句：\n‘这是真的吗？’"
   },
-  "source_url": "https://raw.githubusercontent.com/ThePandemoniumInstitute/botc-translations/main/game/zh_Hans.json",
   "how_to_run": {
     "cn": "每当一名玩家被提名时，让他选择一名玩家。宣布在投票开始前，只有这名玩家可以发言。在这段时间内，如果这名玩家没有“疯狂”地证明被提名者是善良的，他可能死亡。"
   },

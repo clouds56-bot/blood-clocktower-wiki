@@ -3,38 +3,34 @@
   "type": "minion",
   "name": {
     "en": "Cerenovus",
-    "es-419": "Cerenovus",
+    "es": "Cerenovus",
     "sv": "Cerenovus",
-    "zh-Hans": "洗脑师",
     "cn": "洗脑师"
   },
   "ability": {
     "en": "Each night, choose a player & a good character: they are \"mad\" they are this character tomorrow, or might be executed.",
-    "es-419": "Cada noche, escoge un jugador y un rol bueno: él está \"loco\" que es ese rol mañana, o quizás sea ejecutado.",
+    "es": "Cada noche, escoge un jugador y un rol bueno: él está \"loco\" que es ese rol mañana, o quizás sea ejecutado.",
     "sv": "Varje natt väljer du en spelare och en god roll; hen är ”galen” om att hen är den rollen imorgon, annars kanske hen avrättas.",
-    "zh-Hans": "每个夜晚，你要选择一名玩家和一个善良角色。他明天白天和夜晚需要“疯狂”地证明自己是这个角色，不然他可能被处决。",
     "cn": "每个夜晚，你要选择一名玩家和一个善良角色。他明天白天和夜晚需要“疯狂”地证明自己是这个角色，不然他可能被处决。"
   },
-  "flavor_text": {
-    "en": "\"Reality is merely an opinion. Specifically, my opinion.\"",
-    "es-419": "La realidad es solamente una opinión. En particular, mi opinión.",
+  "flavor": {
+    "en": "Reality is merely an opinion. Specifically, my opinion.",
+    "es": "La realidad es solamente una opinión. En particular, mi opinión.",
     "sv": "Verkligheten är bara en uppfattning. Närmare bestämt min uppfattning.",
-    "zh-Hans": "所谓的现实，其实，只是一种想法罢了。具体点来说，是我的想法。",
-    "cn": "“所谓的现实，其实，只是一种想法罢了。具体点来说，是我的想法。”"
+    "cn": "所谓的现实，其实，只是一种想法罢了。具体点来说，是我的想法。"
   },
   "first_night": {
     "en": "The Cerenovus chooses a player & a character. :reminder: Put the Cerenovus to sleep. Wake the target. Show the *THIS CHARACTER SELECTED YOU* token, the Cerenovus token, then the madness-character token.",
-    "es-419": "El Cerenovus escoge un jugador y un rol. :reminder: Pon al Cerenovus a dormir. Despierta al jugador escogido. Muéstrale la ficha de *ESTE ROL TE HA SELECCIONADO*, la ficha del Cerenovus, y luego la ficha de rol escogido.",
+    "es": "El Cerenovus escoge un jugador y un rol. :reminder: Pon al Cerenovus a dormir. Despierta al jugador escogido. Muéstrale la ficha de *ESTE ROL TE HA SELECCIONADO*, la ficha del Cerenovus, y luego la ficha de rol escogido.",
     "sv": "Cerenovus väljer en spelare och en roll. :reminder: Söv Cerenovus. Väck den valda spelaren. Visa kortet *DU PÅVERKAS AV*, Cerenovus bricka och sedan den valda rollens bricka.",
-    "zh-Hans": "洗脑师指向一名玩家和角色列表上一个镇民或外来者图标。让洗脑师重新入睡。为这名玩家放置“疯狂”提示标记并唤醒这名玩家，依次向他展示“该角色的能力对你生效”信息标记、洗脑师的角色标记、他要疯狂证明的角色标记。"
+    "zh": "洗脑师指向一名玩家和角色列表上一个镇民或外来者图标。让洗脑师重新入睡。为这名玩家放置“疯狂”提示标记并唤醒这名玩家，依次向他展示“该角色的能力对你生效”信息标记、洗脑师的角色标记、他要疯狂证明的角色标记。"
   },
   "other_nights": {
     "en": "The Cerenovus chooses a player & a character. :reminder: Put the Cerenovus to sleep. Wake the target. Show the *THIS CHARACTER SELECTED YOU* token, the Cerenovus token, then the madness-character token.",
-    "es-419": "El Cerenovus escoge un jugador y un rol. :reminder: Pon al Cerenovus a dormir. Despierta al jugador escogido. Muéstrale la ficha de *ESTE ROL TE HA SELECCIONADO*, la ficha del Cerenovus, y luego la ficha de rol escogido.",
+    "es": "El Cerenovus escoge un jugador y un rol. :reminder: Pon al Cerenovus a dormir. Despierta al jugador escogido. Muéstrale la ficha de *ESTE ROL TE HA SELECCIONADO*, la ficha del Cerenovus, y luego la ficha de rol escogido.",
     "sv": "Cerenovus väljer en spelare och en roll. :reminder: Söv Cerenovus. Väck den valda spelaren. Visa kortet *DU PÅVERKAS AV*, Cerenovus bricka och sedan den valda rollens bricka.",
-    "zh-Hans": "洗脑师指向一名玩家和角色列表上一个镇民或外来者图标。让洗脑师重新入睡。为这名玩家放置“疯狂”提示标记并唤醒这名玩家，依次向他展示“该角色的能力对你生效”信息标记、洗脑师的角色标记、他要疯狂证明的角色标记。"
+    "zh": "洗脑师指向一名玩家和角色列表上一个镇民或外来者图标。让洗脑师重新入睡。为这名玩家放置“疯狂”提示标记并唤醒这名玩家，依次向他展示“该角色的能力对你生效”信息标记、洗脑师的角色标记、他要疯狂证明的角色标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Cerenovus",
   "how_to_run": {
     "cn": "每个夜晚，唤醒洗脑师。让洗脑师指向一名玩家和角色列表上一个镇民或外来者图标。让洗脑师重新入睡。为这名玩家放置“疯狂”提示标记并唤醒这名玩家，依次向他展示“该角色的能力对你生效”信息标记、洗脑师的角色标记、他要疯狂证明的角色标记。让那名玩家重新入睡。\n在下一个白天或夜晚，如果被选择的玩家没有尽最大努力去说服其他玩家他是被选择的角色，你就可以处决他。向所有玩家宣布他的死亡。如果你在白天的常规处决前处决了他，则直接进入夜晚阶段。（每个白天最多一次处决。）",
     "en": "Each night, wake the Cerenovus. They point at any player and at any Townsfolk or Outsider icon on their character sheet. Put the Cerenovus to sleep. Mark the chosen player with the MAD reminder. Wake this player, show them the THIS CHARACTER SELECTED YOU info token, then the Cerenovus token, then the character token of the character they are mad about being. Put that player to sleep.\nDuring the next day or night, if you feel that the mad player has not done their best to convince the group they are this character, you can decide to execute them. Declare this to the group. They die. If you execute them during the day before the normal execution happens, go to the night phase. (There is a maximum of one execution per day.)"
@@ -100,5 +96,6 @@
       "reason": "The Cerenovus may choose to make a player mad that they are the Goblin."
     }
   ],
-  "image": "assets/tokens/cerenovus.png"
+  "image": "assets/tokens/cerenovus.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Cerenovus"
 }

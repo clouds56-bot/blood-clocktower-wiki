@@ -3,38 +3,34 @@
   "type": "townsfolk",
   "name": {
     "en": "Village Idiot",
-    "es-419": "Tonto del Pueblo",
+    "es": "Tonto del Pueblo",
     "sv": "Byfånen",
-    "zh-Hans": "村夫",
     "cn": "村夫"
   },
   "ability": {
     "en": "Each night, choose a player: you learn their alignment. [+0 to +2 Village Idiots. 1 of the extras is drunk]",
-    "es-419": "Cada noche, escoge un jugador: tú aprendes su alineamiento. [+0 a +2 Tontos del Pueblo. 1 de los adicionales está borracho]",
+    "es": "Cada noche, escoge un jugador: tú aprendes su alineamiento. [+0 a +2 Tontos del Pueblo. 1 de los adicionales está borracho]",
     "sv": "Varje natt väljer du en spelare; du får veta hens lag. [+0 till +2 extra Byfånar. 1 av de extra är full.]",
-    "zh-Hans": "每个夜晚，你要选择一名玩家：你会得知他的阵营。[+0~2村夫，复数村夫中有一人醉酒]",
     "cn": "每个夜晚，你要选择一名玩家：你会得知他的阵营。[+0~2村夫，复数村夫中有一人醉酒]"
   },
-  "flavor_text": {
-    "en": "\"Roses are blue, and violets are red, Please reverse what I just said.\"",
-    "es-419": "Las rosas son azules, las violetas son rojas, todo lo que digo con puras paradojas.",
+  "flavor": {
+    "en": "Roses are blue, and violets are red, Please reverse what I just said.",
+    "es": "Las rosas son azules, las violetas son rojas, todo lo que digo con puras paradojas.",
     "sv": "Violer är röda, rosor är blå. Vänd det jag sa, och låt vara så.",
-    "zh-Hans": "玫瑰花是蓝色哒！草桂花是红色哒！哦豁，俺说反啦！",
-    "cn": "“玫瑰花是蓝色哒！草桂花是红色哒！哦豁，俺说反啦！”"
+    "cn": "玫瑰花是蓝色哒！草桂花是红色哒！哦豁，俺说反啦！"
   },
   "first_night": {
     "en": "If there are multiple Village Idiots, mark one as *DRUNK*. :reminder: Wake the Village Idiots one at a time to choose a player. Give a thumb signal.",
-    "es-419": "Escoge a un Tonto del Pueblo para que esté borracho. Despierta a los Tontos del Pueblo uno por uno, ellos escogen un jugador, muéstrales pulgar arriba o pulgar abajo dependiendo del alineamiento de aquel jugador.",
+    "es": "Escoge a un Tonto del Pueblo para que esté borracho. Despierta a los Tontos del Pueblo uno por uno, ellos escogen un jugador, muéstrales pulgar arriba o pulgar abajo dependiendo del alineamiento de aquel jugador.",
     "sv": "Om det finns flera Byfånar, markera en som *FULL*. :reminder: Väck Byfånarna en i taget för att välja en spelare. Ge en tumsignal.",
-    "zh-Hans": "将村夫的“醉酒”提示标记放置到其中一个村夫角色标记旁。唤醒任意一名村夫。让他指向一名玩家。对他给出拇指向上或向下的手势。让他重新入睡。重复这个操作，直到所有村夫玩家都进行了夜晚行动。"
+    "zh": "将村夫的“醉酒”提示标记放置到其中一个村夫角色标记旁。唤醒任意一名村夫。让他指向一名玩家。对他给出拇指向上或向下的手势。让他重新入睡。重复这个操作，直到所有村夫玩家都进行了夜晚行动。"
   },
   "other_nights": {
     "en": "Wake the Village Idiots one at a time to choose a player. Give a thumb signal.",
-    "es-419": "Despierta a los Tontos del Pueblo uno por uno, ellos escogen un jugador, muéstrales pulgar arriba o pulgar abajo dependiendo del alineamiento de aquel jugador.",
+    "es": "Despierta a los Tontos del Pueblo uno por uno, ellos escogen un jugador, muéstrales pulgar arriba o pulgar abajo dependiendo del alineamiento de aquel jugador.",
     "sv": "Väck Byfånarna en i taget för att välja en spelare. Ge en tumsignal.",
-    "zh-Hans": "唤醒任意一名村夫。让他指向一名玩家。对他给出拇指向上或向下的手势。让他重新入睡。重复这个操作，直到所有村夫玩家都进行了夜晚行动。"
+    "zh": "唤醒任意一名村夫。让他指向一名玩家。对他给出拇指向上或向下的手势。让他重新入睡。重复这个操作，直到所有村夫玩家都进行了夜晚行动。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Village_Idiot",
   "how_to_run": {
     "cn": "在游戏设置时，将角色标记放入盲抽袋之前，使用额外的村夫角色标记替换掉其中的0~2个镇民角色标记。在为首个夜晚做准备时，（如果有超过一名村夫在场，）将村夫的“醉酒”提示标记放置到其中一个村夫角色标记旁。\n每个夜晚，唤醒任意一名村夫。让他指向一名玩家。对他给出拇指向上或向下的手势。让他重新入睡。重复这个操作，直到所有村夫玩家都进行了夜晚行动。",
     "en": "While setting up the game, before putting the character tokens in the bag, replace zero, one or two Townsfolk tokens with Village Idiot tokens. While preparing the first night, mark one Village Idiot with the DRUNK reminder.\nDuring each night, wake any Village Idiot. They point to a player. Give a thumbs up or a thumbs down. Put that Village Idiot to sleep. Repeat until all Village Idiots have acted."
@@ -89,5 +85,6 @@
       "reason": "If there is a spare token, the Pit-Hag can create an extra Village Idiot. If so, the drunk Village Idiot might change."
     }
   ],
-  "image": "assets/tokens/village_idiot.png"
+  "image": "assets/tokens/village_idiot.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Village_Idiot"
 }

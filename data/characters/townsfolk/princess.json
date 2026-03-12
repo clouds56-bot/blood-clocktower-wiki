@@ -3,32 +3,28 @@
   "type": "townsfolk",
   "name": {
     "en": "Princess",
-    "es-419": "Princesa",
+    "es": "Princesa",
     "sv": "Prinsessan",
-    "zh-Hans": "公主",
     "cn": "公主"
   },
   "ability": {
     "en": "On your 1st day, if you nominated & executed a player, the Demon doesn’t kill tonight.",
-    "es-419": "En tu 1er día, si tú nominaste y ejecutaste a un jugador, el Demonio no mata esta noche.",
+    "es": "En tu 1er día, si tú nominaste y ejecutaste a un jugador, el Demonio no mata esta noche.",
     "sv": "Om du nominerade och avrättade en spelare din första dag kan Demonen inte döda den natten.",
-    "zh-Hans": "在你的首个白天，如果你提名并处决了一名玩家，当晚恶魔不会造成死亡。",
     "cn": "在你的首个白天，如果你提名并处决了一名玩家，当晚恶魔不会造成死亡。"
   },
-  "flavor_text": {
-    "en": "\"Our words are hounds, bound by silken threads, dear lords. Let kindness weave them true, lest the reigns unravel and rend our court.\"",
-    "es-419": "Nuestras palabras son como sabuesos, atados con hilos de seda, queridos señores. Dejemos que la bondad los teja, y que las riendas no se deshagan y desgarren nuestra corte.",
+  "flavor": {
+    "en": "Our words are hounds, bound by silken threads, dear lords. Let kindness weave them true, lest the reigns unravel and rend our court.",
+    "es": "Nuestras palabras son como sabuesos, atados con hilos de seda, queridos señores. Dejemos que la bondad los teja, y que las riendas no se deshagan y desgarren nuestra corte.",
     "sv": "Våra ord är blodhundar bundna med silkestrådar, mitt herrskap. Väv dem med vänlighet, så inte tyglarna tvinnas upp och hovet slits i stycken.",
-    "zh-Hans": "言似猎犬，细语为绳；善念牵引，王廷方宁。",
-    "cn": "“言似猎犬，细语为绳；善念牵引，王廷方宁。”"
+    "cn": "言似猎犬，细语为绳；善念牵引，王廷方宁。"
   },
   "other_nights": {
     "en": "If the Princess nominated the player who was executed today, wake the Demon as normal, but no one dies to the Demon's ability. :reminder:",
-    "es-419": "Si la Princesa nominó al jugador que fue ejecutado hoy, el Demonio se despierta de forma normal, pero nadie muere a manos de la habilidad del Demonio.",
+    "es": "Si la Princesa nominó al jugador que fue ejecutado hoy, el Demonio se despierta de forma normal, pero nadie muere a manos de la habilidad del Demonio.",
     "sv": "Om det var Prinsessans första dag och hen nominerade den spelare som avrättades idag så vaknar Demonen som vanligt, men ingen dör av Demonens förmåga. :reminder:",
-    "zh-Hans": "如果今天白天公主提名并处决了一名玩家，和平常一样唤醒恶魔并让他选择一名玩家，但他不会造成死亡。"
+    "zh": "如果今天白天公主提名并处决了一名玩家，和平常一样唤醒恶魔并让他选择一名玩家，但他不会造成死亡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Princess",
   "how_to_run": {
     "cn": "在第一个白天，如果公主提名并处决了一名玩家，将“没有死亡”的提示标记放置在恶魔旁边。\n当晚，和平常一样唤醒恶魔并让他选择一名玩家，但他不会造成死亡。",
     "en": "If the Princess nominates and executes a player, mark the Demon with the DOESN'T KILL reminder.\nTonight, if the Demon would wake to choose a player, wake them as normal. The Demon does not kill."
@@ -72,5 +68,6 @@
       "reason": "If the Cannibal nominated, executed, & killed the Princess today, the Demon doesn’t kill tonight."
     }
   ],
-  "image": "assets/tokens/princess.png"
+  "image": "assets/tokens/princess.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Princess"
 }

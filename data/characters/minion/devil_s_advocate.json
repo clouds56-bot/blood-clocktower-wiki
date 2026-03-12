@@ -3,38 +3,34 @@
   "type": "minion",
   "name": {
     "en": "Devil's Advocate",
-    "es-419": "Abogado del Diablo",
+    "es": "Abogado del Diablo",
     "sv": "Advokaten",
-    "zh-Hans": "魔鬼代言人",
     "cn": "魔鬼代言人"
   },
   "ability": {
     "en": "Each night, choose a living player (different to last night): if executed tomorrow, they don't die.",
-    "es-419": "Cada noche, escoge un jugador vivo (diferente al de la noche anterior): si él es ejecutado mañana, no muere.",
+    "es": "Cada noche, escoge un jugador vivo (diferente al de la noche anterior): si él es ejecutado mañana, no muere.",
     "sv": "Varje natt väljer du en levande spelare (inte samma som sist); om hen avrättas imorgon dör hen inte.",
-    "zh-Hans": "每个夜晚，你要选择一名存活的玩家（与上个夜晚不同）：如果明天白天他被处决，他不会死亡。",
     "cn": "每个夜晚，你要选择一名存活的玩家（与上个夜晚不同）：如果明天白天他被处决，他不会死亡。"
   },
-  "flavor_text": {
-    "en": "\"My client, should the objection be overruled, pleads innocent by virtue of the prosecution's non-observance of statute 27.B - incorrect or misleading conjugation of a verb. The fact that nine of the jury died last night is simply prima facie, which is, as Wills vs Thule set precedent for, further reason to acquit.\"",
-    "es-419": "Mi cliente, en caso la objeción sea denegada, se declara inocente en virtud de la falta de observación del estatuto 27.B ‐ conjugación incorrecta o confusa de un verbo ‐ por parte de la fiscalía. El hecho de que nueve de los miembros del jurado hayan muerto anoche es simplemente prima facie, lo que, tal como lo establece el precedente sentado en Wills vs Thule, genera aún mayor razón para absolver.",
+  "flavor": {
+    "en": "My client, should the objection be overruled, pleads innocent by virtue of the prosecution's non-observance of statute 27.B - incorrect or misleading conjugation of a verb. The fact that nine of the jury died last night is simply prima facie, which is, as Wills vs Thule set precedent for, further reason to acquit.",
+    "es": "Mi cliente, en caso la objeción sea denegada, se declara inocente en virtud de la falta de observación del estatuto 27.B ‐ conjugación incorrecta o confusa de un verbo ‐ por parte de la fiscalía. El hecho de que nueve de los miembros del jurado hayan muerto anoche es simplemente prima facie, lo que, tal como lo establece el precedente sentado en Wills vs Thule, genera aún mayor razón para absolver.",
     "sv": "Skulle invändningen ogillas vill min klient dementera anklagelserna med hänvisning till kärandesidans underlåtenhet att efterleva paragraf 27b: felaktig eller vilseledande verbkonjugation. Det faktum att nio juryledamöter avled igår kväll är helt enkelt prima facie, vilket – enligt prejudikat efter Larsson mot Thule – är ytterligare skäl att fria.",
-    "zh-Hans": "如果异议被驳回，我的委托人将进行无罪申辩，理由是控方不遵守法规第27章B条——针对动词进行非正确或误导性的词形变化。昨晚有九名陪审团成员死亡，这个事实只不过是表面证据，正如威尔斯诉图勒案所开创的先例，这是无罪释放的进一步理由。",
-    "cn": "“如果异议被驳回，我的委托人将进行无罪申辩，理由是控方不遵守法规第27章B条——针对动词进行非正确或误导性的词形变化。昨晚有九名陪审团成员死亡，这个事实只不过是表面证据，正如威尔斯诉图勒案所开创的先例，这是无罪释放的进一步理由。”"
+    "cn": "如果异议被驳回，我的委托人将进行无罪申辩，理由是控方不遵守法规第27章B条——针对动词进行非正确或误导性的词形变化。昨晚有九名陪审团成员死亡，这个事实只不过是表面证据，正如威尔斯诉图勒案所开创的先例，这是无罪释放的进一步理由。"
   },
   "first_night": {
     "en": "The Devil's Advocate chooses a living player. :reminder:",
-    "es-419": "El Abogado del Diablo escoge un jugador vivo. :reminder:",
+    "es": "El Abogado del Diablo escoge un jugador vivo. :reminder:",
     "sv": "Advokaten väljer en levande spelare. :reminder:",
-    "zh-Hans": "魔鬼代言人选择一名存活玩家。:reminder:"
+    "zh": "魔鬼代言人选择一名存活玩家。:reminder:"
   },
   "other_nights": {
     "en": "The Devil's Advocate chooses a living player. :reminder:",
-    "es-419": "El Abogado del Diablo escoge un jugador vivo. :reminder:",
+    "es": "El Abogado del Diablo escoge un jugador vivo. :reminder:",
     "sv": "Advokaten väljer en levande spelare. :reminder:",
-    "zh-Hans": "魔鬼代言人选择一名存活玩家。:reminder:"
+    "zh": "魔鬼代言人选择一名存活玩家。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Devil%27s_Advocate",
   "how_to_run": {
     "cn": "每个夜晚，唤醒魔鬼代言人。让魔鬼代言人指向任意一名玩家。如果魔鬼代言人选择了他上一夜曾选择的玩家或已死亡的玩家，提醒他更换目标。让魔鬼代言人重新入睡。将“处决不死”提示标记放置到该玩家的角色标记旁。\n如果标有“处决不死”的玩家被处决，宣布该玩家被处决但依然存活。（不要说明原因。）",
     "en": "Each night, wake the Devil’s Advocate. They point at any player. Put the Devil’s Advocate to sleep. Mark the chosen player with the SURVIVES EXECUTION reminder.\nIf a player marked SURVIVES EXECUTION is executed, declare that the player was executed but remains alive. (Do not say why.)"
@@ -79,5 +75,6 @@
     "bad_moon_rising"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/devil_s_advocate.png"
+  "image": "assets/tokens/devil_s_advocate.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Devil%27s_Advocate"
 }

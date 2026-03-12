@@ -3,26 +3,22 @@
   "type": "minion",
   "name": {
     "en": "Goblin",
-    "es-419": "Duende",
+    "es": "Duende",
     "sv": "Vätten",
-    "zh-Hans": "哥布林",
     "cn": "哥布林"
   },
   "ability": {
     "en": "If you publicly claim to be the Goblin when nominated & are executed that day, your team wins.",
-    "es-419": "Si declaras públicamente que eres el Duende cuando estás nominado y eres ejecutado ese día, tu equipo gana.",
+    "es": "Si declaras públicamente que eres el Duende cuando estás nominado y eres ejecutado ese día, tu equipo gana.",
     "sv": "Om du öppet säger att du är Vätten när du nomineras, och därefter avrättas, så vinner ditt lag.",
-    "zh-Hans": "如果你在被提名后公开声明自己是哥布林且在那个白天被处决，你的阵营获胜。",
     "cn": "如果你在被提名后公开声明自己是哥布林且在那个白天被处决，你的阵营获胜。"
   },
-  "flavor_text": {
-    "en": "\"You don’t want to insult the goblins. You really, really don’t. On a completely different note… can I have another piece of cake?\"",
-    "es-419": "No vayas a insultar a los duendes. De verdad, de a de veras, no lo hagas. Cambiando completamente de tema…¿me das otro trozo de pastel?",
+  "flavor": {
+    "en": "You don’t want to insult the goblins. You really, really don’t. On a completely different note… can I have another piece of cake?",
+    "es": "No vayas a insultar a los duendes. De verdad, de a de veras, no lo hagas. Cambiando completamente de tema…¿me das otro trozo de pastel?",
     "sv": "Du vill inte förolämpa vättarna. Det vill du verkligen, verkligen inte… Apropå ingenting, kan jag få mer tårta?",
-    "zh-Hans": "你不会想要侮辱哥布林的。你真的，真的不会。让我们换个话题……我能再吃一块蛋糕吗？",
-    "cn": "“你不会想要侮辱哥布林的。你真的，真的不会。让我们换个话题……我能再吃一块蛋糕吗？”"
+    "cn": "你不会想要侮辱哥布林的。你真的，真的不会。让我们换个话题……我能再吃一块蛋糕吗？"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Goblin",
   "how_to_run": {
     "cn": "如果哥布林在被提名后，投票开始前宣称自己是哥布林，复述他的发言以便让所有玩家都能清楚听见。将“已宣称”提示标记放置在哥布林的角色标记旁。\n如果哥布林在被处决时带有“已宣称”标记，宣布邪恶阵营获胜。\n如果一名不是哥布林的玩家宣称自己是哥布林，如常进行相关操作。向所有玩家宣布他宣称自己是哥布林，并假装在魔典中移动提示标记。",
     "en": "If the Goblin claims to be the Goblin when nominated (and before voting begins), declare that this player has claimed to be the Goblin, so that all the group hears. Put the CLAIMED reminder by the Goblin token.\nIf the Goblin is executed, and they are marked CLAIMED, then declare that evil wins.\nIf a non-Goblin player claims to be the Goblin when nominated, act as if they are the Goblin. Declare to the group that they have claimed to be the Goblin and pretend to move a reminder token in the Grimoire."
@@ -99,5 +95,6 @@
       "reason": "If the Storyteller would gain the Goblin ability, a Minion gains it, and learns this."
     }
   ],
-  "image": "assets/tokens/goblin.png"
+  "image": "assets/tokens/goblin.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Goblin"
 }

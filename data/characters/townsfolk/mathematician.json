@@ -3,38 +3,34 @@
   "type": "townsfolk",
   "name": {
     "en": "Mathematician",
-    "es-419": "Matemático",
+    "es": "Matemático",
     "sv": "Matematikern",
-    "zh-Hans": "数学家",
     "cn": "数学家"
   },
   "ability": {
     "en": "Each night, you learn how many players' abilities worked abnormally (since dawn) due to another character's ability.",
-    "es-419": "Cada noche, tú aprendes a cuantos jugadores les funcionó anormalmente su habilidad (desde el amanecer) debido a las habilidades de otros roles.",
+    "es": "Cada noche, tú aprendes a cuantos jugadores les funcionó anormalmente su habilidad (desde el amanecer) debido a las habilidades de otros roles.",
     "sv": "Varje natt får du veta hur många spelares förmågor som fungerat onormalt sedan gryningen p.g.a. andra spelares förmågor.",
-    "zh-Hans": "每个夜晚，你会得知有多少名玩家的能力因为其他角色的能力而未正常生效。（从上个黎明到你被唤醒时）",
     "cn": "每个夜晚，你会得知有多少名玩家的能力因为其他角色的能力而未正常生效。（从上个黎明到你被唤醒时）"
   },
-  "flavor_text": {
-    "en": "\"Any consistent formal system x, within which a certain amount of elementary arithmetic can be carried out is incomplete; that is, there are statements of the language of x which can neither be proved nor disproved in x. Ergo, you are drunk.\"",
-    "es-419": "Cualquier sistema formal consistente x, dentro del cual se puede realizar cierta cantidad de aritmética básica, es incompleto; es decir, hay declaraciones del lenguaje x que no se pueden probar ni refutar en x. Ergo, estás borracho.",
+  "flavor": {
+    "en": "Any consistent formal system x, within which a certain amount of elementary arithmetic can be carried out is incomplete; that is, there are statements of the language of x which can neither be proved nor disproved in x. Ergo, you are drunk.",
+    "es": "Cualquier sistema formal consistente x, dentro del cual se puede realizar cierta cantidad de aritmética básica, es incompleto; es decir, hay declaraciones del lenguaje x que no se pueden probar ni refutar en x. Ergo, estás borracho.",
     "sv": "Varje givet konsistent formellt system x, inom vilket en viss mängd elementär aritmetik kan utföras, är ofullständigt; det vill säga att det finns uttalanden på språket i x som varken kan bekräftas eller falsifieras i x. Ergo, du är full.",
-    "zh-Hans": "任何连续的，且能进行定量初等运算的形式系统X，都具有不完全性。也就是说，在这个形式系统X内存在一些命题，这些命题既不能被证明为真，也不能被证明为否。所以，你喝醉了。",
-    "cn": "“任何连续的，且能进行定量初等运算的形式系统X，都具有不完全性。也就是说，在这个形式系统X内存在一些命题，这些命题既不能被证明为真，也不能被证明为否。所以，你喝醉了。”"
+    "cn": "任何连续的，且能进行定量初等运算的形式系统X，都具有不完全性。也就是说，在这个形式系统X内存在一些命题，这些命题既不能被证明为真，也不能被证明为否。所以，你喝醉了。"
   },
   "first_night": {
     "en": "Give a finger signal.",
-    "es-419": "Dale una señal con los dedos.",
+    "es": "Dale una señal con los dedos.",
     "sv": "Ge en fingersignal.",
-    "zh-Hans": "用手势比划数字（0，1，2 等）。"
+    "zh": "用手势比划数字（0，1，2 等）。"
   },
   "other_nights": {
     "en": "Give a finger signal.",
-    "es-419": "Dale una señal con los dedos.",
+    "es": "Dale una señal con los dedos.",
     "sv": "Ge en fingersignal.",
-    "zh-Hans": "用手势比划数字（0，1，2 等）。"
+    "zh": "用手势比划数字（0，1，2 等）。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Mathematician",
   "how_to_run": {
     "cn": "每当一名玩家的角色能力由于其他角色的能力而未正常生效时，在该玩家的角色标记旁放置“未正常生效”提示标记。\n每个夜晚，唤醒数学家。对他用手势比划数字（0，1，2 等），这个数字等同于魔典中\"未正常生效\"提示标记的数量。让数学家重新入睡。移除所有\"未正常生效\" 提示标记。",
     "en": "Each time a character's ability works abnormally due to another character's ability, mark them with an ABNORMAL reminder.\nEach night, wake the Mathematician. Show fingers (0, 1, 2, etc.) equaling the number of characters with ABNORMAL reminders. Put the Mathematician to sleep. Remove all ABNORMAL reminders."
@@ -97,5 +93,6 @@
       "reason": "The Mathematician might learn if the Marionette's ability yielded false info or failed to work properly."
     }
   ],
-  "image": "assets/tokens/mathematician.png"
+  "image": "assets/tokens/mathematician.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Mathematician"
 }

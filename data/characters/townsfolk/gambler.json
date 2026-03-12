@@ -3,32 +3,29 @@
   "type": "townsfolk",
   "name": {
     "en": "Gambler",
-    "es-419": "Ludópata",
+    "es": "Ludópata",
     "sv": "Dobblaren",
-    "zh-Hans": "赌徒",
     "cn": "赌徒"
   },
   "ability": {
     "en": "Each night*, choose a player & guess their character: if you guess wrong, you die.",
-    "es-419": "Cada noche*, escoge un jugador y adivina su rol: si adivinas incorrectamente, mueres.",
+    "es": "Cada noche*, escoge un jugador y adivina su rol: si adivinas incorrectamente, mueres.",
     "sv": "Varje natt* väljer du en spelare och gissar hens roll; om du gissar fel dör du.",
-    "zh-Hans": "每个夜晚*，你要选择一名玩家并猜测该玩家的角色：如果你猜错了，你会死亡。",
     "cn": "每个夜晚*，你要选择一名玩家并猜测该玩家的角色：如果你猜错了，你会死亡。"
   },
-  "flavor_text": {
-    "en": "\"Heads, I win. Tails, you lose.\"",
-    "es-419": "Cara, yo gano. Cruz, tú pierdes.",
+  "flavor": {
+    "en": "Heads, I win. Tails, you lose.",
+    "es": "Cara, yo gano. Cruz, tú pierdes.",
     "sv": "Krona så vinner jag. Klave så förlorar du.",
-    "zh-Hans": "正面，我赢。反面，你输。",
-    "cn": "“正面，我赢。\n反面，你输。”"
+    "zh": "正面，我赢。反面，你输。",
+    "cn": "正面，我赢。\n反面，你输。"
   },
   "other_nights": {
     "en": "The Gambler chooses a player & a character. :reminder:",
-    "es-419": "El Ludópata escoge un jugador y un rol. :reminder:",
+    "es": "El Ludópata escoge un jugador y un rol. :reminder:",
     "sv": "Dobblaren väljer en spelare och en roll. :reminder:",
-    "zh-Hans": "赌徒选择一名玩家&一个角色。:reminder:"
+    "zh": "赌徒选择一名玩家&一个角色。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Gambler",
   "how_to_run": {
     "cn": "除了首个夜晚以外的每个夜晚，唤醒赌徒。让赌徒指向任意一名玩家，然后指向角色列表上的任意一个角色图标。让赌徒重新入睡。如果所选的玩家的角色和所选角色图标不同，赌徒死亡——将“死亡”提示标记放置到赌徒的角色标记旁。",
     "en": "Each night except the first, wake the Gambler. They point at any player, then point at any character icon on their character sheet. Put the Gambler to sleep. If the chosen player is a different character from the chosen character icon, the Gambler dies—mark them with the DEAD reminder."
@@ -67,5 +64,6 @@
     "bad_moon_rising"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/gambler.png"
+  "image": "assets/tokens/gambler.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Gambler"
 }

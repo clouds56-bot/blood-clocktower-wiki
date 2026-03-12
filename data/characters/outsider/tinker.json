@@ -3,32 +3,28 @@
   "type": "outsider",
   "name": {
     "en": "Tinker",
-    "es-419": "Mil Oficios",
+    "es": "Mil Oficios",
     "sv": "Mekaren",
-    "zh-Hans": "修补匠",
     "cn": "修补匠"
   },
   "ability": {
     "en": "You might die at any time.",
-    "es-419": "Quizás mueras en cualquier momento.",
+    "es": "Quizás mueras en cualquier momento.",
     "sv": "Du kanske dör när som helst.",
-    "zh-Hans": "你随时可能死亡。",
     "cn": "你随时可能死亡。"
   },
-  "flavor_text": {
-    "en": "\"I think I see the problem. Luckily, I have an idea! This catapult will shoot twice as far with just a minor adjustment...\"",
-    "es-419": "Creo que ya veo el problema. ¡Felizmente, tengo una idea! Esta catapulta lanzará dos veces más lejos con solo un pequeño ajuste…",
+  "flavor": {
+    "en": "I think I see the problem. Luckily, I have an idea! This catapult will shoot twice as far with just a minor adjustment...",
+    "es": "Creo que ya veo el problema. ¡Felizmente, tengo una idea! Esta catapulta lanzará dos veces más lejos con solo un pequeño ajuste…",
     "sv": "Jag tror jag vet vad problemet är. Som tur är så har jag en idé! En smärre justering är allt som krävs för att få katapulten att skjuta dubbelt så långt…",
-    "zh-Hans": "我觉得我发现问题所在了。幸运的是，我有一个想法！这能让这台投石车的发射距离变成原来的两倍，而这只需要些微的调……",
-    "cn": "“我觉得我发现问题所在了。幸运的是，我有一个想法！这能让这台投石车的发射距离变成原来的两倍，而这只需要些微的调……”"
+    "cn": "我觉得我发现问题所在了。幸运的是，我有一个想法！这能让这台投石车的发射距离变成原来的两倍，而这只需要些微的调……"
   },
   "other_nights": {
     "en": "The Tinker might die. :reminder:",
-    "es-419": "El Mil Oficios quizás muera. :reminder:",
+    "es": "El Mil Oficios quizás muera. :reminder:",
     "sv": "Mekaren kanske dör. :reminder:",
-    "zh-Hans": "修补匠可能死亡。:reminder:"
+    "zh": "修补匠可能死亡。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Tinker",
   "how_to_run": {
     "cn": "在任何时候，你都可以决定让修补匠死亡。如果是在白天，立即宣布修补匠刚刚死亡。如果是在夜晚，将“死亡”提示标记放置到修补匠的角色标记旁，等到黎明再宣布这个夜晚有哪些玩家死亡了。（不要说出修补匠的死亡原因。）\n虽然你可以在白天冷不丁地杀死修补匠，但是修补匠还是死在夜晚会更有意思，因为玩家们会想知道修补匠到底是因为自己的能力死亡的，还是因为别的什么原因。 \n你可以一直不杀死修补匠。这会让他看起来非常可疑。 \n如果杀死修补匠会导致游戏结束，那我们推荐你永远不要在这种情况下杀死他。游戏的获胜与否应当靠玩家自己的努力，而不是看说书人的脸色。",
     "en": "At any time, you may decide that the Tinker dies. If this is during the day, immediately declare that the Tinker has died. If this is during the night, mark the Tinker with the DEAD reminder and wait until dawn to declare which players died during the night. (Do not say how.)\nWhile you may kill the Tinker out of the blue during the day, it is most interesting if the Tinker dies at night, because the players will be wondering whether the Tinker died due to their ability or for some other reason.\n\n\nYou can choose to never kill the Tinker. This makes the Tinker look really suspicious.\n\n\nWe recommend that you never kill the Tinker when it would end the game. Players should win or lose by their own efforts, not Storyteller fiat."
@@ -69,5 +65,6 @@
     "bad_moon_rising"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/tinker.png"
+  "image": "assets/tokens/tinker.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Tinker"
 }

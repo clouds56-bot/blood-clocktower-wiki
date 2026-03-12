@@ -3,32 +3,28 @@
   "type": "traveller",
   "name": {
     "en": "Apprentice",
-    "es-419": "Aprendiz",
+    "es": "Aprendiz",
     "sv": "Lärlingen",
-    "zh-Hans": "学徒",
     "cn": "学徒"
   },
   "ability": {
     "en": "On your 1st night, you gain a Townsfolk ability (if good) or a Minion ability (if evil).",
-    "es-419": "En tu 1era noche, ganas la habilidad de un Ciudadano (si eres bueno), o la habilidad de un Secuaz (si eres malvado).",
+    "es": "En tu 1era noche, ganas la habilidad de un Ciudadano (si eres bueno), o la habilidad de un Secuaz (si eres malvado).",
     "sv": "Din första natt får du en Bybos förmåga (om du är god) eller en Kumpans (om du är ond).",
-    "zh-Hans": "在你的首个夜晚，如果你是善良的，你会获得一个镇民角色的能力；如果你是邪恶的，你会获得一个爪牙角色的能力。",
     "cn": "在你的首个夜晚，如果你是善良的，你会获得一个镇民角色的能力；如果你是邪恶的，你会获得一个爪牙角色的能力。"
   },
-  "flavor_text": {
-    "en": "\"For years have I traveled, studying the ways of The Craft. Which craft, you ask? Simply that of the simple folk. Nothing to worry about. Not yet.\"",
-    "es-419": "Por años he viajado, estudiando los caminos del Oficio. ¿Qué oficio, me preguntas? Simplemente el de la gente sencilla. Nada de qué preocuparse. Aún no.",
+  "flavor": {
+    "en": "For years have I traveled, studying the ways of The Craft. Which craft, you ask? Simply that of the simple folk. Nothing to worry about. Not yet.",
+    "es": "Por años he viajado, estudiando los caminos del Oficio. ¿Qué oficio, me preguntas? Simplemente el de la gente sencilla. Nada de qué preocuparse. Aún no.",
     "sv": "Många år har jag vandrat och studerat hantverket. Vilket hantverk? Bara det enkla folkets. Inget att oroa sig för. Inte än.",
-    "zh-Hans": "这么多年来，我一路上不停地在学习各种各样的手艺。你问我学的是什么手艺？简单说都是一些普通的手艺，没什么好担心的，至少现在不必。",
-    "cn": "“这么多年来，我一路上不停地在学习各种各样的手艺。你问我学的是什么手艺？简单说都是一些普通的手艺，没什么好担心的，至少现在不必。”"
+    "cn": "这么多年来，我一路上不停地在学习各种各样的手艺。你问我学的是什么手艺？简单说都是一些普通的手艺，没什么好担心的，至少现在不必。"
   },
   "first_night": {
     "en": "Show the *YOU ARE* info token, then a Townsfolk or Minion token. Swap the Apprentice & Townsfolk or Minion tokens. :reminder:",
-    "es-419": "Muéstrale al Aprendiz la ficha *TÚ ERES*, luego una ficha de Ciudadano o de Secuaz. En el Grimorio, reemplaza la ficha del Aprendiz con esa ficha de rol, y pon la ficha de recordatorio *ES EL APRENDIZ* al lado de esa ficha de rol.",
+    "es": "Muéstrale al Aprendiz la ficha *TÚ ERES*, luego una ficha de Ciudadano o de Secuaz. En el Grimorio, reemplaza la ficha del Aprendiz con esa ficha de rol, y pon la ficha de recordatorio *ES EL APRENDIZ* al lado de esa ficha de rol.",
     "sv": "Visa Lärlingen kortet *DU ÄR* och en Bybos eller Kumpans rollbricka. Byt ut Lärlingsbrickan mot den nya rollbrickan. :reminder:",
-    "zh-Hans": "向学徒展示“你是”信息标记，然后展示一个镇民或爪牙的角色标记。在魔典上，将学徒的角色标记替换为刚刚展示的角色标记，并放置“是学徒”提示标记。"
+    "zh": "向学徒展示“你是”信息标记，然后展示一个镇民或爪牙的角色标记。在魔典上，将学徒的角色标记替换为刚刚展示的角色标记，并放置“是学徒”提示标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Apprentice",
   "how_to_run": {
     "cn": "在学徒加入游戏的首个夜晚，唤醒学徒。向学徒展示“你是”信息标记，然后展示一个镇民或爪牙的角色标记。在魔典上，将学徒的角色标记替换为刚刚展示的角色标记，并放置“是学徒”提示标记。这名玩家还是学徒，只是他拥有了该角色的能力。\n基本上，你只能挑选一个不在场的角色能力给学徒，因为每个角色只有一个标记而学徒也需要用到这个角色标记。",
     "en": "During the first night after the Apprentice enters play, wake the Apprentice. Show them the YOU ARE info token, then a Townsfolk or Minion token. In the Grimoire, replace the Apprentice token with that character token, and mark them with the IS THE APPRENTICE reminder. That player remains the Apprentice but gains the ability of their character token.\nYou will almost certainly want to choose a not-in-play character ability, because there is only one of each character token and the Apprentice needs to use that token."
@@ -67,5 +63,6 @@
     "experimental"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/apprentice.png"
+  "image": "assets/tokens/apprentice.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Apprentice"
 }

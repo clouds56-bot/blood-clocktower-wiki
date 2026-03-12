@@ -3,26 +3,22 @@
   "type": "fabled",
   "name": {
     "en": "Ferryman",
-    "es-419": "Barquero",
+    "es": "Barquero",
     "sv": "Färjkarlen",
-    "zh-Hans": "摆渡人",
     "cn": "摆渡人"
   },
   "ability": {
     "en": "On the final day, all dead players regain their vote token.",
-    "es-419": "En el último día, todos los jugadores muertos recuperan su ficha de voto.",
+    "es": "En el último día, todos los jugadores muertos recuperan su ficha de voto.",
     "sv": "Den sista dagen får alla döda spelare tillbaka sin röstbricka.",
-    "zh-Hans": "在游戏的最后一天，所有已死亡玩家会重新获得投票标记。",
     "cn": "在游戏的最后一天，所有已死亡玩家会重新获得投票标记。"
   },
-  "flavor_text": {
-    "en": "\"When righteous dreams come, they have the weight of truth.\"",
-    "es-419": "Cuando los sueños justos llegan, llevan el peso de la verdad.",
+  "flavor": {
+    "en": "When righteous dreams come, they have the weight of truth.",
+    "es": "Cuando los sueños justos llegan, llevan el peso de la verdad.",
     "sv": "Drömmar från saligas hem är ej bedrägliga sken.",
-    "zh-Hans": "当正义的梦想到来之时，它会带着真理的重量。",
-    "cn": "“当正义的梦想到来之时，它会带着真理的重量。”"
+    "cn": "当正义的梦想到来之时，它会带着真理的重量。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Ferryman",
   "how_to_run": {
     "cn": "在游戏过程中，当你认为加入摆渡人会是一个不错的主意时，宣布摆渡人加入了游戏。将摆渡人标记放入魔典中。\n在最后一天开始时，告诉所有在城镇广场上显示为已死亡且没有投票标记的玩家，他们都获得了一枚投票标记。",
     "en": "During the game, when you notice that it would be a good idea to add it, declare that the Ferryman is in play. Add the Ferryman token to the Grimoire."
@@ -43,5 +39,6 @@
     "experimental"
   ],
   "artist": "Chloe McDougall",
-  "image": "assets/tokens/ferryman.png"
+  "image": "assets/tokens/ferryman.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Ferryman"
 }

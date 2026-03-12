@@ -3,38 +3,34 @@
   "type": "demon",
   "name": {
     "en": "Lleech",
-    "es-419": "Sanguijuela",
+    "es": "Sanguijuela",
     "sv": "Lleech",
-    "zh-Hans": "痢蛭",
     "cn": "痢蛭"
   },
   "ability": {
     "en": "Each night*, choose a player: they die. You start by choosing a player: they are poisoned. You die if & only if they are dead.",
-    "es-419": "Cada noche*, escoge un jugador: él muere. Tú empiezas escogiendo un jugador: él está envenenado. Tú mueres sí y sólo sí él está muerto.",
+    "es": "Cada noche*, escoge un jugador: él muere. Tú empiezas escogiendo un jugador: él está envenenado. Tú mueres sí y sólo sí él está muerto.",
     "sv": "Varje natt* väljer du en spelare; hen dör. I början väljer du en spelare; hen förgiftas. Du dör om och endast om hen är död.",
-    "zh-Hans": "每个夜晚*，你要选择一名玩家：他死亡。在你的首个夜晚，你要选择一名存活的玩家：他中毒，只有当他处于死亡状态时你才会立即死亡。",
     "cn": "每个夜晚*，你要选择一名玩家：他死亡。在你的首个夜晚，你要选择一名存活的玩家：他中毒，只有当他处于死亡状态时你才会立即死亡。"
   },
-  "flavor_text": {
-    "en": "\"Tasty, tasty, tasty, tasty, tasty, tasty, tasty, tasty brai- I mean pie! Yes. Tasty pie. That’s what I meant to say.\"",
-    "es-419": "Rico, rico, rico, rico, rico, rico, rico, rico cere‐ quiero decir, ¡…pastel! Sí. Rico pastel. Eso es lo que quería decir.",
+  "flavor": {
+    "en": "Tasty, tasty, tasty, tasty, tasty, tasty, tasty, tasty brai- I mean pie! Yes. Tasty pie. That’s what I meant to say.",
+    "es": "Rico, rico, rico, rico, rico, rico, rico, rico cere‐ quiero decir, ¡…pastel! Sí. Rico pastel. Eso es lo que quería decir.",
     "sv": "Mumsiga, mumsiga, mumsiga, mumsiga, mumsiga hjärn– jag menar paj! Ja. Mumsiga paj. Det var det jag skulle säga.",
-    "zh-Hans": "美味，美味，美味，美味，美味，美味，美味，美味的脑——馅儿饼！是的。美味的老馅儿饼。我想说的就是这个。",
-    "cn": "“美味，美味，美味，美味，美味，美味，美味，美味的脑——馅儿饼！是的。美味的老馅儿饼。我想说的就是这个。”"
+    "cn": "美味，美味，美味，美味，美味，美味，美味，美味的脑——馅儿饼！是的。美味的老馅儿饼。我想说的就是这个。"
   },
   "first_night": {
     "en": "The Lleech chooses a player. :reminder:",
-    "es-419": "La Sanguijuela escoge un jugador. :reminder:",
+    "es": "La Sanguijuela escoge un jugador. :reminder:",
     "sv": "Lleech väljer en spelare. :reminder:",
-    "zh-Hans": "痢蛭选择一名玩家。 :reminder:"
+    "zh": "痢蛭选择一名玩家。 :reminder:"
   },
   "other_nights": {
     "en": "The Lleech chooses a player. :reminder:",
-    "es-419": "La Sanguijuela escoge un jugador. :reminder:",
+    "es": "La Sanguijuela escoge un jugador. :reminder:",
     "sv": "Lleech väljer en spelare. :reminder:",
-    "zh-Hans": "痢蛭选择一名玩家。 :reminder:"
+    "zh": "痢蛭选择一名玩家。 :reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Lleech",
   "how_to_run": {
     "cn": "在首个夜晚，唤醒痢蛭。让痢蛭指向任意一名玩家。被他选择的玩家中毒——将“中毒”提示标记放置在被选择的玩家角色标记旁。让痢蛭重新入睡。\n除首个夜晚以外的每个夜晚，唤醒痢蛭。让痢蛭指向任意一名玩家。被选择的玩家死亡——在那名玩家的角色标记旁放置痢蛭的“死亡”提示标记并放置帷幕标记。让痢蛭重新入睡。\n如果痢蛭即将死去，但是被痢蛭的“中毒”提示标记的玩家仍然存活，痢蛭不会死亡。如果标记了痢蛭的“中毒”提示标记的玩家死亡，那么痢蛭死亡，善良阵营获胜。\n当向中毒的善良玩家提供错误信息时，请确保这个信息看起来是正确的。如果这名善良玩家认为这个信息是错误的，他会迅速处决自己并获胜。",
     "en": "During the first night, wake the Lleech. They point at any player. That player is poisoned—mark them with the POISONED reminder. Put the Lleech to sleep.\nEach night except the first, wake the Lleech. They point at any player. That player dies—mark them with the DEAD reminder. Put the Lleech to sleep.\nIf the Lleech would die but the player marked with the Lleech’s POISONED reminder is alive, the Lleech does not die. If the player marked with the Lleech’s POISONED reminder is dead, the Lleech dies and the good team wins.\nWhen giving false information to a good player poisoned by the Lleech, make sure this information seems true. If the good player believes it to be false, they will quickly execute themselves and win the game."
@@ -107,5 +103,6 @@
       "reason": "If the Slayer slays the Lleech host, the host dies."
     }
   ],
-  "image": "assets/tokens/lleech.png"
+  "image": "assets/tokens/lleech.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Lleech"
 }

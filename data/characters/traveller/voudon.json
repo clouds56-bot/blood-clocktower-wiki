@@ -3,26 +3,23 @@
   "type": "traveller",
   "name": {
     "en": "Voudon",
-    "es-419": "Vudú",
+    "es": "Vudú",
     "sv": "Vodúnisten",
-    "zh-Hans": "巫毒师",
     "cn": "巫毒师"
   },
   "ability": {
     "en": "Only you & the dead can vote. They don't need a vote token to do so. A 50% majority isn't required.",
-    "es-419": "Solo tú y los muertos pueden votar. Ellos no necesitan una ficha de voto para votar. Una mayoría del 50% no es necesaria.",
+    "es": "Solo tú y los muertos pueden votar. Ellos no necesitan una ficha de voto para votar. Una mayoría del 50% no es necesaria.",
     "sv": "Bara du och de döda kan rösta. De behöver ingen röstbricka för det. 50 % majoritet behövs inte.",
-    "zh-Hans": "只有你和死亡的玩家可以投票，且投票不需要使用投票标记。忽略票数需要过半的要求。",
     "cn": "只有你和死亡的玩家可以投票，且投票不需要使用投票标记。忽略票数需要过半的要求。"
   },
-  "flavor_text": {
-    "en": "\"Bien venu. Sit down. Breathe deep. Enter the land of the dead. See with their eyes. Speak with their voice. Yon sel lang se janm ase.\"",
-    "es-419": "Bien venu. Síentate. Respira profundo. Entra a la tierra de los muertos. Mira con sus ojos. Habla con su voz. Yon sel lang se janm ase.",
+  "flavor": {
+    "en": "Bien venu. Sit down. Breathe deep. Enter the land of the dead. See with their eyes. Speak with their voice. Yon sel lang se janm ase.",
+    "es": "Bien venu. Síentate. Respira profundo. Entra a la tierra de los muertos. Mira con sus ojos. Habla con su voz. Yon sel lang se janm ase.",
     "sv": "Bien venu. Sitt. Ta ett djupt andetag. Beträd de dödas land. Se med deras ögon. Tala med deras röst. Yon sel lang se janm ase.",
-    "zh-Hans": "欢迎。先坐下来，深呼吸。进入活死人之地，以他眼视之，以他声言之。借万灵之音。",
-    "cn": "“欢迎。先坐下来，深呼吸。进入活死人之地，以他眼视之，以他声言之。借万灵之音。”（第一句和最后一句为海地语）"
+    "zh": "欢迎。先坐下来，深呼吸。进入活死人之地，以他眼视之，以他声言之。借万灵之音。",
+    "cn": "欢迎。先坐下来，深呼吸。进入活死人之地，以他眼视之，以他声言之。借万灵之音。（第一句和最后一句为海地语）"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Voudon",
   "how_to_run": {
     "cn": "在处决的投票过程中，只有已死亡的玩家和巫毒师可以举起他们的手进行投票。已死亡的玩家在他们没有投票标记的时候依然可以投票，投票也不会消耗他们的投票标记。如果被提名者获得了至少1票，该玩家会因此即将被处决，直到另一名玩家获得更多的票数来替代该玩家。",
     "en": "During votes for execution, only dead players and the Voudon may raise their hand to vote. The dead may vote even if they have no vote token, and voting does not use a vote token. If a nominee gets at least one vote, they are about to die by execution until a different player gets more votes."
@@ -63,5 +60,6 @@
     "experimental"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/voudon.png"
+  "image": "assets/tokens/voudon.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Voudon"
 }

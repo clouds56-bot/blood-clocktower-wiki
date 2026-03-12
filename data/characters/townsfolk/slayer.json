@@ -3,26 +3,22 @@
   "type": "townsfolk",
   "name": {
     "en": "Slayer",
-    "es-419": "Exterminador",
+    "es": "Exterminador",
     "sv": "Dråparen",
-    "zh-Hans": "猎手",
     "cn": "猎手"
   },
   "ability": {
     "en": "Once per game, during the day, publicly choose a player: if they are the Demon, they die.",
-    "es-419": "Una vez por juego, durante el día, escoge un jugador públicamente: si él es el Demonio, él muere.",
+    "es": "Una vez por juego, durante el día, escoge un jugador públicamente: si él es el Demonio, él muere.",
     "sv": "En gång per spel, på dagen, kan du öppet välja en spelare; om du väljer Demonen dör hen.",
-    "zh-Hans": "每局游戏限一次，你可以在白天时公开选择一名玩家：如果他是恶魔，他死亡。",
     "cn": "每局游戏限一次，你可以在白天时公开选择一名玩家：如果他是恶魔，他死亡。"
   },
-  "flavor_text": {
-    "en": "\"Die.\"",
-    "es-419": "Muere.",
+  "flavor": {
+    "en": "Die.",
+    "es": "Muere.",
     "sv": "Dö.",
-    "zh-Hans": "受死吧。",
-    "cn": "“受死吧。”"
+    "cn": "受死吧。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Slayer",
   "how_to_run": {
     "cn": "在白天时，猎手可以宣布他想要使用他的能力。如果他这么做了，让猎手指向任意一名玩家。如果被选择的玩家是一名存活的恶魔，宣布那名玩家死亡——在魔典中那名玩家的角色标记上放置一枚帷幕标记。如果被选择的玩家不是一名存活的恶魔，宣布“无事发生”。在这两种情形下，猎手都会失去他的能力——将猎手的“失去能力”提示标记放置在猎手的角色标记旁。\n如果一名玩家谎称自己是猎手并想要使用自己的能力，如同他真的是猎手一样配合他进行表演——允许短暂的讨论时间，让他做出自己的决定，然后你装作在魔典中摆弄标记的样子，并说“无事发生”。\n如果猎手想要使用自己的能力，给与玩家一到两分钟的时间以讨论猎手应该选择谁。这会让玩家们觉得自己需要为胜利（或失败）负责任。但一定是由猎手来做出最终决断。",
     "en": "During the day, the Slayer can declare that they wish to use their ability. If so, the Slayer points at any player. If the chosen player is an alive Demon, declare that the chosen player dies—put a shroud on their character token in the Grimoire. If the chosen player is not an alive Demon, say \"Nothing happens.\" Either way, the Slayer loses their ability—put the Slayer's NO ABILITY reminder token by the Slayer token.\nIf a player is bluffing as the Slayer and declares they wish to use their ability, act as if they were indeed the Slayer—allow time for discussion, let them make the decision, and act like you're fiddling with tokens in your Grimoire, then say \"Nothing happens.\"\nWhen the Slayer declares that they wish to use their ability, give the group a minute or two to discuss who the Slayer should choose. This allows the group to feel responsible for the win (or the loss!), but the Slayer always makes the final choice."
@@ -79,5 +75,6 @@
       "reason": "If the Slayer slays the Lleech host, the host dies."
     }
   ],
-  "image": "assets/tokens/slayer.png"
+  "image": "assets/tokens/slayer.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Slayer"
 }

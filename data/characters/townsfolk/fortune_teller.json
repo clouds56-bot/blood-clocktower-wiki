@@ -3,38 +3,36 @@
   "type": "townsfolk",
   "name": {
     "en": "Fortune Teller",
-    "es-419": "Adivino",
+    "es": "Adivino",
     "sv": "Spådamen",
-    "zh-Hans": "占卜师",
     "cn": "占卜师"
   },
   "ability": {
     "en": "Each night, choose 2 players: you learn if either is a Demon. There is a good player that registers as a Demon to you.",
-    "es-419": "Cada noche, escoge 2 jugadores: tú aprendes si alguno de ellos es un Demonio. Hay un jugador bueno que se registra como un Demonio para ti.",
+    "es": "Cada noche, escoge 2 jugadores: tú aprendes si alguno de ellos es un Demonio. Hay un jugador bueno que se registra como un Demonio para ti.",
     "sv": "Varje natt väljer du 2 spelare; du får veta om någon av dem är Demon. 1 god spelare registreras som Demon för dig.",
-    "zh-Hans": "每个夜晚，你要选择两名玩家：你会得知他们之中是否有恶魔。会有一名善良玩家始终被你的能力当作恶魔。",
+    "zh": "每个夜晚，你要选择两名玩家：你会得知他们之中是否有恶魔。会有一名善良玩家始终被你的能力当作恶魔。",
     "cn": "每个夜晚，你要选择两名玩家：你会得知他们之中是否有恶魔。\n会有一名善良玩家始终被你的能力当作恶魔。"
   },
-  "flavor_text": {
-    "en": "\"I sense great evil in your soul! But... that could just be your perfume. I am allergic to Elderberry.\"",
-    "es-419": "¡Presiento gran maldad en tu alma! Aunque…pueda que solo sea tu perfume. Soy alérgico al saúco.",
+  "flavor": {
+    "en": "I sense great evil in your soul! But... that could just be your perfume. I am allergic to Elderberry.",
+    "es": "¡Presiento gran maldad en tu alma! Aunque…pueda que solo sea tu perfume. Soy alérgico al saúco.",
     "sv": "Jag känner en stor ondska i din själ! Fast… det skulle kunna vara din parfym. Jag är allergisk mot fläder.",
-    "zh-Hans": "我在你的灵魂中感受到了庞大的恶意！但……那可能只是你的香水味道。我对接骨木汁过敏。",
-    "cn": "“我在你的灵魂中感受到了庞大的恶意！\n但……那可能只是你的香水味道。我对接骨木汁过敏。”"
+    "zh": "我在你的灵魂中感受到了庞大的恶意！但……那可能只是你的香水味道。我对接骨木汁过敏。",
+    "cn": "我在你的灵魂中感受到了庞大的恶意！\n但……那可能只是你的香水味道。我对接骨木汁过敏。"
   },
   "first_night": {
     "en": "The Fortune Teller chooses 2 players. Nod if either is the Demon (or the *RED HERRING*).",
-    "es-419": "El Adivino escoge 2 jugadores. Asienta si alguno de ellos es el Demonio (o la *CORTINA DE HUMO*).",
+    "es": "El Adivino escoge 2 jugadores. Asienta si alguno de ellos es el Demonio (o la *CORTINA DE HUMO*).",
     "sv": "Spådamen väljer två spelare. Nicka om någon av dem är Demonen (eller märkt *VILLOSPÅR*).",
-    "zh-Hans": "占卜师选择两名玩家。如果有恶魔点头表示“是”。（或有“干扰项”）。"
+    "zh": "占卜师选择两名玩家。如果有恶魔点头表示“是”。（或有“干扰项”）。"
   },
   "other_nights": {
     "en": "The Fortune Teller chooses 2 players. Nod if either is the Demon (or the *RED HERRING*).",
-    "es-419": "El Adivino escoge 2 jugadores. Asienta si alguno de ellos es el Demonio (o la *CORTINA DE HUMO*).",
+    "es": "El Adivino escoge 2 jugadores. Asienta si alguno de ellos es el Demonio (o la *CORTINA DE HUMO*).",
     "sv": "Spådamen väljer två spelare. Nicka om någon av dem är Demonen (eller märkt *VILLOSPÅR*).",
-    "zh-Hans": "占卜师选择两名玩家。如果有恶魔点头表示“是”。（或有“干扰项”）。"
+    "zh": "占卜师选择两名玩家。如果有恶魔点头表示“是”。（或有“干扰项”）。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Fortune_Teller",
   "how_to_run": {
     "cn": "在为首个夜晚进行准备时，将占卜师的“干扰项”提示标记放置在任意善良角色标记旁，标记那名玩家为“干扰项”。\n每个夜晚，唤醒占卜师。让占卜师指向任意两名玩家。如果这两名玩家中任意一名是恶魔或“干扰项”，对占卜师点头表示“是”。否则，摇头表示“否”。让占卜师重新入睡。\n在小型游戏中（指汀西维尔模式），我们建议你在某些情况下将占卜师本人作为“干扰项”，以使占卜师能通过这种方式得到更多信息。",
     "en": "While preparing the first night, put the Fortune Teller's RED HERRING reminder token by any good character token, marking that player as the Red Herring.\nEach night, wake the Fortune Teller. The Fortune Teller points at any two players. If either chosen player is a Demon or the Red Herring, nod your head yes. Otherwise, shake your head no. Put the Fortune Teller to sleep.\nIn smaller games, making the Fortune Teller their own Red Herring is sometimes advised, as the Fortune Teller gets more information that way."
@@ -83,5 +81,6 @@
     "trouble_brewing"
   ],
   "artist": "John Grist",
-  "image": "assets/tokens/fortune_teller.png"
+  "image": "assets/tokens/fortune_teller.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Fortune_Teller"
 }

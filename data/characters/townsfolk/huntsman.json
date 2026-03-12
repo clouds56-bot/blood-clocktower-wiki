@@ -3,38 +3,34 @@
   "type": "townsfolk",
   "name": {
     "en": "Huntsman",
-    "es-419": "Cazador",
+    "es": "Cazador",
     "sv": "Jägaren",
-    "zh-Hans": "巡山人",
     "cn": "巡山人"
   },
   "ability": {
     "en": "Once per game, at night, choose a living player: the Damsel, if chosen, becomes a not-in-play Townsfolk. [+the Damsel]",
-    "es-419": "Una vez por juego, por la noche, escoge un jugador vivo: la Damisela, si es escogida, se convierte en un Ciudadano fuera de juego. [+la Damisela]",
+    "es": "Una vez por juego, por la noche, escoge un jugador vivo: la Damisela, si es escogida, se convierte en un Ciudadano fuera de juego. [+la Damisela]",
     "sv": "En gång per spel, på natten, kan du välja en levande spelare; om du väljer Ungmön blir hen en Bybo som inte är i spel. [+Ungmön]",
-    "zh-Hans": "每局游戏限一次，在夜晚时，你可以选择一名存活的玩家：如果你选中了落难少女，她会变成一个不在场的镇民角色。[+落难少女]",
     "cn": "每局游戏限一次，在夜晚时，你可以选择一名存活的玩家：如果你选中了落难少女，她会变成一个不在场的镇民角色。[+落难少女]"
   },
-  "flavor_text": {
-    "en": "\"My cabin is warm and sturdy. My axe by the door, my boots drying by the fire, and elk stew a-simmering… Hark! A scream echoes through the valley! The rain and the mud and the cold, cold wind mask the scent of the wolves, but I know the path and my pace is steady. I am coming.\"",
-    "es-419": "Mi cabaña es cálida y robusta. Mi hacha junto a la puerta, mis botas secándose junto al fuego, y un estofado de alce a fuego lento…¡Escuchen! ¡Un grito resuena en el valle! La lluvia y el barro y el frío, congelante viento oscurecen el aroma de los lobos, pero yo conozco el camino y mi paso es firme. Allá voy.",
+  "flavor": {
+    "en": "My cabin is warm and sturdy. My axe by the door, my boots drying by the fire, and elk stew a-simmering… Hark! A scream echoes through the valley! The rain and the mud and the cold, cold wind mask the scent of the wolves, but I know the path and my pace is steady. I am coming.",
+    "es": "Mi cabaña es cálida y robusta. Mi hacha junto a la puerta, mis botas secándose junto al fuego, y un estofado de alce a fuego lento…¡Escuchen! ¡Un grito resuena en el valle! La lluvia y el barro y el frío, congelante viento oscurecen el aroma de los lobos, pero yo conozco el camino y mi paso es firme. Allá voy.",
     "sv": "Stugan är bekväm och varm. Min yxa står vid dörren, mina kängor torkar vid eldstaden, och hjortgrytan kokar… Men hör! Ett skrik ekar i dalen! Regnet och leran och kölden, den kalla vinden döljer lukten av vargar, men jag vet vägen och rör mig snabbt. Jag kommer.",
-    "zh-Hans": "我的小屋温暖而坚固。我的斧头靠在门边，我的靴子在火旁烘干，我的麋鹿肉正在锅里细火慢炖……听听！有尖叫声在山谷中回荡！或许雨水、泥泞和寒风会掩盖狼的气味，但我熟悉山路，我的步伐坚定。我来了。",
-    "cn": "“我的小屋温暖而坚固。我的斧头靠在门边，我的靴子在火旁烘干，我的麋鹿肉正在锅里细火慢炖……听听！有尖叫声在山谷中回荡！或许雨水、泥泞和寒风会掩盖狼的气味，但我熟悉山路，我的步伐坚定。我来了。”"
+    "cn": "我的小屋温暖而坚固。我的斧头靠在门边，我的靴子在火旁烘干，我的麋鹿肉正在锅里细火慢炖……听听！有尖叫声在山谷中回荡！或许雨水、泥泞和寒风会掩盖狼的气味，但我熟悉山路，我的步伐坚定。我来了。"
   },
   "first_night": {
     "en": "The Huntsman might choose a player. :reminder: If they chose the Damsel: Put the Huntsman to sleep. Wake the target. Show the *YOU ARE* info token & their new character token.",
-    "es-419": "El Cazador quizás escoja un jugador. :reminder: Si ese jugador es la Damisela: Pon al Cazador a dormir. Despierta a la Damisela y muéstrale la ficha de *TÚ ERES* y su nueva ficha de rol.",
+    "es": "El Cazador quizás escoja un jugador. :reminder: Si ese jugador es la Damisela: Pon al Cazador a dormir. Despierta a la Damisela y muéstrale la ficha de *TÚ ERES* y su nueva ficha de rol.",
     "sv": "Jägaren kanske väljer en spelare. :reminder: Söv Jägaren. Om Jägaren pekade på Ungmön så väck Ungmön, visa kortet *DU ÄR* och hens nya rollbricka.",
-    "zh-Hans": "巡山人可以选择一名玩家。:reminder:如果他选中了落难少女，让巡山人重新入睡。唤醒落难少女，对她展示“你是”信息标记和一个不在场的镇民角色标记。"
+    "zh": "巡山人可以选择一名玩家。:reminder:如果他选中了落难少女，让巡山人重新入睡。唤醒落难少女，对她展示“你是”信息标记和一个不在场的镇民角色标记。"
   },
   "other_nights": {
     "en": "The Huntsman might choose a player. :reminder: If they chose the Damsel: Put the Huntsman to sleep. Wake the target. Show the *YOU ARE* info token & their new character token.",
-    "es-419": "El Cazador quizás escoja un jugador. :reminder: Si ese jugador es la Damisela: Pon al Cazador a dormir. Despierta a la Damisela y muéstrale la ficha de *TÚ ERES* y su nueva ficha de rol.",
+    "es": "El Cazador quizás escoja un jugador. :reminder: Si ese jugador es la Damisela: Pon al Cazador a dormir. Despierta a la Damisela y muéstrale la ficha de *TÚ ERES* y su nueva ficha de rol.",
     "sv": "Jägaren kanske väljer en spelare. :reminder: Söv Jägaren. Om Jägaren pekade på Ungmön så väck Ungmön, visa kortet *DU ÄR* och hens nya rollbricka.",
-    "zh-Hans": "巡山人可以选择一名玩家。:reminder:如果他选中了落难少女，让巡山人重新入睡。唤醒落难少女，对她展示“你是”信息标记和一个不在场的镇民角色标记。"
+    "zh": "巡山人可以选择一名玩家。:reminder:如果他选中了落难少女，让巡山人重新入睡。唤醒落难少女，对她展示“你是”信息标记和一个不在场的镇民角色标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Huntsman",
   "how_to_run": {
     "cn": "在进行游戏设置，将角色标记放进盲抽袋之前，如果落难少女不在即将要放入盲抽袋的这些角色之中，那么移除一个镇民角色标记，并加入落难少女。\n每个夜晚，唤醒巡山人。他要么摇头不使用能力，要么指向一名玩家。\n如果他摇头，那么让巡山人重新入睡。\n如果他指向了一名玩家，让巡山人重新入睡。巡山人现在失去能力——将“失去能力”提示标记放置在巡山人旁，并从夜晚顺序表旁移除他的夜晚标记。如果他选中了落难少女，那么唤醒落难少女，对她展示“你是”信息标记和一个不在场的镇民角色标记，然后让落难少女重新入睡。落难少女现在拥有这个镇民的能力，因此将这个镇民角色标记替换落难少女角色标记。",
     "en": "While setting up the game, before putting character tokens in\nthe bag, if the Damsel is not already in play, remove a Townsfolk\ncharacter token and add the Damsel character token.\nEach night, wake the Huntsman.\nIf they shake their head no, put the Huntsman to sleep.\nIf they point to a player, put the Huntsman to sleep. The Huntsman loses their ability—mark them with the NO ABILITY reminder and remove their night token from the night sheet. If they chose the Damsel, wake the Damsel, show the YOU ARE info token, then a not-in-play Townsfolk token, then put the Damsel to sleep. The Damsel now has this Townsfolk ability, so replace the Damsel character token with this Townsfolk character token."
@@ -79,5 +75,6 @@
       "reason": "If the Marionette thinks that they are the Huntsman, the Damsel was added during setup."
     }
   ],
-  "image": "assets/tokens/huntsman.png"
+  "image": "assets/tokens/huntsman.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Huntsman"
 }

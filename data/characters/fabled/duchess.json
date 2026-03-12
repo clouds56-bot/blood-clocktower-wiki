@@ -3,32 +3,28 @@
   "type": "fabled",
   "name": {
     "en": "Duchess",
-    "es-419": "Duquesa",
+    "es": "Duquesa",
     "sv": "Hertiginnan",
-    "zh-Hans": "公爵夫人",
     "cn": "公爵夫人"
   },
   "ability": {
     "en": "Each day, 3 players may choose to visit you. At night*, each visitor learns how many visitors are evil, but 1 gets false info.",
-    "es-419": "Cada día, 3 jugadores pueden elegir visitarte. Por la noche*, cada visitante aprende cuántos de los visitantes son malvados, pero 1 obtiene información falsa.",
+    "es": "Cada día, 3 jugadores pueden elegir visitarte. Por la noche*, cada visitante aprende cuántos de los visitantes son malvados, pero 1 obtiene información falsa.",
     "sv": "Varje dag får 3 spelare besöka dig. Inatt* får besökarna veta hur många besökare som var onda, men 1 får falsk info.",
-    "zh-Hans": "每个白天，三名玩家可以一起拜访你。当晚*，他们会得知他们之中有几个是邪恶的，但其中一人的信息是错的。",
     "cn": "每个白天，三名玩家可以一起拜访你。当晚*，他们会得知他们之中有几个是邪恶的，但其中一人的信息是错的。"
   },
-  "flavor_text": {
-    "en": "\"We shall entertain between the hours of 6 and 7 precisely. Tea at 6:15. Scones at 6:45. Do not be late. Formal wear applies, as always.\"",
-    "es-419": "Los entretendremos precisamente entre las 6 y las 7 horas. Té a las 6:15. Pastelitos a las 6:45. No llegues tarde. Código de vestimenta formal, como siempre.",
+  "flavor": {
+    "en": "We shall entertain between the hours of 6 and 7 precisely. Tea at 6:15. Scones at 6:45. Do not be late. Formal wear applies, as always.",
+    "es": "Los entretendremos precisamente entre las 6 y las 7 horas. Té a las 6:15. Pastelitos a las 6:45. No llegues tarde. Código de vestimenta formal, como siempre.",
     "sv": "Bjudning mellan klockan sex och sju, på pricken. Te serveras 6.15. Scones 6.45. Kom inte sent. Aftonklädsel gäller, som alltid.",
-    "zh-Hans": "我们会在6点至7点之间招待客人。6点15分喝茶点。6点45分吃松饼。不要迟到，着装要像往常一样正式。",
-    "cn": "“我们会在6点至7点之间招待客人。6点15分喝茶点。6点45分吃松饼。不要迟到，着装要像往常一样正式。”"
+    "cn": "我们会在6点至7点之间招待客人。6点15分喝茶点。6点45分吃松饼。不要迟到，着装要像往常一样正式。"
   },
   "other_nights": {
     "en": "One at a time: Wake each player marked *VISITOR* or *FALSE INFO*. Show the *THIS CHARACTER SELECTED YOU* & Duchess tokens, then give a finger signal.",
-    "es-419": "Despierta a cada jugador marcado como *VISITANTE* o *INFORMACIÓN FALSA* uno por uno. Muéstrales la ficha de la Duquesa, luego una cantidad de dedos igual al número de jugadores malvados marcados como \"Visitante\" (1, 2 o 3) o, si estás despertando al jugador marcado \"Información Falsa\", muéstrale cualquier número de dedos excepto el número de jugadores malvados marcados como \"Visitante\".",
+    "es": "Despierta a cada jugador marcado como *VISITANTE* o *INFORMACIÓN FALSA* uno por uno. Muéstrales la ficha de la Duquesa, luego una cantidad de dedos igual al número de jugadores malvados marcados como \"Visitante\" (1, 2 o 3) o, si estás despertando al jugador marcado \"Información Falsa\", muéstrale cualquier número de dedos excepto el número de jugadores malvados marcados como \"Visitante\".",
     "sv": "Väck varje spelare märkt *BESÖKARE* eller *FALSK INFO* en i taget. Visa kortet *DU PÅVERKAS AV* och Hertiginnans rollbricka, och ge en fingersignal.",
-    "zh-Hans": "分别单独唤醒每一名标记了“访客”和“错误信息”的玩家。向被唤醒的玩家展示“公爵夫人”标记。如果被唤醒的玩家被标记了“访客”，向他们用手指比划一个数字（0，1，2或3），这个数字会等于被标记了“访客”和“错误信息”的玩家中邪恶玩家的数量。如果被唤醒的玩家被标记了“错误信息”，则向他们用手指比划一个错误的数字。"
+    "zh": "分别单独唤醒每一名标记了“访客”和“错误信息”的玩家。向被唤醒的玩家展示“公爵夫人”标记。如果被唤醒的玩家被标记了“访客”，向他们用手指比划一个数字（0，1，2或3），这个数字会等于被标记了“访客”和“错误信息”的玩家中邪恶玩家的数量。如果被唤醒的玩家被标记了“错误信息”，则向他们用手指比划一个错误的数字。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Duchess",
   "how_to_run": {
     "cn": "在游戏开始时，宣布公爵夫人加入游戏。将公爵夫人标记及其对应提示标记放入魔典中。\n每一天，任何玩家都可以自愿表示他们今天晚上要拜访公爵夫人。如果正好有三名玩家自愿在今天晚上拜访公爵夫人，用“访客”标记其中两名玩家，用“错误信息”标记剩下那名玩家。如果自愿拜访的玩家超过或少于三名，那就无需添加这些提示标记。\n在晚上，分别单独唤醒每一名标记了“访客”和“错误信息”的玩家。向被唤醒的玩家展示“公爵夫人”标记。如果被唤醒的玩家被标记了“访客”，向他们用手指比划一个数字（0，1，2或3），这个数字会等于被标记了“访客”和“错误信息”的玩家中邪恶玩家的数量。如果被唤醒的玩家被标记了“错误信息”，则向他们用手指比划一个错误的数字。让被唤醒的玩家入睡。",
     "en": "At the start of the game, declare that the Duchess is in play. Add the Duchess token and their reminders to the Grimoire. Each day, any player may volunteer to visit the Duchess tonight.\nIf exactly three players volunteer to visit the Duchess tonight, then mark two of them with a VISITOR reminder and one of them with a FALSE INFO reminder. If more or less than three players volunteer to visit, do not add these reminders.\nAt night, wake each player marked VISITOR or FALSE INFO one at a time. Show the woken player the Duchess token. If the woken player is marked VISITOR, show them fingers (0, 1, 2, or 3) equaling the number of evil players who are marked either VISITOR or FALSE INFO. If the woken player is marked FALSE INFO, show them any number of fingers except the correct number. Put the woken player to sleep.\nRemove the Duchess at any time, declaring when you do so."
@@ -51,5 +47,6 @@
     "experimental"
   ],
   "artist": "Caitlin Murphy",
-  "image": "assets/tokens/duchess.png"
+  "image": "assets/tokens/duchess.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Duchess"
 }

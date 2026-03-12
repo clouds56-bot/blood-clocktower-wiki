@@ -3,38 +3,34 @@
   "type": "minion",
   "name": {
     "en": "Wizard",
-    "es-419": "Hechicero",
+    "es": "Hechicero",
     "sv": "Trollkarlen",
-    "zh-Hans": "巫师",
     "cn": "巫师"
   },
   "ability": {
     "en": "Once per game, choose to make a wish. If granted, it might have a price & leave a clue as to its nature.",
-    "es-419": "Una vez por juego, escoge pedir un deseo. Si es concedido, quizás tenga un precio y deje una pista sobre su naturaleza.",
+    "es": "Una vez por juego, escoge pedir un deseo. Si es concedido, quizás tenga un precio y deje una pista sobre su naturaleza.",
     "sv": "En gång per spel får du önska dig något. Om önskan uppfylls kanske den får en kostnad och ger en ledtråd om sin natur.",
-    "zh-Hans": "每局游戏限一次，你可以向说书人许愿。如果愿望被实现，可能会伴随着代价和线索。",
     "cn": "每局游戏限一次，你可以向说书人许愿。如果愿望被实现，可能会伴随着代价和线索。"
   },
-  "flavor_text": {
-    "en": "\"Every man and every woman is a star. Love is the law, love under will.\"",
-    "es-419": "Cada hombre y cada mujer son una estrella. El amor es la ley, amor bajo mi voluntad.",
+  "flavor": {
+    "en": "Every man and every woman is a star. Love is the law, love under will.",
+    "es": "Cada hombre y cada mujer son una estrella. El amor es la ley, amor bajo mi voluntad.",
     "sv": "Varje man och varje kvinna är en stjärna. Kärlek är lagen, kärlek under vilja.",
-    "zh-Hans": "每一个人，都是一颗星星，爱情让它们产生联系，而意志决定了它们的轨迹。",
-    "cn": "“每一个人，都是一颗星星，爱情让它们产生联系，而意志决定了它们的轨迹。”"
+    "cn": "每一个人，都是一颗星星，爱情让它们产生联系，而意志决定了它们的轨迹。"
   },
   "first_night": {
     "en": "Do whatever needs to be done to satisfy the Wizard's ability.",
-    "es-419": "Corre la habilidad del Hechicero, si es aplicable.",
+    "es": "Corre la habilidad del Hechicero, si es aplicable.",
     "sv": "Gör det som krävs för Trollkarlens förmåga.",
-    "zh-Hans": "根据需要，运作巫师的能力。"
+    "zh": "根据需要，运作巫师的能力。"
   },
   "other_nights": {
     "en": "Do whatever needs to be done to satisfy the Wizard's ability.",
-    "es-419": "Corre la habilidad del Hechicero, si es aplicable.",
+    "es": "Corre la habilidad del Hechicero, si es aplicable.",
     "sv": "Gör det som krävs för Trollkarlens förmåga.",
-    "zh-Hans": "根据需要，运作巫师的能力。"
+    "zh": "根据需要，运作巫师的能力。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Wizard",
   "how_to_run": {
     "cn": "当巫师通过文字或说话许愿时，决定实现或拒绝这个愿望。如果愿望被拒绝了，让巫师再许愿一次，或告诉他已经失去能力。\n如果愿望被实现了，告诉巫师“你的愿望被实现了”， “你的愿望生效了”，点头，或给出手势来让巫师得知他的愿望被接受了。立即或在稍后的游戏中，你可以制造一个代价：实现一个适合本局游戏的能力的效果调整，来平衡这个愿望。立即或在稍后的游戏中，你可以公开宣布巫师已经完成了许愿，然后给善良阵营一些有关这个愿望的线索。\n说书一局存在巫师的游戏是有技巧的。当所有愿望被满足时，愿望留下线索时，以及愿望伴随着代价时，都是巫师让所有玩家最欢乐的时刻！然而……\n如果你认为这个愿望对邪恶阵营只有轻微的好处，并且善良阵营仍然需要找到谁是恶魔来获得游戏的胜利，你可以不制造任何代价和提供任何线索。你甚至可以跳过告诉善良阵营“巫师已经完成了许愿”，或者告诉他们，但不提供任何线索。\n如果你认为这个愿望对善良阵营有着十分明显的能力劣势，严重打破了善良和邪恶阵营的平衡，例如善良阵营即使找到恶魔也不可能获胜，你可以改变游戏规则或改变这个愿望，来制造一个对善良阵营公平的游戏。\n如果你认为这个愿望对善良阵营有着十分明显的信息劣势，比如他们因愿望缺失了获胜游戏的关键信息，给他们一个有帮助的线索来让他们发现巫师的愿望是什么。\n如果你认为这个愿望非常极端或难以理解，以致于你想不到任何线索或代价来平衡他，又或者这个愿望会让这个游戏变得无趣，拒绝这个愿望。\n总得来说，这个愿望应当以巫师的喜好来一定程度上扭转游戏的局势，但也要同时给予善良阵营合理的获胜机会和条件。慢慢思考，给出合适的代价和线索。不着急，你会慢慢地熟悉怎么做的。\n有关巫师与平衡的更多设计理念，请参考阅读：有关说书人的创造力--有趣的巫师",
     "en": "When the Wizard makes a wish, either verbally or via text, decide whether to accept or decline the wish. If the wish is declined, prompt the Wizard to wish again, or tell them that they have no more wishes.\nIf the wish is granted, say “Your wish is granted.” or “Your wish is my command”, or nod, or otherwise signal that their wish is accepted. Now or later, you may make a price: make whatever mechanical adjustments to the game you feel are necessary for the wish to be balanced. Now or later, you may declare publicly that the Wizard has made a wish, then give the good team a clue about what was wished.\nStorytelling the Wizard can be tricky. The Wizard is the most fun for everybody when all wishes are granted, all wishes leave a clue, and all wishes have a price. However...\n\nIf you feel that by granting a wish, the evil team has benefitted a small amount but the good team still has all they need to figure out who the Demon is and to win the game, you may apply no clue and no price. You may even skip telling the good team that the Wizard has made a wish, or tell them but give no clue.\n\nIf you feel that by granting the wish, the good team is at a severe disadvantage in terms of balance - the game rules have changed so that it is impossible for the good team to win even if they learn who the Demon is - then change the game rules or change the wish so that it is still fair for the good team.\n\nIf you feel that by granting the wish, the good team is at a severe disadvantage in terms of knowledge - they lack the needed information to reasonably win the game - then give them a helpful clue to find out what the wish was.\n\nIf you feel that the wish is so extreme and convoluted that you can think of no clue or price to balance it, or that it would just make the game unfun, then decline the wish completely.\n\nOverall, the wish should tip the scales in favour of the Wizard, but still allow the good team a reasonable chance of winning. Take your time in deciding how to do this."
@@ -113,5 +109,6 @@
     "experimental"
   ],
   "artist": "Lachlan Bastiaen",
-  "image": "assets/tokens/wizard.png"
+  "image": "assets/tokens/wizard.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Wizard"
 }

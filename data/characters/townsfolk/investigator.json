@@ -3,32 +3,30 @@
   "type": "townsfolk",
   "name": {
     "en": "Investigator",
-    "es-419": "Investigador",
+    "es": "Investigador",
     "sv": "Detektiven",
-    "zh-Hans": "调查员",
     "cn": "调查员"
   },
   "ability": {
     "en": "You start knowing that 1 of 2 players is a particular Minion.",
-    "es-419": "Empiezas conociendo que 1 de 2 jugadores es un Secuaz en particular.",
+    "es": "Empiezas conociendo que 1 de 2 jugadores es un Secuaz en particular.",
     "sv": "I början vet du att 1 av 2 spelare är en viss Kumpan.",
-    "zh-Hans": "在你的首个夜晚，你会得知两名玩家和一个爪牙角色：这两名玩家之一是该角色。",
+    "zh": "在你的首个夜晚，你会得知两名玩家和一个爪牙角色：这两名玩家之一是该角色。",
     "cn": "在你的首个夜晚，你会得知两名玩家和一个爪牙角色：这两名玩家之一是该角色（或者你会得知没有爪牙在场）。"
   },
-  "flavor_text": {
-    "en": "\"It is a fine night for a stroll, wouldn't you say, Mister Morozov? Or should I say... BARON Morozov?\"",
-    "es-419": "Es una buena noche para una caminata, ¿no cree usted, Señor Morozov? ¿O, debería decir…BARÓN Morozov?",
+  "flavor": {
+    "en": "It is a fine night for a stroll, wouldn't you say, Mister Morozov? Or should I say... BARON Morozov?",
+    "es": "Es una buena noche para una caminata, ¿no cree usted, Señor Morozov? ¿O, debería decir…BARÓN Morozov?",
     "sv": "Det är en fin kväll för en promenad, inte sant, herr Morozov? Eller borde jag säga… BARON Morozov?",
-    "zh-Hans": "这真是个散步的好夜晚，您说呢，莫罗佐夫先生？还是我应该称呼您为……莫罗佐夫男爵？",
-    "cn": "“这真是个散步的好夜晚，您说呢，莫罗佐夫先生？\n还是我应该称呼您为……莫罗佐夫男爵？”"
+    "zh": "这真是个散步的好夜晚，您说呢，莫罗佐夫先生？还是我应该称呼您为……莫罗佐夫男爵？",
+    "cn": "这真是个散步的好夜晚，您说呢，莫罗佐夫先生？\n还是我应该称呼您为……莫罗佐夫男爵？"
   },
   "first_night": {
     "en": "Show the Minion character token. Point to both the *MINION* and *WRONG* players.",
-    "es-419": "Muéstrale la ficha de rol del Secuaz. Apunta tanto al *SECUAZ* como al jugador *EQUIVOCADO*.",
+    "es": "Muéstrale la ficha de rol del Secuaz. Apunta tanto al *SECUAZ* como al jugador *EQUIVOCADO*.",
     "sv": "Visa Kumpanbrickan. Peka på spelarna markerade *KUMPAN* och *FEL*.",
-    "zh-Hans": "将标记有“爪牙”的玩家的角色标记展示给调查员。并指向标记有“爪牙”和“错误”的玩家。"
+    "zh": "将标记有“爪牙”的玩家的角色标记展示给调查员。并指向标记有“爪牙”和“错误”的玩家。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Investigator",
   "how_to_run": {
     "cn": "在为首个夜晚进行准备时，将调查员的“爪牙”提示标记放置在任意一个爪牙角色标记旁，然后将调查员的“错误”提示标记放置在任意其他角色标记旁。\n在首个夜晚里，唤醒调查员，并指向标记有“爪牙”和“错误”的玩家。将标记有“爪牙”的玩家的角色标记展示给调查员。让调查员重新入睡。在说书人方便的时候，移除调查员的提示标记。",
     "en": "While preparing the first night, put the Investigator's MINION reminder token by any Minion character token, and put the Investigator's WRONG reminder token by any other character token.\nDuring the first night, wake the Investigator and point to the players marked MINION and WRONG. Show the character token marked MINION to the Investigator. Put the Investigator to sleep. Remove the Investigator's reminder tokens when convenient."
@@ -80,5 +78,6 @@
       "reason": "The Storyteller doesn't declare the Vizier is in play."
     }
   ],
-  "image": "assets/tokens/investigator.png"
+  "image": "assets/tokens/investigator.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Investigator"
 }

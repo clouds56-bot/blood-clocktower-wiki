@@ -3,32 +3,28 @@
   "type": "townsfolk",
   "name": {
     "en": "Exorcist",
-    "es-419": "Exorcista",
+    "es": "Exorcista",
     "sv": "Exorcisten",
-    "zh-Hans": "驱魔人",
     "cn": "驱魔人"
   },
   "ability": {
     "en": "Each night*, choose a player (different to last night): the Demon, if chosen, learns who you are then doesn't wake tonight.",
-    "es-419": "Cada noche*, escoge un jugador (diferente al de la noche anterior): el Demonio, si es escogido, aprende quién eres y no se despierta esta noche.",
+    "es": "Cada noche*, escoge un jugador (diferente al de la noche anterior): el Demonio, si es escogido, aprende quién eres y no se despierta esta noche.",
     "sv": "Varje natt* väljer du en spelare (inte samma som sist); om du väljer Demonen vaknar hen inte inatt, men får veta vem du är.",
-    "zh-Hans": "每个夜晚*，你要选择一名玩家（与上个夜晚不同）：如果你选中了恶魔，他会得知你是驱魔人，但他当晚不会因其自身能力而被唤醒。",
     "cn": "每个夜晚*，你要选择一名玩家（与上个夜晚不同）：如果你选中了恶魔，他会得知你是驱魔人，但他当晚不会因其自身能力而被唤醒。"
   },
-  "flavor_text": {
-    "en": "\"We cast you out, every unclean spirit, every satanic power, every onslaught of the infernal adversary, every legion, every diabolical group and sect, in the name and by the power of Our Lord Jesus Christ. We command you, begone and fly far from the Church of God, from the souls made by God in His image and redeemed by the precious blood of the divine Lamb.\"",
-    "es-419": "Los expulsamos, todo espíritu inmundo, todo poder satánico, toda embestida del adversario infernal, toda legión, todo grupo y culto diabólico, en el nombre y por el poder de Nuestro Señor Jesucristo. Te lo ordeno, aléjense de la Iglesia de Dios, de las almas hechas por Dios en Su imagen y redimidas por la preciosa sangre del divino Cordero.",
+  "flavor": {
+    "en": "We cast you out, every unclean spirit, every satanic power, every onslaught of the infernal adversary, every legion, every diabolical group and sect, in the name and by the power of Our Lord Jesus Christ. We command you, begone and fly far from the Church of God, from the souls made by God in His image and redeemed by the precious blood of the divine Lamb.",
+    "es": "Los expulsamos, todo espíritu inmundo, todo poder satánico, toda embestida del adversario infernal, toda legión, todo grupo y culto diabólico, en el nombre y por el poder de Nuestro Señor Jesucristo. Te lo ordeno, aléjense de la Iglesia de Dios, de las almas hechas por Dios en Su imagen y redimidas por la preciosa sangre del divino Cordero.",
     "sv": "Vi driver ut er, varje oren ande, varje satans kraft, varje angrepp från den onde, varje legion, varje djävulsk grupp och sekt, i vår herre Jesu Kristi namn. Vi befaller er, försvinn och flyg långt från Guds kyrka, från själarna som Gud skapat i sin avbild och frälst i blodet från Guds lamm.",
-    "zh-Hans": "每一个不洁之灵，每一份撒旦之力，每一次炼狱敌人的猛袭，每一个军团，每一个崇拜恶魔的组织和教派，以我主耶稣基督的名义和力量，将你们驱逐。我命令你们，远离上帝的教堂，远离上帝按祂的形貌所创造并受神圣羔羊的宝血所救赎的灵魂。",
-    "cn": "“每一个不洁之灵，每一份撒旦之力，每一次炼狱敌人的猛袭，每一个军团，每一个崇拜恶魔的组织和教派，以我主耶稣基督的名义和力量，将你们驱逐。我命令你们，远离上帝的教堂，远离上帝按祂的形貌所创造并受神圣羔羊的宝血所救赎的灵魂。”"
+    "cn": "每一个不洁之灵，每一份撒旦之力，每一次炼狱敌人的猛袭，每一个军团，每一个崇拜恶魔的组织和教派，以我主耶稣基督的名义和力量，将你们驱逐。我命令你们，远离上帝的教堂，远离上帝按祂的形貌所创造并受神圣羔羊的宝血所救赎的灵魂。"
   },
   "other_nights": {
     "en": "The Exorcist chooses a player. :reminder: Put the Exorcist to sleep. If the Exorcist chose the Demon: Wake the Demon. Show the *THIS CHARACTER SELECTED YOU* & Exorcist tokens. Point to the Exorcist.",
-    "es-419": "El Exorcista escoge un jugador. :reminder: Pon al Exorcista a dormir. Si el Exorcista escogió al Demonio: Despierta al Demonio. Muéstrale la ficha de *ESTE ROL TE HA SELECCIONADO* y la ficha del Exorcista. Apunta al Exorcista.",
+    "es": "El Exorcista escoge un jugador. :reminder: Pon al Exorcista a dormir. Si el Exorcista escogió al Demonio: Despierta al Demonio. Muéstrale la ficha de *ESTE ROL TE HA SELECCIONADO* y la ficha del Exorcista. Apunta al Exorcista.",
     "sv": "Exorcisten väljer en spelare. :reminder: Söv Exorcisten. Om Exorcisten valde Demonen, väck Demonen, visa kortet *DU PÅVERKAS AV* och Exorcistens rollbricka. Peka på Exorcisten.",
-    "zh-Hans": "驱魔人选择一名玩家。:reminder: 让驱魔人重新入睡。如果驱魔人选择了恶魔，唤醒恶魔。向恶魔展示“该角色的能力对你生效”信息标记以及驱魔人角色标记，然后指向驱魔人玩家。"
+    "zh": "驱魔人选择一名玩家。:reminder: 让驱魔人重新入睡。如果驱魔人选择了恶魔，唤醒恶魔。向恶魔展示“该角色的能力对你生效”信息标记以及驱魔人角色标记，然后指向驱魔人玩家。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Exorcist",
   "how_to_run": {
     "cn": "除了首个夜晚以外的每个夜晚，唤醒驱魔人。让驱魔人指向任意一名玩家。（如果驱魔人指向上一夜选择过的玩家，摇头表示否定，并让他指向另一名玩家。）将“被选择”提示标记放置到所选玩家的角色标记旁。让驱魔人重新入睡。\n如果驱魔人选择了恶魔，唤醒恶魔。向恶魔展示“该角色的能力对你生效”信息标记以及驱魔人角色标记，然后指向驱魔人玩家。并让恶魔重新入睡。当晚的后续时段中，不要因为恶魔的自身能力唤醒恶魔。\n被驱魔人选中的恶魔不会被唤醒来使用自己的能力，但是如果有需要的话，仍然会因其他角色的能力被再次唤醒。在将驱魔人与来自其他剧本的角色一同使用时，这一点可以提供参考。",
     "en": "Each night except the first, wake the Exorcist. They point at any player. Mark the chosen player’s character token with the CHOSEN reminder. Put the Exorcist to sleep.\nIf the Exorcist chose the Demon, wake the Demon. Show them the THIS CHARACTER SELECTED YOU info token and the Exorcist token, then point at the Exorcist player. Put the Demon to sleep. Later tonight, do not wake the Demon.\nA Demon chosen by the Exorcist will not wake to use their Demon ability, but will still wake if they need to due to other characters’ abilities. This may be relevant if using the Exorcist with characters from other editions."
@@ -86,5 +82,6 @@
       "reason": "If the Exorcist chooses the Yaggababble, the Yaggababble does not kill tonight."
     }
   ],
-  "image": "assets/tokens/exorcist.png"
+  "image": "assets/tokens/exorcist.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Exorcist"
 }

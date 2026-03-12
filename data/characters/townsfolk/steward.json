@@ -3,32 +3,28 @@
   "type": "townsfolk",
   "name": {
     "en": "Steward",
-    "es-419": "Administrador",
+    "es": "Administrador",
     "sv": "Uppassaren",
-    "zh-Hans": "事务官",
     "cn": "事务官"
   },
   "ability": {
     "en": "You start knowing 1 good player.",
-    "es-419": "Tú empiezas conociendo 1 jugador bueno.",
+    "es": "Tú empiezas conociendo 1 jugador bueno.",
     "sv": "I början vet du 1 god spelare.",
-    "zh-Hans": "在你的首个夜晚，你会得知一名善良玩家。",
     "cn": "在你的首个夜晚，你会得知一名善良玩家。"
   },
-  "flavor_text": {
-    "en": "\"How DARE you accuse Her Ladyship of wrongdoing? I’ve known her my entire life! All nine years!\"",
-    "es-419": "¿Cómo te ATREVES a acusar a Su Señoría de hacer algo malo? ¡Yo la conozco de toda la vida! ¡Nueve años!",
+  "flavor": {
+    "en": "How DARE you accuse Her Ladyship of wrongdoing? I’ve known her my entire life! All nine years!",
+    "es": "¿Cómo te ATREVES a acusar a Su Señoría de hacer algo malo? ¡Yo la conozco de toda la vida! ¡Nueve años!",
     "sv": "Hur VÅGAR ni anklaga Hennes Nåd för oförrätter? Jag har känt henne i hela mitt liv! Nio år!",
-    "zh-Hans": "你竟敢指责夫人的过错？我认识她一辈子了！整整九年！",
-    "cn": "“你竟敢指责夫人的过错？我认识她一辈子了！整整九年！”"
+    "cn": "你竟敢指责夫人的过错？我认识她一辈子了！整整九年！"
   },
   "first_night": {
     "en": "Point to the player marked *KNOW*.",
-    "es-419": "Apunta al jugador bueno marcado *CONOCE*.",
+    "es": "Apunta al jugador bueno marcado *CONOCE*.",
     "sv": "Peka på spelaren märkt *VISAD*.",
-    "zh-Hans": "指向标记有“得知”的那名玩家。"
+    "zh": "指向标记有“得知”的那名玩家。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Steward",
   "how_to_run": {
     "cn": "在为首个夜晚进行准备时，将事务官的“得知”提示标记放置在任意一名善良玩家的角色标记旁。\n在首个夜晚，唤醒事务官，并指向标记有“得知”的那名玩家。让事务官重新入睡。",
     "en": "While preparing the first night, put the KNOW reminder by any good character token.\nDuring the first night, wake the Steward. Point to the player marked KNOW. Put the Steward to sleep."
@@ -63,5 +59,6 @@
     "experimental"
   ],
   "artist": "Chloe McDougall",
-  "image": "assets/tokens/steward.png"
+  "image": "assets/tokens/steward.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Steward"
 }

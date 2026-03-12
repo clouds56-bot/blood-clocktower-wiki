@@ -3,32 +3,28 @@
   "type": "traveller",
   "name": {
     "en": "Bone Collector",
-    "es-419": "Coleccionista de Huesos",
+    "es": "Coleccionista de Huesos",
     "sv": "Bensamlaren",
-    "zh-Hans": "集骨者",
     "cn": "集骨者"
   },
   "ability": {
     "en": "Once per game, at night*, choose a dead player: they regain their ability until dusk.",
-    "es-419": "Una vez por juego, en la noche*, escoge un jugador muerto: él recupera su habilidad hasta el siguiente anochecer.",
+    "es": "Una vez por juego, en la noche*, escoge un jugador muerto: él recupera su habilidad hasta el siguiente anochecer.",
     "sv": "En gång per spel, på natten*, kan du välja en död spelare; hen återfår sin förmåga fram till skymningen.",
-    "zh-Hans": "每局游戏限一次，在夜晚时*，你可以选择一名死亡的玩家：他重新获得能力直到下个黄昏。",
     "cn": "每局游戏限一次，在夜晚时*，你可以选择一名死亡的玩家：他重新获得能力直到下个黄昏。"
   },
-  "flavor_text": {
-    "en": "\"I collect many things. Hair. Teeth. Clothes. Fragments of poems. The dreams of lost lovers. My secret arts are not for you to know but my fee is a mere pittance. Bring me the blood of a noblewoman who died of heartbreak under a full moon, and you shall have your answers.\"",
-    "es-419": "Yo colecciono muchas cosas. Cabello. Dientes. Ropa. Fragmentos de poemas. Los sueños de amantes perdidos. Mis artes secretas no son para que las conozcas, pero mi tarifa es una mera miseria. Tráeme la sangre de una mujer noble que haya muerto de desamor bajo la luna llena, y tendrás todas tus respuestas.",
+  "flavor": {
+    "en": "I collect many things. Hair. Teeth. Clothes. Fragments of poems. The dreams of lost lovers. My secret arts are not for you to know but my fee is a mere pittance. Bring me the blood of a noblewoman who died of heartbreak under a full moon, and you shall have your answers.",
+    "es": "Yo colecciono muchas cosas. Cabello. Dientes. Ropa. Fragmentos de poemas. Los sueños de amantes perdidos. Mis artes secretas no son para que las conozcas, pero mi tarifa es una mera miseria. Tráeme la sangre de una mujer noble que haya muerto de desamor bajo la luna llena, y tendrás todas tus respuestas.",
     "sv": "Jag samlar många saker. Hår. Tänder. Kläder. Brottstycken av dikter. Gamla älskares drömmar. Mina metoder är min hemlighet, men min avgift är en spottstyver. Ge mig blod från en adelskvinna som dött av brustet hjärta under fullmånen, så ska du få dina svar.",
-    "zh-Hans": "我收集了很多东西。头发、牙齿、衣服、诗歌片段以及失散恋人的美梦。还有我的秘密艺术品，你想看的话那可得给点小费，一点点就可以。如果你能给我带来一些月圆之夜死于悲痛的贵妇人的血，你就会得到你想要的答案。",
-    "cn": "“我收集了很多东西。头发、牙齿、衣服、诗歌片段以及失散恋人的美梦。还有我的秘密艺术品，你想看的话那可得给点小费，一点点就可以。如果你能给我带来一些月圆之夜死于悲痛的贵妇人的血，你就会得到你想要的答案。”"
+    "cn": "我收集了很多东西。头发、牙齿、衣服、诗歌片段以及失散恋人的美梦。还有我的秘密艺术品，你想看的话那可得给点小费，一点点就可以。如果你能给我带来一些月圆之夜死于悲痛的贵妇人的血，你就会得到你想要的答案。"
   },
   "other_nights": {
     "en": "The Bone Collector might choose a dead player. :reminder: If necessary, wake the chosen player to use their ability.",
-    "es-419": "El Coleccionista de Huesos puede denegar con la cabeza o apuntar a cualquier jugador muerto. Si él apunta a cualquier jugador muerto, pon la ficha de recordatorio de 'Tiene Habilidad' al lado de la ficha de rol del jugador. (Pueda que tengas que despertarlo esta noche para usarla.)",
+    "es": "El Coleccionista de Huesos puede denegar con la cabeza o apuntar a cualquier jugador muerto. Si él apunta a cualquier jugador muerto, pon la ficha de recordatorio de 'Tiene Habilidad' al lado de la ficha de rol del jugador. (Pueda que tengas que despertarlo esta noche para usarla.)",
     "sv": "Bensamlaren kanske väljer en död spelare. :reminder: Väck eventuellt den markerade spelaren för att utföra förmågan.",
-    "zh-Hans": "集骨者要么摇头表示不使用能力，或者是指向任何一名已死亡的玩家。如果集骨者指向了一名已死亡的玩家，被选中的玩家会重新获得其角色能力——用集骨者的“重获能力”提示标记标记该角色 :reminder:。（可能需要在夜里唤醒该玩家，让其使用刚恢复的角色能力）。"
+    "zh": "集骨者要么摇头表示不使用能力，或者是指向任何一名已死亡的玩家。如果集骨者指向了一名已死亡的玩家，被选中的玩家会重新获得其角色能力——用集骨者的“重获能力”提示标记标记该角色 :reminder:。（可能需要在夜里唤醒该玩家，让其使用刚恢复的角色能力）。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Bone_Collector",
   "how_to_run": {
     "cn": "每个夜晚，唤醒集骨者。集骨者要么摇头表示不使用能力，或者是指向任何一名已死亡的玩家。让集骨者重新入睡。\n如果集骨者指向了一名已死亡的玩家，被选中的玩家会重新获得其角色能力——用集骨者的“重获能力”提示标记标记该角色。（可能需要在夜里唤醒该玩家，让其使用刚恢复的角色能力）之后集骨者失去其角色能力——将集骨者的“失去能力”提示标记放置到其角色标记旁。下一个黄昏，被选中的玩家会失去他的能力——移除“重获能力”提示标记。",
     "en": "Each night except the first, wake the Bone Collector. They either shake their head no or point at any dead player. Put the Bone Collector to sleep.\nIf they pointed at a dead player, the chosen player regains their ability—mark their character token with the Bone Collector’s HAS ABILITY reminder. (They may need to be woken tonight to use their ability.) The Bone Collector loses their ability—mark them with their NO ABILITY reminder. The next dusk, the chosen player loses their ability—remove the HAS ABILITY reminder."
@@ -74,5 +70,6 @@
     "sects_violets"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/bone_collector.png"
+  "image": "assets/tokens/bone_collector.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Bone_Collector"
 }

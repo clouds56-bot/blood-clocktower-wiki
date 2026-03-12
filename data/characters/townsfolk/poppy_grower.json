@@ -3,38 +3,34 @@
   "type": "townsfolk",
   "name": {
     "en": "Poppy Grower",
-    "es-419": "Cultivador de Amapolas",
+    "es": "Cultivador de Amapolas",
     "sv": "Vallmoodlaren",
-    "zh-Hans": "罂粟种植者",
     "cn": "罂粟种植者"
   },
   "ability": {
     "en": "Minions & Demons do not know each other. If you die, they learn who each other are that night.",
-    "es-419": "Los Secuaces y el Demonio no se conocen entre ellos. Si tú mueres, ellos aprenden quiénes son esa noche.",
+    "es": "Los Secuaces y el Demonio no se conocen entre ellos. Si tú mueres, ellos aprenden quiénes son esa noche.",
     "sv": "Kumpanerna och Demonen känner inte till varandra. Om du dör får de veta om varandra inatt.",
-    "zh-Hans": "爪牙和恶魔互相不认识。如果你死亡，当晚他们会互相认识。",
     "cn": "爪牙和恶魔互相不认识。如果你死亡，当晚他们会互相认识。"
   },
-  "flavor_text": {
-    "en": "\"In the hidden groves of the deep forest, the black poppy dwells. To see its revelry is to be enchanted. To smell its thick aroma is to be lost forever, a slave to the gods of light and dark.\"",
-    "es-419": "En las arboledas ocultas del bosque profundo, habita la amapola negra. Ver aquel espectáculo es quedar encantado. Oler aquel aroma es quedar perdido por siempre, un esclavo a los dioses de la luz y la oscuridad.",
+  "flavor": {
+    "en": "In the hidden groves of the deep forest, the black poppy dwells. To see its revelry is to be enchanted. To smell its thick aroma is to be lost forever, a slave to the gods of light and dark.",
+    "es": "En las arboledas ocultas del bosque profundo, habita la amapola negra. Ver aquel espectáculo es quedar encantado. Oler aquel aroma es quedar perdido por siempre, un esclavo a los dioses de la luz y la oscuridad.",
     "sv": "I den djupa skogens dolda lundar växer fjädervallmon. Att se dess frejdighet är att förtrollas. Att dofta dess fylliga arom är att förloras, slav under ljusets och mörkrets gudar.",
-    "zh-Hans": "黑色罂粟栖息在森林深处的隐蔽树丛里。见到它的狂野生长会为此着迷。闻到它的浓烈香气将永远迷失，沦为光明与黑暗之神的奴隶。",
-    "cn": "“黑色罂粟栖息在森林深处的隐蔽树丛里。见到它的狂野生长会为此着迷。闻到它的浓烈香气将永远迷失，沦为光明与黑暗之神的奴隶。”"
+    "cn": "黑色罂粟栖息在森林深处的隐蔽树丛里。见到它的狂野生长会为此着迷。闻到它的浓烈香气将永远迷失，沦为光明与黑暗之神的奴隶。"
   },
   "first_night": {
     "en": "Skip Minion Info and Demon Info. Wake the Demon. Show the *THESE CHARACTERS ARE NOT IN PLAY* token. Show 3 not-in-play good character tokens.",
-    "es-419": "Sáltate los pasos de Información del Secuaz e Información del Demonio. Despierta al Demonio, muéstrale la ficha de *ESTOS ROLES NO ESTÁN EN JUEGO* y las fichas de cualquier tres roles buenos que no estén en juego.",
+    "es": "Sáltate los pasos de Información del Secuaz e Información del Demonio. Despierta al Demonio, muéstrale la ficha de *ESTOS ROLES NO ESTÁN EN JUEGO* y las fichas de cualquier tres roles buenos que no estén en juego.",
     "sv": "Hoppa över Kumpan- och Demon-infon. Väck Demonen. Visa kortet *DE HÄR ROLLERNA ÄR INTE I SPEL* och brickor för tre goda roller som inte är i spel.",
-    "zh-Hans": "不要进行“爪牙信息”和“恶魔信息”步骤。唤醒恶魔，对他展示“这些角色不在场”信息标记以及三个不在场的善良角色标记。"
+    "zh": "不要进行“爪牙信息”和“恶魔信息”步骤。唤醒恶魔，对他展示“这些角色不在场”信息标记以及三个不在场的善良角色标记。"
   },
   "other_nights": {
     "en": "If the Poppy Grower died today or tonight, wake all Minions. Show the *THIS IS THE DEMON* token. Point to the Demon. Put the Minions to sleep. Wake the Demon. Show the *THESE ARE YOUR MINIONS* token. Point to the Minions.",
-    "es-419": "Si el Cultivador de Amapolas ha muerto hoy por el día o por la noche, despierta a los Secuaces, muéstrales la ficha de *ESTE ES EL DEMONIO* y apunta al Demonio. Ponlos a dormir. Despierta al Demonio, y muéstrale la ficha de *ESTOS SON TUS SECUACES* y apunta a los Secuaces. Pon al Demonio a dormir.",
+    "es": "Si el Cultivador de Amapolas ha muerto hoy por el día o por la noche, despierta a los Secuaces, muéstrales la ficha de *ESTE ES EL DEMONIO* y apunta al Demonio. Ponlos a dormir. Despierta al Demonio, y muéstrale la ficha de *ESTOS SON TUS SECUACES* y apunta a los Secuaces. Pon al Demonio a dormir.",
     "sv": "Om Vallmoodlaren dog idag eller inatt: Väck Kumpanerna, visa kortet *DET HÄR ÄR DEMONEN* och peka på Demonen. Väck Demonen, visa kortet *DET HÄR ÄR DINA KUMPANER* och peka på Kumpanerna.",
-    "zh-Hans": "如果罂粟种植者在今天白天或当晚死亡，唤醒爪牙并让他们通过眼神接触来互认。对他们展示“他是恶魔”信息标记，然后指向恶魔玩家。让这些爪牙重新入睡。随后唤醒恶魔，对他展示“他们是你的爪牙”信息标记，然后指向所有爪牙。让恶魔重新入睡。"
+    "zh": "如果罂粟种植者在今天白天或当晚死亡，唤醒爪牙并让他们通过眼神接触来互认。对他们展示“他是恶魔”信息标记，然后指向恶魔玩家。让这些爪牙重新入睡。随后唤醒恶魔，对他展示“他们是你的爪牙”信息标记，然后指向所有爪牙。让恶魔重新入睡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Poppy_Grower",
   "how_to_run": {
     "cn": "在首个夜晚，唤醒恶魔。对他展示“这些角色不在场”信息标记以及三个不在场的善良角色标记。然后，让恶魔重新入睡。不要进行“爪牙信息”和“恶魔信息”步骤。\n如果罂粟种植者死亡，将“唤醒邪恶”提示标记放置在罂粟种植者的角色标记旁。在当晚，唤醒爪牙并让他们通过眼神接触来互认。对他们展示“他是恶魔”信息标记，然后指向恶魔玩家。让这些爪牙重新入睡。随后唤醒恶魔，对他展示“他们是你的爪牙”信息标记，然后指向所有爪牙。让恶魔重新入睡。",
     "en": "During the first night, wake the Demon. Show the THESE CHARACTERS ARE NOT IN PLAY info token, then any three good character tokens that are not in play. Then, put the Demon to sleep. Do not do the Minion Info and Demon Info steps.\nIf the Poppy Grower dies, mark them with the EVIL WAKES reminder. That night, wake the Minions and let them make eye contact. Show the THIS IS THE DEMON info token, then point to the Demon. Put the Minions to sleep. Wake the Demon. Show the THESE ARE YOUR MINIONS info token, then point to the Minions. Put the Demon to sleep."
@@ -106,5 +102,6 @@
       "reason": "If the Poppy Grower has their ability, the Widow does not see the Grimoire."
     }
   ],
-  "image": "assets/tokens/poppy_grower.png"
+  "image": "assets/tokens/poppy_grower.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Poppy_Grower"
 }

@@ -3,32 +3,28 @@
   "type": "townsfolk",
   "name": {
     "en": "Choirboy",
-    "es-419": "Niño del Coro",
+    "es": "Niño del Coro",
     "sv": "Korgossen",
-    "zh-Hans": "唱诗男孩",
     "cn": "唱诗男孩"
   },
   "ability": {
     "en": "If the Demon kills the King, you learn which player is the Demon. [+the King]",
-    "es-419": "Si el Demonio mata al Rey, tú aprendes qué jugador es el Demonio. [+el Rey]",
+    "es": "Si el Demonio mata al Rey, tú aprendes qué jugador es el Demonio. [+el Rey]",
     "sv": "Om Demonen dödar Kungen får du veta vem som är Demonen. [+Kungen]",
-    "zh-Hans": "如果恶魔杀死了国王，你会得知哪名玩家是恶魔。[+国王]",
     "cn": "如果恶魔杀死了国王，你会得知哪名玩家是恶魔。[+国王]"
   },
-  "flavor_text": {
-    "en": "\"I saw it, I did. I was in the pews, tidying the hymn books, when a dreadful tune started from the pipe organ. The organist had a long cloak, and long fingers on the keys. And a hat that looked… just like… yours.\"",
-    "es-419": "Yo lo vi, sí lo vi. Estaba en los bancos, ordenando los himnarios, cuando una melodía espantosa empezó a sonar en el órgano. El organista tenía una capa larga, y sus largos dedos estaban en las teclas. Y ese sombrero que se veía…justo como…el tuyo.",
+  "flavor": {
+    "en": "I saw it, I did. I was in the pews, tidying the hymn books, when a dreadful tune started from the pipe organ. The organist had a long cloak, and long fingers on the keys. And a hat that looked… just like… yours.",
+    "es": "Yo lo vi, sí lo vi. Estaba en los bancos, ordenando los himnarios, cuando una melodía espantosa empezó a sonar en el órgano. El organista tenía una capa larga, y sus largos dedos estaban en las teclas. Y ese sombrero que se veía…justo como…el tuyo.",
     "sv": "Jag såg det. Jag höll på att ställa i ordning psalmböckerna när jag hörde en hemsk melodi från orgeln. Organisten hade en lång mantel, och långa fingrar på tangenterna. Och en hatt som såg ut… precis som… din.",
-    "zh-Hans": "我看到了，真的。我那会儿正在长椅上整理赞美诗册，突然一首可怕的管风琴曲子在我耳边响起。那风琴手披着一件长斗篷，他修长的手指搭在琴键上。他有一顶帽子……就像是……你现在戴着的这顶。",
-    "cn": "“我看到了，真的。我那会儿正在长椅上整理赞美诗册，突然一首可怕的管风琴曲子在我耳边响起。那风琴手披着一件长斗篷，他修长的手指搭在琴键上。他有一顶帽子……就像是……你现在戴着的这顶。”"
+    "cn": "我看到了，真的。我那会儿正在长椅上整理赞美诗册，突然一首可怕的管风琴曲子在我耳边响起。那风琴手披着一件长斗篷，他修长的手指搭在琴键上。他有一顶帽子……就像是……你现在戴着的这顶。"
   },
   "other_nights": {
     "en": "If the Demon killed the King, point to the Demon player.",
-    "es-419": "Si el Demonio mató al Rey, apunta al jugador que es el Demonio.",
+    "es": "Si el Demonio mató al Rey, apunta al jugador que es el Demonio.",
     "sv": "Om Demonen dödade Kungen så peka på Demonen.",
-    "zh-Hans": "如果恶魔杀死了国王，指向一名恶魔玩家。"
+    "zh": "如果恶魔杀死了国王，指向一名恶魔玩家。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Choirboy",
   "how_to_run": {
     "cn": "在进行游戏设置，将角色标记放进盲抽袋之前，如果国王不在即将要放入盲抽袋的这些角色之中，那么移除一个镇民角色标记，并加入国王。\n除首个夜晚之外的每个夜晚，如果恶魔杀死了国王，在让恶魔重新入睡后唤醒唱诗男孩。对他指向一名恶魔玩家。然后让唱诗男孩重新入睡。",
     "en": "While setting up the game, before putting character tokens in the bag, if the King is not already in play, remove a Townsfolk character token and add the King character token.\nEach night except the first, if the Demon kills the King, put the Demon to sleep then wake the Choirboy. Point to the Demon player then put the Choirboy to sleep."
@@ -65,5 +61,6 @@
     "experimental"
   ],
   "artist": "John Grist",
-  "image": "assets/tokens/choirboy.png"
+  "image": "assets/tokens/choirboy.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Choirboy"
 }

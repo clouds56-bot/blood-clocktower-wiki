@@ -3,26 +3,22 @@
   "type": "townsfolk",
   "name": {
     "en": "Cannibal",
-    "es-419": "Caníbal",
+    "es": "Caníbal",
     "sv": "Kannibalen",
-    "zh-Hans": "食人族",
     "cn": "食人族"
   },
   "ability": {
     "en": "You have the ability of the recently killed executee. If they are evil, you are poisoned until a good player dies by execution.",
-    "es-419": "Posees la habilidad del muerto por ejecución más reciente. Si él es malvado, estás envenenado hasta que un jugador bueno muera por ejecución.",
+    "es": "Posees la habilidad del muerto por ejecución más reciente. Si él es malvado, estás envenenado hasta que un jugador bueno muera por ejecución.",
     "sv": "Du har samma förmåga som den som sist dog av avrättning. Om hen är ond är du förgiftad tills en god spelare dör av avrättning.",
-    "zh-Hans": "你拥有上个死于处决的玩家的能力。如果该玩家属于邪恶阵营，你中毒直到下个善良玩家死于处决。",
     "cn": "你拥有上个死于处决的玩家的能力。如果该玩家属于邪恶阵营，你中毒直到下个善良玩家死于处决。"
   },
-  "flavor_text": {
-    "en": "\"I don’t like clowns. They taste funny.\"",
-    "es-419": "No me gustan los payasos. Saben raro.",
+  "flavor": {
+    "en": "I don’t like clowns. They taste funny.",
+    "es": "No me gustan los payasos. Saben raro.",
     "sv": "Jag tyckte mycket om din make. Han var en god man.",
-    "zh-Hans": "我讨厌小丑的味道。吃起来会让我想笑。",
-    "cn": "“我讨厌小丑的味道。吃起来会让我想笑。”"
+    "cn": "我讨厌小丑的味道。吃起来会让我想笑。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Cannibal",
   "how_to_run": {
     "cn": "如果一名善良玩家死于处决，用“饱餐”提示标记标记他的角色，并移除食人族的“中毒”标记（如果有的话）。现在食人族会拥有这名善良玩家的能力（不要告诉他具体的能力是什么），且夜晚时会在这名玩家原本会被唤醒的时机被唤醒。\n如果一名邪恶玩家死于处决，用“饱餐”提示标记标记他的角色，并用“中毒”标记食人族。食人族现在中毒了。你可以选择在夜晚时唤醒食人族（但这不是必须的），并假装他获得了一项新的能力。\n请留意每名邪恶玩家正在谎称自己是什么角色。如果他们被处决了，那么他们谎称的那种角色就是你要去假装食人族获得了能力的最佳选择。",
     "en": "If a good player dies by execution, mark them with the LUNCH reminder, and remove the Cannibal’s POISONED reminder if necessary. The Cannibal now has this good player’s ability (do not say which), and will wake at night when this good character would normally wake.\nIf an evil player dies by execution, mark them with the LUNCH reminder and mark the Cannibal with the POISONED reminder. The Cannibal is poisoned. You may wake them when this evil character would normally wake, and pretend that they have a new ability.\nPay attention to which character each evil player is bluffing as. If they are executed, then their bluffed ability is the best one to pretend that the Cannibal has gained."
@@ -82,5 +78,6 @@
       "reason": "If the Cannibal gains the Zealot ability, the Cannibal learns this."
     }
   ],
-  "image": "assets/tokens/cannibal.png"
+  "image": "assets/tokens/cannibal.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Cannibal"
 }

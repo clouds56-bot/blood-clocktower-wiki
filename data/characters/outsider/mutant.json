@@ -3,26 +3,22 @@
   "type": "outsider",
   "name": {
     "en": "Mutant",
-    "es-419": "Mutante",
+    "es": "Mutante",
     "sv": "Mutanten",
-    "zh-Hans": "畸形秀演员",
     "cn": "畸形秀演员"
   },
   "ability": {
     "en": "If you are \"mad\" about being an Outsider, you might be executed.",
-    "es-419": "Si estás \"loco\" de que eres un Extranjero, quizás seas ejecutado.",
+    "es": "Si estás \"loco\" de que eres un Extranjero, quizás seas ejecutado.",
     "sv": "Om du är ”galen” om att du är en Utböling kanske du avrättas.",
-    "zh-Hans": "如果你“疯狂”地证明自己是外来者，你可能被处决。",
     "cn": "如果你“疯狂”地证明自己是外来者，你可能被处决。"
   },
-  "flavor_text": {
-    "en": "\"I am not a freak! I am a human being! Have mercy!\"",
-    "es-419": "¡No soy un fenómeno! ¡Soy un ser humano! ¡Ten piedad!",
+  "flavor": {
+    "en": "I am not a freak! I am a human being! Have mercy!",
+    "es": "¡No soy un fenómeno! ¡Soy un ser humano! ¡Ten piedad!",
     "sv": "Jag är inget monster! Jag är en människa! Ha barmhärtighet!",
-    "zh-Hans": "我不是怪物！我是人！求你了！",
-    "cn": "“我不是怪物！我是人！求你了！”"
+    "cn": "我不是怪物！我是人！求你了！"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Mutant",
   "how_to_run": {
     "cn": "在游戏里的任何时间点（包括夜晚），如果你认为畸形秀演员“疯狂”地证明了他是一名外来者，那么你就可以决定处决畸形秀演员。向所有人宣布他被处决。并在魔典中为他放置帷幕标记。\n如果这次处决发生在白天的常规处决之前，则直接进入到夜晚阶段。（每个白天最多能进行一次处决。）",
     "en": "At any time (even at night), if you believe that the Mutant is mad about being an Outsider, then you can decide to execute the Mutant. Declare this to the group. They die - mark them with a shroud.\nIf you execute them during the day before the normal execution\nhappens, go to the night phase. (There is a maximum of one execution per day.)"
@@ -63,5 +59,6 @@
     "sects_violets"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/mutant.png"
+  "image": "assets/tokens/mutant.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Mutant"
 }

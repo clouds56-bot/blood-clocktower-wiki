@@ -3,38 +3,34 @@
   "type": "townsfolk",
   "name": {
     "en": "Nightwatchman",
-    "es-419": "Vigilante",
+    "es": "Vigilante",
     "sv": "Nattvakten",
-    "zh-Hans": "守夜人",
     "cn": "守夜人"
   },
   "ability": {
     "en": "Once per game, at night, choose a player: they learn you are the Nightwatchman.",
-    "es-419": "Una vez por juego, por la noche, escoge un jugador: él aprende que tú eres el Vigilante.",
+    "es": "Una vez por juego, por la noche, escoge un jugador: él aprende que tú eres el Vigilante.",
     "sv": "En gång per spel, på natten, kan du välja en spelare; hen får veta att du är Nattvakten.",
-    "zh-Hans": "每局游戏限一次，在夜晚时，你可以选择一名玩家：他会得知你是守夜人。",
     "cn": "每局游戏限一次，在夜晚时，你可以选择一名玩家：他会得知你是守夜人。"
   },
-  "flavor_text": {
-    "en": "\"The night is cold and lonely, but I have the moon, the stars, the crisp wind and the soft thud of leather boots on cobbled stone for company. Yonder, candlelight flickers behind a murky window...\"",
-    "es-419": "Esta noche es fría y solitaria, pero tengo la luna, las estrellas, el viento fresco y el suave sonido de mis botas de cuero en el piso de piedra que me acompañan. A lo lejos, una vela titila detrás de una ventana turbia…",
+  "flavor": {
+    "en": "The night is cold and lonely, but I have the moon, the stars, the crisp wind and the soft thud of leather boots on cobbled stone for company. Yonder, candlelight flickers behind a murky window...",
+    "es": "Esta noche es fría y solitaria, pero tengo la luna, las estrellas, el viento fresco y el suave sonido de mis botas de cuero en el piso de piedra que me acompañan. A lo lejos, una vela titila detrás de una ventana turbia…",
     "sv": "Natten är kall och ensam, men jag har månen, stjärnorna, den kalla vinden och ljudet av läderkängor mot kullersten till sällskap. Där borta flimrar ett ljus i ett dunkelt fönster…",
-    "zh-Hans": "夜晚寒冷而孤独，但我有月亮、星星、清风，还有鹅卵石上皮靴的轻柔撞击声与我作伴。远处，有烛光正在一扇昏暗的窗户后面闪烁……",
-    "cn": "“夜晚寒冷而孤独，但我有月亮、星星、清风，还有鹅卵石上皮靴的轻柔撞击声与我作伴。远处，有烛光正在一扇昏暗的窗户后面闪烁……”"
+    "cn": "夜晚寒冷而孤独，但我有月亮、星星、清风，还有鹅卵石上皮靴的轻柔撞击声与我作伴。远处，有烛光正在一扇昏暗的窗户后面闪烁……"
   },
   "first_night": {
     "en": "The Nightwatchman might choose a player. Put the Nightwatchman to sleep. Wake the target. Show the *THIS PLAYER IS* & Nightwatchman tokens, then point to the Nightwatchman. :reminder:",
-    "es-419": "El Vigilante quizás escoja un jugador :reminder: Pon al Vigilante a dormir. Despierta al jugador seleccionado y muéstrale la ficha de *ESTE JUGADOR ES* y la ficha del Vigilante y apunta al Vigilante.",
+    "es": "El Vigilante quizás escoja un jugador :reminder: Pon al Vigilante a dormir. Despierta al jugador seleccionado y muéstrale la ficha de *ESTE JUGADOR ES* y la ficha del Vigilante y apunta al Vigilante.",
     "sv": "Nattvakten kanske väljer en spelare. Söv nattvakten. Väck den utpekade. Visa kortet *DEN HÄR SPELAREN ÄR* och Nattvaktens rollbricka, och peka sedan på Nattvakten. :reminder:",
-    "zh-Hans": "守夜人可以选择一名玩家。:reminder:让他重新入睡，并唤醒被他选择的玩家，对其展示“该角色的能力对你生效”提示标记，守夜人的角色标记，然后指向守夜人玩家。"
+    "zh": "守夜人可以选择一名玩家。:reminder:让他重新入睡，并唤醒被他选择的玩家，对其展示“该角色的能力对你生效”提示标记，守夜人的角色标记，然后指向守夜人玩家。"
   },
   "other_nights": {
     "en": "The Nightwatchman might choose a player. Put the Nightwatchman to sleep. Wake the target. Show the *THIS PLAYER IS* & Nightwatchman tokens, then point to the Nightwatchman. :reminder:",
-    "es-419": "El Vigilante quizás escoja un jugador :reminder: Pon al Vigilante a dormir. Despierta al jugador seleccionado y muéstrale la ficha de *ESTE JUGADOR ES* y la ficha del Vigilante y apunta al Vigilante.",
+    "es": "El Vigilante quizás escoja un jugador :reminder: Pon al Vigilante a dormir. Despierta al jugador seleccionado y muéstrale la ficha de *ESTE JUGADOR ES* y la ficha del Vigilante y apunta al Vigilante.",
     "sv": "Nattvakten kanske väljer en spelare. Söv nattvakten. Väck den utpekade, visa kortet *DEN HÄR SPELAREN ÄR* och Nattvaktens rollbricka, och peka sedan på Nattvakten. :reminder:",
-    "zh-Hans": "守夜人可以选择一名玩家。:reminder:让他重新入睡，并唤醒被他选择的玩家，对其展示“该角色的能力对你生效”提示标记，守夜人的角色标记，然后指向守夜人玩家。"
+    "zh": "守夜人可以选择一名玩家。:reminder:让他重新入睡，并唤醒被他选择的玩家，对其展示“该角色的能力对你生效”提示标记，守夜人的角色标记，然后指向守夜人玩家。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Nightwatchman",
   "how_to_run": {
     "cn": "每个夜晚，唤醒守夜人。如果他摇头不使用能力，让他重新入睡。如果他指向了一名玩家，让他重新入睡，并唤醒被他选择的玩家，对其展示“该角色的能力对你生效”提示标记，守夜人的角色标记，然后指向守夜人玩家，随后让该玩家重新入睡。使用守夜人的“失去能力”标记标记守夜人。守夜人的能力被使用，将守夜人的夜晚标记从夜晚顺序表旁移除，在此后的夜晚中，不要再唤醒守夜人。\n如果守夜人在选择玩家时醉酒中毒，在让他重新入睡后，不要唤醒他选择的玩家，并仍然使用“失去能力”标记守夜人，因为他使用了自己的“每局游戏限一次”的能力。\n如果涡流在场，在唤醒被守夜人选择的玩家时，需要对他指向一名除守夜人以外的玩家。",
     "en": "Each night, wake the Nightwatchman. The Nightwatchman either shakes their head or points at any player. Put the Nightwatchman to sleep.\nIf the Nightwatchman pointed at a player, wake them and show them the Nightwatchman token, then point to the Nightwatchman player. Put the chosen player to sleep. The Nightwatchman loses their ability – mark them with a NO ABILITY reminder and remove their night token from the night sheet."
@@ -77,5 +73,6 @@
     "experimental"
   ],
   "artist": "Chloe McDougall",
-  "image": "assets/tokens/nightwatchman.png"
+  "image": "assets/tokens/nightwatchman.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Nightwatchman"
 }

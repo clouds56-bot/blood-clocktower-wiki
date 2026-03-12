@@ -3,32 +3,28 @@
   "type": "loric",
   "name": {
     "en": "Storm Catcher",
-    "es-419": "Atrapatormentas",
+    "es": "Atrapatormentas",
     "sv": "Stormfångaren",
-    "zh-Hans": "暴风捕手",
     "cn": "暴风捕手"
   },
   "ability": {
     "en": "Name a good character. If in play, they can only die by execution, but evil players learn which player it is.",
-    "es-419": "Nombra un rol bueno. Si está en juego, solo puede morir por ejecución, pero los jugadores malvados saben qué jugador es.",
+    "es": "Nombra un rol bueno. Si está en juego, solo puede morir por ejecución, pero los jugadores malvados saben qué jugador es.",
     "sv": "Säg en god roll. Om den är i spel kan den spelaren bara dö av avrättning, men alla onda får veta vem spelaren är.",
-    "zh-Hans": "游戏开始时，你要宣布一个善良角色。如果该角色在场，他只能死于处决，但所有邪恶玩家会在首个夜晚得知他是哪一名玩家。",
     "cn": "游戏开始时，你要宣布一个善良角色。如果该角色在场，他只能死于处决，但所有邪恶玩家会在首个夜晚得知他是哪一名玩家。"
   },
-  "flavor_text": {
+  "flavor": {
     "en": "At dawn, the temple’s long shadow creeps to the fountain. At dusk, the obelisk blocks the red glare, cooling warm water under the archway. All lines converge here. A storm is coming, and this, this pebbled and lush and holy place between the apple trees, is the eye.",
-    "es-419": "Al amanecer, la larga sombra del templo llega hasta la fuente. Al anochecer, el obelisco bloquea el resplandor rojizo, refrescando el agua tibia bajo el arco. Todas las líneas convergen aquí. Una tormenta se avecina, y este camino de piedras, frondoso y sagrado, entre los manzanos, es el ojo.",
+    "es": "Al amanecer, la larga sombra del templo llega hasta la fuente. Al anochecer, el obelisco bloquea el resplandor rojizo, refrescando el agua tibia bajo el arco. Todas las líneas convergen aquí. Una tormenta se avecina, y este camino de piedras, frondoso y sagrado, entre los manzanos, es el ojo.",
     "sv": "I gryningen sträcker sig templets skugga fram till fontänen. I skymningen blockerar obelisken det röda skenet och kyler vattnet under valvporten. Alla linjer möts här. Stormen nalkas, och detta, denna steniga och frodiga och heliga plats mellan äppelträden, är ögat.",
-    "zh-Hans": "在黎明时分，庙宇那被拉长的影子爬上了泉眼。而在黄昏时分，方尖塔将刺目的红光遮挡，让拱道下方的暖流冷却。所有的线索都汇聚于此。风暴将至，而在这苹果树之间，这耀眼、葱翠又圣洁的地方，定是那暴风眼。",
-    "cn": "“在黎明时分，庙宇那被拉长的影子爬上了泉眼。而在黄昏时分，方尖塔将刺目的红光遮挡，让拱道下方的暖流冷却。所有的线索都汇聚于此。风暴将至，而在这苹果树之间，这耀眼、葱翠又圣洁的地方，定是那暴风眼。”"
+    "cn": "在黎明时分，庙宇那被拉长的影子爬上了泉眼。而在黄昏时分，方尖塔将刺目的红光遮挡，让拱道下方的暖流冷却。所有的线索都汇聚于此。风暴将至，而在这苹果树之间，这耀眼、葱翠又圣洁的地方，定是那暴风眼。"
   },
   "first_night": {
     "en": "Announce which character is stormcaught. If that character is in play, mark that player as *STORMCAUGHT*. Wake each evil player and show them the character token, then the marked player.  If not in play, wake each evil player, show them the *THESE CHARACTERS ARE NOT IN PLAY* token & the relevant character token.",
-    "es-419": "Al principio de la noche, anuncia qué rol es favorecido por el Atrapatormentas. Si ese rol está en juego, marca a ese jugador como *A SALVO*. Despierta a cada jugador malvado y muéstrales la ficha del rol, y luego el jugador marcado.\n Si no está en juego, despierta a cada jugador malvado, muéstrales la ficha de *ESTOS ROLES NO ESTÁN EN JUEGO* y la ficha de rol adecuada.",
+    "es": "Al principio de la noche, anuncia qué rol es favorecido por el Atrapatormentas. Si ese rol está en juego, marca a ese jugador como *A SALVO*. Despierta a cada jugador malvado y muéstrales la ficha del rol, y luego el jugador marcado.\n Si no está en juego, despierta a cada jugador malvado, muéstrales la ficha de *ESTOS ROLES NO ESTÁN EN JUEGO* y la ficha de rol adecuada.",
     "sv": "Meddela vilken roll som är stormfångad. Om rollen är i spel, markera den spelaren som *STORMFÅNGAD*. Väck varje ond spelarna, visa rollbrickan och peka på den markerade spelaren. Om rollen inte är i spel, väck de onda spelarna och visa kortet *DE HÄR ROLLERNA ÄR INTE I SPEL* samt rollbrickan.",
-    "zh-Hans": "在游戏开始时，宣布暴风捕手在场。将暴风捕手的角色标记放入魔典。宣布暴风捕手对哪个善良角色“青睐有加”。如果被暴风捕手选择的角色在场，使用暴风捕手的“不会死亡”提示标记标记那个角色。分别依次唤醒每个邪恶玩家。如果有善良角色标记了暴风捕手的“不会死亡”提示标记，对邪恶玩家展示“这名玩家是”信息标记，对应的善良角色标记，并指向对应的善良玩家。"
+    "zh": "在游戏开始时，宣布暴风捕手在场。将暴风捕手的角色标记放入魔典。宣布暴风捕手对哪个善良角色“青睐有加”。如果被暴风捕手选择的角色在场，使用暴风捕手的“不会死亡”提示标记标记那个角色。分别依次唤醒每个邪恶玩家。如果有善良角色标记了暴风捕手的“不会死亡”提示标记，对邪恶玩家展示“这名玩家是”信息标记，对应的善良角色标记，并指向对应的善良玩家。"
   },
-  "source_url": "https://raw.githubusercontent.com/ThePandemoniumInstitute/botc-translations/main/game/zh_Hans.json",
   "how_to_run": {
     "cn": "在游戏开始时，宣布暴风捕手在场。将暴风捕手的角色标记放入魔典。宣布暴风捕手对哪个善良角色“青睐有加”。如果被暴风捕手选择的角色在场，使用暴风捕手的“不会死亡”提示标记标记那个角色。\n在首个夜晚，分别依次唤醒每个邪恶玩家。如果有善良角色标记了暴风捕手的“不会死亡”提示标记，对邪恶玩家展示“这名玩家是”信息标记，对应的善良角色标记，并指向对应的善良玩家，然后让邪恶玩家重新入睡。如果没有玩家被暴风捕手标记，对邪恶玩家展示“这些角色不在场”信息标记和对应的善良角色标记，然后让邪恶玩家重新入睡。\n如果被暴风捕手的“不会死亡”提示标记标记的角色被处决，那么他死亡。如果他会因为其他方式死亡，那么他保持存活。"
   },

@@ -3,38 +3,34 @@
   "type": "traveller",
   "name": {
     "en": "Bureaucrat",
-    "es-419": "Burócrata",
+    "es": "Burócrata",
     "sv": "Byråkraten",
-    "zh-Hans": "官员",
     "cn": "官员"
   },
   "ability": {
     "en": "Each night, choose a player (not yourself): their vote counts as 3 votes tomorrow.",
-    "es-419": "Cada noche, escoge un jugador (no tú mismo): su voto cuenta como 3 votos mañana.",
+    "es": "Cada noche, escoge un jugador (no tú mismo): su voto cuenta como 3 votos mañana.",
     "sv": "Varje natt väljer du en spelare (inte dig själv); imorgon räknas hens röst som 3.",
-    "zh-Hans": "每个夜晚，你要选择除你以外的一名玩家：明天白天，他的投票算作三票。",
     "cn": "每个夜晚，你要选择除你以外的一名玩家：明天白天，他的投票算作三票。"
   },
-  "flavor_text": {
-    "en": "\"Sign here please. And here. And here. Aaaaaaaaand here. This should all be sorted and tallied by the end of the day, assuming everyone's signatures are legible. We haven't had a mix-up in the paperwork for ages. Yesterday noon, if memory serves...\"",
-    "es-419": "Firma aquí por favor. Y aquí. Y aquí. Y taaaaaaaambién aquí. Todo deberá estar solucionado y contabilizado al final del día, asumiendo que todas las firmas son legibles. ¡No hemos tenido problema alguno con el papeleo hace ufff! Desde ayer al mediodía, si la memoria no me falla…",
+  "flavor": {
+    "en": "Sign here please. And here. And here. Aaaaaaaaand here. This should all be sorted and tallied by the end of the day, assuming everyone's signatures are legible. We haven't had a mix-up in the paperwork for ages. Yesterday noon, if memory serves...",
+    "es": "Firma aquí por favor. Y aquí. Y aquí. Y taaaaaaaambién aquí. Todo deberá estar solucionado y contabilizado al final del día, asumiendo que todas las firmas son legibles. ¡No hemos tenido problema alguno con el papeleo hace ufff! Desde ayer al mediodía, si la memoria no me falla…",
     "sv": "Skriv på här. Och här. Och här. Ooooooch här. Det borde vara allt, förutsatt att allas underskrifter är läsliga. Vi har inte haft något strul på en evighet. Igår förmiddag, om jag minns rätt…",
-    "zh-Hans": "请在这签名，还有这里，还有这，还...有这。如果每个人的签名都清晰可辨，在今天就应该可以把所有文件都整理统计好。这种简单的文书工作，我们已经很久没犯错了。从昨天中午到现在都没有，如果没记错的话……",
-    "cn": "“请在这签名，还有这里，还有这，还...有这。如果每个人的签名都清晰可辨，在今天就应该可以把所有文件都整理统计好。这种简单的文书工作，我们已经很久没犯错了。从昨天中午到现在都没有，如果没记错的话……”"
+    "cn": "请在这签名，还有这里，还有这，还...有这。如果每个人的签名都清晰可辨，在今天就应该可以把所有文件都整理统计好。这种简单的文书工作，我们已经很久没犯错了。从昨天中午到现在都没有，如果没记错的话……"
   },
   "first_night": {
     "en": "The Bureaucrat chooses a player. :reminder:",
-    "es-419": "El Burócrata escoge un jugador. :reminder:",
+    "es": "El Burócrata escoge un jugador. :reminder:",
     "sv": "Byråkraten väljer en spelare. :reminder:",
-    "zh-Hans": "官员选择一名玩家。:reminder:"
+    "zh": "官员选择一名玩家。:reminder:"
   },
   "other_nights": {
     "en": "The Bureaucrat chooses a player. :reminder:",
-    "es-419": "El Burócrata escoge un jugador. :reminder:",
+    "es": "El Burócrata escoge un jugador. :reminder:",
     "sv": "Byråkraten väljer en spelare. :reminder:",
-    "zh-Hans": "官员选择一名玩家。:reminder:"
+    "zh": "官员选择一名玩家。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Bureaucrat",
   "how_to_run": {
     "cn": "每个夜晚，唤醒官员。让官员指向任意一名玩家。用官员的“3票”提示标记那名被选中的玩家。让官员入睡。\n每次当你正在为一名被“3票”提示标记的玩家投票统计时，以3票而不是1票的形式计数。（唱票时如常地大声说出来。）",
     "en": "Each night, wake the Bureaucrat. They point at any player. Mark the chosen player with the Bureaucrat’s 3 VOTES reminder. Put the Bureaucrat to sleep.\nEach time you tally the vote of a player marked 3 VOTES, count it as three votes instead of one. (Count this out loud, as normal.)"
@@ -83,5 +79,6 @@
     "experimental"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/bureaucrat.png"
+  "image": "assets/tokens/bureaucrat.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Bureaucrat"
 }

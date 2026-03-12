@@ -3,26 +3,22 @@
   "type": "townsfolk",
   "name": {
     "en": "Fisherman",
-    "es-419": "Pescador",
+    "es": "Pescador",
     "sv": "Fiskaren",
-    "zh-Hans": "渔夫",
     "cn": "渔夫"
   },
   "ability": {
     "en": "Once per game, during the day, visit the Storyteller for some advice to help your team win.",
-    "es-419": "Una vez por juego, durante el día, visita al Narrador para recibir un consejo que ayude a tu equipo a ganar.",
+    "es": "Una vez por juego, durante el día, visita al Narrador para recibir un consejo que ayude a tu equipo a ganar.",
     "sv": "En gång per spel, på dagen, kan du be berättaren om tips för att hjälpa ditt lag att vinna.",
-    "zh-Hans": "每局游戏限一次，在白天时，你可以让说书人给你一些能帮助你的阵营获胜的建议。",
     "cn": "每局游戏限一次，在白天时，你可以让说书人给你一些能帮助你的阵营获胜的建议。"
   },
-  "flavor_text": {
-    "en": "\"This was my favourite part of the river... see how the sunlight makes a rainbow from the monastery to the market? This was the best place for big fish. And the older I get, the bigger they were.\"",
-    "es-419": "Esta era mi parte favorita del río…¿ves cómo la luz del sol hace un arcoiris desde el monasterio hasta el mercado? Este era el mejor lugar para los peces grandes. Y contra más viejo me pongo, más grandes eran.",
+  "flavor": {
+    "en": "This was my favourite part of the river... see how the sunlight makes a rainbow from the monastery to the market? This was the best place for big fish. And the older I get, the bigger they were.",
+    "es": "Esta era mi parte favorita del río…¿ves cómo la luz del sol hace un arcoiris desde el monasterio hasta el mercado? Este era el mejor lugar para los peces grandes. Y contra más viejo me pongo, más grandes eran.",
     "sv": "Jag har alltid älskat den här delen av älven. Ser du hur solskenet bildar en regnbåge från klostret till marknaden? Här fångade man alltid störst fisk. Och ju äldre jag blir, desto större var de.",
-    "zh-Hans": "这是这条河流里我最喜欢的一截儿……看看阳光是如何让一道彩虹横跨修道院和集市的？这是能让鱼儿长得肥美的最好的地方。我一天天变老，它们也一天天长大。",
-    "cn": "“这是这条河流里我最喜欢的一截儿……看看阳光是如何让一道彩虹横跨修道院和集市的？这是能让鱼儿长得肥美的最好的地方。我一天天变老，它们也一天天长大。”"
+    "cn": "这是这条河流里我最喜欢的一截儿……看看阳光是如何让一道彩虹横跨修道院和集市的？这是能让鱼儿长得肥美的最好的地方。我一天天变老，它们也一天天长大。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Fisherman",
   "how_to_run": {
     "cn": "在白天的任何时候，渔夫可以私下拜访说书人以获得帮助他的阵营获胜的建议。说书人对他提供的这些建议并非“事实”，而是说书人认为如果渔夫遵照给出的建议行动能够帮助渔夫获胜。只要渔夫使用了自己的能力并获得了建议，那么使用渔夫的“失去能力”标记标记渔夫。他无法再次使用自己的能力。\n通常来说，给渔夫的建议应该是类似“你应该如何”或“你不应该如何”的句式。建议并非要完全按照这种格式进行，但应该按照类似的概念来给出建议，而不应该是类似博学者所得知的信息的样式。因此“处决某名玩家”、“找出谁是酒鬼”、“你应该重新考虑应该相信哪些玩家的信息”、“信任某名玩家”都是能够提供给渔夫的不错的建议格式。",
     "en": "Once per game, the Fisherman will ask to use their ability. In private, give them once piece of advice to help them win. Then, put the No ability reminder by the Fisherman token.\nIt is best to give the Fisherman advice on what to DO, not just information about what IS. This makes the Fisherman more fun and unique.\n\nEg. Saying “You should execute that player” or “Keep this player alive” or “find out who is drunk” or “change your thinking entirely” or “ignore the Minions” or “trust this player” are much more interesting than saying “this player is evil” or “the Demon is a No Dashii”."
@@ -77,5 +73,6 @@
     "experimental"
   ],
   "artist": "Anica Kelsen",
-  "image": "assets/tokens/fisherman.png"
+  "image": "assets/tokens/fisherman.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Fisherman"
 }

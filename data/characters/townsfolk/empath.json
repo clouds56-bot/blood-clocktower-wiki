@@ -3,38 +3,35 @@
   "type": "townsfolk",
   "name": {
     "en": "Empath",
-    "es-419": "Empático",
+    "es": "Empático",
     "sv": "Empaten",
-    "zh-Hans": "共情者",
     "cn": "共情者"
   },
   "ability": {
     "en": "Each night, you learn how many of your 2 alive neighbors are evil.",
-    "es-419": "Cada noche, aprendes cuántos de tus 2 vecinos vivos son malvados.",
+    "es": "Cada noche, aprendes cuántos de tus 2 vecinos vivos son malvados.",
     "sv": "Varje natt får du veta hur många av dina 2 levande grannar som är onda.",
-    "zh-Hans": "每个夜晚，你会得知与你邻近的两名存活的玩家中邪恶玩家的数量。",
     "cn": "每个夜晚，你会得知与你邻近的两名存活的玩家中邪恶玩家的数量。"
   },
-  "flavor_text": {
-    "en": "\"My skin prickles. Something is not right here. I can feel it.\"",
-    "es-419": "Me pica la piel. Algo no anda bien aquí. Lo puedo sentir.",
+  "flavor": {
+    "en": "My skin prickles. Something is not right here. I can feel it.",
+    "es": "Me pica la piel. Algo no anda bien aquí. Lo puedo sentir.",
     "sv": "Det kryper i skinnet på mig. Jag känner på mig att det är något som inte står rätt till.",
-    "zh-Hans": "我的皮肤有些刺痛。这有些不太对劲。我能感觉得到。",
-    "cn": "“我的皮肤有些刺痛。\n这有些不太对劲。我能感觉得到。”"
+    "zh": "我的皮肤有些刺痛。这有些不太对劲。我能感觉得到。",
+    "cn": "我的皮肤有些刺痛。\n这有些不太对劲。我能感觉得到。"
   },
   "first_night": {
     "en": "Give a finger signal.",
-    "es-419": "Dale una señal con los dedos.",
+    "es": "Dale una señal con los dedos.",
     "sv": "Ge en fingersignal.",
-    "zh-Hans": "用手势比划与他邻近的邪恶玩家数量（0，1，或2）。"
+    "zh": "用手势比划与他邻近的邪恶玩家数量（0，1，或2）。"
   },
   "other_nights": {
     "en": "Give a finger signal.",
-    "es-419": "Dale una señal con los dedos.",
+    "es": "Dale una señal con los dedos.",
     "sv": "Ge en fingersignal.",
-    "zh-Hans": "用手势比划与他邻近的邪恶玩家数量（0，1，或2）。"
+    "zh": "用手势比划与他邻近的邪恶玩家数量（0，1，或2）。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Empath",
   "how_to_run": {
     "cn": "每个夜晚，唤醒共情者。为共情者用手势比划与他邻近的邪恶玩家数量（0，1，或2）。让共情者重新入睡。",
     "en": "Each night, wake the Empath. Show them fingers (0, 1, or 2) equaling the number of evil players neighbouring the Empath. Put the Empath to sleep."
@@ -82,5 +79,6 @@
     "trouble_brewing"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/empath.png"
+  "image": "assets/tokens/empath.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Empath"
 }

@@ -3,26 +3,22 @@
   "type": "traveller",
   "name": {
     "en": "Bishop",
-    "es-419": "Obispo",
+    "es": "Obispo",
     "sv": "Biskopen",
-    "zh-Hans": "主教",
     "cn": "主教"
   },
   "ability": {
     "en": "Only the Storyteller can nominate. At least 1 opposing player must be nominated each day.",
-    "es-419": "Solo el Narrador puede nominar. Al menos 1 jugador del equipo contrario al tuyo debe ser nominado cada día.",
+    "es": "Solo el Narrador puede nominar. Al menos 1 jugador del equipo contrario al tuyo debe ser nominado cada día.",
     "sv": "Bara berättaren kan nominera. Minst 1 motspelare måste nomineras varje dag.",
-    "zh-Hans": "只有说书人可以发起提名。每个白天说书人至少要提名一名你对立阵营的玩家。",
     "cn": "只有说书人可以发起提名。每个白天说书人至少要提名一名你对立阵营的玩家。"
   },
-  "flavor_text": {
-    "en": "\"In nomine Patris, et Filii, et Spiritus Sancti… Nos mos Dei. Deus vult de nobis.\"",
-    "es-419": "In nomine Patris, et Filii, et Spiritus Sancti… Nos mos Dei. Deus vult de nobis.",
+  "flavor": {
+    "en": "In nomine Patris, et Filii, et Spiritus Sancti… Nos mos Dei. Deus vult de nobis.",
+    "es": "In nomine Patris, et Filii, et Spiritus Sancti… Nos mos Dei. Deus vult de nobis.",
     "sv": "In nomine Patris, et Filii, et Spiritus Sancti… Nos mos Dei. Deus vult de nobis.",
-    "zh-Hans": "我以圣父，圣子，圣灵的名义...乞求主神保佑我们。",
-    "cn": "“我以圣父，圣子，圣灵的名义...乞求主神保佑我们。”"
+    "cn": "我以圣父，圣子，圣灵的名义...乞求主神保佑我们。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Bishop",
   "how_to_run": {
     "cn": "每个黎明，用“提名邪恶方”提示标记善良的主教，或用“提名善良方”提示标记邪恶的主教。\n在提名阶段，玩家们不能发起提名，只有你可以。（投票像平常一样进行。）当你提名了与主教阵营相反的一名玩家，移除主教的提示标记。你不能在还没移除主教的提示标记之前结束提名。\n通常你可以每天提名三至五名玩家，其中至少有一名玩家是邪恶的。你不需要在每一天都提名恶魔，但你应该在最后一天提名所有的存活玩家。提名哪名玩家完全取决于你，但通常当主教是善良的，你最好要多提名邪恶玩家，当主教是邪恶的，最好要尽可能少地提名邪恶玩家。",
     "en": "Each dawn, mark the good Bishop with their NOMINATE EVIL reminder, or mark the evil Bishop with their NOMINATE GOOD reminder.\nDuring the nomination process for execution, the players cannot make nominations, but you can. (Voting happens as normal.) When you nominate a player whose alignment is opposite the alignment of the Bishop, remove the Bishop’s reminder. You cannot end the nomination process if the Bishop is marked with their reminder.\nUsually, you’ll want to nominate about three to five players each day, with at least one of them being evil. You do not have to nominate the Demon each day, but you should nominate all alive players on the final day. Which players you nominate is up to you, but it’s best to nominate more evil players if the Bishop is good, and to nominate fewer evil players if the Bishop is evil."
@@ -62,5 +58,6 @@
     "experimental"
   ],
   "artist": "John Grist",
-  "image": "assets/tokens/bishop.png"
+  "image": "assets/tokens/bishop.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Bishop"
 }

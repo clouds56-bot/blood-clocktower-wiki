@@ -3,38 +3,36 @@
   "type": "minion",
   "name": {
     "en": "Organ Grinder",
-    "es-419": "Organillero",
+    "es": "Organillero",
     "sv": "Positivhalaren",
-    "zh-Hans": "街头风琴手",
     "cn": "街头风琴手"
   },
   "ability": {
     "en": "All players keep their eyes closed when voting and the vote tally is secret. Each night, choose if you are drunk until dusk.",
-    "es-419": "Todos los jugadores mantienen sus ojos cerrados durante las votaciones, y los votos se contabilizan en secreto. Cada noche, elige si estás borracho hasta el siguiente anochecer.",
+    "es": "Todos los jugadores mantienen sus ojos cerrados durante las votaciones, y los votos se contabilizan en secreto. Cada noche, elige si estás borracho hasta el siguiente anochecer.",
     "sv": "Alla spelare blundar vid röstning och resultatet är hemligt. Varje natt väljer du om du ska vara full till skymningen.",
-    "zh-Hans": "所有玩家在投票时闭眼，且票数会秘密统计。每个夜晚，你要选择自己是否醉酒直到下个黄昏。",
+    "zh": "所有玩家在投票时闭眼，且票数会秘密统计。每个夜晚，你要选择自己是否醉酒直到下个黄昏。",
     "cn": "所有玩家在投票时闭眼，且票数会秘密统计。\n每个夜晚，你要选择自己是否醉酒直到下个黄昏。"
   },
-  "flavor_text": {
-    "en": "\"Round and round the handles go. The more you dance the less you know.\"",
-    "es-419": "Vuelta y vuelta da la manija. Cuanto más bailas, más ignoras.",
+  "flavor": {
+    "en": "Round and round the handles go. The more you dance the less you know.",
+    "es": "Vuelta y vuelta da la manija. Cuanto más bailas, más ignoras.",
     "sv": "Veven snurrar runt i dans. Dansa med, glöm vett och sans.",
-    "zh-Hans": "曲柄划圆吱呀吱，舞步渐狂心渐痴。",
-    "cn": "“如果你想让别人听信你的花言巧语，那么就搭配上一段音乐吧。”\n（英文维基上的背景描述与角色详解中的不同，此处也一并贴出。见下）\n“曲柄划圆吱呀吱，舞步渐狂心渐痴。”"
+    "zh": "曲柄划圆吱呀吱，舞步渐狂心渐痴。",
+    "cn": "如果你想让别人听信你的花言巧语，那么就搭配上一段音乐吧。\n（英文维基上的背景描述与角色详解中的不同，此处也一并贴出。见下）\n曲柄划圆吱呀吱，舞步渐狂心渐痴。"
   },
   "first_night": {
     "en": "The Organ Grinder either nods their head yes to be drunk, or shakes their head no to be sober. :reminder:",
-    "es-419": "El Organillero o asiente con la cabeza para estar borracho, o deniega con la cabeza para estar sobrio. :reminder:",
+    "es": "El Organillero o asiente con la cabeza para estar borracho, o deniega con la cabeza para estar sobrio. :reminder:",
     "sv": "Positivhalaren nickar för att vara full, eller skakar på huvudet för att vara nykter. :reminder:",
-    "zh-Hans": "街头风琴手如果点头：放置“醉酒”提示标记；如果摇头：不放置“醉酒”提示标记。:reminder:"
+    "zh": "街头风琴手如果点头：放置“醉酒”提示标记；如果摇头：不放置“醉酒”提示标记。:reminder:"
   },
   "other_nights": {
     "en": "The Organ Grinder either nods their head yes to be drunk, or shakes their head no to be sober. :reminder:",
-    "es-419": "El Organillero o asiente con la cabeza para estar borracho, o deniega con la cabeza para estar sobrio. :reminder:",
+    "es": "El Organillero o asiente con la cabeza para estar borracho, o deniega con la cabeza para estar sobrio. :reminder:",
     "sv": "Positivhalaren nickar för att vara full, eller skakar på huvudet för att vara nykter. :reminder:",
-    "zh-Hans": "街头风琴手如果点头：放置“醉酒”提示标记；如果摇头：不放置“醉酒”提示标记。:reminder:"
+    "zh": "街头风琴手如果点头：放置“醉酒”提示标记；如果摇头：不放置“醉酒”提示标记。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Organ_Grinder",
   "how_to_run": {
     "cn": "每个夜晚，唤醒街头风琴手点头或摇头。街头风琴手如果点头：放置“醉酒”提示标记；如果摇头：不放置“醉酒”提示标记。让街头风琴手重新入睡。\n当一名玩家被提名后开始投票时，如果街头风琴手是清醒的，要求所有玩家闭上双眼。如果有玩家询问原因，那么告诉他们街头风琴手在场。秘密无声地进行票数的统计。在那之后，不要告诉大家有多少玩家投了票，也不告诉大家被提名者是否“即将被处决”。如果被提名者有足够被处决的票数，标记那名玩家“即将被处决”。告诉所有玩家可以睁开眼睛了，并继续处理接下来可能会有的提名。\n当一天的所有提名都结束时，宣布当前被标记了“即将被处决”的玩家被处决（并死亡，或因为其他原因没有死亡）。\n黄昏时，移除街头风琴手的醉酒提示标记。\n玩家不允许使用任何手段或方式来决定谁来投票，例如触碰或是声响。投票必须是秘密进行的。",
     "en": "Each night, wake the Organ Grinder. The Organ Grinder either nods or shakes their head. If they nod their head, mark them with the DRUNK reminder. Put the Organ Grinder to sleep.\nWhen a player has been nominated and a vote is just about to begin, and the Organ Grinder is sober, ask all players to close their eyes. If they ask why, tell them that an Organ Grinder is in play. When counting votes, do so silently. Afterwards, do not reveal how many players voted, nor if the nominee is “about to die”. If there were enough votes to execute the nominee, mark them with the ABOUT TO DIE reminder. Ask players to open their eyes, and if there are any more nominations.\nWhen nominations are closed, declare that the player marked ABOUT TO DIE, is executed.\nEach dusk, remove the DRUNK reminder.\nPlayers are not allowed to use other methods to determine who is voting, such as touch or sound. It is a secret."
@@ -78,5 +76,6 @@
       "reason": "If the Organ Grinder is causing eyes closed voting, the Butler may raise their hand to vote but their vote is only counted if their master voted too."
     }
   ],
-  "image": "assets/tokens/organ_grinder.png"
+  "image": "assets/tokens/organ_grinder.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Organ_Grinder"
 }

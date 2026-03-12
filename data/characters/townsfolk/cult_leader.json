@@ -3,38 +3,35 @@
   "type": "townsfolk",
   "name": {
     "en": "Cult Leader",
-    "es-419": "Cultista",
+    "es": "Cultista",
     "sv": "Kultledaren",
-    "zh-Hans": "异教领袖",
     "cn": "异教领袖"
   },
   "ability": {
     "en": "Each night, you become the alignment of an alive neighbor. If all good players choose to join your cult, your team wins.",
-    "es-419": "Cada noche, tú te vuelves del alineamiento de uno de tus vecinos vivos. Si todos los jugadores buenos eligen unirse a tu culto, tu equipo gana.",
+    "es": "Cada noche, tú te vuelves del alineamiento de uno de tus vecinos vivos. Si todos los jugadores buenos eligen unirse a tu culto, tu equipo gana.",
     "sv": "Varje natt hamnar du på en levande grannes lag. Om alla goda spelare går med i din kult vinner ditt lag.",
-    "zh-Hans": "每个夜晚，你会转变为与你邻近的一名存活的玩家的阵营。每个白天，你可以提议所有玩家加入你的教派，如果所有善良玩家同意加入，你的阵营获胜。",
+    "zh": "每个夜晚，你会转变为与你邻近的一名存活的玩家的阵营。每个白天，你可以提议所有玩家加入你的教派，如果所有善良玩家同意加入，你的阵营获胜。",
     "cn": "每个夜晚，你会转变为与你邻近的一名存活的玩家的阵营。\n每个白天，你可以提议所有玩家加入你的教派，如果所有善良玩家同意加入，你的阵营获胜。"
   },
-  "flavor_text": {
-    "en": "\"Thinking themselves wise, they became fools.\"",
-    "es-419": "Creyéndose sabios, se volvieron necios.",
+  "flavor": {
+    "en": "Thinking themselves wise, they became fools.",
+    "es": "Creyéndose sabios, se volvieron necios.",
     "sv": "De ville gälla för visa, men blev till dårar.",
-    "zh-Hans": "他们自诩聪明，却成了傻瓜。",
-    "cn": "“他们自诩聪明，却成了傻瓜。”"
+    "cn": "他们自诩聪明，却成了傻瓜。"
   },
   "first_night": {
     "en": "The Cult Leader might change alignment. If so, show the *YOU ARE* info token & give a thumb signal.",
-    "es-419": "El Cultista quizás cambie de alineamiento. Si es así, muéstrale la ficha de *TÚ ERES* y un pulgar arriba o abajo de acuerdo a su nuevo alineamiento.",
+    "es": "El Cultista quizás cambie de alineamiento. Si es así, muéstrale la ficha de *TÚ ERES* y un pulgar arriba o abajo de acuerdo a su nuevo alineamiento.",
     "sv": "Kultledaren kanske byter lag. Visa hen i så fall kortet *DU ÄR* och en tumsignal.",
-    "zh-Hans": "如果异教领袖的阵营发生了改变，对他展示“你是”信息标记，然后用大拇指朝向对应的方向来告诉他当前的阵营。"
+    "zh": "如果异教领袖的阵营发生了改变，对他展示“你是”信息标记，然后用大拇指朝向对应的方向来告诉他当前的阵营。"
   },
   "other_nights": {
     "en": "The Cult Leader might change alignment. If so, show the *YOU ARE* info token & give a thumb signal.",
-    "es-419": "El Cultista quizás cambie de alineamiento. De ser así, muéstrale la ficha de *TÚ ERES* y un pulgar arriba o abajo de acuerdo a su nuevo alineamiento.",
+    "es": "El Cultista quizás cambie de alineamiento. De ser así, muéstrale la ficha de *TÚ ERES* y un pulgar arriba o abajo de acuerdo a su nuevo alineamiento.",
     "sv": "Kultledaren kanske byter lag. Visa hen i så fall kortet *DU ÄR* och en tumsignal.",
-    "zh-Hans": "如果异教领袖的阵营发生了改变，对他展示“你是”信息标记，然后用大拇指朝向对应的方向来告诉他当前的阵营。"
+    "zh": "如果异教领袖的阵营发生了改变，对他展示“你是”信息标记，然后用大拇指朝向对应的方向来告诉他当前的阵营。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Cult_Leader",
   "how_to_run": {
     "cn": "每个夜晚，为异教领袖指定一名与他邻近的存活玩家。异教领袖的阵营现在变成了那名玩家的阵营。根据异教领袖当前的阵营，调整他的角色标记的放置情况（如果是善良阵营，常规放置；如果是邪恶阵营，倒转放置）。\n如果因此使得异教领袖的阵营发生了改变，唤醒异教领袖。对他展示“你是”信息标记，然后用大拇指朝向对应的方向来告诉他当前的阵营。让异教领袖重新入睡。\n在每个白天，任意玩家都可以宣传自己是异教领袖，并提议所有玩家加入他的教派。每名玩家在每个白天最多只能提议一次。\n如果有人发起了提议，使用与提名投票相似的统计方式，从该玩家开始顺时针统计所有人是否愿意加入教派。但注意，这不是一次提名，与提名和投票相关的能力不会生效，统计的结果也不会造成处决。\n如果发起提议的玩家是异教领袖，检查此次提议是否使得所有的善良玩家都同意加入（包括已死亡的玩家在内）。如果是，那么异教领袖的阵营立即获胜。",
     "en": "Each night, turn the Cult Leader character token right side up (if both alive neighbors are good) or upside down (if both alive neighbors are evil) or either (if one alive neighbor is good and the other alive neighbor is evil). If the Cult Leader's alignment changes, wake the Cult Leader and give a thumbs up or a thumbs down, then put the Cult Leader to sleep. If the Cult Leader’s alignment doesn’t change, do not wake them.\nDuring the day, the Cult Leader may declare that they wish to use their ability. If so, enter the circle and run a vote in the same way that you would for an Exile. If all good players raise their hand, declare which team has won. If not all good players raise their hand, nothing happens."
@@ -94,5 +91,6 @@
       "reason": "If the Pit-Hag turns an evil player into the Cult Leader, they can't turn good due to their own ability."
     }
   ],
-  "image": "assets/tokens/cult_leader.png"
+  "image": "assets/tokens/cult_leader.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Cult_Leader"
 }

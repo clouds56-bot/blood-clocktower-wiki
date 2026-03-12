@@ -3,32 +3,29 @@
   "type": "outsider",
   "name": {
     "en": "Ogre",
-    "es-419": "Ogro",
+    "es": "Ogro",
     "sv": "Resen",
-    "zh-Hans": "食人魔",
     "cn": "食人魔"
   },
   "ability": {
     "en": "On your 1st night, choose a player (not yourself): you become their alignment (you don't know which) even if drunk or poisoned.”",
-    "es-419": "En tu 1era noche, escoge un jugador (no tú mismo): tú te vuelves de su alineamiento (sin saber cuál es) incluso si estás borracho o envenenado.",
+    "es": "En tu 1era noche, escoge un jugador (no tú mismo): tú te vuelves de su alineamiento (sin saber cuál es) incluso si estás borracho o envenenado.",
     "sv": "Din första natt väljer du en spelare (inte dig själv); du är på hens lag (du vet inte vilket), även om du är full eller förgiftad.",
-    "zh-Hans": "在你的首个夜晚，你要选择除你以外的一名玩家：你转变为他的阵营，即使你已醉酒或中毒，但你不知道你转变后的阵营。",
     "cn": "在你的首个夜晚，你要选择除你以外的一名玩家：你转变为他的阵营，即使你已醉酒或中毒，但你不知道你转变后的阵营。"
   },
-  "flavor_text": {
-    "en": "\"<grunt><grin></grunt>\"",
-    "es-419": "\\<gruñido\\>\\<sonrisa\\>\\</gruñido\\>",
+  "flavor": {
+    "en": "<grunt><grin></grunt>",
+    "es": "\\<gruñido\\>\\<sonrisa\\>\\</gruñido\\>",
     "sv": "<grymt><flin></grymt>",
-    "zh-Hans": "<咽口水><咧嘴笑></咽口水>",
+    "zh": "<咽口水><咧嘴笑></咽口水>",
     "cn": "<咽口水>\n<咧嘴笑>\n</咽口水>"
   },
   "first_night": {
     "en": "The Ogre chooses a player. :reminder:",
-    "es-419": "El Ogro apunta a un jugador. :reminder:",
+    "es": "El Ogro apunta a un jugador. :reminder:",
     "sv": "Resen väljer en spelare. :reminder:",
-    "zh-Hans": "食人魔指向一名玩家。:reminder:"
+    "zh": "食人魔指向一名玩家。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Ogre",
   "how_to_run": {
     "cn": "在首个夜晚，唤醒食人魔。让食人魔指向一名玩家。让食人魔重新入睡。如果食人魔指向了一名邪恶玩家，将食人魔的角色标记倒转放置，代表食人魔现在属于邪恶阵营。\n可选规则：使用“挚友”提示标记来标记被食人魔选择的玩家。食人魔始终与他所选择的玩家同一阵营。如果食人魔的挚友转变了阵营，食人魔也一同转变阵营，但食人魔不会得知自己的阵营发生变化。该可选规则仅在15人及以上的游戏中建议使用，以使得游戏中不会出现过多的邪恶玩家。",
     "en": "During the first night, wake the Ogre. The Ogre points to a player. Put the Ogre to sleep. If the Ogre pointed to an evil player, flip the Ogre's character token upside down to represent that the Ogre is evil.\nOptional rule: Mark the Ogre’s chosen player with a FRIEND reminder. The Ogre is always the same alignment as their friend. If the Ogre’s friend changes alignment, the Ogre changes alignment too, but the Ogre does not learn this.\n\nThis is only recommended for games of 15 players or more, so that there are not too many evil players."
@@ -98,5 +95,6 @@
       "reason": "The Spy registers as evil to the Ogre."
     }
   ],
-  "image": "assets/tokens/ogre.png"
+  "image": "assets/tokens/ogre.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Ogre"
 }

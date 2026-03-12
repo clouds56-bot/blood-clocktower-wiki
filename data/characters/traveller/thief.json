@@ -3,38 +3,34 @@
   "type": "traveller",
   "name": {
     "en": "Thief",
-    "es-419": "Ladrón",
+    "es": "Ladrón",
     "sv": "Tjuven",
-    "zh-Hans": "窃贼",
     "cn": "窃贼"
   },
   "ability": {
     "en": "Each night, choose a player (not yourself): their vote counts negatively tomorrow.",
-    "es-419": "Cada noche, escoge un jugador (no tú mismo): su voto cuenta negativamente mañana.",
+    "es": "Cada noche, escoge un jugador (no tú mismo): su voto cuenta negativamente mañana.",
     "sv": "Varje natt väljer du en spelare (inte dig själv); hens röst räknas negativt imorgon.",
-    "zh-Hans": "每个夜晚，你要选择除你以外的一名玩家：明天白天他的投票会被算作负数。",
     "cn": "每个夜晚，你要选择除你以外的一名玩家：明天白天他的投票会被算作负数。"
   },
-  "flavor_text": {
-    "en": "\"I aint done nuffink. I weren't even in dat alley last night! It weren't me what stole Mayor Bruno's briefcase wiv all dem fancy dockoments innit. Besides, it was too 'eavy to carry far.\"",
-    "es-419": "Yo no fui. ¡Ni siquiera estaba en ese callejón anoche! No fui yo quien le robó al Alcalde Bruno su maleta esa con todititos los documentos esos bien formales adentro. Además, estaba demasiado pesada para cargarla mucho rato.",
+  "flavor": {
+    "en": "I aint done nuffink. I weren't even in dat alley last night! It weren't me what stole Mayor Bruno's briefcase wiv all dem fancy dockoments innit. Besides, it was too 'eavy to carry far.",
+    "es": "Yo no fui. ¡Ni siquiera estaba en ese callejón anoche! No fui yo quien le robó al Alcalde Bruno su maleta esa con todititos los documentos esos bien formales adentro. Además, estaba demasiado pesada para cargarla mucho rato.",
     "sv": "Jag har inte gjort nåt. Jag var inte ens i den gränden igår kväll! Det var inte jag som stal borgmästare Brunos portfölj med alla tjusiga dokument. Förresten var den för tung för att bära med sig.",
-    "zh-Hans": "我可是嘛事儿也没干。昨儿嘛晚我连内个小巷子都没去过！绝不是我偷了布鲁诺镇长的公文包。它内包儿里面儿讷么老些花哨儿纸儿，可太沉了。",
-    "cn": "“我可是嘛事儿也没干。昨儿嘛晚我连内个小巷子都没去过！绝不是我偷了布鲁诺镇长的公文包。它内包儿里面儿讷么老些花哨儿纸儿，可太沉了。”"
+    "cn": "我可是嘛事儿也没干。昨儿嘛晚我连内个小巷子都没去过！绝不是我偷了布鲁诺镇长的公文包。它内包儿里面儿讷么老些花哨儿纸儿，可太沉了。"
   },
   "first_night": {
     "en": "The Thief chooses a player. :reminder:",
-    "es-419": "El Ladrón escoge un jugador. :reminder:",
+    "es": "El Ladrón escoge un jugador. :reminder:",
     "sv": "Tjuven väljer en spelare. :reminder:",
-    "zh-Hans": "窃贼选择一名玩家。:reminder:"
+    "zh": "窃贼选择一名玩家。:reminder:"
   },
   "other_nights": {
     "en": "The Thief chooses a player. :reminder:",
-    "es-419": "El Ladrón escoge un jugador. :reminder:",
+    "es": "El Ladrón escoge un jugador. :reminder:",
     "sv": "Tjuven väljer en spelare. :reminder:",
-    "zh-Hans": "窃贼选择一名玩家。:reminder:"
+    "zh": "窃贼选择一名玩家。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Thief",
   "how_to_run": {
     "cn": "每个夜晚，唤醒窃贼。让窃贼指向任意一名玩家。用窃贼的“负票”提示标记那名被选中的玩家。让窃贼入睡。\n每次当你正在为一名被“负票”提示标记的玩家投票统计时，以减一票而不是加一票的形式计数。（唱票时如常地大声说出来。）",
     "en": "Each night, wake the Thief. They point at any player. Mark the chosen player with the Thief’s NEGATIVE VOTE reminder. Put the Thief to sleep.\nEach time you tally the vote of a player marked NEGATIVE VOTE, count it as subtracting one vote instead of adding one vote. (Count this out loud, as normal.)"
@@ -80,5 +76,6 @@
     "experimental"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/thief.png"
+  "image": "assets/tokens/thief.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Thief"
 }

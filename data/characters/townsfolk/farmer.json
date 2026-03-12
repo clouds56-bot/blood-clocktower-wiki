@@ -3,32 +3,28 @@
   "type": "townsfolk",
   "name": {
     "en": "Farmer",
-    "es-419": "Granjero",
+    "es": "Granjero",
     "sv": "Bonden",
-    "zh-Hans": "农夫",
     "cn": "农夫"
   },
   "ability": {
     "en": "When you die at night, an alive good player becomes a Farmer.",
-    "es-419": "Cuando mueres en la noche, un jugador vivo bueno se convierte en un Granjero.",
+    "es": "Cuando mueres en la noche, un jugador vivo bueno se convierte en un Granjero.",
     "sv": "När du dör på natten blir en levande god spelare en Bonde.",
-    "zh-Hans": "当你在夜晚死亡时，一名存活的善良玩家会变成农夫。",
     "cn": "当你在夜晚死亡时，一名存活的善良玩家会变成农夫。"
   },
-  "flavor_text": {
-    "en": "\"Even the high and mighty need food on the table. Without us, the city starves.\"",
-    "es-419": "Incluso los grandes y poderosos necesitan comida en la mesa. Sin nosotros, la ciudad se muere de hambre.",
+  "flavor": {
+    "en": "Even the high and mighty need food on the table. Without us, the city starves.",
+    "es": "Incluso los grandes y poderosos necesitan comida en la mesa. Sin nosotros, la ciudad se muere de hambre.",
     "sv": "Även maktens folk måste ha mat på bordet. Utan oss svälter staden.",
-    "zh-Hans": "即使那些高高在上的人也需要吃东西。没有了我们，城市就会挨饿。",
-    "cn": "“即使那些高高在上的人也需要吃东西。没有了我们，城市就会挨饿。”"
+    "cn": "即使那些高高在上的人也需要吃东西。没有了我们，城市就会挨饿。"
   },
   "other_nights": {
     "en": "If the Farmer died tonight, wake a living good player. Show the *YOU ARE* info token and a Farmer token.",
-    "es-419": "Si el Granjero murió esta noche, despierta un jugador bueno vivo. Muéstrale la ficha de *TÚ ERES* y la ficha de rol del Granjero. Reemplaza su ficha anterior por la ficha del Granjero.",
+    "es": "Si el Granjero murió esta noche, despierta un jugador bueno vivo. Muéstrale la ficha de *TÚ ERES* y la ficha de rol del Granjero. Reemplaza su ficha anterior por la ficha del Granjero.",
     "sv": "Om Bonden dog inatt, väck en levande god spelare. Visa kortet *DU ÄR* och en Bonde-bricka.",
-    "zh-Hans": "如果农夫在夜晚死亡，唤醒一名存活的善良玩家。对他展示“你是”信息标记和农夫角色标记，然后让他重新入睡。用农夫角色标记替换他此前的角色标记。"
+    "zh": "如果农夫在夜晚死亡，唤醒一名存活的善良玩家。对他展示“你是”信息标记和农夫角色标记，然后让他重新入睡。用农夫角色标记替换他此前的角色标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Farmer",
   "how_to_run": {
     "cn": "如果农夫在夜晚死亡，唤醒一名存活的善良玩家。对他展示“你是”信息标记和农夫角色标记，然后让他重新入睡。用农夫角色标记替换他此前的角色标记。",
     "en": "If the Farmer died tonight, wake an alive good player. Show them the YOU ARE info token and a Farmer character token, then put them to sleep. Replace their previous character token with a Farmer character token."
@@ -90,5 +86,6 @@
       "reason": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but does not die."
     }
   ],
-  "image": "assets/tokens/farmer.png"
+  "image": "assets/tokens/farmer.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Farmer"
 }

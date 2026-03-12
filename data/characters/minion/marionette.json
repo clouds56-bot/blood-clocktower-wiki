@@ -3,32 +3,28 @@
   "type": "minion",
   "name": {
     "en": "Marionette",
-    "es-419": "Marioneta",
+    "es": "Marioneta",
     "sv": "Marionetten",
-    "zh-Hans": "提线木偶",
     "cn": "提线木偶"
   },
   "ability": {
     "en": "You think you are a good character, but you are not. The Demon knows who you are. [You neighbor the Demon]",
-    "es-419": "Tú crees que eres un rol bueno, pero no lo eres. El Demonio sabe quién eres. [Eres vecino del Demonio]",
+    "es": "Tú crees que eres un rol bueno, pero no lo eres. El Demonio sabe quién eres. [Eres vecino del Demonio]",
     "sv": "Du tror att du är en god roll, men det är du inte. Demonen vet vem du är. [Granne med Demonen]",
-    "zh-Hans": "你以为你是一个善良角色，但其实你不是。恶魔会知道你是提线木偶。[提线木偶会与恶魔邻座]",
     "cn": "你以为你是一个善良角色，但其实你不是。恶魔会知道你是提线木偶。[提线木偶会与恶魔邻座]"
   },
-  "flavor_text": {
-    "en": "\"Words, words. They're all we have to go on.\"",
-    "es-419": "Palabras, palabras. Son lo único que tenemos.",
+  "flavor": {
+    "en": "Words, words. They're all we have to go on.",
+    "es": "Palabras, palabras. Son lo único que tenemos.",
     "sv": "Ord, ord. Det är allt vi har att gå på.",
-    "zh-Hans": "给出命令，下达命令。只需要这样做就足够了。",
-    "cn": "“给出命令，下达命令。只需要这样做就足够了。”"
+    "cn": "给出命令，下达命令。只需要这样做就足够了。"
   },
   "first_night": {
     "en": "Wake the Demon. Show the *THIS PLAYER IS* & Marionette tokens. Point to the Marionette.",
-    "es-419": "Despierta al Demonio. Apunta al jugador marcado *ES LA MARIONETA* y muéstrale la ficha de *ESTE JUGADOR ES* y la ficha de rol de la Marioneta.",
+    "es": "Despierta al Demonio. Apunta al jugador marcado *ES LA MARIONETA* y muéstrale la ficha de *ESTE JUGADOR ES* y la ficha de rol de la Marioneta.",
     "sv": "Väck Demonen. Visa kortet *DEN HÄR SPELAREN ÄR* och Marionettens rollbricka. Peka på Marionetten.",
-    "zh-Hans": "唤醒恶魔，指向标记了“是提线木偶”的玩家，对恶魔展示提线木偶角色标记。"
+    "zh": "唤醒恶魔，指向标记了“是提线木偶”的玩家，对恶魔展示提线木偶角色标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Marionette",
   "how_to_run": {
     "cn": "在游戏设置时，将角色标记放入盲抽袋之前，移除提线木偶角色标记，并加入一个镇民角色标记。\n如果有三名爪牙在场，额外再移除一个爪牙角色标记，并加入一个镇民角色标记。在为首个夜晚做准备时，将一名善良镇民玩家的角色标记与一个不在场的爪牙角色标记交换。在首个夜晚，唤醒这名玩家，对他展示“你是”信息标记和他的爪牙角色标记，随后展示“你是”信息标记和朝下的大拇指，随后让他重新入睡。那名玩家现在是一名邪恶的爪牙了。（这一步骤会确保只会有一个爪牙角色进入盲抽袋里，从而使得至少会有一名善良玩家会与恶魔邻座。）\n在为首个夜晚做准备时，在一名与恶魔邻座的善良玩家角色标记旁放置提线木偶的“是提线木偶”提示标记。在首个夜晚，唤醒恶魔，指向标记了“是提线木偶”的玩家，对恶魔展示提线木偶角色标记。让恶魔重新入睡。\n将提线木偶以为的那个角色视同醉酒一样来运作。他会在他以为的那个善良角色的时机被唤醒，可能获得错误信息，但不会在首夜爪牙信息时被唤醒，等等。\n提线木偶有另一种通用的设置方式：移除提线木偶角色标记和恶魔角色标记，并加入两个镇民角色标记。在为首个夜晚做准备时，选择任意一名与善良玩家相邻的镇民玩家，将他的角色标记替换成恶魔，并在他邻座选择一位善良玩家标记“是提线木偶”。唤醒恶魔并告诉他他的恶魔角色和邪恶阵营，随后告知他提线木偶是谁以及他的恶魔信息。不论爪牙数量多少，都可以按照这个方法进行设置。",
     "en": "While setting up the game, before putting tokens in the bag, remove the Marionette token and add any Townsfolk token.\nIf there are three Minions in play, remove another Minion token and add another Townsfolk token. During the first night, swap a good player’s character token with a not-in-play Minion character token. Wake this player, show them the YOU ARE info token then their Minion character token, then the YOU ARE info token then a thumbs down, then put them to sleep. This player is now an evil Minion. (This ensures that only one Minion token is in the bag, so at least one good player will neighbor the Demon.)\nDuring the first night, mark a good player neighboring the Demon with the IS THE MARIONETTE reminder. Wake the Demon. Point to the player marked IS THE MARIONETTE and show the Marionette character token. Put the Demon to sleep.\nTreat the Marionette as if they were drunk. They wake when their good character would wake, may get false information, do not wake during the Minion Info step etc."
@@ -133,5 +129,6 @@
       "reason": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor."
     }
   ],
-  "image": "assets/tokens/marionette.png"
+  "image": "assets/tokens/marionette.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Marionette"
 }

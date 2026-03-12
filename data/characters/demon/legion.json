@@ -3,32 +3,28 @@
   "type": "demon",
   "name": {
     "en": "Legion",
-    "es-419": "Legión",
+    "es": "Legión",
     "sv": "Legionen",
-    "zh-Hans": "军团",
     "cn": "军团"
   },
   "ability": {
     "en": "Each night*, a player might die. Executions fail if only evil voted. You register as a Minion too. [Most players are Legion]",
-    "es-419": "Cada noche*, un jugador quizás muera. Las ejecuciones fallan si sólamente los malvados votan. Tú te registras como un Secuaz también. [La mayoría de jugadores son Legión]",
+    "es": "Cada noche*, un jugador quizás muera. Las ejecuciones fallan si sólamente los malvados votan. Tú te registras como un Secuaz también. [La mayoría de jugadores son Legión]",
     "sv": "Varje natt* kanske en spelare dör. Röstar bara onda avrättas ingen. Du registreras också som Kumpan. [De flesta är Legionen]",
-    "zh-Hans": "每个夜晚*，可能有一名玩家死亡。如果一项提名只有邪恶玩家投票，投票无效。你也会被当作是爪牙。[多数玩家为军团]",
     "cn": "每个夜晚*，可能有一名玩家死亡。如果一项提名只有邪恶玩家投票，投票无效。你也会被当作是爪牙。[多数玩家为军团]"
   },
-  "flavor_text": {
-    "en": "\"We are the chill wind on a winter’s day. We are the shadow in the moonless night. We are the poison in your tea and the whisper in your ear. We are everywhere.\"",
-    "es-419": "Somos el viento frío en un día de invierno. Somos la sombra en una noche sin lina. Somos el veneno en tu té y el susurro en tu oído. Estamos en todas partes.",
+  "flavor": {
+    "en": "We are the chill wind on a winter’s day. We are the shadow in the moonless night. We are the poison in your tea and the whisper in your ear. We are everywhere.",
+    "es": "Somos el viento frío en un día de invierno. Somos la sombra en una noche sin lina. Somos el veneno en tu té y el susurro en tu oído. Estamos en todas partes.",
     "sv": "Vi är den kalla vinden en vinterdag. Vi är skuggan en månlös natt. Vi är giftet i ditt te och viskningen i ditt öra. Vi är överallt.",
-    "zh-Hans": "我们是冬日刺骨的寒风。我们是无月之夜的阴影。我们是你茶里的毒药，是你耳边的低语。我们无处不在。",
-    "cn": "“我们是冬日刺骨的寒风。我们是无月之夜的阴影。我们是你茶里的毒药，是你耳边的低语。我们无处不在。”"
+    "cn": "我们是冬日刺骨的寒风。我们是无月之夜的阴影。我们是你茶里的毒药，是你耳边的低语。我们无处不在。"
   },
   "other_nights": {
     "en": "A player might die. :reminder:",
-    "es-419": "Un jugador quizás muera. :reminder:",
+    "es": "Un jugador quizás muera. :reminder:",
     "sv": "En spelare kanske dör. :reminder:",
-    "zh-Hans": "一名玩家可能死亡。:reminder:"
+    "zh": "一名玩家可能死亡。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Legion",
   "how_to_run": {
     "cn": "在首个夜晚，恶魔信息步骤中，唤醒所有军团进行互认。（你可以通过指向所有非军团玩家，来让军团玩家明白谁是谁。）\n除了首个夜晚以外的每个夜晚，你可以决定让一名玩家死亡。\n当统计投票时，如常大声唱票。如果投票统计足以让被提名的玩家“即将被处决”但只有邪恶玩家参与投票，宣布本次投票票数为零票。\n你应该在大多数夜晚都杀死一名军团。在夜晚杀死善良玩家通常都不太公平。你的目的是进入游戏的最后一天只剩三名玩家存活的场面——其中有两名善良玩家和一名军团玩家。在最后一天，如果玩家没有成功进行处决，那么在当晚杀死一名善良玩家并使得邪恶阵营获胜。\n如果玩家尝试通过强制安排投票的方式来“检测总票数是否为零票”，那么你可以改为照常宣布票数，但在魔典中使用军团的“即将被处决”提示标记秘密记录真正“即将被处决”的玩家，并在提名阶段结束后处决这名玩家。这会使得有军团存在的游戏变得更加神秘而富有挑战性。",
     "en": "During the first night, during the Demon Info step, let all Legion players make eye contact. (You may want to point to the non-Legion players so that Legion knows who they are.)\nEach night except the first, you may decide that a player dies.\nWhen counting votes, count out loud, as normal. If the vote tally is enough to make a player about to die but only evil players voted, declare that the vote tally is zero.\nMost nights, kill a Legion. Killing a good player is usually unfair. Your aim is to get to three players alive—two good players and one Legion player. On the final day, if the players don’t execute, kill a good player that night so that evil wins.\n\n\nIf the players try to force others to vote to “test whether the vote tally is zero”, you may instead declare that a zero-tally vote is successful but secretly keep a record of which player is really about to die by marking them with Legion’s ABOUT TO DIE reminder, then execute them when nominations are over. This keeps Legion games mysterious and challenging."
@@ -120,5 +116,6 @@
       "reason": "The Zealot might register as evil to Legion."
     }
   ],
-  "image": "assets/tokens/legion.png"
+  "image": "assets/tokens/legion.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Legion"
 }

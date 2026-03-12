@@ -3,32 +3,29 @@
   "type": "townsfolk",
   "name": {
     "en": "Professor",
-    "es-419": "Profesor",
+    "es": "Profesor",
     "sv": "Professorn",
-    "zh-Hans": "教授",
     "cn": "教授"
   },
   "ability": {
     "en": "Once per game, at night*, choose a dead player: if they are a Townsfolk, they are resurrected.",
-    "es-419": "Una vez por juego, por la noche*, escoge un jugador muerto: si él es un Ciudadano, es resucitado.",
+    "es": "Una vez por juego, por la noche*, escoge un jugador muerto: si él es un Ciudadano, es resucitado.",
     "sv": "En gång per spel, på natten*, kan du välja en död spelare; om du väljer en Bybo återupplivas hen.",
-    "zh-Hans": "每局游戏限一次，在夜晚时*，你可以选择一名死亡的玩家：如果他是镇民，你会将他起死回生。",
     "cn": "每局游戏限一次，在夜晚时*，你可以选择一名死亡的玩家：如果他是镇民，你会将他起死回生。"
   },
-  "flavor_text": {
-    "en": "\"The process is simple. Attach the hydraulic confabulator to the modified chi matrix amplifier, add 20 CCs of pseudodorafine, keep his Z levels above 20%, and your husband will be fine. Now, all we need is a lightning strike.\"",
-    "es-419": "El proceso es sencillo. Adjunta el confabulador hidráulico a la matriz amplificada de chi modificado, añade 20 CCs de seudodorafina, manten sus niveles Z por encima del 20%, y tu esposo estará bien. Ahora, todo lo que necesitamos es que le caiga un rayo.",
+  "flavor": {
+    "en": "The process is simple. Attach the hydraulic confabulator to the modified chi matrix amplifier, add 20 CCs of pseudodorafine, keep his Z levels above 20%, and your husband will be fine. Now, all we need is a lightning strike.",
+    "es": "El proceso es sencillo. Adjunta el confabulador hidráulico a la matriz amplificada de chi modificado, añade 20 CCs de seudodorafina, manten sus niveles Z por encima del 20%, y tu esposo estará bien. Ahora, todo lo que necesitamos es que le caiga un rayo.",
     "sv": "Processen är enkel. Fäst hydraulkonfabulatorn i den modifierade chi-matrisförstärkaren, tillsätt 20 ml pseudodorafin, och håll hans z-nivå över 20 %, så ska du se att det ordnar sig med din make. Nu behöver vi bara ett blixtnedslag.",
-    "zh-Hans": "过程很简单。将液压植入器连接到改良型气矩阵放大器上，加入20CC的伪多拉芬，让他的参数Z保持在20%以上，你丈夫就会重新活蹦乱跳。现在，我们需要的仅仅是一次雷击。",
-    "cn": "“过程很简单。将液压植入器连接到改良型气矩阵放大器上，加入20CC的伪多拉芬，让他的参数Z保持在20%以上，你丈夫就会重新活蹦乱跳。\n现在，我们需要的仅仅是一次雷击。”"
+    "zh": "过程很简单。将液压植入器连接到改良型气矩阵放大器上，加入20CC的伪多拉芬，让他的参数Z保持在20%以上，你丈夫就会重新活蹦乱跳。现在，我们需要的仅仅是一次雷击。",
+    "cn": "过程很简单。将液压植入器连接到改良型气矩阵放大器上，加入20CC的伪多拉芬，让他的参数Z保持在20%以上，你丈夫就会重新活蹦乱跳。\n现在，我们需要的仅仅是一次雷击。"
   },
   "other_nights": {
     "en": "The Professor might choose a dead player. :reminder: :reminder:",
-    "es-419": "El Profesor quizás escoja un jugador muerto. :reminder: :reminder:",
+    "es": "El Profesor quizás escoja un jugador muerto. :reminder: :reminder:",
     "sv": "Professorn kanske väljer en död spelare. :reminder: :reminder:",
-    "zh-Hans": "教授可以一名已死亡的玩家。:reminder: :reminder:"
+    "zh": "教授可以一名已死亡的玩家。:reminder: :reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Professor",
   "how_to_run": {
     "cn": "除首夜以外的夜晚，唤醒教授。教授要么摇头表示不使用能力，要么指向一名已死亡的玩家。让教授重新入睡。\n如果教授选择了一名已死亡的镇民，所选玩家再次变成存活状态——将教授的“复活”提示标记放置到该玩家的角色标记旁，并移除其帷幕标记。（如果被复活的玩家其角色在当晚的后续时段中应该被唤醒，则照常唤醒。如果该玩家的角色只会在首个夜晚被唤醒，则立即唤醒该玩家来使用自己的能力。）黎明时，在宣布哪些玩家死亡后，宣布哪些玩家再次变成存活状态了。（不要说明原因。）教授失去自己的能力——将“失去能力”提示标记放置到教授的角色标记旁，并从夜晚顺序表上移除其夜晚标记。",
     "en": "Each night except the first, wake the Professor. The Professor either shakes their head no or points to a dead player. Put the Professor to sleep.\nIf the Professor chose a dead Townsfolk, the chosen player becomes alive again—mark them with the Professor’s ALIVE reminder and remove their shroud. (They wake later tonight if they normally would. If they wake on the first night only, they wake now to use their ability.) At dawn, after declaring which players died, declare which player is alive again. (Do not say why.) The Professor loses their ability—mark them with the NO ABILITY reminder and remove their night token from the night sheet."
@@ -71,5 +68,6 @@
     "bad_moon_rising"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/professor.png"
+  "image": "assets/tokens/professor.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Professor"
 }

@@ -3,26 +3,22 @@
   "type": "outsider",
   "name": {
     "en": "Goon",
-    "es-419": "Matón",
+    "es": "Matón",
     "sv": "Hejduken",
-    "zh-Hans": "莽夫",
     "cn": "莽夫"
   },
   "ability": {
     "en": "Each night, the 1st player to choose you with their ability is drunk until dusk. You become their alignment.",
-    "es-419": "Cada noche, el 1er jugador que te escoja con su habilidad está borracho hasta el siguiente anochecer. Tú te vuelves de su alineamiento.",
+    "es": "Cada noche, el 1er jugador que te escoja con su habilidad está borracho hasta el siguiente anochecer. Tú te vuelves de su alineamiento.",
     "sv": "Varje natt blir den första spelaren som väljer dig med sin förmåga full fram till skymningen. Du går över till hens lag.",
-    "zh-Hans": "每个夜晚，首个使用其自身能力选择了你的玩家会醉酒直到下个黄昏。你会转变为他的阵营。",
     "cn": "每个夜晚，首个使用其自身能力选择了你的玩家会醉酒直到下个黄昏。你会转变为他的阵营。"
   },
-  "flavor_text": {
-    "en": "\"Yes boss. I explained fings real good to dat geezer. He don't want me explain it again. Nah boss, I don't need no doctor - it's only a knife wound. Be right come mornin'\"",
-    "es-419": "Sí, jefe. Le espliqué vien las cozas a ese tipo. Ya no quiere que vuelva a explicar. Nah, jefe, no necesito médico - solo es una herida de cuchillo. Estaré bien por la mañana",
+  "flavor": {
+    "en": "Yes boss. I explained fings real good to dat geezer. He don't want me explain it again. Nah boss, I don't need no doctor - it's only a knife wound. Be right come mornin'",
+    "es": "Sí, jefe. Le espliqué vien las cozas a ese tipo. Ya no quiere que vuelva a explicar. Nah, jefe, no necesito médico - solo es una herida de cuchillo. Estaré bien por la mañana",
     "sv": "Ja, boss. Gubben har fattat vinken nu, det har jag sett till. Han behövde inte en andra omgång. Nej, boss, behövs ingen läkare – det är bara ett knivsår. Inget en god natts sömn inte fixar.",
-    "zh-Hans": "是的，老大。我跟那个家伙好好解释过了。他不愿意再听我解释一遍。不不，老大，我不需要医生——只是刀伤而已。明天早上就好了。",
-    "cn": "“是的，老大。我跟那个家伙好好解释过了。他不愿意再听我解释一遍。不不，老大，我不需要医生——只是刀伤而已。明天早上就好了。”"
+    "cn": "是的，老大。我跟那个家伙好好解释过了。他不愿意再听我解释一遍。不不，老大，我不需要医生——只是刀伤而已。明天早上就好了。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Goon",
   "how_to_run": {
     "cn": "在夜晚，如果一名玩家用自己的能力选择了莽夫，并且莽夫的“醉酒”提示标记未激活，那么该玩家立即醉酒——将“醉酒”标记放置到该玩家角色标记旁。完成该玩家的能力结算并让他重新入睡。如果该玩家与莽夫阵营不同，旋转莽夫的角色标记（正向放置代表善良，颠倒放置代表邪恶）以符合他的阵营，然后唤醒莽夫，对他做出拇指手势（指明他的新阵营），然后让莽夫重新入睡。\n在下一个黄昏，因莽夫而醉酒的玩家恢复清醒——移除莽夫的“醉酒”提示标记。",
     "en": "At night, if a player chooses to use their ability on the Goon and nobody is marked with the Goon’s DRUNK reminder, this player immediately becomes drunk—mark them with the DRUNK reminder. Finish resolving this player’s ability and put them to sleep. If this player’s alignment is different from the Goon’s alignment, rotate the Goon’s character token—right side up for good, upside-down for evil—to match this player’s alignment, then wake the Goon, give them a thumbs-up or a thumbs-down (indicating their new alignment), then put the Goon to sleep.\nThe next dusk, the player that the Goon made drunk becomes sober—remove the Goon’s DRUNK reminder."
@@ -73,5 +69,6 @@
       "reason": "If the Pit-Hag turns an evil player into the Goon, they can't turn good due to their own ability."
     }
   ],
-  "image": "assets/tokens/goon.png"
+  "image": "assets/tokens/goon.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Goon"
 }

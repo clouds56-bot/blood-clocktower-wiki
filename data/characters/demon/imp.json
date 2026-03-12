@@ -3,32 +3,29 @@
   "type": "demon",
   "name": {
     "en": "Imp",
-    "es-419": "Diablillo",
+    "es": "Diablillo",
     "sv": "Djävulen",
-    "zh-Hans": "小恶魔",
     "cn": "小恶魔"
   },
   "ability": {
     "en": "Each night*, choose a player: they die. If you kill yourself this way, a Minion becomes the Imp.",
-    "es-419": "Cada noche*, escoge un jugador: él muere. Si te matas a ti mismo de esta manera, un Secuaz se convierte en el Diablillo.",
+    "es": "Cada noche*, escoge un jugador: él muere. Si te matas a ti mismo de esta manera, un Secuaz se convierte en el Diablillo.",
     "sv": "Varje natt* väljer du en spelare; hen dör. Om du dödar dig själv på det sättet blir en Kumpan till Djävulen.",
-    "zh-Hans": "每个夜晚*，你要选择一名玩家：他死亡。如果你以这种方式自杀，一名爪牙会变成小恶魔。",
     "cn": "每个夜晚*，你要选择一名玩家：他死亡。如果你以这种方式自杀，一名爪牙会变成小恶魔。"
   },
-  "flavor_text": {
-    "en": "\"We must keep our wits sharp and our sword sharper. Evil walks among us, and will stop at nothing to destroy us good, simple folk, bringing our fine town to ruin. Trust no-one. But, if you must trust someone, trust me.\"",
-    "es-419": "Debemos mantener la mente alerta y la espada aún más afilada. El mal anda entre nosotros, y no se detendrá ante nada para destruirnos, gente buena y sencilla, llevando nuestra ciudad hermosa a la ruina. No confien en nadie. Pero, si van a confiar en alguien, confien en mí.",
+  "flavor": {
+    "en": "We must keep our wits sharp and our sword sharper. Evil walks among us, and will stop at nothing to destroy us good, simple folk, bringing our fine town to ruin. Trust no-one. But, if you must trust someone, trust me.",
+    "es": "Debemos mantener la mente alerta y la espada aún más afilada. El mal anda entre nosotros, y no se detendrá ante nada para destruirnos, gente buena y sencilla, llevando nuestra ciudad hermosa a la ruina. No confien en nadie. Pero, si van a confiar en alguien, confien en mí.",
     "sv": "Vi måste vara på vår vakt och ha våra klingor nära till hands. Ondskan vandrar bland oss, och är beredd att göra vad som helst för att förgöra oss hederliga människor och ödelägga vår by. Lita inte på någon. Men om ni måste lita på någon, lita på mig.",
-    "zh-Hans": "我们必须让自己的头脑保持敏锐，刀刃保持锋利。邪恶在我们之中穿行，想要不择手段地摧毁我们的善良。那些愚蠢之辈，把我们美丽的小镇给毁了。不要相信任何人。但如果你一定要相信某人，请相信我。",
-    "cn": "“我们必须让自己的头脑保持敏锐，刀刃保持锋利。\n邪恶在我们之中穿行，想要不择手段地摧毁我们的善良。\n那些愚蠢之辈，把我们美丽的小镇给毁了。不要相信任何人。\n但如果你一定要相信某人，请相信我。”"
+    "zh": "我们必须让自己的头脑保持敏锐，刀刃保持锋利。邪恶在我们之中穿行，想要不择手段地摧毁我们的善良。那些愚蠢之辈，把我们美丽的小镇给毁了。不要相信任何人。但如果你一定要相信某人，请相信我。",
+    "cn": "我们必须让自己的头脑保持敏锐，刀刃保持锋利。\n邪恶在我们之中穿行，想要不择手段地摧毁我们的善良。\n那些愚蠢之辈，把我们美丽的小镇给毁了。不要相信任何人。\n但如果你一定要相信某人，请相信我。"
   },
   "other_nights": {
     "en": "The Imp chooses a player. :reminder: If the Imp chose themselves: Replace 1 alive Minion token with a spare Imp token. Put the old Imp to sleep. Wake the new Imp. Show the *YOU ARE* token, then show the Imp token.",
-    "es-419": "El Diablillo escoge un jugador. :reminder: Si el Diablillo se escoge a sí mismo: Reemplaza la ficha de 1 Secuaz vivo con una ficha extra del Diablillo. Pon al anterior Diablillo a dormir. Despierta al nuevo Diablillo. Muéstrale la ficha de *TÚ ERES*, luego muéstrale la ficha del Diablillo.",
+    "es": "El Diablillo escoge un jugador. :reminder: Si el Diablillo se escoge a sí mismo: Reemplaza la ficha de 1 Secuaz vivo con una ficha extra del Diablillo. Pon al anterior Diablillo a dormir. Despierta al nuevo Diablillo. Muéstrale la ficha de *TÚ ERES*, luego muéstrale la ficha del Diablillo.",
     "sv": "Djävulen väljer en spelare. :reminder: Om Djävulen väljer sig själv, ersätt 1 levande Kumpans bricka med en extra Djävulen-bricka. Söv den gamla Djävulen. Väck den nya Djävulen, visa kortet *DU ÄR* och Djävulens rollbricka.",
-    "zh-Hans": "小恶魔选择一名玩家。:reminder:如果小恶魔选择在夜里自杀，让小恶魔重新入睡。用多出来的小恶魔标记替换一名存活的爪牙玩家的角色标记，让那名玩家的角色改变为小恶魔。唤醒新的小恶魔，向他展示“你是”信息标记，然后向他展示小恶魔角色标记。"
+    "zh": "小恶魔选择一名玩家。:reminder:如果小恶魔选择在夜里自杀，让小恶魔重新入睡。用多出来的小恶魔标记替换一名存活的爪牙玩家的角色标记，让那名玩家的角色改变为小恶魔。唤醒新的小恶魔，向他展示“你是”信息标记，然后向他展示小恶魔角色标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Imp",
   "how_to_run": {
     "cn": "除首个夜晚以外的每个夜晚，唤醒小恶魔。让小恶魔指向任意一名玩家。让小恶魔重新入睡。被选择的玩家死亡——在那名玩家的角色标记旁放置小恶魔的“死亡”提示标记并放置帷幕标记。\n如果小恶魔选择在夜里自杀，用多出来的小恶魔标记替换一名存活的爪牙玩家的角色标记，让那名玩家的角色改变为小恶魔。唤醒新的小恶魔，向他展示“你是”信息标记，然后向他展示小恶魔角色标记。让新的小恶魔重新入睡。\n在黎明时，宣布有哪名玩家在夜晚死去。（不要说明死亡原因。）\n如果小恶魔选择在夜晚攻击一名已死亡的玩家，允许他这么做。当一个角色能力描述中提及“选择一名玩家”，意味着任何玩家——无论存活或是死亡——都能被选择。小恶魔可能在计划伪装成士兵，而这种情形下会让他的谎言看起来更加可信。",
     "en": "Each night except the first, wake the Imp. The Imp points at any player. Put the Imp to sleep. The chosen player dies—put the Imp's DEAD reminder by the chosen player's character token in the Grimoire and put a shroud on it.\nIf the Imp killed themself at night, choose an alive Minion and replace their character token with a spare Imp token, changing their character to the Imp. Wake the new Imp, show them the YOU ARE info token, then show them the Imp token. Put the new Imp to sleep.\nAt dawn, declare which player died at night. (Do not say how they died.)\nIf the Imp attacks a dead player at night, let them do so. Whenever a character's ability says \"choose a player,\" that means that any player—alive or dead—can be chosen. The Imp may be planning on bluffing as the Soldier, and this kind of thing helps their bluff look stronger."
@@ -91,5 +88,6 @@
     "trouble_brewing"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/imp.png"
+  "image": "assets/tokens/imp.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Imp"
 }

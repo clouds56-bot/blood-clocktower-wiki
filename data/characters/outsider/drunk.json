@@ -3,26 +3,23 @@
   "type": "outsider",
   "name": {
     "en": "Drunk",
-    "es-419": "Borracho",
+    "es": "Borracho",
     "sv": "Fyllot",
-    "zh-Hans": "酒鬼",
     "cn": "酒鬼"
   },
   "ability": {
     "en": "You do not know you are the Drunk. You think you are a Townsfolk character, but you are not.",
-    "es-419": "Tú no sabes que eres el Borracho. Tú crees que eres un rol de Ciudadano, pero no lo eres.",
+    "es": "Tú no sabes que eres el Borracho. Tú crees que eres un rol de Ciudadano, pero no lo eres.",
     "sv": "Du vet inte att du är Fyllot. Du tror att du är en Bybo, men det är du inte.",
-    "zh-Hans": "你不知道你是酒鬼。你以为你是一个镇民角色，但其实你不是。",
     "cn": "你不知道你是酒鬼。你以为你是一个镇民角色，但其实你不是。"
   },
-  "flavor_text": {
-    "en": "\"I’m only a *hic* social drinker, my dear. Admittedly, I am a heavy *burp* socializer.\"",
-    "es-419": "Yo solo *hip* bebo socialmente, mi querida. Pero, cabe admitir que soy un *erc* socializador empedernido.",
+  "flavor": {
+    "en": "I’m only a *hic* social drinker, my dear. Admittedly, I am a heavy *burp* socializer.",
+    "es": "Yo solo *hip* bebo socialmente, mi querida. Pero, cabe admitir que soy un *erc* socializador empedernido.",
     "sv": "Jag dricker bara *hick* socialt, kära du. Jag är bara väldigt social av mig.",
-    "zh-Hans": "我是个只在社交场合里~嗝儿~喝酒的人，亲爱的。但无可否认，我是一个非常~嗝儿~擅长社交的人。",
-    "cn": "“我是个只在社交场合里~嗝儿~喝酒的人，亲爱的。\n但无可否认，我是一个非常~嗝儿~擅长社交的人。”\n（英文维基上的背景描述与角色详解中的不同，此处也一并贴出。见下）\n“这完全合乎~嗝儿~逻辑。我知道的是狄亚哈特小姐是个占卜师。狄亚哈特夫人则发誓詹金斯是她的管家。得出这样的推论非常~嗝儿~简单。”"
+    "zh": "我是个只在社交场合里~嗝儿~喝酒的人，亲爱的。但无可否认，我是一个非常~嗝儿~擅长社交的人。",
+    "cn": "我是个只在社交场合里~嗝儿~喝酒的人，亲爱的。\n但无可否认，我是一个非常~嗝儿~擅长社交的人。\n（英文维基上的背景描述与角色详解中的不同，此处也一并贴出。见下）\n这完全合乎~嗝儿~逻辑。我知道的是狄亚哈特小姐是个占卜师。狄亚哈特夫人则发誓詹金斯是她的管家。得出这样的推论非常~嗝儿~简单。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Drunk",
   "how_to_run": {
     "cn": "在游戏设置时，将角色标记放进盲抽袋之前，移除酒鬼标记并添加一枚额外的镇民角色标记。将酒鬼的“是酒鬼”提示标记放置进魔典中。将用于替换的镇民角色标记放进盲抽袋中，而不是酒鬼的角色标记。\n在为首个夜晚进行准备时，将酒鬼的“是酒鬼”提示标记放置在用于替换的那名镇民角色标记旁，用于提醒那名玩家的角色实际上是酒鬼。这名玩家现在是一名外来者，并且不再具有这个镇民的能力。（但他仍然以为自己是镇民。）\n在游戏过程中，以酒鬼的镇民角色来让酒鬼进行行动。（如果那个角色会在夜里行动，唤醒酒鬼让他进行行动。如果镇民的能力会获取信息，若你愿意，你可以对酒鬼给出错误的信息。参考规则书中的“醉酒与中毒”部分。）",
     "en": "While setting up the game, before putting character tokens in the bag, remove the Drunk token and add a Townsfolk character token. Add the Drunk's IS THE DRUNK reminder token to the Grimoire. Put the swapped Townsfolk character token in the bag, not the Drunk character token.\nWhile preparing the first night, put the Drunk's IS THE DRUNK reminder token by any Townsfolk character token, changing that player's character to the Drunk. They are now an Outsider, and do not have the ability of this Townsfolk character. (But they think they do.)\nDuring the game, act as if the Drunk is actually this Townsfolk character. (If that character would wake to act at night, the Drunk wakes to act. If their ability would give them information, you can give false information to them if you wish. See \"Drunkenness and Poisoning\" in the rulebook.)"
@@ -78,5 +75,6 @@
       "reason": "The Mathematician might learn if the Drunk's ability yielded false info or failed to work properly."
     }
   ],
-  "image": "assets/tokens/drunk.png"
+  "image": "assets/tokens/drunk.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Drunk"
 }

@@ -3,38 +3,34 @@
   "type": "minion",
   "name": {
     "en": "Mezepheles",
-    "es-419": "Mezéfeles",
+    "es": "Mezéfeles",
     "sv": "Mezefeles",
-    "zh-Hans": "灵言师",
     "cn": "灵言师"
   },
   "ability": {
     "en": "You start knowing a secret word. The 1st good player to say this word becomes evil that night.",
-    "es-419": "Empiezas conociendo una palabra secreta. El 1er jugador bueno que diga esta palabra se vuelve malvado esa noche.",
+    "es": "Empiezas conociendo una palabra secreta. El 1er jugador bueno que diga esta palabra se vuelve malvado esa noche.",
     "sv": "I början vet du ett hemligt ord. Den första goda spelaren som säger ordet blir ond den natten.",
-    "zh-Hans": "在你的首个夜晚，你会得知一个关键词。首个说出该关键词的善良玩家会在当晚转变为邪恶阵营。",
     "cn": "在你的首个夜晚，你会得知一个关键词。首个说出该关键词的善良玩家会在当晚转变为邪恶阵营。"
   },
-  "flavor_text": {
-    "en": "\"That which issues from the heart alone, will bend the hearts of others to your own.\"",
-    "es-419": "Aquello que sale solo del corazón doblegará los corazones de los demás ante el tuyo.",
+  "flavor": {
+    "en": "That which issues from the heart alone, will bend the hearts of others to your own.",
+    "es": "Aquello que sale solo del corazón doblegará los corazones de los demás ante el tuyo.",
     "sv": "Pass på, min vän! Du skall förnimma mer sinnesfröjd i denna timma än på ett år av vanligt tråkigt slag.",
-    "zh-Hans": "唯有源自内心深处的情感，才能让他人的心灵向你屈从。",
-    "cn": "“唯有源自内心深处的情感，才能让他人的心灵向你屈从。”"
+    "cn": "唯有源自内心深处的情感，才能让他人的心灵向你屈从。"
   },
   "first_night": {
     "en": "Show the secret word.",
-    "es-419": "Muéstrale la palabra escrita.",
+    "es": "Muéstrale la palabra escrita.",
     "sv": "Visa det hemliga ordet.",
-    "zh-Hans": "展示写下的词语。"
+    "zh": "展示写下的词语。"
   },
   "other_nights": {
     "en": "If a good player said the secret word, wake the player. Show the *YOU ARE* info token & give a thumbs-down. :reminder: :reminder:",
-    "es-419": "Si un jugador está marcado con la ficha de *SE VUELVE MALVADO*, despiértalo. Muéstrale la ficha de *TÚ ERES* y un pulgar abajo. El Mezéfeles pierde su habilidad. :reminder:",
+    "es": "Si un jugador está marcado con la ficha de *SE VUELVE MALVADO*, despiértalo. Muéstrale la ficha de *TÚ ERES* y un pulgar abajo. El Mezéfeles pierde su habilidad. :reminder:",
     "sv": "Om en god spelare sa det hemliga ordet, väck den spelaren. Visa kortet *DU ÄR* och ge tummen ner. :reminder: :reminder:",
-    "zh-Hans": "如果有玩家被标记了“转为邪恶”提示标记，将他唤醒。对他展示“你是”信息标记和朝下的大拇指。灵言师失去能力。:reminder:"
+    "zh": "如果有玩家被标记了“转为邪恶”提示标记，将他唤醒。对他展示“你是”信息标记和朝下的大拇指。灵言师失去能力。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Mezepheles",
   "how_to_run": {
     "cn": "在为首个夜晚做准备时，用纸条或手机便签或其他便捷的设备写下一个词语。在首个夜晚，唤醒灵言师，对他展示你写下的词语，然后让灵言师重新入睡。\n当你首次听到有善良玩家说出这个关键词时，使用灵言师的“转为邪恶”提示标记标记那名玩家。\n每个夜晚，如果有玩家被标记了“转为邪恶”提示标记，将他唤醒。对他展示“你是”信息标记和朝下的大拇指。让他重新入睡。将他的角色标记倒转放置。（这会表示他现在是邪恶阵营了。）灵言师失去能力——将灵言师的“失去能力”提示标记放置在灵言师角色标记旁，然后将他的夜晚标记从夜晚顺序表旁移除。\n请选择绝对不会无意被说出的非常见词语。你甚至可以杜撰一个词语。灵言师角色的乐趣在于他需要在私下让一名善良玩家转为邪恶的同时承担一定的风险，而不是让一名善良玩家在意料之外转变阵营。",
     "en": "While setting up the game, write a single word on a piece of paper or on a phone or other device. During the first night, wake the Mezepheles, show the written word, then put them to sleep.\nThe first time you hear a good player say the secret word, mark them with the TURNS EVIL reminder.\nEach night, if a player is marked with the TURNS EVIL reminder, wake them. Show the YOU ARE info token then give a thumbs down. Put them to sleep. Turn their character token upside down. (This shows they are now evil.) The Mezepheles loses their ability—mark them with the NO ABILITY reminder and remove their night token from the night sheet.\nChoose an unusual word that would never be spoken accidentally. You can even make one up. The fun lies in the Mezepheles taking a risk to secretly convince a good player to turn evil, not in a good player unexpectedly changing teams."
@@ -104,5 +100,6 @@
     "experimental"
   ],
   "artist": "Caitlin Murphy",
-  "image": "assets/tokens/mezepheles.png"
+  "image": "assets/tokens/mezepheles.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Mezepheles"
 }

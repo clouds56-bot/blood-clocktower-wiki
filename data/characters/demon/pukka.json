@@ -3,38 +3,35 @@
   "type": "demon",
   "name": {
     "en": "Pukka",
-    "es-419": "Pukka",
+    "es": "Pukka",
     "sv": "Pukka",
-    "zh-Hans": "普卡",
     "cn": "普卡"
   },
   "ability": {
     "en": "Each night, choose a player: they are poisoned. The previously poisoned player dies then becomes healthy.",
-    "es-419": "Cada noche, escoge un jugador: él está envenenado. El jugador envenenado previo muere y luego se vuelve saludable.",
+    "es": "Cada noche, escoge un jugador: él está envenenado. El jugador envenenado previo muere y luego se vuelve saludable.",
     "sv": "Varje natt väljer du en spelare; hen är förgiftad. Förra förgiftade spelaren dör och blir sedan frisk.",
-    "zh-Hans": "每个夜晚，你要选择一名玩家：他中毒。上个因你的能力中毒的玩家会死亡并恢复健康。",
+    "zh": "每个夜晚，你要选择一名玩家：他中毒。上个因你的能力中毒的玩家会死亡并恢复健康。",
     "cn": "每个夜晚，你要选择一名玩家：他中毒。\n上个因你的能力中毒的玩家会死亡并恢复健康。"
   },
-  "flavor_text": {
-    "en": "\"You truly have been kind welcoming me into your beautiful home. I am so sorry I accidentally scratched you. A little thing. No matter. But please, take this golden toothpick as a humble token of my regret.\"",
-    "es-419": "Has sido verdaderamente amable al recibime en tu hermoso hogar. Siento mucho haberte arañado accidentalmente. Fue una nimiedad. No pasa nada. Pero porfavor, acepta este mondadientes dorado como una señal humilde de mis disculpas.",
+  "flavor": {
+    "en": "You truly have been kind welcoming me into your beautiful home. I am so sorry I accidentally scratched you. A little thing. No matter. But please, take this golden toothpick as a humble token of my regret.",
+    "es": "Has sido verdaderamente amable al recibime en tu hermoso hogar. Siento mucho haberte arañado accidentalmente. Fue una nimiedad. No pasa nada. Pero porfavor, acepta este mondadientes dorado como una señal humilde de mis disculpas.",
     "sv": "Du har varit så vänlig som välkomnat mig till ditt vackra hem. Jag ber om ursäkt för att jag råkade riva dig. Det kanske var en struntsak, men jag vill ändå att du tar denna gyllene tandpetare som ett tecken på min ånger.",
-    "zh-Hans": "您人真好，发生了这样的事情，您还愿意让我来您金碧辉煌的家里做客。我很抱歉，刚才不小心划伤了您。这是一点点赔礼，没事的，请收下吧，把这根金牙签当做我那卑微的歉意吧。",
-    "cn": "“您人真好，发生了这样的事情，您还愿意让我来您金碧辉煌的家里做客。我很抱歉，刚才不小心划伤了您。这是一点点赔礼，没事的，请收下吧，把这根金牙签当做我那卑微的歉意吧。”"
+    "cn": "您人真好，发生了这样的事情，您还愿意让我来您金碧辉煌的家里做客。我很抱歉，刚才不小心划伤了您。这是一点点赔礼，没事的，请收下吧，把这根金牙签当做我那卑微的歉意吧。"
   },
   "first_night": {
     "en": "The Pukka chooses a player. :reminder:",
-    "es-419": "El Pukka escoge un jugador. :reminder:",
+    "es": "El Pukka escoge un jugador. :reminder:",
     "sv": "Pukka väljer en spelare. :reminder:",
-    "zh-Hans": "普卡选择一名玩家。:reminder:"
+    "zh": "普卡选择一名玩家。:reminder:"
   },
   "other_nights": {
     "en": "The Pukka chooses a player. :reminder: The previously poisoned player dies then becomes healthy. :reminder:",
-    "es-419": "El Pukka escoge un jugador. :reminder: El jugador envenenado previo muere y luego se vuelve saludable. :reminder:",
+    "es": "El Pukka escoge un jugador. :reminder: El jugador envenenado previo muere y luego se vuelve saludable. :reminder:",
     "sv": "Pukka väljer en spelare. :reminder: Den spelare som var förgiftad tidigare dör och blir sedan frisk. :reminder:",
-    "zh-Hans": "普卡选择一名玩家。:reminder:之前因普卡中毒的玩家死亡，随后恢复健康。:reminder:"
+    "zh": "普卡选择一名玩家。:reminder:之前因普卡中毒的玩家死亡，随后恢复健康。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Pukka",
   "how_to_run": {
     "cn": "每个夜晚，唤醒普卡。让普卡指向任意一名玩家。让普卡重新入睡。所选玩家中毒——将“中毒”提示标记放置到该玩家的角色标记旁。\n除了首个夜晚以外的每个夜晚，其他标有普卡的“中毒”提示标记的玩家死亡——将“死亡”提示标记放置到这些玩家的角色标记旁，然后移除他们的“中毒”提示标记。\n被普卡杀死的玩家在死亡时仍然中毒。如果有来自其他剧本的角色，你可能需要将“中毒”标记保留在“死亡”标记旁，直到这些角色的死亡能力结算完毕。例如，如果普卡杀死了贤者，贤者可能会因为中毒效果而获得错误信息。",
     "en": "Each night, wake the Pukka. They point at any player. Put the Pukka to sleep. The chosen player is poisoned—mark them with a POISONED reminder.\nEach night except the first, the other player marked POISONED dies—mark them with a DEAD reminder, then remove their POISONED reminder.\nPlayers that the Pukka kills are still poisoned at their time of death. If you are using characters from other editions, you may need to keep the POISONED reminder by the DEAD reminder until their death ability is resolved. For example, if the Pukka kills the Sage, the Sage may get false information due to being poisoned by the Pukka."
@@ -88,5 +85,6 @@
       "reason": "The Summoner may summon a Pukka on the 2nd night instead of the 3rd."
     }
   ],
-  "image": "assets/tokens/pukka.png"
+  "image": "assets/tokens/pukka.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Pukka"
 }

@@ -3,38 +3,35 @@
   "type": "minion",
   "name": {
     "en": "Godfather",
-    "es-419": "Padrino",
+    "es": "Padrino",
     "sv": "Gudfadern",
-    "zh-Hans": "教父",
     "cn": "教父"
   },
   "ability": {
     "en": "You start knowing which Outsiders are in play. If 1 died today, choose a player tonight: they die. [-1 or +1 Outsider]",
-    "es-419": "Empiezas conociendo cuáles Extranjeros están en juego. Si 1 murió hoy, escoge un jugador esta noche: él muere. [-1 o +1 Extranjero]",
+    "es": "Empiezas conociendo cuáles Extranjeros están en juego. Si 1 murió hoy, escoge un jugador esta noche: él muere. [-1 o +1 Extranjero]",
     "sv": "I början vet du vilka Utbölingar som är i spel. Om en dog idag väljer du en spelare inatt; hen dör. [−1 eller +1 Utböling]",
-    "zh-Hans": "在你的首个夜晚，你会得知有哪些外来者角色在场。如果有外来者在白天死亡，你会在当晚被唤醒并且你要选择一名玩家：他死亡。[-1或+1外来者]",
+    "zh": "在你的首个夜晚，你会得知有哪些外来者角色在场。如果有外来者在白天死亡，你会在当晚被唤醒并且你要选择一名玩家：他死亡。[-1或+1外来者]",
     "cn": "在你的首个夜晚，你会得知有哪些外来者角色在场。\n如果有外来者在白天死亡，你会在当晚被唤醒并且你要选择一名玩家：他死亡。[-1或+1外来者]"
   },
-  "flavor_text": {
-    "en": "\"Normally, it's just business. But when you insult my daughter, you insult me. And when you insult me, you insult my family. You really should be more careful - it would be a shame if you had an unfortunate accident.\"",
-    "es-419": "Normalmente, es solo negocios. Pero cuando insultas a mi hija, me insultas a mí. Y cuando me insultas a mí, insultas a mi familia. Deberías tener mucho más cuidado - sería una pena que tuvieras un desafortunado accidente.",
+  "flavor": {
+    "en": "Normally, it's just business. But when you insult my daughter, you insult me. And when you insult me, you insult my family. You really should be more careful - it would be a shame if you had an unfortunate accident.",
+    "es": "Normalmente, es solo negocios. Pero cuando insultas a mi hija, me insultas a mí. Y cuando me insultas a mí, insultas a mi familia. Deberías tener mucho más cuidado - sería una pena que tuvieras un desafortunado accidente.",
     "sv": "I vanliga fall är det bara affärer. Men när du förolämpar min dotter så förolämpar du mig. Och när du förolämpar mig så förolämpar du min familj. Du borde vara försiktigare än så – vi vill ju inte att du ska råka illa ut.",
-    "zh-Hans": "通常来说，这只是件小事。但在你侮辱我女儿时，你就侮辱了我。你侮辱我，就侮辱了我的家族。你真的应该更小心些——要是你不幸发生意外事故，那就太遗憾了。",
-    "cn": "“通常来说，这只是件小事。但在你侮辱我女儿时，你就侮辱了我。你侮辱我，就侮辱了我的家族。你真的应该更小心些——要是你不幸发生意外事故，那就太遗憾了。”"
+    "cn": "通常来说，这只是件小事。但在你侮辱我女儿时，你就侮辱了我。你侮辱我，就侮辱了我的家族。你真的应该更小心些——要是你不幸发生意外事故，那就太遗憾了。"
   },
   "first_night": {
     "en": "Show the character tokens of all in-play Outsiders.",
-    "es-419": "Muéstrale las fichas de rol de todos los Extranjeros en juego.",
+    "es": "Muéstrale las fichas de rol de todos los Extranjeros en juego.",
     "sv": "Visa rollbrickor för att ange alla Utbölingar som är i spel.",
-    "zh-Hans": "展示所有在场的外来者的角色标记。"
+    "zh": "展示所有在场的外来者的角色标记。"
   },
   "other_nights": {
     "en": "If an Outsider died today, the Godfather chooses a player. :reminder:",
-    "es-419": "Si un Extranjero murió hoy, el Padrino escoge un jugador. :reminder:",
+    "es": "Si un Extranjero murió hoy, el Padrino escoge un jugador. :reminder:",
     "sv": "Om en Utböling dog idag så väljer Gudfadern en spelare. :reminder:",
-    "zh-Hans": "如果一名外来者在白天死亡，让教父选择一名玩家。:reminder:"
+    "zh": "如果一名外来者在白天死亡，让教父选择一名玩家。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Godfather",
   "how_to_run": {
     "cn": "在设置游戏时，将角色标记放进盲抽袋之前，要么移除一个镇民并加入一个外来者，要么移除一个外来者并加入一个镇民。\n在首个夜晚，唤醒教父。向教父展示所有在场的外来者的角色标记。让教父重新入睡。\n如果一名外来者在白天死亡，将“死于今日”提示标记放置到该玩家的角色标记旁。当晚，唤醒教父。让教父指向任意一名玩家。让教父重新入睡。所选玩家死亡——将“死亡”提示标记放置到该玩家的角色标记旁。",
     "en": "While setting up the game, before putting the character tokens in the bag, either remove one Townsfolk and add one Outsider or remove one Outsider and add one Townsfolk.\nDuring the first night, wake the Godfather. Show them the character tokens of all Outsiders in play. Put the Godfather to sleep.\nIf an Outsider dies during the day, mark them with the DIED TODAY reminder. That night, wake the Godfather. They point at any player. Put the Godfather to sleep. The chosen player dies—mark them with the DEAD reminder."
@@ -85,5 +82,6 @@
       "reason": "Only 1 jinxed character can be in play."
     }
   ],
-  "image": "assets/tokens/godfather.png"
+  "image": "assets/tokens/godfather.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Godfather"
 }

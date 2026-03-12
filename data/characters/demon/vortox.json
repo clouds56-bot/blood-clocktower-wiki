@@ -3,32 +3,29 @@
   "type": "demon",
   "name": {
     "en": "Vortox",
-    "es-419": "Vórtice",
+    "es": "Vórtice",
     "sv": "Vortox",
-    "zh-Hans": "涡流",
     "cn": "涡流"
   },
   "ability": {
     "en": "Each night*, choose a player: they die. Townsfolk abilities yield false info. Each day, if no-one is executed, evil wins.",
-    "es-419": "Cada noche*, escoge un jugador: él muere. Las habilidades de Ciudadano generan información falsa. Cada día, si nadie es ejecutado, los malvados ganan.",
+    "es": "Cada noche*, escoge un jugador: él muere. Las habilidades de Ciudadano generan información falsa. Cada día, si nadie es ejecutado, los malvados ganan.",
     "sv": "Varje natt* väljer du en spelare; hen dör. Bybors förmågor ger falsk info. Om ingen avrättas en dag vinner de onda.",
-    "zh-Hans": "每个夜晚*，你要选择一名玩家：他死亡。镇民玩家的能力都会产生错误信息。如果白天没人被处决，邪恶阵营获胜。",
+    "zh": "每个夜晚*，你要选择一名玩家：他死亡。镇民玩家的能力都会产生错误信息。如果白天没人被处决，邪恶阵营获胜。",
     "cn": "每个夜晚*，你要选择一名玩家：他死亡。\n镇民玩家的能力都会产生错误信息。\n如果白天没人被处决，邪恶阵营获胜。"
   },
-  "flavor_text": {
-    "en": "\"Black is White. Right is Wrong. Left is Right. Up is Long. Down is Sight. Short is Blind. Follow me. Answers find.\"",
-    "es-419": "Negro es Blanco. Mentira es Verdad. Izquierda es Derecha. Salud es Enfermedad. Arriba es Menos. Abajo es Más. Sígueme. Y respuestas tendrás.",
+  "flavor": {
+    "en": "Black is White. Right is Wrong. Left is Right. Up is Long. Down is Sight. Short is Blind. Follow me. Answers find.",
+    "es": "Negro es Blanco. Mentira es Verdad. Izquierda es Derecha. Salud es Enfermedad. Arriba es Menos. Abajo es Más. Sígueme. Y respuestas tendrás.",
     "sv": "Natt är dag. Rätt är fel. Bak är svag. Fram är hel. Ner är bort. Upp är kvar. Följ med mig. Här finns svar.",
-    "zh-Hans": "黑白颠倒，对错不再，左右变换，长短无猜。万物紊乱无可寻，短视死亡把命栽，何处寻答？随我来。",
-    "cn": "“黑白颠倒，对错不再，左右变换，长短无猜。万物紊乱无可寻，短视死亡把命栽，何处寻答？随我来。”"
+    "cn": "黑白颠倒，对错不再，左右变换，长短无猜。万物紊乱无可寻，短视死亡把命栽，何处寻答？随我来。"
   },
   "other_nights": {
     "en": "The Vortox chooses a player. :reminder:",
-    "es-419": "El Vórtice escoge un jugador. :reminder:",
+    "es": "El Vórtice escoge un jugador. :reminder:",
     "sv": "Vortox väljer en spelare. :reminder:",
-    "zh-Hans": "涡流选择一名玩家。:reminder:"
+    "zh": "涡流选择一名玩家。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Vortox",
   "how_to_run": {
     "cn": "只要涡流存活，每当有镇民因为能力需要你提供信息，你就必须提供错误信息。\n除首个夜晚外的每个夜晚，唤醒涡流。让涡流指向一名玩家，将该玩家杀死。该玩家死亡，在他角色标记旁放置“死亡”提示标记。让涡流重新入睡。\n每个黄昏，如果今天白天没有玩家被处决，游戏结束，邪恶阵营获胜。",
     "en": "While the Vortox is alive, you must give false information whenever a Townsfolk ability prompts you to give information.\nEach night except the first, wake the Vortox. They point at any player. That player dies - mark them with the DEAD reminder. Put the Vortox to sleep.\nEach dusk, if no player was executed today, the game ends and the evil team wins."
@@ -87,5 +84,6 @@
       "reason": "If the Vortox kills the Banshee, all players learn that the Banshee has died."
     }
   ],
-  "image": "assets/tokens/vortox.png"
+  "image": "assets/tokens/vortox.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Vortox"
 }

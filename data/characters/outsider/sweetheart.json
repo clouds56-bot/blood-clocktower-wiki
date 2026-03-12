@@ -3,32 +3,28 @@
   "type": "outsider",
   "name": {
     "en": "Sweetheart",
-    "es-419": "Tesorito",
+    "es": "Tesorito",
     "sv": "Kärestan",
-    "zh-Hans": "心上人",
     "cn": "心上人"
   },
   "ability": {
     "en": "When you die, 1 player is drunk from now on.",
-    "es-419": "Cuando mueres, 1 jugador está borracho de ahora en adelante.",
+    "es": "Cuando mueres, 1 jugador está borracho de ahora en adelante.",
     "sv": "När du dör blir 1 spelare full för resten av spelet.",
-    "zh-Hans": "当你死亡时，会有一名玩家开始醉酒。",
     "cn": "当你死亡时，会有一名玩家开始醉酒。"
   },
-  "flavor_text": {
-    "en": "\"I will never forget her. Never.\"",
-    "es-419": "Nunca la olvidaré. Nunca.",
+  "flavor": {
+    "en": "I will never forget her. Never.",
+    "es": "Nunca la olvidaré. Nunca.",
     "sv": "Jag kommer aldrig glömma henne. Aldrig.",
-    "zh-Hans": "我永远也忘不掉她……永远……",
-    "cn": "“我永远也忘不掉她……永远……”"
+    "cn": "我永远也忘不掉她……永远……"
   },
   "other_nights": {
     "en": "If the Sweetheart died, a player became drunk immediately. If you haven't done this yet, do so now. :reminder:",
-    "es-419": "Si la Tesorito muere, un jugador se vuelve borracho inmediatamente. Si aún no lo has hecho, hazlo ahora. :reminder:",
+    "es": "Si la Tesorito muere, un jugador se vuelve borracho inmediatamente. Si aún no lo has hecho, hazlo ahora. :reminder:",
     "sv": "Om Kärestan dog blev en spelare full direkt. Om du inte har gjort det än så gör det nu. :reminder:",
-    "zh-Hans": "如果心上人死亡，你选择任一玩家醉酒，为他放置“醉酒”提示标记。:reminder:"
+    "zh": "如果心上人死亡，你选择任一玩家醉酒，为他放置“醉酒”提示标记。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Sweetheart",
   "how_to_run": {
     "cn": "如果心上人死亡，你选择任一玩家醉酒，为他放置“醉酒”提示标记。心上人在死亡时不会失去该能力。\n你在选择醉酒玩家时通常都应该选择镇民，这样可以给善良阵营制造些麻烦。但如果邪恶阵营优势巨大，你也可以让外来者，爪牙甚至恶魔醉酒。",
     "en": "If the Sweetheart dies, you choose any one player to become drunk - mark this player with the DRUNK reminder. The Sweetheart does not lose this ability when dead.\nYou will almost always want to make a Townsfolk drunk, which will hurt the good team, but if evil is winning quite convincingly, you can make an Outsider, Minion, or even the Demon drunk."
@@ -70,5 +66,6 @@
     "sects_violets"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/sweetheart.png"
+  "image": "assets/tokens/sweetheart.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Sweetheart"
 }

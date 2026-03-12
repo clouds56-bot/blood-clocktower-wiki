@@ -3,26 +3,23 @@
   "type": "fabled",
   "name": {
     "en": "Djinn",
-    "es-419": "Genio",
+    "es": "Genio",
     "sv": "Djinnen",
-    "zh-Hans": "灯神",
     "cn": "灯神"
   },
   "ability": {
     "en": "Use the Djinn's special rule. All players know what it is.",
-    "es-419": "Usa la regla especial del Genio. Todos los jugadores saben cuál es.",
+    "es": "Usa la regla especial del Genio. Todos los jugadores saben cuál es.",
     "sv": "Använd Djinnens specialregel. Alla spelare vet vad den är.",
-    "zh-Hans": "使用灯神的相克规则。所有玩家都会知道其内容。",
     "cn": "使用灯神的相克规则。所有玩家都会知道其内容。"
   },
-  "flavor_text": {
-    "en": "\"نحن لسنا هنا.\n\t\t\t\tانت لست حقيقي.\n\t\t\t\tكل شيء هو وهم.\n\t\t\t\tأسئلتك هي جبل نار في يوم صافٍ.\"",
-    "es-419": "نحن لسنا هنا. انت لست حقيقي. كل شيء هو وهم. أسئلتك هي جبل نار في يوم صافٍ.",
+  "flavor": {
+    "en": "نحن لسنا هنا.\n\t\t\t\tانت لست حقيقي.\n\t\t\t\tكل شيء هو وهم.\n\t\t\t\tأسئلتك هي جبل نار في يوم صافٍ.",
+    "es": "نحن لسنا هنا. انت لست حقيقي. كل شيء هو وهم. أسئلتك هي جبل نار في يوم صافٍ.",
     "sv": "نحن لسنا هنا. انت لست حقيقي. كل شيء هو وهم. أسئلتك هي جبل نار في يوم صافٍ.",
-    "zh-Hans": "我们并非在此，你也未必真实，一切神秘皆是幻象难觅，茫茫问题好似晴天霹雳。",
-    "cn": "“我们并非在此，\n你也未必真实，\n一切神秘皆是幻象难觅，\n茫茫问题好似晴天霹雳。”\n（原文为阿拉伯语，见下）\nنحن لسنا هنا.\nانت لست حقيقي.\nكل شيء هو وهم.\nأسئلتك هي جبل نار في يوم صافٍ."
+    "zh": "我们并非在此，你也未必真实，一切神秘皆是幻象难觅，茫茫问题好似晴天霹雳。",
+    "cn": "我们并非在此，\n你也未必真实，\n一切神秘皆是幻象难觅，\n茫茫问题好似晴天霹雳。\n（原文为阿拉伯语，见下）\nنحن لسنا هنا.\nانت لست حقيقي.\nكل شيء هو وهم.\nأسئلتك هي جبل نار في يوم صافٍ."
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Djinn",
   "how_to_run": {
     "cn": "在游戏开始前，如果角色列表上存在相克玩家，宣布灯神在场，并向玩家们告知本局游戏中所有的灯神特殊规则。（即使没有相克角色在场也要这么做。）\n按照剧本工具列出的灯神的相克规则说明进行操作。",
     "en": "At the start of the game, if there are jinxed characters on the character sheet, declare that the Djinn is in play and inform the group of all Djinn special rules for this game. (Do this even if there are no jinxed characters in play.)\nFollow the Djinn instructions as listed on the Script Tool printout."
@@ -43,5 +40,6 @@
     "experimental"
   ],
   "artist": "John Grist",
-  "image": "assets/tokens/djinn.png"
+  "image": "assets/tokens/djinn.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Djinn"
 }

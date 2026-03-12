@@ -3,32 +3,28 @@
   "type": "traveller",
   "name": {
     "en": "Harlot",
-    "es-419": "Meretriz",
+    "es": "Meretriz",
     "sv": "Skökan",
-    "zh-Hans": "流莺",
     "cn": "流莺"
   },
   "ability": {
     "en": "Each night*, choose a living player: if they agree, you learn their character, but you both might die.",
-    "es-419": "Cada noche*, escoge un jugador vivo: si él acepta, tú aprendes su rol, pero ambos quizás mueran.",
+    "es": "Cada noche*, escoge un jugador vivo: si él acepta, tú aprendes su rol, pero ambos quizás mueran.",
     "sv": "Varje natt* väljer du en levande spelare; om hen går med på det får du veta hens roll, men ni båda kanske dör.",
-    "zh-Hans": "每个夜晚*，你要选择一名存活的玩家：如果他同意，你会得知他的角色，但是你们两个可能同时死亡。",
     "cn": "每个夜晚*，你要选择一名存活的玩家：如果他同意，你会得知他的角色，但是你们两个可能同时死亡。"
   },
-  "flavor_text": {
-    "en": "\"Enchanté, Sailor. You look like you need someone to really listen to your troubles. I'm a good listener. Very, very good.\"",
-    "es-419": "Enchanté, Marinero. Tienes cara de que necesitas de alguien que realmente escuche tus problemas. Y yo sí que sé escuchar. Muy, muy bien.",
+  "flavor": {
+    "en": "Enchanté, Sailor. You look like you need someone to really listen to your troubles. I'm a good listener. Very, very good.",
+    "es": "Enchanté, Marinero. Tienes cara de que necesitas de alguien que realmente escuche tus problemas. Y yo sí que sé escuchar. Muy, muy bien.",
     "sv": "Enchanté, matros. Du ser ut som att du behöver lätta på hjärtat. Jag är bra på att lyssna. Mycket, mycket bra.",
-    "zh-Hans": "认得侬老开心额，水手。你好像有些烦心事想告诉我，对嘛对嘛，而我就是一个很棒棒的聆听者。",
-    "cn": "“认得侬老开心额，水手。你好像有些烦心事想告诉我，对嘛对嘛，而我就是一个很棒棒的聆听者。”"
+    "cn": "认得侬老开心额，水手。你好像有些烦心事想告诉我，对嘛对嘛，而我就是一个很棒棒的聆听者。"
   },
   "other_nights": {
     "en": "The Harlot chooses a living player. Put the Harlot to sleep. Wake the chosen player, show them the *THIS CHARACTER SELECTED YOU* token, then the Harlot token. If that player nods their head, wake the Harlot and show them the chosen player's character token. Both players might die. :reminder: :reminder:",
-    "es-419": "La Meretriz apunta a cualquier jugador vivo. Luego, pon a la Meretriz a dormir. Despierta al jugador escogido, muéstrale la ficha de *ESTE ROL TE HA SELECCIONADO*, luego la ficha de la Meretriz. Ese jugador puede asentir o denegar con la cabeza. Si asiente, despierta a la Meretriz y muéstrale la ficha de rol del jugador escogido. Luego, puedes decidir que ambos jugadores mueren.",
+    "es": "La Meretriz apunta a cualquier jugador vivo. Luego, pon a la Meretriz a dormir. Despierta al jugador escogido, muéstrale la ficha de *ESTE ROL TE HA SELECCIONADO*, luego la ficha de la Meretriz. Ese jugador puede asentir o denegar con la cabeza. Si asiente, despierta a la Meretriz y muéstrale la ficha de rol del jugador escogido. Luego, puedes decidir que ambos jugadores mueren.",
     "sv": "Skökan pekar på en levande. Söv Skökan. Väck den valda spelaren, visa kortet *DU PÅVERKAS AV* och Skökans rollbricka. Om den valda spelaren nickar så väck Skökan igen och visa den valda spelarens rollbricka. Båda spelare kanske dör. :reminder: :reminder:",
-    "zh-Hans": "让流莺指向任意一名玩家。让流莺重新入睡。唤醒被选中的玩家，对该玩家展示“该角色的能力对你生效”提示标记和流莺角色标记。该玩家需要通过点头表示是，摇头表示否。如果被选择的玩家点头了表示是，则唤醒流莺并向流莺展示被选择的玩家的角色标记。然后，你可能决定让两名玩家都死亡。"
+    "zh": "让流莺指向任意一名玩家。让流莺重新入睡。唤醒被选中的玩家，对该玩家展示“该角色的能力对你生效”提示标记和流莺角色标记。该玩家需要通过点头表示是，摇头表示否。如果被选择的玩家点头了表示是，则唤醒流莺并向流莺展示被选择的玩家的角色标记。然后，你可能决定让两名玩家都死亡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Harlot",
   "how_to_run": {
     "cn": "每个夜晚，唤醒流莺。让流莺指向任意一名玩家。让流莺重新入睡。唤醒被选中的玩家，对该玩家展示“该角色的能力对你生效”提示标记和流莺角色标记。该玩家需要通过点头表示是，摇头表示否。然后让该玩家重新入睡。\n如果被选择的玩家摇头了表示否，则无事发生，继续进行夜晚阶段。\n如果被选择的玩家点头了表示是，则唤醒流莺并向流莺展示被选择的玩家的角色标记。让流莺再次入睡。如果你决定让两名玩家一起死——将“死亡”提示标记分别放在两者的角色标记旁。\n当你正在思考是否要杀死玩家时，尽量做你觉得最有趣、最平衡的选择。当恶魔将自己的角色揭露给流莺，你不应该直接杀死他们以结束游戏。",
     "en": "Each night, wake the Harlot. The Harlot points at any player. Put the Harlot to sleep. Wake the chosen player, show them the THIS CHARACTER SELECTED YOU' info token, then the Harlot token. That player either nods their head yes or shakes their head no. Put that player to sleep.\nIf they shook their head no, then nothing happens. Continue with the night phase.\nIf they nodded their head yes, wake the Harlot and show them the chosen player’s character token. Put the Harlot to sleep. You may decide that both players die—mark them with DEAD reminders.\nWhen choosing whether to kill players, do what you feel is the most interesting and balanced. If the Demon reveals to the Harlot, you should not end the game by killing them."
@@ -91,5 +87,6 @@
     "experimental"
   ],
   "artist": "Caitlin Murphy",
-  "image": "assets/tokens/harlot.png"
+  "image": "assets/tokens/harlot.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Harlot"
 }

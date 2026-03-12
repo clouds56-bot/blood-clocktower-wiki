@@ -3,26 +3,22 @@
   "type": "outsider",
   "name": {
     "en": "Zealot",
-    "es-419": "Fanático",
+    "es": "Fanático",
     "sv": "Fanatikern",
-    "zh-Hans": "狂热者",
     "cn": "狂热者"
   },
   "ability": {
     "en": "If there are 5 or more players alive, you must vote for every nomination.",
-    "es-419": "Si hay 5 o más jugadores vivos, debes votar en cada nominación.",
+    "es": "Si hay 5 o más jugadores vivos, debes votar en cada nominación.",
     "sv": "Om minst 5 spelare lever måste du alltid rösta för avrättning.",
-    "zh-Hans": "如果有大于等于五名玩家存活，你必须在所有提名中投票。",
     "cn": "如果有大于等于五名玩家存活，你必须在所有提名中投票。"
   },
-  "flavor_text": {
-    "en": "\"I enjoy talking to you. Your mind appeals to me. It resembles my own mind except that you happen to be insane.\"",
-    "es-419": "Me gusta hablar contigo. Tu mente me atrae. Me recuerda a mi propia mente, excepto que tú estás loco.",
+  "flavor": {
+    "en": "I enjoy talking to you. Your mind appeals to me. It resembles my own mind except that you happen to be insane.",
+    "es": "Me gusta hablar contigo. Tu mente me atrae. Me recuerda a mi propia mente, excepto que tú estás loco.",
     "sv": "Jag tycker om att prata med dig. Ditt sinne tilltalar mig. Det liknar mitt, förutom det att du råkar vara helt från vettet.",
-    "zh-Hans": "和你聊天让我很享受。你的想法很有吸引力，和我的想法很相似。除非……这只是你的疯言疯语。",
-    "cn": "“和你聊天让我很享受。你的想法很有吸引力，和我的想法很相似。除非……这只是你的疯言疯语。”"
+    "cn": "和你聊天让我很享受。你的想法很有吸引力，和我的想法很相似。除非……这只是你的疯言疯语。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Zealot",
   "how_to_run": {
     "cn": "在每次提名中，如果当前有五名或更多玩家存活，狂热者必须举手投票。\n如果狂热者不小心忘记了投票，不要统计他的票。因为如果你统计了票数，实际总票数会比原本总票数多，因此所有玩家都会知道谁是狂热者，这对邪恶阵营来说非常不公平。人总会犯错。继续进行游戏，并在稍后私下提示狂热者。",
     "en": "During each nomination, if there are 5 or more players alive, the Zealot must raise their hand to vote.\nIf the Zealot accidentally forgets to vote, do not tally the Zealot's vote. If you do tally the vote, the total will be more than it should be, and all players will know which player is the Zealot, which is unfair for the evil team. Mistakes happen. Just play on and have a private chat later."
@@ -84,5 +80,6 @@
       "reason": "The Zealot might register as evil to the Vizier."
     }
   ],
-  "image": "assets/tokens/zealot.png"
+  "image": "assets/tokens/zealot.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Zealot"
 }

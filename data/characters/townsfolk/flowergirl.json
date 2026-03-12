@@ -3,32 +3,28 @@
   "type": "townsfolk",
   "name": {
     "en": "Flowergirl",
-    "es-419": "Niña de las Flores",
+    "es": "Niña de las Flores",
     "sv": "Floristen",
-    "zh-Hans": "卖花女孩",
     "cn": "卖花女孩"
   },
   "ability": {
     "en": "Each night*, you learn if a Demon voted today.",
-    "es-419": "Cada noche*, tú aprendes si un Demonio votó hoy.",
+    "es": "Cada noche*, tú aprendes si un Demonio votó hoy.",
     "sv": "Varje natt* får du veta om en Demon röstade idag.",
-    "zh-Hans": "每个夜晚*，你会得知在今天白天时是否有恶魔投过票。",
     "cn": "每个夜晚*，你会得知在今天白天时是否有恶魔投过票。"
   },
-  "flavor_text": {
-    "en": "\"Yesterday's violets have withered and died, but today my poppies bloom.\"",
-    "es-419": "Las violetas de ayer se han marchitado, pero hoy mis amapolas florecen.",
+  "flavor": {
+    "en": "Yesterday's violets have withered and died, but today my poppies bloom.",
+    "es": "Las violetas de ayer se han marchitado, pero hoy mis amapolas florecen.",
     "sv": "Gårdagens violer har vissnat och dött, men idag blommar vallmon.",
-    "zh-Hans": "昨天，我的紫罗兰凋谢了。今天，我的罂粟花盛开了。",
-    "cn": "“昨天，我的紫罗兰凋谢了。今天，我的罂粟花盛开了。”"
+    "cn": "昨天，我的紫罗兰凋谢了。今天，我的罂粟花盛开了。"
   },
   "other_nights": {
     "en": "Either nod or shake your head.",
-    "es-419": "Asiente o deniega con la cabeza.",
+    "es": "Asiente o deniega con la cabeza.",
     "sv": "Nicka eller skaka på huvudet.",
-    "zh-Hans": "果卖花女孩被标记为“恶魔未投票”，摇头告知否。如果卖花女孩被标记为“恶魔已投票”，点头告知是。"
+    "zh": "果卖花女孩被标记为“恶魔未投票”，摇头告知否。如果卖花女孩被标记为“恶魔已投票”，点头告知是。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Flowergirl",
   "how_to_run": {
     "cn": "每个黎明，在卖花女孩角色标记旁放置“恶魔未投票”提示标记，并移除“恶魔已投票”提示标记（如果有）。\n每个白天，如果恶魔在任何处决中投票，则将“恶魔未投票”提示标记替换为“恶魔已投票”提示标记。\n除首个夜晚以外的每个夜晚，唤醒卖花女孩。 如果卖花女孩被标记为“恶魔未投票”，摇头告知否。如果卖花女孩被标记为“恶魔已投票”，点头告知是。让卖花女孩重新入睡。\n如果你忘记了恶魔是否在白天投票，在夜晚唤醒恶魔，并向他展示“你今天投票了吗？”信息标记。他必须诚实回答，然后重新入睡。",
     "en": "Each dawn, mark the Flowergirl with the DEMON NOT VOTED reminder, and remove the DEMON VOTED reminder, if any.\nEach day, if the Demon votes for any execution, replace the DEMON NOT VOTED reminder with the DEMON VOTED reminder.\nEach night except the first, wake the Flowergirl. If the Flowergirl is marked DEMON NOT VOTED, shake your head no. If the Flowergirl is marked DEMON VOTED, nod your head yes.\nThen, put the Flowergirl to sleep.\nIf you forget whether the Demon voted or not, wake the Demon at night and ask by showing them the DID YOU VOTE TODAY? info token. They must answer honestly, then go to sleep."
@@ -70,5 +66,6 @@
     "sects_violets"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/flowergirl.png"
+  "image": "assets/tokens/flowergirl.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Flowergirl"
 }

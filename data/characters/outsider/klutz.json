@@ -3,26 +3,22 @@
   "type": "outsider",
   "name": {
     "en": "Klutz",
-    "es-419": "Torpe",
+    "es": "Torpe",
     "sv": "Klanten",
-    "zh-Hans": "呆瓜",
     "cn": "呆瓜"
   },
   "ability": {
     "en": "When you learn that you died, publicly choose 1 alive player: if they are evil, your team loses.",
-    "es-419": "Cuando aprendes que has muerto, escoge 1 jugador vivo públicamente: si él es malvado, tu equipo pierde.",
+    "es": "Cuando aprendes que has muerto, escoge 1 jugador vivo públicamente: si él es malvado, tu equipo pierde.",
     "sv": "När du får veta att du dött väljer du öppet 1 levande spelare; om hen är ond förlorar ditt lag.",
-    "zh-Hans": "当你得知你死亡时，你要公开选择一名存活的玩家：如果他是邪恶的，你的阵营落败。",
     "cn": "当你得知你死亡时，你要公开选择一名存活的玩家：如果他是邪恶的，你的阵营落败。"
   },
-  "flavor_text": {
-    "en": "\"Oops.\"",
-    "es-419": "Uy.",
+  "flavor": {
+    "en": "Oops.",
+    "es": "Uy.",
     "sv": "Oj då.",
-    "zh-Hans": "哎哟！",
-    "cn": "“哎哟！”"
+    "cn": "哎哟！"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Klutz",
   "how_to_run": {
     "cn": "当呆瓜玩家被宣布死亡时，他必须宣布他是呆瓜，然后选择一名存活玩家（给他足够的时间）。如果他选择了一名邪恶玩家，游戏结束，邪恶阵营获胜。如果他选择了一名善良玩家，游戏继续。\n在特殊情况下，当属于邪恶阵营的呆瓜选择了一名邪恶玩家也会导致游戏结束，并且改为善良阵营获胜。\n如果呆瓜玩家没有意识到他必须在死亡时选择一名玩家，私下提醒他。新手玩家可能不明白他的角色如何运作。",
     "en": "When the Klutz player is declared dead, they must declare that they are the Klutz and then point at any player. (Give them time.) If they choose an evil player, the game ends and the evil team wins. If they choose a good player, the game continues.\nIn the strange situation where the Klutz is evil and chooses an evil player, then the game ends and the good team wins instead.\nIf the Klutz player doesn’t realize that they must choose a player when they die, privately remind them. New players may not understand how their character works."
@@ -62,5 +58,6 @@
     "sects_violets"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/klutz.png"
+  "image": "assets/tokens/klutz.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Klutz"
 }

@@ -3,26 +3,22 @@
   "type": "traveller",
   "name": {
     "en": "Butcher",
-    "es-419": "Carnicero",
+    "es": "Carnicero",
     "sv": "Slaktaren",
-    "zh-Hans": "屠夫",
     "cn": "屠夫"
   },
   "ability": {
     "en": "Each day, after the 1st execution, you may nominate again.",
-    "es-419": "Cada día, luego de la 1era ejecución, puedes nominar nuevamente.",
+    "es": "Cada día, luego de la 1era ejecución, puedes nominar nuevamente.",
     "sv": "Varje dag efter den första avrättningen får du nominera igen.",
-    "zh-Hans": "每个白天，首次处决后，你可以再次发起提名。",
     "cn": "每个白天，首次处决后，你可以再次发起提名。"
   },
-  "flavor_text": {
-    "en": "\"It tastes like chicken. More please.\"",
-    "es-419": "Sabe a pollo. Más, por favor.",
+  "flavor": {
+    "en": "It tastes like chicken. More please.",
+    "es": "Sabe a pollo. Más, por favor.",
     "sv": "Smakar kyckling. Mer, tack.",
-    "zh-Hans": "这口感好像鸡肉..……请再来一份。",
-    "cn": "“这口感好像鸡肉..……请再来一份。”"
+    "cn": "这口感好像鸡肉..……请再来一份。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Butcher",
   "how_to_run": {
     "cn": "每一天，在第一次有玩家被处决后，屠夫可以提名一名玩家进行处决。（如果需要的话可以提醒屠夫。）这次提名处决的成功条件和正常情况下一样，需要至少达到存活玩家的一半的票数，但是不需要达到并超过在屠夫发动能力之前被处决玩家的票数。如果第二次处决成功了，屠夫无法再发起第三次处决提名。",
     "en": "Each day, immediately after a player is executed, the Butcher may nominate a player for execution. (Remind them if needed.) To succeed, this nomination must tally votes of at least half the alive players, as normal, but does not have to exceed the votes of the execution that prompted the Butcher ability. If this second execution succeeds, it does not allow the Butcher to nominate a third player."
@@ -67,5 +63,6 @@
     "experimental"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/butcher.png"
+  "image": "assets/tokens/butcher.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Butcher"
 }

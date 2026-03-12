@@ -3,26 +3,23 @@
   "type": "townsfolk",
   "name": {
     "en": "Minstrel",
-    "es-419": "Trovador",
+    "es": "Trovador",
     "sv": "Trubaduren",
-    "zh-Hans": "吟游诗人",
     "cn": "吟游诗人"
   },
   "ability": {
     "en": "When a Minion dies by execution, all other players (except Travellers) are drunk until dusk tomorrow.",
-    "es-419": "Cuando un Secuaz muere por ejecución, todos los otros jugadores (excepto Viajeros) están borrachos hasta el anochecer de mañana.",
+    "es": "Cuando un Secuaz muere por ejecución, todos los otros jugadores (excepto Viajeros) están borrachos hasta el anochecer de mañana.",
     "sv": "Om en Kumpan dör av avrättning blir alla andra spelare (utom Resenärer) fulla fram till skymningen imorgon.",
-    "zh-Hans": "当一名爪牙死于处决时，除了你和旅行者以外的所有其他玩家醉酒直到明天黄昏。",
     "cn": "当一名爪牙死于处决时，除了你和旅行者以外的所有其他玩家醉酒直到明天黄昏。"
   },
-  "flavor_text": {
-    "en": "\"And I shall hear, tho' soft you tread above me... And all my dreams will warm and sweeter be... If you'll not fail to tell me that you love me... I simply sleep in peace until you come to me.\"",
-    "es-419": "Y oiré, aún cuando suave pises sobre mí…Y todos mis sueños serán cálidos y dulces por ti…Si no dejas de decirme que me amas así…Simplemente dormiré en paz hasta que regreses aquí.",
+  "flavor": {
+    "en": "And I shall hear, tho' soft you tread above me... And all my dreams will warm and sweeter be... If you'll not fail to tell me that you love me... I simply sleep in peace until you come to me.",
+    "es": "Y oiré, aún cuando suave pises sobre mí…Y todos mis sueños serán cálidos y dulces por ti…Si no dejas de decirme que me amas así…Simplemente dormiré en paz hasta que regreses aquí.",
     "sv": "Somna, min nymf! Dröm om min lyra // till dess vår sol går opp klockan fyra // och du dig sträcker // och armarna räcker // till min kanna och min famn // eldad av mitt blod och namn.",
-    "zh-Hans": "我应倾听，当你轻敲我心……美梦因你，甜美温馨……若你羞赧，难以决定……我会安睡，待你光临。",
-    "cn": "“我应倾听，当你轻敲我心……\n美梦因你，甜美温馨……\n若你羞赧，难以决定……\n我会安睡，待你光临。”"
+    "zh": "我应倾听，当你轻敲我心……美梦因你，甜美温馨……若你羞赧，难以决定……我会安睡，待你光临。",
+    "cn": "我应倾听，当你轻敲我心……\n美梦因你，甜美温馨……\n若你羞赧，难以决定……\n我会安睡，待你光临。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Minstrel",
   "how_to_run": {
     "cn": "在白天，如果一名爪牙玩家死于处决，除旅行者外的所有其他玩家都醉酒——将吟游诗人的“全员醉酒”提示标记放置到魔典左侧的中央。\n在下一天的黄昏，所有因吟游诗人醉酒的玩家恢复清醒——移除“全员醉酒”提示标记。",
     "en": "During the day, if a Minion dies by execution, all other players except Travellers become drunk—put the Minstrel’s EVERYONE IS DRUNK reminder in the center of the left side of the Grimoire.\nAt dusk tomorrow, all players made drunk by the Minstrel become sober—remove the EVERYONE IS DRUNK reminder."
@@ -67,5 +64,6 @@
       "reason": "If Legion died by execution today, Legion keeps their ability, but the Minstrel might learn they are Legion."
     }
   ],
-  "image": "assets/tokens/minstrel.png"
+  "image": "assets/tokens/minstrel.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Minstrel"
 }

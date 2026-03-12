@@ -3,26 +3,23 @@
   "type": "townsfolk",
   "name": {
     "en": "Soldier",
-    "es-419": "Soldado",
+    "es": "Soldado",
     "sv": "Soldaten",
-    "zh-Hans": "士兵",
     "cn": "士兵"
   },
   "ability": {
     "en": "You are safe from the Demon.",
-    "es-419": "Estás a salvo del Demonio.",
+    "es": "Estás a salvo del Demonio.",
     "sv": "Du är säker från Demonen.",
-    "zh-Hans": "恶魔的负面能力对你无效。",
     "cn": "恶魔的负面能力对你无效。"
   },
-  "flavor_text": {
-    "en": "\"As David said to Goliath, as Theseus said to the Minotaur, as Arjuna said to Bhagadatta... No.\"",
-    "es-419": "Como le dijo David a Goliat, como le dijo Teseo al Minotauro, como le dijo Arjuna a Bhagadatta…No.",
+  "flavor": {
+    "en": "As David said to Goliath, as Theseus said to the Minotaur, as Arjuna said to Bhagadatta... No.",
+    "es": "Como le dijo David a Goliat, como le dijo Teseo al Minotauro, como le dijo Arjuna a Bhagadatta…No.",
     "sv": "Som David sa till Goljat, som Theseus sa till Minotauren, som Arjuna sa till Bhagadatta… Nej.",
-    "zh-Hans": "就像大卫对歌利亚所说，像忒修斯对米诺陶所说，也像阿周那对福授所说的那样……绝不。",
-    "cn": "“就像大卫对歌利亚所说，\n像忒修斯对米诺陶所说，\n也像阿周那对福授所说的那样……\n绝不。”"
+    "zh": "就像大卫对歌利亚所说，像忒修斯对米诺陶所说，也像阿周那对福授所说的那样……绝不。",
+    "cn": "就像大卫对歌利亚所说，\n像忒修斯对米诺陶所说，\n也像阿周那对福授所说的那样……\n绝不。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Soldier",
   "how_to_run": {
     "cn": "在夜晚时，如果恶魔攻击了士兵，士兵仍然存活。（在黎明时，宣布当晚没有人死亡。）\n在其他剧本中，恶魔可能会拥有除杀死以外的其他能力。士兵的保护能力同样可以阻止恶魔的其他有害效果，例如让士兵中毒或将士兵转变为邪恶阵营。",
     "en": "During the night, if the Demon attacks the Soldier, the Soldier remains alive. (At dawn, declare that no one died at night.)\nIn other editions, Demons may have abilities other than killing. The Soldier is also protected from all other harmful effects of the Demon's ability, such as poisoning or turning the Soldier evil."
@@ -79,5 +76,6 @@
       "reason": "If Riot nominates and executes the Soldier, good wins."
     }
   ],
-  "image": "assets/tokens/soldier.png"
+  "image": "assets/tokens/soldier.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Soldier"
 }

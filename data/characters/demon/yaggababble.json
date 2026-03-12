@@ -3,38 +3,35 @@
   "type": "demon",
   "name": {
     "en": "Yaggababble",
-    "es-419": "Yaggablabla",
+    "es": "Yaggablabla",
     "sv": "Yaggababbel",
-    "zh-Hans": "牙噶巴卜",
     "cn": "牙噶巴卜"
   },
   "ability": {
     "en": "You start knowing a secret phrase. For each time you said it publicly today, a player might die.",
-    "es-419": "Empiezas conociendo una frase secreta. Por cada vez que la digas públicamente hoy, un jugador quizás muera.",
+    "es": "Empiezas conociendo una frase secreta. Por cada vez que la digas públicamente hoy, un jugador quizás muera.",
     "sv": "I början vet du en hemlig fras. För varje gång du sa den öppet idag kanske en spelare dör.",
-    "zh-Hans": "在你的首个夜晚，你会得知一段秘密短语。每次你在白天公开说出这段短语，当天便可能会有一名玩家在这之后死亡。",
     "cn": "在你的首个夜晚，你会得知一段秘密短语。每次你在白天公开说出这段短语，当天便可能会有一名玩家在这之后死亡。"
   },
-  "flavor_text": {
-    "en": "\"Murders inside the Rue Morgue? Фальшивые новости! Hounds on the Baskerville moor? Фальшивые новости! Death while sailing the Nile? Фальшивые новости!\"",
-    "es-419": "¿Asesinatos en la Calle Morgue? ¡Фальшивые новости! ¿Sabuesos en el páramo de Baskerville? ¡Фальшивые новости! ¿Muerte cruzando el Nilo? ¡Фальшивые новости!",
+  "flavor": {
+    "en": "Murders inside the Rue Morgue? Фальшивые новости! Hounds on the Baskerville moor? Фальшивые новости! Death while sailing the Nile? Фальшивые новости!",
+    "es": "¿Asesinatos en la Calle Morgue? ¡Фальшивые новости! ¿Sabuesos en el páramo de Baskerville? ¡Фальшивые новости! ¿Muerte cruzando el Nilo? ¡Фальшивые новости!",
     "sv": "Mord på Rue Morgue? Фальшивые новости! Hundar på Baskervillemyren? Фальшивые новости! Död på Nilen? Фальшивые новости!",
-    "zh-Hans": "莫尔街的谋杀案？假的噶！巴斯克维尔的猎犬？假的噶！尼罗河上的惨案？假的噶！",
-    "cn": "“莫尔街的谋杀案？假的噶！\n巴斯克维尔的猎犬？假的噶！\n尼罗河上的惨案？假的噶！”"
+    "zh": "莫尔街的谋杀案？假的噶！巴斯克维尔的猎犬？假的噶！尼罗河上的惨案？假的噶！",
+    "cn": "莫尔街的谋杀案？假的噶！\n巴斯克维尔的猎犬？假的噶！\n尼罗河上的惨案？假的噶！"
   },
   "first_night": {
     "en": "Show the Yaggababble their secret phrase.",
-    "es-419": "Escoge una frase secreta. Despierta al Yaggablabla y hazle saber su frase secreta.",
+    "es": "Escoge una frase secreta. Despierta al Yaggablabla y hazle saber su frase secreta.",
     "sv": "Visa Yaggababbel den hemliga frasen.",
-    "zh-Hans": "选择一段短语，唤醒牙噶巴卜，并展示这一段短语。"
+    "zh": "选择一段短语，唤醒牙噶巴卜，并展示这一段短语。"
   },
   "other_nights": {
     "en": "For each time the Yaggababble said their phrase today, a player might die. :reminder:",
-    "es-419": "Por cada vez que el Yaggablabla haya dicho la frase hoy, puedes escoger un jugador. Él muere. :reminder:",
+    "es": "Por cada vez que el Yaggablabla haya dicho la frase hoy, puedes escoger un jugador. Él muere. :reminder:",
     "sv": "För varje gång Yaggababbel sa sin fras idag kanske en spelare dör. :reminder:",
-    "zh-Hans": "每当牙噶巴卜在白天公开说出这段短语时，将一枚“死亡”提示标记放入魔典左侧的中央位置，用以提示你需要在今晚放置这个标记。:reminder:"
+    "zh": "每当牙噶巴卜在白天公开说出这段短语时，将一枚“死亡”提示标记放入魔典左侧的中央位置，用以提示你需要在今晚放置这个标记。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Yaggababble",
   "how_to_run": {
     "cn": "在为首个夜晚做准备时，用纸条或手机便签或其他便捷的设备写下一段短语。\n在首个夜晚，唤醒牙噶巴卜，对他展示这段短语，然后让他重新入睡。\n每当牙噶巴卜在白天公开说出这段短语时，将一枚“死亡”提示标记放入魔典左侧的中央位置，用以提示你需要在今晚放置这个标记。\n每个夜晚，你需要选择是否将放入魔典中央的“死亡”提示标记放置在一名玩家的角色标记旁。如果你这么做，那么同时为放置了提示标记的角色标记上再放置帷幕标记。这些玩家死亡。\n尽量选择朴实的短语。如果恶魔获得的是不太常见的短语，他要么很容易被发现，要么就很少说出来。如果恶魔获得的是常见的短语，他可能会每天都把这句话说出来一次或者多次。",
     "en": "During setup, write a phrase on a piece of paper, or on a phone.\nDuring the first night, wake the Demon. Show this phrase, then put them to sleep.\nEach time Demon says the secret phrase, put a DEAD reminder in the centre of the left side of the Grimoire, as a reminder to yourself to place it tonight.\nEach night, you may mark players with these DEAD reminders, and add a shroud to each marked player. These players die.\nChoose a phrase that is fairly plain. If the Demon has an unusual phrase each day, they will likely die or say it rarely. If the Demon has a common, believable phrase, they will likely say it each day, perhaps more than once each day."
@@ -99,5 +96,6 @@
       "reason": "If the Exorcist chooses the Yaggababble, the Yaggababble does not kill tonight."
     }
   ],
-  "image": "assets/tokens/yaggababble.png"
+  "image": "assets/tokens/yaggababble.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Yaggababble"
 }

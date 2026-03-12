@@ -3,26 +3,22 @@
   "type": "fabled",
   "name": {
     "en": "Spirit of Ivory",
-    "es-419": "Espíritu de Marfil",
+    "es": "Espíritu de Marfil",
     "sv": "Olifantisten",
-    "zh-Hans": "圣洁之魂",
     "cn": "圣洁之魂"
   },
   "ability": {
     "en": "There can't be more than 1 extra evil player.",
-    "es-419": "No puede haber más de 1 jugador malvado extra.",
+    "es": "No puede haber más de 1 jugador malvado extra.",
     "sv": "Det kan inte finnas mer än 1 extra ond spelare.",
-    "zh-Hans": "游戏过程中邪恶玩家的总数最多能比初始设置多一名。",
     "cn": "游戏过程中邪恶玩家的总数最多能比初始设置多一名。"
   },
-  "flavor_text": {
-    "en": "\"The Wasteland calls. Bones rise to flesh, then fall to dust. The great spirit grows. The great spirit watches. The great spirit guides. The human listens, or the human is no more.\"",
-    "es-419": "El Desierto llama. Los huesos se transforman en carne, y luego perecen en polvo. El gran espíritu crece. El gran espíritu observa. El gran espíritu guía. El humano escucha, o el humano deja de existir.",
+  "flavor": {
+    "en": "The Wasteland calls. Bones rise to flesh, then fall to dust. The great spirit grows. The great spirit watches. The great spirit guides. The human listens, or the human is no more.",
+    "es": "El Desierto llama. Los huesos se transforman en carne, y luego perecen en polvo. El gran espíritu crece. El gran espíritu observa. El gran espíritu guía. El humano escucha, o el humano deja de existir.",
     "sv": "Ödemarken kallar. Ben reser sig till kött och faller till stoft. Den stora anden växer. Den stora anden vakar. Den stora anden leder vägen. Människan lyssnar, eller möter sitt öde.",
-    "zh-Hans": "荒芜之地传来呼唤，生肉枯骨，落入尘土。是圣洁之魂在生长，是圣洁之魂在注视，是圣洁之魂在引导。人类遵循这一切，否则早已被覆灭。",
-    "cn": "“荒芜之地传来呼唤，生肉枯骨，落入尘土。是圣洁之魂在生长，是圣洁之魂在注视，是圣洁之魂在引导。人类遵循这一切，否则早已被覆灭。”"
+    "cn": "荒芜之地传来呼唤，生肉枯骨，落入尘土。是圣洁之魂在生长，是圣洁之魂在注视，是圣洁之魂在引导。人类遵循这一切，否则早已被覆灭。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Spirit_of_Ivory",
   "how_to_run": {
     "cn": "在游戏开始时，宣布圣洁之魂加入游戏。将圣洁之魂角色标记及其对应提示标记放入魔典中。\n在任何时候，如果游戏中有一名额外的邪恶角色出现了，用“禁止邪恶”提示标记圣洁之魂。（如果任何角色转变成善良阵营，移除该提示标记。）\n如果一名玩家将要转变为邪恶阵营，而圣洁之魂被标记了“禁止邪恶”时，这名玩家将保持为善良阵营。",
     "en": "At the start of the game, declare that the Spirit of Ivory is in play. Add the Spirit of Ivory token and their reminder token to the Grimoire.\nAt all times, if there is an extra evil character in play, mark the Spirit of Ivory with the NO MORE EVIL reminder. (If any character becomes good, remove the reminder.)\nIf a player would become evil and the Spirit of Ivory is marked NO MORE EVIL, that player stays good."
@@ -42,5 +38,6 @@
     "experimental"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/spirit_of_ivory.png"
+  "image": "assets/tokens/spirit_of_ivory.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Spirit_of_Ivory"
 }

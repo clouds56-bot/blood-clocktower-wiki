@@ -3,32 +3,29 @@
   "type": "townsfolk",
   "name": {
     "en": "Acrobat",
-    "es-419": "Acróbata",
+    "es": "Acróbata",
     "sv": "Akrobaten",
-    "zh-Hans": "杂技演员",
     "cn": "杂技演员"
   },
   "ability": {
     "en": "Each night*, choose a player: if they are or become drunk or poisoned tonight, you die.",
-    "es-419": "Cada noche*, escoge un jugador: si él está, o se vuelve, borracho o envenenado esta noche, tú mueres.",
+    "es": "Cada noche*, escoge un jugador: si él está, o se vuelve, borracho o envenenado esta noche, tú mueres.",
     "sv": "Varje natt* väljer du en spelare; du dör om hen är eller blir full eller förgiftad inatt.",
-    "zh-Hans": "每个夜晚*，你要选择一名玩家：如果当晚他醉酒或中毒，你死亡。",
     "cn": "每个夜晚*，你要选择一名玩家：如果当晚他醉酒或中毒，你死亡。"
   },
-  "flavor_text": {
-    "en": "\"Ladies and gentlemen, hold fast to your hats, for I shall defy the very laws of gravity and dance upon the air, a marvel of agility and daring, all for your delight and wonder!\"",
-    "es-419": "Bienvenidos todos al espectáculo más grande en el planeta.",
+  "flavor": {
+    "en": "Ladies and gentlemen, hold fast to your hats, for I shall defy the very laws of gravity and dance upon the air, a marvel of agility and daring, all for your delight and wonder!",
+    "es": "Bienvenidos todos al espectáculo más grande en el planeta.",
     "sv": "Välkomna, alla och envar, till världens bästa föreställning.",
-    "zh-Hans": "列位看官，请扶好帽盔，我将逆天而行，踏空起舞！身如飞燕，胆若雷霆，只为博君一笑一惊。",
-    "cn": "“列位看官，请扶好帽盔，我将逆天而行，踏空起舞！身如飞燕，胆若雷霆，只为博君一笑一惊！”"
+    "zh": "列位看官，请扶好帽盔，我将逆天而行，踏空起舞！身如飞燕，胆若雷霆，只为博君一笑一惊。",
+    "cn": "列位看官，请扶好帽盔，我将逆天而行，踏空起舞！身如飞燕，胆若雷霆，只为博君一笑一惊！"
   },
   "other_nights": {
     "en": "The Acrobat chooses a player. :reminder:",
-    "es-419": "El Acróbata escoge un jugador. :reminder:",
+    "es": "El Acróbata escoge un jugador. :reminder:",
     "sv": "Akrobaten väljer en spelare. :reminder:",
-    "zh-Hans": "杂技演员选择一名玩家。:reminder:"
+    "zh": "杂技演员选择一名玩家。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Acrobat",
   "how_to_run": {
     "cn": "除首个夜晚以外的每个夜晚，唤醒杂技演员。让杂技演员指向一名玩家。将“被选择”提示标记放置到所选玩家的角色标记旁。让杂技演员重新入睡。\n如果被选择的玩家在当晚任何时刻醉酒或中毒，杂技演员死亡——在杂技演员的角色标记旁放置“死亡”提示标记并放置帷幕标记。",
     "en": "Each night except the first, wake the Acrobat. They point to a player. Put the Acrobat to sleep.\nIf the player the Acrobat pointed to is drunk or poisoned, or becomes drunk or poisoned at any time tonight, the Acrobat dies."
@@ -51,5 +48,6 @@
     "experimental"
   ],
   "artist": "Chloe McDougall",
-  "image": "assets/tokens/acrobat.png"
+  "image": "assets/tokens/acrobat.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Acrobat"
 }

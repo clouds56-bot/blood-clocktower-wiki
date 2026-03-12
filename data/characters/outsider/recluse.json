@@ -3,26 +3,22 @@
   "type": "outsider",
   "name": {
     "en": "Recluse",
-    "es-419": "Recluso",
+    "es": "Recluso",
     "sv": "Enstöringen",
-    "zh-Hans": "陌客",
     "cn": "陌客"
   },
   "ability": {
     "en": "You might register as evil & as a Minion or Demon, even if dead.",
-    "es-419": "Quizás te registres como malvado y como Demonio o Secuaz, incluso si estás muerto.",
+    "es": "Quizás te registres como malvado y como Demonio o Secuaz, incluso si estás muerto.",
     "sv": "Du kanske registreras som ond och som Kumpan eller Demon, även om du är död.",
-    "zh-Hans": "你可能会被当作邪恶阵营、爪牙角色或恶魔角色，即使你已死亡。",
     "cn": "你可能会被当作邪恶阵营、爪牙角色或恶魔角色，即使你已死亡。"
   },
-  "flavor_text": {
-    "en": "\"Garn git ya darn grub ya mitts ofma lorn yasee. Grr. Natsy pikkins yonder southwise ye begittin afta ya! Git! Me harvy no so widda licks and demmons no be fightin' hadsup ne'er ma kin. Git, assay!\"",
-    "es-419": "Sáquesesas manosucias de mi jardín. Grr. ¡Váyanse pallal sur antes que los atrape! ¡Sáquese! Ni se atrevan a venir con sus historias dequel demonio niquel demonio. ¡Sáquense ya!",
+  "flavor": {
+    "en": "Garn git ya darn grub ya mitts ofma lorn yasee. Grr. Natsy pikkins yonder southwise ye begittin afta ya! Git! Me harvy no so widda licks and demmons no be fightin' hadsup ne'er ma kin. Git, assay!",
+    "es": "Sáquesesas manosucias de mi jardín. Grr. ¡Váyanse pallal sur antes que los atrape! ¡Sáquese! Ni se atrevan a venir con sus historias dequel demonio niquel demonio. ¡Sáquense ya!",
     "sv": "Di va’na förbasta åhäver å kom’ å nada på marska mi. Ska fan te å skrata eft’er! Kas! Ja dreter i döbler ja å di gör bäst di i å höll se hissed frå tôfta mi. Kas, sa ja!",
-    "zh-Hans": "侬康康窝咦锅惹，咋锅就怼窝恁锅粗暴。介样叭行。麻绳添酒嘿料，泥滴燕绳恨舔没，窝这哈圆酿泥料！侬晓得伐！窝叭象载康岛泥鸟，辣过饿魔阔能揍载窝家边乱晃。呔！窝揍斯弄个以斯！",
-    "cn": "“侬康康窝咦锅惹，咋锅就怼窝恁锅粗暴。介样叭行。麻绳添酒嘿料，泥滴燕绳恨舔没，窝这哈圆酿泥料！侬晓得伐！窝叭象载康岛泥鸟，辣过饿魔阔能揍载窝家边乱晃。呔！窝揍斯弄个以斯！”"
+    "cn": "侬康康窝咦锅惹，咋锅就怼窝恁锅粗暴。介样叭行。麻绳添酒嘿料，泥滴燕绳恨舔没，窝这哈圆酿泥料！侬晓得伐！窝叭象载康岛泥鸟，辣过饿魔阔能揍载窝家边乱晃。呔！窝揍斯弄个以斯！"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Recluse",
   "how_to_run": {
     "cn": "每当因游戏规则或角色能力的效果要探查或影响玩家的阵营或角色，且陌客因此被选中为目标时，由你决定陌客被当作哪种角色和哪种阵营。（做出任何合适的举动，例如展示一个邪恶角色标记，点头，给出手势，或允许一项通常只针对邪恶阵营，爪牙或恶魔角色的能力对陌客生效。）",
     "en": "Each time the Recluse is targeted by an ability that detects or affects evil characters, choose which character and alignment the Recluse registers as. (Do whatever is appropriate, such as showing an evil character token, nodding, giving finger signals, or allowing an ability to work that would normally only affect evil, Minion, or Demon players.)"
@@ -78,5 +74,6 @@
       "reason": "The Recluse might register as the Demon to the Sage."
     }
   ],
-  "image": "assets/tokens/recluse.png"
+  "image": "assets/tokens/recluse.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Recluse"
 }

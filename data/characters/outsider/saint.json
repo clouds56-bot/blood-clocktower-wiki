@@ -3,26 +3,23 @@
   "type": "outsider",
   "name": {
     "en": "Saint",
-    "es-419": "Santo",
+    "es": "Santo",
     "sv": "Helgonet",
-    "zh-Hans": "圣徒",
     "cn": "圣徒"
   },
   "ability": {
     "en": "If you die by execution, your team loses.",
-    "es-419": "Si mueres por ejecución, tu equipo pierde.",
+    "es": "Si mueres por ejecución, tu equipo pierde.",
     "sv": "Om du dör av avrättning förlorar ditt lag.",
-    "zh-Hans": "如果你死于处决，你的阵营落败。",
     "cn": "如果你死于处决，你的阵营落败。"
   },
-  "flavor_text": {
-    "en": "\"Wisdom begets peace. Patience begets wisdom. Fear not, for the time shall come when fear too shall pass. Let us pray, and may the unity of our vision make saints of us all.\"",
-    "es-419": "La sabiduría engendra paz. La paciencia engendra sabiduría. No temas, porque llegará el día en que el miedo también pasará. Oremos, y que la unidad de nuestra visión nos haga santos a todos.",
+  "flavor": {
+    "en": "Wisdom begets peace. Patience begets wisdom. Fear not, for the time shall come when fear too shall pass. Let us pray, and may the unity of our vision make saints of us all.",
+    "es": "La sabiduría engendra paz. La paciencia engendra sabiduría. No temas, porque llegará el día en que el miedo también pasará. Oremos, y que la unidad de nuestra visión nos haga santos a todos.",
     "sv": "Vishet föder fred. Tålamod föder vishet. Frukta ej, ty dagen kommer när också fruktan flyr. Låt oss be, och må vår enade vision göra helgon av oss alla.",
-    "zh-Hans": "智慧带来和平。耐心孕育智慧。无需惧怕，因为恐惧消散的那一天终将到来。让我们一同祈祷，愿我们愿景一致，共赴圣洁。",
-    "cn": "“智慧带来和平。耐心孕育智慧。\n无需惧怕，因为恐惧消散的那一天终将到来。\n让我们一同祈祷，愿我们愿景一致，共赴圣洁。”"
+    "zh": "智慧带来和平。耐心孕育智慧。无需惧怕，因为恐惧消散的那一天终将到来。让我们一同祈祷，愿我们愿景一致，共赴圣洁。",
+    "cn": "智慧带来和平。耐心孕育智慧。\n无需惧怕，因为恐惧消散的那一天终将到来。\n让我们一同祈祷，愿我们愿景一致，共赴圣洁。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Saint",
   "how_to_run": {
     "cn": "如果圣徒因处决而死亡，宣布游戏结束且邪恶阵营获胜。\n圣徒的能力中有特定的描述“你的阵营落败”。在《暗流涌动》里，这始终意味着“邪恶阵营获胜”，因为圣徒始终会是善良角色。在其他剧本中，可能会让角色改变阵营。如果一名邪恶的圣徒被处决，善良阵营获胜。",
     "en": "If the Saint dies by execution, declare that the game ends and evil wins.\nThe Saint's ability has the strange phrase \"your team loses.\" In Trouble Brewing, this will always mean \"evil wins\" because the Saint is always good. In other editions, it is possible for characters to change alignment. If the evil Saint is executed, good wins."
@@ -60,5 +57,6 @@
     "trouble_brewing"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/saint.png"
+  "image": "assets/tokens/saint.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Saint"
 }

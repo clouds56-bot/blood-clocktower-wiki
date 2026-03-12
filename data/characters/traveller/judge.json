@@ -3,26 +3,22 @@
   "type": "traveller",
   "name": {
     "en": "Judge",
-    "es-419": "Juez",
+    "es": "Juez",
     "sv": "Domaren",
-    "zh-Hans": "法官",
     "cn": "法官"
   },
   "ability": {
     "en": "Once per game, if another player nominated, you may choose to force the current execution to pass or fail.",
-    "es-419": "Una vez por juego, si otro jugador nominó, puedes elegir forzar que la ejecución actual ocurra o falle.",
+    "es": "Una vez por juego, si otro jugador nominó, puedes elegir forzar que la ejecución actual ocurra o falle.",
     "sv": "En gång per spel, när någon annan nominerat, får du tvinga avrättningen att gå igenom eller inte.",
-    "zh-Hans": "每局游戏限一次，如果其他玩家发起了提名，你可以选择让本次提名直接执行处决或让投票无效。",
     "cn": "每局游戏限一次，如果其他玩家发起了提名，你可以选择让本次提名直接执行处决或让投票无效。"
   },
-  "flavor_text": {
-    "en": "\"I find the defendant guilty of the crimes of murder, fraud, arson, larceny, impersonating an officer of the law, practicing medicine without a license, slander, regicide, and littering.\"",
-    "es-419": "Declaro al acusado cupable de los delitos de asesinato, fraude, incendio provocado, hurto, suplantación de la identidad de un funcionario de la ley, ejercicio de la medicina sin licencia, calumnia, regicidio y contaminación a base de basura.",
+  "flavor": {
+    "en": "I find the defendant guilty of the crimes of murder, fraud, arson, larceny, impersonating an officer of the law, practicing medicine without a license, slander, regicide, and littering.",
+    "es": "Declaro al acusado cupable de los delitos de asesinato, fraude, incendio provocado, hurto, suplantación de la identidad de un funcionario de la ley, ejercicio de la medicina sin licencia, calumnia, regicidio y contaminación a base de basura.",
     "sv": "Jag förklarar den svarande skyldig till mord, bedrägeri, mordbrand, stöld, föregivande av allmän ställning, obehörigt arbete som läkare, förtal, kungamord och nedskräpning.",
-    "zh-Hans": "我认为被告人涉嫌谋杀罪、诈骗罪、放火罪、盗窃罪、招摇撞骗罪、非法行医罪、诽谤罪、弑君罪以及乱丢垃圾罪等罪行。",
-    "cn": "“我认为被告人涉嫌谋杀罪、诈骗罪、放火罪、盗窃罪、招摇撞骗罪、非法行医罪、诽谤罪、弑君罪以及乱丢垃圾罪等罪行。”"
+    "cn": "我认为被告人涉嫌谋杀罪、诈骗罪、放火罪、盗窃罪、招摇撞骗罪、非法行医罪、诽谤罪、弑君罪以及乱丢垃圾罪等罪行。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Judge",
   "how_to_run": {
     "cn": "在提名处决进行中的任何时候，从一个玩家被提名开始到另一名玩家被提名之前，法官可以直接宣布这次处决是否会被成功执行。如果法官宣布了成功执行，被提名的玩家会被处决，然后你可以开始着手为夜晚阶段做准备（因为一天最多只有一次处决发生）。如果法官宣布了执行失败，被提名的玩家不会被处决死亡，并且该玩家在处决投票中被视为得到了0票，提名流程继续。法官失去他的能力——在法官的角色标记旁边放置法官的“失去能力”提示标记。",
     "en": "At any time during a nomination for execution—from the moment that the nomination is declared to the moment before a new player is nominated for execution—the Judge can declare that this execution succeeds or fails. If the Judge declares that it succeeds, the nominated player is executed and you may proceed to the night phase (as there may only be one execution per day). If the Judge declares that it fails, the nominated player is no longer about to die and they are treated as receiving zero votes for execution, and the nomination process continues. The Judge loses their ability—put the Judge’s NO ABILITY reminder token by the Judge token."
@@ -66,5 +62,6 @@
     "experimental"
   ],
   "artist": "John Grist",
-  "image": "assets/tokens/judge.png"
+  "image": "assets/tokens/judge.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Judge"
 }

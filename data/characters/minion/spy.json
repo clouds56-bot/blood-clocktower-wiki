@@ -3,38 +3,36 @@
   "type": "minion",
   "name": {
     "en": "Spy",
-    "es-419": "Espía",
+    "es": "Espía",
     "sv": "Spionen",
-    "zh-Hans": "间谍",
     "cn": "间谍"
   },
   "ability": {
     "en": "Each night, you see the Grimoire. You might register as good & as a Townsfolk or Outsider, even if dead.",
-    "es-419": "Cada noche, tú ves el Grimorio. Quizás te registres como bueno y como un Ciudadano o Extranjero, incluso si estás muerto.",
+    "es": "Cada noche, tú ves el Grimorio. Quizás te registres como bueno y como un Ciudadano o Extranjero, incluso si estás muerto.",
     "sv": "Varje natt ser du grimoaren. Du kanske registreras som god och Bybo eller Utböling, även om du är död.",
-    "zh-Hans": "每个夜晚，你能查看魔典。你可能会被当作善良阵营、镇民角色或外来者角色，即使你已死亡。",
+    "zh": "每个夜晚，你能查看魔典。你可能会被当作善良阵营、镇民角色或外来者角色，即使你已死亡。",
     "cn": "每个夜晚，你能查看魔典。\n你可能会被当作善良阵营、镇民角色或外来者角色，即使你已死亡。"
   },
-  "flavor_text": {
-    "en": "\"Any brewmaster worth their liquor, knows no concoction pours trouble quicker, than one where spies seem double.\"",
-    "es-419": "Todo maestro cervecero que valga la pena, sabe que no hay mezcla alguna que cause problemas más rápido que aquella que hace que los espías parezcan doble.",
+  "flavor": {
+    "en": "Any brewmaster worth their liquor, knows no concoction pours trouble quicker, than one where spies seem double.",
+    "es": "Todo maestro cervecero que valga la pena, sabe que no hay mezcla alguna que cause problemas más rápido que aquella que hace que los espías parezcan doble.",
     "sv": "Vi föds alla som spioner. Det är inget att skämmas för; skammen är den att de hemligheter som finns att upptäcka är så banala och så få.",
-    "zh-Hans": "每个调酒大师心中明白，配方没有麻烦来得更快，双面间谍是麻烦的主菜。",
-    "cn": "“每个调酒大师心中明白\n配方没有麻烦来得更快\n双面间谍是麻烦的主菜”"
+    "zh": "每个调酒大师心中明白，配方没有麻烦来得更快，双面间谍是麻烦的主菜。",
+    "cn": "每个调酒大师心中明白\n配方没有麻烦来得更快\n双面间谍是麻烦的主菜"
   },
   "first_night": {
     "en": "Show the Grimoire for as long as the Spy needs.",
-    "es-419": "Muéstrale el Grimorio al Espía el tiempo que sea necesario.",
+    "es": "Muéstrale el Grimorio al Espía el tiempo que sea necesario.",
     "sv": "Visa grimoaren så länge Spionen behöver.",
-    "zh-Hans": "让间谍按自己意愿的时长来查看魔典。"
+    "zh": "让间谍按自己意愿的时长来查看魔典。"
   },
   "other_nights": {
     "en": "Show the Grimoire for as long as the Spy needs.",
-    "es-419": "Muéstrale el Grimorio al Espía el tiempo que sea necesario.",
+    "es": "Muéstrale el Grimorio al Espía el tiempo que sea necesario.",
     "sv": "Visa grimoaren så länge Spionen behöver.",
-    "zh-Hans": "让间谍按自己意愿的时长来查看魔典。"
+    "zh": "让间谍按自己意愿的时长来查看魔典。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Spy",
   "how_to_run": {
     "cn": "每个夜晚，唤醒间谍并让他按自己意愿的时长来查看魔典。让间谍重新入睡。\n每当因游戏规则或角色能力的效果要探查或影响玩家的阵营或角色，且间谍因此被选中为目标时，由你决定间谍被当作哪种角色和哪种阵营。（做出任何合适的举动，例如展示一个善良角色标记，点头，给出手势，或允许一项通常只针对善良阵营，镇民或外来者角色的能力对间谍生效。）",
     "en": "Each night, wake the Spy and show them the Grimoire for as long as they need. Put the Spy to sleep.\nEach time the Spy is targeted by an ability that detects or affects good characters, choose what character and alignment the Spy registers as. (Do whatever is appropriate, such as showing a good character token, nodding, giving finger signals, or allowing an ability to work that would normally only affect good, Townsfolk, or Outsider players.)\nRemember to keep your Grimoire tidy and show it to the Spy in the correct orientation, so the Spy can easily see who is who."
@@ -128,5 +126,6 @@
       "reason": "If the Poppy Grower has their ability, the Spy does not see the Grimoire."
     }
   ],
-  "image": "assets/tokens/spy.png"
+  "image": "assets/tokens/spy.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Spy"
 }

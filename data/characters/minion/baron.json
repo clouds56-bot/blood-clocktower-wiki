@@ -3,26 +3,22 @@
   "type": "minion",
   "name": {
     "en": "Baron",
-    "es-419": "Barón",
+    "es": "Barón",
     "sv": "Baronen",
-    "zh-Hans": "男爵",
     "cn": "男爵"
   },
   "ability": {
     "en": "There are extra Outsiders in play. [+2 Outsiders]",
-    "es-419": "Hay Extranjeros extra en juego. [+2 Extranjeros]",
+    "es": "Hay Extranjeros extra en juego. [+2 Extranjeros]",
     "sv": "Det är extra Utbölingar i spel. [+2 Utbölingar]",
-    "zh-Hans": "会有额外的外来者在场。[+2 外来者]",
     "cn": "会有额外的外来者在场。[+2 外来者]"
   },
-  "flavor_text": {
-    "en": "\"This town has gone to the dogs, what? Cheap foreign labor... that's the ticket. Stuff them in the mine, I say. A bit of hard work never hurt anyone, and a clip'o'the ears to any brigand who says otherwise. It's all about the bottom line, what?\"",
-    "es-419": "Esta ciudad va de mal en peor, ¿no ves? Obra de mano extranjera barata…esa es la solución. Yo digo que los mandemos a las minas. Un poco de trabajo duro no le hace mal a nadie, y que le corten las orejas a cualquier bandido que diga lo contrario. Al final, lo que más importa es la rentabilidad, ¿no ves?",
+  "flavor": {
+    "en": "This town has gone to the dogs, what? Cheap foreign labor... that's the ticket. Stuff them in the mine, I say. A bit of hard work never hurt anyone, and a clip'o'the ears to any brigand who says otherwise. It's all about the bottom line, what?",
+    "es": "Esta ciudad va de mal en peor, ¿no ves? Obra de mano extranjera barata…esa es la solución. Yo digo que los mandemos a las minas. Un poco de trabajo duro no le hace mal a nadie, y que le corten las orejas a cualquier bandido que diga lo contrario. Al final, lo que más importa es la rentabilidad, ¿no ves?",
     "sv": "Byn har gått helt åt pipsvängen, eller hur? Billig utländsk arbetskraft – det är lösningen. Ner med dem i gruvan, bara. Lite hårt arbete har ingen dött av, och en hurring ska den skurk ha som säger annat. Profiten framför allt, eller hur?",
-    "zh-Hans": "这个小镇没救了，不是么？廉价的外来劳动力……这就是问题所在。要我说，我会把他们全部调配到矿井里。不过是稍有些困难的工作，这不会伤害到任何人，要是有人提出反对意见就赏他一记耳光。这就是所谓的底线，不是么？",
-    "cn": "“这个小镇没救了，不是么？廉价的外来劳动力……这就是问题所在。要我说，我会把他们全部调配到矿井里。不过是稍有些困难的工作，这不会伤害到任何人，要是有人提出反对意见就赏他一记耳光。这就是所谓的底线，不是么？”"
+    "cn": "这个小镇没救了，不是么？廉价的外来劳动力……这就是问题所在。要我说，我会把他们全部调配到矿井里。不过是稍有些困难的工作，这不会伤害到任何人，要是有人提出反对意见就赏他一记耳光。这就是所谓的底线，不是么？"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Baron",
   "how_to_run": {
     "cn": "在游戏设置时，移除任意两个镇民角色标记，并添加任意两个外来者角色标记。（如果你添加了酒鬼，请记得同样需要依照酒鬼的初始设置方法进行设置步骤。）这些外来者角色标记会作为镇民角色标记的替代放入盲抽袋中。",
     "en": "While setting up the game, remove any two Townsfolk character tokens and add any two Outsider character tokens. (If you add the Drunk, remember to follow its setup instructions as well.) These Outsider tokens go into the bag instead of the Townsfolk tokens."
@@ -85,5 +81,6 @@
       "reason": "If the Storyteller would gain the Baron ability, up to two players become Outsiders."
     }
   ],
-  "image": "assets/tokens/baron.png"
+  "image": "assets/tokens/baron.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Baron"
 }

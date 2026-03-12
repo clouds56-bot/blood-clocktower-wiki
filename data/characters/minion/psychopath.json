@@ -3,26 +3,23 @@
   "type": "minion",
   "name": {
     "en": "Psychopath",
-    "es-419": "Sicópata",
+    "es": "Sicópata",
     "sv": "Psykopaten",
-    "zh-Hans": "精神病患者",
     "cn": "精神病患者"
   },
   "ability": {
     "en": "Each day, before nominations, you may publicly choose a player: they die. If executed, you only die if you lose roshambo.",
-    "es-419": "Cada día, antes de las nominaciones, puedes escoger un jugador públicamente: él muere. Si eres ejecutado, tú solo mueres si pierdes en piedra, papel o tijera.",
+    "es": "Cada día, antes de las nominaciones, puedes escoger un jugador públicamente: él muere. Si eres ejecutado, tú solo mueres si pierdes en piedra, papel o tijera.",
     "sv": "Varje dag innan nomineringar får du öppet välja en spelare; hen dör. Om du avrättas dör du bara om du förlorar sten-sax-påse.",
-    "zh-Hans": "每个白天，在提名开始前，你可以公开选择一名玩家：他死亡。如果你被处决，提名你的玩家需要和你猜拳，只有你输了你才会死亡。",
+    "zh": "每个白天，在提名开始前，你可以公开选择一名玩家：他死亡。如果你被处决，提名你的玩家需要和你猜拳，只有你输了你才会死亡。",
     "cn": "每个白天，在提名开始前，你可以公开选择一名玩家：他死亡。\n如果你被处决，提名你的玩家需要和你猜拳，只有你输了你才会死亡。"
   },
-  "flavor_text": {
-    "en": "\"Surprise!\"",
-    "es-419": "¡Sorpresa!",
+  "flavor": {
+    "en": "Surprise!",
+    "es": "¡Sorpresa!",
     "sv": "Tittut!",
-    "zh-Hans": "惊不惊喜？！",
-    "cn": "“惊不惊喜？！”"
+    "cn": "惊不惊喜？！"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Psychopath",
   "how_to_run": {
     "cn": "每个白天限一次，在你宣布开始提名之前，精神病患者可以公开选择一名玩家。那名玩家死亡。\n如果精神病患者被处决，他需要与提名他的玩家进行猜拳。如果精神病患者在猜拳中输了，那么他死亡。如果精神病患者在猜拳中平局或获胜，他会仍然存活。不论猜拳是哪种结果，白天阶段会随即结束，因为每个白天只会有一次处决发生。\n如果精神病患者因为提名自己或是某些角色的能力效果而被处决，那么他会改为和你进行猜拳。",
     "en": "Once per day, before you have called for nominations, the Psychopath may publicly choose a player. That player dies.\nIf the Psychopath is executed, the Psychopath and the nominator play a game of Roshambo. If the Psychopath loses, they die. If the Psychopath draws or wins, they live. Either way, the day ends, since there is only one execution per day.\nIf the Psychopath is executed due to a self-nomination, then the Psychopath plays Roshambo with you instead."
@@ -91,5 +88,6 @@
       "reason": "If the Psychopath is babysitting Lil' Monsta, they die when executed."
     }
   ],
-  "image": "assets/tokens/psychopath.png"
+  "image": "assets/tokens/psychopath.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Psychopath"
 }

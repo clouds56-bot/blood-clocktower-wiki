@@ -3,26 +3,23 @@
   "type": "townsfolk",
   "name": {
     "en": "Alsaahir",
-    "es-419": "Alsaahir",
+    "es": "Alsaahir",
     "sv": "al Saahir",
-    "zh-Hans": "戏法师",
     "cn": "戏法师"
   },
   "ability": {
     "en": "Each day, if you publicly guess which players are Minion(s) and which are Demon(s), good wins.",
-    "es-419": "Cada día, si adivinas públicamente qué jugadores son Secuaces y qué jugadores son Demonios, los buenos ganan.",
+    "es": "Cada día, si adivinas públicamente qué jugadores son Secuaces y qué jugadores son Demonios, los buenos ganan.",
     "sv": "Varje dag kan du öppet gissa vilka spelare som är Kumpan(er) och Demon(er). Om du har rätt vinner de goda.",
-    "zh-Hans": "每个白天，你可以公开进行一次谁是爪牙，谁是恶魔的猜测。如果你猜对，善良阵营获胜。",
     "cn": "每个白天，你可以公开进行一次谁是爪牙，谁是恶魔的猜测。如果你猜对，善良阵营获胜。"
   },
-  "flavor_text": {
-    "en": "\"I am here because of you, and you are here because of me.\"",
-    "es-419": "Estoy aquí por ti, y tú estás aquí por mí.",
+  "flavor": {
+    "en": "I am here because of you, and you are here because of me.",
+    "es": "Estoy aquí por ti, y tú estás aquí por mí.",
     "sv": "Jag är här på grund av er, och ni är här på grund av mig.",
-    "zh-Hans": "我在这里，因为你在这里；我在这里，所以你在这里。",
-    "cn": "“我在这里，因为你在这里；\n我在这里，所以你在这里。”"
+    "zh": "我在这里，因为你在这里；我在这里，所以你在这里。",
+    "cn": "我在这里，因为你在这里；\n我在这里，所以你在这里。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Alsaahir",
   "how_to_run": {
     "cn": "每个白天限一次，如果戏法师宣称自己想要使用能力，那么让他猜测谁是恶魔，谁是爪牙。如果猜测错误，无事发生，游戏继续。如果猜测正确，宣布善良阵营获胜。\n可选规则：与杂耍艺人和造谣者相似，说书人可以限制玩家宣称自己是戏法师的猜测次数，例如每天最多三次。在多数玩家都想要声称自己是某个公开触发能力的角色时，建议使用该可选规则，避免游戏节奏受到影响而变慢，游戏的乐趣也随之减少。",
     "en": "Each day, once only, if the Alsaahir declares that they wish to use their ability, prompt them to guess which player is the Demon, and which player(s) are Minions. If incorrect, nothing happens and the game continues. If correct, declare that good wins.\nOptional rule: like the Juggler and the Gossip, the Storyteller may limit the number of players that make an Alsaahir guess to three players per day. Only use this optional rule if so many players are bluffing as the Alsaahir that the game slows down and ceases to be fun."
@@ -88,5 +85,6 @@
       "reason": "The Storyteller doesn't declare the Vizier is in play."
     }
   ],
-  "image": "assets/tokens/alsaahir.png"
+  "image": "assets/tokens/alsaahir.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Alsaahir"
 }

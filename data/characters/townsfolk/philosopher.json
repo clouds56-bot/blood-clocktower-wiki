@@ -3,38 +3,35 @@
   "type": "townsfolk",
   "name": {
     "en": "Philosopher",
-    "es-419": "Filósofo",
+    "es": "Filósofo",
     "sv": "Filosofen",
-    "zh-Hans": "哲学家",
     "cn": "哲学家"
   },
   "ability": {
     "en": "Once per game, at night, choose a good character: gain that ability. If this character is in play, they are drunk.",
-    "es-419": "Una vez por juego, por la noche, escoge un rol bueno: gana esa habilidad. Si ese rol está en juego, él está borracho.",
+    "es": "Una vez por juego, por la noche, escoge un rol bueno: gana esa habilidad. Si ese rol está en juego, él está borracho.",
     "sv": "En gång per spel, på natten, kan du välja en god roll; du får dess förmåga. Om rollen är i spel blir hen full.",
-    "zh-Hans": "每局游戏限一次，在夜晚时，你可以选择一个善良角色：你获得该角色的能力。如果这个角色在场，他醉酒。",
+    "zh": "每局游戏限一次，在夜晚时，你可以选择一个善良角色：你获得该角色的能力。如果这个角色在场，他醉酒。",
     "cn": "每局游戏限一次，在夜晚时，你可以选择一个善良角色：你获得该角色的能力。\n如果这个角色在场，他醉酒。"
   },
-  "flavor_text": {
-    "en": "\"If anything is real, beer is real. Drink, for tomorrow we may die.\"",
-    "es-419": "Si hay algo real, la cerveza es real. Bebe, puesto que mañana podríamos morir.",
+  "flavor": {
+    "en": "If anything is real, beer is real. Drink, for tomorrow we may die.",
+    "es": "Si hay algo real, la cerveza es real. Bebe, puesto que mañana podríamos morir.",
     "sv": "Om det är någonting som är verkligt så är det öl. Drick, för imorgon kan vi vara döda.",
-    "zh-Hans": "如果你要说什么事情是最真实的？我想是啤酒。痛快喝吧，说不定我们明天就要死了。",
-    "cn": "“如果你要说什么事情是最真实的？我想是啤酒。痛快喝吧，说不定我们明天就要死了。”"
+    "cn": "如果你要说什么事情是最真实的？我想是啤酒。痛快喝吧，说不定我们明天就要死了。"
   },
   "first_night": {
     "en": "The Philosopher might choose a character. If necessary, swap their character token. :reminder:",
-    "es-419": "El Filósofo quizás escoja un rol. Si es necesario, cambia su ficha de rol. :reminder:",
+    "es": "El Filósofo quizás escoja un rol. Si es necesario, cambia su ficha de rol. :reminder:",
     "sv": "Filosofen kanske väljer en roll. Byt eventuellt ut hens rollbricka. :reminder:",
-    "zh-Hans": "哲学家可以选择一个善良角色。如有需要，将哲学家角色标记更换为他所选的角色标记。:reminder:"
+    "zh": "哲学家可以选择一个善良角色。如有需要，将哲学家角色标记更换为他所选的角色标记。:reminder:"
   },
   "other_nights": {
     "en": "The Philosopher might choose a character. If necessary, swap their character token. :reminder:",
-    "es-419": "El Filósofo quizás escoja un rol. Si es necesario, cambia su ficha de rol. :reminder:",
+    "es": "El Filósofo quizás escoja un rol. Si es necesario, cambia su ficha de rol. :reminder:",
     "sv": "Filosofen kanske väljer en roll. Byt eventuellt ut hens rollbricka. :reminder:",
-    "zh-Hans": "哲学家可以选择一个善良角色。如有需要，将哲学家角色标记更换为他所选的角色标记。:reminder:"
+    "zh": "哲学家可以选择一个善良角色。如有需要，将哲学家角色标记更换为他所选的角色标记。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Philosopher",
   "how_to_run": {
     "cn": "每个夜晚，唤醒哲学家。他要么摇头不使用能力，要么指向角色列表上一个镇民或外来者图标。让哲学家重新入睡。\n如果他指向的是不在场的角色，将哲学家角色标记更换为他所选的角色标记，并放置“是哲学家”提示标记。\n如果他指向的是一个已在场的角色，该角色醉酒，在角色标记旁放置“醉酒”提示标记。（现在，你可以把被选择角色的相关提示标记给哲学家使用了。）如果哲学家死亡，醉酒的玩家将恢复清醒，此时需要移除“醉酒”提示标记。\n（由于实体标记的操作方式在两种情况下不同，再加上哲学家的能力是会对对应的角色进行动态检测，因此建议说书人还应该以其他方式对此进行记录，这里提供一个参考处理方式：如果对应角色在场，互换哲学家和那个角色的标记，并在哲学家角色标记旁标记醉酒，在换来的角色标记旁标记“是哲学家”。这样也能应对在哲学家选择了一个不在场的角色，但随后该角色又再次在场的情况。）",
     "en": "Each night, wake the Philosopher. They either shake their head no or point at any Townsfolk icon or any Outsider icon on their character sheet. Put the Philosopher to sleep.\nIf they pointed to an icon of a character not in play, swap the Philosopher token with the chosen character token and mark them with the IS THE PHILOSOPHER reminder.\nIf they pointed to an icon of a character in play, the player of the chosen character becomes drunk - mark them with the DRUNK reminder. (You can now use the duplicated character’s reminders for the Philosopher). If the Philosopher dies, the player made drunk by the Philosopher becomes sober - remove the DRUNK reminder."
@@ -85,5 +82,6 @@
       "reason": "If the Philosopher gains the Bounty Hunter ability, a Townsfolk might turn evil."
     }
   ],
-  "image": "assets/tokens/philosopher.png"
+  "image": "assets/tokens/philosopher.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Philosopher"
 }

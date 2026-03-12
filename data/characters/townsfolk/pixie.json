@@ -3,32 +3,29 @@
   "type": "townsfolk",
   "name": {
     "en": "Pixie",
-    "es-419": "Hada",
+    "es": "Hada",
     "sv": "Älvan",
-    "zh-Hans": "小精灵",
     "cn": "小精灵"
   },
   "ability": {
     "en": "You start knowing 1 in-play Townsfolk. If you were mad that you were this character, you gain their ability when they die.",
-    "es-419": "Empiezas conociendo un Ciudadano en juego. Si has estado \"loco\" de que tú eres ese rol, ganas su habilidad cuando él muere.",
+    "es": "Empiezas conociendo un Ciudadano en juego. Si has estado \"loco\" de que tú eres ese rol, ganas su habilidad cuando él muere.",
     "sv": "I början vet du 1 Bybo som är i spel. Om du är galen om att du är den rollen får du dess förmåga när den dör.",
-    "zh-Hans": "在你的首个夜晚，你会得知一个在场的镇民角色。如果你“疯狂”地证明你是该角色，当他死亡时你获得该角色的能力。",
     "cn": "在你的首个夜晚，你会得知一个在场的镇民角色。如果你“疯狂”地证明你是该角色，当他死亡时你获得该角色的能力。"
   },
-  "flavor_text": {
-    "en": "\"Round and round the garden, go.\n\t\t\t\tLittle girls run to and fro.\n\t\t\t\tLittle boys climb up the tree.\n\t\t\t\tWhich of these should Pixie be?\n\t\t\t\tLadies smile and go to town. \n\t\t\t\tLords with axe chop forest down.\n\t\t\t\tWhat’s yours is mine. What’s mine, divine.\n\t\t\t\tSilly little Pixie, me.\"",
-    "es-419": "Vuelta y vuelta al jardín. Las niñitas corren sin fin. Los niñitos trepan sin bajada. ¿Cuál de ellos será el Hada? Las damas sonríen en la ciudad pequeña. Los caballeros en el bosque recolectan leña. Lo tuyo es mío. Lo mío trae poderío. Qué hada más chistosa soy.",
+  "flavor": {
+    "en": "Round and round the garden, go.\n\t\t\t\tLittle girls run to and fro.\n\t\t\t\tLittle boys climb up the tree.\n\t\t\t\tWhich of these should Pixie be?\n\t\t\t\tLadies smile and go to town. \n\t\t\t\tLords with axe chop forest down.\n\t\t\t\tWhat’s yours is mine. What’s mine, divine.\n\t\t\t\tSilly little Pixie, me.",
+    "es": "Vuelta y vuelta al jardín. Las niñitas corren sin fin. Los niñitos trepan sin bajada. ¿Cuál de ellos será el Hada? Las damas sonríen en la ciudad pequeña. Los caballeros en el bosque recolectan leña. Lo tuyo es mío. Lo mío trae poderío. Qué hada más chistosa soy.",
     "sv": "Bro, bro, breja, stockar och stenar, barn går mellan grenar. Vem ska älvan vara? Svara! Folk hugger skogen, så den hugger barn – vem ska jag ta?",
-    "zh-Hans": "绕着花园转圈圈，女孩跑得疯癫癫。男孩树上荡秋千，小精灵在谁心间？淑女微笑小镇边，贵族抡斧树长眠。容貌相似难分辨，谜底揭晓圣光现：小精灵呀是神仙。",
-    "cn": "“绕着花园转圈圈，女孩跑得疯癫癫。男孩树上荡秋千，\n小精灵在谁心间？淑女微笑小镇边，贵族抡斧树长眠。\n容貌相似难分辨，谜底揭晓圣光现：小精灵呀是神仙。”"
+    "zh": "绕着花园转圈圈，女孩跑得疯癫癫。男孩树上荡秋千，小精灵在谁心间？淑女微笑小镇边，贵族抡斧树长眠。容貌相似难分辨，谜底揭晓圣光现：小精灵呀是神仙。",
+    "cn": "绕着花园转圈圈，女孩跑得疯癫癫。男孩树上荡秋千，\n小精灵在谁心间？淑女微笑小镇边，贵族抡斧树长眠。\n容貌相似难分辨，谜底揭晓圣光现：小精灵呀是神仙。"
   },
   "first_night": {
     "en": "Show the Townsfolk character token marked *MAD*.",
-    "es-419": "Muéstrale la ficha de rol del Ciudadano marcado *LOCO*.",
+    "es": "Muéstrale la ficha de rol del Ciudadano marcado *LOCO*.",
     "sv": "Visa rollbrickan för den Bybo som är märkt *GALEN*.",
-    "zh-Hans": "展示标记了“疯狂”的镇民角色标记。"
+    "zh": "展示标记了“疯狂”的镇民角色标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Pixie",
   "how_to_run": {
     "cn": "在为首个夜晚做准备时，将小精灵的“疯狂”标记放置在一个镇民角色标记旁。\n在首个夜晚，唤醒小精灵。对他展示标记了“疯狂”的镇民角色标记。让小精灵重新入睡。\n如果标记了“疯狂”的玩家死亡，并且你认为小精灵玩家曾足够“疯狂”地证明自己是这个角色，那么使用“获得能力”标记替换“疯狂”标记。小精灵现在获得了这个镇民的能力，并且会在这个镇民的夜晚行动顺序时机被唤醒以使用能力。\n有关小精灵以及疯狂机制的更多设计理念，请参考阅读：疯狂规则如何运作？——疯狂的小精灵",
     "en": "During the first night, mark a Townsfolk character token with the Pixie’s MAD reminder. Wake the Pixie. Show the Pixie this Townsfolk character token. Put the Pixie to sleep.\nIf the Townsfolk marked MAD dies, and you feel that the Pixie player has been sufficiently mad that they were this character, replace the MAD reminder with the HAS ABILITY reminder. The Pixie now has this Townsfolk’s ability, and will wake at night when this Townsfolk would normally wake."
@@ -83,5 +80,6 @@
     "experimental"
   ],
   "artist": "John Grist",
-  "image": "assets/tokens/pixie.png"
+  "image": "assets/tokens/pixie.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Pixie"
 }

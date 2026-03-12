@@ -3,26 +3,23 @@
   "type": "traveller",
   "name": {
     "en": "Beggar",
-    "es-419": "Mendigo",
+    "es": "Mendigo",
     "sv": "Tiggaren",
-    "zh-Hans": "乞丐",
     "cn": "乞丐"
   },
   "ability": {
     "en": "You must use a vote token to vote. If a dead player gives you theirs, you learn their alignment. You are sober and healthy.",
-    "es-419": "Necesitas usar una ficha de voto para poder votar. Si un jugador muerto te dona la suya, tú aprendes su alineamiento. Tú estás sobrio y saludable.",
+    "es": "Necesitas usar una ficha de voto para poder votar. Si un jugador muerto te dona la suya, tú aprendes su alineamiento. Tú estás sobrio y saludable.",
     "sv": "Du kan bara rösta med en röstbricka. Om en död spelare ger dig sin får du veta hens lag. Du är frisk och nykter.",
-    "zh-Hans": "你只能使用投票标记才能投票。死亡的玩家可以将他的投票标记给你，如果他这么做，你会得知他的阵营。你不会中毒和醉酒。",
+    "zh": "你只能使用投票标记才能投票。死亡的玩家可以将他的投票标记给你，如果他这么做，你会得知他的阵营。你不会中毒和醉酒。",
     "cn": "你只能使用投票标记才能投票。\n死亡的玩家可以将他的投票标记给你，如果他这么做，你会得知他的阵营。\n你不会中毒和醉酒。"
   },
-  "flavor_text": {
-    "en": "\"Alms for the poor, good Sir? Spare a coin, Madam? Thank you. God bless! You're a right kind soul and no mistake! I'll have some swanky nosh tonight, I will!\"",
-    "es-419": "¿Una limosna para los más pobres, buen hombre? ¿Una moneda de sobra, señora? Muchas gracias, ¡Que Dios le bendiga! ¡Usted es un alma bondadosa y sin falta! ¡Hoy tendré una comida elegante, sí que sí!",
+  "flavor": {
+    "en": "Alms for the poor, good Sir? Spare a coin, Madam? Thank you. God bless! You're a right kind soul and no mistake! I'll have some swanky nosh tonight, I will!",
+    "es": "¿Una limosna para los más pobres, buen hombre? ¿Una moneda de sobra, señora? Muchas gracias, ¡Que Dios le bendiga! ¡Usted es un alma bondadosa y sin falta! ¡Hoy tendré una comida elegante, sí que sí!",
     "sv": "Allmosor till en fattig, min gode herre? Har du en slant över, madam? Tack. Gud signe dig! Du är en ädel själ! Idag får jag mig ett rejält skrovmål!",
-    "zh-Hans": "行行好吧，先生？哪怕是一枚硬币，夫人？谢天谢地，上天保佑！你真是个善良的人！今晚我要好好地吃上一顿，一定要！",
-    "cn": "“行行好吧，先生？哪怕是一枚硬币，夫人？谢天谢地，上天保佑！你真是个善良的人！今晚我要好好地吃上一顿，一定要！”"
+    "cn": "行行好吧，先生？哪怕是一枚硬币，夫人？谢天谢地，上天保佑！你真是个善良的人！今晚我要好好地吃上一顿，一定要！"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Beggar",
   "how_to_run": {
     "cn": "除非乞丐拥有投票标记，否则乞丐不能投票。乞丐每次投票时都会失去一个投票标记。\n在白天时，一个已死亡的玩家可以宣布将他的投票标记交给乞丐。将投票标记放到乞丐角色标记旁，并私底下告知乞丐这名玩家的阵营。",
     "en": "The Beggar cannot vote unless they have a vote token. They lose one vote token each time they vote.\nDuring the day, a dead player can declare that they give their vote token to the Beggar. Transfer the vote token to the Beggar and privately tell the Beggar the alignment of that player."
@@ -70,5 +67,6 @@
     "experimental"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/beggar.png"
+  "image": "assets/tokens/beggar.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Beggar"
 }

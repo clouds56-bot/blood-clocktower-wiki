@@ -3,32 +3,28 @@
   "type": "minion",
   "name": {
     "en": "Boffin",
-    "es-419": "Científico",
+    "es": "Científico",
     "sv": "Labbråttan",
-    "zh-Hans": "科学怪人",
     "cn": "科学怪人"
   },
   "ability": {
     "en": "The Demon (even if drunk or poisoned) has a not-in-play good character's ability. You both know which.",
-    "es-419": "El Demonio (incluso si está borrado o envenenado) posee la habilidad de un rol bueno fuera de juego. Ambos saben cuál.",
+    "es": "El Demonio (incluso si está borrado o envenenado) posee la habilidad de un rol bueno fuera de juego. Ambos saben cuál.",
     "sv": "Demonen (även om hen är full/förgiftad) har en god rolls förmåga (inte en som är i spel). Ni vet båda vilken.",
-    "zh-Hans": "恶魔拥有一个不在场的善良角色的能力，即使他醉酒或中毒。你和他都知道他获得了什么能力。",
     "cn": "恶魔拥有一个不在场的善良角色的能力，即使他醉酒或中毒。你和他都知道他获得了什么能力。"
   },
-  "flavor_text": {
-    "en": "\"Stellar hydrogen, vast, inert; carbon, oxygen, neon gases, all ruined. Molecular chaos, entropy, yields new cosmic phenomena, rebirth from atomic chaos, dense matter collapsing. All in a teeny little bottle.\"",
-    "es-419": "Hidrógeno estelar, vasto e interte; gases de carbón, oxígeno, neón, todos arruinados. Caos molecular, entropía, generando nuevos fenómenos cósmicos, renaciendo del caos atómico, con el colapso de la materia densa. Todo en una botellita pequeñita.",
+  "flavor": {
+    "en": "Stellar hydrogen, vast, inert; carbon, oxygen, neon gases, all ruined. Molecular chaos, entropy, yields new cosmic phenomena, rebirth from atomic chaos, dense matter collapsing. All in a teeny little bottle.",
+    "es": "Hidrógeno estelar, vasto e interte; gases de carbón, oxígeno, neón, todos arruinados. Caos molecular, entropía, generando nuevos fenómenos cósmicos, renaciendo del caos atómico, con el colapso de la materia densa. Todo en una botellita pequeñita.",
     "sv": "Stjärnväte, massivt, inert; kol, syre, neon, allt är förstört. Molekylärt kaos, entropi, skapar nya kosmiska fenomen, återfödsel ur atomiskt kaos, tät, kollapsande materia. Allt i en liten, liten flaska.",
-    "zh-Hans": "恒星的氢能，取之不尽，静待采掘；碳、氧、氖，尽数裂解。分子引发混沌，熵增由此产生，宇宙现象更替，原子紊乱重塑，物质聚合坍缩。所有的一切，都集中在这一个小小的锥形瓶中。",
-    "cn": "“恒星的氢能，取之不尽，静待采掘；碳、氧、氖，尽数裂解。分子引发混沌，熵增由此产生，宇宙现象更替，原子紊乱重塑，物质聚合坍缩。所有的一切，都集中在这一个小小的锥形瓶中。”"
+    "cn": "恒星的氢能，取之不尽，静待采掘；碳、氧、氖，尽数裂解。分子引发混沌，熵增由此产生，宇宙现象更替，原子紊乱重塑，物质聚合坍缩。所有的一切，都集中在这一个小小的锥形瓶中。"
   },
   "first_night": {
     "en": "Wake the Boffin and the Demon. Show the *THIS CHARACTER SELECTED YOU* & Boffin tokens, then the not-in-play good character token.",
-    "es-419": "Despierta al Científico y al Demonio. Muéstrales la ficha de rol bueno fuera de juego. Pon al Científico y al Demonio a dormir.",
+    "es": "Despierta al Científico y al Demonio. Muéstrales la ficha de rol bueno fuera de juego. Pon al Científico y al Demonio a dormir.",
     "sv": "Väck Labbråttan och Demonen. Visa dem *DU PÅVERKAS AV* och Labbråttas bricka, sedan den goda rollens bricka.",
-    "zh-Hans": "唤醒科学怪人和恶魔。对他们展示“该角色的能力对你生效”信息标记，然后是科学怪人的角色标记，再是恶魔获得能力的那个善良角色标记。让科学怪人和恶魔入睡。"
+    "zh": "唤醒科学怪人和恶魔。对他们展示“该角色的能力对你生效”信息标记，然后是科学怪人的角色标记，再是恶魔获得能力的那个善良角色标记。让科学怪人和恶魔入睡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Boffin",
   "how_to_run": {
     "cn": "在进行游戏设置时，将角色标记放入盲抽袋前，决定好恶魔获得的角色能力，并为恶魔本身和获得的角色能力做出相应的设置调整。在将角色标记收回并放入魔典后，将恶魔获得的能力对应的角色标记放置在恶魔的角色标记旁。\n在首个夜晚，唤醒科学怪人和恶魔。对他们展示“该角色的能力对你生效”信息标记，然后是科学怪人的角色标记，再是恶魔获得能力的那个善良角色标记。在展示后将这个善良角色标记放回到恶魔的角色标记旁。\n按照恶魔具有这个善良角色的能力一样来进行运作，同时恶魔还具有自己本身的能力。",
     "en": "While setting up the game, before putting character tokens in the bag, make any changes that are indicated in brackets on the Demon's two character abilities. Afterwards, place this second character token by the Demon character token.\nDuring the 1st night, wake the Boffin and the Demon. Show the THIS CHARACTER SELECTED YOU info token, then the Boffin token, then the good character token. Place this second character token by the Demon character token.\nTreat the Demon player as if they had this character ability, as well as their own Demon ability.\nGood abilities that would drunk/poison themselves, such as the Sailor, only drunk/poison the Demon's good ability."
@@ -121,5 +117,6 @@
       "reason": "If there is a spare token, the Boffin can give the Demon the Village Idiot ability."
     }
   ],
-  "image": "assets/tokens/boffin.png"
+  "image": "assets/tokens/boffin.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Boffin"
 }

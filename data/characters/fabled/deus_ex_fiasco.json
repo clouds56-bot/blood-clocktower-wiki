@@ -3,26 +3,23 @@
   "type": "fabled",
   "name": {
     "en": "Deus ex Fiasco",
-    "es-419": "Deus ex Fiasco",
+    "es": "Deus ex Fiasco",
     "sv": "Deus Ex Fiasco",
-    "zh-Hans": "失败的上帝",
     "cn": "失败的上帝"
   },
   "ability": {
     "en": "At least once per game, the Storyteller will make a mistake, correct it, and publicly admit to it. ",
-    "es-419": "Al menos una vez por juego, el Narrador cometerá un error, lo corregirá, y lo admitirá públicamente.",
+    "es": "Al menos una vez por juego, el Narrador cometerá un error, lo corregirá, y lo admitirá públicamente.",
     "sv": "Minst en gång per spel begår berättaren ett misstag, rättar till det och erkänner detta öppet.",
-    "zh-Hans": "每局游戏至少一次，说书人将会出现失误，但会纠正并公开承认自己曾处理有误。",
     "cn": "每局游戏至少一次，说书人将会出现失误，但会纠正并公开承认自己曾处理有误。"
   },
-  "flavor_text": {
-    "en": "\"It’s not a bug, it’s a feature. It’s not an error, it’s a tweak. It’s not broken, it’s quirky.\"",
-    "es-419": "No es una falla, es una funcionalidad. No es un error, es una modificación. No está roto, solo es inusual.",
+  "flavor": {
+    "en": "It’s not a bug, it’s a feature. It’s not an error, it’s a tweak. It’s not broken, it’s quirky.",
+    "es": "No es una falla, es una funcionalidad. No es un error, es una modificación. No está roto, solo es inusual.",
     "sv": "Det är inte en bugg; det är en funktion. Det är inte ett fel; det är en fix. Det är inte trasigt; det är lustigt.",
-    "zh-Hans": "这不是漏洞，是神迹。这不是失误，是天意。这不是崩坏，是风格。",
-    "cn": "“这不是漏洞，是神迹。\n这不是失误，是天意。\n这不是崩坏，是风格。”"
+    "zh": "这不是漏洞，是神迹。这不是失误，是天意。这不是崩坏，是风格。",
+    "cn": "这不是漏洞，是神迹。\n这不是失误，是天意。\n这不是崩坏，是风格。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Deus_ex_Fiasco",
   "how_to_run": {
     "cn": "在游戏开始时，宣布失败的上帝加入游戏。别把玩家们的吐槽和调侃放在心上！\n任何时候，如果你不小心犯了错吴，请尽最大努力纠正或弥补，必要时可灵活调整规则。之后，声明你犯了一个错误，并在魔典中添加“哎呀！”的提示标记。\n任何时候，如果你故意犯了错误，那么请纠正这个错误，之后，声明你犯了一个措误，并在魔典中添加“哎呀！”的提示标记。\n请记住：传奇角色的设计并非为了说书人的“（恶）趣味”。其存在的目的是帮助说书人，流畅且包容地运作游戏。",
     "en": "At the start of the game, declare that the Deus ex Fiasco is in play. Ignore any groans and complaints from players.\nAt any time, if you make a misteak, correct it as best you can, bending the rules if needed. Afterwards you declare that you have made a mistake. Add the WHOOPSIE reminder to the Grimoire.\nAt any time, you may deliberately break the rules, then correct it. Afterwards, declare that you have made a mistkae. Add the WHOOPSIE reminder to the Grimoire.\nRemember: Fabled characters are not designed for extra spice. They are characters whose purpose is to help you, as the Storyteller, to run smooth and inclusive games."
@@ -54,5 +51,6 @@
     "experimental"
   ],
   "artist": "Chlo MacDougal",
-  "image": "assets/tokens/deus_ex_fiasco.png"
+  "image": "assets/tokens/deus_ex_fiasco.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Deus_ex_Fiasco"
 }

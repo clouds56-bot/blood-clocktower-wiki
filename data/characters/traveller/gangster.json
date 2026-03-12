@@ -3,26 +3,22 @@
   "type": "traveller",
   "name": {
     "en": "Gangster",
-    "es-419": "Mafioso",
+    "es": "Mafioso",
     "sv": "Gangstern",
-    "zh-Hans": "黑帮",
     "cn": "黑帮"
   },
   "ability": {
     "en": "Once per day, you may choose to kill an alive neighbor, if your other alive neighbor agrees.",
-    "es-419": "Una vez por día, puedes elegir matar a un vecino vivo, si tu otro vecino vivo accede.",
+    "es": "Una vez por día, puedes elegir matar a un vecino vivo, si tu otro vecino vivo accede.",
     "sv": "En gång om dagen får du välja att döda en levande granne, om din andra levande granne samtycker.",
-    "zh-Hans": "每个白天限一次，你可以杀死与你邻近的两名存活的玩家中的一名，但需要另一边那个存活的玩家同意。",
     "cn": "每个白天限一次，你可以杀死与你邻近的两名存活的玩家中的一名，但需要另一边那个存活的玩家同意。"
   },
-  "flavor_text": {
-    "en": "\"I like your shoes. It would be such a shame if you had a little accident, and they got ruined. Now that you mention it, I like your cufflinks too.\"",
-    "es-419": "Me gustan tus zapatos. Sería una pena si tuvieras un pequeño accidente, y se arruinaran. Ahora que lo mencionas, también me gustan tus gemelos.",
+  "flavor": {
+    "en": "I like your shoes. It would be such a shame if you had a little accident, and they got ruined. Now that you mention it, I like your cufflinks too.",
+    "es": "Me gustan tus zapatos. Sería una pena si tuvieras un pequeño accidente, y se arruinaran. Ahora que lo mencionas, también me gustan tus gemelos.",
     "sv": "Fina skor. Det vore synd om du råkade ut för en olycka och de blev förstörda. Apropå det, fina manschettknappar.",
-    "zh-Hans": "我喜欢你的鞋子。不过要是你遭遇了什么小小的意外，不小心弄坏了它们，那可就丢人了。既然你提到了，其实我也挺喜欢你的袖扣的。",
-    "cn": "“我喜欢你的鞋子。不过要是你遭遇了什么小小的意外，不小心弄坏了它们，那可就丢人了。既然你提到了，其实我也挺喜欢你的袖扣的。”"
+    "cn": "我喜欢你的鞋子。不过要是你遭遇了什么小小的意外，不小心弄坏了它们，那可就丢人了。既然你提到了，其实我也挺喜欢你的袖扣的。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Gangster",
   "how_to_run": {
     "cn": "每个白天限一次，黑帮可以宣布他想要使用自己的能力。如果他这么做了，询问他的邻近存活玩家之中是否有人同意黑帮使用能力。如果其中一名与黑帮邻近的存活玩家同意了，那么另一名与黑帮邻近的存活玩家就会死亡。如果两人均同意，那么由黑帮来决定杀死其中的哪一名玩家。如果两人均不同意，黑帮今天就无法再次使用他的能力。",
     "en": "Once per day, the Gangster can declare that they wish to use their ability. If so, ask if an alive neighbor agrees. If an alive neighbor agrees, the other alive neighbor dies. If both alive neighbors agree, the Gangster chooses which alive neighbor dies. If neither alive neighbor agrees, the Gangster may not use their ability today."
@@ -75,5 +71,6 @@
     "experimental"
   ],
   "artist": "Anica Kelsen",
-  "image": "assets/tokens/gangster.png"
+  "image": "assets/tokens/gangster.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Gangster"
 }

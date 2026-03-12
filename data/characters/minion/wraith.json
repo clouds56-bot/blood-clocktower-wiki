@@ -3,38 +3,34 @@
   "type": "minion",
   "name": {
     "en": "Wraith",
-    "es-419": "Espectro",
+    "es": "Espectro",
     "sv": "Vålnaden",
-    "zh-Hans": "亡魂",
     "cn": "亡魂"
   },
   "ability": {
     "en": "You may choose to open your eyes at night. You wake when other evil players do.",
-    "es-419": "Puedes escoger abrir tus ojos por la noche. Tú te despiertas cuando otros jugadores malvados se despiertan.",
+    "es": "Puedes escoger abrir tus ojos por la noche. Tú te despiertas cuando otros jugadores malvados se despiertan.",
     "sv": "Du får öppna ögonen på natten. Du vaknar med andra onda spelare.",
-    "zh-Hans": "你可以在夜晚睁眼。当其他邪恶玩家被唤醒时，你也会被唤醒。",
     "cn": "你可以在夜晚睁眼。当其他邪恶玩家被唤醒时，你也会被唤醒。"
   },
-  "flavor_text": {
-    "en": "\"Ra'āb ina pān ṣilli ša dāri. Rigim qallu ina šūri, šītu ša šunātīka iredde, u napšutka idlul ina pān maṣṣartī dāriti.\"",
-    "es-419": "Ra'āb ina pān ṣilli ša dāri. Rigim qallu ina šūri, šītu ša šunātīka iredde, u napšutka idlul ina pān maṣṣartī dāriti.",
+  "flavor": {
+    "en": "Ra'āb ina pān ṣilli ša dāri. Rigim qallu ina šūri, šītu ša šunātīka iredde, u napšutka idlul ina pān maṣṣartī dāriti.",
+    "es": "Ra'āb ina pān ṣilli ša dāri. Rigim qallu ina šūri, šītu ša šunātīka iredde, u napšutka idlul ina pān maṣṣartī dāriti.",
     "sv": "Ra’āb ina pān ṣilli ša dāri. Rigim qallu ina šūri, šītu ša šunātīka iredde, u napšutka idlul ina pān maṣṣartī dāriti.",
-    "zh-Hans": "在门扉的阴影处颤栗吧。巨兽在城墙内咆哮，愤怒的呼息重返人间，你的魂魄，迟迟未渡，留在末日之门。",
-    "cn": "“在门扉的阴影处颤栗吧。巨兽在城墙内咆哮，愤怒的呼息重返人间，你的魂魄，迟迟未渡，留在末日之门。”"
+    "cn": "在门扉的阴影处颤栗吧。巨兽在城墙内咆哮，愤怒的呼息重返人间，你的魂魄，迟迟未渡，留在末日之门。"
   },
   "first_night": {
     "en": "Wake the Wraith whenever other evil players wake.",
-    "es-419": "Despierta al Espectro cada que otros jugadores malvados se despierten.",
+    "es": "Despierta al Espectro cada que otros jugadores malvados se despierten.",
     "sv": "Väck Vålnaden när andra onda spelare vaknar.",
-    "zh-Hans": "每当你要在夜晚唤醒一名邪恶玩家时，先唤醒亡魂。"
+    "zh": "每当你要在夜晚唤醒一名邪恶玩家时，先唤醒亡魂。"
   },
   "other_nights": {
     "en": "Wake the Wraith whenever other evil players wake.",
-    "es-419": "Despierta al Espectro cada que otros jugadores malvados se despierten.",
+    "es": "Despierta al Espectro cada que otros jugadores malvados se despierten.",
     "sv": "Väck Vålnaden när andra onda spelare vaknar.",
-    "zh-Hans": "每当你要在夜晚唤醒一名邪恶玩家时，先唤醒亡魂。"
+    "zh": "每当你要在夜晚唤醒一名邪恶玩家时，先唤醒亡魂。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Wraith",
   "how_to_run": {
     "cn": "每当你要在夜晚唤醒一名邪恶玩家时，先唤醒亡魂。当你让这名邪恶玩家重新入睡时，也让亡魂入睡。\n如果亡魂在存活时失去自己的能力，私下告知他不能在当晚睁眼，也不要在唤醒其他邪恶玩家时唤醒他。\n可选规则：每局游戏限一次，如果一名玩家“疯狂”地证明你是亡魂，他死亡。",
     "en": "Each time you wake an evil player at night, first wake the Wraith. When you put that evil player to sleep, put the Wraith to sleep.\nIf the Wraith loses their ability while alive, privately tell the Wraith that they may not choose to open their eyes tonight, and do not wake them when other evil players wake.\nOptional rule: Once per game, a player that is mad that you are the Wraith, dies."
@@ -101,5 +97,6 @@
       "reason": "If the Storyteller would gain the Wraith ability, a Minion gains it, and learns this."
     }
   ],
-  "image": "assets/tokens/wraith.png"
+  "image": "assets/tokens/wraith.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Wraith"
 }

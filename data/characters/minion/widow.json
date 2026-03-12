@@ -3,32 +3,28 @@
   "type": "minion",
   "name": {
     "en": "Widow",
-    "es-419": "Viuda",
+    "es": "Viuda",
     "sv": "Änkan",
-    "zh-Hans": "寡妇",
     "cn": "寡妇"
   },
   "ability": {
     "en": "On your 1st night, look at the Grimoire & choose a player: they are poisoned. 1 good player knows a Widow is in play.",
-    "es-419": "En tu 1era noche, mira al Grimorio y escoge un jugador: él está envenenado. 1 jugador bueno conoce que la Viuda está en juego.",
+    "es": "En tu 1era noche, mira al Grimorio y escoge un jugador: él está envenenado. 1 jugador bueno conoce que la Viuda está en juego.",
     "sv": "Din första natt ser du grimoaren och väljer en spelare; hen är förgiftad. 1 god spelare vet att Änkan är i spel.",
-    "zh-Hans": "在你的首个夜晚，你能查看魔典并选择一名玩家：他中毒。随后，始终会有一名善良玩家知道寡妇在场。",
     "cn": "在你的首个夜晚，你能查看魔典并选择一名玩家：他中毒。随后，始终会有一名善良玩家知道寡妇在场。"
   },
-  "flavor_text": {
-    "en": "\"More wine? Château d’Ergot ’07 is a very special vintage. My yes, very special indeed.\"",
-    "es-419": "¿Más vino? Château d’Ergot ’07 es una cosecha muy especial. Oh sí, muy especial de verdad.",
+  "flavor": {
+    "en": "More wine? Château d’Ergot ’07 is a very special vintage. My yes, very special indeed.",
+    "es": "¿Más vino? Château d’Ergot ’07 es una cosecha muy especial. Oh sí, muy especial de verdad.",
     "sv": "Mer vin? Château d’Ergot ’07 är en mycket speciell årgång. Ja, sannerligen speciell.",
-    "zh-Hans": "还要再来点酒吗？麦角酒庄的这款07年的窖藏非常特别。是的，的的确确很特别。",
-    "cn": "“还要再来点酒吗？麦角酒庄的这款07年的窖藏非常特别。是的，的的确确很特别。”"
+    "cn": "还要再来点酒吗？麦角酒庄的这款07年的窖藏非常特别。是的，的的确确很特别。"
   },
   "first_night": {
     "en": "Show the Grimoire for as long as the Widow needs. The Widow chooses a player. :reminder: Put the Widow to sleep. Wake the player marked *KNOW* & show the Widow token. :reminder:",
-    "es-419": "Muéstrale el Grimorio a la Viuda el tiempo que sea necesario. La Viuda escoge un jugador. :reminder:",
+    "es": "Muéstrale el Grimorio a la Viuda el tiempo que sea necesario. La Viuda escoge un jugador. :reminder:",
     "sv": "Visa grimoaren så länge Änkan behöver. Änkan väljer en spelare. :reminder: Söv Änkan. Väck spelaren märkt *VISAD* och visa Änkans rollbricka. :reminder:",
-    "zh-Hans": "唤醒寡妇并对她展示魔典。她可以按照自己意愿的时长来查看魔典。随后，让寡妇选择一名玩家。:reminder:"
+    "zh": "唤醒寡妇并对她展示魔典。她可以按照自己意愿的时长来查看魔典。随后，让寡妇选择一名玩家。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Widow",
   "how_to_run": {
     "cn": "在为首个夜晚进行准备时，将寡妇的“得知”提示标记放置在任意一名善良玩家旁。\n在首个夜晚，唤醒寡妇并对她展示魔典。她可以按照自己意愿的时长来查看魔典。随后，让寡妇指向魔典上的一个角色标记，或一名玩家。使用寡妇的“中毒”提示标记标记那名玩家，他开始中毒。让寡妇重新入睡。\n然后唤醒那名被放置“得知”的善良玩家。对他展示寡妇角色标记，然后让这名玩家入睡。",
     "en": "While preparing the first night, mark a good player with the KNOW reminder.\nOn the first night, wake the Widow and show them the Grimoire for as long as they need. The Widow points to a character token in the Grimoire. Mark them with a POISONED reminder. They are poisoned. Put the Widow to sleep.\nWake the player marked KNOW. Show them the Widow character token. Put that good player to sleep."
@@ -121,5 +117,6 @@
       "reason": "If the Poppy Grower has their ability, the Widow does not see the Grimoire."
     }
   ],
-  "image": "assets/tokens/widow.png"
+  "image": "assets/tokens/widow.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Widow"
 }

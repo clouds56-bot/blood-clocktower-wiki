@@ -3,38 +3,34 @@
   "type": "outsider",
   "name": {
     "en": "Damsel",
-    "es-419": "Damisela",
+    "es": "Damisela",
     "sv": "Ungmön",
-    "zh-Hans": "落难少女",
     "cn": "落难少女"
   },
   "ability": {
     "en": "All Minions know a Damsel is in play. If a Minion publicly guesses you (once), your team loses.",
-    "es-419": "Todos los Secuaces saben que la Damisela está en juego. Si un Secuaz te adivina como la Damisela públicamente (una sola vez), tu equipo pierde.",
+    "es": "Todos los Secuaces saben que la Damisela está en juego. Si un Secuaz te adivina como la Damisela públicamente (una sola vez), tu equipo pierde.",
     "sv": "Alla Kumpaner vet att Ungmön är i spel. Om en Kumpan öppet gissar dig (en chans) förlorar ditt lag.",
-    "zh-Hans": "所有爪牙都知道落难少女在场。每局游戏限一次，任意爪牙可以公开猜测你是落难少女，如果猜对，你的阵营落败。",
     "cn": "所有爪牙都知道落难少女在场。每局游戏限一次，任意爪牙可以公开猜测你是落难少女，如果猜对，你的阵营落败。"
   },
-  "flavor_text": {
-    "en": "\"Don't touch ze hair, honey.\"",
-    "es-419": "No toques el cabello, querido.",
+  "flavor": {
+    "en": "Don't touch ze hair, honey.",
+    "es": "No toques el cabello, querido.",
     "sv": "Rör inte håret, raring.",
-    "zh-Hans": "别摸头发，亲爱的。",
-    "cn": "“别摸头发，亲爱的。”"
+    "cn": "别摸头发，亲爱的。"
   },
   "first_night": {
     "en": "During Minion Info, show the Minions the Damsel token. If you haven't done this yet, do so now. If the Damsel was chosen by the Huntsman, show the *YOU ARE* info token & their new character token.",
-    "es-419": "Si la Damisela fue escogida por el Cazador, muéstrale la ficha de *TÚ ERES* y su nueva ficha de rol.",
+    "es": "Si la Damisela fue escogida por el Cazador, muéstrale la ficha de *TÚ ERES* y su nueva ficha de rol.",
     "sv": "Visa Kumpanerna Ungmöns bricka under Kumpan-info. Om du inte redan gjort det, gör det nu. Om Jägaren valde Ungmön, visa Ungmön kortet *DU ÄR* och den nya rollbrickan.",
-    "zh-Hans": "如果巡山人选中了落难少女，那么唤醒落难少女，对她展示“你是”信息标记和一个不在场的镇民角色标记."
+    "zh": "如果巡山人选中了落难少女，那么唤醒落难少女，对她展示“你是”信息标记和一个不在场的镇民角色标记."
   },
   "other_nights": {
     "en": "If the Damsel was chosen by the Huntsman, show the *YOU ARE* info token & their new character token.",
-    "es-419": "Si la Damisela fue escogida por el Cazador, muéstrale la ficha de *TÚ ERES* y su nueva ficha de rol.",
+    "es": "Si la Damisela fue escogida por el Cazador, muéstrale la ficha de *TÚ ERES* y su nueva ficha de rol.",
     "sv": "Om Jägaren valde Ungmön, visa Ungmön kortet *DU ÄR* och den nya rollbrickan.",
-    "zh-Hans": "如果巡山人选中了落难少女，那么唤醒落难少女，对她展示“你是”信息标记和一个不在场的镇民角色标记."
+    "zh": "如果巡山人选中了落难少女，那么唤醒落难少女，对她展示“你是”信息标记和一个不在场的镇民角色标记."
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Damsel",
   "how_to_run": {
     "cn": "在首个夜晚，唤醒所有爪牙。对他们展示落难少女角色标记。让爪牙们重新入睡。\n在游戏中的任意时间，如果一名爪牙公开猜测谁是落难少女且结果错误，使用“已被猜测”标记落难少女。后续的所有来自爪牙的猜测都不再产生效果。\n在游戏中的任意时间，如果一名爪牙公开猜测谁是落难少女且结果正确（同时“已被猜测”标记尚未放置），游戏结束。宣布邪恶阵营获胜。",
     "en": "During the first night, wake each Minion. Show the Damsel token. Put each Minion to sleep.\nAt any time during the game, if a Minion publicly guesses which player is the Damsel and is incorrect, mark the Damsel with the GUESS USED reminder. Future guesses by Minion players have no effect.\nAt any time during the game, if a Minion publicly guesses which player is the Damsel and is correct, the game ends. Declare that the evil team wins."
@@ -101,5 +97,6 @@
       "reason": "If the Widow is (or has been) in play, the Damsel is poisoned."
     }
   ],
-  "image": "assets/tokens/damsel.png"
+  "image": "assets/tokens/damsel.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Damsel"
 }

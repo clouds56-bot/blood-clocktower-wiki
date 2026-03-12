@@ -3,32 +3,28 @@
   "type": "minion",
   "name": {
     "en": "Scarlet Woman",
-    "es-419": "Mujer Escarlata",
+    "es": "Mujer Escarlata",
     "sv": "Röda Damen",
-    "zh-Hans": "红唇女郎",
     "cn": "红唇女郎"
   },
   "ability": {
     "en": "If there are 5 or more players alive & the Demon dies, you become the Demon. (Travellers don't count.)",
-    "es-419": "Si hay 5 o más jugadores vivos y el Demonio muere, tú te conviertes en el Demonio. (Los viajeros no cuentan.)",
+    "es": "Si hay 5 o más jugadores vivos y el Demonio muere, tú te conviertes en el Demonio. (Los viajeros no cuentan.)",
     "sv": "Om 5 eller fler spelare lever och Demonen dör blir du Demonen. (Resenärer räknas inte.)",
-    "zh-Hans": "如果大于等于五名玩家存活时（旅行者不计算在内）恶魔死亡，你变成那个恶魔。",
     "cn": "如果大于等于五名玩家存活时（旅行者不计算在内）恶魔死亡，你变成那个恶魔。"
   },
-  "flavor_text": {
-    "en": "\"You have shown me the secrets of the Council of the Purple Flame. We have lain together in fire and in lust and in beastly commune, and I am forever your servant. But tonight, my dear, I am your master.\"",
-    "es-419": "Me has mostrado los secretos del Consejo de la Llama Púrpura. Nos hemos acostado juntos en el fuego, en el deseo y en la comunión bestial, y seré sirvienta tuya para siempre. Pero esta noche, mi amor, soy tu ama.",
+  "flavor": {
+    "en": "You have shown me the secrets of the Council of the Purple Flame. We have lain together in fire and in lust and in beastly commune, and I am forever your servant. But tonight, my dear, I am your master.",
+    "es": "Me has mostrado los secretos del Consejo de la Llama Púrpura. Nos hemos acostado juntos en el fuego, en el deseo y en la comunión bestial, y seré sirvienta tuya para siempre. Pero esta noche, mi amor, soy tu ama.",
     "sv": "Du har visat mig Purpurlågans hemligheter. Vi har delat säng i eld och lust och djuriskt umgänge, och jag är för alltid din tjänare. Men inatt, min kära, är jag din mästare.",
-    "zh-Hans": "你曾向我展示了紫焰议会的秘密。我们也曾一起在烈火里拥抱，在欲望中交欢，在兽性的驱使下耳鬓厮磨，我将永生永世侍奉于你。但今晚，我亲爱的，我是你的主人。",
-    "cn": "“你曾向我展示了紫焰议会的秘密。我们也曾一起在烈火里拥抱，在欲望中交欢，在兽性的驱使下耳鬓厮磨，我将永生永世侍奉于你。但今晚，我亲爱的，我是你的主人。”"
+    "cn": "你曾向我展示了紫焰议会的秘密。我们也曾一起在烈火里拥抱，在欲望中交欢，在兽性的驱使下耳鬓厮磨，我将永生永世侍奉于你。但今晚，我亲爱的，我是你的主人。"
   },
   "other_nights": {
     "en": "If the Scarlet Woman became the Demon today, show them the *YOU ARE* token, then the Demon token.",
-    "es-419": "Si la Mujer Escarlata se convirtió en el Demonio hoy, muéstrale la ficha de *TÚ ERES*, y luego la ficha del Demonio.",
+    "es": "Si la Mujer Escarlata se convirtió en el Demonio hoy, muéstrale la ficha de *TÚ ERES*, y luego la ficha del Demonio.",
     "sv": "Om Röda Damen blivit Demon så visa kortet *DU ÄR* och Demonens rollbricka.",
-    "zh-Hans": "如果红唇女郎今天成功变成了恶魔，向她展示“你是”信息标记，然后向她展示恶魔角色标记。"
+    "zh": "如果红唇女郎今天成功变成了恶魔，向她展示“你是”信息标记，然后向她展示恶魔角色标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Scarlet_Woman",
   "how_to_run": {
     "cn": "如果恶魔死亡，且在恶魔死前有五名或更多的存活玩家，在魔典中用闲置的小恶魔标记替换红唇女郎的标记，也意味着那名玩家的角色从红唇女郎变成了小恶魔。（她现在是恶魔，且具有恶魔的能力。如果她死亡，善良阵营获胜。）\n在当晚，唤醒新的小恶魔，向她展示“你是”信息标记，然后向她展示小恶魔角色标记。\n在《暗流涌动》里，只有一种恶魔——小恶魔。在其他剧本中，可能会有多种不同的恶魔。如果红唇女郎变成了恶魔，她一定会变成与刚死去的恶魔同一种类的恶魔，并获得这种恶魔的能力。当这种情况发生时，使用红唇女郎的“是恶魔”提示标记标记红唇女郎现在是恶魔，并参照对应的恶魔介绍里的“运作方式”来进行相关操作。",
     "en": "If the Demon dies and there were five or more alive players immediately before the Demon died, replace the Scarlet Woman token with a spare Imp token, changing that player's character from the Scarlet Woman into the Imp. (They are now the Demon and have the Imp's ability. If they die, good wins.)\nThat night, wake the new Imp, show them the YOU ARE info token, then show them the Imp token.\nIn Trouble Brewing, there is only one Demon—the Imp. In other editions, there are multiple possible Demons. If the Scarlet Woman becomes the Demon, they become the same type of Demon that died, and they gain this Demon's ability. When this happens, mark the Scarlet Woman with the IS THE DEMON reminder and refer to that Demon's \"How to Run\" instructions."
@@ -92,5 +88,6 @@
       "reason": "If the Storyteller would gain the Scarlet Woman ability, a Minion gains it, and learns this."
     }
   ],
-  "image": "assets/tokens/scarlet_woman.png"
+  "image": "assets/tokens/scarlet_woman.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Scarlet_Woman"
 }

@@ -3,38 +3,34 @@
   "type": "townsfolk",
   "name": {
     "en": "Engineer",
-    "es-419": "Ingeniero",
+    "es": "Ingeniero",
     "sv": "Ingenjören",
-    "zh-Hans": "工程师",
     "cn": "工程师"
   },
   "ability": {
     "en": "Once per game, at night, choose which Minions or which Demon is in play.",
-    "es-419": "Una vez por juego, por la noche, escoge qué Secuaces o qué Demonio está en juego.",
+    "es": "Una vez por juego, por la noche, escoge qué Secuaces o qué Demonio está en juego.",
     "sv": "En gång per spel, på natten, kan du välja vilka Kumpaner eller vilken Demon som är i spel.",
-    "zh-Hans": "每局游戏限一次，在夜晚时，你可以选择让恶魔变成你选择的恶魔角色，或让所有爪牙变成你选择的爪牙角色。",
     "cn": "每局游戏限一次，在夜晚时，你可以选择让恶魔变成你选择的恶魔角色，或让所有爪牙变成你选择的爪牙角色。"
   },
-  "flavor_text": {
-    "en": "\"If it bends, great. If it breaks, well, it probably needed fixing anyway.\"",
-    "es-419": "Si se dobla, genial. Si se rompe, bueno, probablemente necesitaba que lo reparen de todos modos.",
+  "flavor": {
+    "en": "If it bends, great. If it breaks, well, it probably needed fixing anyway.",
+    "es": "Si se dobla, genial. Si se rompe, bueno, probablemente necesitaba que lo reparen de todos modos.",
     "sv": "Det ska böjas i tid, det som krokigt ska bli. Och om det går av, ja, då behövde det väl ändå lagas.",
-    "zh-Hans": "如果它弯曲了，那可就太棒了。但如果它断裂了，那么它就必须得修一修了。",
-    "cn": "“如果它弯曲了，那可就太棒了。但如果它断裂了，那么它就必须得修一修了。”"
+    "cn": "如果它弯曲了，那可就太棒了。但如果它断裂了，那么它就必须得修一修了。"
   },
   "first_night": {
     "en": "The Engineer might choose Minions or Demons. Put the Engineer to sleep. Wake the target(s) one at a time. Show the *YOU ARE* info token & their new character token. :reminder:",
-    "es-419": "El Ingeniero quizás escoja Secuaces o Demonios. :reminder: Si lo hacen: Pon al Ingeniero a dormir. Despierta al jugador objetivo, muéstrale la ficha de *TÚ ERES* y la ficha de su nuevo rol, luego ponlo a dormir. Repite con todos los jugadores que han cambiado de rol.",
+    "es": "El Ingeniero quizás escoja Secuaces o Demonios. :reminder: Si lo hacen: Pon al Ingeniero a dormir. Despierta al jugador objetivo, muéstrale la ficha de *TÚ ERES* y la ficha de su nuevo rol, luego ponlo a dormir. Repite con todos los jugadores que han cambiado de rol.",
     "sv": "Ingenjören kanske väljer Kumpaner eller en Demon. Söv Ingenjören. Väck berörda spelare en i taget, visa kortet *DU ÄR* och den nya rollen. :reminder:",
-    "zh-Hans": "工程师可以选择爪牙或者恶魔角色。 :reminder:如果他使用能力，让工程师重新入睡。分别依次唤醒每个角色发生变化的邪恶玩家，对其展示“你是”信息标记，和他当前的角色标记，然后再让他重新入睡，重复步骤直到所有受到影响的邪恶玩家均因此被唤醒。"
+    "zh": "工程师可以选择爪牙或者恶魔角色。 :reminder:如果他使用能力，让工程师重新入睡。分别依次唤醒每个角色发生变化的邪恶玩家，对其展示“你是”信息标记，和他当前的角色标记，然后再让他重新入睡，重复步骤直到所有受到影响的邪恶玩家均因此被唤醒。"
   },
   "other_nights": {
     "en": "The Engineer might choose Minions or Demons. Put the Engineer to sleep. Wake the target(s) one at a time. Show the *YOU ARE* info token & their new character token. :reminder:",
-    "es-419": "El Ingeniero quizás escoja Secuaces o Demonios. :reminder: Si lo hacen: Pon al Ingeniero a dormir. Despierta al jugador objetivo, muéstrale la ficha de *TÚ ERES* y la ficha de su nuevo rol, luego ponlo a dormir. Repite con todos los jugadores que han cambiado de rol.",
+    "es": "El Ingeniero quizás escoja Secuaces o Demonios. :reminder: Si lo hacen: Pon al Ingeniero a dormir. Despierta al jugador objetivo, muéstrale la ficha de *TÚ ERES* y la ficha de su nuevo rol, luego ponlo a dormir. Repite con todos los jugadores que han cambiado de rol.",
     "sv": "Ingenjören kanske väljer Kumpaner eller en Demon. Söv ingenjören. Väck berörda spelare en i taget, visa kortet *DU ÄR* och den nya rollen. :reminder:",
-    "zh-Hans": "工程师可以选择爪牙或者恶魔角色。 :reminder:如果他使用能力，让工程师重新入睡。分别依次唤醒每个角色发生变化的邪恶玩家，对其展示“你是”信息标记，和他当前的角色标记，然后再让他重新入睡，重复步骤直到所有受到影响的邪恶玩家均因此被唤醒。"
+    "zh": "工程师可以选择爪牙或者恶魔角色。 :reminder:如果他使用能力，让工程师重新入睡。分别依次唤醒每个角色发生变化的邪恶玩家，对其展示“你是”信息标记，和他当前的角色标记，然后再让他重新入睡，重复步骤直到所有受到影响的邪恶玩家均因此被唤醒。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Engineer",
   "how_to_run": {
     "cn": "每个夜晚，唤醒工程师。他要么摇头不使用能力，要么指向角色列表上的一个或多个邪恶角色。\n如果他摇头不使用能力，无事发生。让工程师重新入睡。\n如果他指向了角色列表上的恶魔或爪牙角色，让他重新入睡。以合适的方式用新的角色标记替换被工程师能力所影响的那些玩家原本的角色标记。分别依次唤醒每个角色发生变化的邪恶玩家，对其展示“你是”信息标记，和他当前的角色标记，然后再让他重新入睡，重复步骤直到所有受到影响的邪恶玩家均因此被唤醒。工程师现在失去能力——将“失去能力”提示标记放置在工程师旁，并从夜晚顺序表旁移除他的夜晚标记。",
     "en": "Each night, wake the Engineer. They either shake their head no or point at evil characters on the character sheet.\nIf they shake their head no, nothing happens. Put the Engineer to sleep.\nIf they point to a Demon or Minions on their character sheet, put them to sleep. Swap all appropriate character tokens with new character tokens. Wake each evil player that changed character, show the YOU ARE info token, then their new character token, then put them to sleep. The Engineer loses their ability—mark them with the NO ABILITY reminder and remove their night token from the night sheet."
@@ -93,5 +89,6 @@
       "reason": "If the living Summoner is removed from play, the Storyteller has the Summoner ability."
     }
   ],
-  "image": "assets/tokens/engineer.png"
+  "image": "assets/tokens/engineer.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Engineer"
 }

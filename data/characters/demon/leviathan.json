@@ -3,38 +3,36 @@
   "type": "demon",
   "name": {
     "en": "Leviathan",
-    "es-419": "Leviatán",
+    "es": "Leviatán",
     "sv": "Leviatan",
-    "zh-Hans": "利维坦",
     "cn": "利维坦"
   },
   "ability": {
     "en": "If more than 1 good player is executed, evil wins. All players know you are in play. After day 5, evil wins.",
-    "es-419": "Si más de 1 jugador bueno es ejecutado, los malvados ganan. Todos los jugadores saben que estás en juego. Luego del día 5, los malvados ganan.",
+    "es": "Si más de 1 jugador bueno es ejecutado, los malvados ganan. Todos los jugadores saben que estás en juego. Luego del día 5, los malvados ganan.",
     "sv": "Om mer än 1 god spelare avrättas vinner de onda. Alla vet att du är i spel. Efter dag 5 vinner de onda.",
-    "zh-Hans": "如果多于一名善良玩家被处决，邪恶阵营获胜。所有玩家都知道利维坦在场。在第五个白天结束时，邪恶阵营获胜。",
+    "zh": "如果多于一名善良玩家被处决，邪恶阵营获胜。所有玩家都知道利维坦在场。在第五个白天结束时，邪恶阵营获胜。",
     "cn": "如果多于一名善良玩家被处决，邪恶阵营获胜。\n所有玩家都知道利维坦在场。\n在第五个白天结束时，邪恶阵营获胜。"
   },
-  "flavor_text": {
-    "en": "\"To the last, I grapple with thee. From Hell’s heart, I stab at thee. For hate’s sake, I spit my last breath at thee.\"",
-    "es-419": "Hasta el final, lucho contigo. Desde el corazón del Infierno, te apuñalo. Por puro odio, te escupo mi último aliento.",
+  "flavor": {
+    "en": "To the last, I grapple with thee. From Hell’s heart, I stab at thee. For hate’s sake, I spit my last breath at thee.",
+    "es": "Hasta el final, lucho contigo. Desde el corazón del Infierno, te apuñalo. Por puro odio, te escupo mi último aliento.",
     "sv": "Till det sista kämpar jag mot dig. Från dödsrikets hjärta riktar jag mitt järn mot dig. Med mitt sista andetag slungar jag emot dig mitt utmanande hat.",
-    "zh-Hans": "末日将临，斗争永无止境。地狱之心，吾以利剑相迎。仇恨燃尽，然而愤懑难平。",
-    "cn": "“末日将临，斗争永无止境。\n地狱之心，吾以利剑相迎。\n仇恨燃尽，然而愤懑难平。”"
+    "zh": "末日将临，斗争永无止境。地狱之心，吾以利剑相迎。仇恨燃尽，然而愤懑难平。",
+    "cn": "末日将临，斗争永无止境。\n地狱之心，吾以利剑相迎。\n仇恨燃尽，然而愤懑难平。"
   },
   "first_night": {
     "en": "Announce that the Leviathan is in play. :reminder:",
-    "es-419": "Declara que \"El Leviatán está en juego\". Marca al Leviatán con la ficha de recordatorio de *DÍA 1*. :reminder:",
+    "es": "Declara que \"El Leviatán está en juego\". Marca al Leviatán con la ficha de recordatorio de *DÍA 1*. :reminder:",
     "sv": "Meddela att Leviatan är i spel. :reminder:",
-    "zh-Hans": "宣布利维坦在场。将“第一天”提示标记放置在利维坦的角色标记旁。:reminder:"
+    "zh": "宣布利维坦在场。将“第一天”提示标记放置在利维坦的角色标记旁。:reminder:"
   },
   "other_nights": {
     "en": "Change the Leviathan reminder token to the relevant day. :reminder: You may announce that the Leviathan is in play.",
-    "es-419": "Opcionalmente, declara que \"El Leviatán está en juego\". Reemplaza la ficha de recordatorio. :reminder:",
+    "es": "Opcionalmente, declara que \"El Leviatán está en juego\". Reemplaza la ficha de recordatorio. :reminder:",
     "sv": "Ändra Leviatans påminnelse till rätt dag. :reminder: Du kan meddela att Leviatan är i spel.",
-    "zh-Hans": "替换利维坦的提示标记 :reminder: 。你可以宣告“利维坦在场”。"
+    "zh": "替换利维坦的提示标记 :reminder: 。你可以宣告“利维坦在场”。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Leviathan",
   "how_to_run": {
     "cn": "在第一天黎明后，立即宣布利维坦在场。将“第一天”提示标记放置在利维坦的角色标记旁。在接下来的每一个白天开始时，将“第二天”、“第三天”、“第四天”、“第五天”提示标记依次替换放置在利维坦的角色标记旁。如果一个白天结束并且利维坦的角色标记旁有“第五天”提示标记，则宣布邪恶阵营获胜。\n如果一名善良玩家被处决，将“善良被处决”提示标记放置在他的角色标记旁。\n如果一名善良玩家被处决并且已经有一名玩家的角色标记旁放置了“善良被处决”提示标记，则宣布邪恶阵营获胜。\n对于新手玩家，每天宣布利维坦在场，并说明今天是哪一天，这很有帮助的。在第一个白天，宣布“利维坦在场。这是第一天。” 在第二个白天，宣布“利维坦在场。现在是第二天。” 诸如此类。这可以帮助玩家们记住他们面对的是什么恶魔，并避免因忘记计算天数而意外落败。",
     "en": "Immediately after dawn on the first day, declare that the Leviathan is in play. Mark the Leviathan with the DAY 1 reminder. At the beginning of each following day, mark the Leviathan with DAY 2, then DAY 3, then DAY 4, then DAY 5 reminders. If a day ends and the Leviathan is marked with the DAY 5 reminder, declare that evil wins.\nIf a good player is executed, mark them with the GOOD PLAYER EXECUTED reminder.\nIf a good player is executed and a player is already marked with the GOOD PLAYER EXECUTED reminder, declare that evil wins.\nFor new players, it is helpful to declare that the Leviathan is in play each day, and to say what day it is. On the first day, say “The Leviathan is in play. It is day one.” On the second day, say “The Leviathan is in play. It is day two.” etc. This helps your players remember what Demon they are facing and avoid accidentally losing by forgetting to count the days."
@@ -145,5 +143,6 @@
       "reason": "If the Leviathan nominates and executes the Soldier, good wins."
     }
   ],
-  "image": "assets/tokens/leviathan.png"
+  "image": "assets/tokens/leviathan.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Leviathan"
 }

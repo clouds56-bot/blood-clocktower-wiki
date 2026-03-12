@@ -3,32 +3,29 @@
   "type": "demon",
   "name": {
     "en": "Zombuul",
-    "es-419": "Zombuul",
+    "es": "Zombuul",
     "sv": "Zombuul",
-    "zh-Hans": "僵怖",
     "cn": "僵怖"
   },
   "ability": {
     "en": "Each night*, if no-one died today, choose a player: they die. The 1st time you die, you live but register as dead.",
-    "es-419": "Cada noche*, si nadie murió hoy, escoge un jugador: él muere. La 1era vez que tú mueres, vives pero te registras como muerto.",
+    "es": "Cada noche*, si nadie murió hoy, escoge un jugador: él muere. La 1era vez que tú mueres, vives pero te registras como muerto.",
     "sv": "Varje natt*, om ingen dog idag, väljer du en spelare; hen dör. Första gången du dör lever du men registreras som död.",
-    "zh-Hans": "每个夜晚*，如果今天白天没有人死亡，你会被唤醒并要选择一名玩家：他死亡。当你首次死亡后，你仍存活，但会被当作死亡。",
+    "zh": "每个夜晚*，如果今天白天没有人死亡，你会被唤醒并要选择一名玩家：他死亡。当你首次死亡后，你仍存活，但会被当作死亡。",
     "cn": "每个夜晚*，如果今天白天没有人死亡，你会被唤醒并要选择一名玩家：他死亡。\n当你首次死亡后，你仍存活，但会被当作死亡。"
   },
-  "flavor_text": {
-    "en": "\"I do not. Understand. Your ways. Fellow human. Show me. The dirt. Where the holy. Lay. Sleeping. I too. Must sleep. Soon.\"",
-    "es-419": "Yo no. Entiendo. Tus formas. Querido humano. Muéstrame. La tierra. Donde los sagrados. Descansan. Durmiendo. Yo también. Debo dormir. Pronto.",
+  "flavor": {
+    "en": "I do not. Understand. Your ways. Fellow human. Show me. The dirt. Where the holy. Lay. Sleeping. I too. Must sleep. Soon.",
+    "es": "Yo no. Entiendo. Tus formas. Querido humano. Muéstrame. La tierra. Donde los sagrados. Descansan. Durmiendo. Yo también. Debo dormir. Pronto.",
     "sv": "Jag. Förstår inte. Dig. Medmänniska. Visa mig. Jorden. Där den heliga. Sover. Jag måste. Också sova. Snart.",
-    "zh-Hans": "我不。明白。你的。方式。人类。同类。向我。指引。泥土。那是。圣地。静卧。安睡。我也。必须。长眠。立刻。",
-    "cn": "“我不。明白。你的。方式。人类。同类。向我。指引。泥土。那是。圣地。静卧。安睡。我也。必须。长眠。立刻。”"
+    "cn": "我不。明白。你的。方式。人类。同类。向我。指引。泥土。那是。圣地。静卧。安睡。我也。必须。长眠。立刻。"
   },
   "other_nights": {
     "en": "If no one died today, the Zombuul chooses a player. :reminder:",
-    "es-419": "Si nadie murió hoy, el Zombuul escoge un jugador. :reminder:",
+    "es": "Si nadie murió hoy, el Zombuul escoge un jugador. :reminder:",
     "sv": "Om ingen dog idag så väljer Zombuul en spelare. :reminder:",
-    "zh-Hans": "如果今天有玩家死亡，僵怖选择一名玩家。:reminder:"
+    "zh": "如果今天有玩家死亡，僵怖选择一名玩家。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Zombuul",
   "how_to_run": {
     "cn": "当僵怖首次死亡后，他依然存活。宣布僵怖已经死亡，但是不要在魔典中给僵怖添加帷幕标记。（如常将城镇广场上他的生命标记翻面。）从现在起，僵怖被当作已死亡。\n每个白天，如果有玩家死亡，将“死于今日”提示标记放置到该玩家的角色标记旁。（如果僵怖因处决而“死亡”，会被当作已死亡，因此要给僵怖放置“死于今日”提示标记。）\n除了首个夜晚以外的每个夜晚，如果有任何玩家标有“死于今日”，不要唤醒僵怖。\n除了首个夜晚以外的每个夜晚，如果没有玩家标有“死于今日”，唤醒僵怖。让僵怖指向任意一名玩家。让僵怖重新入睡。所选玩家死亡——将“死亡”提示标记放置到该玩家的角色标记旁。",
     "en": "The first time the Zombuul would die, they remain alive. Declare that they died, but do not add a shroud to the Zombuul. (Flip the life token on the Town Square, as normal.) From now on, the\nZombuul registers as dead.\nEach day, if a player dies, mark them with the DIED TODAY reminder. (If the Zombuul “dies” by execution, they register as dead, so mark the Zombuul with the DIED TODAY reminder.)\nEach night except the first, if any player is marked DIED TODAY, do not wake the Zombuul.\nEach night except the first, if no player is marked DIED TODAY, wake the Zombuul. They point at any player. Put the Zombuul to sleep. The chosen player dies—mark them with the DEAD reminder."
@@ -73,5 +70,6 @@
       "reason": "If the Summoner summons a dead player into the Zombuul, the Zombuul has already \"died once\"."
     }
   ],
-  "image": "assets/tokens/zombuul.png"
+  "image": "assets/tokens/zombuul.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Zombuul"
 }

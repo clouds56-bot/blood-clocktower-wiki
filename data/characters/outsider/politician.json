@@ -3,26 +3,22 @@
   "type": "outsider",
   "name": {
     "en": "Politician",
-    "es-419": "Político",
+    "es": "Político",
     "sv": "Politikern",
-    "zh-Hans": "政客",
     "cn": "政客"
   },
   "ability": {
     "en": "If you were the player most responsible for your team losing, you change alignment & win, even if dead.",
-    "es-419": "Si fuiste el jugador más responsable de que tu equipo pierda, cambias alineamiento y ganas, incluso si estás muerto.",
+    "es": "Si fuiste el jugador más responsable de que tu equipo pierda, cambias alineamiento y ganas, incluso si estás muerto.",
     "sv": "Om du är mest ansvarig för att ditt lag förlorade byter du lag och vinner, även om du är död.",
-    "zh-Hans": "如果你是对你的阵营落败负最大责任的人，你转变阵营并获胜，即使你已死亡。",
     "cn": "如果你是对你的阵营落败负最大责任的人，你转变阵营并获胜，即使你已死亡。"
   },
-  "flavor_text": {
-    "en": "\"I'm glad you asked that question. Truly, I am. But I think the REAL question here is...\"",
-    "es-419": "Qué bueno que hiciste esa pregunta. De verdad. Pero yo creo que la pregunta MÁS IMPORTANTE aquí es…",
+  "flavor": {
+    "en": "I'm glad you asked that question. Truly, I am. But I think the REAL question here is...",
+    "es": "Qué bueno que hiciste esa pregunta. De verdad. Pero yo creo que la pregunta MÁS IMPORTANTE aquí es…",
     "sv": "Jag tror inte att det är den viktigaste frågan. Jag förstår att det är intressant, men nu pratar vi konstitutionella frågor.",
-    "zh-Hans": "我很高兴你提出了这个问题。是的，我真的很高兴。但我仍然认为，问题的核心应该是在于……",
-    "cn": "“我很高兴你提出了这个问题。是的，我真的很高兴。但我仍然认为，问题的核心应该是在于……”"
+    "cn": "我很高兴你提出了这个问题。是的，我真的很高兴。但我仍然认为，问题的核心应该是在于……"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Politician",
   "how_to_run": {
     "cn": "当游戏结束时，考量政客玩家在本局游戏中所造成的影响，是否导致了某一方阵营获胜。如果政客在他的对立阵营获胜中做出了最重要的贡献，他转变阵营并与原本对应阵营的其他玩家一同获胜。在其他情况下，政客保留原本的阵营且按照常规的胜负条件来判断政客玩家的胜负。\n请注意政客仅会在游戏结束时才转变阵营，因此即使善良的政客在为邪恶阵营出力，他也依然会被当作是善良阵营。\n政客在游戏过程中中毒醉酒与否无关紧要，但在游戏结束时仍然中毒醉酒则会影响他的能力触发。如果他在游戏结束时处于中毒或醉酒状态，那么无论他在游戏过程中为对立阵营做出了多么显著的贡献，他都无法触发自己的能力来转变阵营并获胜。",
     "en": "When the game ends, if good lost and you feel that this was significantly due to the words and actions of the Politician player, declare that the Politician turns evil and wins too.\nIn the rare instance that the Politician is evil, and plays a big part in losing the game for evil, declare that the Politician turns good and wins with the good team."
@@ -96,5 +92,6 @@
       "reason": "The Politician might register as evil to the Vizier."
     }
   ],
-  "image": "assets/tokens/politician.png"
+  "image": "assets/tokens/politician.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Politician"
 }

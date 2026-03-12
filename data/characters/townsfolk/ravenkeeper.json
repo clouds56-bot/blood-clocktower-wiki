@@ -3,32 +3,29 @@
   "type": "townsfolk",
   "name": {
     "en": "Ravenkeeper",
-    "es-419": "Guardián de Cuervos",
+    "es": "Guardián de Cuervos",
     "sv": "Korpskötaren",
-    "zh-Hans": "守鸦人",
     "cn": "守鸦人"
   },
   "ability": {
     "en": "If you die at night, you are woken to choose a player: you learn their character.",
-    "es-419": "Si mueres en la noche, tú te despiertas para escoger un jugador: aprendes su rol.",
+    "es": "Si mueres en la noche, tú te despiertas para escoger un jugador: aprendes su rol.",
     "sv": "Om du dör på natten väcks du och väljer en spelare; du får veta hens roll.",
-    "zh-Hans": "如果你在夜晚死亡，你会被唤醒，然后你要选择一名玩家：你会得知他的角色。",
     "cn": "如果你在夜晚死亡，你会被唤醒，然后你要选择一名玩家：你会得知他的角色。"
   },
-  "flavor_text": {
-    "en": "\"My birds will avenge me! Fly! Fly, my sweet and dutiful pets! To the manor and to the river! To the alleys and to the salons! Fly!\"",
-    "es-419": "¡Mis aves me vengarán! ¡Vuelen! ¡Vuelen, mis mascotas dulces y obedientes! ¡A la mansión y al rio! ¡A los callejones y las cantinas! ¡Vuelen!",
+  "flavor": {
+    "en": "My birds will avenge me! Fly! Fly, my sweet and dutiful pets! To the manor and to the river! To the alleys and to the salons! Fly!",
+    "es": "¡Mis aves me vengarán! ¡Vuelen! ¡Vuelen, mis mascotas dulces y obedientes! ¡A la mansión y al rio! ¡A los callejones y las cantinas! ¡Vuelen!",
     "sv": "Mina fåglar kommer hämnas mig! Flyg! Flyg, mina vackra och plikttrogna vänner! Till godset och till älven! Till gränderna och salongerna! Flyg!",
-    "zh-Hans": "我的鸟儿们会替我复仇的！飞吧！飞吧，我尽职的小可爱！去到庄园和溪边！去到小巷和集会所里！快飞吧！",
-    "cn": "“我的鸟儿们会替我复仇的！飞吧！飞吧，我尽职的小可爱！\n去到庄园和溪边！去到小巷和集会所里！快飞吧！”"
+    "zh": "我的鸟儿们会替我复仇的！飞吧！飞吧，我尽职的小可爱！去到庄园和溪边！去到小巷和集会所里！快飞吧！",
+    "cn": "我的鸟儿们会替我复仇的！飞吧！飞吧，我尽职的小可爱！\n去到庄园和溪边！去到小巷和集会所里！快飞吧！"
   },
   "other_nights": {
     "en": "If the Ravenkeeper died tonight, the Ravenkeeper chooses a player. Show that player's character token.",
-    "es-419": "Si el Guardián de Cuervos murió esta noche, él escoge un jugador. Muéstrale la ficha de rol del jugador escogido.",
+    "es": "Si el Guardián de Cuervos murió esta noche, él escoge un jugador. Muéstrale la ficha de rol del jugador escogido.",
     "sv": "Om Korpskötaren dog inatt så väljer hen en spelare. Visa den spelarens rollbricka.",
-    "zh-Hans": "如果守鸦人在夜晚死去，唤醒他。让守鸦人指向任意一名玩家。对守鸦人展示那名玩家的角色标记。"
+    "zh": "如果守鸦人在夜晚死去，唤醒他。让守鸦人指向任意一名玩家。对守鸦人展示那名玩家的角色标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Ravenkeeper",
   "how_to_run": {
     "cn": "如果守鸦人在夜晚死去，唤醒他。让守鸦人指向任意一名玩家。对守鸦人展示那名玩家的角色标记。让守鸦人重新入睡。\n我们建议你阻止甚至禁止玩家在夜晚谈论他们当晚正在进行的操作。",
     "en": "If the Ravenkeeper died tonight, wake them. They point at any player. Show the chosen player's character token to the Ravenkeeper. Put the Ravenkeeper to sleep.\nWe advise you to discourage or even ban players from talking about what they are doing at night as they are doing it."
@@ -86,5 +83,6 @@
       "reason": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Ravenkeeper uses their ability but does not die."
     }
   ],
-  "image": "assets/tokens/ravenkeeper.png"
+  "image": "assets/tokens/ravenkeeper.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Ravenkeeper"
 }

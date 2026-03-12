@@ -3,38 +3,34 @@
   "type": "demon",
   "name": {
     "en": "Lord of Typhon",
-    "es-419": "Señor del Tifón",
+    "es": "Señor del Tifón",
     "sv": "Tyfons Herre",
-    "zh-Hans": "堤丰之首",
     "cn": "堤丰之首"
   },
   "ability": {
     "en": "Each night*, choose a player: they die. [Evil characters are in a line. You are in the middle. +1 Minion. -? to +? Outsiders]",
-    "es-419": "Cada noche*, escoge un jugador: él muere. [Los roles malvados se encuentran en una línea. Tú estás en el medio. +1 Secuaz. -? a +? Extranjeros]",
+    "es": "Cada noche*, escoge un jugador: él muere. [Los roles malvados se encuentran en una línea. Tú estás en el medio. +1 Secuaz. -? a +? Extranjeros]",
     "sv": "Varje natt* väljer du en spelare; hen dör. [Onda roller sitter på rad; du är inte ytterst. +1 Kumpan. ±? Utbölingar]",
-    "zh-Hans": "每个夜晚*，你要选择一名玩家：他死亡。[邪恶角色全部邻座，你靠近正中，+1爪牙，-或+任意数量外来者]",
     "cn": "每个夜晚*，你要选择一名玩家：他死亡。[邪恶角色全部邻座，你靠近正中，+1爪牙，-或+任意数量外来者]"
   },
-  "flavor_text": {
-    "en": "\"In the shadowed and forgotten corners of the cosmos, where the stars whisper secrets to the void, lies a truth so profound that the merest glimpse of it unravels the sanity of mortal minds.\"",
-    "es-419": "En los rincones sombríos y olvidados del cosmos, donde las estrellas susurran secretos al vacío, yace una verdad tan profunda que tan solamente mirarla desbarata la cordura de las mentes mortales.",
+  "flavor": {
+    "en": "In the shadowed and forgotten corners of the cosmos, where the stars whisper secrets to the void, lies a truth so profound that the merest glimpse of it unravels the sanity of mortal minds.",
+    "es": "En los rincones sombríos y olvidados del cosmos, donde las estrellas susurran secretos al vacío, yace una verdad tan profunda que tan solamente mirarla desbarata la cordura de las mentes mortales.",
     "sv": "I kosmos förgätna avkrokar, där stjärnorna viskar hemligheter till intet, vilar en sanning så djup att minsta skymt av den kan driva dödliga till vansinne.",
-    "zh-Hans": "在宇宙的阴影之中，被遗忘的角落里，星辰向虚空低声诉说着秘密，那些深邃的真理，仅是一瞥就能让肉体凡胎的心智崩溃瓦解。",
-    "cn": "“在宇宙的阴影之中，被遗忘的角落里，星辰向虚空低声诉说着秘密，那些深邃的真理，仅是一瞥就能让肉体凡胎的心智崩溃瓦解。”"
+    "cn": "在宇宙的阴影之中，被遗忘的角落里，星辰向虚空低声诉说着秘密，那些深邃的真理，仅是一瞥就能让肉体凡胎的心智崩溃瓦解。"
   },
   "first_night": {
     "en": "Wake the Lord of Typhon's neighbors. Show the *YOU ARE* and Minion tokens & give a thumbs-down.",
-    "es-419": "Reemplaza los vecinos del Señor del Tifón con Secuaces, despiértalos, muéstrales sus nuevos roles y alineamientos, y dales información del secuaz.",
+    "es": "Reemplaza los vecinos del Señor del Tifón con Secuaces, despiértalos, muéstrales sus nuevos roles y alineamientos, y dales información del secuaz.",
     "sv": "Väck Tyfons Herres grannar. Visa kortet *DU ÄR* och Kumpanbrickor och ge tummen ner.",
-    "zh-Hans": "用爪牙角色替换堤丰之首两侧的玩家。分别唤醒他们，对这些玩家展示一个不同的爪牙角色标记和朝下的大拇指，然后照常执行爪牙信息。"
+    "zh": "用爪牙角色替换堤丰之首两侧的玩家。分别唤醒他们，对这些玩家展示一个不同的爪牙角色标记和朝下的大拇指，然后照常执行爪牙信息。"
   },
   "other_nights": {
     "en": "The Lord of Typhon chooses a player. :reminder:",
-    "es-419": "El Señor del Tifón escoge un jugador. :reminder:",
+    "es": "El Señor del Tifón escoge un jugador. :reminder:",
     "sv": "Tyfons Herre väljer en spelare. :reminder:",
-    "zh-Hans": "堤丰之首选择一名玩家。:reminder:"
+    "zh": "堤丰之首选择一名玩家。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Lord_of_Typhon",
   "how_to_run": {
     "cn": "在进行游戏设置时，将角色标记放入盲抽袋前，移除所有的爪牙角色标记，并加入等量的镇民或外来者角色标记作为补充。\n在首个夜晚，分别依次唤醒位于堤丰之首两侧的，等同于常规游戏爪牙数量加一的玩家。分别对这些玩家展示一个不同的爪牙角色标记和朝下的大拇指，再让他们重新入睡。再用展示给他们的爪牙角色标记替换魔典中这些玩家的善良角色标记。然后再如常进行爪牙信息和恶魔信息步骤。\n在除首个夜晚以外的每个夜晚，唤醒堤丰之首。让他指向任意一名玩家。那名玩家死亡——用“死亡”提示标记标记那名玩家。让堤丰之首重新入睡。",
     "en": "During setup, remove all Minion tokens and add Townsfolk or Outsider tokens.\nDuring the first night, wake the appropriate number of players directly clockwise and counter-clockwise from the Lord of Typhon. Show each of these players a unique Minion token, and give a thumbs down. Replace these players' good character tokens with these Minion tokens and put these players to sleep. Then, do the Minion Info and Demon Info steps as normal.\nEach night except the first, wake the Lord of Typhon. They point at any player. That player dies—mark them with the DEAD reminder. Put the Lord of Typhon to sleep."
@@ -105,5 +101,6 @@
       "reason": "If a Lord of Typhon is summoned, they must neighbor a Minion & their other neighbor becomes an evil Minion."
     }
   ],
-  "image": "assets/tokens/lord_of_typhon.png"
+  "image": "assets/tokens/lord_of_typhon.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Lord_of_Typhon"
 }

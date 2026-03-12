@@ -3,32 +3,28 @@
   "type": "townsfolk",
   "name": {
     "en": "Shugenja",
-    "es-419": "Shugenja",
+    "es": "Shugenja",
     "sv": "Shugenjan",
-    "zh-Hans": "修行者",
     "cn": "修行者"
   },
   "ability": {
     "en": "You start knowing if your closest evil player is clockwise or anti-clockwise. If equidistant, this info is arbitrary.",
-    "es-419": "Tú empiezas conociendo si el jugador malvado más cercano a ti está en sentido horario o antihorario. Si está equidistante, esta información es arbitraria.",
+    "es": "Tú empiezas conociendo si el jugador malvado más cercano a ti está en sentido horario o antihorario. Si está equidistante, esta información es arbitraria.",
     "sv": "I början vet du om närmsta onda spelare är medurs eller moturs från dig. Om det är lika blir svaret godtyckligt.",
-    "zh-Hans": "在你的首个夜晚，你会得知距离最近的邪恶玩家位于你的顺时针还是逆时针方向。如果两侧的邪恶玩家与你距离相等，你得知的信息由说书人决定。",
     "cn": "在你的首个夜晚，你会得知距离最近的邪恶玩家位于你的顺时针还是逆时针方向。如果两侧的邪恶玩家与你距离相等，你得知的信息由说书人决定。"
   },
-  "flavor_text": {
+  "flavor": {
     "en": "これは夢。それも夢。すべて夢です。",
-    "es-419": "これは夢。それも夢。すべて夢です。",
+    "es": "これは夢。それも夢。すべて夢です。",
     "sv": "これは夢。それも夢。すべて夢です。",
-    "zh-Hans": "此即梦境。彼亦梦境。所见之物，非此即彼。",
-    "cn": "“此即梦境。彼亦梦境。所见之物，非此即彼。”"
+    "cn": "此即梦境。彼亦梦境。所见之物，非此即彼。"
   },
   "first_night": {
     "en": "Point clockwise or anticlockwise.",
-    "es-419": "Apunta en sentido horario o antihorario alrededor del círculo.",
+    "es": "Apunta en sentido horario o antihorario alrededor del círculo.",
     "sv": "Peka medurs eller moturs.",
-    "zh-Hans": "指向顺时针或者逆时针方向。"
+    "zh": "指向顺时针或者逆时针方向。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Shugenja",
   "how_to_run": {
     "cn": "在首个夜晚，唤醒修行者。用手指水平指向修行者的某一侧，告诉他与他距离最近的邪恶玩家位于这一侧。如果修行者两侧最近的邪恶玩家与他的距离相等，由你来决定告诉他什么样的信息，并用手指指向对应的一侧。让修行者重新入睡。",
     "en": "During the first night, wake the Shugenja. If the closest evil player is in a clockwise direction, point your finger horizontally in that direction. If the closest evil player is in an anti-clockwise direction, point your finger horizontally in that direction. If the two closest evil players are equidistant, point your finger horizontally in either direction. Put the Shugenja to sleep."
@@ -73,5 +69,6 @@
     "experimental"
   ],
   "artist": "Chloe McDougall",
-  "image": "assets/tokens/shugenja.png"
+  "image": "assets/tokens/shugenja.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Shugenja"
 }

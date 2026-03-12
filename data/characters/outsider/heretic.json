@@ -3,26 +3,22 @@
   "type": "outsider",
   "name": {
     "en": "Heretic",
-    "es-419": "Hereje",
+    "es": "Hereje",
     "sv": "Kättaren",
-    "zh-Hans": "异端分子",
     "cn": "异端分子"
   },
   "ability": {
     "en": "Whoever wins, loses & whoever loses, wins, even if you are dead.",
-    "es-419": "Quien gana, pierde y quien pierde, gana, incluso si estás muerto.",
+    "es": "Quien gana, pierde y quien pierde, gana, incluso si estás muerto.",
     "sv": "Vinnarlaget förlorar och förlorarlaget vinner, även om du är död.",
-    "zh-Hans": "对调胜负结果，即使你已死亡。",
     "cn": "对调胜负结果，即使你已死亡。"
   },
-  "flavor_text": {
-    "en": "\"After the hail has smashed the roof and splintered the glass of the Cathedral windows, it melts again into the earth, like a dying lamb in the desert sun. Such is the parable of the madman.\"",
-    "es-419": "Tras destrozar el techo y astillar el cristal de las ventanas de la Catedral, el granizo se funde nuevamente en el suelo, como un cordero moribundo bajo el sol del desierto. Tal es la parábola del orate.",
+  "flavor": {
+    "en": "After the hail has smashed the roof and splintered the glass of the Cathedral windows, it melts again into the earth, like a dying lamb in the desert sun. Such is the parable of the madman.",
+    "es": "Tras destrozar el techo y astillar el cristal de las ventanas de la Catedral, el granizo se funde nuevamente en el suelo, como un cordero moribundo bajo el sol del desierto. Tal es la parábola del orate.",
     "sv": "När haglet gått igenom taket och krossat glaset i katedralfönstren så smälter det åter ner i jorden, som ett döende lamm i ökensolen. Så lyder dårens parabel.",
-    "zh-Hans": "冰雹砸向了屋顶，将大教堂窗户的玻璃打得粉碎，然后融化进泥土里，就像沙漠里烈日下奄奄一息的羔羊。这就是疯子的寓言。",
-    "cn": "“冰雹砸向了屋顶，将大教堂窗户的玻璃打得粉碎，然后融化进泥土里，就像沙漠里烈日下奄奄一息的羔羊。这就是疯子的寓言。”"
+    "cn": "冰雹砸向了屋顶，将大教堂窗户的玻璃打得粉碎，然后融化进泥土里，就像沙漠里烈日下奄奄一息的羔羊。这就是疯子的寓言。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Heretic",
   "how_to_run": {
     "cn": "如果游戏结束且邪恶阵营即将获胜，宣布善良阵营获胜，邪恶阵营落败。\n如果游戏结束且善良阵营即将获胜，宣布邪恶阵营获胜，善良阵营落败。",
     "en": "If the game ends and the evil team would have won, declare that the good team wins and the evil team loses.\nIf the game ends and the good team would have won, declare that the evil team wins and the good team loses."
@@ -111,5 +107,6 @@
       "reason": "Only 1 jinxed character can be in play."
     }
   ],
-  "image": "assets/tokens/heretic.png"
+  "image": "assets/tokens/heretic.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Heretic"
 }

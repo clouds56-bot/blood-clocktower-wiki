@@ -3,38 +3,35 @@
   "type": "townsfolk",
   "name": {
     "en": "Sailor",
-    "es-419": "Marinero",
+    "es": "Marinero",
     "sv": "Matrosen",
-    "zh-Hans": "水手",
     "cn": "水手"
   },
   "ability": {
     "en": "Each night, choose an alive player: either you or they are drunk until dusk. You can't die.",
-    "es-419": "Cada noche, escoge un jugador vivo: o bien tú o bien él está borracho hasta el siguiente anochecer. Tú no puedes morir.",
+    "es": "Cada noche, escoge un jugador vivo: o bien tú o bien él está borracho hasta el siguiente anochecer. Tú no puedes morir.",
     "sv": "Varje natt väljer du en levande spelare; hen eller du är full fram till skymningen. Du kan inte dö.",
-    "zh-Hans": "每个夜晚，你要选择一名存活的玩家：你或他之一会醉酒直到下个黄昏。你不会死亡。",
+    "zh": "每个夜晚，你要选择一名存活的玩家：你或他之一会醉酒直到下个黄昏。你不会死亡。",
     "cn": "每个夜晚，你要选择一名存活的玩家：你或他之一会醉酒直到下个黄昏。\n你不会死亡。"
   },
-  "flavor_text": {
-    "en": "\"I'll drink any one of yer under the table! You! The chatterbox! Reckon you can take me? No? Howza 'bout you, Grandma? You ever tried Old McKillys Extra Spiced Rum before? Guaranteed to put hairs on yer chest! Step aboard, aye!\"",
-    "es-419": "¡A que yo tomo más que cualquiera de ustedes! ¡Tú! ¡El parlanchín! ¿Crees que puedas conmigo? ¿No? ¿Y qué tal tú, Abuelita? ¿Ya has probado el Ron Extra Añejo del viejo McKillys? ¡Te va a poner pelos hasta en el pecho! ¡Vamos, venga pa'ca!",
+  "flavor": {
+    "en": "I'll drink any one of yer under the table! You! The chatterbox! Reckon you can take me? No? Howza 'bout you, Grandma? You ever tried Old McKillys Extra Spiced Rum before? Guaranteed to put hairs on yer chest! Step aboard, aye!",
+    "es": "¡A que yo tomo más que cualquiera de ustedes! ¡Tú! ¡El parlanchín! ¿Crees que puedas conmigo? ¿No? ¿Y qué tal tú, Abuelita? ¿Ya has probado el Ron Extra Añejo del viejo McKillys? ¡Te va a poner pelos hasta en el pecho! ¡Vamos, venga pa'ca!",
     "sv": "Jag kan supa omkull vem som helst! Du! Pratkvarnen! Tror du att du kan klå mig! Inte? Du då, mormor? Har du nånsin smakat McKillys karibiska rom förut? Det ger garanterat hår på bröstet! Kliv ombord!",
-    "zh-Hans": "你们随便谁来我都能把他喝到桌子底下去！说你呢！那个话痨！敢来和我喝一杯么？不来？那你呢，老太婆？你以前喝过老麦基利的加香料朗姆酒吗？保证能让你喝成个真男人！上船咯，噢耶！",
-    "cn": "“你们随便谁来我都能把他喝到桌子底下去！说你呢！那个话痨！敢来和我喝一杯么？不来？那你呢，老太婆？你以前喝过老麦基利的加香料朗姆酒吗？保证能让你喝成个真男人！上船咯，噢耶！”"
+    "cn": "你们随便谁来我都能把他喝到桌子底下去！说你呢！那个话痨！敢来和我喝一杯么？不来？那你呢，老太婆？你以前喝过老麦基利的加香料朗姆酒吗？保证能让你喝成个真男人！上船咯，噢耶！"
   },
   "first_night": {
     "en": "The Sailor chooses a living player. :reminder:",
-    "es-419": "El Marinero escoge un jugador vivo. :reminder:",
+    "es": "El Marinero escoge un jugador vivo. :reminder:",
     "sv": "Matrosen väljer en levande spelare. :reminder:",
-    "zh-Hans": "水手选择一名存活玩家。:reminder:"
+    "zh": "水手选择一名存活玩家。:reminder:"
   },
   "other_nights": {
     "en": "The Sailor chooses a living player. :reminder:",
-    "es-419": "El Marinero escoge un jugador vivo. :reminder:",
+    "es": "El Marinero escoge un jugador vivo. :reminder:",
     "sv": "Matrosen väljer en levande spelare. :reminder:",
-    "zh-Hans": "水手选择一名存活玩家。:reminder:"
+    "zh": "水手选择一名存活玩家。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Sailor",
   "how_to_run": {
     "cn": "每个夜晚，唤醒水手。让水手指向任意一名存活玩家。让水手重新入睡。水手或他选择的玩家两者之一会进入醉酒状态——将“醉酒”提示标记放置到该玩家的角色标记旁。\n如果清醒的水手将要死亡，他会依然存活。如果清醒的水手被处决，宣布该玩家被处决但依然存活。（不要说明原因。）",
     "en": "Each night, wake the Sailor. They point at any player. Put the Sailor to sleep. Either the Sailor or this chosen player becomes drunk—mark them with the DRUNK reminder.\nIf the sober Sailor would die, the Sailor remains alive. If the sober Sailor is executed, declare that this player is executed but remains alive. (Do not say why.)"
@@ -75,5 +72,6 @@
     "bad_moon_rising"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/sailor.png"
+  "image": "assets/tokens/sailor.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Sailor"
 }

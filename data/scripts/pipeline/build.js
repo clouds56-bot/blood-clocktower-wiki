@@ -104,13 +104,14 @@ function localeFromFile(filename) {
 }
 
 function toLangKey(locale) {
-  if (locale === 'zh-hans') return 'zh-Hans';
+  if (locale === 'zh-hans') return 'zh';
+  if (locale === 'es-419') return 'es';
   return locale;
 }
 
 function toConfigLangKey(locale) {
   if (locale === 'es-419') return 'es';
-  if (locale === 'zh-hans') return 'zh-Hans';
+  if (locale === 'zh-hans') return 'zh';
   return locale;
 }
 
@@ -172,17 +173,19 @@ function buildConfigFromTranslations(translationFiles, wikiFiles) {
 
   for (const chars of Object.values(byType)) {
     for (const item of Object.values(chars)) {
-      const zhHans = item['zh-Hans'];
-      const cn = item.cn || zhHans;
+      const zh = item.zh;
+      const cn = item.cn || zh;
 
       if (cn) {
         item.cn = cn;
       }
-      if (zhHans && cn && zhHans !== cn) {
-        item.zh = zhHans;
+      if (zh && cn && zh !== cn) {
+        item.zh = zh;
       }
 
-      delete item['zh-Hans'];
+      if (item.zh && item.cn && item.zh === item.cn) {
+        delete item.zh;
+      }
     }
   }
 
@@ -209,6 +212,38 @@ function mergeInto(base, patch) {
   return merged;
 }
 
+function normalizeZhHans(map) {
+  if (!map || typeof map !== 'object' || Array.isArray(map)) return;
+  if (!Object.prototype.hasOwnProperty.call(map, 'zh')) return;
+  if (!Object.prototype.hasOwnProperty.call(map, 'cn')) return;
+
+  const zh = map.zh;
+  const cn = map.cn;
+
+  if (JSON.stringify(zh) === JSON.stringify(cn)) {
+    delete map.zh;
+  }
+}
+
+function normalizeFlavorText(locale, value) {
+  if (!value) return value;
+
+  let normalized = value.trim();
+
+  if (locale === 'cn') {
+    normalized = normalized.replace(/[“”]/g, '').trim();
+  }
+
+  if (
+    (normalized.startsWith('"') && normalized.endsWith('"')) ||
+    (normalized.startsWith('“') && normalized.endsWith('”'))
+  ) {
+    normalized = normalized.slice(1, -1).trim();
+  }
+
+  return normalized;
+}
+
 function buildCombinedCharacters(translationFiles, wikiFiles, tokenFile) {
   const combined = new Map();
 
@@ -225,7 +260,7 @@ function buildCombinedCharacters(translationFiles, wikiFiles, tokenFile) {
         id,
         type: teamToType(row.team) || detectTypeFromId(id)
       };
-      const patch = { source_url: row.source_url };
+      const patch = {};
 
       if (!existing.name) existing.name = {};
       if (row.team && !existing.type) {
@@ -243,8 +278,8 @@ function buildCombinedCharacters(translationFiles, wikiFiles, tokenFile) {
         existing.ability[locale] = row.ability;
       }
       if (row.flavor) {
-        existing.flavor_text = existing.flavor_text || {};
-        existing.flavor_text[locale] = row.flavor;
+        existing.flavor = existing.flavor || {};
+        existing.flavor[locale] = normalizeFlavorText(locale, row.flavor);
       }
       if (row.first_night) {
         existing.first_night = existing.first_night || {};
@@ -306,8 +341,8 @@ function buildCombinedCharacters(translationFiles, wikiFiles, tokenFile) {
         existing.ability[locale] = row.ability;
       }
       if (row.flavor) {
-        existing.flavor_text = existing.flavor_text || {};
-        existing.flavor_text[locale] = row.flavor;
+        existing.flavor = existing.flavor || {};
+        existing.flavor[locale] = normalizeFlavorText(locale, row.flavor);
       }
       if (row.first_night) {
         existing.first_night = existing.first_night || {};
@@ -335,7 +370,10 @@ function buildCombinedCharacters(translationFiles, wikiFiles, tokenFile) {
       if (row.editions) patch.editions = row.editions;
       if (row.artist) patch.artist = row.artist;
       if (row.jinxes) patch.jinxes = row.jinxes;
-      if (row.source_url) patch.source_url = row.source_url;
+      if (row.source_url) {
+        existing._wiki_source_url = existing._wiki_source_url || {};
+        existing._wiki_source_url[locale] = row.source_url;
+      }
       if (row.url_param) patch.url_param = row.url_param;
       if (row.image_url) patch.image_url = row.image_url;
 
@@ -358,6 +396,22 @@ function buildCombinedCharacters(translationFiles, wikiFiles, tokenFile) {
     }
     
     combined.set(row.id, existing);
+  }
+
+  for (const character of combined.values()) {
+    if (character._wiki_source_url) {
+      character.source_url = character._wiki_source_url.en || character._wiki_source_url.cn || character.source_url;
+      delete character._wiki_source_url;
+    }
+
+    normalizeZhHans(character.name);
+    normalizeZhHans(character.ability);
+    normalizeZhHans(character.flavor);
+    normalizeZhHans(character.first_night);
+    normalizeZhHans(character.other_nights);
+    normalizeZhHans(character.how_to_run);
+    normalizeZhHans(character.examples);
+    normalizeZhHans(character.tips);
   }
 
   return combined;

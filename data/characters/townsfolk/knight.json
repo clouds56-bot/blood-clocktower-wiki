@@ -3,32 +3,28 @@
   "type": "townsfolk",
   "name": {
     "en": "Knight",
-    "es-419": "Caballero",
+    "es": "Caballero",
     "sv": "Riddaren",
-    "zh-Hans": "骑士",
     "cn": "骑士"
   },
   "ability": {
     "en": "You start knowing 2 players that are not the Demon.",
-    "es-419": "Empiezas conociendo 2 jugadores que no son el Demonio.",
+    "es": "Empiezas conociendo 2 jugadores que no son el Demonio.",
     "sv": "I början vet du 2 spelare som inte är Demonen.",
-    "zh-Hans": "在你的首个夜晚，你会得知两名非恶魔玩家。",
     "cn": "在你的首个夜晚，你会得知两名非恶魔玩家。"
   },
-  "flavor_text": {
-    "en": "\"When a man lies, he murders some part of the world.\"",
-    "es-419": "Cuando un hombre miente, mata una parte del mundo.",
+  "flavor": {
+    "en": "When a man lies, he murders some part of the world.",
+    "es": "Cuando un hombre miente, mata una parte del mundo.",
     "sv": "När en man ljuger mördar han ock en del av världen.",
-    "zh-Hans": "当有人倒下时，他也就谋杀了世界上的某个部分。",
-    "cn": "“当有人倒下时，他也就谋杀了世界上的某个部分。”"
+    "cn": "当有人倒下时，他也就谋杀了世界上的某个部分。"
   },
   "first_night": {
     "en": "Point to the 2 players marked *KNOW*.",
-    "es-419": "Apunta a los 2 jugadores no-Demonios marcados con *CONOCE*.",
+    "es": "Apunta a los 2 jugadores no-Demonios marcados con *CONOCE*.",
     "sv": "Peka på de två spelarna som är markerade med *VISAD*.",
-    "zh-Hans": "指向标记有“得知”的两名非恶魔玩家。"
+    "zh": "指向标记有“得知”的两名非恶魔玩家。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Knight",
   "how_to_run": {
     "cn": "在为首个夜晚进行准备时，将骑士的“得知”提示标记放置在任意两名非恶魔玩家的角色标记旁。\n在首个夜晚，唤醒骑士，并指向标记有“得知”的两名玩家。让骑士重新入睡。",
     "en": "During setup, mark two non-Demon players with the Knight’s KNOW reminders.\nDuring the first night, wake the Knight. Point to the two players marked KNOW."
@@ -75,5 +71,6 @@
     "experimental"
   ],
   "artist": "Chloe McDougall",
-  "image": "assets/tokens/knight.png"
+  "image": "assets/tokens/knight.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Knight"
 }

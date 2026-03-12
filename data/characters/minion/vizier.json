@@ -3,32 +3,29 @@
   "type": "minion",
   "name": {
     "en": "Vizier",
-    "es-419": "Visir",
+    "es": "Visir",
     "sv": "Vesiren",
-    "zh-Hans": "维齐尔",
     "cn": "维齐尔"
   },
   "ability": {
     "en": "All players know you are the Vizier. You cannot die during the day. If good voted, you may choose to execute immediately.",
-    "es-419": "Todos los jugadores saben que tú eres el Visir. Tú no puedes morir durante el día. Si algún bueno votó, puedes escoger que la ejecución ocurra inmediatamente.",
+    "es": "Todos los jugadores saben que tú eres el Visir. Tú no puedes morir durante el día. Si algún bueno votó, puedes escoger que la ejecución ocurra inmediatamente.",
     "sv": "Alla vet att du är Vesiren. Du kan inte dö på dagen. Om någon god röstade får du välja att avrätta direkt.",
-    "zh-Hans": "所有玩家都知道你是维齐尔。你在白天时不会死亡。如果一次提名中有善良玩家投票，你可以让被提名者立即被处决。",
+    "zh": "所有玩家都知道你是维齐尔。你在白天时不会死亡。如果一次提名中有善良玩家投票，你可以让被提名者立即被处决。",
     "cn": "所有玩家都知道你是维齐尔。\n你在白天时不会死亡。\n如果一次提名中有善良玩家投票，你可以让被提名者立即被处决。"
   },
-  "flavor_text": {
-    "en": "\"An excellent decision, as always, sire. Such a petty crime as bumping into the Bishop indeed deserves your ‘justice’ and ‘mercy’. Take a stroll in the gardens. Visit the gallery and peruse the sculptures of Von Strauf. Relax, sire. Leave everything… to me.\"",
-    "es-419": "Una excelente decisión, como siempre, señor. Un crímen tan bajo como empujar al Obispo de cierto se merece su 'justicia' y 'piedad'. Vaya a tomar un paseo por los jardines. Visite la galería y vea las esculturas de Von Strauf. Relájese, señor. Déjeme todo…a mí.",
+  "flavor": {
+    "en": "An excellent decision, as always, sire. Such a petty crime as bumping into the Bishop indeed deserves your ‘justice’ and ‘mercy’. Take a stroll in the gardens. Visit the gallery and peruse the sculptures of Von Strauf. Relax, sire. Leave everything… to me.",
+    "es": "Una excelente decisión, como siempre, señor. Un crímen tan bajo como empujar al Obispo de cierto se merece su 'justicia' y 'piedad'. Vaya a tomar un paseo por los jardines. Visite la galería y vea las esculturas de Von Strauf. Relájese, señor. Déjeme todo…a mí.",
     "sv": "Ett utmärkt beslut som alltid, ers nåd. Ett så småsint brott som att stöta till biskopen förtjänar verkligen er ’rättvisa’ och ’nåd’. Ta ni en promenad i trädgården. Besök galleriet och betrakta von Straufs skulpturer. Slappna bara av, ers nåd, och lämna allt åt mig.",
-    "zh-Hans": "出色的判决，陛下。冲撞主教这样的小罪的确值得您的‘正义’与‘仁慈’。而您只需要在花园里散散心，参观参观画廊，欣赏欣赏冯·斯特劳夫的雕塑作品。放轻松，陛下。把一切……都交给我。",
-    "cn": "“出色的判决，陛下。冲撞主教这样的小罪的确值得您的‘正义’与‘仁慈’。而您只需要在花园里散散心，参观参观画廊，欣赏欣赏冯·斯特劳夫的雕塑作品。放轻松，陛下。把一切……都交给我。”"
+    "cn": "出色的判决，陛下。冲撞主教这样的小罪的确值得您的‘正义’与‘仁慈’。而您只需要在花园里散散心，参观参观画廊，欣赏欣赏冯·斯特劳夫的雕塑作品。放轻松，陛下。把一切……都交给我。"
   },
   "first_night": {
     "en": "Announce which player is the Vizier.",
-    "es-419": "Anuncia el jugador que es el Visir al grupo.",
+    "es": "Anuncia el jugador que es el Visir al grupo.",
     "sv": "Meddela vilken spelare som är Vesiren.",
-    "zh-Hans": "对所有玩家宣布维齐尔在场，并告知是哪一名玩家。"
+    "zh": "对所有玩家宣布维齐尔在场，并告知是哪一名玩家。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Vizier",
   "how_to_run": {
     "cn": "当首个夜晚结束时，对所有玩家宣布维齐尔在场，并告知是哪一名玩家。\n如果一次提名的投票统计结束，且至少有一名善良玩家参与投票，且维齐尔宣布被提名者被处决，那么那名玩家被处决并死亡。今天白天不会再发生更多的提名，投票和处决了。",
     "en": "When the first night has ended, declare that the Vizier is in play, and which player it is."
@@ -120,5 +117,6 @@
       "reason": "The Zealot might register as evil to the Vizier."
     }
   ],
-  "image": "assets/tokens/vizier.png"
+  "image": "assets/tokens/vizier.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Vizier"
 }

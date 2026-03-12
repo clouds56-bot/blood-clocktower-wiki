@@ -3,38 +3,35 @@
   "type": "townsfolk",
   "name": {
     "en": "Dreamer",
-    "es-419": "Soñador",
+    "es": "Soñador",
     "sv": "Drömmaren",
-    "zh-Hans": "筑梦师",
     "cn": "筑梦师"
   },
   "ability": {
     "en": "Each night, choose a player (not yourself or Travellers): you learn 1 good & 1 evil character, 1 of which is correct.",
-    "es-419": "Cada noche, escoge un jugador (no tú mismo ni Viajeros): tú aprendes 1 rol bueno y 1 rol malvado, 1 de los cuales es el rol del jugador.",
+    "es": "Cada noche, escoge un jugador (no tú mismo ni Viajeros): tú aprendes 1 rol bueno y 1 rol malvado, 1 de los cuales es el rol del jugador.",
     "sv": "Varje natt väljer du en spelare (inte dig själv eller Resenärer); du får veta 1 god och 1 ond roll som hen kan vara.",
-    "zh-Hans": "每个夜晚，你要选择除你及旅行者以外的一名玩家：你会得知一个善良角色和一个邪恶角色，该玩家是其中一个角色。",
     "cn": "每个夜晚，你要选择除你及旅行者以外的一名玩家：你会得知一个善良角色和一个邪恶角色，该玩家是其中一个角色。"
   },
-  "flavor_text": {
-    "en": "\"I remember the Clockmaker. The sky was red and it was raining fractal triangles. There was a smell of violets and a bubbling sound. A woman with glowing eyes and a scraggly beard was hissing at the sky. Then, I awoke.\"",
-    "es-419": "Recuerdo al Relojero. El cielo estaba rojo y estaban lloviendo triángulos fractales. Había un olor a violetas y un sonido burbujeante. Una mujer con ojos brillantes y una barba desaliñada silbaba al cielo. Luego, me desperté.",
+  "flavor": {
+    "en": "I remember the Clockmaker. The sky was red and it was raining fractal triangles. There was a smell of violets and a bubbling sound. A woman with glowing eyes and a scraggly beard was hissing at the sky. Then, I awoke.",
+    "es": "Recuerdo al Relojero. El cielo estaba rojo y estaban lloviendo triángulos fractales. Había un olor a violetas y un sonido burbujeante. Una mujer con ojos brillantes y una barba desaliñada silbaba al cielo. Luego, me desperté.",
     "sv": "Jag minns urmakaren. Himlen var röd och det regnade triangelfraktaler. Luften sjöd och låg tät av violdoft. En kvinna med lysande ögon och tovigt skägg väste mot himlen. Sedan vaknade jag.",
-    "zh-Hans": "我记得有钟表匠……天空是红色的，有不规则的三角形不断从天上坠落下来。有紫罗兰的气味，还有气泡咕嘟咕嘟的声音。一个眼睛发光、还有着乱糟糟的胡须的女人对着天空发出嘶嘶声。然后，我醒了。",
-    "cn": "“我记得有钟表匠……天空是红色的，有不规则的三角形不断从天上坠落下来。有紫罗兰的气味……还有气泡咕嘟咕嘟的声音。一个眼睛发光、还有着乱糟糟的胡须的女人对着天空发出嘶嘶声。然后，我醒了……”"
+    "zh": "我记得有钟表匠……天空是红色的，有不规则的三角形不断从天上坠落下来。有紫罗兰的气味，还有气泡咕嘟咕嘟的声音。一个眼睛发光、还有着乱糟糟的胡须的女人对着天空发出嘶嘶声。然后，我醒了。",
+    "cn": "我记得有钟表匠……天空是红色的，有不规则的三角形不断从天上坠落下来。有紫罗兰的气味……还有气泡咕嘟咕嘟的声音。一个眼睛发光、还有着乱糟糟的胡须的女人对着天空发出嘶嘶声。然后，我醒了……"
   },
   "first_night": {
     "en": "The Dreamer points to a player. Show 1 good & 1 evil character token, 1 of which is their character.",
-    "es-419": "El Soñador apunta a un jugador. Muéstrale 1 ficha de rol bueno y 1 ficha de rol malvado, 1 de las cuales es el rol del jugador.",
+    "es": "El Soñador apunta a un jugador. Muéstrale 1 ficha de rol bueno y 1 ficha de rol malvado, 1 de las cuales es el rol del jugador.",
     "sv": "Drömmaren pekar på en spelare. Visa 1 god och 1 ond rollbricka, varav 1 är den valda spelarens roll.",
-    "zh-Hans": "筑梦师选择一名玩家。展示一个善良角色和一个邪恶角色的角色标记，其中一个是该玩家的角色。"
+    "zh": "筑梦师选择一名玩家。展示一个善良角色和一个邪恶角色的角色标记，其中一个是该玩家的角色。"
   },
   "other_nights": {
     "en": "The Dreamer points to a player. Show 1 good & 1 evil character token, 1 of which is their character.",
-    "es-419": "El Soñador apunta a un jugador. Muéstrale 1 ficha de rol bueno y 1 ficha de rol malvado, 1 de las cuales es el rol del jugador.",
+    "es": "El Soñador apunta a un jugador. Muéstrale 1 ficha de rol bueno y 1 ficha de rol malvado, 1 de las cuales es el rol del jugador.",
     "sv": "Drömmaren pekar på en spelare. Visa 1 god och 1 ond rollbricka, varav 1 är den valda spelarens roll.",
-    "zh-Hans": "筑梦师选择一名玩家。展示一个善良角色和一个邪恶角色的角色标记，其中一个是该玩家的角色。"
+    "zh": "筑梦师选择一名玩家。展示一个善良角色和一个邪恶角色的角色标记，其中一个是该玩家的角色。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Dreamer",
   "how_to_run": {
     "cn": "每个夜晚，唤醒筑梦师。让他指向除自己和旅行者外的任意一名玩家。如果被选择的玩家的真实角色是镇民或外来者，向筑梦师展示他的真实角色和任意一个爪牙或恶魔角色标记。如果被选择的玩家的真实角色是爪牙或恶魔，则给筑梦师展示他的真实角色和任意一个镇民或外来者角色标记。让筑梦师重新入睡。\n如果筑梦师选择了一名邪恶玩家，你能通过这种方式来帮助邪恶阵营：你可以给筑梦师展示邪恶玩家正在伪装的虚假角色，或者展示一些需要隐藏自己的角色，例如舞蛇人、贤者、畸形秀演员或呆瓜。",
     "en": "Each night, wake the Dreamer. They point at any player. If the chosen player’s character is a Townsfolk or Outsider, show their character token and any Minion or Demon token to the Dreamer. If the chosen player’s character is a Minion or Demon, show their character token and any Townsfolk or Outsider token to the Dreamer. Then, put the Dreamer to sleep.\nIf the Dreamer chooses an evil player, you can help the evil team if you show the Dreamer the good character that this evil player is bluffing as, or if you show a more secretive character such as the Snake Charmer, Sage, Mutant, or Klutz."
@@ -88,5 +85,6 @@
     "sects_violets"
   ],
   "artist": "Caitlin Murphy",
-  "image": "assets/tokens/dreamer.png"
+  "image": "assets/tokens/dreamer.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Dreamer"
 }

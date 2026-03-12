@@ -3,26 +3,23 @@
   "type": "traveller",
   "name": {
     "en": "Matron",
-    "es-419": "Matrona",
+    "es": "Matrona",
     "sv": "Föreståndarinnan",
-    "zh-Hans": "女舍监",
     "cn": "女舍监"
   },
   "ability": {
     "en": "Each day, you may choose up to 3 sets of 2 players to swap seats. Players may not leave their seats to talk in private.",
-    "es-419": "Cada día, puedes escoger hasta 3 grupos de 2 jugadores para intercambiar asientos. Los jugadores no puedes dejar su asiento para hablar en privado.",
+    "es": "Cada día, puedes escoger hasta 3 grupos de 2 jugadores para intercambiar asientos. Los jugadores no puedes dejar su asiento para hablar en privado.",
     "sv": "Varje dag får du välja upp till 3 par spelare som byter plats. Spelarna får inte lämna sina platser för privata samtal.",
-    "zh-Hans": "每个白天，你可以选择至多三对玩家交换座位。玩家不能离开座位私聊。",
+    "zh": "每个白天，你可以选择至多三对玩家交换座位。玩家不能离开座位私聊。",
     "cn": "每个白天，你可以选择至多三对玩家交换座位。\n玩家不能离开座位私聊。"
   },
-  "flavor_text": {
-    "en": "\"Miss Featherbottom, be quiet. Master Rutherford, a teacup needs just the four fingers, please. I know you are a father of nine, but age, or lack there-of as the case may be, is never an excuse for poor manners.\"",
-    "es-419": "Señorita Featherbottom, silencio. Don Rutherford, una taza de té solo necesita los 4 dedos, por favor. Yo sé que usted tiene nueve hijos, pero la edad, o la falta de ella según sea el caso, nunca es excusa para tener malos modales.",
+  "flavor": {
+    "en": "Miss Featherbottom, be quiet. Master Rutherford, a teacup needs just the four fingers, please. I know you are a father of nine, but age, or lack there-of as the case may be, is never an excuse for poor manners.",
+    "es": "Señorita Featherbottom, silencio. Don Rutherford, una taza de té solo necesita los 4 dedos, por favor. Yo sé que usted tiene nueve hijos, pero la edad, o la falta de ella según sea el caso, nunca es excusa para tener malos modales.",
     "sv": "Fröken Lunneblom, dämpa er. Herr Rudbeck, fyra fingrar räcker för tekoppen. Jag vet att ni är niobarnsfar, men ålder – eller brist därpå – är aldrig en ursäkt för dålig hyfs.",
-    "zh-Hans": "费瑟伯顿小姐，你能不能安静点。卢瑟福少爷，请只用四根手指端起茶杯。我知道你是九个孩子的父亲，但无论是年龄还是其他什么原因，都不能成为你没礼貌的借口。",
-    "cn": "“费瑟伯顿小姐，你能不能安静点。卢瑟福少爷，请只用四根手指端起茶杯。我知道你是九个孩子的父亲，但无论是年龄还是其他什么原因，都不能成为你没礼貌的借口。”"
+    "cn": "费瑟伯顿小姐，你能不能安静点。卢瑟福少爷，请只用四根手指端起茶杯。我知道你是九个孩子的父亲，但无论是年龄还是其他什么原因，都不能成为你没礼貌的借口。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Matron",
   "how_to_run": {
     "cn": "玩家一旦离开他们的座位就不能讨论和游戏有关的内容，直到重新回到座位上。\n每个白天，女舍监可以选择两名玩家然后宣布要他们交换座位，并要求他们照做。在魔典上也要交换这两名玩家的角色标记和相关的提示标记。女舍监最多可以宣布三次这样的交换，但这些交换会需要按顺序依次执行。",
     "en": "Players who leave their seats cannot talk about the game to other players until they return.\nEach day, the Matron may choose two players and declare that they swap seating positions. Ask them to do so. Swap their character tokens and any reminders they have in the Grimoire. The Matron may do this up to three times, but all swaps happen one after the other."
@@ -65,5 +62,6 @@
     "bad_moon_rising"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/matron.png"
+  "image": "assets/tokens/matron.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Matron"
 }

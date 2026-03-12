@@ -3,32 +3,28 @@
   "type": "townsfolk",
   "name": {
     "en": "Noble",
-    "es-419": "Noble",
+    "es": "Noble",
     "sv": "Adelsmannen",
-    "zh-Hans": "贵族",
     "cn": "贵族"
   },
   "ability": {
     "en": "You start knowing 3 players, 1 and only 1 of which is evil.",
-    "es-419": "Empiezas conociendo 3 jugadores, entre los cuales 1 y solo 1 es malvado.",
+    "es": "Empiezas conociendo 3 jugadores, entre los cuales 1 y solo 1 es malvado.",
     "sv": "I början vet du 3 spelare, varav exakt 1 är ond.",
-    "zh-Hans": "在你的首个夜晚，你会得知三名玩家：其中有且只有一名玩家是邪恶的。",
     "cn": "在你的首个夜晚，你会得知三名玩家：其中有且只有一名玩家是邪恶的。"
   },
-  "flavor_text": {
-    "en": "\"Sarcasm is indeed the lowest form of wit. But speaking in response to your criticism, Sir, it is, nevertheless, a form of wit.\"",
-    "es-419": "El sarcasmo es, de hecho, la forma más básica de ingenio. Pero para hablar en respuesta a sus críticas, Señor, es, sin embargo, una forma de ingenio.",
+  "flavor": {
+    "en": "Sarcasm is indeed the lowest form of wit. But speaking in response to your criticism, Sir, it is, nevertheless, a form of wit.",
+    "es": "El sarcasmo es, de hecho, la forma más básica de ingenio. Pero para hablar en respuesta a sus críticas, Señor, es, sin embargo, una forma de ingenio.",
     "sv": "Sarkasm är förvisso den lägsta formen av humor. Men för att bemöta er kritik, min gode herre, är det alltjämt en form av humor.",
-    "zh-Hans": "讽刺的确是最不足挂齿的机智。尽管如此，先生，回应你的批评，就是一种机智。",
-    "cn": "“讽刺的确是最不足挂齿的机智。尽管如此，先生，回应你的批评，就是一种机智。”"
+    "cn": "讽刺的确是最不足挂齿的机智。尽管如此，先生，回应你的批评，就是一种机智。"
   },
   "first_night": {
     "en": "Point to the 3 players marked *KNOW*.",
-    "es-419": "Apunta a todos los tres jugadores marcados *CONOCE*.",
+    "es": "Apunta a todos los tres jugadores marcados *CONOCE*.",
     "sv": "Peka på de tre spelarna märkta *VISAD*.",
-    "zh-Hans": "指向三名标记有“得知”的玩家。"
+    "zh": "指向三名标记有“得知”的玩家。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Noble",
   "how_to_run": {
     "cn": "在为首个夜晚进行准备时，将贵族的“得知”标记分别放置在两名善良玩家和一名邪恶玩家的角色标记旁。\n在首个夜晚，唤醒贵族，并指向三名标记有“得知”的玩家。让贵族重新入睡。",
     "en": "While preparing the first night, mark two good players' character tokens with Noble KNOW reminders. Mark any evil player's character token with the third KNOW reminder.\nDuring the first night, wake the Noble. Point to all three players marked KNOW. Put the Noble to sleep."
@@ -69,5 +65,6 @@
     "experimental"
   ],
   "artist": "Caitlin Murphy",
-  "image": "assets/tokens/noble.png"
+  "image": "assets/tokens/noble.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Noble"
 }

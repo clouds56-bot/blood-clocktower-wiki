@@ -3,32 +3,29 @@
   "type": "demon",
   "name": {
     "en": "Vigormortis",
-    "es-419": "Vigormortis",
+    "es": "Vigormortis",
     "sv": "Vigormortis",
-    "zh-Hans": "亡骨魔",
     "cn": "亡骨魔"
   },
   "ability": {
     "en": "Each night*, choose a player: they die. Minions you kill keep their ability & poison 1 Townsfolk neighbor. [-1 Outsider]",
-    "es-419": "Cada noche*, escoge un jugador: él muere. Los Secuaces que tú mates mantienen su habilidad y envenenan a 1 Ciudadano vecino. [-1 Extranjero]",
+    "es": "Cada noche*, escoge un jugador: él muere. Los Secuaces que tú mates mantienen su habilidad y envenenan a 1 Ciudadano vecino. [-1 Extranjero]",
     "sv": "Varje natt* väljer du en spelare; hen dör. Kumpaner du dödar behåller sin förmåga och förgiftar 1 Bybogranne. [−1 Utböling]",
-    "zh-Hans": "每个夜晚*，你要选择一名玩家：他死亡。被你杀死的爪牙保留他的能力，且与他邻近的两名镇民之一中毒。[-1外来者]",
+    "zh": "每个夜晚*，你要选择一名玩家：他死亡。被你杀死的爪牙保留他的能力，且与他邻近的两名镇民之一中毒。[-1外来者]",
     "cn": "每个夜晚*，你要选择一名玩家：他死亡。\n被你杀死的爪牙保留他的能力，且与他邻近的两名镇民之一中毒。[-1外来者]"
   },
-  "flavor_text": {
-    "en": "\"All doors are one door. All keys are one key. All cups are one cup, but whosoever drinketh of the water that I give shall never thirst, but the water shall be in him a well springing up into everlasting life.\"",
-    "es-419": "Todas las puertas son una puerta. Todas las llaves son una llave. Todas las tazas con una taza, pero quien sea que beba del agua que yo ofrezco nunca morirá de sed, pero el agua será en él como una fuente que irradia vida eterna.",
+  "flavor": {
+    "en": "All doors are one door. All keys are one key. All cups are one cup, but whosoever drinketh of the water that I give shall never thirst, but the water shall be in him a well springing up into everlasting life.",
+    "es": "Todas las puertas son una puerta. Todas las llaves son una llave. Todas las tazas con una taza, pero quien sea que beba del agua que yo ofrezco nunca morirá de sed, pero el agua será en él como una fuente que irradia vida eterna.",
     "sv": "Alla dörrar är en dörr. Alla nycklar är en nyckel. Alla bägare är en bägare, men den som dricker av det vatten jag ger honom blir aldrig mer törstig. Det vatten jag ger blir en källa i honom, med ett flöde som ger evigt liv.",
-    "zh-Hans": "世间万扉集为一体，世间万匙铸为一身。世间万盅将与我共饮，但凡饮下我所赐圣水者，必将永不干渴，化作万孔泉眼涌作永生。",
-    "cn": "“世间万扉集为一体，世间万匙铸为一身。世间万盅将与我共饮，但凡饮下我所赐圣水者，必将永不干渴，化作万孔泉眼涌作永生。”"
+    "cn": "世间万扉集为一体，世间万匙铸为一身。世间万盅将与我共饮，但凡饮下我所赐圣水者，必将永不干渴，化作万孔泉眼涌作永生。"
   },
   "other_nights": {
     "en": "The Vigormortis chooses a player. :reminder: If that player is a Minion, poison a neighboring Townsfolk. :reminder: :reminder:",
-    "es-419": "El Vigormortis escoge un jugador. :reminder: Si ese jugador es un Secuaz, envenena a un Ciudadano vecino. :reminder: :reminder:",
+    "es": "El Vigormortis escoge un jugador. :reminder: Si ese jugador es un Secuaz, envenena a un Ciudadano vecino. :reminder: :reminder:",
     "sv": "Vigormortis väljer en spelare. :reminder: Om den spelaren är en Kumpan, förgifta en Bybogranne. :reminder: :reminder:",
-    "zh-Hans": "亡骨魔选择一名玩家。 :reminder:如果被选择的玩家是爪牙，距离爪牙顺时针或逆时针最近的镇民玩家中毒。:reminder: :reminder:"
+    "zh": "亡骨魔选择一名玩家。 :reminder:如果被选择的玩家是爪牙，距离爪牙顺时针或逆时针最近的镇民玩家中毒。:reminder: :reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Vigormortis",
   "how_to_run": {
     "cn": "在初始设置时，将角色标记放入盲抽袋前，把一个外来者角色标记替换为一个镇民角色标记。（如果没有可以移除的外来者标记，则不需要添加镇民标记。）\n除首个夜晚外的每个夜晚，唤醒亡骨魔。让亡骨魔指向一名玩家。让亡骨魔重新入睡。如果被选择的玩家不是爪牙，为那名玩家放置“死亡”提示标记。\n如果被选择的玩家是爪牙，为那名玩家放置“死亡”和“保留能力”提示标记。距离爪牙顺时针或逆时针最近的镇民玩家中毒，为该镇民玩家放置“中毒”提示标记。（顺时针和逆时针分别判断最近的一个镇民，并取这两个镇民的其中之一）",
     "en": "While setting up the game, before putting the character tokens in the bag, remove one Outsider character token and add one Townsfolk character token. (If there are no Outsider tokens to remove, do not add a Townsfolk token.)\nEach night except the first, wake the Vigormortis. They point at any player. Put the Vigormortis to sleep. If the chosen player isn’t a Minion, that player dies - mark them with a DEAD reminder.\nIf the chosen player is a Minion, that player dies - mark them with a DEAD reminder and a HAS ABILITY reminder. The closest clockwise or closest counterclockwise Townsfolk to the Minion becomes poisoned - mark them with a POISONED reminder."
@@ -84,5 +81,6 @@
       "reason": "A Mastermind that has their ability keeps it if the Vigormortis dies."
     }
   ],
-  "image": "assets/tokens/vigormortis.png"
+  "image": "assets/tokens/vigormortis.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Vigormortis"
 }

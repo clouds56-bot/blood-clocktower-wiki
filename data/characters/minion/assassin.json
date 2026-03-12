@@ -3,32 +3,29 @@
   "type": "minion",
   "name": {
     "en": "Assassin",
-    "es-419": "Asesino",
+    "es": "Asesino",
     "sv": "Lönnmördaren",
-    "zh-Hans": "刺客",
     "cn": "刺客"
   },
   "ability": {
     "en": "Once per game, at night*, choose a player: they die, even if for some reason they could not.",
-    "es-419": "Una vez por juego, en la noche*, escoge un jugador: él muere, incluso si por alguna razón no pudiera.",
+    "es": "Una vez por juego, en la noche*, escoge un jugador: él muere, incluso si por alguna razón no pudiera.",
     "sv": "En gång per spel, på natten*, kan du välja en spelare; hen dör, även om hen inte kunde dö.",
-    "zh-Hans": "每局游戏限一次，在夜晚时*，你可以选择一名玩家：他死亡，即使因为任何原因让他不会死亡。",
     "cn": "每局游戏限一次，在夜晚时*，你可以选择一名玩家：他死亡，即使因为任何原因让他不会死亡。"
   },
-  "flavor_text": {
-    "en": "\"...\"",
-    "es-419": "…",
+  "flavor": {
+    "en": "...",
+    "es": "…",
     "sv": "…",
-    "zh-Hans": "...",
-    "cn": "“……”"
+    "zh": "...",
+    "cn": "……"
   },
   "other_nights": {
     "en": "The Assassin might choose a player. :reminder: :reminder:",
-    "es-419": "El Asesino quizás escoja a un jugador. :reminder: :reminder:",
+    "es": "El Asesino quizás escoja a un jugador. :reminder: :reminder:",
     "sv": "Lönnmördaren kanske väljer en spelare. :reminder: :reminder:",
-    "zh-Hans": "刺客可以选择一名玩家。:reminder: :reminder:"
+    "zh": "刺客可以选择一名玩家。:reminder: :reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Assassin",
   "how_to_run": {
     "cn": "除了首个夜晚以外的每个夜晚，唤醒刺客。刺客要么摇头表示不使用能力，要么指向任意一名玩家。让刺客重新入睡。\n如果刺客选择了玩家，该玩家死亡——将“死亡”提示标记放置到该玩家的角色标记旁。本次死亡不能通过任何方式来防止（除非刺客没有了能力，例如醉酒或中毒）。刺客失去自己的能力——将“失去能力”提示标记放置到刺客的角色标记旁，并从夜晚顺序表上移除其夜晚标记。（刺客不会再被唤醒。）",
     "en": "Each night except the first, wake the Assassin. They either shake their head no or point at any player. Put the Assassin to sleep.\nIf the Assassin chose a player, that player dies— mark them with the DEAD reminder. This cannot be prevented in any way (except if the Assassin doesn’t have their ability, such as if they’re drunk or poisoned). The Assassin loses their ability—mark them with the NO ABILITY reminder and remove their night token from the night sheet. (The Assassin won’t wake again.)"
@@ -70,5 +67,6 @@
     "bad_moon_rising"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/assassin.png"
+  "image": "assets/tokens/assassin.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Assassin"
 }

@@ -3,38 +3,34 @@
   "type": "townsfolk",
   "name": {
     "en": "Seamstress",
-    "es-419": "Costurera",
+    "es": "Costurera",
     "sv": "Sömmerskan",
-    "zh-Hans": "女裁缝",
     "cn": "女裁缝"
   },
   "ability": {
     "en": "Once per game, at night, choose 2 players (not yourself): you learn if they are the same alignment.",
-    "es-419": "Una vez por juego, por la noche, escoge 2 jugadores (no tú mismo): tú aprendes si ellos son del mismo alineamiento.",
+    "es": "Una vez por juego, por la noche, escoge 2 jugadores (no tú mismo): tú aprendes si ellos son del mismo alineamiento.",
     "sv": "En gång per spel, på natten, kan du välja 2 spelare (inte dig själv); du får veta om de är på samma lag.",
-    "zh-Hans": "每局游戏限一次，在夜晚时，你可以选择除你以外的两名玩家：你会得知他们是否为同一阵营。",
     "cn": "每局游戏限一次，在夜晚时，你可以选择除你以外的两名玩家：你会得知他们是否为同一阵营。"
   },
-  "flavor_text": {
-    "en": "\"Did you hear that stranger in the cashmere coat put the word on our young Belle? And she said yes? Well, that's nothing compared to what Harry and that juggler got up to at the fair! The things I could say if I was a tattletale... my, yes.\"",
-    "es-419": "¿Escuchaste que ese fulano en el abrigo de lana le pidió la mano a nuestra pequeña Belle? ¿Y que ella dijo que sí? ¡Pues, eso no es nada comparado a lo que Harry y ese malabarista estaban tramando en la feria! La cantidad de cosas que podría decir si fuera una chismosa…sí que sí.",
+  "flavor": {
+    "en": "Did you hear that stranger in the cashmere coat put the word on our young Belle? And she said yes? Well, that's nothing compared to what Harry and that juggler got up to at the fair! The things I could say if I was a tattletale... my, yes.",
+    "es": "¿Escuchaste que ese fulano en el abrigo de lana le pidió la mano a nuestra pequeña Belle? ¿Y que ella dijo que sí? ¡Pues, eso no es nada comparado a lo que Harry y ese malabarista estaban tramando en la feria! La cantidad de cosas que podría decir si fuera una chismosa…sí que sí.",
     "sv": "Hörde du att främlingen i kaschmirrocken friade till unga Isabella? Och att hon sa ja? Och det är ändå ingenting emot vad Harry och den där jonglören hade för sig på marknaden! Du anar inte vad jag skulle kunna berätta om jag varit en skvallerbytta… oj oj oj.",
-    "zh-Hans": "你听到那个穿羊绒大衣的家伙对我们小贝尔说什么了吗？他说……‘好’？哎，行吧，和哈利还有那个杂耍艺人那一出相比，这算不了什么。说什么？我可不说，我又不是什么长舌妇。",
-    "cn": "“你听到那个穿羊绒大衣的家伙对我们小贝尔说什么了吗？他说……‘好’？哎，行吧，和哈利还有那个杂耍艺人那一出相比，这算不了什么。说什么？我可不说，我又不是什么长舌妇。”"
+    "cn": "你听到那个穿羊绒大衣的家伙对我们小贝尔说什么了吗？他说……‘好’？哎，行吧，和哈利还有那个杂耍艺人那一出相比，这算不了什么。说什么？我可不说，我又不是什么长舌妇。"
   },
   "first_night": {
     "en": "The Seamstress might choose 2 players. Nod or shake your head. :reminder:",
-    "es-419": "La Costurera quizás escoja 2 jugadores. Asiente o deniega con la cabeza. :reminder:",
+    "es": "La Costurera quizás escoja 2 jugadores. Asiente o deniega con la cabeza. :reminder:",
     "sv": "Sömmerskan kanske väljer 2 spelare. Nicka eller skaka på huvudet. :reminder:",
-    "zh-Hans": "女裁缝可以选择两名玩家。要么点头代表是，要么摇头代表否。:reminder:"
+    "zh": "女裁缝可以选择两名玩家。要么点头代表是，要么摇头代表否。:reminder:"
   },
   "other_nights": {
     "en": "The Seamstress might choose 2 players. Nod or shake your head. :reminder:",
-    "es-419": "La Costurera quizás escoja 2 jugadores. Asiente o deniega con la cabeza. :reminder:",
+    "es": "La Costurera quizás escoja 2 jugadores. Asiente o deniega con la cabeza. :reminder:",
     "sv": "Sömmerskan kanske väljer 2 spelare. Nicka eller skaka på huvudet. :reminder:",
-    "zh-Hans": "女裁缝可以选择两名玩家。要么点头代表是，要么摇头代表否。:reminder:"
+    "zh": "女裁缝可以选择两名玩家。要么点头代表是，要么摇头代表否。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Seamstress",
   "how_to_run": {
     "cn": "每个夜晚，唤醒女裁缝。她要么摇头不使用能力，要么指向另两名玩家。\n如果她摇头，无事发生。让女裁缝重新入睡。\n如果她指向两名玩家，要么点头代表是（表示这些玩家是同一阵营），要么摇头代表否（表示这些玩家不是同一阵营）。让女裁缝重新入睡。在女裁缝使用能力后，为她放置“失去能力”提示标记，并从夜晚顺序表上移除她的夜晚标记。",
     "en": "Each night, wake the Seamstress. They either shake their head no or point at any two players except themself.\nIf they shake their head no, nothing happens. Put the Seamstress to sleep.\nIf they point at two players, either nod your head yes (to indicate these players have the same alignment) or shake your head no (to indicate these players do not have the same alignment). Put the Seamstress to sleep. The Seamstress loses their ability - mark them with the NO ABILITY reminder and remove their night token from the night sheet."
@@ -77,5 +73,6 @@
     "sects_violets"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/seamstress.png"
+  "image": "assets/tokens/seamstress.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Seamstress"
 }

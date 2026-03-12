@@ -3,32 +3,28 @@
   "type": "outsider",
   "name": {
     "en": "Plague Doctor",
-    "es-419": "Doctor de la Peste",
+    "es": "Doctor de la Peste",
     "sv": "Pestläkaren",
-    "zh-Hans": "瘟疫医生",
     "cn": "瘟疫医生"
   },
   "ability": {
     "en": "When you die, the Storyteller gains a Minion ability.",
-    "es-419": "Cuando mueres, el Narrador gana la habilidad de un Secuaz.",
+    "es": "Cuando mueres, el Narrador gana la habilidad de un Secuaz.",
     "sv": "När du dör får berättaren en Kumpanförmåga.",
-    "zh-Hans": "当你死亡时，说书人会获得一个爪牙能力。",
     "cn": "当你死亡时，说书人会获得一个爪牙能力。"
   },
-  "flavor_text": {
-    "en": "\"Pleauze shtay shtill. Thinks nid tiime for hillink. Myrhh-myrhh.\"",
-    "es-419": "Prr favrr, mantn la calmah. Prrece que necesitah timpoh prra sanrr. Mmh-hmm.",
+  "flavor": {
+    "en": "Pleauze shtay shtill. Thinks nid tiime for hillink. Myrhh-myrhh.",
+    "es": "Prr favrr, mantn la calmah. Prrece que necesitah timpoh prra sanrr. Mmh-hmm.",
     "sv": "Stå stilla. Det tar tid för kroppen att läka. Mer myrra.",
-    "zh-Hans": "辟免剧勒润动。输要时间康护。莫要，抹药。",
-    "cn": "“辟免剧勒润动。输要时间康护。莫要，抹药。”"
+    "cn": "辟免剧勒润动。输要时间康护。莫要，抹药。"
   },
   "other_nights": {
     "en": "If the Plague Doctor died, the Storyteller gained a Minion ability. If you haven’t done this yet, do so now. :reminder:",
-    "es-419": "Si el Doctor de la Peste murió, el Narrador gana la habilidad de un Secuaz. Si aún no has hecho esto, hazlo ahora.",
+    "es": "Si el Doctor de la Peste murió, el Narrador gana la habilidad de un Secuaz. Si aún no has hecho esto, hazlo ahora.",
     "sv": "Om Pestläkaren dött har berättaren fått en Kumpanförmåga. Om du inte redan gjort det så gör det nu. :reminder:",
-    "zh-Hans": "当瘟疫医生死亡时，说书人获得一个爪牙的能力。现在，请确认你完成了这个步骤。"
+    "zh": "当瘟疫医生死亡时，说书人获得一个爪牙的能力。现在，请确认你完成了这个步骤。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Plague_Doctor",
   "how_to_run": {
     "cn": "当瘟疫医生死亡时，将一个不在场的爪牙角色标记放置在魔典左侧的正中位置，并用瘟疫医生的“说书人能力”标记标记该爪牙角色；或直接用该标记标记一个在场的爪牙角色。如可能，在夜晚顺序表旁添加相应的夜晚标记用以提示。\n当此爪牙角色的能力将要执行相关行动时，由说书人来为该能力做出一系列的选择。",
     "en": "When the Plague Doctor dies, place a Minion character token in the centre of the left side of the Grimoire and mark this with the Plague Doctor’s STORYTELLER ABILITY reminder. Or, mark an in-play Minion with the STORYTELLER ABILITY reminder. If applicable, add a night token to the night sheet.\nWhen this Minion would normally act, the relevant choices are made by the Storyteller."
@@ -107,5 +103,6 @@
       "reason": "If the Storyteller would gain the Wraith ability, a Minion gains it, and learns this."
     }
   ],
-  "image": "assets/tokens/plague_doctor.png"
+  "image": "assets/tokens/plague_doctor.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Plague_Doctor"
 }

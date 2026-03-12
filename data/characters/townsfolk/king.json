@@ -3,38 +3,36 @@
   "type": "townsfolk",
   "name": {
     "en": "King",
-    "es-419": "Rey",
+    "es": "Rey",
     "sv": "Kungen",
-    "zh-Hans": "国王",
     "cn": "国王"
   },
   "ability": {
     "en": "Each night, if the dead equal or outnumber the living, you learn 1 alive character. The Demon knows you are the King.",
-    "es-419": "Cada noche, si los muertos equiparan o superan en número a los vivos, tú aprendes 1 de los roles vivos. El Demonio sabe que tú eres el Rey.",
+    "es": "Cada noche, si los muertos equiparan o superan en número a los vivos, tú aprendes 1 de los roles vivos. El Demonio sabe que tú eres el Rey.",
     "sv": "Varje natt med minst lika många döda som levande spelare får du veta 1 levande roll. Demonen vet att du är Kungen.",
-    "zh-Hans": "每个夜晚，如果死亡的玩家数量大于或等于存活的玩家数量，你会得知一个存活的角色。恶魔知道你是国王。",
+    "zh": "每个夜晚，如果死亡的玩家数量大于或等于存活的玩家数量，你会得知一个存活的角色。恶魔知道你是国王。",
     "cn": "每个夜晚，如果死亡的玩家数量大于或等于存活的玩家数量，你会得知一个存活的角色。\n恶魔知道你是国王。"
   },
-  "flavor_text": {
-    "en": "\"↑Betwixt the unknown strains of mortal strife→\n                And morbid night, sweet↓ with mystery and woe\n                ←Lies unfettered joys of fate’s long and colored life\n                Who’s garden blooms with each painted Face to Show.\"",
-    "es-419": "Entre las melodías desconocidas de lucha mortal / Y la noche mórbida, dulce con misterio y dolor / Yacen las alegrías desenfrenadas de la larga y colorida vida del destino / Cuyo jardín florece con cada Rostro pintado por Mostrar.",
+  "flavor": {
+    "en": "↑Betwixt the unknown strains of mortal strife→\n                And morbid night, sweet↓ with mystery and woe\n                ←Lies unfettered joys of fate’s long and colored life\n                Who’s garden blooms with each painted Face to Show.",
+    "es": "Entre las melodías desconocidas de lucha mortal / Y la noche mórbida, dulce con misterio y dolor / Yacen las alegrías desenfrenadas de la larga y colorida vida del destino / Cuyo jardín florece con cada Rostro pintado por Mostrar.",
     "sv": "Tungt är att dö förgäten och utan namn, // Dock tyngre, fader, är det att leva. // Bliv ej så mörk! Att leva förmår jag ej, // men lyda jag kan, jag lyder och dör.",
-    "zh-Hans": "未知纷扰让致命冲突重负难堪，在不祥之夜将神秘与悲伤盈满，欢喜或曾无羁于漫长多彩世间，谁的花园遍地绽放着彩绘的脸。",
-    "cn": "“未知纷扰让致命冲突重负难堪\n在不祥之夜将神秘与悲伤盈满\n欢喜或曾无羁于漫长多彩世间\n谁的花园遍地绽放着彩绘的脸”"
+    "zh": "未知纷扰让致命冲突重负难堪，在不祥之夜将神秘与悲伤盈满，欢喜或曾无羁于漫长多彩世间，谁的花园遍地绽放着彩绘的脸。",
+    "cn": "未知纷扰让致命冲突重负难堪\n在不祥之夜将神秘与悲伤盈满\n欢喜或曾无羁于漫长多彩世间\n谁的花园遍地绽放着彩绘的脸"
   },
   "first_night": {
     "en": "Wake the Demon: Show the *THIS PLAYER IS* & King tokens, then point to the King.",
-    "es-419": "Despierta al Demonio. Muéstrale la ficha de *ÉSTE JUGADOR ES* y la ficha del Rey, luego apunta al Rey.",
+    "es": "Despierta al Demonio. Muéstrale la ficha de *ÉSTE JUGADOR ES* y la ficha del Rey, luego apunta al Rey.",
     "sv": "Väck Demonen. Visa kortet *DEN HÄR SPELAREN ÄR* och Kungens rollbricka, och peka sedan på Kungen.",
-    "zh-Hans": "唤醒恶魔。对他展示“这名玩家是”信息标记，然后展示国王角色标记，然后指向角色为国王的玩家。"
+    "zh": "唤醒恶魔。对他展示“这名玩家是”信息标记，然后展示国王角色标记，然后指向角色为国王的玩家。"
   },
   "other_nights": {
     "en": "If the dead equal or outnumber the living, show the character token of a living player.",
-    "es-419": "Si los muertos equiparan o superan en número a los vivos, muéstrale la ficha de rol de un jugador vivo.",
+    "es": "Si los muertos equiparan o superan en número a los vivos, muéstrale la ficha de rol de un jugador vivo.",
     "sv": "Om minst lika många spelare är döda som levande, visa en levande spelares rollbricka.",
-    "zh-Hans": "当死亡玩家的数量大于或等于存活玩家的数量时，展示一个存活玩家的角色标记。"
+    "zh": "当死亡玩家的数量大于或等于存活玩家的数量时，展示一个存活玩家的角色标记。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/King",
   "how_to_run": {
     "cn": "在首个夜晚时，唤醒恶魔。对他展示“这名玩家是”信息标记，然后展示国王角色标记，然后指向角色为国王的玩家。让恶魔重新入睡。\n当死亡玩家的数量大于或等于存活玩家的数量时，在夜晚顺序表的国王顺序旁添加一个夜晚标记。\n每个夜晚，如果夜晚顺序表的国王顺序旁有夜晚标记，那么唤醒国王。对他展示一个存活玩家的角色标记。让国王重新入睡。\n仔细思考你需要给国王展示哪一个角色标记。不要担心给出大量的信息。绝大多数国王都会在最后一天到来前死亡，而如果一名国王活到了最后一天，那么他通常都能够获胜，这也是没问题的。",
     "en": "During the first night, wake the Demon. Show them the THIS PLAYER IS info token, then the King token, then point at the King player. Put the Demon to sleep.\nWhen the number of dead players equals or exceeds the number of alive players, add a night token to the King’s entry on the night sheet.\nEach night, if the King has a night token on the night sheet, wake the King. Show one alive character token. Put the King to sleep.\nThink carefully about what character tokens to show the King. Don’t be afraid to give great information. Most Kings will die before the final day. A King that lives to the final day will usually win, and that’s ok."
@@ -84,5 +82,6 @@
       "reason": "If Riot is in play, and at least 1 player is dead, the King learns an alive character each night."
     }
   ],
-  "image": "assets/tokens/king.png"
+  "image": "assets/tokens/king.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/King"
 }

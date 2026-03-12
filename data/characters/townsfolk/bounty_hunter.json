@@ -3,38 +3,35 @@
   "type": "townsfolk",
   "name": {
     "en": "Bounty Hunter",
-    "es-419": "Cazarrecompensas",
+    "es": "Cazarrecompensas",
     "sv": "Prisjägaren",
-    "zh-Hans": "赏金猎人",
     "cn": "赏金猎人"
   },
   "ability": {
     "en": "You start knowing 1 evil player. If the player you know dies, you learn another evil player tonight. [1 Townsfolk is evil]",
-    "es-419": "Empiezas conociendo 1 jugador malvado. Si el jugador que conoces muere, aprendes otro jugador malvado esta noche. [1 Ciudadano es malvado]",
+    "es": "Empiezas conociendo 1 jugador malvado. Si el jugador que conoces muere, aprendes otro jugador malvado esta noche. [1 Ciudadano es malvado]",
     "sv": "I början vet du 1 ond spelare. Om hen dör får du veta en annan ond spelare inatt. [1 Bybo är ond]",
-    "zh-Hans": "在你的首个夜晚，你会得知一名邪恶玩家。每当你得知的玩家死亡，你会在当晚得知另一名邪恶玩家。[会有一名镇民转变为邪恶阵营]",
+    "zh": "在你的首个夜晚，你会得知一名邪恶玩家。每当你得知的玩家死亡，你会在当晚得知另一名邪恶玩家。[会有一名镇民转变为邪恶阵营]",
     "cn": "在你的首个夜晚，你会得知一名邪恶玩家。\n每当你得知的玩家死亡，你会在当晚得知另一名邪恶玩家。[会有一名镇民转变为邪恶阵营]"
   },
-  "flavor_text": {
-    "en": "\"Alone, I walk these streets, paved with the sick stench of corruption. Its thickness worms its way into my nostrils, unbidden, burning with revulsion. And anticipation. The illness of this wretched place grows each night. And I... I am the cure.\"",
-    "es-419": "Solo, camino estas calles, pavimentadas con el olor enfermo de la corrupción. Su densidad penetra en mi nariz, sin límites, quemando con repulsión. Y anticipación. La enfermedad de este lugar maldito crece cada noche. Y yo…yo soy la cura.",
+  "flavor": {
+    "en": "Alone, I walk these streets, paved with the sick stench of corruption. Its thickness worms its way into my nostrils, unbidden, burning with revulsion. And anticipation. The illness of this wretched place grows each night. And I... I am the cure.",
+    "es": "Solo, camino estas calles, pavimentadas con el olor enfermo de la corrupción. Su densidad penetra en mi nariz, sin límites, quemando con repulsión. Y anticipación. La enfermedad de este lugar maldito crece cada noche. Y yo…yo soy la cura.",
     "sv": "Ensam strövar jag på dessa gator, belagda med korruption. Dess stank nästlar sig in i näsan, som bränner av avsmak. Och förväntan. Denna erbarmliga plats blir sjukare för var natt som går. Och jag… jag är boten.",
-    "zh-Hans": "我一个人在这铺满腐败恶臭的街道上行走着。邪恶不请自来，在我的鼻腔里蠕动，将厌恶点燃，将期待烧光。这个令人不悦的地方一天比一天更加病态。而我……我会是这些罪恶的解药。",
-    "cn": "“我一个人在这铺满腐败恶臭的街道上行走着。邪恶不请自来，在我的鼻腔里蠕动，将厌恶点燃，将期待烧光。这个令人不悦的地方一天比一天更加病态。而我……我会是这些罪恶的解药。”"
+    "cn": "我一个人在这铺满腐败恶臭的街道上行走着。邪恶不请自来，在我的鼻腔里蠕动，将厌恶点燃，将期待烧光。这个令人不悦的地方一天比一天更加病态。而我……我会是这些罪恶的解药。"
   },
   "first_night": {
     "en": "Point to the player marked *KNOW*.",
-    "es-419": "Apunta al jugador *CONOCIDO*.",
+    "es": "Apunta al jugador *CONOCIDO*.",
     "sv": "Peka på spelaren markerad *VISAD*.",
-    "zh-Hans": "指向放置“得知”提示标记的玩家。"
+    "zh": "指向放置“得知”提示标记的玩家。"
   },
   "other_nights": {
     "en": "If the player marked *KNOW* died today or tonight, point to the new player marked *KNOW*.",
-    "es-419": "Si el jugador *CONOCIDO* muere hoy por el día o por la noche, apunta a un nuevo jugador *CONOCIDO*.",
+    "es": "Si el jugador *CONOCIDO* muere hoy por el día o por la noche, apunta a un nuevo jugador *CONOCIDO*.",
     "sv": "Om spelaren märkt *VISAD* dog idag eller inatt, peka på en ny spelare markerad *VISAD*.",
-    "zh-Hans": "如果放置“得知”的玩家在今天白天或当晚死亡，指向一名新的放置“得知”提示标记的玩家。"
+    "zh": "如果放置“得知”的玩家在今天白天或当晚死亡，指向一名新的放置“得知”提示标记的玩家。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Bounty_Hunter",
   "how_to_run": {
     "cn": "在设置调整阶段，将一名镇民的角色标记倒转放置，表示该玩家是邪恶阵营。将“得知”提示标记放置在一名邪恶玩家的角色标记旁。\n在首个夜晚，唤醒赏金猎人。指向放置“得知”提示标记的玩家，然后让赏金猎人重新入睡。\n每当放置“得知”提示标记的玩家死亡时，将“得知”提示标记放置在一名新的邪恶玩家的角色标记旁。当晚，唤醒赏金猎人，指向放置“得知”提示标记的玩家，然后让赏金猎人重新入睡。\n特别注意：由于赏金猎人会增加一名额外的邪恶玩家，在剧本中加入赏金猎人和其他任何潜在的具有阵营转换能力的角色时需要格外小心——一旦游戏中多于一名玩家能够转变为邪恶，邪恶阵营就能非常容易地获得大多数的投票，即使是邪恶阵营的玩家也不会特别喜欢这一点。我们测试过同时存在赏金猎人和这些角色（莽夫、灵言师、方古、政客和异教领袖）在一个剧本时，一点也不有趣......",
     "en": "During setup, turn one Townsfolk character token upside down, to represent that they are evil. Mark one evil player with the KNOW reminder.\nDuring the first night, wake the Bounty Hunter. Point to the player marked KNOW. Put the Bounty Hunter to sleep.\nEach time the player marked KNOW dies, mark a new evil player with the KNOW reminder. That night, wake the Bounty Hunter, point to the player marked KNOW, then put the Bounty Hunter to sleep."
@@ -89,5 +86,6 @@
       "reason": "If the Philosopher gains the Bounty Hunter ability, a Townsfolk might turn evil."
     }
   ],
-  "image": "assets/tokens/bounty_hunter.png"
+  "image": "assets/tokens/bounty_hunter.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Bounty_Hunter"
 }

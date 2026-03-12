@@ -3,26 +3,22 @@
   "type": "traveller",
   "name": {
     "en": "Gunslinger",
-    "es-419": "Pistolero",
+    "es": "Pistolero",
     "sv": "Skytten",
-    "zh-Hans": "枪手",
     "cn": "枪手"
   },
   "ability": {
     "en": "Each day, after the 1st vote has been tallied, you may choose a player that voted: they die.",
-    "es-419": "Cada día, luego de contabilizar el 1er voto, puedes escoger un jugador que votó: él muere.",
+    "es": "Cada día, luego de contabilizar el 1er voto, puedes escoger un jugador que votó: él muere.",
     "sv": "Varje dag, efter dagens första omröstning, får du välja en spelare som röstade; hen dör.",
-    "zh-Hans": "每个白天，当首次投票被统计后，你可以选择一名刚投过票的玩家：他死亡。",
     "cn": "每个白天，当首次投票被统计后，你可以选择一名刚投过票的玩家：他死亡。"
   },
-  "flavor_text": {
-    "en": "\"It's time someone took matters into their own hands. That someone... is me.\"",
-    "es-419": "Ya es hora que alguien tome cartas en el asunto. Y ese alguien…soy yo.",
+  "flavor": {
+    "en": "It's time someone took matters into their own hands. That someone... is me.",
+    "es": "Ya es hora que alguien tome cartas en el asunto. Y ese alguien…soy yo.",
     "sv": "Det är hög tid att någon tar saken i egna händer. Denna någon… är jag.",
-    "zh-Hans": "是时候得有人自己动手了。那个人...就是我。",
-    "cn": "“是时候得有人自己动手了。那个人...就是我。”"
+    "cn": "是时候得有人自己动手了。那个人...就是我。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Gunslinger",
   "how_to_run": {
     "cn": "每个白天，在首次处决投票被统计后，枪手可以宣布他想使用他的能力。如果他这么做，让他指向任何一名刚刚投过票的玩家。被选中的玩家死亡。\n如果枪手是一名新手玩家，你可以在他能够使用能力的时候提示他。\n当枪手想要使用他的能力的时候，你可以要求刚刚投了票的玩家再次举起手来，这样枪手就不会选错成一名刚刚没有投过票的玩家了。",
     "en": "Each day, immediately after the first vote for execution is tallied, the Gunslinger can declare that they wish to use their ability. If so, the Gunslinger points at any player who voted for this execution. The chosen player dies.\nIf the Gunslinger is a new player, you may wish to remind them that they can use their ability.\n\n\nWhen the Gunslinger wants to use their ability, you may need to ask all players who voted to raise their hand again, so the Gunslinger doesn’t accidentally choose a player that didn’t vote."
@@ -75,5 +71,6 @@
     "experimental"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/gunslinger.png"
+  "image": "assets/tokens/gunslinger.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Gunslinger"
 }

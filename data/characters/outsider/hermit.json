@@ -3,26 +3,22 @@
   "type": "outsider",
   "name": {
     "en": "Hermit",
-    "es-419": "Ermitaño",
+    "es": "Ermitaño",
     "sv": "Eremiten",
-    "zh-Hans": "隐士",
     "cn": "隐士"
   },
   "ability": {
     "en": "You have all Outsider abilities. [-0 or -1 Outsider]",
-    "es-419": "Tú posees las habilidades de todos los Extranjeros. [-0 or -1 Extranjero]",
+    "es": "Tú posees las habilidades de todos los Extranjeros. [-0 or -1 Extranjero]",
     "sv": "Du har alla Utbölingars förmågor. [−0 eller −1 Utböling]",
-    "zh-Hans": "你拥有所有外来者能力。[-0~1外来者]",
     "cn": "你拥有所有外来者能力。[-0~1外来者]"
   },
-  "flavor_text": {
-    "en": "\"In the lost and forgotten places of the earth, the soul’s light beckons.\"",
-    "es-419": "En los lugares perdidos y olvidados de la tierra, la luz del alma llama.",
+  "flavor": {
+    "en": "In the lost and forgotten places of the earth, the soul’s light beckons.",
+    "es": "En los lugares perdidos y olvidados de la tierra, la luz del alma llama.",
     "sv": "På jordens förlorade och bortglömda platser kallar själens ljus.",
-    "zh-Hans": "于尘寰遗忘之境，有光静静亮着，不问归期。",
-    "cn": "“于尘寰遗忘之境，有光静静亮着，不问归期。”"
+    "cn": "于尘寰遗忘之境，有光静静亮着，不问归期。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Hermit",
   "how_to_run": {
     "cn": "设置游戏时，你可以移除一个外来者并添加一名镇民，或者不改变外来者数量。\n当你认为合适的时候，以其他外来者角色的运作方式来让隐士行动，包括在夜晚唤醒隐士，以及任意使用其他外来者的提示标记。如果隐士和其他外来者同时在场，使用隐士的“1”、“2”、“3”提示标记作为替代。\n如果多个外来者的能力产生了一定冲突，你可以自创一条规则来解决，并在游戏开始前告知所有玩家。例如，隐士同时获得了管家和狂热者的能力，你可以告知玩家，隐士必须要在主人投票的时候投票。",
     "en": "During setup, you may remove an Outsider token and add a Townsfolk token.\nWhenever appropriate, treat the Hermit as if they are the other Outsiders, including waking them at night, and using other Outsiders’ reminder tokens. If the Hermit duplicates an in-play Outsider, use the Hermit’s 1, 2 and 3 reminders instead.\nIf Outsider abilities clash, make up a rule to fix the clash, and tell the group. For example, for a Hermit-Butler-Zealot, you may declare that the Hermit must vote when their master votes."
@@ -56,5 +52,6 @@
   "editions": [
     "experimental"
   ],
-  "image": "assets/tokens/hermit.png"
+  "image": "assets/tokens/hermit.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Hermit"
 }

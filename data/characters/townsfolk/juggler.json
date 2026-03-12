@@ -3,32 +3,28 @@
   "type": "townsfolk",
   "name": {
     "en": "Juggler",
-    "es-419": "Malabarista",
+    "es": "Malabarista",
     "sv": "Jonglören",
-    "zh-Hans": "杂耍艺人",
     "cn": "杂耍艺人"
   },
   "ability": {
     "en": "On your 1st day, publicly guess up to 5 players' characters. That night, you learn how many you got correct.",
-    "es-419": "En tu 1er día, adivina públicamente los roles de hasta 5 jugadores. Esta noche, tú aprendes cuántos adivinaste correctamente.",
+    "es": "En tu 1er día, adivina públicamente los roles de hasta 5 jugadores. Esta noche, tú aprendes cuántos adivinaste correctamente.",
     "sv": "Din första dag kan du öppet gissa upp till 5 spelares roller. Den natten får du veta hur många rätt du hade.",
-    "zh-Hans": "在你的首个白天，你可以公开猜测任意玩家的角色最多五次。在当晚，你会得知猜测正确的角色数量。",
     "cn": "在你的首个白天，你可以公开猜测任意玩家的角色最多五次。在当晚，你会得知猜测正确的角色数量。"
   },
-  "flavor_text": {
-    "en": "\"For my next trick, as per request, I will need a flower, a bag of beans, a toy snake, a paintbrush, and a motorized gasoline-powered hedge trimming device. I warn you, this trick may be my last. Oh dear.\"",
-    "es-419": "Para mi próximo truco, tal como lo solicitaron, voy a necesitar una flor, una bolsa de frijoles, una serpiente de juguete, una brocha, y una podadora motorizada a gasolina. Les advierto, este truco podría ser el último. Madre mía.",
+  "flavor": {
+    "en": "For my next trick, as per request, I will need a flower, a bag of beans, a toy snake, a paintbrush, and a motorized gasoline-powered hedge trimming device. I warn you, this trick may be my last. Oh dear.",
+    "es": "Para mi próximo truco, tal como lo solicitaron, voy a necesitar una flor, una bolsa de frijoles, una serpiente de juguete, una brocha, y una podadora motorizada a gasolina. Les advierto, este truco podría ser el último. Madre mía.",
     "sv": "Nästa trick har efterfrågats av flera. Jag behöver en blomma, en bönpåse, en leksaksorm, en pensel och en bensindriven häcksax. Jag varnar er, det här tricket kan bli mitt sista. Kära nån.",
-    "zh-Hans": "下一场表演，我需要一朵花、一袋豆子、一条玩具蛇、一支画笔、和一个电动的树篱修剪机。不过我得和你说，宝贝，这可能是我最后的表演了哦。",
-    "cn": "“下一场表演，我需要一朵花、一袋豆子、一条玩具蛇、一支画笔、和一个电动的树篱修剪机。不过我得和你说，宝贝，这可能是我最后的表演了哦。”"
+    "cn": "下一场表演，我需要一朵花、一袋豆子、一条玩具蛇、一支画笔、和一个电动的树篱修剪机。不过我得和你说，宝贝，这可能是我最后的表演了哦。"
   },
   "other_nights": {
     "en": "Give a finger signal.",
-    "es-419": "Dale una señal con los dedos.",
+    "es": "Dale una señal con los dedos.",
     "sv": "Ge en fingersignal.",
-    "zh-Hans": "用手势比划等同于“猜测正确”提示标记的数量（0，1，2 等）。"
+    "zh": "用手势比划等同于“猜测正确”提示标记的数量（0，1，2 等）。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Juggler",
   "how_to_run": {
     "cn": "在第一个白天，如果杂耍艺人声明使用他的能力，你需要拿着魔典进入玩家围成的圆圈内。杂耍艺人最多可以做出五次猜测，每次猜测选择一名玩家和一个角色。对于每个正确的猜测，放置一枚“猜测正确”提示标记在杂耍艺人角色标记旁。（确保其他玩家不会看到你放置了几枚提示标记。）\n当晚，唤醒杂耍艺人。对他用手势比划等同于“猜测正确”提示标记的数量（0，1，2 等）。让杂耍艺人重新入睡。在稍后说书人方便的时候，移除所有“猜测正确”提示标记以及杂耍艺人的夜晚标记。\n如果杂耍艺人猜的太快，让他放慢速度。 \n如果邪恶玩家伪装成杂耍艺人，在他假装进行猜测时，你可以在魔典中假装四处移动标记来协助他进行伪装。",
     "en": "During the first day, if the Juggler declares that they are using their ability, then you enter the circle, holding the Grimoire. The Juggler can make up to five guesses, each of any one player and any one character. For each correct guess, mark the Juggler with a CORRECT reminder. (Make sure the players don’t see how many reminders you’re placing.)\nThat night, wake the Juggler. Show them fingers (0, 1, 2, etc.) equaling the number of CORRECT reminders. Put the Juggler to sleep. Remove the CORRECT reminders and the Juggler’s night token when convenient.\nIf the Juggler is guessing too fast, prompt them to slow down.\n\n\nIf an evil player is bluffing as the Juggler, it can help their bluff if you pretend to move tokens around the Grimoire as they make their fake guesses."
@@ -80,5 +76,6 @@
       "reason": "If the Juggler guesses on their first day and dies by execution, tonight the living Cannibal learns how many guesses the Juggler got correct."
     }
   ],
-  "image": "assets/tokens/juggler.png"
+  "image": "assets/tokens/juggler.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Juggler"
 }

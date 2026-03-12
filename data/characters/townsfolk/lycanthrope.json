@@ -3,32 +3,29 @@
   "type": "townsfolk",
   "name": {
     "en": "Lycanthrope",
-    "es-419": "Licántropo",
+    "es": "Licántropo",
     "sv": "Lykantropen",
-    "zh-Hans": "半兽人",
     "cn": "半兽人"
   },
   "ability": {
     "en": "Each night*, choose an alive player. If good, they die & the Demon doesn’t kill tonight. One good player registers as evil.",
-    "es-419": "Cada noche*, escoge un jugador vivo. Si es bueno, él muere y el Demonio no mata hoy. Un jugador bueno se registra como malvado.",
+    "es": "Cada noche*, escoge un jugador vivo. Si es bueno, él muere y el Demonio no mata hoy. Un jugador bueno se registra como malvado.",
     "sv": "Varje natt* väljer du en levande spelare; om hen är god dör hen och Demonen dödar inte inatt. En god spelare registreras som ond.",
-    "zh-Hans": "每个夜晚*，你要选择一名存活玩家：如果他是善良的，他死亡，并且当晚恶魔不会造成死亡。会有一名善良玩家始终被当作邪恶阵营。",
+    "zh": "每个夜晚*，你要选择一名存活玩家：如果他是善良的，他死亡，并且当晚恶魔不会造成死亡。会有一名善良玩家始终被当作邪恶阵营。",
     "cn": "每个夜晚*，你要选择一名存活玩家：如果他是善良的，他死亡，并且当晚恶魔不会造成死亡。\n会有一名善良玩家始终被当作邪恶阵营。"
   },
-  "flavor_text": {
-    "en": "\"Beneath the thin veneer of civilisation lies a howling madness.\"",
-    "es-419": "Bajo la fina capa de la civilización se esconde una locura que aúlla.",
+  "flavor": {
+    "en": "Beneath the thin veneer of civilisation lies a howling madness.",
+    "es": "Bajo la fina capa de la civilización se esconde una locura que aúlla.",
     "sv": "Bakom civilisationens tunna fernissa döljer sig ett ylande vanvett.",
-    "zh-Hans": "在文明的浅薄外表之下，藏着呼之欲出的疯狂。",
-    "cn": "“在文明的浅薄外表之下，藏着呼之欲出的疯狂。”"
+    "cn": "在文明的浅薄外表之下，藏着呼之欲出的疯狂。"
   },
   "other_nights": {
     "en": "The Lycanthrope chooses a player. :reminder:",
-    "es-419": "El Licántropo escoge un jugador. :reminder:",
+    "es": "El Licántropo escoge un jugador. :reminder:",
     "sv": "Lykantropen väljer en spelare. :reminder:",
-    "zh-Hans": "半兽人选择一名玩家。:reminder:"
+    "zh": "半兽人选择一名玩家。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Lycanthrope",
   "how_to_run": {
     "cn": "在为首个夜晚进行准备时，将半兽人的“失足”提示标记放置在任意善良角色标记旁，标记那名玩家为“失足”。\n除首个夜晚之外的每个夜晚，唤醒半兽人。让他指向任意一名存活的玩家。让半兽人重新入睡。\n如果被选择的玩家是善良的，那名玩家死亡——在那名玩家的角色标记旁放置“死亡”标记。当晚，和平常一样唤醒恶魔进行选择，但是恶魔无法造成死亡。\n如果被选择的玩家是邪恶的，什么事都不会发生。",
     "en": "During setup, mark one good player with the Lycanthrope’s FAUX PAW reminder.\nEach night except the first, wake the Lycanthrope. They point at any player. Put the Lycanthrope to sleep. If the chosen player is good, that player dies—mark them with the Lycanthrope’s DEAD reminder. Later that night, wake the Demon, as normal, but the Demon cannot kill. If the chosen player is evil, nothing happens."
@@ -73,5 +70,6 @@
     "experimental"
   ],
   "artist": "John Grist",
-  "image": "assets/tokens/lycanthrope.png"
+  "image": "assets/tokens/lycanthrope.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Lycanthrope"
 }

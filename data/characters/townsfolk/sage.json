@@ -3,32 +3,28 @@
   "type": "townsfolk",
   "name": {
     "en": "Sage",
-    "es-419": "Sabio",
+    "es": "Sabio",
     "sv": "Gurun",
-    "zh-Hans": "贤者",
     "cn": "贤者"
   },
   "ability": {
     "en": "If the Demon kills you, you learn that it is 1 of 2 players.",
-    "es-419": "Si el Demonio te mata, tú aprendes que él es 1 de 2 jugadores.",
+    "es": "Si el Demonio te mata, tú aprendes que él es 1 de 2 jugadores.",
     "sv": "Om Demonen dödar dig får du veta att hen är 1 av 2 spelare.",
-    "zh-Hans": "如果恶魔杀死了你，在当晚你会被唤醒并得知两名玩家，其中一名是杀死你的那个恶魔。",
     "cn": "如果恶魔杀死了你，在当晚你会被唤醒并得知两名玩家，其中一名是杀死你的那个恶魔。"
   },
-  "flavor_text": {
-    "en": "\"These mountainous tomes guard the secret, I am sure of it! Twixt word and word, it lies in wait. More candles, boy! More ink! These notes may look arcane, but the infernal puzzle is revealing itself.\"",
-    "es-419": "Estos tomos gigantescos guardan el secreto, ¡estoy seguro de eso! Palabra tras palabra, acecha con paciencia. ¡Más velas, muchacho! ¡Más tinta! Estas notas pueden parecer arcanas, pero el rompecabezas infernal se está armando solo.",
+  "flavor": {
+    "en": "These mountainous tomes guard the secret, I am sure of it! Twixt word and word, it lies in wait. More candles, boy! More ink! These notes may look arcane, but the infernal puzzle is revealing itself.",
+    "es": "Estos tomos gigantescos guardan el secreto, ¡estoy seguro de eso! Palabra tras palabra, acecha con paciencia. ¡Más velas, muchacho! ¡Más tinta! Estas notas pueden parecer arcanas, pero el rompecabezas infernal se está armando solo.",
     "sv": "Dessa digra volymer döljer hemligheten, det är jag säker på! Den väntar oss mellan orden. Mer ljus, pojk! Mer bläck! Språket är märkligt, ja, men den infernaliska gåtan vecklar långsamt ut sig.",
-    "zh-Hans": "这书山卷海中一定隐藏着秘密，我非常确信！这些秘密就隐藏在这一字一句之间等待着我们发掘。小子！再帮我多拿点蜡烛！还有墨水！虽然这些笔记有些晦涩，但有关恶魔的谜语很快就会被揭晓。",
-    "cn": "“这书山卷海中一定隐藏着秘密，我非常确信！这些秘密就隐藏在这一字一句之间等待着我们发掘。小子！再帮我多拿点蜡烛！还有墨水！虽然这些笔记有些晦涩，但有关恶魔的谜语很快就会被揭晓。”"
+    "cn": "这书山卷海中一定隐藏着秘密，我非常确信！这些秘密就隐藏在这一字一句之间等待着我们发掘。小子！再帮我多拿点蜡烛！还有墨水！虽然这些笔记有些晦涩，但有关恶魔的谜语很快就会被揭晓。"
   },
   "other_nights": {
     "en": "If the Demon killed the Sage, wake the Sage and point to 2 players, 1 of which is the Demon.",
-    "es-419": "Si el Demonio mató al Sabio, despierta al Sabio y apunta a 2 jugadores, 1 de los cuales es el Demonio.",
+    "es": "Si el Demonio mató al Sabio, despierta al Sabio y apunta a 2 jugadores, 1 de los cuales es el Demonio.",
     "sv": "Om Demonen dödade Gurun så väck Gurun och peka på 2 spelare, varav 1 är Demonen.",
-    "zh-Hans": "如果贤者被恶魔杀死，唤醒贤者。指向两名玩家，其中一名是杀死贤者的恶魔。"
+    "zh": "如果贤者被恶魔杀死，唤醒贤者。指向两名玩家，其中一名是杀死贤者的恶魔。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Sage",
   "how_to_run": {
     "cn": "如果贤者被恶魔杀死，唤醒贤者。指向两名玩家，其中一名是杀死贤者的恶魔。让贤者重新入睡。\n如果贤者在游戏前期死亡，你可能会想给贤者展示两名存活玩家，因为这能让邪恶阵营仍然有微弱的获胜机会。如果贤者在游戏的最后一个夜晚死去，你可以指向一名存活玩家和一名已死亡的玩家。",
     "en": "If the Sage was killed by the Demon, wake the Sage. Point at two players, one who is the Demon that killed the Sage. Put the Sage to sleep.\nIf the Sage dies early, you will probably want to show the Sage two alive players, which lets the evil team still have a slim chance of winning. If the Sage dies on the final night, feel free to show one alive and one dead player."
@@ -80,5 +76,6 @@
       "reason": "Each night*, Riot chooses an alive good player (different to previous nights): a chosen Sage uses their ability but does not die."
     }
   ],
-  "image": "assets/tokens/sage.png"
+  "image": "assets/tokens/sage.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Sage"
 }

@@ -3,26 +3,23 @@
   "type": "townsfolk",
   "name": {
     "en": "Tea Lady",
-    "es-419": "Señora del Té",
+    "es": "Señora del Té",
     "sv": "Tekokerskan",
-    "zh-Hans": "茶艺师",
     "cn": "茶艺师"
   },
   "ability": {
     "en": "If both your alive neighbors are good, they can't die.",
-    "es-419": "Si tus 2 vecinos vivos son buenos, no pueden morir.",
+    "es": "Si tus 2 vecinos vivos son buenos, no pueden morir.",
     "sv": "Om båda dina levande grannar är goda kan de inte dö.",
-    "zh-Hans": "如果与你邻近的两名存活的玩家是善良的，他们不会死亡。",
     "cn": "如果与你邻近的两名存活的玩家是善良的，他们不会死亡。"
   },
-  "flavor_text": {
-    "en": "\"If you are cold, tea will warm you. If you are too heated, tea will cool you. If you are depressed, tea will cheer you. If you are excited, tea will calm you.\"",
-    "es-419": "Si tienes frío, el té te abrigará. Si tienes mucho calor, el té te refrescará. Si estás deprimido, el té te alegrará. Si estás emocionado, el té te calmará.",
+  "flavor": {
+    "en": "If you are cold, tea will warm you. If you are too heated, tea will cool you. If you are depressed, tea will cheer you. If you are excited, tea will calm you.",
+    "es": "Si tienes frío, el té te abrigará. Si tienes mucho calor, el té te refrescará. Si estás deprimido, el té te alegrará. Si estás emocionado, el té te calmará.",
     "sv": "Är du kall kan te värma. Är du för varm kan te svalka. Är du nedstämd kan te fröjda. Är du upprymd kan te lugna.",
-    "zh-Hans": "若你感到寒冷，茶能使你温暖。若你感到愤怒，茶能使你冷静。若你感到沮丧，茶能使你振奋。若你感到激动，茶能使你镇定。",
-    "cn": "“若你感到寒冷，茶能使你温暖。\n若你感到愤怒，茶能使你冷静。\n若你感到沮丧，茶能使你振奋。\n若你感到激动，茶能使你镇定。”"
+    "zh": "若你感到寒冷，茶能使你温暖。若你感到愤怒，茶能使你冷静。若你感到沮丧，茶能使你振奋。若你感到激动，茶能使你镇定。",
+    "cn": "若你感到寒冷，茶能使你温暖。\n若你感到愤怒，茶能使你冷静。\n若你感到沮丧，茶能使你振奋。\n若你感到激动，茶能使你镇定。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Tea_Lady",
   "how_to_run": {
     "cn": "如果茶艺师邻近的两名存活玩家都是善良的，将茶艺师的“不会死亡”提示标记放置到这两名玩家的角色标记旁。如果茶艺师邻近的两名存活玩家中有任何一个是邪恶的，移除这些提示标记。根据这个条件在整局游戏中随时更新这些提示标记（例如一名玩家的阵营改变了）。\n如果一名标有“不会死亡”的玩家将要死去，该玩家依然存活。如果一名标有“不会死亡”的玩家被处决，宣布该玩家被处决但依然存活。（不要说明原因。）",
     "en": "If both alive neighbours of the Tea Lady are good, mark those neighbours’ character tokens with the Tea Lady’s CANNOT DIE reminders. If either alive neighbour of the Tea Lady is evil, remove these reminders. Update these reminders immediately based on this condition throughout the entire game (such as if a player’s alignment changes).\nIf a player marked CANNOT DIE would die, they remain alive. If a player marked CANNOT DIE is executed, declare that the marked player is executed but remains alive. (Do not say why.)"
@@ -59,5 +56,6 @@
     "bad_moon_rising"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/tea_lady.png"
+  "image": "assets/tokens/tea_lady.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Tea_Lady"
 }

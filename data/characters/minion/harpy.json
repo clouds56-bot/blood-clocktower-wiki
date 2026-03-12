@@ -3,38 +3,34 @@
   "type": "minion",
   "name": {
     "en": "Harpy",
-    "es-419": "Harpía",
+    "es": "Harpía",
     "sv": "Vittran",
-    "zh-Hans": "鹰身女妖",
     "cn": "鹰身女妖"
   },
   "ability": {
     "en": "Each night, choose 2 players: tomorrow, the 1st player is mad that the 2nd is evil, or one or both might die.",
-    "es-419": "Cada noche, escoge 2 jugadores: mañana, el 1er jugador está loco de que el 2do es malvado, o uno o ambos quizás mueran.",
+    "es": "Cada noche, escoge 2 jugadores: mañana, el 1er jugador está loco de que el 2do es malvado, o uno o ambos quizás mueran.",
     "sv": "Varje natt väljer du 2 spelare; imorgon är den första galen om att den andra är ond, annars kanske en eller båda dör.",
-    "zh-Hans": "每个夜晚，你要选择两名玩家：明天第一名玩家需要“疯狂”地证明第二名玩家是邪恶的，否则他们之中可能会有人死亡。",
     "cn": "每个夜晚，你要选择两名玩家：明天第一名玩家需要“疯狂”地证明第二名玩家是邪恶的，否则他们之中可能会有人死亡。"
   },
-  "flavor_text": {
-    "en": "\"So fair a day I never did see, nor so fowl a presence hanging over me.\"",
-    "es-419": "Nunca vi un día tan hermoso, ni una presencia tan terrible sobre mí.",
+  "flavor": {
+    "en": "So fair a day I never did see, nor so fowl a presence hanging over me.",
+    "es": "Nunca vi un día tan hermoso, ni una presencia tan terrible sobre mí.",
     "sv": "En dag så skön jag än ej såg, ej heller en skugga så grym över mig hänga.",
-    "zh-Hans": "我从未见过如此光明的一日，阴森利爪不再笼罩着我。",
-    "cn": "“我从未见过如此光明的一日，阴森利爪不再笼罩着我。”"
+    "cn": "我从未见过如此光明的一日，阴森利爪不再笼罩着我。"
   },
   "first_night": {
     "en": "The Harpy chooses 2 players. :reminder: :reminder: Put the Harpy to sleep. Wake the 1st target. Show the *THIS CHARACTER SELECTED YOU* token, the Harpy token, then point to the 2nd target.",
-    "es-419": "La Harpía escoge dos jugadores. :reminder: :reminder: Pon a la Harpía a dormir. Despierta el 1er jugador. Muéstrale la ficha de *ESTE ROL TE HA SELECCIONADO*, la ficha de la Harpía, y luego apunta al 2do jugador.",
+    "es": "La Harpía escoge dos jugadores. :reminder: :reminder: Pon a la Harpía a dormir. Despierta el 1er jugador. Muéstrale la ficha de *ESTE ROL TE HA SELECCIONADO*, la ficha de la Harpía, y luego apunta al 2do jugador.",
     "sv": "Vittran väljer två spelare. :reminder: :reminder: Söv Vittran. Väck den första spelaren. Visa kortet *DU PÅVERKAS AV* och Vittrans rollbricka, och peka sedan på den andra spelaren.",
-    "zh-Hans": "鹰身女妖先后选择两名玩家。:reminder: :reminder: 让鹰身女妖重新入睡。唤醒第一名玩家。对他展示“该角色的能力对你生效”信息标记，以及鹰身女妖的角色标记。然后指向第二名玩家。"
+    "zh": "鹰身女妖先后选择两名玩家。:reminder: :reminder: 让鹰身女妖重新入睡。唤醒第一名玩家。对他展示“该角色的能力对你生效”信息标记，以及鹰身女妖的角色标记。然后指向第二名玩家。"
   },
   "other_nights": {
     "en": "The Harpy chooses 2 players. :reminder: :reminder: Put the Harpy to sleep. Wake the 1st target. Show the *THIS CHARACTER SELECTED YOU* token, the Harpy token, then point to the 2nd target.",
-    "es-419": "La Harpía escoge dos jugadores. :reminder: :reminder: Pon a la Harpía a dormir. Despierta el 1er jugador. Muéstrale la ficha de *ESTE ROL TE HA SELECCIONADO*, la ficha de la Harpía, y luego apunta al 2do jugador.",
+    "es": "La Harpía escoge dos jugadores. :reminder: :reminder: Pon a la Harpía a dormir. Despierta el 1er jugador. Muéstrale la ficha de *ESTE ROL TE HA SELECCIONADO*, la ficha de la Harpía, y luego apunta al 2do jugador.",
     "sv": "Vittran väljer två spelare. :reminder: :reminder: Söv Vittran. Väck den första spelaren. Visa kortet *DU PÅVERKAS AV* och Vittrans rollbricka, och peka sedan på den andra spelaren.",
-    "zh-Hans": "鹰身女妖先后选择两名玩家。:reminder: :reminder: 让鹰身女妖重新入睡。唤醒第一名玩家。对他展示“该角色的能力对你生效”信息标记，以及鹰身女妖的角色标记。然后指向第二名玩家。"
+    "zh": "鹰身女妖先后选择两名玩家。:reminder: :reminder: 让鹰身女妖重新入睡。唤醒第一名玩家。对他展示“该角色的能力对你生效”信息标记，以及鹰身女妖的角色标记。然后指向第二名玩家。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Harpy",
   "how_to_run": {
     "cn": "每个夜晚，唤醒鹰身女妖。让鹰身女妖指向一名玩家，再指向另一名玩家。用“疯狂”提示标记标记第一名玩家，并用“第二名”提示标记标记第二名玩家。让鹰身女妖重新入睡。唤醒标记了“疯狂”的玩家。对他展示“该角色的能力对你生效”信息标记，以及鹰身女妖的角色标记。然后指向标记了“第二名”的玩家。让这名玩家重新入睡。\n明天，如果标记了“疯狂”的玩家没有“疯狂”地证明标记了“第二名”的玩家是邪恶阵营，你可以杀死这两名玩家其中的一人或全部。",
     "en": "Each night, wake the Harpy. The Harpy points to one player, then another player. Mark the first player with the MAD reminder and the second player with the 2ND reminder. Put the Harpy to sleep. Wake the player marked MAD. Show the THIS CHARACTER SELECTED YOU info token then the Harpy token, then point to the player marked 2ND. Put the player marked “Mad” to sleep.\nMAD\n2ND"
@@ -95,5 +91,6 @@
     "experimental"
   ],
   "artist": "Chloe McDougall",
-  "image": "assets/tokens/harpy.png"
+  "image": "assets/tokens/harpy.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Harpy"
 }

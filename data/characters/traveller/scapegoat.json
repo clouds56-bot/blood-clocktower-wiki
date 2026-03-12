@@ -3,26 +3,22 @@
   "type": "traveller",
   "name": {
     "en": "Scapegoat",
-    "es-419": "Chivo Expiatorio",
+    "es": "Chivo Expiatorio",
     "sv": "Syndabocken",
-    "zh-Hans": "替罪羊",
     "cn": "替罪羊"
   },
   "ability": {
     "en": "If a player of your alignment is executed, you might be executed instead.",
-    "es-419": "Si un jugador de tu alineamiento es ejecutado, quizás tú seas ejecutado en su lugar.",
+    "es": "Si un jugador de tu alineamiento es ejecutado, quizás tú seas ejecutado en su lugar.",
     "sv": "Om en spelare på ditt lag avrättas kanske du avrättas istället.",
-    "zh-Hans": "如果你的阵营的一名玩家被处决，你可能会代替他被处决。",
     "cn": "如果你的阵营的一名玩家被处决，你可能会代替他被处决。"
   },
-  "flavor_text": {
-    "en": "\"Good evening! Thank you for inviting me to the ball. I'm not from around here, but you sure seem like a friendly bunch, by golly. I'm sure we'll get along just dandy. What's all that rope for?\"",
-    "es-419": "¡Buenas noches! Gracias por invitarme al baile. No soy de por aquí, pero dios mío, ustedes sí que parecen un grupo amigable. Estoy seguro que nos vamos a llevar todos muy bien. ¿Para qué es toda esta soga?",
+  "flavor": {
+    "en": "Good evening! Thank you for inviting me to the ball. I'm not from around here, but you sure seem like a friendly bunch, by golly. I'm sure we'll get along just dandy. What's all that rope for?",
+    "es": "¡Buenas noches! Gracias por invitarme al baile. No soy de por aquí, pero dios mío, ustedes sí que parecen un grupo amigable. Estoy seguro que nos vamos a llevar todos muy bien. ¿Para qué es toda esta soga?",
     "sv": "God afton! Tack så mycket för att ni ville bjuda mig till er bal. Jag är inte härifrån, men ni verkar ju vara ett riktigt trevligt gäng! Vi kommer säkert bli goda vänner. Vad ska ni ha allt rep till?",
-    "zh-Hans": "晚上好！感谢你们邀请我来舞厅。虽然我不是本地人，但你们看起来个个都慈眉善目的，我的天呐。我相信我们一定可以打成一片的。不过这些绳子是干嘛的？",
-    "cn": "“晚上好！感谢你们邀请我来舞厅。虽然我不是本地人，但你们看起来个个都慈眉善目的，我的天呐。我相信我们一定可以打成一片的。不过这些绳子是干嘛的？”"
+    "cn": "晚上好！感谢你们邀请我来舞厅。虽然我不是本地人，但你们看起来个个都慈眉善目的，我的天呐。我相信我们一定可以打成一片的。不过这些绳子是干嘛的？"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Scapegoat",
   "how_to_run": {
     "cn": "如果一名与替罪羊同阵营的玩家即将被处决，你可以选择由替罪羊来代替该玩家被处决。替罪羊会因此死亡。\n最好是在最后一天到来之前使用替罪羊的能力。因为活到了最后一天的替罪羊几乎一定会被流放。如果替罪羊是邪恶阵营的，绝大多数情况你都应该使用他的能力来阻止邪恶玩家输掉游戏。",
     "en": "If a player of the same alignment as the Scapegoat would be executed, you may choose that the Scapegoat is executed instead. The Scapegoat dies.\nIt is best to use the Scapegoat’s ability before the final day, because a Scapegoat that remains alive on the final day will almost certainly be exiled. You should always use an evil Scapegoat’s ability to prevent evil from losing the game."
@@ -70,5 +66,6 @@
     "experimental"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/scapegoat.png"
+  "image": "assets/tokens/scapegoat.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Scapegoat"
 }

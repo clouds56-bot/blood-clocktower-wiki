@@ -3,32 +3,29 @@
   "type": "townsfolk",
   "name": {
     "en": "Magician",
-    "es-419": "Mago",
+    "es": "Mago",
     "sv": "Magikern",
-    "zh-Hans": "魔术师",
     "cn": "魔术师"
   },
   "ability": {
     "en": "The Demon thinks you are a Minion. Minions think you are a Demon.",
-    "es-419": "El Demonio cree que eres un Secuaz. Los Secuaces creen que eres un Demonio.",
+    "es": "El Demonio cree que eres un Secuaz. Los Secuaces creen que eres un Demonio.",
     "sv": "Demonen tror att du är en Kumpan. Kumpanerna tror att du är en Demon.",
-    "zh-Hans": "恶魔会以为你是爪牙。爪牙会以为你是恶魔。",
     "cn": "恶魔会以为你是爪牙。爪牙会以为你是恶魔。"
   },
-  "flavor_text": {
-    "en": "\"1... 2... Abra... 3... 4... Cadabra... *poof!*\n                And, as you can see, ladies and gentlemen, Captain Farnsworth’s bag of gold has disappeared! Gone! Without a trace! Thank you, and goodnight!\"",
-    "es-419": "1... 2... Abra... 3... 4... Cadabra... *puf!* Y, como pueden ver, damas y caballeros, ¡la bolsa de oro del Capitán Farnsworth ha desaparecido! ¡Se ha ido! ¡Sin dejar ningún rastro! ¡Gracias, y buenas noches!",
+  "flavor": {
+    "en": "1... 2... Abra... 3... 4... Cadabra... *poof!*\n                And, as you can see, ladies and gentlemen, Captain Farnsworth’s bag of gold has disappeared! Gone! Without a trace! Thank you, and goodnight!",
+    "es": "1... 2... Abra... 3... 4... Cadabra... *puf!* Y, como pueden ver, damas y caballeros, ¡la bolsa de oro del Capitán Farnsworth ha desaparecido! ¡Se ha ido! ¡Sin dejar ningún rastro! ¡Gracias, y buenas noches!",
     "sv": "Ett… två… abra… tre… fyra… kadabra… *poff!* Och som ni ser, mina damer och herrar, har kapten Farncreutz guldbörs försvunnit! Spårlöst borta! Tack så mycket, och god natt!",
-    "zh-Hans": "1…2…唵嘛呢…3…4…叭咪吽…（嗖！）是的，正如你们所见，女士们先生们，梵斯沃船长的那袋金子不见了！没了！无迹可循！感谢诸位，晚安啦！",
-    "cn": "“1…2…唵嘛呢…3…4…叭咪吽…（嗖！）\n是的，正如你们所见，女士们先生们，梵斯沃船长的那袋金子不见了！没了！无迹可循！感谢诸位，晚安啦！”"
+    "zh": "1…2…唵嘛呢…3…4…叭咪吽…（嗖！）是的，正如你们所见，女士们先生们，梵斯沃船长的那袋金子不见了！没了！无迹可循！感谢诸位，晚安啦！",
+    "cn": "1…2…唵嘛呢…3…4…叭咪吽…（嗖！）\n是的，正如你们所见，女士们先生们，梵斯沃船长的那袋金子不见了！没了！无迹可循！感谢诸位，晚安啦！"
   },
   "first_night": {
     "en": "During Minion Info, point to the Magician and the Demon. During Demon Info, point to the Magician and the Minions.",
-    "es-419": "Incluye al Mago en los pasos de Información del Demonio y de los Secuaces.",
+    "es": "Incluye al Mago en los pasos de Información del Demonio y de los Secuaces.",
     "sv": "Under Kumpan-info, peka på Magikern och Demonen. Under Demon-info, peka på Magikern och Kumpanerna.",
-    "zh-Hans": "唤醒所有爪牙。对他们展示“他是恶魔”信息标记，然后指向恶魔与魔术师。让这些爪牙重新入睡。唤醒恶魔。对他展示“他们是你的爪牙”信息标记，然后指向所有爪牙与魔术师。对他展示“这些角色不在场”信息标记，然后展示三个善良角色标记。让恶魔重新入睡。"
+    "zh": "唤醒所有爪牙。对他们展示“他是恶魔”信息标记，然后指向恶魔与魔术师。让这些爪牙重新入睡。唤醒恶魔。对他展示“他们是你的爪牙”信息标记，然后指向所有爪牙与魔术师。对他展示“这些角色不在场”信息标记，然后展示三个善良角色标记。让恶魔重新入睡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Magician",
   "how_to_run": {
     "cn": "在首个夜晚，唤醒所有爪牙。对他们展示“他是恶魔”信息标记，然后指向恶魔与魔术师。让这些爪牙重新入睡。\n在首个夜晚，唤醒恶魔。对他展示“他们是你的爪牙”信息标记，然后指向所有爪牙与魔术师。对他展示“这些角色不在场”信息标记，然后展示三个善良角色标记。让恶魔重新入睡。\n以上述流程替代常规的爪牙信息与恶魔信息的步骤。",
     "en": "During the first night, wake the Minions. Show them the THIS IS THE DEMON info token, then point to the Demon and the Magician. Put the Minions to sleep.\nDuring the first night, wake the Demon. Show the THESE ARE YOUR MINIONS info token, then point to all Minions and the Magician. Show the THESE CHARACTERS ARE NOT IN PLAY info token and three character tokens. Put the Demon to sleep.\nDo this instead of the normal Minion Info and Demon Info steps."
@@ -101,5 +98,6 @@
       "reason": "After each execution, the living Magician may publicly guess a living player as the Wraith. If correct, the Demon must choose the Wraith tonight."
     }
   ],
-  "image": "assets/tokens/magician.png"
+  "image": "assets/tokens/magician.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Magician"
 }

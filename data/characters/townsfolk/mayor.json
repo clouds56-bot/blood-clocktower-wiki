@@ -3,26 +3,24 @@
   "type": "townsfolk",
   "name": {
     "en": "Mayor",
-    "es-419": "Alcalde",
+    "es": "Alcalde",
     "sv": "Borgmästaren",
-    "zh-Hans": "镇长",
     "cn": "镇长"
   },
   "ability": {
     "en": "If only 3 players live & no execution occurs, your team wins. If you die at night, another player might die instead.",
-    "es-419": "Si solo 3 jugadores viven y nadie es ejecutado, tu equipo gana. Si tú mueres en la noche, quizás otro jugar muera en tu lugar.",
+    "es": "Si solo 3 jugadores viven y nadie es ejecutado, tu equipo gana. Si tú mueres en la noche, quizás otro jugar muera en tu lugar.",
     "sv": "Om bara 3 spelare lever och ingen avrättas vinner ditt lag. Om du dör på natten kanske en annan spelare dör istället.",
-    "zh-Hans": "如果只有三名玩家存活且白天没有人被处决，你的阵营获胜。如果你在夜晚即将死亡，可能会有一名其他玩家代替你死亡。",
+    "zh": "如果只有三名玩家存活且白天没有人被处决，你的阵营获胜。如果你在夜晚即将死亡，可能会有一名其他玩家代替你死亡。",
     "cn": "如果只有三名玩家存活且白天没有人被处决，你的阵营获胜。\n如果你在夜晚即将死亡，可能会有一名其他玩家代替你死亡。"
   },
-  "flavor_text": {
-    "en": "\"We must put our differences aside, and cease this senseless killing. We are all taxpayers after all. Well, most of us.\"",
-    "es-419": "Debemos poner nuestras diferencias a un lado, y detener esta matanza sin sentido. Al final del día, todos pagamos impuestos. Bueno, casi todos.",
+  "flavor": {
+    "en": "We must put our differences aside, and cease this senseless killing. We are all taxpayers after all. Well, most of us.",
+    "es": "Debemos poner nuestras diferencias a un lado, y detener esta matanza sin sentido. Al final del día, todos pagamos impuestos. Bueno, casi todos.",
     "sv": "Vi måste åsidosätta våra olikheter och sätta stopp för det vanvettiga dödandet. Vi är ju alla skattebetalare. Eller ja, de flesta av oss.",
-    "zh-Hans": "我们必须抛开分歧，停止这种毫无意义的杀戮。毕竟，我们都是纳税人。嗯，我是说我们中的绝大多数。",
-    "cn": "“我们必须抛开分歧，停止这种毫无意义的杀戮。\n毕竟，我们都是纳税人。嗯，我是说我们中的绝大多数。”"
+    "zh": "我们必须抛开分歧，停止这种毫无意义的杀戮。毕竟，我们都是纳税人。嗯，我是说我们中的绝大多数。",
+    "cn": "我们必须抛开分歧，停止这种毫无意义的杀戮。\n毕竟，我们都是纳税人。嗯，我是说我们中的绝大多数。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Mayor",
   "how_to_run": {
     "cn": "在夜晚时，如果镇长即将死去，由你来选择镇长会真正死去，或是镇长仍然存活但有其他角色代替他死亡——将恶魔的“死亡”提示标记放置在镇长或代替镇长死亡的角色标记旁，并在对应的角色标记上放置帷幕标记。\n在黎明时，宣布被标记了“死亡”标记的玩家在当晚死亡。（不要说出他的死亡原因。）\n在黄昏时，如果正好有三名玩家存活，且当天没有玩家被处决，宣布游戏结束且善良阵营获胜。（注：即使宣布胜利的时机是在黄昏，但镇长的能力有效与否是在处决阶段结算的）\n我们建议你让镇长活到最后一天，因为这种方式对玩家来说会更加有趣。在罕见的情形下，如果游戏早期时，镇长便在玩家群体中以压倒性的优势让大家认为自己是镇长，那么让镇长在被恶魔攻击时死去，以使得邪恶玩家仍有机会获胜。\n在《暗流涌动》里，镇长的能力描述中“你的阵营获胜”始终意味着“善良阵营获胜”，因为镇长始终会是善良角色。在其他剧本中，如果出现了邪恶的镇长，他的能力意味着“邪恶阵营获胜”。",
     "en": "During the night, if the Mayor would die, you choose if the Mayor actually dies, or if the Mayor remains alive and another character dies instead—put the Demon's DEAD reminder token by that character token instead of the Mayor, and put a shroud on that character token instead of the Mayor.\nAt dawn, declare that the player marked DEAD died at night. (Do not say how they died.)\nAt dusk, if exactly three players are alive and no player was executed today, declare that the game ends and good wins.\nWe recommend you keep the Mayor alive until the final day, since it is most fun for the players that way. On rare occasions, if the group is overwhelmingly convinced early in the game that the Mayor is the Mayor, let the Mayor die so that evil has a chance to win. \n\n\nIn TROUBLE BREWING, the Mayor’s phrase “your team wins” will always mean “good wins” because the Mayor is always good. In other editions, an evil Mayor means “evil wins” instead."
@@ -72,5 +70,6 @@
       "reason": "The Mayor may choose to stop the riot. If they do so when only 1 Riot is alive, good wins. Otherwise, evil wins."
     }
   ],
-  "image": "assets/tokens/mayor.png"
+  "image": "assets/tokens/mayor.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Mayor"
 }

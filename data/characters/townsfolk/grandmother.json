@@ -3,38 +3,35 @@
   "type": "townsfolk",
   "name": {
     "en": "Grandmother",
-    "es-419": "Abuela",
+    "es": "Abuela",
     "sv": "Farmorn",
-    "zh-Hans": "祖母",
     "cn": "祖母"
   },
   "ability": {
     "en": "You start knowing a good player & their character. If the Demon kills them, you die too.",
-    "es-419": "Empiezas conociendo un jugador bueno y su rol. Si el Demonio lo mata, tú también mueres.",
+    "es": "Empiezas conociendo un jugador bueno y su rol. Si el Demonio lo mata, tú también mueres.",
     "sv": "I början vet du en god spelare och hens roll. Om hen dödas av Demonen dör du också.",
-    "zh-Hans": "在你的首个夜晚，你会得知一名善良玩家和他的角色。如果恶魔杀死了他，你也会死亡。",
+    "zh": "在你的首个夜晚，你会得知一名善良玩家和他的角色。如果恶魔杀死了他，你也会死亡。",
     "cn": "在你的首个夜晚，你会得知一名善良玩家和他的角色。\n如果恶魔杀死了他，你也会死亡。"
   },
-  "flavor_text": {
-    "en": "\"Take a jacket if you go outside, dearie. And your thermos. And your scarf. I have a weak heart, you know. Whatever would I do if you caught cold...or worse?\"",
-    "es-419": "Lleva una chaqueta si sales, cariño. Y tu termo. Y tu bufanda. Tengo una corazón débil, sabes. ¿Que haría si te resfriaras... o algo peor?",
+  "flavor": {
+    "en": "Take a jacket if you go outside, dearie. And your thermos. And your scarf. I have a weak heart, you know. Whatever would I do if you caught cold...or worse?",
+    "es": "Lleva una chaqueta si sales, cariño. Y tu termo. Y tu bufanda. Tengo una corazón débil, sabes. ¿Que haría si te resfriaras... o algo peor?",
     "sv": "Ta på dig en jacka om du går ut, raring. Och termosen. Och halsduken. Du vet att jag har ett svagt hjärta. Vad skulle jag ta mig till om du blev förkyld… eller värre?",
-    "zh-Hans": "我的小心肝呀，如果你要出门，记得加件外套。这是你的保温杯。这是你的围巾。你知道我心脏不太好。要是你感冒了，或者有个三长两短，我该怎么办？",
-    "cn": "“我的小心肝呀，如果你要出门，记得加件外套。这是你的保温杯。这是你的围巾。你知道我心脏不太好。要是你感冒了，或者有个三长两短，我该怎么办？”"
+    "cn": "我的小心肝呀，如果你要出门，记得加件外套。这是你的保温杯。这是你的围巾。你知道我心脏不太好。要是你感冒了，或者有个三长两短，我该怎么办？"
   },
   "first_night": {
     "en": "Point to the grandchild player & show their character token.",
-    "es-419": "Apunta al jugador nieto y muestra su ficha de rol.",
+    "es": "Apunta al jugador nieto y muestra su ficha de rol.",
     "sv": "Visa den markerade spelarens rollbricka och peka på spelaren.",
-    "zh-Hans": "向祖母展示标有“孙子”的玩家的角色标记，然后指向该名“孙子”玩家。"
+    "zh": "向祖母展示标有“孙子”的玩家的角色标记，然后指向该名“孙子”玩家。"
   },
   "other_nights": {
     "en": "If the grandchild was killed by the Demon, the Grandmother dies too. :reminder:",
-    "es-419": "Si el nieto fue asesinado por el Demonio, la Abuela muere también. :reminder:",
+    "es": "Si el nieto fue asesinado por el Demonio, la Abuela muere también. :reminder:",
     "sv": "Om barnbarnet dödades av Demonen så dör Farmorn också. :reminder:",
-    "zh-Hans": "如果恶魔杀死了“孙子”，祖母死亡。:reminder:"
+    "zh": "如果恶魔杀死了“孙子”，祖母死亡。:reminder:"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Grandmother",
   "how_to_run": {
     "cn": "在为首个夜晚进行准备时，通过将“孙子”提示标记放置到任意一个善良角色的角色标记旁来选择一名“孙子”。\n在首个夜晚，唤醒祖母，向其展示标有“孙子”的角色标记，然后指向该名“孙子”玩家，然后让祖母重新入睡。\n如果恶魔杀死了“孙子”，祖母死亡——将“死亡”提示标记放置到祖母的角色标记旁。",
     "en": "When preparing the first night, choose a Grandchild by marking any good character with the GRANDCHILD reminder.\nDuring the first night, wake the Grandmother and show them the character token marked GRANDCHILD, then point at the Grandchild player, then put the Grandmother to sleep.\nIf the Demon kills the Grandchild, the Grandmother dies - mark them with the DEAD reminder."
@@ -92,5 +89,6 @@
       "reason": "If Riot is in play and the Grandchild dies by execution, evil wins."
     }
   ],
-  "image": "assets/tokens/grandmother.png"
+  "image": "assets/tokens/grandmother.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Grandmother"
 }

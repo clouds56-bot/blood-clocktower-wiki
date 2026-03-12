@@ -3,32 +3,30 @@
   "type": "townsfolk",
   "name": {
     "en": "Librarian",
-    "es-419": "Bibliotecario",
+    "es": "Bibliotecario",
     "sv": "Bibliotekarien",
-    "zh-Hans": "图书管理员",
     "cn": "图书管理员"
   },
   "ability": {
     "en": "You start knowing that 1 of 2 players is a particular Outsider. (Or that zero are in play.)",
-    "es-419": "Empiezas sabiendo que 1 de 2 jugadores es un Extranjero en particular. (O que hay cero en juego.)",
+    "es": "Empiezas sabiendo que 1 de 2 jugadores es un Extranjero en particular. (O que hay cero en juego.)",
     "sv": "I början vet du att 1 av 2 spelare är en viss Utböling (eller att 0 är i spel).",
-    "zh-Hans": "在你的首个夜晚，你会得知两名玩家和一个外来者角色：这两名玩家之一是该角色（或者你会得知没有外来者在场。）",
+    "zh": "在你的首个夜晚，你会得知两名玩家和一个外来者角色：这两名玩家之一是该角色（或者你会得知没有外来者在场。）",
     "cn": "在你的首个夜晚，你会得知两名玩家和一个外来者角色：这两名玩家之一是该角色（或者你会得知没有外来者在场）。"
   },
-  "flavor_text": {
-    "en": "\"Certainly madam, under normal circumstances, you may borrow the Codex Malificarium from the library vaults. However, you do not seem to be a member.\"",
-    "es-419": "Por supuerto, madam, bajo otras circunstancias, claro que podría tomar prestado el Codex Malificarium de las bóvedas de la biblioteca. Lamentablemente, no parece que usted sea miembro.",
+  "flavor": {
+    "en": "Certainly madam, under normal circumstances, you may borrow the Codex Malificarium from the library vaults. However, you do not seem to be a member.",
+    "es": "Por supuerto, madam, bajo otras circunstancias, claro que podría tomar prestado el Codex Malificarium de las bóvedas de la biblioteca. Lamentablemente, no parece que usted sea miembro.",
     "sv": "Naturligtvis. I vanliga fall skulle det gå alldeles utmärkt att låna Codex Malificarium från biblioteksvalvet, men du verkar inte ha ett lånekonto hos oss.",
-    "zh-Hans": "毫无疑问，这位女士，在通常情况下，你可以从图书馆的馆藏中借阅《凶恶药典》。然而，你看起来不像是会员。",
-    "cn": "“毫无疑问，这位女士，在通常情况下，你可以从图书馆的馆藏中借阅《凶恶药典》。\n然而，你看起来不像是会员。”"
+    "zh": "毫无疑问，这位女士，在通常情况下，你可以从图书馆的馆藏中借阅《凶恶药典》。然而，你看起来不像是会员。",
+    "cn": "毫无疑问，这位女士，在通常情况下，你可以从图书馆的馆藏中借阅《凶恶药典》。\n然而，你看起来不像是会员。"
   },
   "first_night": {
     "en": "Show the Outsider character token. Point to both the *OUTSIDER* and *WRONG* players.",
-    "es-419": "Muéstrale la ficha de rol de un Extranjero. Apunta tanto al *EXTRANJERO* como al jugador *EQUIVOCADO*.",
+    "es": "Muéstrale la ficha de rol de un Extranjero. Apunta tanto al *EXTRANJERO* como al jugador *EQUIVOCADO*.",
     "sv": "Visa Utbölingens rollbricka. Peka på spelarna markerade *UTBÖLING* och *FEL*.",
-    "zh-Hans": "将有“外来者”的玩家的角色标记展示给图书管理员。并指向标记有“外来者”和“错误”的玩家。"
+    "zh": "将有“外来者”的玩家的角色标记展示给图书管理员。并指向标记有“外来者”和“错误”的玩家。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Librarian",
   "how_to_run": {
     "cn": "在为首个夜晚进行准备时，将图书管理员的“外来者”提示标记放置在任意一个外来者角色标记旁，然后将图书管理员的“错误”提示标记放置在任意其他角色标记旁。\n在首个夜晚里，唤醒图书管理员，并指向标记有“外来者”和“错误”的玩家。将有“外来者”的玩家的角色标记展示给图书管理员。或者，如果说书人由于场上无外来者而未放置这两个标记，则对图书管理员展示手势“0”。让图书管理员重新入睡。在说书人方便的时候，移除图书管理员的提示标记。",
     "en": "While preparing the first night, put the Librarian's OUTSIDER reminder token by any Outsider character token, and put the Librarian's WRONG reminder token by any other character token.\nDuring the first night, wake the Librarian and point to the players marked OUTSIDER and WRONG. Show the character token marked OUTSIDER to the Librarian. Put the Librarian to sleep. Remove the Librarian's reminder tokens when convenient."
@@ -76,5 +74,6 @@
     "trouble_brewing"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/librarian.png"
+  "image": "assets/tokens/librarian.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Librarian"
 }

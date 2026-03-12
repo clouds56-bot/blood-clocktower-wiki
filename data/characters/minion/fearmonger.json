@@ -3,38 +3,34 @@
   "type": "minion",
   "name": {
     "en": "Fearmonger",
-    "es-419": "Alarmista",
+    "es": "Alarmista",
     "sv": "Skräckspridaren",
-    "zh-Hans": "恐惧之灵",
     "cn": "恐惧之灵"
   },
   "ability": {
     "en": "Each night, choose a player: if you nominate & execute them, their team loses. All players know if you choose a new player.",
-    "es-419": "Cada noche, escoge un jugador: si tú lo nominaste y ejecutaste, su equipo pierde. Todos los jugadores saben si escoges un nuevo jugador.",
+    "es": "Cada noche, escoge un jugador: si tú lo nominaste y ejecutaste, su equipo pierde. Todos los jugadores saben si escoges un nuevo jugador.",
     "sv": "Varje natt väljer du en spelare; om du nominerar och avrättar hen så förlorar hens lag. Alla vet om du väljer en ny spelare.",
-    "zh-Hans": "每个夜晚，你要选择一名玩家：如果你提名他且他被处决，他的阵营落败。当你首次选择或更换目标时，所有玩家都会得知你选择了新的玩家。",
     "cn": "每个夜晚，你要选择一名玩家：如果你提名他且他被处决，他的阵营落败。当你首次选择或更换目标时，所有玩家都会得知你选择了新的玩家。"
   },
-  "flavor_text": {
-    "en": "\"Beware of gazing long into the Abyss, lest the Abyss also gaze into you.\"",
-    "es-419": "Ten cuidado de no mirar por largo tiempo al Abismo, no sea que el Abismo te mire de vuelta.",
+  "flavor": {
+    "en": "Beware of gazing long into the Abyss, lest the Abyss also gaze into you.",
+    "es": "Ten cuidado de no mirar por largo tiempo al Abismo, no sea que el Abismo te mire de vuelta.",
     "sv": "Om du stirrar för länge in i avgrunden, kommer avgrunden också att stirra in i dig.",
-    "zh-Hans": "当心不要长久地凝视深渊，以免深渊也同样回望着你。",
-    "cn": "“当心不要长久地凝视深渊，以免深渊也同样回望着你。”"
+    "cn": "当心不要长久地凝视深渊，以免深渊也同样回望着你。"
   },
   "first_night": {
     "en": "The Fearmonger chooses a player. :reminder: Announce that the Fearmonger has chosen a player.",
-    "es-419": "El Alarmista escoge un jugador. :reminder: Declara que \"El Alarmista ha escogido un jugador.\"",
+    "es": "El Alarmista escoge un jugador. :reminder: Declara que \"El Alarmista ha escogido un jugador.\"",
     "sv": "Skräckspridaren väljer en spelare. :reminder: Meddela att Skräckspridaren har valt en spelare.",
-    "zh-Hans": "恐惧之灵选择一名玩家。reminder:宣布“恐惧之灵选择了一名玩家”。"
+    "zh": "恐惧之灵选择一名玩家。reminder:宣布“恐惧之灵选择了一名玩家”。"
   },
   "other_nights": {
     "en": "The Fearmonger chooses a player. :reminder: If the target is different to last night, announce that the Fearmonger has chosen a player.",
-    "es-419": "El Alarmista escoge un jugador. :reminder: Si el jugador ya no estaba marcado con la ficha de recordatorio *MIEDO*, declara que \"el Alarmista ha escogido un jugador.\"",
+    "es": "El Alarmista escoge un jugador. :reminder: Si el jugador ya no estaba marcado con la ficha de recordatorio *MIEDO*, declara que \"el Alarmista ha escogido un jugador.\"",
     "sv": "Skräckspridaren väljer en spelare. :reminder: Om den valda spelaren är en annan än igår så meddela att Skräckspridaren har valt en spelare.",
-    "zh-Hans": "恐惧之灵选择一名玩家。reminder:如果恐惧之灵此次选择的玩家在选择前没有放置“恐惧”提示标记，则宣布“恐惧之灵选择了一名玩家”。"
+    "zh": "恐惧之灵选择一名玩家。reminder:如果恐惧之灵此次选择的玩家在选择前没有放置“恐惧”提示标记，则宣布“恐惧之灵选择了一名玩家”。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Fearmonger",
   "how_to_run": {
     "cn": "每个夜晚，唤醒恐惧之灵。让他指向任意一名玩家。让恐惧之灵重新入睡。在被恐惧之灵选择的玩家的角色标记旁放置“恐惧”提示标记。如果恐惧之灵此次选择的玩家在选择前没有放置“恐惧”提示标记，则宣布“恐惧之灵选择了一名玩家”。（这会告诉所有玩家恐惧之灵现在存活并且选择了新的目标。）\n如果恐惧之灵提名并因此处决了一名标记有“恐惧”的玩家，宣布游戏结束以及哪一方阵营获得了胜利。",
     "en": "Each night, wake the Fearmonger. They point at any player. Put the Fearmonger to sleep. Mark the chosen player with the FEAR reminder. If the Fearmonger chose a player who wasn’t already marked with the FEAR reminder, declare that “The Fearmonger has chosen a player.” (This informs the group that the Fearmonger is alive and has chosen a new player.)\nIf the Fearmonger nominates the player marked FEAR, and that nomination results in their execution, declare that the game is over and which team has won."
@@ -100,5 +96,6 @@
       "reason": "The Vizier wakes with the Fearmonger, learns who they choose and cannot choose to immediately execute that player."
     }
   ],
-  "image": "assets/tokens/fearmonger.png"
+  "image": "assets/tokens/fearmonger.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Fearmonger"
 }

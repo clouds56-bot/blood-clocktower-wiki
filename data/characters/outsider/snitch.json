@@ -3,32 +3,28 @@
   "type": "outsider",
   "name": {
     "en": "Snitch",
-    "es-419": "Soplón",
+    "es": "Soplón",
     "sv": "Golaren",
-    "zh-Hans": "告密者",
     "cn": "告密者"
   },
   "ability": {
     "en": "Each Minion gets 3 bluffs.",
-    "es-419": "Cada Secuaz obtiene 3 coartadas.",
+    "es": "Cada Secuaz obtiene 3 coartadas.",
     "sv": "Varje Kumpan får 3 bluffar.",
-    "zh-Hans": "爪牙会在其首个夜晚得知三个伪装。",
     "cn": "爪牙会在其首个夜晚得知三个伪装。"
   },
-  "flavor_text": {
-    "en": "\"It was John.\"",
-    "es-419": "Fue Juan.",
+  "flavor": {
+    "en": "It was John.",
+    "es": "Fue Juan.",
     "sv": "Det var Johan.",
-    "zh-Hans": "是他干的。",
-    "cn": "“是他干的。”"
+    "cn": "是他干的。"
   },
   "first_night": {
     "en": "Wake each Minion. Show the *THESE CHARACTERS ARE NOT IN PLAY* token. Show 3 not-in-play character tokens.",
-    "es-419": "Despierta a cada Secuaz. Muéstrale la ficha de *ESTOS ROLES NO ESTÁN EN JUEGO* y las fichas de 3 roles fuera de juego. Pon a cada Secuaz a dormir.",
+    "es": "Despierta a cada Secuaz. Muéstrale la ficha de *ESTOS ROLES NO ESTÁN EN JUEGO* y las fichas de 3 roles fuera de juego. Pon a cada Secuaz a dormir.",
     "sv": "Väck varje Kumpan. Visa kortet *DE HÄR ROLLERNA ÄR INTE I SPEL*. Visa tre rollbrickor som inte är i spel.",
-    "zh-Hans": "唤醒一名爪牙。对他展示“这些角色不在场”信息标记，然后对他展示三个不在场的善良角色标记。让这名爪牙重新入睡。重复此流程，直到所有爪牙都得知了三个不在场角色。"
+    "zh": "唤醒一名爪牙。对他展示“这些角色不在场”信息标记，然后对他展示三个不在场的善良角色标记。让这名爪牙重新入睡。重复此流程，直到所有爪牙都得知了三个不在场角色。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Snitch",
   "how_to_run": {
     "cn": "在首个夜晚，唤醒一名爪牙。对他展示“这些角色不在场”信息标记，然后对他展示三个不在场的善良角色标记。让这名爪牙重新入睡。重复此流程，直到所有爪牙都得知了三个不在场角色。",
     "en": "During the first night, wake a Minion. Show the THESE CHARACTERS ARE NOT IN PLAY info token, then show three not-in-play character tokens. Put the Minion to sleep. Repeat this process until all Minions have learnt three not-in-play characters."
@@ -69,5 +65,6 @@
     "experimental"
   ],
   "artist": "John Grist",
-  "image": "assets/tokens/snitch.png"
+  "image": "assets/tokens/snitch.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Snitch"
 }

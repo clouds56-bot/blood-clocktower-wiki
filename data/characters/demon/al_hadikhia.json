@@ -3,32 +3,29 @@
   "type": "demon",
   "name": {
     "en": "Al-Hadikhia",
-    "es-419": "Al-Hadikhia",
+    "es": "Al-Hadikhia",
     "sv": "al Hadikhia",
-    "zh-Hans": "哈迪寂亚",
     "cn": "哈迪寂亚"
   },
   "ability": {
     "en": "Each night*, you may choose 3 players (all players learn who): each silently chooses to live or die, but if all live, all die.",
-    "es-419": "Cada noche*, puedes escoger 3 jugadores (todos aprenden quiénes): cada uno elige en secreto si vivir or morir, pero si todos viven, todos mueren.",
+    "es": "Cada noche*, puedes escoger 3 jugadores (todos aprenden quiénes): cada uno elige en secreto si vivir or morir, pero si todos viven, todos mueren.",
     "sv": "Varje natt* får du välja 3 spelare (alla spelare vet vilka); de väljer tyst att leva eller dö, men om alla lever dör alla tre.",
-    "zh-Hans": "每个夜晚*，你可以选择三名玩家（所有玩家都会得知你选了谁）：他们分别秘密决定自己的生死，然后如果他们都存活则都死亡。",
     "cn": "每个夜晚*，你可以选择三名玩家（所有玩家都会得知你选了谁）：他们分别秘密决定自己的生死，然后如果他们都存活则都死亡。"
   },
-  "flavor_text": {
-    "en": "\"Alsukut min dhahab.\"",
-    "es-419": "Alsukut min dhahab.",
+  "flavor": {
+    "en": "Alsukut min dhahab.",
+    "es": "Alsukut min dhahab.",
     "sv": "Alsukut min dhahab.",
-    "zh-Hans": "沉默是金。",
-    "cn": "“沉默是金。”（阿拉伯语）"
+    "zh": "沉默是金。",
+    "cn": "沉默是金。（阿拉伯语）"
   },
   "other_nights": {
     "en": "The Al-Hadikhia chooses 3 players. :reminder: :reminder: :reminder: In order, wake each target. They nod or shake their head. Put them to sleep before waking the next target.",
-    "es-419": "El Al-Hadikhia escoge 3 jugadores. :reminder: :reminder: :reminder: Despierta al jugador marcado *1* y di \"el Al-Hadikhia ha escogido a\", luego el nombre del jugador, luego \"¿Eliges vivir?\". Él responde asintiendo o denegando con la cabeza. Ponlo a dormir y añade o remueve velos conforme a su respuesta. Repite con los jugadores marcados *2* y *3*. Si todos los tres jugadores ahora están vivos, añade velos a los tres.",
+    "es": "El Al-Hadikhia escoge 3 jugadores. :reminder: :reminder: :reminder: Despierta al jugador marcado *1* y di \"el Al-Hadikhia ha escogido a\", luego el nombre del jugador, luego \"¿Eliges vivir?\". Él responde asintiendo o denegando con la cabeza. Ponlo a dormir y añade o remueve velos conforme a su respuesta. Repite con los jugadores marcados *2* y *3*. Si todos los tres jugadores ahora están vivos, añade velos a los tres.",
     "sv": "al Hadikhia kan välja 3 spelare. :reminder: :reminder: :reminder: Väck de valda spelarna i ordning. De nickar eller skakar på huvudet. Söv spelaren innan du väcker nästa.",
-    "zh-Hans": "哈迪寂亚选择三名玩家。:reminder: :reminder: :reminder:唤醒标记*1*的玩家，然后对所有玩家宣布“哈迪寂亚选择了某某某”（玩家的名字），然后询问“你是否想要活着？”那名玩家需要给出自己的选择：点头代表活着，摇头代表死去。让那名玩家重新入睡，然后添加或移除该玩家的帷幕标记。分别为*2*和*3*玩家进行同样的结算。如果在结算完这三名玩家的选择后，这三名玩家全部处于存活状态，那么在这些玩家的角色标记上放置帷幕标记。他们现在都死亡。"
+    "zh": "哈迪寂亚选择三名玩家。:reminder: :reminder: :reminder:唤醒标记*1*的玩家，然后对所有玩家宣布“哈迪寂亚选择了某某某”（玩家的名字），然后询问“你是否想要活着？”那名玩家需要给出自己的选择：点头代表活着，摇头代表死去。让那名玩家重新入睡，然后添加或移除该玩家的帷幕标记。分别为*2*和*3*玩家进行同样的结算。如果在结算完这三名玩家的选择后，这三名玩家全部处于存活状态，那么在这些玩家的角色标记上放置帷幕标记。他们现在都死亡。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Al-Hadikhia",
   "how_to_run": {
     "cn": "除首个夜晚外的每个夜晚，唤醒哈迪寂亚。哈迪寂亚要么摇头表示不选择任何人，要么指向任意三名玩家。让哈迪寂亚重新入睡。如果哈迪寂亚没有选择任何人，直接跳过并结束哈迪寂亚的行动，夜晚继续进行。如果哈迪寂亚选择了三名玩家，将这三名被选择的玩家依照哈迪寂亚的选择顺序依次放置“1”、“2”、“3”提示标记。\n根据哈迪寂亚的选择顺序，唤醒第一名玩家。对所有玩家宣布“哈迪寂亚选择了某某某”（玩家的名字），然后询问“你是否想要活着？”那名玩家需要给出自己的选择：点头代表活着，摇头代表死去。让那名玩家重新入睡。如果玩家选择了“活着”，那么如果该玩家已死亡，移除该玩家在魔典中的帷幕标记。如果玩家选择了“死去”，那么如果该玩家存活，在魔典中为该玩家放置帷幕标记（在哈迪寂亚能够杀死该玩家的情况下）。\n分别为第二名和第三名玩家进行同样的结算。\n如果在结算完这三名玩家的选择后，这三名玩家全部处于存活状态，那么在这些玩家的角色标记上放置帷幕标记。他们现在都死亡。\n在黎明时，如常宣布生死状态的改变情况：宣布黄昏时存活但黎明时死亡的玩家死亡，宣布黄昏时死亡但黎明时存活的玩家复活。让这些玩家在城镇广场面板上更新自己的生命标记和投票标记状态。\n如有必要，你可以让所有玩家在哈迪寂亚的能力生效期间保持安静。这也包含了通过语言之外的方式发出的声音。这样可以阻止玩家向他人传递自己选择了存活与否的信号。",
     "en": "Each night except the first, wake the Al-Hadikhia. They may point at three players. If they do, mark these players with the 1, 2 and 3 reminders, in the order the Al-Hadikhia chose. Put the Al-Hadikhia to sleep. Wake the player marked 1 and say “The Al-Hadikhia has chosen” then the name of the player, then “Do you choose to live?” They either nod or shake their head. Put them to sleep. If they chose to live, remove their shroud (if any), and if they choose to die, add a shroud. Repeat for players marked 2 then 3. If all three players are alive (none of them have a shroud) then add a shroud to all three. They die. Declare that the time of silence has ended.\nEach dawn, declare which players marked 1, 2 and 3 are alive and which are dead. Do this even if a player’s alive or dead status did not change during the night.\nYou may need to remind all players to be silent as the Al-Hadikhia acts. This includes non-verbal noise. This prevents players signaling to others about whether they have chosen to live or die."
@@ -99,5 +96,6 @@
       "reason": "If there would be two Demons, one of which was the Scarlet Woman, the Scarlet Woman becomes the Scarlet Woman again."
     }
   ],
-  "image": "assets/tokens/al_hadikhia.png"
+  "image": "assets/tokens/al_hadikhia.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Al-Hadikhia"
 }

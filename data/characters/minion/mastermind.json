@@ -3,26 +3,22 @@
   "type": "minion",
   "name": {
     "en": "Mastermind",
-    "es-419": "Mente Maestra",
+    "es": "Mente Maestra",
     "sv": "Konspiratören",
-    "zh-Hans": "主谋",
     "cn": "主谋"
   },
   "ability": {
     "en": "If the Demon dies by execution (ending the game), play for 1 more day. If a player is then executed, their team loses.",
-    "es-419": "Si el Demonio muere por ejecución (terminando el juego), juega por 1 día mas. Si un jugador es ejecutado después, su equipo pierde.",
+    "es": "Si el Demonio muere por ejecución (terminando el juego), juega por 1 día mas. Si un jugador es ejecutado después, su equipo pierde.",
     "sv": "Om Demonen dör av avrättning (så spelet slutar) pågår spelet 1 dag till. Om en spelare avrättas då förlorar hens lag.",
-    "zh-Hans": "如果恶魔因为死于处决而因此导致游戏结束时，再额外进行一个夜晚和一个白天。在那个白天如果有玩家被处决，他的阵营落败。",
     "cn": "如果恶魔因为死于处决而因此导致游戏结束时，再额外进行一个夜晚和一个白天。在那个白天如果有玩家被处决，他的阵营落败。"
   },
-  "flavor_text": {
-    "en": "\"The tentacles of that monster are nailed to the doors of the church. Mothers and children are dancing in the street. Excellent. Everything is proceeding exactly as I have planned.\"",
-    "es-419": "Los tentáculos de ese monstruo están clavados a las puertas de la iglesia. Las madres y los niños bailan en la calle. Excelente, Todo marcha exactamente como lo había planeado.",
+  "flavor": {
+    "en": "The tentacles of that monster are nailed to the doors of the church. Mothers and children are dancing in the street. Excellent. Everything is proceeding exactly as I have planned.",
+    "es": "Los tentáculos de ese monstruo están clavados a las puertas de la iglesia. Las madres y los niños bailan en la calle. Excelente, Todo marcha exactamente como lo había planeado.",
     "sv": "Monstrets tentakler har spikats upp på kyrkporten. Mödrar och barn dansar på gatorna… Utmärkt. Allting går precis enligt plan.",
-    "zh-Hans": "怪物的触手被钉在了教堂大门上。母亲和孩子们在街上跳舞。棒极了。一切都在按我的计划进行。",
-    "cn": "“怪物的触手被钉在了教堂大门上。母亲和孩子们在街上跳舞。棒极了。一切都在按我的计划进行。”"
+    "cn": "怪物的触手被钉在了教堂大门上。母亲和孩子们在街上跳舞。棒极了。一切都在按我的计划进行。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Mastermind",
   "how_to_run": {
     "cn": "如果恶魔死于处决且游戏即将结束，继续进行游戏。（如常添加帷幕标记。不要说出恶魔已经死了。）\n明天，如果一名善良玩家被处决，宣布游戏结束且邪恶阵营获胜，但是如果一名邪恶玩家被处决，或没有玩家被处决，宣布游戏结束且善良阵营获胜。",
     "en": "If the Demon is executed and dies, and the game would end, continue playing the game. (Add a shroud as normal. Do not say that the Demon has died.)\nTomorrow, if a good player is executed, declare that the game ends and evil wins, but if an evil player or no player is executed, declare that the game ends and good wins."
@@ -89,5 +85,6 @@
       "reason": "A Mastermind that has their ability keeps it if the Vigormortis dies."
     }
   ],
-  "image": "assets/tokens/mastermind.png"
+  "image": "assets/tokens/mastermind.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Mastermind"
 }

@@ -3,26 +3,22 @@
   "type": "outsider",
   "name": {
     "en": "Puzzlemaster",
-    "es-419": "Descifrador",
+    "es": "Descifrador",
     "sv": "Pusselmästaren",
-    "zh-Hans": "解谜大师",
     "cn": "解谜大师"
   },
   "ability": {
     "en": "1 player is drunk, even if you die. If you guess (once) who it is, learn the Demon player, but guess wrong & get false info.",
-    "es-419": "1 jugador está borracho, incluso si mueres. Si adivinas (una sola vez) quién es, aprendes qué jugador es el Demonio, pero si adivinas incorrectamente, recibes información falsa.",
+    "es": "1 jugador está borracho, incluso si mueres. Si adivinas (una sola vez) quién es, aprendes qué jugador es el Demonio, pero si adivinas incorrectamente, recibes información falsa.",
     "sv": "1 spelare är full, även om du dör. Om du gissar rätt på vem (en chans) får du veta vem Demonen är, annars får du falsk info.",
-    "zh-Hans": "一名玩家醉酒，即使你已死亡。每局游戏限一次，你可以猜测谁是那个醉酒的玩家，如果猜对了，你会得知谁是恶魔，但如果猜错了，你会得知错误的“谁是恶魔”信息。",
     "cn": "一名玩家醉酒，即使你已死亡。每局游戏限一次，你可以猜测谁是那个醉酒的玩家，如果猜对了，你会得知谁是恶魔，但如果猜错了，你会得知错误的“谁是恶魔”信息。"
   },
-  "flavor_text": {
-    "en": "\"When one begins to think that some thing is merely some other thing, one is usually on the brink of an error. Patience, patience. Don’t confuse just and should with is and isn’t.\"",
-    "es-419": "Cuando uno empieza a pensar que una cosa es simplemente otra cosa, uno suele estar al borde del error. Paciencia, paciencia. No confundas \"tan solo\" y \"debería\" con \"es\" y \"no es\".",
+  "flavor": {
+    "en": "When one begins to think that some thing is merely some other thing, one is usually on the brink of an error. Patience, patience. Don’t confuse just and should with is and isn’t.",
+    "es": "Cuando uno empieza a pensar que una cosa es simplemente otra cosa, uno suele estar al borde del error. Paciencia, paciencia. No confundas \"tan solo\" y \"debería\" con \"es\" y \"no es\".",
     "sv": "Börjar man tro att en sak bara är en annan sak så är man oftast på väg att begå ett misstag. Tålamod, tålamod. Förväxla inte det som borde vara med det som är.",
-    "zh-Hans": "当一个人开始认为某件事只不过是另一件事时，那么他通常都处在错误的边缘。耐心，耐心。不要把‘只不过’和‘应该’，‘是’和‘不是’混为一谈。",
-    "cn": "“当一个人开始认为某件事只不过是另一件事时，那么他通常都处在错误的边缘。耐心，耐心。不要把‘只不过’和‘应该’，‘是’和‘不是’混为一谈。”"
+    "cn": "当一个人开始认为某件事只不过是另一件事时，那么他通常都处在错误的边缘。耐心，耐心。不要把‘只不过’和‘应该’，‘是’和‘不是’混为一谈。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Puzzlemaster",
   "how_to_run": {
     "cn": "在为首个夜晚做准备时，选择任意一名玩家，并在这名玩家的角色标记旁放置解谜大师的“醉酒”提示标记。该玩家醉酒。\n在游戏中的任意时间里，解谜大师都可以公开或私下找你猜测醉酒的玩家。如果他猜测的玩家，其角色标记旁有解谜大师的“醉酒”提示标记，私下告诉解谜大师谁是恶魔。如果他猜测的玩家，其角色标记旁没有解谜大师的“醉酒”提示标记，告诉解谜大师一名非恶魔玩家是恶魔。（不要告诉解谜大师他猜测结果是否正确。）不论上述哪种情况发生，使用解谜大师的“已猜测”提示标记放置在解谜大师的角色标记旁。\n仅在你有充足的理由的情况下，才让解谜大师的能力使爪牙或恶魔醉酒。绝大多数情况下，让镇民醉酒都是较为优先的选择。",
     "en": "While preparing the first night, mark any player with the\nPuzzlemaster’s DRUNK reminder. This player is drunk.\nAt any time during the game, the Puzzlemaster may guess a player, either publicly or by having a private discussion with you. If their guessed player is marked by the Puzzlemaster’s DRUNK reminder, privately tell the Puzzlemaster which player is the Demon. If their guessed player is not marked by the Puzzlemaster’s DRUNK reminder, privately tell the Puzzlemaster the name of a non-Demon player. (Do not say if they guessed correctly or not.) Either way, mark the Puzzlemaster with the GUESS USED reminder.\nWhile you can make a Minion or the Demon drunk with the Puzzlemaster ability, only do this if you have an excellent reason in mind. It is almost always best to select a Townsfolk player."
@@ -74,5 +70,6 @@
     "experimental"
   ],
   "artist": "Caitlin Murphy",
-  "image": "assets/tokens/puzzlemaster.png"
+  "image": "assets/tokens/puzzlemaster.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Puzzlemaster"
 }

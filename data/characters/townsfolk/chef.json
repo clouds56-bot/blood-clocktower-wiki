@@ -3,32 +3,29 @@
   "type": "townsfolk",
   "name": {
     "en": "Chef",
-    "es-419": "Cocinero",
+    "es": "Cocinero",
     "sv": "Kocken",
-    "zh-Hans": "厨师",
     "cn": "厨师"
   },
   "ability": {
     "en": "You start knowing how many pairs of evil players there are.",
-    "es-419": "Empiezas conociendo cuántos pares de jugadores malvados adyacentes hay.",
+    "es": "Empiezas conociendo cuántos pares de jugadores malvados adyacentes hay.",
     "sv": "I början vet du hur många par onda spelare det finns.",
-    "zh-Hans": "在你的首个夜晚，你会得知场上邻座的邪恶玩家有多少对。",
     "cn": "在你的首个夜晚，你会得知场上邻座的邪恶玩家有多少对。"
   },
-  "flavor_text": {
-    "en": "\"This evening's reservations seem odd. Never before has Mrs Mayweather kept company with that scamp from Hudson Lane. Yet, tonight, they have a table for two. Strange.\"",
-    "es-419": "Las reservaciones de esta noche parecen raras. Nunca antes se ha visto a la Señora Mayweather en compañía de ese bribón del Callejón Hudson. Y sin embargo, esta noche, ellos tienen una mesa para dos. Extraño.",
+  "flavor": {
+    "en": "This evening's reservations seem odd. Never before has Mrs Mayweather kept company with that scamp from Hudson Lane. Yet, tonight, they have a table for two. Strange.",
+    "es": "Las reservaciones de esta noche parecen raras. Nunca antes se ha visto a la Señora Mayweather en compañía de ese bribón del Callejón Hudson. Y sin embargo, esta noche, ellos tienen una mesa para dos. Extraño.",
     "sv": "Aftonens bokningar är allt märkliga. Aldrig tidigare har väl fru Löwensporre hållit sällskap med den där odågan från Gamla brinken. Men inatt har de bokat bord för två. Besynnerligt.",
-    "zh-Hans": "晚的预约有些古怪。我从未见过梅威瑟太太此前跟那个哈德逊巷的流氓有过交情。然而今晚，他们订了一张双人桌。真奇怪。",
-    "cn": "“今晚的预约有些古怪。我从未见过梅威瑟太太此前跟那个哈德逊巷的流氓有过交情。\n然而今晚，他们订了一张双人桌。真奇怪。”"
+    "zh": "晚的预约有些古怪。我从未见过梅威瑟太太此前跟那个哈德逊巷的流氓有过交情。然而今晚，他们订了一张双人桌。真奇怪。",
+    "cn": "今晚的预约有些古怪。我从未见过梅威瑟太太此前跟那个哈德逊巷的流氓有过交情。\n然而今晚，他们订了一张双人桌。真奇怪。"
   },
   "first_night": {
     "en": "Give a finger signal.",
-    "es-419": "Dale una señal con los dedos.",
+    "es": "Dale una señal con los dedos.",
     "sv": "Ge en fingersignal.",
-    "zh-Hans": "用手势比划场上互为邻座的邪恶玩家有多少对（0，1，2，等等）。"
+    "zh": "用手势比划场上互为邻座的邪恶玩家有多少对（0，1，2，等等）。"
   },
-  "source_url": "https://wiki.bloodontheclocktower.com/Chef",
   "how_to_run": {
     "cn": "在首个夜晚里，唤醒厨师。为厨师用手势比划场上互为邻座的邪恶玩家有多少对（0，1，2，等等）。让厨师重新入睡。",
     "en": "During the first night, wake the Chef. Show the Chef fingers (0, 1, 2, etc.) equaling the number of pairs of neighboring evil players. Put the Chef to sleep."
@@ -76,5 +73,6 @@
     "trouble_brewing"
   ],
   "artist": "Aidan Roberts",
-  "image": "assets/tokens/chef.png"
+  "image": "assets/tokens/chef.png",
+  "source_url": "https://wiki.bloodontheclocktower.com/Chef"
 }
