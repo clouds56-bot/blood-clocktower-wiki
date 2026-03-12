@@ -52,15 +52,6 @@ export function handle_open_nomination_window(
     ok: true,
     value: [
       {
-        event_id: `${command.command_id}:NominationWindowOpened`,
-        event_type: 'NominationWindowOpened',
-        created_at,
-        actor_id: command.actor_id,
-        payload: {
-          day_number: command.payload.day_number
-        }
-      },
-      {
         event_id: `${command.command_id}:PhaseAdvanced`,
         event_type: 'PhaseAdvanced',
         created_at,
@@ -70,6 +61,15 @@ export function handle_open_nomination_window(
           subphase: 'nomination_window',
           day_number: state.day_number,
           night_number: state.night_number
+        }
+      },
+      {
+        event_id: `${command.command_id}:NominationWindowOpened`,
+        event_type: 'NominationWindowOpened',
+        created_at,
+        actor_id: command.actor_id,
+        payload: {
+          day_number: command.payload.day_number
         }
       }
     ]
