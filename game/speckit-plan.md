@@ -83,6 +83,33 @@ Complete death consequences and win logic.
 
 ---
 
+### SPEC-03.1 CLI Interface (Phase 3.1)
+
+**Goal**
+Provide an interactive CLI to run commands against the engine and inspect emitted events + current state.
+
+**Tasks**
+- Add interactive REPL entrypoint under `game/src/cli/`.
+- Add human-friendly command parser (text command -> typed engine command).
+- Add local CLI commands for inspection (`help`, `state`, `events`, `players`, `player`, `new`, `quit`).
+- Route engine commands through `handle_command` + `apply_events` only.
+- Add output formatters for event stream and state snapshots (brief + json).
+- Add package script for running CLI.
+
+**Deliverables**
+- `game/src/cli/repl.ts`
+- `game/src/cli/command-parser.ts`
+- `game/src/cli/formatters.ts`
+- `game/package.json` script update (`cli`)
+
+**Definition of Done**
+- CLI can execute existing Phase 1-3 commands.
+- CLI prints engine errors with stable code/message output.
+- CLI shows emitted events after successful command execution.
+- CLI can print current state in both brief and JSON modes.
+
+---
+
 ### SPEC-04 Adjudication Prompt System
 
 **Goal**
@@ -199,10 +226,11 @@ Stabilize API and improve developer workflow.
 1. SPEC-01
 2. SPEC-02
 3. SPEC-03
-4. SPEC-04 + SPEC-05 (parallel possible after SPEC-02/03)
-5. SPEC-06
-6. SPEC-07
-7. SPEC-08
+4. SPEC-03.1
+5. SPEC-04 + SPEC-05 (parallel possible after SPEC-02/03)
+6. SPEC-06
+7. SPEC-07
+8. SPEC-08
 
 ## Test Matrix (minimum)
 
@@ -214,6 +242,8 @@ Stabilize API and improve developer workflow.
 - dead vote single-use rule
 - dead cannot die again
 - automatic win checks + forced victory
+- CLI command parser validity/usage errors
+- CLI engine-command dispatch emits event stream
 - adjudication prompt lifecycle
 - projection non-leak guarantees
 - plugin interrupt behavior

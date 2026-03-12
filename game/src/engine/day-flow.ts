@@ -52,15 +52,6 @@ export function handle_open_nomination_window(
     ok: true,
     value: [
       {
-        event_id: `${command.command_id}:NominationWindowOpened`,
-        event_type: 'NominationWindowOpened',
-        created_at,
-        actor_id: command.actor_id,
-        payload: {
-          day_number: command.payload.day_number
-        }
-      },
-      {
         event_id: `${command.command_id}:PhaseAdvanced`,
         event_type: 'PhaseAdvanced',
         created_at,
@@ -70,6 +61,15 @@ export function handle_open_nomination_window(
           subphase: 'nomination_window',
           day_number: state.day_number,
           night_number: state.night_number
+        }
+      },
+      {
+        event_id: `${command.command_id}:NominationWindowOpened`,
+        event_type: 'NominationWindowOpened',
+        created_at,
+        actor_id: command.actor_id,
+        payload: {
+          day_number: command.payload.day_number
         }
       }
     ]
@@ -87,7 +87,10 @@ export function handle_nominate_player(
   }
 
   if (!state.day_state.nomination_window_open || state.subphase !== 'nomination_window') {
-    return error('nomination_window_not_open', 'nomination requires nomination_window subphase');
+    return error(
+      'nomination_window_not_open',
+      `nomination requires nomination_window subphase with open window; got phase=${state.phase} subphase=${state.subphase} nomination_window_open=${state.day_state.nomination_window_open}`
+    );
   }
 
   const nominator = state.players_by_id[command.payload.nominator_player_id];
@@ -148,17 +151,6 @@ export function handle_open_vote(
     ok: true,
     value: [
       {
-        event_id: `${command.command_id}:VoteOpened`,
-        event_type: 'VoteOpened',
-        created_at,
-        actor_id: command.actor_id,
-        payload: {
-          nomination_id: command.payload.nomination_id,
-          nominee_player_id: command.payload.nominee_player_id,
-          opened_by_player_id: command.payload.opened_by_player_id
-        }
-      },
-      {
         event_id: `${command.command_id}:PhaseAdvanced`,
         event_type: 'PhaseAdvanced',
         created_at,
@@ -168,6 +160,17 @@ export function handle_open_vote(
           subphase: 'vote_in_progress',
           day_number: state.day_number,
           night_number: state.night_number
+        }
+      },
+      {
+        event_id: `${command.command_id}:VoteOpened`,
+        event_type: 'VoteOpened',
+        created_at,
+        actor_id: command.actor_id,
+        payload: {
+          nomination_id: command.payload.nomination_id,
+          nominee_player_id: command.payload.nominee_player_id,
+          opened_by_player_id: command.payload.opened_by_player_id
         }
       }
     ]
@@ -320,16 +323,6 @@ export function handle_resolve_execution(
       ok: true,
       value: [
         {
-          event_id: `${command.command_id}:ExecutionResolutionCompleted`,
-          event_type: 'ExecutionResolutionCompleted',
-          created_at,
-          actor_id: command.actor_id,
-          payload: {
-            day_number: state.day_number,
-            had_execution: false
-          }
-        },
-        {
           event_id: `${command.command_id}:PhaseAdvanced`,
           event_type: 'PhaseAdvanced',
           created_at,
@@ -339,6 +332,16 @@ export function handle_resolve_execution(
             subphase: 'execution_resolution',
             day_number: state.day_number,
             night_number: state.night_number
+          }
+        },
+        {
+          event_id: `${command.command_id}:ExecutionResolutionCompleted`,
+          event_type: 'ExecutionResolutionCompleted',
+          created_at,
+          actor_id: command.actor_id,
+          payload: {
+            day_number: state.day_number,
+            had_execution: false
           }
         }
       ]
@@ -353,16 +356,6 @@ export function handle_resolve_execution(
       ok: true,
       value: [
         {
-          event_id: `${command.command_id}:ExecutionResolutionCompleted`,
-          event_type: 'ExecutionResolutionCompleted',
-          created_at,
-          actor_id: command.actor_id,
-          payload: {
-            day_number: state.day_number,
-            had_execution: false
-          }
-        },
-        {
           event_id: `${command.command_id}:PhaseAdvanced`,
           event_type: 'PhaseAdvanced',
           created_at,
@@ -372,6 +365,16 @@ export function handle_resolve_execution(
             subphase: 'execution_resolution',
             day_number: state.day_number,
             night_number: state.night_number
+          }
+        },
+        {
+          event_id: `${command.command_id}:ExecutionResolutionCompleted`,
+          event_type: 'ExecutionResolutionCompleted',
+          created_at,
+          actor_id: command.actor_id,
+          payload: {
+            day_number: state.day_number,
+            had_execution: false
           }
         }
       ]
@@ -386,6 +389,18 @@ export function handle_resolve_execution(
   return {
     ok: true,
     value: [
+      {
+        event_id: `${command.command_id}:PhaseAdvanced`,
+        event_type: 'PhaseAdvanced',
+        created_at,
+        actor_id: command.actor_id,
+        payload: {
+          phase: 'day',
+          subphase: 'execution_resolution',
+          day_number: state.day_number,
+          night_number: state.night_number
+        }
+      },
       {
         event_id: `${command.command_id}:ExecutionOccurred`,
         event_type: 'ExecutionOccurred',
@@ -415,18 +430,6 @@ export function handle_resolve_execution(
         payload: {
           day_number: state.day_number,
           had_execution: true
-        }
-      },
-      {
-        event_id: `${command.command_id}:PhaseAdvanced`,
-        event_type: 'PhaseAdvanced',
-        created_at,
-        actor_id: command.actor_id,
-        payload: {
-          phase: 'day',
-          subphase: 'execution_resolution',
-          day_number: state.day_number,
-          night_number: state.night_number
         }
       }
     ]
