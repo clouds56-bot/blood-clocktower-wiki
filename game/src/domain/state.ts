@@ -1,0 +1,17 @@
+import type { GameState } from './types.js';
+
+export function create_initial_state(game_id: string): GameState {
+  return {
+    game_id,
+    script_id: null,
+    edition_id: null,
+    status: 'setup',
+    phase: 'setup',
+    subphase: 'idle',
+    day_number: 0,
+    night_number: 0,
+    players_by_id: {},
+    seat_order: [],
+    domain_events: []
+  };
+}
