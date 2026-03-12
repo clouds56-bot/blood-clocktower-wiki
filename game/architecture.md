@@ -10,6 +10,7 @@ Goals:
 - Storyteller adjudication prompts for discretionary cases;
 - strict visibility model (Storyteller / player / public);
 - social-claims logging (claimed character, claimed event) for later review.
+- interactive CLI for command execution, event inspection, and state inspection.
 
 ## Naming Convention (Serialization-Friendly)
 
@@ -32,7 +33,7 @@ This convention is required for easy persistence and de/serialization consistenc
 
 ## Core Architecture
 
-Split into 5 layers:
+Split into 6 layers:
 
 1. **Core Rules Engine**
    - setup flow, phase machine, nomination/vote/execution/death/win logic.
@@ -54,6 +55,11 @@ Split into 5 layers:
    - stores player statements as non-authoritative records.
    - includes claimed character + claimed event timeline.
 
+6. **CLI Interaction Layer**
+   - interactive shell for running engine commands.
+   - command parser (human-friendly input -> typed engine command).
+   - console formatters for event stream and state snapshots.
+
 ---
 
 ## Project Layout (under `game/`)
@@ -74,6 +80,9 @@ Split into 5 layers:
 - `game/src/projections/player.ts`
 - `game/src/projections/public.ts`
 - `game/src/social/claims.ts`          # claimed character/event models
+- `game/src/cli/command-parser.ts`     # human-friendly command parsing
+- `game/src/cli/formatters.ts`         # state/event formatting for terminal output
+- `game/src/cli/repl.ts`               # interactive CLI loop
 - `game/src/index.ts`                  # engine public API
 - `game/tests/...`                     # scenario + invariant + projection tests
 - `game/package.json`
@@ -257,8 +266,44 @@ Continuously validate:
 ## Delivery Strategy
 
 Phase 1: engine skeleton + state/types + reducer + invariants.  
-Phase 2: day/night phase machine + vote/execution/death/win.  
-Phase 3: prompted adjudication + visibility projections.  
-Phase 4: plugin runtime + sample characters (Imp, Poisoner).  
-Phase 5: social claims tracking + replay/review tooling.  
-Phase 6: scenario tests + replay snapshots + API stabilization.
+Phase 2: phase machine + day procedure (nomination/vote/execution procedure).  
+Phase 3: death consequences + dead vote + win checks + forced victory.  
+Phase 3.1: CLI interaction shell (command execution + event/state inspection) over existing engine API.  
+Phase 4: prompted adjudication queue + `ResolvePrompt` lifecycle.  
+Phase 5: visibility projections + anti-leak tests.  
+Phase 6: plugin runtime + sample characters (Imp, Poisoner).  
+Phase 7: social claims tracking + timeline tooling.  
+Phase 8: hardening, fixture matrix, and API/DX stabilization.
+
+## CLI By Phase
+
+- **Phase 3.1 baseline**
+  - Support direct command execution for current engine commands.
+  - Show emitted domain events after each accepted command.
+  - Show state in brief and JSON modes.
+  - Keep all state transitions event-driven (`handle_command` + `apply_events`) with no direct state mutation.
+
+- **Phase 4 (adjudication prompts)**
+  - Add CLI commands for prompt listing, prompt details, and `ResolvePrompt` dispatch.
+  - Render pending prompts in concise storyteller-focused output.
+
+- **Phase 5 (visibility projections)**
+  - Add projection-aware CLI views:
+    - `view storyteller`
+    - `view player <player_id>`
+    - `view public`
+  - Ensure output is deny-by-default for hidden fields in non-storyteller views.
+
+- **Phase 6 (plugin runtime)**
+  - Add plugin debugging commands:
+    - list registered plugins
+    - inspect hook dispatch output
+    - inspect interrupt queue and wake queue
+
+- **Phase 7 (social claims)**
+  - Add claim lifecycle commands (`RecordClaim`, `RetractClaim`, `MarkClaimStatus`).
+  - Add timeline filters (by day/phase/speaker/subject/type).
+
+- **Phase 8 (hardening + DX)**
+  - Stabilize CLI error code display and command help.
+  - Add snapshot-style CLI scenario fixtures for regression testing.
