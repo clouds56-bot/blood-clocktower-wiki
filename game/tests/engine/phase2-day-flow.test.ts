@@ -470,3 +470,44 @@ test('second execution resolution same day is rejected', () => {
     assert.equal(secondResolve.error.code, 'execution_already_attempted_today');
   }
 });
+
+test('open vote emits PhaseAdvanced before VoteOpened', () => {
+  let state = bootstrap_day_state();
+  state = run_command(state, {
+    command_id: 'c-open',
+    command_type: 'OpenNominationWindow',
+    payload: { day_number: 1 }
+  });
+  state = run_command(state, {
+    command_id: 'c-nom1',
+    command_type: 'NominatePlayer',
+    payload: {
+      nomination_id: 'n1',
+      day_number: 1,
+      nominator_player_id: 'p1',
+      nominee_player_id: 'p2'
+    }
+  });
+
+  const result = handle_command(
+    state,
+    {
+      command_id: 'c-v-open-order',
+      command_type: 'OpenVote',
+      payload: {
+        nomination_id: 'n1',
+        nominee_player_id: 'p2',
+        opened_by_player_id: 'p1'
+      }
+    },
+    '2026-03-12T01:01:00.000Z'
+  );
+
+  assert.equal(result.ok, true);
+  if (!result.ok) {
+    return;
+  }
+
+  assert.equal(result.value[0]?.event_type, 'PhaseAdvanced');
+  assert.equal(result.value[1]?.event_type, 'VoteOpened');
+});
