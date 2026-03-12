@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   ci:
-    name: Typecheck & Test
+    name: Typecheck, Test & Coverage
     runs-on: ubuntu-latest
 
     steps:
@@ -39,5 +39,12 @@ jobs:
       - name: Typecheck
         run: pnpm --filter game run typecheck
 
-      - name: Test
-        run: pnpm --filter game run test
+      - name: Test with coverage
+        run: pnpm --filter game run test:coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./game/coverage/lcov.info
+          flags: game
+          fail_ci_if_error: false

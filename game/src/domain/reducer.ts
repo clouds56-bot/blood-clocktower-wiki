@@ -27,6 +27,18 @@ function clone_state(state: GameState): GameState {
     },
     execution_history: state.execution_history.map((item) => ({ ...item })),
     death_history: state.death_history.map((item) => ({ ...item })),
+    prompts_by_id: Object.fromEntries(
+      Object.entries(state.prompts_by_id).map(([prompt_id, prompt]) => [
+        prompt_id,
+        {
+          ...prompt,
+          options: prompt.options.map((option) => ({ ...option })),
+          resolution_payload: prompt.resolution_payload ? { ...prompt.resolution_payload } : null
+        }
+      ])
+    ),
+    pending_prompts: [...state.pending_prompts],
+    storyteller_notes: state.storyteller_notes.map((note) => ({ ...note })),
     winning_team: state.winning_team,
     end_reason: state.end_reason,
     ended_at_event_id: state.ended_at_event_id,
@@ -224,6 +236,62 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
       if (!player.alive) {
         player.dead_vote_available = false;
       }
+      break;
+    }
+    case 'PromptQueued': {
+      next.prompts_by_id[event.payload.prompt_id] = {
+        prompt_id: event.payload.prompt_id,
+        kind: event.payload.kind,
+        reason: event.payload.reason,
+        visibility: event.payload.visibility,
+        options: event.payload.options.map((option) => ({ ...option })),
+        status: 'pending',
+        created_at_event_id: event.event_id,
+        resolved_at_event_id: null,
+        resolution_payload: null,
+        notes: null
+      };
+      if (!next.pending_prompts.includes(event.payload.prompt_id)) {
+        next.pending_prompts.push(event.payload.prompt_id);
+      }
+      break;
+    }
+    case 'PromptResolved': {
+      const prompt = next.prompts_by_id[event.payload.prompt_id];
+      if (!prompt) {
+        throw new Error(`prompt_not_found:${event.payload.prompt_id}`);
+      }
+      prompt.status = 'resolved';
+      prompt.resolved_at_event_id = event.event_id;
+      prompt.resolution_payload = {
+        selected_option_id: event.payload.selected_option_id,
+        freeform: event.payload.freeform
+      };
+      prompt.notes = event.payload.notes;
+      next.pending_prompts = next.pending_prompts.filter((prompt_id) => prompt_id !== event.payload.prompt_id);
+      break;
+    }
+    case 'PromptCancelled': {
+      const prompt = next.prompts_by_id[event.payload.prompt_id];
+      if (!prompt) {
+        throw new Error(`prompt_not_found:${event.payload.prompt_id}`);
+      }
+      prompt.status = 'cancelled';
+      prompt.resolved_at_event_id = event.event_id;
+      prompt.notes = event.payload.reason;
+      next.pending_prompts = next.pending_prompts.filter((prompt_id) => prompt_id !== event.payload.prompt_id);
+      break;
+    }
+    case 'StorytellerChoiceMade': {
+      break;
+    }
+    case 'StorytellerRulingRecorded': {
+      next.storyteller_notes.push({
+        note_id: event.event_id,
+        prompt_id: event.payload.prompt_id,
+        text: event.payload.note,
+        created_at_event_id: event.event_id
+      });
       break;
     }
     case 'WinCheckCompleted': {

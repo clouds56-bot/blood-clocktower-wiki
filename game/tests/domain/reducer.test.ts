@@ -126,3 +126,51 @@ test('reducer applies assignments to existing player', () => {
   assert.equal(player.perceived_character_id, 'imp');
   assert.equal(player.true_alignment, 'evil');
 });
+
+test('reducer tracks prompt lifecycle and storyteller notes', () => {
+  const state = replay_events(
+    [
+      {
+        event_id: 'p1',
+        event_type: 'PromptQueued',
+        created_at: '2026-03-13T00:00:00.000Z',
+        payload: {
+          prompt_id: 'pr1',
+          kind: 'false_info',
+          reason: 'pick false data',
+          visibility: 'storyteller',
+          options: [
+            { option_id: 'a', label: 'A' },
+            { option_id: 'b', label: 'B' }
+          ]
+        }
+      },
+      {
+        event_id: 'p2',
+        event_type: 'PromptResolved',
+        created_at: '2026-03-13T00:00:01.000Z',
+        payload: {
+          prompt_id: 'pr1',
+          selected_option_id: 'b',
+          freeform: null,
+          notes: 'pick b'
+        }
+      },
+      {
+        event_id: 'p3',
+        event_type: 'StorytellerRulingRecorded',
+        created_at: '2026-03-13T00:00:02.000Z',
+        payload: {
+          prompt_id: 'pr1',
+          note: 'resolved for balance'
+        }
+      }
+    ],
+    create_initial_state('g1')
+  );
+
+  assert.deepEqual(state.pending_prompts, []);
+  assert.equal(state.prompts_by_id.pr1?.status, 'resolved');
+  assert.equal(state.prompts_by_id.pr1?.resolution_payload?.selected_option_id, 'b');
+  assert.equal(state.storyteller_notes.length, 1);
+});
