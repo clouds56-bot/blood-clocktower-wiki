@@ -154,7 +154,6 @@ test('resolve prompt emits adjudication event stream', () => {
     '2026-03-13T00:00:00.000Z'
   );
 
-  assert.equal(result.ok, true);
   if (!result.ok) {
     assert.fail(`unexpected engine error ${result.error.code}: ${result.error.message}`);
   }
