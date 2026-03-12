@@ -184,11 +184,17 @@ export interface PlayerSurvivedExecutionEvent extends BaseDomainEvent {
 
 export interface ExecutionConsequencesResolvedEvent extends BaseDomainEvent {
   event_type: 'ExecutionConsequencesResolved';
-  payload: {
-    day_number: number;
-    player_id: PlayerId;
-    outcome: 'none' | 'died' | 'survived';
-  };
+  payload:
+    | {
+        day_number: number;
+        outcome: 'none';
+        player_id: null;
+      }
+    | {
+        day_number: number;
+        outcome: 'died' | 'survived';
+        player_id: PlayerId;
+      };
 }
 
 export interface PlayerDiedEvent extends BaseDomainEvent {

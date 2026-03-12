@@ -50,12 +50,12 @@ export function handle_resolve_execution_consequences(
           event_type: 'ExecutionConsequencesResolved',
           created_at,
           actor_id: command.actor_id,
-          payload: {
-            day_number: state.day_number,
-            player_id: '',
-            outcome: 'none'
-          }
+        payload: {
+          day_number: state.day_number,
+          player_id: null,
+          outcome: 'none'
         }
+      }
       ]
     };
   }
