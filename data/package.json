@@ -19,7 +19,11 @@
     "scrape:glossary:en": "node scripts/scrape-glossary-en.js",
     "scrape:glossary:cn": "node scripts/scrape-glossary-cn.js",
     "scrape:glossary": "pnpm run scrape:glossary:en && pnpm run scrape:glossary:cn",
+    "scrape:rules:en": "node scripts/scrape-rules-en.js",
+    "scrape:rules:cn": "node scripts/scrape-rules-cn.js",
+    "scrape:rules": "pnpm run scrape:rules:en && pnpm run scrape:rules:cn",
     "build:glossary": "node scripts/pipeline/glossary.js",
+    "build:rules": "node scripts/pipeline/rules.js",
     "test": "echo \"No tests\" && exit 0"
   },
   "dependencies": {
