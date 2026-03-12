@@ -1,19 +1,51 @@
 ---
 import 'uno.css';
-import { getLangFromUrl, useTranslations, getBasePath, stripLangFromPath, getSupportedLangs } from '../i18n/utils';
+import { getLangFromUrl, useTranslations, getBasePath, stripLangFromPath, getSupportedLangs, stripBase } from '../i18n/utils';
 import LanguagePicker from '../components/LanguagePicker.astro';
 
 interface Props {
   title?: string;
+  section?: 'home' | 'characters' | 'editions' | 'rules' | 'glossary';
 }
 
-const { title = "Blood on the Clocktower — Wiki" } = Astro.props;
+type SectionKey = NonNullable<Props['section']>;
+
+const { title = 'Blood on the Clocktower - Wiki', section } = Astro.props;
 const langCode = getLangFromUrl(Astro.url);
 const { t, lang } = useTranslations(langCode);
 const base = getBasePath(langCode);
 const pathBase = stripLangFromPath(Astro.url.pathname);
 const canonicalUrl = `${Astro.url.origin}${base}${pathBase === '/' ? '' : pathBase}`;
 const supportedLangs = getSupportedLangs();
+const hasSidebar = Astro.slots.has('sidebar');
+const currentPath = stripBase(Astro.url.pathname).replace(/\/$/, '') || '/';
+
+const labels: Record<SectionKey, string> = {
+  home: langCode === 'cn' ? '总览' : 'Overview',
+  characters: t('nav.characters'),
+  editions: t('nav.editions'),
+  rules: t('nav.rules'),
+  glossary: t('nav.glossary'),
+};
+
+const navItems: Array<{ key: SectionKey; label: string; href: string; exact: boolean }> = [
+  { key: 'home', label: labels.home, href: `${base}/`, exact: true },
+  { key: 'characters', label: labels.characters, href: `${base}/characters`, exact: false },
+  { key: 'editions', label: labels.editions, href: `${base}/editions`, exact: false },
+  { key: 'rules', label: labels.rules, href: `${base}/rules`, exact: false },
+  { key: 'glossary', label: labels.glossary, href: `${base}/rules/glossary`, exact: false },
+];
+
+const isActive = (href: string, exact: boolean) => {
+  const normalizedHref = href.replace(/\/$/, '') || '/';
+  if (exact) {
+    return currentPath === normalizedHref;
+  }
+
+  return currentPath === normalizedHref || currentPath.startsWith(`${normalizedHref}/`);
+};
+
+const currentSection: SectionKey = section || navItems.find((item) => isActive(item.href, item.exact))?.key || 'home';
 ---
 
 <!doctype html>
@@ -48,6 +80,7 @@ const supportedLangs = getSupportedLangs();
         --bg-900: #0e0b12;
         --bg-800: #16121f;
         --bg-700: #221b2e;
+        --bg-650: #2d233d;
         --ink-50: #f5f2eb;
         --ink-200: #d6d0c7;
         --accent-gold: #d7b46a;
@@ -77,6 +110,11 @@ const supportedLangs = getSupportedLangs();
         box-shadow: var(--shadow-soft);
       }
 
+      .surface-panel-muted {
+        background: linear-gradient(180deg, rgba(45, 35, 61, 0.72), rgba(19, 15, 28, 0.72));
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
       .soft-divider {
         border-color: rgba(215, 180, 106, 0.2);
       }
@@ -84,33 +122,123 @@ const supportedLangs = getSupportedLangs();
       .token-ring {
         box-shadow: 0 0 0 2px rgba(215, 180, 106, 0.3), 0 10px 30px rgba(0, 0, 0, 0.35);
       }
+
+      .rail-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        border-radius: 1rem;
+        padding: 0.9rem 1rem;
+        color: var(--ink-200);
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: 180ms ease;
+      }
+
+      .rail-link:hover {
+        color: var(--ink-50);
+        border-color: rgba(215, 180, 106, 0.28);
+        transform: translateX(4px);
+      }
+
+      .rail-link.active {
+        color: var(--ink-50);
+        background: linear-gradient(135deg, rgba(215, 180, 106, 0.18), rgba(90, 162, 255, 0.08));
+        border-color: rgba(215, 180, 106, 0.42);
+      }
+
+      .tag-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        border-radius: 999px;
+        border: 1px solid rgba(215, 180, 106, 0.28);
+        padding: 0.35rem 0.7rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent-gold);
+      }
     </style>
 
-    <header class="sticky top-0 z-20 backdrop-blur-md bg-[#0f0c16]/85 border-b border-[rgba(215,180,106,0.25)]">
-      <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between px-4 py-3 gap-4">
-        <div class="flex items-center gap-4">
-          <a href={`${base}/`} class="font-display text-xl sm:text-2xl text-[color:var(--ink-50)] hover:text-[color:var(--accent-gold)] transition">
-            BotC Wiki
-          </a>
-          <LanguagePicker />
+    <div class="mx-auto max-w-[1500px] px-4 py-4 sm:px-6 sm:py-6">
+      <div class="lg:grid lg:grid-cols-[300px_minmax(0,1fr)] lg:gap-6">
+        <aside class="space-y-4 lg:sticky lg:top-4 self-start">
+          <section class="surface-panel rounded-[28px] p-5 sm:p-6">
+            <p class="uppercase tracking-[0.35em] text-xs text-[color:var(--ink-200)]">
+              Blood on the Clocktower
+            </p>
+            <a href={`${base}/`} class="mt-3 inline-block font-display text-3xl leading-none text-[color:var(--ink-50)] hover:text-[color:var(--accent-gold)] transition">
+              Wiki Atlas
+            </a>
+            <p class="mt-4 text-sm leading-relaxed text-[color:var(--ink-200)]">
+              {langCode === 'cn'
+                ? '保留原有气质，同时把资料入口、导航和侧栏重新编排得更清晰。'
+                : 'The same candlelit theme, reorganized into a clearer atlas of characters, editions, and rules.'}
+            </p>
+            <div class="mt-5 flex flex-wrap gap-2">
+              <LanguagePicker />
+            </div>
+            <nav class="mt-6 grid gap-2">
+              {navItems.map((item) => (
+                <a href={item.href} class={`rail-link ${isActive(item.href, item.exact) ? 'active' : ''}`}>
+                  <span>{item.label}</span>
+                  <span aria-hidden="true">-></span>
+                </a>
+              ))}
+            </nav>
+          </section>
+
+          <section class="surface-panel rounded-[28px] p-5 sm:p-6">
+            <div class="flex items-center justify-between gap-3">
+              <p class="uppercase tracking-[0.32em] text-xs text-[color:var(--ink-200)]">
+                {langCode === 'cn' ? '当前区域' : 'Current Area'}
+              </p>
+              <span class="tag-chip">{labels[currentSection]}</span>
+            </div>
+
+            {hasSidebar ? (
+              <div class="mt-4">
+                <slot name="sidebar" />
+              </div>
+            ) : (
+              <div class="mt-4 space-y-3 text-sm text-[color:var(--ink-200)]">
+                <div class="surface-panel-muted rounded-2xl p-4">
+                  <p class="font-semibold text-[color:var(--ink-50)]">
+                    {langCode === 'cn' ? '快速开始' : 'Quick Start'}
+                  </p>
+                  <p class="mt-2 leading-relaxed">
+                    {langCode === 'cn'
+                      ? '先看剧本，再跳到角色和规则页，就能很快建立全局印象。'
+                      : 'Start with an edition, then jump into characters and rules to build context quickly.'}
+                  </p>
+                </div>
+                <div class="grid gap-2">
+                  <a href={`${base}/editions`} class="rail-link">
+                    <span>{t('nav.editions')}</span>
+                    <span aria-hidden="true">-></span>
+                  </a>
+                  <a href={`${base}/characters`} class="rail-link">
+                    <span>{t('nav.characters')}</span>
+                    <span aria-hidden="true">-></span>
+                  </a>
+                </div>
+              </div>
+            )}
+          </section>
+        </aside>
+
+        <div class="mt-6 min-w-0 lg:mt-0">
+          <main class="space-y-6 min-h-[calc(100vh-140px)]">
+            <slot />
+          </main>
+
+          <footer class="mt-6 border-t border-[rgba(215,180,106,0.2)] px-2 pt-4 text-sm text-[color:var(--ink-200)]">
+            {t('footer.text')}
+          </footer>
         </div>
-        <nav class="flex gap-4 text-sm sm:text-base">
-          <a href={`${base}/characters`} class="text-[color:var(--ink-200)] hover:text-[color:var(--accent-gold)] transition">{t('nav.characters')}</a>
-          <a href={`${base}/editions`} class="text-[color:var(--ink-200)] hover:text-[color:var(--accent-gold)] transition">{t('nav.editions')}</a>
-          <a href={`${base}/rules`} class="text-[color:var(--ink-200)] hover:text-[color:var(--accent-gold)] transition">{t('nav.rules')}</a>
-          <a href={`${base}/rules/glossary`} class="text-[color:var(--ink-200)] hover:text-[color:var(--accent-gold)] transition">{t('nav.glossary')}</a>
-        </nav>
       </div>
-    </header>
-
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 min-h-[calc(100vh-160px)]">
-      <slot />
-    </main>
-
-    <footer class="border-t border-[rgba(215,180,106,0.2)] text-[color:var(--ink-200)] text-center p-4 text-sm mt-8">
-      <div class="max-w-6xl mx-auto">
-        {t('footer.text')}
-      </div>
-    </footer>
+    </div>
   </body>
 </html>

@@ -21,18 +21,143 @@ const data = rule.data;
 const { lang } = Astro.params;
 const validatedLang = lang && supportedLangCodes.includes(lang) ? lang : defaultLang;
 const { t } = useTranslations(validatedLang);
+const base = getBasePath(validatedLang);
+
+const formatLabel = (value: string) => value.replace(/_/g, ' ').replace(/\b\w/g, (match) => match.toUpperCase());
+const roleLabels: Record<string, string> = {
+  townsfolk: validatedLang === 'cn' ? '镇民' : 'Townsfolk',
+  outsiders: validatedLang === 'cn' ? '外来者' : 'Outsiders',
+  outsider: validatedLang === 'cn' ? '外来者' : 'Outsiders',
+  minions: validatedLang === 'cn' ? '爪牙' : 'Minions',
+  minion: validatedLang === 'cn' ? '爪牙' : 'Minions',
+  demon: validatedLang === 'cn' ? '恶魔' : 'Demon',
+};
+type SetupDistribution = {
+  townsfolk?: number;
+  outsiders?: number;
+  outsider?: number;
+  minions?: number;
+  minion?: number;
+  demon?: number;
+};
+
+const setupEntries = Object.entries(data.setups || {}) as Array<[string, SetupDistribution]>;
+const modifiers = Object.entries(data.modifiers || {});
+const notes = Array.isArray(data.notes) ? data.notes : [];
+const extraSections = Object.entries(data).filter(([key]) => !['title', 'description', 'setups', 'modifiers', 'notes'].includes(key));
 ---
 
-<BaseLayout title={`${rule.id} | Wiki`}>
-  <div class="mb-6">
-    <a href={`${getBasePath(validatedLang)}/rules`} class="text-indigo-600 hover:underline">{t('rules.back')}</a>
-  </div>
-
-  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
-    <h1 class="text-4xl font-extrabold text-indigo-900 mb-6 capitalize">{rule.id.replace(/-/g, ' ')}</h1>
-
-    <div class="prose max-w-none text-slate-700">
-      <pre class="bg-slate-50 p-4 rounded-lg overflow-x-auto text-sm border border-slate-200">{JSON.stringify(data, null, 2)}</pre>
+<BaseLayout title={`${rule.id} | Wiki`} section="rules">
+  <div slot="sidebar" class="space-y-3 text-sm text-[color:var(--ink-200)]">
+    <a href={`${base}/rules`} class="rail-link">
+      <span>{t('rules.back').replace('← ', '')}</span>
+      <span aria-hidden="true">-></span>
+    </a>
+    <div class="surface-panel-muted rounded-2xl p-4">
+      <p class="font-semibold text-[color:var(--ink-50)]">
+        {validatedLang === 'cn' ? '页面内容' : 'On This Page'}
+      </p>
+      <div class="mt-3 grid gap-2">
+        {setupEntries.length > 0 && <a href="#setup-table" class="rail-link"><span>{validatedLang === 'cn' ? '人数配置' : 'Player setup'}</span><span aria-hidden="true">-></span></a>}
+        {modifiers.length > 0 && <a href="#modifiers" class="rail-link"><span>{validatedLang === 'cn' ? '修正项' : 'Modifiers'}</span><span aria-hidden="true">-></span></a>}
+        {notes.length > 0 && <a href="#notes" class="rail-link"><span>{validatedLang === 'cn' ? '备注' : 'Notes'}</span><span aria-hidden="true">-></span></a>}
+      </div>
     </div>
   </div>
+
+  <section class="surface-panel rounded-[30px] p-6 sm:p-8">
+    <a href={`${base}/rules`} class="text-sm text-[color:var(--accent-gold)] hover:underline">{t('rules.back')}</a>
+    <p class="mt-5 uppercase tracking-[0.35em] text-xs text-[color:var(--ink-200)]">
+      {validatedLang === 'cn' ? '规则参考' : 'Rule Reference'}
+    </p>
+    <h1 class="mt-3 font-display text-4xl capitalize text-[color:var(--ink-50)] sm:text-5xl">
+      {data.title || rule.id.replace(/-/g, ' ')}
+    </h1>
+    {data.description && (
+      <p class="mt-4 max-w-3xl text-base leading-relaxed text-[color:var(--ink-200)] sm:text-lg">
+        {data.description}
+      </p>
+    )}
+  </section>
+
+  {setupEntries.length > 0 && (
+    <section id="setup-table" class="surface-panel rounded-[30px] p-6 sm:p-8">
+      <h2 class="font-display text-3xl text-[color:var(--ink-50)]">
+        {validatedLang === 'cn' ? '人数配置' : 'Player Setup'}
+      </h2>
+      <div class="mt-6 overflow-x-auto">
+        <table class="min-w-full border-separate border-spacing-y-2 text-left text-sm">
+          <thead>
+            <tr class="text-[color:var(--ink-200)]">
+              <th class="px-4 py-2">{validatedLang === 'cn' ? '玩家数' : 'Players'}</th>
+              <th class="px-4 py-2">{roleLabels.townsfolk}</th>
+              <th class="px-4 py-2">{roleLabels.outsider}</th>
+              <th class="px-4 py-2">{roleLabels.minion}</th>
+              <th class="px-4 py-2">{roleLabels.demon}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {setupEntries.map(([playerCount, distribution]) => (
+              <tr class="surface-panel-muted">
+                <td class="rounded-l-2xl px-4 py-3 font-semibold text-[color:var(--ink-50)]">
+                  {formatLabel(playerCount)}
+                </td>
+                <td class="px-4 py-3 text-[color:var(--ink-200)]">{distribution.townsfolk}</td>
+                <td class="px-4 py-3 text-[color:var(--ink-200)]">{distribution.outsiders ?? distribution.outsider ?? 0}</td>
+                <td class="px-4 py-3 text-[color:var(--ink-200)]">{distribution.minions ?? distribution.minion ?? 0}</td>
+                <td class="rounded-r-2xl px-4 py-3 text-[color:var(--ink-200)]">{distribution.demon}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  )}
+
+  {modifiers.length > 0 && (
+    <section id="modifiers" class="surface-panel rounded-[30px] p-6 sm:p-8">
+      <h2 class="font-display text-3xl text-[color:var(--ink-50)]">
+        {validatedLang === 'cn' ? '修正项' : 'Modifiers'}
+      </h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {modifiers.map(([key, value]) => (
+          <div class="surface-panel-muted rounded-[24px] p-5">
+            <h3 class="font-display text-2xl text-[color:var(--ink-50)]">{formatLabel(key)}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-[color:var(--ink-200)]">{value}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {notes.length > 0 && (
+    <section id="notes" class="surface-panel rounded-[30px] p-6 sm:p-8">
+      <h2 class="font-display text-3xl text-[color:var(--ink-50)]">
+        {validatedLang === 'cn' ? '备注' : 'Notes'}
+      </h2>
+      <div class="mt-6 space-y-3">
+        {notes.map((note) => (
+          <div class="surface-panel-muted rounded-[24px] p-4 text-sm leading-relaxed text-[color:var(--ink-200)]">
+            {note}
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {extraSections.length > 0 && (
+    <section class="surface-panel rounded-[30px] p-6 sm:p-8">
+      <h2 class="font-display text-3xl text-[color:var(--ink-50)]">
+        {validatedLang === 'cn' ? '更多数据' : 'Additional Data'}
+      </h2>
+      <div class="mt-6 grid gap-4">
+        {extraSections.map(([key, value]) => (
+          <div class="surface-panel-muted rounded-[24px] p-5">
+            <h3 class="font-display text-2xl text-[color:var(--ink-50)]">{formatLabel(key)}</h3>
+            <pre class="mt-3 overflow-x-auto whitespace-pre-wrap text-sm leading-relaxed text-[color:var(--ink-200)]">{JSON.stringify(value, null, 2)}</pre>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
 </BaseLayout>

@@ -25,18 +25,44 @@ const getCharCount = (edition: any) => {
 };
 ---
 
-<BaseLayout title={`${t('editions.title')} | Wiki`}>
-  <div class="mb-8">
-    <p class="uppercase tracking-[0.4em] text-xs text-[color:var(--ink-200)]">{validatedLang === 'cn' ? '剧本列表' : 'Game Editions'}</p>
-    <h1 class="font-display text-4xl sm:text-5xl mt-3 mb-3 text-[color:var(--ink-50)]">
-      {t('editions.title')}
-    </h1>
-    <p class="text-base sm:text-lg text-[color:var(--ink-200)] max-w-2xl">
-      {t('editions.subtitle')}
-    </p>
+<BaseLayout title={`${t('editions.title')} | Wiki`} section="editions">
+  <div slot="sidebar" class="space-y-3 text-sm text-[color:var(--ink-200)]">
+    <div class="surface-panel-muted rounded-2xl p-4">
+      <p class="font-semibold text-[color:var(--ink-50)]">
+        {validatedLang === 'cn' ? '剧本数量' : 'Script Count'}
+      </p>
+      <div class="mt-2 font-display text-4xl text-[color:var(--ink-50)]">{editions.length}</div>
+    </div>
+    <div class="surface-panel-muted rounded-2xl p-4">
+      <p class="font-semibold text-[color:var(--ink-50)]">
+        {validatedLang === 'cn' ? '常用入口' : 'Popular Starts'}
+      </p>
+      <div class="mt-3 grid gap-2">
+        {editions.slice(0, 4).map((edition) => {
+          const name = edition.data.name?.[validatedLang] || edition.data.name?.en || edition.id;
+
+          return (
+            <a href={`${base}/editions/${edition.id}`} class="rail-link">
+              <span>{name}</span>
+              <span aria-hidden="true">-></span>
+            </a>
+          );
+        })}
+      </div>
+    </div>
   </div>
 
-  <div class="mb-6 sticky top-[64px] z-10">
+  <section class="surface-panel rounded-[30px] p-6 sm:p-8">
+    <p class="uppercase tracking-[0.4em] text-xs text-[color:var(--ink-200)]">{validatedLang === 'cn' ? '剧本列表' : 'Game Editions'}</p>
+    <h1 class="mt-3 font-display text-4xl text-[color:var(--ink-50)] sm:text-5xl">
+      {t('editions.title')}
+    </h1>
+    <p class="mt-3 max-w-3xl text-base text-[color:var(--ink-200)] sm:text-lg">
+      {t('editions.subtitle')}
+    </p>
+  </section>
+
+  <div class="mb-6 sticky top-4 z-10">
     <div class="surface-panel rounded-2xl px-4 py-4 sm:px-6 sm:py-5">
       <div class="flex flex-col gap-4">
         <div class="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">

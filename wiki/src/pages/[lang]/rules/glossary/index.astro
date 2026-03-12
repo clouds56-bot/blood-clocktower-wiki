@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
-import { defaultLang, getSupportedLangs, useTranslations } from '../../../../i18n/utils';
+import { defaultLang, getSupportedLangs, useTranslations, getBasePath } from '../../../../i18n/utils';
 
 const supportedLangCodes = getSupportedLangs().map(({ code }) => code);
 
@@ -13,6 +13,7 @@ const rules = await getCollection('rules');
 const { lang } = Astro.params;
 const validatedLang = lang && supportedLangCodes.includes(lang) ? lang : defaultLang;
 const { t } = useTranslations(validatedLang);
+const base = getBasePath(validatedLang);
 
 const glossary = rules.find(rule => rule.id === 'glossary');
 const terms = Array.isArray(glossary?.data?.terms) ? glossary.data.terms : [];
@@ -29,18 +30,31 @@ const sortedTerms = [...terms].sort((a: any, b: any) => {
 });
 ---
 
-<BaseLayout title={`${t('glossary.title')} | Wiki`}>
-  <div class="mb-8">
+<BaseLayout title={`${t('glossary.title')} | Wiki`} section="glossary">
+  <div slot="sidebar" class="space-y-3 text-sm text-[color:var(--ink-200)]">
+    <div class="surface-panel-muted rounded-2xl p-4">
+      <p class="font-semibold text-[color:var(--ink-50)]">
+        {validatedLang === 'cn' ? '术语数量' : 'Term Count'}
+      </p>
+      <div class="mt-2 font-display text-4xl text-[color:var(--ink-50)]">{sortedTerms.length}</div>
+    </div>
+    <a href={`${base}/rules`} class="rail-link">
+      <span>{validatedLang === 'cn' ? '返回规则中心' : 'Back to rules hub'}</span>
+      <span aria-hidden="true">-></span>
+    </a>
+  </div>
+
+  <section class="surface-panel rounded-[30px] p-6 sm:p-8">
     <p class="uppercase tracking-[0.4em] text-xs text-[color:var(--ink-200)]">Lexicon</p>
-    <h1 class="font-display text-4xl sm:text-5xl mt-3 mb-3 text-[color:var(--ink-50)]">
+    <h1 class="mt-3 font-display text-4xl text-[color:var(--ink-50)] sm:text-5xl">
       {t('glossary.title')}
     </h1>
-    <p class="text-base sm:text-lg text-[color:var(--ink-200)] max-w-2xl">
+    <p class="mt-3 max-w-2xl text-base text-[color:var(--ink-200)] sm:text-lg">
       {validatedLang === 'cn'
         ? '按术语浏览血染钟楼常用规则词汇。'
         : 'Browse common Blood on the Clocktower terms and definitions.'}
     </p>
-  </div>
+  </section>
 
   <div class="surface-panel rounded-2xl p-6 sm:p-8">
     <div class="space-y-6">

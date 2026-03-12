@@ -11,9 +11,11 @@ const supportedLangs = getSupportedLangs();
     const isCurrent = langConfig.code === langCode;
     const href = `${getBasePath(langConfig.code)}${routeBase === '/' ? '' : routeBase}`;
     return (
-      <a 
-        href={href} 
-        class={`transition ${isCurrent ? 'text-[color:var(--ink-50)] underline' : 'text-[color:var(--ink-200)] hover:text-[color:var(--accent-gold)]'}`}
+      <a
+        href={href}
+        class={`rounded-full border px-3 py-1.5 transition ${isCurrent
+          ? 'border-[rgba(215,180,106,0.55)] bg-[rgba(215,180,106,0.14)] text-[color:var(--ink-50)]'
+          : 'border-[rgba(255,255,255,0.12)] text-[color:var(--ink-200)] hover:border-[rgba(215,180,106,0.35)] hover:text-[color:var(--accent-gold)]'}`}
       >
         {langConfig.name}
       </a>

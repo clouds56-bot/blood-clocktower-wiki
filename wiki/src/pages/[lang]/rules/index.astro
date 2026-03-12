@@ -14,17 +14,70 @@ const { lang } = Astro.params;
 const validatedLang = lang && supportedLangCodes.includes(lang) ? lang : defaultLang;
 const { t } = useTranslations(validatedLang);
 const base = getBasePath(validatedLang);
+const glossary = rules.find((rule) => rule.id === 'glossary');
+const standardRules = rules.filter((rule) => rule.id !== 'glossary');
 ---
 
-<BaseLayout title={`${t('rules.title')} | Wiki`}>
-  <h1 class="text-4xl font-bold mb-6 text-indigo-900">{t('rules.title')}</h1>
-
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    {rules.map((rule) => (
-      <a href={`${base}/rules/${rule.id}`} class="block p-6 bg-white rounded-lg shadow-sm border border-slate-200 hover:border-indigo-400 hover:shadow-md transition">
-        <h2 class="text-2xl font-bold mb-2 capitalize text-indigo-800">{rule.id.replace(/-/g, ' ')}</h2>
-        <p class="text-slate-600">{rule.id.replace(/-/g, ' ')}</p>
-      </a>
-    ))}
+<BaseLayout title={`${t('rules.title')} | Wiki`} section="rules">
+  <div slot="sidebar" class="space-y-3 text-sm text-[color:var(--ink-200)]">
+    <div class="surface-panel-muted rounded-2xl p-4">
+      <p class="font-semibold text-[color:var(--ink-50)]">
+        {validatedLang === 'cn' ? '规则入口' : 'Rule Entry Points'}
+      </p>
+      <div class="mt-3 grid gap-2">
+        {standardRules.map((rule) => (
+          <a href={`${base}/rules/${rule.id}`} class="rail-link">
+            <span>{rule.data.title || rule.id.replace(/-/g, ' ')}</span>
+            <span aria-hidden="true">-></span>
+          </a>
+        ))}
+        <a href={`${base}/rules/glossary`} class="rail-link">
+          <span>{t('nav.glossary')}</span>
+          <span aria-hidden="true">-></span>
+        </a>
+      </div>
+    </div>
   </div>
+
+  <section class="surface-panel rounded-[30px] p-6 sm:p-8">
+    <p class="uppercase tracking-[0.4em] text-xs text-[color:var(--ink-200)]">
+      {validatedLang === 'cn' ? '规则工作台' : 'Rules Desk'}
+    </p>
+    <h1 class="mt-3 font-display text-4xl text-[color:var(--ink-50)] sm:text-5xl">{t('rules.title')}</h1>
+    <p class="mt-3 max-w-3xl text-base text-[color:var(--ink-200)] sm:text-lg">
+      {validatedLang === 'cn'
+        ? '把开局配置、术语和通用规则整理成更容易跳转的结构。'
+        : 'Reference setup, glossary terms, and general guidance from one reorganized rules hub.'}
+    </p>
+  </section>
+
+  <section class="grid gap-6 xl:grid-cols-[1.15fr_0.85fr]">
+    <div class="surface-panel rounded-[30px] p-6 sm:p-8">
+      <p class="uppercase tracking-[0.35em] text-xs text-[color:var(--ink-200)]">
+        {validatedLang === 'cn' ? '核心规则' : 'Core Reference'}
+      </p>
+      <div class="mt-5 grid gap-4">
+        {standardRules.map((rule) => (
+          <a href={`${base}/rules/${rule.id}`} class="surface-panel-muted block rounded-[24px] p-5 transition hover:-translate-y-1">
+            <h2 class="font-display text-2xl capitalize text-[color:var(--ink-50)]">
+              {rule.data.title || rule.id.replace(/-/g, ' ')}
+            </h2>
+            <p class="mt-3 text-sm leading-relaxed text-[color:var(--ink-200)]">
+              {rule.data.description || (validatedLang === 'cn' ? '查看这份规则参考。' : 'Open this rules reference.')}
+            </p>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <a href={`${base}/rules/glossary`} class="surface-panel rounded-[30px] p-6 sm:p-8 transition hover:-translate-y-1">
+      <p class="uppercase tracking-[0.35em] text-xs text-[color:var(--ink-200)]">Lexicon</p>
+      <h2 class="mt-3 font-display text-3xl text-[color:var(--ink-50)]">{t('nav.glossary')}</h2>
+      <p class="mt-3 text-sm leading-relaxed text-[color:var(--ink-200)]">
+        {validatedLang === 'cn'
+          ? `集中浏览 ${Array.isArray(glossary?.data?.terms) ? glossary.data.terms.length : 0} 个常用术语。`
+          : `Browse ${Array.isArray(glossary?.data?.terms) ? glossary.data.terms.length : 0} common terms in one place.`}
+      </p>
+    </a>
+  </section>
 </BaseLayout>
