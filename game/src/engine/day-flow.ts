@@ -192,22 +192,44 @@ export function handle_cast_vote(
   if (!state.players_by_id[command.payload.voter_player_id]) {
     return error('player_not_found', 'voter not found');
   }
+  const voter = state.players_by_id[command.payload.voter_player_id];
+  if (!voter) {
+    return error('player_not_found', 'voter not found');
+  }
+  if (!voter.alive && command.payload.in_favor && !voter.dead_vote_available) {
+    return error('dead_vote_not_available', 'dead player has no remaining dead vote');
+  }
+
+  const events: DomainEvent[] = [
+    {
+      event_id: `${command.command_id}:VoteCast`,
+      event_type: 'VoteCast',
+      created_at,
+      actor_id: command.actor_id,
+      payload: {
+        nomination_id: command.payload.nomination_id,
+        voter_player_id: command.payload.voter_player_id,
+        in_favor: command.payload.in_favor
+      }
+    }
+  ];
+
+  if (!voter.alive && command.payload.in_favor) {
+    events.push({
+      event_id: `${command.command_id}:DeadVoteConsumed`,
+      event_type: 'DeadVoteConsumed',
+      created_at,
+      actor_id: command.actor_id,
+      payload: {
+        player_id: command.payload.voter_player_id,
+        day_number: state.day_number
+      }
+    });
+  }
 
   return {
     ok: true,
-    value: [
-      {
-        event_id: `${command.command_id}:VoteCast`,
-        event_type: 'VoteCast',
-        created_at,
-        actor_id: command.actor_id,
-        payload: {
-          nomination_id: command.payload.nomination_id,
-          voter_player_id: command.payload.voter_player_id,
-          in_favor: command.payload.in_favor
-        }
-      }
-    ]
+    value: events
   };
 }
 
@@ -425,6 +447,12 @@ export function handle_end_day(
   }
   if (state.subphase !== 'execution_resolution') {
     return error('invalid_subphase_for_end_day', 'end day requires day/execution_resolution');
+  }
+  if (state.day_state.execution_occurred_today && !state.day_state.execution_consequences_resolved_today) {
+    return error(
+      'execution_consequences_not_resolved',
+      'cannot end day before execution consequences are resolved'
+    );
   }
 
   return {

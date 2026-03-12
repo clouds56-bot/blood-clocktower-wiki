@@ -50,12 +50,22 @@ export interface DayState {
   nomination_window_open: boolean;
   execution_attempted_today: boolean;
   execution_occurred_today: boolean;
+  executed_player_id: PlayerId | null;
+  execution_outcome: 'none' | 'pending' | 'died' | 'survived';
+  execution_consequences_resolved_today: boolean;
 }
 
 export interface ExecutionRecord {
   day_number: number;
   player_id: PlayerId;
   nomination_id: string;
+}
+
+export interface DeathRecord {
+  player_id: PlayerId;
+  day_number: number;
+  night_number: number;
+  reason: 'execution' | 'night_death' | 'ability' | 'storyteller';
 }
 
 export interface PlayerState {
@@ -70,6 +80,8 @@ export interface PlayerState {
   registered_alignment: Alignment | null;
   drunk: boolean;
   poisoned: boolean;
+  is_traveller: boolean;
+  is_demon: boolean;
 }
 
 export interface GameState {
@@ -85,6 +97,10 @@ export interface GameState {
   seat_order: PlayerId[];
   day_state: DayState;
   execution_history: ExecutionRecord[];
+  death_history: DeathRecord[];
+  winning_team: Alignment | null;
+  end_reason: string | null;
+  ended_at_event_id: EventId | null;
   domain_events: DomainEventEnvelope[];
 }
 
@@ -114,7 +130,9 @@ export type InvariantIssueCode =
   | 'player_missing_required_field'
   | 'alive_player_spent_dead_vote'
   | 'invalid_phase_subphase_combination'
-  | 'active_vote_nomination_missing';
+  | 'active_vote_nomination_missing'
+  | 'winning_team_present_before_end'
+  | 'ended_game_missing_outcome';
 
 export const VALID_GAME_STATUS: readonly GameStatus[] = ['setup', 'in_progress', 'ended'];
 
@@ -142,6 +160,9 @@ export function create_empty_day_state(): DayState {
     active_vote: null,
     nomination_window_open: false,
     execution_attempted_today: false,
-    execution_occurred_today: false
+    execution_occurred_today: false,
+    executed_player_id: null,
+    execution_outcome: 'none',
+    execution_consequences_resolved_today: false
   };
 }

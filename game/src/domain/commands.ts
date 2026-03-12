@@ -22,6 +22,11 @@ export type CommandType =
   | 'CastVote'
   | 'CloseVote'
   | 'ResolveExecution'
+  | 'ResolveExecutionConsequences'
+  | 'ApplyDeath'
+  | 'MarkPlayerSurvivedExecution'
+  | 'CheckWinConditions'
+  | 'DeclareForcedVictory'
   | 'EndDay';
 
 export interface CreateGameCommand extends BaseCommand {
@@ -66,6 +71,8 @@ export interface AssignCharacterCommand extends BaseCommand {
   payload: {
     player_id: PlayerId;
     true_character_id: string;
+    is_demon?: boolean;
+    is_traveller?: boolean;
   };
 }
 
@@ -152,6 +159,47 @@ export interface EndDayCommand extends BaseCommand {
   };
 }
 
+export interface ResolveExecutionConsequencesCommand extends BaseCommand {
+  command_type: 'ResolveExecutionConsequences';
+  payload: {
+    day_number: number;
+  };
+}
+
+export interface ApplyDeathCommand extends BaseCommand {
+  command_type: 'ApplyDeath';
+  payload: {
+    player_id: PlayerId;
+    reason: 'execution' | 'night_death' | 'ability' | 'storyteller';
+    day_number: number;
+    night_number: number;
+  };
+}
+
+export interface MarkPlayerSurvivedExecutionCommand extends BaseCommand {
+  command_type: 'MarkPlayerSurvivedExecution';
+  payload: {
+    player_id: PlayerId;
+    day_number: number;
+  };
+}
+
+export interface CheckWinConditionsCommand extends BaseCommand {
+  command_type: 'CheckWinConditions';
+  payload: {
+    day_number: number;
+    night_number: number;
+  };
+}
+
+export interface DeclareForcedVictoryCommand extends BaseCommand {
+  command_type: 'DeclareForcedVictory';
+  payload: {
+    winning_team: Alignment;
+    rationale: string;
+  };
+}
+
 export type Command =
   | CreateGameCommand
   | SelectScriptCommand
@@ -168,6 +216,11 @@ export type Command =
   | CastVoteCommand
   | CloseVoteCommand
   | ResolveExecutionCommand
+  | ResolveExecutionConsequencesCommand
+  | ApplyDeathCommand
+  | MarkPlayerSurvivedExecutionCommand
+  | CheckWinConditionsCommand
+  | DeclareForcedVictoryCommand
   | EndDayCommand;
 
 export interface CommandValidationIssue {

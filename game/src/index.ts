@@ -7,5 +7,7 @@ export * from './domain/replay.js';
 export * from './domain/invariants.js';
 export * from './engine/phase-machine.js';
 export * from './engine/day-flow.js';
+export * from './engine/death-flow.js';
 export * from './engine/night-flow.js';
+export * from './engine/win-check.js';
 export * from './engine/command-handler.js';
