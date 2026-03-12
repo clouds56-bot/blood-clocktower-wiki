@@ -184,6 +184,40 @@ function run_engine_command(context: CliContext, command: Omit<Command, 'command
   });
 }
 
+function all_player_ids_for_vote(state: GameState): string[] {
+  const ids: string[] = [...state.seat_order];
+  for (const player_id of Object.keys(state.players_by_id).sort()) {
+    if (!ids.includes(player_id)) {
+      ids.push(player_id);
+    }
+  }
+  return ids;
+}
+
+function run_bulk_vote(
+  context: CliContext,
+  nomination_id: string,
+  voter_player_ids: string[],
+  in_favor: boolean
+): void {
+  const unique_voters = Array.from(new Set(voter_player_ids));
+  if (unique_voters.length === 0) {
+    process.stdout.write('vote requires at least one voter\n');
+    return;
+  }
+
+  for (const voter_player_id of unique_voters) {
+    run_engine_command(context, {
+      command_type: 'CastVote',
+      payload: {
+        nomination_id,
+        voter_player_id,
+        in_favor
+      }
+    });
+  }
+}
+
 function run_next_phase(context: CliContext): void {
   const { phase, subphase, day_number, night_number } = context.state;
 
@@ -267,6 +301,73 @@ function run_next_phase(context: CliContext): void {
       return;
     }
 
+    if (subphase === 'nomination_window') {
+      const candidate = [...context.state.day_state.nominations_today]
+        .reverse()
+        .find((nomination) => nomination.vote_total === null);
+
+      if (candidate) {
+        run_engine_command(context, {
+          command_type: 'OpenVote',
+          payload: {
+            nomination_id: candidate.nomination_id,
+            nominee_player_id: candidate.nominee_player_id,
+            opened_by_player_id: candidate.nominator_player_id
+          }
+        });
+        return;
+      }
+
+      run_engine_command(context, {
+        command_type: 'ResolveExecution',
+        payload: {
+          day_number: context.state.day_number
+        }
+      });
+      return;
+    }
+
+    if (subphase === 'vote_in_progress') {
+      const active_vote = context.state.day_state.active_vote;
+      if (!active_vote) {
+        process.stdout.write('next-phase failed: active vote not found\n');
+        return;
+      }
+
+      const all_voters = all_player_ids_for_vote(context.state);
+      const missing_voters = all_voters.filter(
+        (player_id) => context.state.day_state.active_vote?.votes_by_player_id[player_id] === undefined
+      );
+
+      if (missing_voters.length > 0) {
+        run_bulk_vote(context, active_vote.nomination_id, missing_voters, false);
+      }
+
+      run_engine_command(context, {
+        command_type: 'CloseVote',
+        payload: {
+          nomination_id: active_vote.nomination_id,
+          day_number: context.state.day_number
+        }
+      });
+      return;
+    }
+
+    if (subphase === 'execution_resolution') {
+      if (
+        context.state.day_state.execution_occurred_today &&
+        !context.state.day_state.execution_consequences_resolved_today
+      ) {
+        run_engine_command(context, {
+          command_type: 'ResolveExecutionConsequences',
+          payload: {
+            day_number: context.state.day_number
+          }
+        });
+        return;
+      }
+    }
+
     const ok = step_subphase([
       'nomination_window',
       'vote_in_progress',
@@ -312,6 +413,11 @@ function handle_local_action(context: CliContext, action: CliLocalAction): boole
     } else {
       process.stdout.write(`${format_state_brief(context.state)}\n`);
     }
+    return true;
+  }
+
+  if (action.type === 'bulk_vote') {
+    run_bulk_vote(context, action.nomination_id, action.voter_player_ids, action.in_favor);
     return true;
   }
 

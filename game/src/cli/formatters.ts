@@ -102,11 +102,11 @@ export function format_help(topic: 'phase' | 'all'): string {
   if (topic === 'phase') {
     return [
       paint('phase flow (phase 3 + 3.1):', 'cyan'),
-      '  next-phase',
+      '  next-phase   (auto: open-noms/open-vote/close-vote/resolve-exec/resolve-conseq when applicable)',
       '  open-noms',
       '  nominate p1 p2',
       '  open-vote',
-      '  vote p1 yes',
+      '  vote p1 yes  | vote p1 p2 (defaults to yes)',
       '  close-vote',
       '  resolve-exec',
       '  resolve-conseq   (or survive-exec)',
@@ -143,7 +143,7 @@ export function format_help(topic: 'phase' | 'all'): string {
     '  nominate | nom <nomination_id> <nominator_id> <nominee_id>',
     '  nominate | nom <nomination_id> <day_number> <nominator_id> <nominee_id>',
     '  open-vote [nomination_id] [opened_by_id]',
-    '  vote <voter_id> <yes|no> | vote <nomination_id> <voter_id> <yes|no>',
+    '  vote <voter_id> <yes|no> | vote <voter_id...> [yes|no] | vote <nomination_id> <voter_id> <yes|no>',
     '  close-vote [nomination_id] [day_number]',
     '  resolve-exec [day_number]',
     '  resolve-conseq [day_number]',

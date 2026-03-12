@@ -4,6 +4,7 @@ import type { Alignment, GamePhase, GameState, GameSubphase, NominationRecord } 
 export type CliLocalAction =
   | { type: 'help'; topic?: 'phase' | 'all' }
   | { type: 'next_phase' }
+  | { type: 'bulk_vote'; nomination_id: string; voter_player_ids: string[]; in_favor: boolean }
   | { type: 'state'; format: 'brief' | 'json' }
   | { type: 'events'; count: number }
   | { type: 'players' }
@@ -484,33 +485,72 @@ export function parse_cli_line(input: string, state?: GameState): ParsedCliLine 
   }
 
   if (command === 'vote') {
-    let nomination_id: string | null = null;
-    let voter_player_id: string | undefined;
-    let in_favor: boolean | null = null;
+    const active_nomination_id = state?.day_state.active_vote?.nomination_id ?? null;
+    const explicit_nomination = args[0] && state ? find_nomination(state, args[0]) : null;
+
+    if (explicit_nomination) {
+      const voter_player_id = args[1];
+      const in_favor = parse_yes_no(args[2] ?? '');
+      if (!voter_player_id || in_favor === null) {
+        return invalid('usage: vote <nomination_id> <voter_id> <yes|no>');
+      }
+      return {
+        ok: true,
+        kind: 'engine',
+        command: {
+          command_type: 'CastVote',
+          payload: {
+            nomination_id: explicit_nomination.nomination_id,
+            voter_player_id,
+            in_favor
+          }
+        }
+      };
+    }
+
+    if (!active_nomination_id || args.length === 0) {
+      return invalid(
+        'usage: vote <voter_id> <yes|no> | vote <voter_id...> [yes|no] | vote <nomination_id> <voter_id> <yes|no>'
+      );
+    }
 
     if (args.length === 2) {
-      nomination_id = state?.day_state.active_vote?.nomination_id ?? null;
-      voter_player_id = args[0];
-      in_favor = parse_yes_no(args[1] ?? '');
-    } else {
-      nomination_id = args[0] ?? null;
-      voter_player_id = args[1];
-      in_favor = parse_yes_no(args[2] ?? '');
+      const single_vote = parse_yes_no(args[1] ?? '');
+      if (single_vote !== null) {
+        return {
+          ok: true,
+          kind: 'engine',
+          command: {
+            command_type: 'CastVote',
+            payload: {
+              nomination_id: active_nomination_id,
+              voter_player_id: args[0] as string,
+              in_favor: single_vote
+            }
+          }
+        };
+      }
     }
 
-    if (!nomination_id || !voter_player_id || in_favor === null) {
-      return invalid('usage: vote <voter_id> <yes|no> | vote <nomination_id> <voter_id> <yes|no>');
+    const last_token = args[args.length - 1];
+    const explicit_bulk_vote = last_token ? parse_yes_no(last_token) : null;
+    const in_favor = explicit_bulk_vote ?? true;
+    const voter_player_ids = explicit_bulk_vote === null ? args : args.slice(0, -1);
+
+    if (voter_player_ids.length === 0) {
+      return invalid(
+        'usage: vote <voter_id> <yes|no> | vote <voter_id...> [yes|no] | vote <nomination_id> <voter_id> <yes|no>'
+      );
     }
+
     return {
       ok: true,
-      kind: 'engine',
-      command: {
-        command_type: 'CastVote',
-        payload: {
-          nomination_id,
-          voter_player_id,
-          in_favor
-        }
+      kind: 'local',
+      action: {
+        type: 'bulk_vote',
+        nomination_id: active_nomination_id,
+        voter_player_ids,
+        in_favor
       }
     };
   }

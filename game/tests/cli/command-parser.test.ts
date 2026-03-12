@@ -190,6 +190,27 @@ test('auto-fills command params from state', () => {
     });
   }
 
+  const bulkVoteDefaultYes = parse_cli_line('vote p1 p2', state);
+  assert.equal(bulkVoteDefaultYes.ok, true);
+  if (bulkVoteDefaultYes.ok && bulkVoteDefaultYes.kind === 'local') {
+    assert.equal(bulkVoteDefaultYes.action.type, 'bulk_vote');
+    if (bulkVoteDefaultYes.action.type === 'bulk_vote') {
+      assert.equal(bulkVoteDefaultYes.action.nomination_id, 'n1');
+      assert.deepEqual(bulkVoteDefaultYes.action.voter_player_ids, ['p1', 'p2']);
+      assert.equal(bulkVoteDefaultYes.action.in_favor, true);
+    }
+  }
+
+  const bulkVoteNo = parse_cli_line('vote p1 p2 no', state);
+  assert.equal(bulkVoteNo.ok, true);
+  if (bulkVoteNo.ok && bulkVoteNo.kind === 'local') {
+    assert.equal(bulkVoteNo.action.type, 'bulk_vote');
+    if (bulkVoteNo.action.type === 'bulk_vote') {
+      assert.deepEqual(bulkVoteNo.action.voter_player_ids, ['p1', 'p2']);
+      assert.equal(bulkVoteNo.action.in_favor, false);
+    }
+  }
+
   const resolveExec = parse_cli_line('resolve-exec', state);
   assert.equal(resolveExec.ok, true);
   if (
