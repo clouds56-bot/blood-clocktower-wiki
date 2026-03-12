@@ -22,6 +22,36 @@ const { lang } = Astro.params;
 const validatedLang = lang && supportedLangCodes.includes(lang) ? lang : defaultLang;
 const { t } = useTranslations(validatedLang);
 
+const typeLabels: Record<string, { en: string; cn: string }> = {
+  townsfolk: { en: 'Townsfolk', cn: '镇民' },
+  outsider: { en: 'Outsider', cn: '外来者' },
+  minion: { en: 'Minion', cn: '爪牙' },
+  demon: { en: 'Demon', cn: '恶魔' },
+  traveller: { en: 'Traveller', cn: '旅行者' },
+  fabled: { en: 'Fabled', cn: '传奇' },
+  loric: { en: 'Loric', cn: 'Loric' },
+};
+
+const editionLabels: Record<string, { en: string; cn: string }> = {
+  trouble_brewing: { en: 'Trouble Brewing', cn: '暗流涌动' },
+  bad_moon_rising: { en: 'Bad Moon Rising', cn: '黯月初升' },
+  sects_and_violets: { en: 'Sects & Violets', cn: '梦殒春宵' },
+};
+
+const toTitleCase = (value: string) =>
+  value
+    .split(' ')
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
+    .join(' ');
+
+const humanizeKey = (value: string) => toTitleCase(value.replace(/_/g, ' '));
+const getTypeLabel = (type: string) => typeLabels[type]?.[validatedLang] || humanizeKey(type);
+const getEditionLabel = (edition: string) => {
+  const mapped = editionLabels[edition]?.[validatedLang];
+  return mapped || humanizeKey(edition);
+};
+
 const characterId = data.id || char.id.split('/').pop();
 const characterReminders = remindersData.reminders.filter(r => r.character_id === characterId);
 const allCharacters = await getCollection('characters');
@@ -89,11 +119,11 @@ const characterJinxRelations = [
           </div>
           <div class="flex flex-wrap gap-2 mt-4 text-xs uppercase tracking-widest">
             <span class="px-3 py-1 rounded-full border border-[rgba(215,180,106,0.4)] text-[color:var(--accent-gold)]">
-              {data.type}
+              {getTypeLabel(data.type)}
             </span>
             {data.editions && data.editions.map((edition: string) => (
               <span class="px-3 py-1 rounded-full border border-[rgba(255,255,255,0.15)] text-[color:var(--ink-200)]">
-                {edition.replace('_', ' ')}
+                {getEditionLabel(edition)}
               </span>
             ))}
           </div>
@@ -186,7 +216,9 @@ const characterJinxRelations = [
               <div class="bg-[color:var(--bg-800)] px-4 py-3 rounded-xl border border-[rgba(215,180,106,0.28)]">
                 <div class="text-[color:var(--ink-50)] font-medium">{name}</div>
                 {alt && <div class="text-[color:var(--ink-300)] text-sm mt-1 normal-case">{alt}</div>}
-                <div class="text-xs text-[color:var(--ink-300)] mt-1">{r.id}</div>
+                <code class="inline-block mt-2 rounded bg-[rgba(255,255,255,0.06)] px-2 py-1 text-xs text-[color:var(--ink-200)]">
+                  {r.id}
+                </code>
               </div>
             );
           })}
@@ -200,9 +232,14 @@ const characterJinxRelations = [
           <details class="surface-panel rounded-2xl p-5 sm:p-6 group">
             <summary class="cursor-pointer list-none flex items-center justify-between gap-4">
               <h2 class="font-display text-2xl text-[color:var(--ink-50)]">{t('char.tips')}</h2>
-              <span class="text-xs uppercase tracking-[0.2em] text-[color:var(--ink-200)] group-open:text-[color:var(--accent-gold)] transition">
-                {data.tips?.[validatedLang].length}
-              </span>
+              <div class="flex items-center gap-3">
+                <span class="text-xs uppercase tracking-[0.2em] text-[color:var(--ink-200)] group-open:text-[color:var(--accent-gold)] transition">
+                  {data.tips?.[validatedLang].length}
+                </span>
+                <span class="text-sm text-[color:var(--ink-200)] group-open:text-[color:var(--accent-gold)] transition" aria-hidden="true">
+                  ▾
+                </span>
+              </div>
             </summary>
             <ul class="space-y-4 mt-4 pt-4 border-t soft-divider">
               {data.tips?.[validatedLang].map((tip: string) => (
@@ -219,9 +256,14 @@ const characterJinxRelations = [
           <details class="surface-panel rounded-2xl p-5 sm:p-6 group">
             <summary class="cursor-pointer list-none flex items-center justify-between gap-4">
               <h2 class="font-display text-2xl text-[color:var(--ink-50)]">{t('char.examples')}</h2>
-              <span class="text-xs uppercase tracking-[0.2em] text-[color:var(--ink-200)] group-open:text-[color:var(--accent-gold)] transition">
-                {data.examples?.[validatedLang].length}
-              </span>
+              <div class="flex items-center gap-3">
+                <span class="text-xs uppercase tracking-[0.2em] text-[color:var(--ink-200)] group-open:text-[color:var(--accent-gold)] transition">
+                  {data.examples?.[validatedLang].length}
+                </span>
+                <span class="text-sm text-[color:var(--ink-200)] group-open:text-[color:var(--accent-gold)] transition" aria-hidden="true">
+                  ▾
+                </span>
+              </div>
             </summary>
             <ul class="space-y-4 mt-4 pt-4 border-t soft-divider">
               {data.examples?.[validatedLang].map((ex: string) => (
@@ -250,7 +292,7 @@ const characterJinxRelations = [
             <div class="bg-[color:var(--bg-800)] p-4 rounded-xl border border-[rgba(215,180,106,0.22)]">
               <div class="text-[color:var(--ink-50)] font-medium">
                 {jinx.routeId ? (
-                  <a href={`${getBasePath(validatedLang)}/characters/${jinx.routeId}`} class="hover:text-[color:var(--accent-gold)] transition">
+                  <a href={`${getBasePath(validatedLang)}/characters/${jinx.routeId}`} class="text-[color:var(--accent-blue)] hover:text-[color:var(--accent-gold)] transition">
                     {jinx.name}
                   </a>
                 ) : (
@@ -266,7 +308,7 @@ const characterJinxRelations = [
 
     {data.source_url && (
       <div class="mt-10 text-sm text-[color:var(--ink-200)] text-right">
-        <a href={data.source_url} target="_blank" rel="noopener noreferrer" class="hover:text-[color:var(--accent-gold)] underline">
+        <a href={data.source_url} target="_blank" rel="noopener noreferrer" class="text-[color:var(--accent-blue)] hover:text-[color:var(--accent-gold)] underline transition">
           {t('char.view_official')}
         </a>
       </div>
