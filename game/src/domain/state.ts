@@ -14,6 +14,10 @@ export function create_initial_state(game_id: string): GameState {
     seat_order: [],
     day_state: create_empty_day_state(),
     execution_history: [],
+    death_history: [],
+    winning_team: null,
+    end_reason: null,
+    ended_at_event_id: null,
     domain_events: []
   };
 }

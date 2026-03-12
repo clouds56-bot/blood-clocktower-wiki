@@ -22,7 +22,14 @@ export type DomainEventType =
   | 'ExecutionResolutionCompleted'
   | 'ExecutionOccurred'
   | 'PlayerExecuted'
-  | 'PlayerSurvivedExecution';
+  | 'PlayerSurvivedExecution'
+  | 'ExecutionConsequencesResolved'
+  | 'PlayerDied'
+  | 'DeadVoteConsumed'
+  | 'WinCheckCompleted'
+  | 'GameWon'
+  | 'ForcedVictoryDeclared'
+  | 'GameEnded';
 
 export interface GameCreatedEvent extends BaseDomainEvent {
   event_type: 'GameCreated';
@@ -66,6 +73,8 @@ export interface CharacterAssignedEvent extends BaseDomainEvent {
   payload: {
     player_id: PlayerId;
     true_character_id: string;
+    is_demon?: boolean;
+    is_traveller?: boolean;
   };
 }
 
@@ -173,6 +182,72 @@ export interface PlayerSurvivedExecutionEvent extends BaseDomainEvent {
   };
 }
 
+export interface ExecutionConsequencesResolvedEvent extends BaseDomainEvent {
+  event_type: 'ExecutionConsequencesResolved';
+  payload:
+    | {
+        day_number: number;
+        outcome: 'none';
+        player_id: null;
+      }
+    | {
+        day_number: number;
+        outcome: 'died' | 'survived';
+        player_id: PlayerId;
+      };
+}
+
+export interface PlayerDiedEvent extends BaseDomainEvent {
+  event_type: 'PlayerDied';
+  payload: {
+    player_id: PlayerId;
+    day_number: number;
+    night_number: number;
+    reason: 'execution' | 'night_death' | 'ability' | 'storyteller';
+  };
+}
+
+export interface DeadVoteConsumedEvent extends BaseDomainEvent {
+  event_type: 'DeadVoteConsumed';
+  payload: {
+    player_id: PlayerId;
+    day_number: number;
+  };
+}
+
+export interface WinCheckCompletedEvent extends BaseDomainEvent {
+  event_type: 'WinCheckCompleted';
+  payload: {
+    day_number: number;
+    night_number: number;
+    winner_found: boolean;
+  };
+}
+
+export interface GameWonEvent extends BaseDomainEvent {
+  event_type: 'GameWon';
+  payload: {
+    winning_team: 'good' | 'evil';
+    reason: string;
+  };
+}
+
+export interface ForcedVictoryDeclaredEvent extends BaseDomainEvent {
+  event_type: 'ForcedVictoryDeclared';
+  payload: {
+    winning_team: 'good' | 'evil';
+    rationale: string;
+  };
+}
+
+export interface GameEndedEvent extends BaseDomainEvent {
+  event_type: 'GameEnded';
+  payload: {
+    winning_team: 'good' | 'evil';
+    reason: string;
+  };
+}
+
 export type DomainEvent =
   | GameCreatedEvent
   | ScriptSelectedEvent
@@ -191,4 +266,11 @@ export type DomainEvent =
   | ExecutionResolutionCompletedEvent
   | ExecutionOccurredEvent
   | PlayerExecutedEvent
-  | PlayerSurvivedExecutionEvent;
+  | PlayerSurvivedExecutionEvent
+  | ExecutionConsequencesResolvedEvent
+  | PlayerDiedEvent
+  | DeadVoteConsumedEvent
+  | WinCheckCompletedEvent
+  | GameWonEvent
+  | ForcedVictoryDeclaredEvent
+  | GameEndedEvent;

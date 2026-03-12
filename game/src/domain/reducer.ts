@@ -20,9 +20,16 @@ function clone_state(state: GameState): GameState {
         : null,
       nomination_window_open: state.day_state.nomination_window_open,
       execution_attempted_today: state.day_state.execution_attempted_today,
-      execution_occurred_today: state.day_state.execution_occurred_today
+      execution_occurred_today: state.day_state.execution_occurred_today,
+      executed_player_id: state.day_state.executed_player_id,
+      execution_outcome: state.day_state.execution_outcome,
+      execution_consequences_resolved_today: state.day_state.execution_consequences_resolved_today
     },
     execution_history: state.execution_history.map((item) => ({ ...item })),
+    death_history: state.death_history.map((item) => ({ ...item })),
+    winning_team: state.winning_team,
+    end_reason: state.end_reason,
+    ended_at_event_id: state.ended_at_event_id,
     domain_events: [...state.domain_events]
   };
 }
@@ -76,7 +83,9 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
         registered_character_id: null,
         registered_alignment: null,
         drunk: false,
-        poisoned: false
+        poisoned: false,
+        is_traveller: false,
+        is_demon: false
       };
       break;
     }
@@ -87,6 +96,12 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
     case 'CharacterAssigned': {
       const player = ensure_player(next, event.payload.player_id);
       player.true_character_id = event.payload.true_character_id;
+      if (event.payload.is_demon !== undefined) {
+        player.is_demon = event.payload.is_demon;
+      }
+      if (event.payload.is_traveller !== undefined) {
+        player.is_traveller = event.payload.is_traveller;
+      }
       break;
     }
     case 'PerceivedCharacterAssigned': {
@@ -169,6 +184,9 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
       });
       next.day_state.execution_attempted_today = true;
       next.day_state.execution_occurred_today = true;
+      next.day_state.executed_player_id = event.payload.player_id;
+      next.day_state.execution_outcome = 'pending';
+      next.day_state.execution_consequences_resolved_today = false;
       break;
     }
     case 'PlayerExecuted': {
@@ -176,7 +194,54 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
       break;
     }
     case 'PlayerSurvivedExecution': {
-      // Placeholder for future interactions where execution does not cause death.
+      next.day_state.execution_outcome = 'survived';
+      next.day_state.execution_consequences_resolved_today = true;
+      break;
+    }
+    case 'ExecutionConsequencesResolved': {
+      next.day_state.execution_consequences_resolved_today = true;
+      if (event.payload.outcome !== 'none') {
+        next.day_state.execution_outcome = event.payload.outcome;
+      }
+      break;
+    }
+    case 'PlayerDied': {
+      const player = ensure_player(next, event.payload.player_id);
+      if (player.alive) {
+        player.alive = false;
+        player.dead_vote_available = true;
+        next.death_history.push({
+          player_id: event.payload.player_id,
+          day_number: event.payload.day_number,
+          night_number: event.payload.night_number,
+          reason: event.payload.reason
+        });
+      }
+      break;
+    }
+    case 'DeadVoteConsumed': {
+      const player = ensure_player(next, event.payload.player_id);
+      if (!player.alive) {
+        player.dead_vote_available = false;
+      }
+      break;
+    }
+    case 'WinCheckCompleted': {
+      break;
+    }
+    case 'GameWon': {
+      break;
+    }
+    case 'ForcedVictoryDeclared': {
+      break;
+    }
+    case 'GameEnded': {
+      next.status = 'ended';
+      next.phase = 'ended';
+      next.subphase = 'complete';
+      next.winning_team = event.payload.winning_team;
+      next.end_reason = event.payload.reason;
+      next.ended_at_event_id = event.event_id;
       break;
     }
     default: {

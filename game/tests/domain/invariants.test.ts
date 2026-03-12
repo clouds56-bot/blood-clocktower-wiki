@@ -17,7 +17,9 @@ test('validate_invariants returns no issues for valid baseline state', () => {
     registered_character_id: null,
     registered_alignment: null,
     drunk: false,
-    poisoned: false
+    poisoned: false,
+    is_traveller: false,
+    is_demon: false
   };
   state.seat_order = ['p1'];
 
@@ -53,7 +55,9 @@ test('validate_invariants warns on alive player with spent dead vote', () => {
     registered_character_id: null,
     registered_alignment: null,
     drunk: false,
-    poisoned: false
+    poisoned: false,
+    is_traveller: false,
+    is_demon: false
   };
 
   const issues = validate_invariants(state);
@@ -61,4 +65,15 @@ test('validate_invariants warns on alive player with spent dead vote', () => {
 
   assert.ok(warning);
   assert.equal(warning?.severity, 'warning');
+});
+
+test('validate_invariants checks ended game outcome fields', () => {
+  const state = create_initial_state('g1');
+  state.status = 'ended';
+  state.phase = 'ended';
+  state.subphase = 'complete';
+
+  const issues = validate_invariants(state);
+  const missingOutcome = issues.find((issue) => issue.code === 'ended_game_missing_outcome');
+  assert.ok(missingOutcome);
 });

@@ -11,12 +11,51 @@ import {
   handle_open_vote,
   handle_resolve_execution
 } from './day-flow.js';
+import {
+  handle_apply_death,
+  handle_mark_player_survived_execution,
+  handle_resolve_execution_consequences
+} from './death-flow.js';
+import { handle_check_win_conditions, handle_declare_forced_victory } from './win-check.js';
+
+const MUTATING_COMMANDS: Set<Command['command_type']> = new Set([
+  'SelectScript',
+  'SelectEdition',
+  'AddPlayer',
+  'SetSeatOrder',
+  'AssignCharacter',
+  'AssignPerceivedCharacter',
+  'AssignAlignment',
+  'AdvancePhase',
+  'OpenNominationWindow',
+  'NominatePlayer',
+  'OpenVote',
+  'CastVote',
+  'CloseVote',
+  'ResolveExecution',
+  'ResolveExecutionConsequences',
+  'ApplyDeath',
+  'MarkPlayerSurvivedExecution',
+  'CheckWinConditions',
+  'DeclareForcedVictory',
+  'EndDay'
+]);
 
 export function handle_command(
   state: GameState,
   command: Command,
   created_at: string
 ): EngineResult<DomainEvent[]> {
+  if (state.status === 'ended' && MUTATING_COMMANDS.has(command.command_type)) {
+    return {
+      ok: false,
+      error: {
+        code: 'game_already_ended',
+        message: `cannot run ${command.command_type} after game ended`
+      }
+    };
+  }
+
   switch (command.command_type) {
     case 'AdvancePhase':
       return handle_advance_phase(state, command, created_at);
@@ -32,6 +71,16 @@ export function handle_command(
       return handle_close_vote(state, command, created_at);
     case 'ResolveExecution':
       return handle_resolve_execution(state, command, created_at);
+    case 'ResolveExecutionConsequences':
+      return handle_resolve_execution_consequences(state, command, created_at);
+    case 'ApplyDeath':
+      return handle_apply_death(state, command, created_at);
+    case 'MarkPlayerSurvivedExecution':
+      return handle_mark_player_survived_execution(state, command, created_at);
+    case 'CheckWinConditions':
+      return handle_check_win_conditions(state, command, created_at);
+    case 'DeclareForcedVictory':
+      return handle_declare_forced_victory(state, command, created_at);
     case 'EndDay':
       return handle_end_day(state, command, created_at);
     case 'CreateGame':
@@ -112,6 +161,24 @@ export function handle_command(
         ]
       };
     case 'AssignCharacter':
+      {
+      const payload = {
+        player_id: command.payload.player_id,
+        true_character_id: command.payload.true_character_id
+      } as {
+        player_id: string;
+        true_character_id: string;
+        is_demon?: boolean;
+        is_traveller?: boolean;
+      };
+
+      if (command.payload.is_demon !== undefined) {
+        payload.is_demon = command.payload.is_demon;
+      }
+      if (command.payload.is_traveller !== undefined) {
+        payload.is_traveller = command.payload.is_traveller;
+      }
+
       return {
         ok: true,
         value: [
@@ -120,13 +187,11 @@ export function handle_command(
             event_type: 'CharacterAssigned',
             created_at,
             actor_id: command.actor_id,
-            payload: {
-              player_id: command.payload.player_id,
-              true_character_id: command.payload.true_character_id
-            }
+            payload
           }
         ]
       };
+    }
     case 'AssignPerceivedCharacter':
       return {
         ok: true,

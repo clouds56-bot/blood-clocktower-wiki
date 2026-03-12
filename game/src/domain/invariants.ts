@@ -14,7 +14,9 @@ function has_required_player_fields(player: Partial<PlayerState>): boolean {
     typeof player.alive === 'boolean' &&
     typeof player.dead_vote_available === 'boolean' &&
     typeof player.drunk === 'boolean' &&
-    typeof player.poisoned === 'boolean'
+    typeof player.poisoned === 'boolean' &&
+    typeof player.is_traveller === 'boolean' &&
+    typeof player.is_demon === 'boolean'
   );
 }
 
@@ -159,6 +161,26 @@ export function validate_invariants(state: GameState): InvariantIssue[] {
         code: 'active_vote_nomination_missing',
         message: 'active vote references a nomination that does not exist in nominations_today',
         path: 'day_state.active_vote.nomination_id',
+        severity: 'error'
+      });
+    }
+  }
+
+  if (state.status !== 'ended' && state.winning_team !== null) {
+    issues.push({
+      code: 'winning_team_present_before_end',
+      message: 'winning_team must be null unless game status is ended',
+      path: 'winning_team',
+      severity: 'error'
+    });
+  }
+
+  if (state.status === 'ended') {
+    if (state.winning_team === null || state.end_reason === null) {
+      issues.push({
+        code: 'ended_game_missing_outcome',
+        message: 'ended game must include winning_team and end_reason',
+        path: 'status',
         severity: 'error'
       });
     }
