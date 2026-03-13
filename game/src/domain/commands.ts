@@ -1,5 +1,6 @@
 import type {
   Alignment,
+  PlayerCharacterType,
   CommandId,
   GamePhase,
   GameSubphase,
@@ -91,6 +92,7 @@ export interface AssignCharacterCommand extends BaseCommand {
   payload: {
     player_id: PlayerId;
     true_character_id: string;
+    true_character_type?: PlayerCharacterType;
     is_demon?: boolean;
     is_traveller?: boolean;
   };

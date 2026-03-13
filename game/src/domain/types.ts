@@ -26,6 +26,16 @@ export type GameSubphase = DaySubphase | NightSubphase | SetupSubphase | EndedSu
 
 export type Alignment = 'good' | 'evil';
 
+export type CharacterType =
+  | 'townsfolk'
+  | 'outsider'
+  | 'minion'
+  | 'demon'
+  | 'traveller'
+  | 'fabled';
+
+export type PlayerCharacterType = Exclude<CharacterType, 'fabled'>;
+
 export type PromptVisibility = 'storyteller' | 'player' | 'public';
 
 export interface PromptOption {
@@ -156,6 +166,7 @@ export interface PlayerState {
   alive: boolean;
   dead_vote_available: boolean;
   true_character_id: string | null;
+  true_character_type?: PlayerCharacterType | null;
   perceived_character_id: string | null;
   true_alignment: Alignment | null;
   registered_character_id: string | null;

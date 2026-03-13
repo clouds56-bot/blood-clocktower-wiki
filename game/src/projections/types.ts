@@ -1,5 +1,6 @@
 import type {
   Alignment,
+  PlayerCharacterType,
   DayState,
   PlayerId,
   GameId,
@@ -76,6 +77,7 @@ export interface StorytellerProjection {
     alive: boolean;
     dead_vote_available: boolean;
     true_character_id: string | null;
+    true_character_type?: PlayerCharacterType | null;
     perceived_character_id: string | null;
     true_alignment: Alignment | null;
     registered_character_id: string | null;

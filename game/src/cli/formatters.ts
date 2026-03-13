@@ -1,6 +1,12 @@
 import Table from 'cli-table3';
 import type { DomainEvent } from '../domain/events.js';
-import type { GameState, PlayerState, PromptState, ReminderMarkerState } from '../domain/types.js';
+import type {
+  GameState,
+  PlayerCharacterType,
+  PlayerState,
+  PromptState,
+  ReminderMarkerState
+} from '../domain/types.js';
 import type { PlayerProjection, PublicProjection, StorytellerProjection } from '../projections/types.js';
 
 const ANSI = {
@@ -88,6 +94,32 @@ function render_table(head: string[], rows: string[][]): string {
 
 function bool_emoji(value: boolean): string {
   return value ? '✅' : '❌';
+}
+
+function character_type_color(character_type: PlayerCharacterType | null): keyof typeof ANSI {
+  if (character_type === 'townsfolk') {
+    return 'blue';
+  }
+  if (character_type === 'outsider') {
+    return 'cyan';
+  }
+  if (character_type === 'minion') {
+    return 'magenta';
+  }
+  if (character_type === 'demon') {
+    return 'red';
+  }
+  if (character_type === 'traveller') {
+    return 'yellow';
+  }
+  return 'gray';
+}
+
+function color_character_for_storyteller(
+  character_id: string,
+  character_type: PlayerCharacterType | null
+): string {
+  return paint(character_id, character_type_color(character_type));
 }
 
 function format_nominations(day_state: PublicProjection['day_state']): string {
@@ -209,12 +241,15 @@ export function format_storyteller_projection(projection: StorytellerProjection)
     .filter((player): player is NonNullable<typeof player> => Boolean(player))
     .map((player) => {
       const char = player.true_character_id ?? 'null';
+      const char_display = player.true_character_id
+        ? color_character_for_storyteller(player.true_character_id, player.true_character_type ?? null)
+        : char;
       const perceived = player.perceived_character_id ?? 'null';
       const perceived_display = char === perceived ? '' : perceived;
       const row = [
         player.player_id,
         player.display_name,
-        char,
+        char_display,
         perceived_display,
         player.true_alignment ?? 'null',
         bool_emoji(player.alive),

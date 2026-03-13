@@ -1,13 +1,12 @@
 import type { DomainEventType } from '../domain/events.js';
 import type {
   Alignment,
+  CharacterType,
   GameState,
   PlayerId,
   PromptOption,
   PromptVisibility
 } from '../domain/types.js';
-
-export type CharacterType = 'townsfolk' | 'outsider' | 'minion' | 'demon' | 'traveller' | 'fabled';
 
 export type TimingCategory =
   | 'setup'

@@ -145,6 +145,7 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
         alive: true,
         dead_vote_available: true,
         true_character_id: null,
+        true_character_type: null,
         perceived_character_id: null,
         true_alignment: null,
         registered_character_id: null,
@@ -163,6 +164,9 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
     case 'CharacterAssigned': {
       const player = ensure_player(next, event.payload.player_id);
       player.true_character_id = event.payload.true_character_id;
+      if (event.payload.true_character_type !== undefined) {
+        player.true_character_type = event.payload.true_character_type;
+      }
       if (event.payload.is_demon !== undefined) {
         player.is_demon = event.payload.is_demon;
       }

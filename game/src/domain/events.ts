@@ -1,5 +1,6 @@
 import type {
   Alignment,
+  PlayerCharacterType,
   DomainEventEnvelope,
   EditionId,
   GameId,
@@ -105,6 +106,7 @@ export interface CharacterAssignedEvent extends BaseDomainEvent {
   payload: {
     player_id: PlayerId;
     true_character_id: string;
+    true_character_type?: PlayerCharacterType;
     is_demon?: boolean;
     is_traveller?: boolean;
   };

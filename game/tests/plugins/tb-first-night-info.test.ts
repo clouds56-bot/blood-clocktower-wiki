@@ -1,0 +1,118 @@
+import assert from 'node:assert/strict';
+import test from 'node:test';
+
+import { create_initial_state } from '../../src/domain/state.js';
+import { chef_plugin } from '../../src/plugins/characters/chef.js';
+import { empath_plugin } from '../../src/plugins/characters/empath.js';
+import {
+  fortune_teller_plugin,
+  is_fortune_teller_prompt_id
+} from '../../src/plugins/characters/fortune-teller.js';
+import { make_player } from './tb-test-utils.js';
+
+test('chef records adjacent evil pair count', () => {
+  const state = create_initial_state('g1');
+  state.seat_order = ['p1', 'p2', 'p3', 'p4'];
+  state.players_by_id.p1 = make_player('p1', 'Chef', 'chef', 'good');
+  state.players_by_id.p2 = make_player('p2', 'Minion', 'poisoner', 'evil');
+  state.players_by_id.p3 = make_player('p3', 'Demon', 'imp', 'evil');
+  state.players_by_id.p4 = make_player('p4', 'Good', 'washerwoman', 'good');
+
+  const result = chef_plugin.hooks.on_night_wake?.({
+    state,
+    player_id: 'p1',
+    wake_step_id: 'wake:1:0:p1:chef'
+  });
+
+  assert.ok(result);
+  assert.equal(result?.emitted_events.length, 1);
+  const note = result?.emitted_events[0]?.payload.note;
+  assert.equal(note, 'chef_info:p1:adjacent_evil_pairs=1');
+});
+
+test('empath counts alive evil neighbors and skips dead players', () => {
+  const state = create_initial_state('g1');
+  state.seat_order = ['p1', 'p2', 'p3', 'p4', 'p5'];
+  state.players_by_id.p1 = make_player('p1', 'Empath', 'empath', 'good');
+  state.players_by_id.p2 = make_player('p2', 'DeadGood', 'washerwoman', 'good', { alive: false });
+  state.players_by_id.p3 = make_player('p3', 'Minion', 'poisoner', 'evil');
+  state.players_by_id.p4 = make_player('p4', 'Good2', 'chef', 'good');
+  state.players_by_id.p5 = make_player('p5', 'Demon', 'imp', 'evil');
+
+  const result = empath_plugin.hooks.on_night_wake?.({
+    state,
+    player_id: 'p1',
+    wake_step_id: 'wake:1:0:p1:empath'
+  });
+
+  assert.ok(result);
+  assert.equal(result?.emitted_events.length, 1);
+  const note = result?.emitted_events[0]?.payload.note;
+  assert.equal(note, 'empath_info:p1:alive_neighbor_evil_count=2');
+});
+
+test('fortune teller wake prompt offers pair options', () => {
+  const state = create_initial_state('g1');
+  state.night_number = 1;
+  state.players_by_id.p1 = make_player('p1', 'FT', 'fortune_teller', 'good');
+  state.players_by_id.p2 = make_player('p2', 'A', 'washerwoman', 'good');
+  state.players_by_id.p3 = make_player('p3', 'B', 'poisoner', 'evil');
+
+  const result = fortune_teller_plugin.hooks.on_night_wake?.({
+    state,
+    player_id: 'p1',
+    wake_step_id: 'wake:1:0:p1:fortune_teller'
+  });
+
+  assert.ok(result);
+  assert.equal(result?.queued_prompts.length, 1);
+  const prompt = result?.queued_prompts[0];
+  assert.ok(prompt);
+  assert.equal(is_fortune_teller_prompt_id(prompt?.prompt_id ?? ''), true);
+  assert.deepEqual(
+    prompt?.options.map((option) => option.option_id),
+    ['p1|p2', 'p1|p3', 'p2|p3']
+  );
+});
+
+test('fortune teller resolves yes when pair includes red herring', () => {
+  const state = create_initial_state('g1');
+  state.day_number = 0;
+  state.night_number = 1;
+  state.players_by_id.p1 = make_player('p1', 'FT', 'fortune_teller', 'good');
+  state.players_by_id.p2 = make_player('p2', 'GoodA', 'chef', 'good');
+  state.players_by_id.p3 = make_player('p3', 'GoodB', 'washerwoman', 'good');
+  state.players_by_id.p4 = make_player('p4', 'Imp', 'imp', 'evil', { is_demon: true });
+  state.reminder_markers_by_id.rh = {
+    marker_id: 'rh',
+    kind: 'fortune_teller:red_herring',
+    effect: 'register_as_demon',
+    note: 'setup',
+    status: 'active',
+    source_player_id: 'p1',
+    source_character_id: 'fortune_teller',
+    target_player_id: 'p2',
+    target_scope: 'player',
+    authoritative: true,
+    expires_policy: 'manual',
+    expires_at_day_number: null,
+    expires_at_night_number: null,
+    created_at_event_id: 'e1',
+    cleared_at_event_id: null,
+    source_event_id: null,
+    metadata: {}
+  };
+  state.active_reminder_marker_ids = ['rh'];
+
+  const result = fortune_teller_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_id: 'plugin:fortune_teller:night_check:1:p1',
+    selected_option_id: 'p2|p3',
+    freeform: null
+  });
+
+  assert.ok(result);
+  assert.equal(result?.emitted_events.length, 1);
+  const note = result?.emitted_events[0]?.payload.note;
+  assert.equal(note, 'fortune_teller_info:p1:pair=p2,p3;yes=true');
+});

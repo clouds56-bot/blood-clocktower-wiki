@@ -14,7 +14,7 @@ export const imp_plugin: CharacterPlugin = {
       min_targets: 1,
       max_targets: 1,
       allow_self: false,
-      require_alive: true,
+      require_alive: false,
       allow_travellers: false
     },
     flags: {
@@ -30,7 +30,7 @@ export const imp_plugin: CharacterPlugin = {
   hooks: {
     on_night_wake: (context): PluginResult => {
       const options = Object.values(context.state.players_by_id)
-        .filter((player) => player.alive && player.player_id !== context.player_id)
+        .filter((player) => player.player_id !== context.player_id)
         .map((player) => ({
           option_id: player.player_id,
           label: player.display_name
@@ -71,6 +71,39 @@ export const imp_plugin: CharacterPlugin = {
       }
 
       if (context.selected_option_id === null) {
+        return {
+          emitted_events: [],
+          queued_prompts: [],
+          queued_interrupts: []
+        };
+      }
+
+      const target_player = context.state.players_by_id[context.selected_option_id];
+      if (!target_player || !target_player.alive) {
+        return {
+          emitted_events: [],
+          queued_prompts: [],
+          queued_interrupts: []
+        };
+      }
+
+      const target_is_poisoned_or_drunk = target_player.poisoned || target_player.drunk;
+      const target_is_soldier =
+        target_player.true_character_id === 'soldier' && !target_is_poisoned_or_drunk;
+      const target_protected_by_monk =
+        !target_is_poisoned_or_drunk &&
+        context.state.active_reminder_marker_ids.some((marker_id) => {
+          const marker = context.state.reminder_markers_by_id[marker_id];
+          return Boolean(
+            marker &&
+              marker.status === 'active' &&
+              marker.kind === 'monk:safe' &&
+              marker.authoritative &&
+              marker.target_player_id === context.selected_option_id
+          );
+        });
+
+      if (target_is_soldier || target_protected_by_monk) {
         return {
           emitted_events: [],
           queued_prompts: [],

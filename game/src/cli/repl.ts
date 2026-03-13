@@ -1,20 +1,30 @@
-import { readFileSync } from 'node:fs';
-import path from 'node:path';
 import readline from 'node:readline';
-import { fileURLToPath } from 'node:url';
 
 import type { Command } from '../domain/commands.js';
 import type { DomainEvent } from '../domain/events.js';
 import { apply_events } from '../domain/reducer.js';
 import { create_initial_state } from '../domain/state.js';
-import type { Alignment, GameState } from '../domain/types.js';
+import type { GameState } from '../domain/types.js';
 import { handle_command } from '../engine/command-handler.js';
+import { chef_plugin } from '../plugins/characters/chef.js';
+import { empath_plugin } from '../plugins/characters/empath.js';
+import { fortune_teller_plugin } from '../plugins/characters/fortune-teller.js';
 import { imp_plugin } from '../plugins/characters/imp.js';
+import { investigator_plugin } from '../plugins/characters/investigator.js';
+import { librarian_plugin } from '../plugins/characters/librarian.js';
+import { monk_plugin } from '../plugins/characters/monk.js';
 import { poisoner_plugin } from '../plugins/characters/poisoner.js';
+import { soldier_plugin } from '../plugins/characters/soldier.js';
+import { washerwoman_plugin } from '../plugins/characters/washerwoman.js';
 import { PluginRegistry } from '../plugins/registry.js';
 import { project_for_player } from '../projections/player.js';
 import { project_for_public } from '../projections/public.js';
 import { project_for_storyteller } from '../projections/storyteller.js';
+import {
+  build_quick_setup_seed_commands,
+  infer_alignment_from_type,
+  is_character_type_token
+} from './quick-setup.js';
 import { parse_cli_line, type CliLocalAction } from './command-parser.js';
 import {
   format_event,
@@ -71,264 +81,27 @@ function make_command_id(context: CliContext): string {
   return id;
 }
 
-function normalize_script(script: string): string {
-  return script.trim().toLowerCase();
-}
-
-function resolve_edition_id(script: string): string {
-  if (script === 'tb' || script === 'trouble_brewing') {
-    return 'trouble_brewing';
-  }
-  if (script === 'bmr' || script === 'bad_moon_rising') {
-    return 'bad_moon_rising';
-  }
-  if (script === 'snv' || script === 'sects_and_violets') {
-    return 'sects_and_violets';
-  }
-  return script;
-}
-
-type CharacterType = 'townsfolk' | 'outsider' | 'minion' | 'demon' | 'traveller';
-
-interface EditionSetupData {
-  characters: {
-    townsfolk: string[];
-    outsider: string[];
-    minion: string[];
-    demon: string[];
-  };
-}
-
-interface SetupRulesData {
-  setups: Record<
-    string,
-    {
-      townsfolk: number;
-      outsiders: number;
-      minions: number;
-      demon: number;
-    }
-  >;
-}
-
-interface AssignedCharacter {
-  player_id: string;
-  character_id: string;
-  character_type: CharacterType;
-  alignment: Alignment;
-}
-
-function resolve_script_file_id(script: string): 'tb' | 'bmr' | 'snv' | null {
-  if (script === 'tb' || script === 'trouble_brewing') {
-    return 'tb';
-  }
-  if (script === 'bmr' || script === 'bad_moon_rising') {
-    return 'bmr';
-  }
-  if (script === 'snv' || script === 'sects_and_violets') {
-    return 'snv';
-  }
-  return null;
-}
-
-function infer_alignment_from_type(character_type: CharacterType): Alignment {
-  if (character_type === 'demon' || character_type === 'minion') {
-    return 'evil';
-  }
-  return 'good';
-}
-
-function is_character_type_token(value: string): value is CharacterType {
-  return (
-    value === 'townsfolk' ||
-    value === 'outsider' ||
-    value === 'minion' ||
-    value === 'demon' ||
-    value === 'traveller'
-  );
-}
-
-function shuffle<T>(values: T[]): T[] {
-  const next = [...values];
-  for (let i = next.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
-    const left = next[i];
-    const right = next[j];
-    if (left === undefined || right === undefined) {
-      continue;
-    }
-    next[i] = right;
-    next[j] = left;
-  }
-  return next;
-}
-
-function take_random_unique(pool: string[], count: number): string[] {
-  if (count === 0) {
-    return [];
-  }
-  if (pool.length < count) {
-    throw new Error(`insufficient_characters pool=${pool.length} required=${count}`);
-  }
-  return shuffle(pool).slice(0, count);
-}
-
-function repo_root_dir(): string {
-  const current_file = fileURLToPath(import.meta.url);
-  return path.resolve(path.dirname(current_file), '../../..');
-}
-
-function read_json<T>(file_path: string): T {
-  const content = readFileSync(file_path, 'utf8');
-  return JSON.parse(content) as T;
-}
-
-function build_random_assignments(script_id: string, player_ids: string[]): AssignedCharacter[] {
-  const script_file_id = resolve_script_file_id(script_id);
-  if (!script_file_id) {
-    throw new Error(`unsupported_quick_setup_script:${script_id}`);
-  }
-
-  const root = repo_root_dir();
-  const edition_path = path.resolve(root, `data/editions/${script_file_id}.json`);
-  const setup_path = path.resolve(root, 'data/rules/setup.json');
-
-  const edition = read_json<EditionSetupData>(edition_path);
-  const setup_rules = read_json<SetupRulesData>(setup_path);
-
-  const setup_key = `${player_ids.length}_players`;
-  const setup = setup_rules.setups[setup_key];
-  if (!setup) {
-    throw new Error(`unsupported_player_count:${player_ids.length}`);
-  }
-
-  const picked: Array<{ character_id: string; character_type: CharacterType }> = [];
-  for (const character_id of take_random_unique(edition.characters.townsfolk, setup.townsfolk)) {
-    picked.push({ character_id, character_type: 'townsfolk' });
-  }
-  for (const character_id of take_random_unique(edition.characters.outsider, setup.outsiders)) {
-    picked.push({ character_id, character_type: 'outsider' });
-  }
-  for (const character_id of take_random_unique(edition.characters.minion, setup.minions)) {
-    picked.push({ character_id, character_type: 'minion' });
-  }
-  for (const character_id of take_random_unique(edition.characters.demon, setup.demon)) {
-    picked.push({ character_id, character_type: 'demon' });
-  }
-
-  if (picked.length !== player_ids.length) {
-    throw new Error(`setup_mismatch expected=${player_ids.length} got=${picked.length}`);
-  }
-
-  const randomized = shuffle(picked);
-  return randomized.map((item, index) => {
-    const player_id = player_ids[index];
-    if (!player_id) {
-      throw new Error(`player_id_missing_at_index:${index}`);
-    }
-    return {
-      player_id,
-      character_id: item.character_id,
-      character_type: item.character_type,
-      alignment: infer_alignment_from_type(item.character_type)
-    };
-  });
-}
-
-function build_player_ids(player_num: number): string[] {
-  const ids: string[] = [];
-  for (let i = 1; i <= player_num; i += 1) {
-    ids.push(`p${i}`);
-  }
-  return ids;
-}
-
 function run_quick_setup(context: CliContext, script_input: string, player_num: number, game_id?: string): void {
-  const script_id = normalize_script(script_input);
-  const edition_id = resolve_edition_id(script_id);
-  const player_ids = build_player_ids(player_num);
-  const resolved_game_id = game_id ?? `${script_id}_${player_num}`;
-
-  let random_assignments: AssignedCharacter[] = [];
+  let quick_setup_seed: ReturnType<typeof build_quick_setup_seed_commands>;
   try {
-    random_assignments = build_random_assignments(script_id, player_ids);
+    const quick_setup_options: Parameters<typeof build_quick_setup_seed_commands>[0] = {
+      script_input,
+      player_num
+    };
+    if (game_id) {
+      quick_setup_options.game_id = game_id;
+    }
+    quick_setup_seed = build_quick_setup_seed_commands(quick_setup_options);
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : String(error);
     process.stdout.write(`${paint('quick_setup_error', 'red')} ${message}\n`);
     return;
   }
 
+  const { resolved_game_id, seed_commands, script_id } = quick_setup_seed;
+
   context.state = create_initial_state(resolved_game_id);
   context.event_log = [];
-
-  const seed_commands: Array<Omit<Command, 'command_id'>> = [
-    {
-      command_type: 'SelectScript',
-      payload: {
-        script_id
-      }
-    },
-    {
-      command_type: 'SelectEdition',
-      payload: {
-        edition_id
-      }
-    }
-  ];
-
-  for (let i = 0; i < player_ids.length; i += 1) {
-    const player_id = player_ids[i] as string;
-    seed_commands.push({
-      command_type: 'AddPlayer',
-      payload: {
-        player_id,
-        display_name: `Player ${i + 1}`
-      }
-    });
-  }
-
-  seed_commands.push({
-    command_type: 'SetSeatOrder',
-    payload: {
-      seat_order: player_ids
-    }
-  });
-
-  for (const assignment of random_assignments) {
-    seed_commands.push({
-      command_type: 'AssignCharacter',
-      payload: {
-        player_id: assignment.player_id,
-        true_character_id: assignment.character_id,
-        is_demon: assignment.character_type === 'demon',
-        is_traveller: assignment.character_type === 'traveller'
-      }
-    });
-    seed_commands.push({
-      command_type: 'AssignPerceivedCharacter',
-      payload: {
-        player_id: assignment.player_id,
-        perceived_character_id: assignment.character_id
-      }
-    });
-    seed_commands.push({
-      command_type: 'AssignAlignment',
-      payload: {
-        player_id: assignment.player_id,
-        true_alignment: assignment.alignment
-      }
-    });
-  }
-
-  seed_commands.push({
-    command_type: 'AdvancePhase',
-    payload: {
-      phase: 'first_night',
-      subphase: 'night_wake_sequence',
-      day_number: 0,
-      night_number: 1
-    }
-  });
 
   for (const command of seed_commands) {
     const full_command: Command = {
@@ -453,6 +226,7 @@ function run_setup_player(
     payload: {
       player_id: action.player_id,
       true_character_id: action.true_character_id,
+      true_character_type: action.character_type,
       is_demon: action.character_type === 'demon',
       is_traveller: action.character_type === 'traveller'
     }
@@ -802,7 +576,18 @@ export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void
     state: create_initial_state(initial_game_id),
     event_log: [],
     next_command_index: 1,
-    plugin_registry: new PluginRegistry([imp_plugin, poisoner_plugin])
+    plugin_registry: new PluginRegistry([
+      chef_plugin,
+      empath_plugin,
+      fortune_teller_plugin,
+      imp_plugin,
+      investigator_plugin,
+      librarian_plugin,
+      monk_plugin,
+      poisoner_plugin,
+      soldier_plugin,
+      washerwoman_plugin
+    ])
   };
 
   process.stdout.write('Clocktower Engine CLI (Phase 5)\n');
