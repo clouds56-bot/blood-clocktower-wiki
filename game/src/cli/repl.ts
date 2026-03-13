@@ -10,6 +10,7 @@ import { create_initial_state } from '../domain/state.js';
 import type { Alignment, GameState } from '../domain/types.js';
 import { handle_command } from '../engine/command-handler.js';
 import { imp_plugin } from '../plugins/characters/imp.js';
+import { poisoner_plugin } from '../plugins/characters/poisoner.js';
 import { PluginRegistry } from '../plugins/registry.js';
 import { project_for_player } from '../projections/player.js';
 import { project_for_public } from '../projections/public.js';
@@ -777,7 +778,7 @@ export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void
     state: create_initial_state(initial_game_id),
     event_log: [],
     next_command_index: 1,
-    plugin_registry: new PluginRegistry([imp_plugin])
+    plugin_registry: new PluginRegistry([imp_plugin, poisoner_plugin])
   };
 
   process.stdout.write('Clocktower Engine CLI (Phase 5)\n');

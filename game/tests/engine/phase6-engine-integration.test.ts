@@ -8,6 +8,7 @@ import type { GameState } from '../../src/domain/types.js';
 import type { CharacterPlugin, CharacterPluginMetadata } from '../../src/plugins/contracts.js';
 import { empty_plugin_result } from '../../src/plugins/contracts.js';
 import { imp_plugin } from '../../src/plugins/characters/imp.js';
+import { poisoner_plugin } from '../../src/plugins/characters/poisoner.js';
 import { PluginRegistry } from '../../src/plugins/registry.js';
 import { handle_command } from '../../src/engine/command-handler.js';
 
@@ -413,4 +414,104 @@ test('plugin runtime returns deterministic error on duplicate queued prompt id',
   if (!result.ok) {
     assert.equal(result.error.code, 'prompt_id_already_exists');
   }
+});
+
+test('poisoner prompt resolves into poison apply and restore flow', () => {
+  let state = bootstrap_night_state();
+  state.phase = 'night';
+  state.subphase = 'dusk';
+  state.day_number = 1;
+  state.night_number = 1;
+
+  const registry = new PluginRegistry([poisoner_plugin]);
+
+  const wake_events = run_with_registry(
+    state,
+    {
+      command_id: 'c_phase_poisoner_n1',
+      command_type: 'AdvancePhase',
+      actor_id: 'storyteller',
+      payload: {
+        phase: 'night',
+        subphase: 'night_wake_sequence',
+        day_number: 1,
+        night_number: 1
+      }
+    },
+    registry
+  );
+  state = apply_events(state, wake_events);
+
+  const poisoner_prompt_n1 = wake_events.find(
+    (event) =>
+      event.event_type === 'PromptQueued' &&
+      event.payload.prompt_id.startsWith('plugin:poisoner:night_poison:1:')
+  );
+  assert.ok(poisoner_prompt_n1 && poisoner_prompt_n1.event_type === 'PromptQueued');
+
+  const resolve_n1_events = run_with_registry(
+    state,
+    {
+      command_id: 'c_resolve_poisoner_n1',
+      command_type: 'ResolvePrompt',
+      actor_id: 'storyteller',
+      payload: {
+        prompt_id: poisoner_prompt_n1.payload.prompt_id,
+        selected_option_id: 'p1',
+        freeform: null,
+        notes: null
+      }
+    },
+    registry
+  );
+  assert.equal(resolve_n1_events.some((event) => event.event_type === 'PoisonApplied'), true);
+  state = apply_events(state, resolve_n1_events);
+  assert.equal(state.players_by_id.p1?.poisoned, true);
+
+  const phase_to_n2 = run_with_registry(
+    state,
+    {
+      command_id: 'c_phase_to_n2',
+      command_type: 'AdvancePhase',
+      actor_id: 'storyteller',
+      payload: {
+        phase: 'night',
+        subphase: 'night_wake_sequence',
+        day_number: 2,
+        night_number: 2
+      }
+    },
+    registry
+  );
+  state = apply_events(state, phase_to_n2);
+
+  const poisoner_prompt_n2 = phase_to_n2.find(
+    (event) =>
+      event.event_type === 'PromptQueued' &&
+      event.payload.prompt_id.startsWith('plugin:poisoner:night_poison:2:')
+  );
+  assert.ok(poisoner_prompt_n2 && poisoner_prompt_n2.event_type === 'PromptQueued');
+
+  const resolve_n2_events = run_with_registry(
+    state,
+    {
+      command_id: 'c_resolve_poisoner_n2',
+      command_type: 'ResolvePrompt',
+      actor_id: 'storyteller',
+      payload: {
+        prompt_id: poisoner_prompt_n2.payload.prompt_id,
+        selected_option_id: 'p2',
+        freeform: null,
+        notes: null
+      }
+    },
+    registry
+  );
+
+  assert.equal(resolve_n2_events.some((event) => event.event_type === 'PoisonCleared'), true);
+  assert.equal(resolve_n2_events.some((event) => event.event_type === 'PoisonApplied'), true);
+
+  const resolved_n2_state = apply_events(state, resolve_n2_events);
+  assert.equal(resolved_n2_state.players_by_id.p1?.poisoned, false);
+  assert.equal(resolved_n2_state.players_by_id.p2?.poisoned, true);
 });

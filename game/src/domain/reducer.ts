@@ -237,6 +237,16 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
       }
       break;
     }
+    case 'PoisonApplied': {
+      const player = ensure_player(next, event.payload.player_id);
+      player.poisoned = true;
+      break;
+    }
+    case 'PoisonCleared': {
+      const player = ensure_player(next, event.payload.player_id);
+      player.poisoned = false;
+      break;
+    }
     case 'DeadVoteConsumed': {
       const player = ensure_player(next, event.payload.player_id);
       if (!player.alive) {
