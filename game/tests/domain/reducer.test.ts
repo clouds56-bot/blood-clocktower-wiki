@@ -249,3 +249,20 @@ test('reducer tracks wake and interrupt queues', () => {
   assert.deepEqual(state.wake_queue, []);
   assert.deepEqual(state.interrupt_queue, []);
 });
+
+test('WakeScheduled fails fast for unknown player', () => {
+  const state = create_initial_state('g1');
+
+  assert.throws(() =>
+    apply_event(state, {
+      event_id: 'wake_missing_player',
+      event_type: 'WakeScheduled',
+      created_at: '2026-03-13T00:00:00.000Z',
+      payload: {
+        wake_id: 'w1',
+        character_id: 'imp',
+        player_id: 'missing'
+      }
+    })
+  );
+});

@@ -208,3 +208,29 @@ test('validate_invariants rejects invalid wake and interrupt queue fields', () =
   assert.ok(invalidWake);
   assert.ok(invalidInterrupt);
 });
+
+test('validate_invariants handles malformed queue entry types without throwing', () => {
+  const state = create_initial_state('g1');
+  state.wake_queue = [
+    {
+      wake_id: 123 as unknown as string,
+      character_id: null as unknown as string,
+      player_id: 999 as unknown as string
+    }
+  ];
+  state.interrupt_queue = [
+    {
+      interrupt_id: {} as unknown as string,
+      kind: [] as unknown as string,
+      source_plugin_id: 42 as unknown as string,
+      payload: {}
+    }
+  ];
+
+  assert.doesNotThrow(() => validate_invariants(state));
+  const issues = validate_invariants(state);
+  const issueCodes = new Set(issues.map((issue) => issue.code));
+  assert.equal(issueCodes.has('wake_queue_invalid_entry'), true);
+  assert.equal(issueCodes.has('wake_queue_player_missing'), true);
+  assert.equal(issueCodes.has('interrupt_queue_invalid_entry'), true);
+});

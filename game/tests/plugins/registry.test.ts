@@ -6,7 +6,7 @@ import {
   type CharacterPlugin,
   type CharacterPluginMetadata
 } from '../../src/plugins/contracts.js';
-import { PluginRegistry, create_plugin_registry } from '../../src/plugins/registry.js';
+import { PluginRegistry, createPluginRegistry } from '../../src/plugins/registry.js';
 
 function make_metadata(id: string): CharacterPluginMetadata {
   return {
@@ -105,8 +105,8 @@ test('registry list is sorted by id', () => {
   assert.deepEqual(registry.list().map((item) => item.id), ['imp', 'poisoner']);
 });
 
-test('create_plugin_registry returns initialization error for invalid input', () => {
-  const result = create_plugin_registry([make_plugin('imp'), make_plugin('imp')]);
+test('createPluginRegistry returns initialization error for invalid input', () => {
+  const result = createPluginRegistry([make_plugin('imp'), make_plugin('imp')]);
   assert.equal(result.ok, false);
 
   if (!result.ok) {

@@ -87,11 +87,19 @@ export class PluginRegistry {
   list(): CharacterPluginMetadata[] {
     return [...this.plugins_by_id.values()]
       .map((plugin) => clone_metadata(plugin.metadata))
-      .sort((left, right) => left.id.localeCompare(right.id));
+      .sort((left, right) => {
+        if (left.id < right.id) {
+          return -1;
+        }
+        if (left.id > right.id) {
+          return 1;
+        }
+        return 0;
+      });
   }
 }
 
-export function create_plugin_registry(
+export function createPluginRegistry(
   plugins: CharacterPlugin[] = []
 ): PluginRegistryResult<PluginRegistry> {
   try {

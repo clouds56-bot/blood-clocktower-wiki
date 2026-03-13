@@ -124,8 +124,10 @@ export function empty_plugin_result(): PluginResult {
 
 export function validate_plugin_metadata(metadata: CharacterPluginMetadata): PluginValidationIssue[] {
   const issues: PluginValidationIssue[] = [];
-  const trimmedId = metadata.id.trim();
-  const trimmedName = metadata.name.trim();
+  const id = typeof metadata.id === 'string' ? metadata.id : '';
+  const name = typeof metadata.name === 'string' ? metadata.name : '';
+  const trimmedId = id.trim();
+  const trimmedName = name.trim();
 
   if (trimmedId.length === 0) {
     issues.push({
@@ -133,7 +135,7 @@ export function validate_plugin_metadata(metadata: CharacterPluginMetadata): Plu
       message: 'metadata.id must be a non-empty string',
       path: 'id'
     });
-  } else if (metadata.id !== trimmedId) {
+  } else if (id !== trimmedId) {
     issues.push({
       code: 'plugin_id_canonical',
       message: 'metadata.id must not include leading or trailing whitespace',
@@ -147,7 +149,7 @@ export function validate_plugin_metadata(metadata: CharacterPluginMetadata): Plu
       message: 'metadata.name must be a non-empty string',
       path: 'name'
     });
-  } else if (metadata.name !== trimmedName) {
+  } else if (name !== trimmedName) {
     issues.push({
       code: 'plugin_name_canonical',
       message: 'metadata.name must not include leading or trailing whitespace',
@@ -155,7 +157,20 @@ export function validate_plugin_metadata(metadata: CharacterPluginMetadata): Plu
     });
   }
 
-  if (!Number.isInteger(metadata.target_constraints.min_targets) || metadata.target_constraints.min_targets < 0) {
+  const targetConstraints = metadata.target_constraints;
+  if (!is_record(targetConstraints)) {
+    issues.push({
+      code: 'invalid_target_constraints',
+      message: 'target_constraints must be an object',
+      path: 'target_constraints'
+    });
+    return issues;
+  }
+
+  const minTargets = targetConstraints.min_targets;
+  const maxTargets = targetConstraints.max_targets;
+
+  if (!Number.isInteger(minTargets) || minTargets < 0) {
     issues.push({
       code: 'invalid_min_targets',
       message: 'target_constraints.min_targets must be an integer >= 0',
@@ -163,7 +178,7 @@ export function validate_plugin_metadata(metadata: CharacterPluginMetadata): Plu
     });
   }
 
-  if (!Number.isInteger(metadata.target_constraints.max_targets) || metadata.target_constraints.max_targets < 0) {
+  if (!Number.isInteger(maxTargets) || maxTargets < 0) {
     issues.push({
       code: 'invalid_max_targets',
       message: 'target_constraints.max_targets must be an integer >= 0',
@@ -171,7 +186,7 @@ export function validate_plugin_metadata(metadata: CharacterPluginMetadata): Plu
     });
   }
 
-  if (metadata.target_constraints.min_targets > metadata.target_constraints.max_targets) {
+  if (Number.isInteger(minTargets) && Number.isInteger(maxTargets) && minTargets > maxTargets) {
     issues.push({
       code: 'target_constraints_range_invalid',
       message: 'target_constraints.min_targets must be <= target_constraints.max_targets',
@@ -179,5 +194,39 @@ export function validate_plugin_metadata(metadata: CharacterPluginMetadata): Plu
     });
   }
 
+  const flags = metadata.flags;
+  if (!is_record(flags)) {
+    issues.push({
+      code: 'invalid_plugin_flags',
+      message: 'flags must be an object',
+      path: 'flags'
+    });
+    return issues;
+  }
+
+  const boolean_flag_keys = [
+    'can_function_while_dead',
+    'can_trigger_on_death',
+    'may_cause_drunkenness',
+    'may_cause_poisoning',
+    'may_change_alignment',
+    'may_change_character',
+    'may_register_as_other'
+  ] as const;
+
+  for (const key of boolean_flag_keys) {
+    if (typeof flags[key] !== 'boolean') {
+      issues.push({
+        code: 'invalid_plugin_flag_type',
+        message: `flags.${key} must be a boolean`,
+        path: `flags.${key}`
+      });
+    }
+  }
+
   return issues;
+}
+
+function is_record(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null;
 }

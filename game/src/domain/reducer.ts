@@ -245,6 +245,7 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
       break;
     }
     case 'WakeScheduled': {
+      ensure_player(next, event.payload.player_id);
       if (!next.wake_queue.some((item) => item.wake_id === event.payload.wake_id)) {
         next.wake_queue.push({
           wake_id: event.payload.wake_id,
