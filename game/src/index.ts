@@ -16,3 +16,5 @@ export * from './projections/types.js';
 export * from './projections/storyteller.js';
 export * from './projections/player.js';
 export * from './projections/public.js';
+export * from './plugins/contracts.js';
+export * from './plugins/registry.js';
