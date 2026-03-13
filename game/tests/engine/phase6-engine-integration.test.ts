@@ -566,7 +566,10 @@ test('poisoner prompt resolves into reminder marker apply and clear flow', () =>
     },
     registry
   );
+  assert.equal(phase_to_n2.some((event) => event.event_type === 'ReminderMarkerExpired'), true);
+  assert.equal(phase_to_n2.some((event) => event.event_type === 'HealthRestored'), true);
   state = apply_events(state, phase_to_n2);
+  assert.equal(state.players_by_id.p1?.poisoned, false);
 
   const poisoner_prompt_n2 = phase_to_n2.find(
     (event) =>
@@ -591,9 +594,9 @@ test('poisoner prompt resolves into reminder marker apply and clear flow', () =>
     registry
   );
 
-  assert.equal(resolve_n2_events.some((event) => event.event_type === 'ReminderMarkerCleared'), true);
+  assert.equal(resolve_n2_events.some((event) => event.event_type === 'ReminderMarkerCleared'), false);
   assert.equal(resolve_n2_events.some((event) => event.event_type === 'ReminderMarkerApplied'), true);
-  assert.equal(resolve_n2_events.some((event) => event.event_type === 'HealthRestored'), true);
+  assert.equal(resolve_n2_events.some((event) => event.event_type === 'HealthRestored'), false);
   assert.equal(resolve_n2_events.some((event) => event.event_type === 'PoisonApplied'), true);
 
   const resolved_n2_state = apply_events(state, resolve_n2_events);

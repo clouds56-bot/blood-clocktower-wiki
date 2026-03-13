@@ -1,6 +1,7 @@
 import type { Command } from '../domain/commands.js';
 import type { DomainEvent } from '../domain/events.js';
 import type { GameState } from '../domain/types.js';
+import { apply_events } from '../domain/reducer.js';
 import type { PluginRegistry } from '../plugins/registry.js';
 import { handle_advance_phase, type EngineResult } from './phase-machine.js';
 import {
@@ -316,6 +317,35 @@ export function handle_command(
 
   if (!base_result.ok) {
     return base_result;
+  }
+
+  if (command.command_type === 'AdvancePhase') {
+    const state_after_phase = apply_events(state, base_result.value);
+    const sweep_command = {
+      command_type: 'SweepReminderExpiry' as const,
+      command_id: `${command.command_id}:AutoSweepReminderExpiry`,
+      ...(command.actor_id === undefined ? {} : { actor_id: command.actor_id }),
+      payload: {
+        phase: command.payload.phase,
+        subphase: command.payload.subphase,
+        day_number: command.payload.day_number,
+        night_number: command.payload.night_number
+      }
+    };
+    const sweep_result = handle_sweep_reminder_expiry(
+      state_after_phase,
+      sweep_command,
+      created_at
+    );
+    if (!sweep_result.ok) {
+      return sweep_result;
+    }
+    if (sweep_result.value.length > 0) {
+      base_result = {
+        ok: true,
+        value: [...base_result.value, ...sweep_result.value]
+      };
+    }
   }
 
   return integrate_plugin_runtime(
