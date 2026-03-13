@@ -100,6 +100,19 @@ export interface DeathRecord {
   reason: 'execution' | 'night_death' | 'ability' | 'storyteller';
 }
 
+export interface WakeQueueEntry {
+  wake_id: string;
+  character_id: string;
+  player_id: PlayerId;
+}
+
+export interface InterruptQueueEntry {
+  interrupt_id: string;
+  kind: string;
+  source_plugin_id: string;
+  payload: Record<string, unknown>;
+}
+
 export interface PlayerState {
   player_id: PlayerId;
   display_name: string;
@@ -130,6 +143,8 @@ export interface GameState {
   day_state: DayState;
   execution_history: ExecutionRecord[];
   death_history: DeathRecord[];
+  wake_queue: WakeQueueEntry[];
+  interrupt_queue: InterruptQueueEntry[];
   prompts_by_id: Record<string, PromptState>;
   pending_prompts: string[];
   storyteller_notes: StorytellerNoteRecord[];
@@ -166,6 +181,9 @@ export type InvariantIssueCode =
   | 'alive_player_spent_dead_vote'
   | 'invalid_phase_subphase_combination'
   | 'active_vote_nomination_missing'
+  | 'duplicate_wake_queue_id'
+  | 'wake_queue_player_missing'
+  | 'duplicate_interrupt_queue_id'
   | 'duplicate_pending_prompt_id'
   | 'pending_prompt_missing'
   | 'pending_prompt_not_pending'

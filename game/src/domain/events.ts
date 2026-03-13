@@ -38,6 +38,10 @@ export type DomainEventType =
   | 'ExecutionConsequencesResolved'
   | 'PlayerDied'
   | 'DeadVoteConsumed'
+  | 'WakeScheduled'
+  | 'WakeConsumed'
+  | 'InterruptScheduled'
+  | 'InterruptConsumed'
   | 'PromptQueued'
   | 'PromptResolved'
   | 'PromptCancelled'
@@ -232,6 +236,39 @@ export interface DeadVoteConsumedEvent extends BaseDomainEvent {
   };
 }
 
+export interface WakeScheduledEvent extends BaseDomainEvent {
+  event_type: 'WakeScheduled';
+  payload: {
+    wake_id: string;
+    character_id: string;
+    player_id: PlayerId;
+  };
+}
+
+export interface WakeConsumedEvent extends BaseDomainEvent {
+  event_type: 'WakeConsumed';
+  payload: {
+    wake_id: string;
+  };
+}
+
+export interface InterruptScheduledEvent extends BaseDomainEvent {
+  event_type: 'InterruptScheduled';
+  payload: {
+    interrupt_id: string;
+    kind: string;
+    source_plugin_id: string;
+    payload: Record<string, unknown>;
+  };
+}
+
+export interface InterruptConsumedEvent extends BaseDomainEvent {
+  event_type: 'InterruptConsumed';
+  payload: {
+    interrupt_id: string;
+  };
+}
+
 export interface PromptQueuedEvent extends BaseDomainEvent {
   event_type: 'PromptQueued';
   payload: {
@@ -333,6 +370,10 @@ export type DomainEvent =
   | ExecutionConsequencesResolvedEvent
   | PlayerDiedEvent
   | DeadVoteConsumedEvent
+  | WakeScheduledEvent
+  | WakeConsumedEvent
+  | InterruptScheduledEvent
+  | InterruptConsumedEvent
   | PromptQueuedEvent
   | PromptResolvedEvent
   | PromptCancelledEvent
