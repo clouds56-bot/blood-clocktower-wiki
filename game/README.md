@@ -1,6 +1,6 @@
 # Game Engine CLI
 
-Interactive CLI for the `game` package (Phase 4).
+Interactive CLI for the `game` package (Phase 5).
 
 It lets you run engine commands, inspect emitted events, and inspect state while staying event-driven (`handle_command` + `apply_events`).
 
@@ -20,7 +20,7 @@ pnpm --filter game run cli -- my_game
 
 ## Quick Start
 
-Create a ready-to-run setup:
+Create a ready-to-run setup (players + seats + random script-valid character/alignment assignment):
 
 ```text
 start bmr 7
@@ -39,6 +39,11 @@ Aliases:
 - `events [count]`
 - `players`
 - `player <player_id>`
+- `view storyteller` (alias: `view st`)
+- `view public`
+- `view player <player_id>` (alias: `view <player_id>`)
+  - add `--json` to any `view` command for JSON output
+- `setup-player <player_id> <true_character_id> [perceived_character_id] <townsfolk|outsider|minion|demon|traveller> [good|evil]`
 - `prompts`
 - `prompt <prompt_id>`
 - `new <game_id>`
@@ -49,6 +54,12 @@ Aliases:
 - `create-prompt <prompt_id> <kind> <storyteller|player|public> <reason...>`
 - `resolve-prompt <prompt_id> [selected_option_id|-] [notes...]`
 - `cancel-prompt <prompt_id> <reason...>`
+
+## Manual Setup Commands
+
+- `assign-character <player_id> <character_id> [--demon] [--traveller]`
+- `assign-perceived <player_id> <character_id>`
+- `assign-alignment <player_id> <good|evil>`
 
 ## Phase Step Command
 

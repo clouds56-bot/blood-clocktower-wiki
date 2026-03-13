@@ -11,6 +11,9 @@
     "example": "tsx ./examples/usage.ts",
     "cli": "tsx ./src/cli/repl.ts"
   },
+  "dependencies": {
+    "cli-table3": "^0.6.5"
+  },
   "devDependencies": {
     "@types/node": "^24.5.2",
     "tsx": "^4.20.6",

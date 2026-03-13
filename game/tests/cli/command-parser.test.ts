@@ -104,6 +104,47 @@ test('parse local commands', () => {
   if (prompt.ok && prompt.kind === 'local' && prompt.action.type === 'prompt') {
     assert.equal(prompt.action.prompt_id, 'pr1');
   }
+
+  const viewStoryteller = parse_cli_line('view storyteller');
+  assert.equal(viewStoryteller.ok, true);
+  if (viewStoryteller.ok && viewStoryteller.kind === 'local') {
+    assert.equal(viewStoryteller.action.type, 'view_storyteller');
+    if (viewStoryteller.action.type === 'view_storyteller') {
+      assert.equal(viewStoryteller.action.json, false);
+    }
+  }
+
+  const viewStorytellerAlias = parse_cli_line('view st --json');
+  assert.equal(viewStorytellerAlias.ok, true);
+  if (viewStorytellerAlias.ok && viewStorytellerAlias.kind === 'local') {
+    assert.equal(viewStorytellerAlias.action.type, 'view_storyteller');
+    if (viewStorytellerAlias.action.type === 'view_storyteller') {
+      assert.equal(viewStorytellerAlias.action.json, true);
+    }
+  }
+
+  const viewPublic = parse_cli_line('view public');
+  assert.equal(viewPublic.ok, true);
+  if (viewPublic.ok && viewPublic.kind === 'local') {
+    assert.equal(viewPublic.action.type, 'view_public');
+    if (viewPublic.action.type === 'view_public') {
+      assert.equal(viewPublic.action.json, false);
+    }
+  }
+
+  const viewPlayer = parse_cli_line('view player p1');
+  assert.equal(viewPlayer.ok, true);
+  if (viewPlayer.ok && viewPlayer.kind === 'local' && viewPlayer.action.type === 'view_player') {
+    assert.equal(viewPlayer.action.player_id, 'p1');
+    assert.equal(viewPlayer.action.json, false);
+  }
+
+  const viewPlayerAlias = parse_cli_line('view p1 --json');
+  assert.equal(viewPlayerAlias.ok, true);
+  if (viewPlayerAlias.ok && viewPlayerAlias.kind === 'local' && viewPlayerAlias.action.type === 'view_player') {
+    assert.equal(viewPlayerAlias.action.player_id, 'p1');
+    assert.equal(viewPlayerAlias.action.json, true);
+  }
 });
 
 test('parse engine nominate command', () => {
@@ -142,11 +183,66 @@ test('parse assign-character flags', () => {
   }
 });
 
+test('parse setup-player local command', () => {
+  const withDefaults = parse_cli_line('setup-player p1 washerwoman townsfolk');
+  assert.equal(withDefaults.ok, true);
+  if (withDefaults.ok && withDefaults.kind === 'local' && withDefaults.action.type === 'setup_player') {
+    assert.deepEqual(withDefaults.action, {
+      type: 'setup_player',
+      player_id: 'p1',
+      true_character_id: 'washerwoman',
+      perceived_character_id: 'washerwoman',
+      character_type: 'townsfolk',
+      alignment: null
+    });
+  }
+
+  const withPerceivedAndAlignment = parse_cli_line(
+    'setup-player p2 imp soldier demon evil'
+  );
+  assert.equal(withPerceivedAndAlignment.ok, true);
+  if (
+    withPerceivedAndAlignment.ok &&
+    withPerceivedAndAlignment.kind === 'local' &&
+    withPerceivedAndAlignment.action.type === 'setup_player'
+  ) {
+    assert.deepEqual(withPerceivedAndAlignment.action, {
+      type: 'setup_player',
+      player_id: 'p2',
+      true_character_id: 'imp',
+      perceived_character_id: 'soldier',
+      character_type: 'demon',
+      alignment: 'evil'
+    });
+  }
+
+  const travellerEvil = parse_cli_line('setup-player p3 thief thief traveller evil');
+  assert.equal(travellerEvil.ok, true);
+  if (travellerEvil.ok && travellerEvil.kind === 'local' && travellerEvil.action.type === 'setup_player') {
+    assert.equal(travellerEvil.action.alignment, 'evil');
+  }
+});
+
 test('invalid command gives usage', () => {
   const parsed = parse_cli_line('vote n1 p1 maybe');
   assert.equal(parsed.ok, false);
   if (!parsed.ok) {
     assert.match(parsed.message, /usage: vote/);
+  }
+
+  const viewInvalid = parse_cli_line('view maybe');
+  assert.equal(viewInvalid.ok, true);
+  if (viewInvalid.ok && viewInvalid.kind === 'local') {
+    assert.equal(viewInvalid.action.type, 'view_player');
+    if (viewInvalid.action.type === 'view_player') {
+      assert.equal(viewInvalid.action.player_id, 'maybe');
+    }
+  }
+
+  const setupPlayerInvalid = parse_cli_line('setup-player p1 imp maybe');
+  assert.equal(setupPlayerInvalid.ok, false);
+  if (!setupPlayerInvalid.ok) {
+    assert.match(setupPlayerInvalid.message, /usage: setup-player/);
   }
 });
 
