@@ -246,6 +246,10 @@ Three projection functions:
 
 No projection may leak hidden fields by default.
 
+Projection policy notes:
+- `registered_character_id` and `registered_alignment` are Storyteller/internal by default.
+- player/public projections must not expose `registered_*` unless a specific rules-backed effect grants that knowledge.
+
 ---
 
 ## Invariants
@@ -289,10 +293,18 @@ Phase 8: hardening, fixture matrix, and API/DX stabilization.
 
 - **Phase 5 (visibility projections)**
   - Add projection-aware CLI views:
-    - `view storyteller`
-    - `view player <player_id>`
+    - `view storyteller` (alias `view st`)
+    - `view player <player_id>` (alias `view <player_id>`)
     - `view public`
+  - Add `--json` support for `view` commands.
+  - Default `view` output should be compact table/text (JSON optional).
   - Ensure output is deny-by-default for hidden fields in non-storyteller views.
+
+- **Phase 5.1 (CLI setup ergonomics)**
+  - Add local setup helper:
+    - `setup-player <player_id> <true_character_id> [perceived_character_id] <townsfolk|outsider|minion|demon|traveller> [good|evil]`
+  - Keep granular setup commands (`assign-character`, `assign-perceived`, `assign-alignment`).
+  - Make `quick-setup` / `start` assign random script-valid characters + alignments from edition/setup data.
 
 - **Phase 6 (plugin runtime)**
   - Add plugin debugging commands:

@@ -138,6 +138,8 @@ Enforce hidden-information boundaries.
 - Implement Storyteller projection.
 - Implement player projection.
 - Implement public projection.
+- Keep projection DTO identifiers typed with `PlayerId` (not plain `string`) where applicable.
+- Ensure player projection does not expose `registered_character_id` / `registered_alignment` by default.
 - Add anti-leak tests for private state.
 
 **Deliverables**
@@ -146,7 +148,9 @@ Enforce hidden-information boundaries.
 - `projections/public.ts`
 
 **Definition of Done**
-- privacy tests pass, no hidden-state leakage.
+- privacy tests pass, no hidden-state leakage;
+- player projection omits `registered_*` unless explicitly rules-gated;
+- projection DTO identifier typing is consistent with domain ids.
 
 ---
 
@@ -246,6 +250,8 @@ Stabilize API and improve developer workflow.
 - CLI engine-command dispatch emits event stream
 - adjudication prompt lifecycle
 - projection non-leak guarantees
+- projection omits `registered_*` from player/public by default
+- projection DTO id types align with domain id aliases
 - plugin interrupt behavior
 - social claims lifecycle and querying
 

@@ -215,6 +215,11 @@ Examples:
 - their own alignment, except special cases where rules intentionally mislead them;
 - changes to their character or alignment at the earliest opportunity, except specific exception characters like Drunk/Lunatic-style cases.
 
+Default non-exposure rule:
+
+- internal registration fields (registered character/alignment) are not automatically player-visible;
+- expose them to a player only when a concrete rules effect explicitly grants that knowledge.
+
 ### 3. Official public truth
 
 Facts the whole table learns through official game flow.
@@ -583,6 +588,11 @@ Registration rules:
 - registering as a character or alignment affects rule checks and other players' abilities;
 - it does not grant the registered character's ability;
 - it does not change the player's true team win condition unless an actual alignment change happens.
+
+Visibility guidance:
+
+- registered state is Storyteller/internal by default;
+- player/public views should not leak registered state without explicit rules-backed disclosure.
 
 ## Madness rules
 
