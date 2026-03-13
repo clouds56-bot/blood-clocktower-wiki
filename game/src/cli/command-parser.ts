@@ -299,10 +299,20 @@ export function parse_cli_line(input: string, state?: GameState): ParsedCliLine 
   if (command === 'markers') {
     return { ok: true, kind: 'local', action: { type: 'markers' } };
   }
+  if (command === 'reminders') {
+    return { ok: true, kind: 'local', action: { type: 'markers' } };
+  }
   if (command === 'marker') {
     const marker_id = args[0];
     if (!marker_id) {
       return invalid('usage: marker <marker_id>');
+    }
+    return { ok: true, kind: 'local', action: { type: 'marker', marker_id } };
+  }
+  if (command === 'reminder') {
+    const marker_id = args[0];
+    if (!marker_id) {
+      return invalid('usage: reminder <marker_id>');
     }
     return { ok: true, kind: 'local', action: { type: 'marker', marker_id } };
   }
@@ -987,6 +997,41 @@ export function parse_cli_line(input: string, state?: GameState): ParsedCliLine 
     };
   }
 
+  if (command === 'apply-reminder') {
+    const marker_id = args[0];
+    const kind = args[1];
+    const effect = args[2];
+    const target_player_id = args[3] ?? null;
+    const source_character_id = args[4] ?? null;
+    const note = args.slice(5).join(' ').trim() || `${kind ?? 'marker'}:${effect ?? 'effect'}`;
+    if (!marker_id || !kind || !effect) {
+      return invalid('usage: apply-reminder <marker_id> <kind> <effect> [target_player_id] [source_character_id] [note...]');
+    }
+    return {
+      ok: true,
+      kind: 'engine',
+      command: {
+        command_type: 'ApplyReminderMarker',
+        payload: {
+          marker_id,
+          kind,
+          effect,
+          note,
+          source_player_id: null,
+          source_character_id,
+          target_player_id,
+          target_scope: target_player_id ? 'player' : 'game',
+          authoritative: true,
+          expires_policy: 'manual',
+          expires_at_day_number: null,
+          expires_at_night_number: null,
+          source_event_id: null,
+          metadata: {}
+        }
+      }
+    };
+  }
+
   if (command === 'clear-marker') {
     const marker_id = args[0];
     const reason = args.slice(1).join(' ').trim() || 'manual_clear';
@@ -1006,7 +1051,42 @@ export function parse_cli_line(input: string, state?: GameState): ParsedCliLine 
     };
   }
 
+  if (command === 'clear-reminder') {
+    const marker_id = args[0];
+    const reason = args.slice(1).join(' ').trim() || 'manual_clear';
+    if (!marker_id) {
+      return invalid('usage: clear-reminder <marker_id> [reason...]');
+    }
+    return {
+      ok: true,
+      kind: 'engine',
+      command: {
+        command_type: 'ClearReminderMarker',
+        payload: {
+          marker_id,
+          reason
+        }
+      }
+    };
+  }
+
   if (command === 'sweep-markers') {
+    return {
+      ok: true,
+      kind: 'engine',
+      command: {
+        command_type: 'SweepReminderExpiry',
+        payload: {
+          phase: state?.phase ?? 'setup',
+          subphase: state?.subphase ?? 'idle',
+          day_number: state?.day_number ?? 0,
+          night_number: state?.night_number ?? 0
+        }
+      }
+    };
+  }
+
+  if (command === 'sweep-reminders') {
     return {
       ok: true,
       kind: 'engine',
