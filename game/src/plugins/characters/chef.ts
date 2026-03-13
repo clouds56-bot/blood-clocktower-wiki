@@ -1,9 +1,35 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
+import type { GameState } from '../../domain/types.js';
 import {
-  build_misinformation_prompt,
-  get_player_information_mode,
-  is_misinformation_prompt_id
+  build_info_role_misinformation_hooks
 } from './tb-info-utils.js';
+
+const chef_info_hooks = build_info_role_misinformation_hooks({
+  role_id: 'chef',
+  build_truthful_result: (context): PluginResult => {
+    return {
+      emitted_events: [
+        {
+          event_type: 'StorytellerRulingRecorded',
+          payload: {
+            prompt_id: null,
+            note: `chef_info:${context.player_id}:adjacent_evil_pairs=${count_adjacent_evil_pairs(context.state)}`
+          }
+        }
+      ],
+      queued_prompts: [],
+      queued_interrupts: []
+    };
+  },
+  build_misinformation_options: () => [
+    { option_id: '0', label: 'Show 0' },
+    { option_id: '1', label: 'Show 1' },
+    { option_id: '2', label: 'Show 2' }
+  ],
+  build_misinformation_note: (subject_player_id, selected_option_id) => {
+    return `chef_info:${subject_player_id}:adjacent_evil_pairs=${selected_option_id ?? '0'}`;
+  }
+});
 
 export const chef_plugin: CharacterPlugin = {
   metadata: {
@@ -31,76 +57,12 @@ export const chef_plugin: CharacterPlugin = {
     }
   },
   hooks: {
-    on_night_wake: (context): PluginResult => {
-      const info_mode = get_player_information_mode(context.state, context.player_id);
-      let note = `chef_info:${context.player_id}:inactive`;
-      if (info_mode === 'truthful') {
-        note = `chef_info:${context.player_id}:adjacent_evil_pairs=${count_adjacent_evil_pairs(context.state)}`;
-      } else if (info_mode === 'misinformation') {
-        return {
-          emitted_events: [],
-          queued_prompts: [
-            build_misinformation_prompt('chef', context.player_id, context.state.night_number, [
-              { option_id: '0', label: 'Show 0' },
-              { option_id: '1', label: 'Show 1' },
-              { option_id: '2', label: 'Show 2' }
-            ])
-          ],
-          queued_interrupts: []
-        };
-      }
-
-      return {
-        emitted_events: [
-          {
-            event_type: 'StorytellerRulingRecorded',
-            payload: {
-              prompt_id: null,
-              note
-            }
-          }
-        ],
-        queued_prompts: [],
-        queued_interrupts: []
-      };
-    },
-    on_prompt_resolved: (context): PluginResult => {
-      if (!is_misinformation_prompt_id(context.prompt_id, 'chef')) {
-        return {
-          emitted_events: [],
-          queued_prompts: [],
-          queued_interrupts: []
-        };
-      }
-
-      const subject_player_id = parse_subject_player_id(context.prompt_id);
-      if (!subject_player_id) {
-        return {
-          emitted_events: [],
-          queued_prompts: [],
-          queued_interrupts: []
-        };
-      }
-
-      const selected = context.selected_option_id ?? '0';
-      return {
-        emitted_events: [
-          {
-            event_type: 'StorytellerRulingRecorded',
-            payload: {
-              prompt_id: context.prompt_id,
-              note: `chef_info:${subject_player_id}:adjacent_evil_pairs=${selected}`
-            }
-          }
-        ],
-        queued_prompts: [],
-        queued_interrupts: []
-      };
-    }
+    on_night_wake: chef_info_hooks.on_night_wake,
+    on_prompt_resolved: chef_info_hooks.on_prompt_resolved
   }
 };
 
-function count_adjacent_evil_pairs(state: Parameters<typeof get_player_information_mode>[0]): number {
+function count_adjacent_evil_pairs(state: Readonly<GameState>): number {
   const seats = state.seat_order;
   if (seats.length < 2) {
     return 0;
@@ -126,9 +88,4 @@ function count_adjacent_evil_pairs(state: Parameters<typeof get_player_informati
   }
 
   return count;
-}
-
-function parse_subject_player_id(prompt_id: string): string | null {
-  const parts = prompt_id.split(':');
-  return parts[4] ?? null;
 }

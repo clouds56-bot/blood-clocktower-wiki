@@ -1,5 +1,10 @@
 import type { GameState, PlayerState } from '../../domain/types.js';
-import type { PluginPromptSpec } from '../contracts.js';
+import type {
+  NightWakeHookContext,
+  PluginPromptSpec,
+  PluginResult,
+  PromptResolvedHookContext
+} from '../contracts.js';
 
 export type PlayerInformationMode = 'inactive' | 'truthful' | 'misinformation';
 
@@ -41,6 +46,98 @@ export function build_misinformation_prompt(
 
 export function is_misinformation_prompt_id(prompt_id: string, role_id: string): boolean {
   return prompt_id.startsWith(`plugin:${role_id}:misinfo:`);
+}
+
+export interface InfoRoleMisinformationConfig {
+  role_id: string;
+  build_truthful_result: (context: NightWakeHookContext) => PluginResult;
+  build_misinformation_options: (context: NightWakeHookContext) => Array<{ option_id: string; label: string }>;
+  build_misinformation_note: (subject_player_id: string, selected_option_id: string | null) => string;
+  build_inactive_note?: (subject_player_id: string) => string;
+}
+
+export function build_info_role_misinformation_hooks(config: InfoRoleMisinformationConfig): {
+  on_night_wake: (context: NightWakeHookContext) => PluginResult;
+  on_prompt_resolved: (context: PromptResolvedHookContext) => PluginResult;
+} {
+  return {
+    on_night_wake: (context): PluginResult => {
+      const info_mode = get_player_information_mode(context.state, context.player_id);
+      if (info_mode === 'truthful') {
+        return config.build_truthful_result(context);
+      }
+
+      if (info_mode === 'misinformation') {
+        return {
+          emitted_events: [],
+          queued_prompts: [
+            build_misinformation_prompt(
+              config.role_id,
+              context.player_id,
+              context.state.night_number,
+              config.build_misinformation_options(context)
+            )
+          ],
+          queued_interrupts: []
+        };
+      }
+
+      const inactive_note = config.build_inactive_note
+        ? config.build_inactive_note(context.player_id)
+        : `${config.role_id}_info:${context.player_id}:inactive`;
+
+      return {
+        emitted_events: [
+          {
+            event_type: 'StorytellerRulingRecorded',
+            payload: {
+              prompt_id: null,
+              note: inactive_note
+            }
+          }
+        ],
+        queued_prompts: [],
+        queued_interrupts: []
+      };
+    },
+    on_prompt_resolved: (context): PluginResult => {
+      if (!is_misinformation_prompt_id(context.prompt_id, config.role_id)) {
+        return {
+          emitted_events: [],
+          queued_prompts: [],
+          queued_interrupts: []
+        };
+      }
+
+      const subject_player_id = parse_misinfo_prompt_subject_player_id(context.prompt_id);
+      if (!subject_player_id) {
+        return {
+          emitted_events: [],
+          queued_prompts: [],
+          queued_interrupts: []
+        };
+      }
+
+      return {
+        emitted_events: [
+          {
+            event_type: 'StorytellerRulingRecorded',
+            payload: {
+              prompt_id: context.prompt_id,
+              note: config.build_misinformation_note(subject_player_id, context.selected_option_id)
+            }
+          }
+        ],
+        queued_prompts: [],
+        queued_interrupts: []
+      };
+    }
+  };
+}
+
+function parse_misinfo_prompt_subject_player_id(prompt_id: string): string | null {
+  const parts = prompt_id.split(':');
+  return parts[4] ?? null;
 }
 
 export function is_functional_player(state: Readonly<GameState>, player_id: string): boolean {
