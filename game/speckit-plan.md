@@ -165,12 +165,47 @@ Support character-specific behavior via plugins.
 - Implement interrupt queue integration.
 - Add two sample plugins (`imp`, `poisoner`) as proof of architecture.
 
+**Subtasks (implementation order)**
+- **SPEC-06.1 Contract + Registry**
+  - Add plugin interfaces (metadata, hook signatures, result envelope).
+  - Add registry APIs (register/get/list/validate duplicate ids).
+- **SPEC-06.2 Runtime Queue Model**
+  - Add `wake_queue` and `interrupt_queue` to state model.
+  - Add reducer support and invariants for queue integrity.
+- **SPEC-06.3 Hook Dispatcher**
+  - Implement deterministic dispatch with explicit hook boundaries.
+  - Normalize plugin outputs into events/prompts/interrupt tasks.
+- **SPEC-06.4 Engine Integration**
+  - Wire dispatcher into night flow and prompt resolution flow.
+  - Enforce reducer-only mutation path.
+- **SPEC-06.5 Sample Plugin: Imp**
+  - Wake hook requests a kill target prompt.
+  - Prompt resolution hook emits consequence events via engine flow.
+- **SPEC-06.6 Sample Plugin: Poisoner**
+  - Wake hook requests poison target prompt.
+  - Prompt resolution hook emits poison apply/restore lifecycle events.
+- **SPEC-06.7 CLI Debugging Surface**
+  - Add commands to list plugins, inspect last hook dispatch output, inspect queues.
+- **SPEC-06.8 Test + Hardening**
+  - Add scenario tests for imp/poisoner behavior and interrupt ordering.
+  - Add replay checks for plugin-generated outputs.
+
+**Imp Reference Flow**
+1. Night flow schedules an `imp` wake step into `wake_queue`.
+2. Dispatcher calls the `imp` wake hook and gets a target-choice prompt.
+3. Storyteller resolves prompt through `ResolvePrompt`.
+4. Dispatcher calls the `imp` prompt-resolution hook.
+5. Plugin returns consequence events and optional interrupts.
+6. Engine applies events through reducer, then drains interrupts deterministically.
+
 **Deliverables**
 - `plugins/contracts.ts`, `plugins/registry.ts`
 - sample plugin modules and tests.
 
 **Definition of Done**
 - sample scenarios resolve via plugin events/prompts.
+- imp flow is documented and covered by scenario tests.
+- plugin hooks remain pure/declarative (no direct state mutation).
 
 ---
 
@@ -232,7 +267,7 @@ Stabilize API and improve developer workflow.
 3. SPEC-03
 4. SPEC-03.1
 5. SPEC-04 + SPEC-05 (parallel possible after SPEC-02/03)
-6. SPEC-06
+6. SPEC-06.1 -> SPEC-06.8
 7. SPEC-07
 8. SPEC-08
 

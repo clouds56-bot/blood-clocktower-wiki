@@ -235,6 +235,52 @@ Rules:
 - plugin returns events/prompts, never mutates state directly.
 - immediate triggers can enqueue interrupt resolution.
 
+### Runtime Primitives (Phase 6)
+
+- `wake_queue`: ordered wake steps generated from character timing.
+- `interrupt_queue`: immediate resolution work items that preempt normal wake order.
+- `plugin_registry`: authoritative map of `character_id -> plugin`.
+- `hook_dispatcher`: deterministic dispatcher that calls hooks and normalizes outputs.
+
+### Hook Lifecycle (Event-Driven)
+
+1. engine enters a hook boundary (for example: night wake step begins, prompt resolved).
+2. dispatcher invokes target plugin hook with read-only context.
+3. plugin returns declarative outputs (`events`, `prompts`, `interrupts`).
+4. engine applies outputs through normal command/event pipeline.
+5. reducer is the only state mutation path.
+
+### Sample Behavior Contract (Imp)
+
+- On wake, `imp` emits a prompt for a target selection.
+- On prompt resolution, `imp` emits consequence events (for example, death application flow).
+- If timing requires immediate nested resolution, `imp` emits interrupt tasks instead of mutating state.
+
+### Phase 6 Scope Split
+
+- 6.1 contract + metadata schema + registry API.
+- 6.2 state runtime queues (`wake_queue`, `interrupt_queue`) + invariants.
+- 6.3 hook dispatcher + output normalization.
+- 6.4 engine integration points (night flow + prompt lifecycle).
+- 6.5 sample `imp` plugin.
+- 6.6 sample `poisoner` plugin.
+- 6.7 CLI debug commands (plugins, hooks, queues).
+- 6.8 scenario tests + replay determinism hardening.
+
+### Initial Hook Boundaries (Phase 6)
+
+- when a night wake step begins.
+- when a plugin-owned prompt is resolved.
+- optional post-event follow-up boundary for scheduling additional wake/interrupt work.
+
+### Phase 6 Test Targets
+
+- registry duplicate-id rejection and plugin lookup behavior.
+- deterministic hook dispatch ordering.
+- imp prompt -> resolution -> consequence scenario.
+- interrupt queue preemption ordering over normal wake queue.
+- replay determinism for plugin-generated events.
+
 ---
 
 ## Visibility Rules
@@ -275,7 +321,7 @@ Phase 3: death consequences + dead vote + win checks + forced victory.
 Phase 3.1: CLI interaction shell (command execution + event/state inspection) over existing engine API.  
 Phase 4: prompted adjudication queue + `ResolvePrompt` lifecycle.  
 Phase 5: visibility projections + anti-leak tests.  
-Phase 6: plugin runtime + sample characters (Imp, Poisoner).  
+Phase 6: plugin runtime + sample characters (Imp, Poisoner), delivered as 6.1-6.8 subphases above.  
 Phase 7: social claims tracking + timeline tooling.  
 Phase 8: hardening, fixture matrix, and API/DX stabilization.
 

@@ -4,6 +4,11 @@ Interactive CLI for the `game` package (Phase 5).
 
 It lets you run engine commands, inspect emitted events, and inspect state while staying event-driven (`handle_command` + `apply_events`).
 
+## Planning Docs
+
+- `game/architecture.md` - engine architecture and phased delivery.
+- `game/speckit-plan.md` - milestone plan and test matrix.
+
 ## Run
 
 From repo root:
