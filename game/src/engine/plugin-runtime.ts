@@ -328,6 +328,31 @@ function process_wake_queue(
       break;
     }
 
+    const wake_player = runtime_state.players_by_id[wake_step.player_id];
+    const wake_plugin = plugin_registry.get(wake_step.character_id);
+    const ability_blocked =
+      !wake_player ||
+      !wake_plugin ||
+      (!wake_player.alive && !wake_plugin.metadata.flags.can_function_while_dead) ||
+      wake_player.drunk ||
+      wake_player.poisoned;
+
+    if (ability_blocked) {
+      const wake_consumed: DomainEvent = {
+        event_id: `${event_id_prefix}:WakeConsumed:${wake_index}`,
+        event_type: 'WakeConsumed',
+        created_at: context.created_at,
+        ...(context.command.actor_id === undefined ? {} : { actor_id: context.command.actor_id }),
+        payload: {
+          wake_id: wake_step.wake_id
+        }
+      };
+      sink.push(wake_consumed);
+      runtime_state = apply_events(runtime_state, [wake_consumed]);
+      wake_index += 1;
+      continue;
+    }
+
     const dispatch = dispatch_hook(plugin_registry, 'on_night_wake', [wake_step.character_id], {
       state: runtime_state,
       player_id: wake_step.player_id,

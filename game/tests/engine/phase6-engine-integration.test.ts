@@ -597,3 +597,101 @@ test('poisoner prompt resolves into poison apply and restore flow', () => {
   assert.equal(resolved_n2_state.players_by_id.p1?.poisoned, false);
   assert.equal(resolved_n2_state.players_by_id.p2?.poisoned, true);
 });
+
+test('poisoned imp wake is consumed without kill prompt', () => {
+  let state = create_initial_state('g1');
+  state = apply_events(state, [
+    {
+      event_id: 'e1',
+      event_type: 'PlayerAdded',
+      created_at: '2026-03-14T00:00:00.000Z',
+      payload: { player_id: 'p1', display_name: 'Poisoner' }
+    },
+    {
+      event_id: 'e2',
+      event_type: 'PlayerAdded',
+      created_at: '2026-03-14T00:00:01.000Z',
+      payload: { player_id: 'p2', display_name: 'Imp' }
+    },
+    {
+      event_id: 'e3',
+      event_type: 'PlayerAdded',
+      created_at: '2026-03-14T00:00:02.000Z',
+      payload: { player_id: 'p3', display_name: 'Target' }
+    },
+    {
+      event_id: 'e4',
+      event_type: 'SeatOrderSet',
+      created_at: '2026-03-14T00:00:03.000Z',
+      payload: { seat_order: ['p1', 'p2', 'p3'] }
+    },
+    {
+      event_id: 'e5',
+      event_type: 'CharacterAssigned',
+      created_at: '2026-03-14T00:00:04.000Z',
+      payload: { player_id: 'p1', true_character_id: 'poisoner' }
+    },
+    {
+      event_id: 'e6',
+      event_type: 'CharacterAssigned',
+      created_at: '2026-03-14T00:00:05.000Z',
+      payload: { player_id: 'p2', true_character_id: 'imp', is_demon: true }
+    }
+  ]);
+  state.phase = 'night';
+  state.subphase = 'dusk';
+  state.day_number = 1;
+  state.night_number = 1;
+
+  const registry = new PluginRegistry([poisoner_plugin, imp_plugin]);
+
+  const phase_events = run_with_registry(
+    state,
+    {
+      command_id: 'c_phase_poison_imp',
+      command_type: 'AdvancePhase',
+      actor_id: 'storyteller',
+      payload: {
+        phase: 'night',
+        subphase: 'night_wake_sequence',
+        day_number: 1,
+        night_number: 1
+      }
+    },
+    registry
+  );
+  state = apply_events(state, phase_events);
+
+  const poison_prompt = phase_events.find(
+    (event) =>
+      event.event_type === 'PromptQueued' &&
+      event.payload.prompt_id.startsWith('plugin:poisoner:night_poison:1:p1')
+  );
+  assert.ok(poison_prompt && poison_prompt.event_type === 'PromptQueued');
+
+  const resolve_events = run_with_registry(
+    state,
+    {
+      command_id: 'c_resolve_poison_imp',
+      command_type: 'ResolvePrompt',
+      actor_id: 'storyteller',
+      payload: {
+        prompt_id: poison_prompt.payload.prompt_id,
+        selected_option_id: 'p2',
+        freeform: null,
+        notes: null
+      }
+    },
+    registry
+  );
+
+  assert.equal(resolve_events.some((event) => event.event_type === 'PoisonApplied'), true);
+  assert.equal(
+    resolve_events.some(
+      (event) =>
+        event.event_type === 'PromptQueued' &&
+        event.payload.prompt_id.startsWith('plugin:imp:night_kill:')
+    ),
+    false
+  );
+});
