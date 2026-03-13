@@ -16,6 +16,7 @@ import { librarian_plugin } from '../plugins/characters/librarian.js';
 import { mayor_plugin } from '../plugins/characters/mayor.js';
 import { monk_plugin } from '../plugins/characters/monk.js';
 import { poisoner_plugin } from '../plugins/characters/poisoner.js';
+import { ravenkeeper_plugin } from '../plugins/characters/ravenkeeper.js';
 import { saint_plugin } from '../plugins/characters/saint.js';
 import { slayer_plugin } from '../plugins/characters/slayer.js';
 import { soldier_plugin } from '../plugins/characters/soldier.js';
@@ -643,6 +644,7 @@ export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void
       mayor_plugin,
       monk_plugin,
       poisoner_plugin,
+      ravenkeeper_plugin,
       saint_plugin,
       slayer_plugin,
       soldier_plugin,

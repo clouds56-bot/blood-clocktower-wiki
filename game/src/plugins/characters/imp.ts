@@ -1,4 +1,5 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
+import { build_ravenkeeper_reveal_prompt } from './ravenkeeper.js';
 
 const IMP_PROMPT_PREFIX = 'plugin:imp:night_kill';
 
@@ -111,19 +112,30 @@ export const imp_plugin: CharacterPlugin = {
         };
       }
 
-      return {
-        emitted_events: [
-          {
-            event_type: 'PlayerDied',
-            payload: {
-              player_id: context.selected_option_id,
-              day_number: context.state.day_number,
-              night_number: context.state.night_number,
-              reason: 'night_death'
-            }
+      const emitted_events: PluginResult['emitted_events'] = [
+        {
+          event_type: 'PlayerDied',
+          payload: {
+            player_id: context.selected_option_id,
+            day_number: context.state.day_number,
+            night_number: context.state.night_number,
+            reason: 'night_death'
           }
-        ],
-        queued_prompts: [],
+        }
+      ];
+
+      const queued_prompts: PluginResult['queued_prompts'] = [];
+      if (
+        target_player.true_character_id === 'ravenkeeper' &&
+        !target_player.poisoned &&
+        !target_player.drunk
+      ) {
+        queued_prompts.push(build_ravenkeeper_reveal_prompt(context.state, target_player.player_id));
+      }
+
+      return {
+        emitted_events,
+        queued_prompts,
         queued_interrupts: []
       };
     }
