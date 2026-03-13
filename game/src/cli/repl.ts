@@ -6,8 +6,14 @@ import { apply_events } from '../domain/reducer.js';
 import { create_initial_state } from '../domain/state.js';
 import type { GameState } from '../domain/types.js';
 import { handle_command } from '../engine/command-handler.js';
+import { chef_plugin } from '../plugins/characters/chef.js';
+import { empath_plugin } from '../plugins/characters/empath.js';
+import { fortune_teller_plugin } from '../plugins/characters/fortune-teller.js';
 import { imp_plugin } from '../plugins/characters/imp.js';
+import { investigator_plugin } from '../plugins/characters/investigator.js';
+import { librarian_plugin } from '../plugins/characters/librarian.js';
 import { poisoner_plugin } from '../plugins/characters/poisoner.js';
+import { washerwoman_plugin } from '../plugins/characters/washerwoman.js';
 import { PluginRegistry } from '../plugins/registry.js';
 import { project_for_player } from '../projections/player.js';
 import { project_for_public } from '../projections/public.js';
@@ -568,7 +574,16 @@ export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void
     state: create_initial_state(initial_game_id),
     event_log: [],
     next_command_index: 1,
-    plugin_registry: new PluginRegistry([imp_plugin, poisoner_plugin])
+    plugin_registry: new PluginRegistry([
+      chef_plugin,
+      empath_plugin,
+      fortune_teller_plugin,
+      imp_plugin,
+      investigator_plugin,
+      librarian_plugin,
+      poisoner_plugin,
+      washerwoman_plugin
+    ])
   };
 
   process.stdout.write('Clocktower Engine CLI (Phase 5)\n');
