@@ -38,6 +38,9 @@ function event_color(event_type: DomainEvent['event_type']): keyof typeof ANSI {
   if (event_type === 'PhaseAdvanced') {
     return 'blue';
   }
+  if (event_type === 'PromptQueued') {
+    return 'yellow';
+  }
   if (
     event_type === 'NominationMade' ||
     event_type === 'VoteOpened' ||
@@ -312,19 +315,37 @@ export function format_players_table(state: GameState): string {
 }
 
 export function format_prompt_list(state: GameState): string {
-  if (state.pending_prompts.length === 0) {
-    return 'no pending prompts';
+  const prompts = Object.values(state.prompts_by_id);
+  if (prompts.length === 0) {
+    return 'no prompts';
   }
 
-  const rows = state.pending_prompts.map((prompt_id) => {
-    const prompt = state.prompts_by_id[prompt_id];
-    if (!prompt) {
-      return `${prompt_id}\t<missing>`;
-    }
-    return `${prompt.prompt_id}\t${prompt.kind}\t${prompt.visibility}\t${prompt.reason}`;
-  });
+  const status_rank: Record<PromptState['status'], number> = {
+    pending: 0,
+    resolved: 1,
+    cancelled: 2
+  };
 
-  return ['prompt_id\tkind\tvisibility\treason', ...rows].join('\n');
+  const rows = prompts
+    .slice()
+    .sort((left, right) => {
+      const left_rank = status_rank[left.status];
+      const right_rank = status_rank[right.status];
+      if (left_rank !== right_rank) {
+        return left_rank - right_rank;
+      }
+      return left.prompt_id.localeCompare(right.prompt_id);
+    })
+    .map((prompt) => [
+      prompt.status === 'resolved' ? paint(prompt.prompt_id, 'gray') : prompt.prompt_id,
+      prompt.kind,
+      prompt.status === 'resolved' ? paint(prompt.status, 'gray') : prompt.status,
+      prompt.visibility,
+      prompt.resolution_payload?.selected_option_id ?? '-',
+      prompt.reason
+    ]);
+
+  return render_table(['prompt_id', 'kind', 'status', 'vis', 'choice', 'reason'], rows);
 }
 
 export function format_prompt(prompt: PromptState): string {
@@ -404,7 +425,7 @@ export function format_help(topic: 'phase' | 'all'): string {
     '  check-win [day_number] [night_number]',
     '  force-win <good|evil> [rationale...]',
     '  create-prompt <prompt_id> <kind> <storyteller|player|public> <reason...>',
-    '  resolve-prompt <prompt_id> [selected_option_id|-] [notes...]',
+    '  resolve-prompt [prompt_id] [selected_option_id|-] [notes...]',
     '  cancel-prompt <prompt_id> <reason...>',
     '  end-day [day_number]'
   ].join('\n');

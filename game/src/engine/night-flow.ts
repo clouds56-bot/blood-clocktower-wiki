@@ -1,6 +1,8 @@
 import type { AdvancePhaseCommand } from '../domain/commands.js';
 import type { DomainEvent } from '../domain/events.js';
-import type { GameState } from '../domain/types.js';
+import type { GameState, WakeQueueEntry } from '../domain/types.js';
+import type { TimingCategory } from '../plugins/contracts.js';
+import type { PluginRegistry } from '../plugins/registry.js';
 import type { EngineResult } from './phase-machine.js';
 
 function error(code: string, message: string): EngineResult<never> {
@@ -39,4 +41,46 @@ export function handle_night_transition(
       }
     ]
   };
+}
+
+export function collect_night_wake_steps(state: GameState, plugin_registry: PluginRegistry): WakeQueueEntry[] {
+  const wake_steps: WakeQueueEntry[] = [];
+
+  for (const [seat_index, player_id] of state.seat_order.entries()) {
+    const player = state.players_by_id[player_id];
+    if (!player || player.true_character_id === null) {
+      continue;
+    }
+    const plugin = plugin_registry.get(player.true_character_id);
+    if (!plugin) {
+      continue;
+    }
+    if (!player.alive && !plugin.metadata.flags.can_function_while_dead) {
+      continue;
+    }
+    if (!should_wake_for_phase(plugin.metadata.timing_category, state.phase)) {
+      continue;
+    }
+
+    wake_steps.push({
+      wake_id: `wake:${state.night_number}:${seat_index}:${player_id}:${player.true_character_id}`,
+      character_id: player.true_character_id,
+      player_id
+    });
+  }
+
+  return wake_steps;
+}
+
+function should_wake_for_phase(
+  timing_category: TimingCategory,
+  phase: GameState['phase']
+): boolean {
+  if (phase === 'first_night') {
+    return timing_category === 'first_night' || timing_category === 'each_night';
+  }
+  if (phase === 'night') {
+    return timing_category === 'each_night' || timing_category === 'each_night_except_first';
+  }
+  return false;
 }

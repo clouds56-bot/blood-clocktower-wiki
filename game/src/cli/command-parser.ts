@@ -195,6 +195,16 @@ function default_executed_player_id(state?: GameState): string | null {
   return state.day_state.executed_player_id;
 }
 
+function default_pending_prompt_id(state?: GameState): string | null {
+  if (!state) {
+    return null;
+  }
+  if (state.pending_prompts.length !== 1) {
+    return null;
+  }
+  return state.pending_prompts[0] ?? null;
+}
+
 export function parse_cli_line(input: string, state?: GameState): ParsedCliLine {
   const line = input.trim();
   if (line.length === 0) {
@@ -862,11 +872,19 @@ export function parse_cli_line(input: string, state?: GameState): ParsedCliLine 
   }
 
   if (command === 'resolve-prompt') {
-    const prompt_id = args[0];
-    const selected_option_id = args[1] === undefined || args[1] === '-' ? null : (args[1] ?? null);
-    const notes_text = args.slice(2).join(' ').trim();
+    const default_prompt_id = default_pending_prompt_id(state);
+    let prompt_id = args[0] ?? default_prompt_id;
+    let selected_option_id: string | null = args[1] === undefined || args[1] === '-' ? null : (args[1] ?? null);
+    let notes_text = args.slice(2).join(' ').trim();
+
+    if (default_prompt_id && args.length > 0 && args[0] !== default_prompt_id) {
+      prompt_id = default_prompt_id;
+      selected_option_id = args[0] === '-' ? null : (args[0] ?? null);
+      notes_text = args.slice(1).join(' ').trim();
+    }
+
     if (!prompt_id) {
-      return invalid('usage: resolve-prompt <prompt_id> [selected_option_id|-] [notes...]');
+      return invalid('usage: resolve-prompt [prompt_id] [selected_option_id|-] [notes...]');
     }
     return {
       ok: true,

@@ -37,6 +37,8 @@ export type DomainEventType =
   | 'PlayerSurvivedExecution'
   | 'ExecutionConsequencesResolved'
   | 'PlayerDied'
+  | 'PoisonApplied'
+  | 'PoisonCleared'
   | 'DeadVoteConsumed'
   | 'WakeScheduled'
   | 'WakeConsumed'
@@ -228,6 +230,26 @@ export interface PlayerDiedEvent extends BaseDomainEvent {
   };
 }
 
+export interface PoisonAppliedEvent extends BaseDomainEvent {
+  event_type: 'PoisonApplied';
+  payload: {
+    player_id: PlayerId;
+    source_plugin_id: string;
+    day_number: number;
+    night_number: number;
+  };
+}
+
+export interface PoisonClearedEvent extends BaseDomainEvent {
+  event_type: 'PoisonCleared';
+  payload: {
+    player_id: PlayerId;
+    source_plugin_id: string;
+    day_number: number;
+    night_number: number;
+  };
+}
+
 export interface DeadVoteConsumedEvent extends BaseDomainEvent {
   event_type: 'DeadVoteConsumed';
   payload: {
@@ -369,6 +391,8 @@ export type DomainEvent =
   | PlayerSurvivedExecutionEvent
   | ExecutionConsequencesResolvedEvent
   | PlayerDiedEvent
+  | PoisonAppliedEvent
+  | PoisonClearedEvent
   | DeadVoteConsumedEvent
   | WakeScheduledEvent
   | WakeConsumedEvent
