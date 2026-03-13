@@ -2,7 +2,7 @@ import type { Command, ResolvePromptCommand } from '../domain/commands.js';
 import type { DomainEvent } from '../domain/events.js';
 import { apply_events } from '../domain/reducer.js';
 import type { GameState } from '../domain/types.js';
-import { dispatch_hook } from '../plugins/dispatcher.js';
+import { dispatch_hook, type NormalizedHookOutput } from '../plugins/dispatcher.js';
 import type { PluginRegistry } from '../plugins/registry.js';
 import type { EngineResult } from './phase-machine.js';
 import { collect_night_wake_steps } from './night-flow.js';
@@ -134,29 +134,7 @@ function is_night_wake_boundary(state: GameState): boolean {
 }
 
 function normalize_dispatch_output(
-  output: {
-    emitted_events: Array<{
-      event_type: DomainEvent['event_type'];
-      payload: Record<string, unknown>;
-      actor_id?: string;
-    }>;
-    queued_prompts: Array<{
-      prompt_id: string;
-      kind: string;
-      reason: string;
-      visibility: 'storyteller' | 'player' | 'public';
-      options: Array<{
-        option_id: string;
-        label: string;
-      }>;
-    }>;
-    queued_interrupts: Array<{
-      interrupt_id: string;
-      kind: string;
-      source_plugin_id: string;
-      payload: Record<string, unknown>;
-    }>;
-  },
+  output: NormalizedHookOutput,
   event_id_prefix: string,
   created_at: string,
   fallback_actor_id?: string

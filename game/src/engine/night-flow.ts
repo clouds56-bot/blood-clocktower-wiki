@@ -48,11 +48,14 @@ export function collect_night_wake_steps(state: GameState, plugin_registry: Plug
 
   for (const [seat_index, player_id] of state.seat_order.entries()) {
     const player = state.players_by_id[player_id];
-    if (!player || !player.alive || player.true_character_id === null) {
+    if (!player || player.true_character_id === null) {
       continue;
     }
     const plugin = plugin_registry.get(player.true_character_id);
     if (!plugin) {
+      continue;
+    }
+    if (!player.alive && !plugin.metadata.flags.can_function_while_dead) {
       continue;
     }
     if (!should_wake_for_phase(plugin.metadata.timing_category, state.phase)) {

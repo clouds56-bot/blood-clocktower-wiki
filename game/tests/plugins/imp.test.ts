@@ -4,7 +4,7 @@ import test from 'node:test';
 import { create_initial_state } from '../../src/domain/state.js';
 import { imp_plugin, is_imp_prompt_id } from '../../src/plugins/characters/imp.js';
 
-test('imp wake hook returns storyteller target prompt', () => {
+test('imp wake hook returns player-visible target prompt', () => {
   const state = create_initial_state('g1');
   state.players_by_id.p1 = {
     player_id: 'p1',
