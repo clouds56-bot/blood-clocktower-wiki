@@ -1,6 +1,6 @@
 # Game Engine CLI
 
-Interactive CLI for the `game` package (Phase 5).
+Interactive CLI for the `game` package (Phase 6, with Phase 5.5 reminder markers).
 
 It lets you run engine commands, inspect emitted events, and inspect state while staying event-driven (`handle_command` + `apply_events`).
 
@@ -60,6 +60,21 @@ Aliases:
 - `resolve-prompt <prompt_id> [selected_option_id|-] [notes...]`
 - `cancel-prompt <prompt_id> <reason...>`
 
+## Reminder Marker Commands
+
+- `markers`
+- `marker <marker_id>`
+- `apply-marker <marker_id> <kind> <effect> [target_player_id] [source_character_id] [note...]`
+- `clear-marker <marker_id> [reason...]`
+- `sweep-markers`
+
+Notes:
+
+- reminder markers are authoritative hidden effect state (buff/debuff model), not UI-only tokens.
+- compatibility transitions are still emitted for consumers that rely on status events:
+  - `PoisonApplied` / `HealthRestored`
+  - `DrunkApplied` / `SobrietyRestored`
+
 ## Manual Setup Commands
 
 - `assign-character <player_id> <character_id> [--demon] [--traveller]`
@@ -79,6 +94,7 @@ Behavior:
    - `nomination_window` -> auto `OpenVote` for latest unresolved nomination; if none, auto `ResolveExecution`
    - `vote_in_progress` -> auto-cast `no` for missing voters, then auto `CloseVote`
    - `execution_resolution` -> auto `ResolveExecutionConsequences` when execution happened and consequences are unresolved
+4. Reminder marker expiry is auto-swept on `AdvancePhase`; expired markers emit `ReminderMarkerExpired`.
 
 ## Short Command Examples
 

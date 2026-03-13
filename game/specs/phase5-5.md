@@ -50,6 +50,7 @@ By end of Phase 5.5, reminder markers are the single authoritative source for ef
   - `reminder_markers_by_id`
   - `active_reminder_marker_ids`
 - `SweepReminderExpiry` deterministically expires matching markers based on policy and game clock.
+- `AdvancePhase` automatically performs expiry sweep and emits `ReminderMarkerExpired` as needed.
 - Replaying the same event stream yields identical active marker sets.
 
 ### 3) Status truth is marker-derived and stack-safe
@@ -65,6 +66,7 @@ By end of Phase 5.5, reminder markers are the single authoritative source for ef
   - events: `PoisonApplied`, `HealthRestored`, `DrunkApplied`, `SobrietyRestored`
 - Bridge behavior:
   - compatibility commands map to marker lifecycle operations;
+  - plugin-emitted marker lifecycle events also trigger compatibility transition events when effective status changes;
   - status transition events are emitted only when effective status changes;
   - no hidden direct bool mutation outside reducer/event path.
 - Important guardrail:
@@ -160,6 +162,7 @@ Phase 5.5 is complete when all conditions below are true:
 - clear marker -> removed from active, status updated
 - expiry sweep expires only eligible markers
 - same-kind multi-source markers coexist
+- auto sweep on phase advance emits `ReminderMarkerExpired` for eligible markers
 - poison stacking scenario (`poisoner:poisoned` + `no_dashii:poisoned`) remains poisoned when one source clears
 - compatibility `ApplyPoison` creates marker + emits `PoisonApplied` only on status transition
 - compatibility clear path emits `HealthRestored` only when final poison source is removed

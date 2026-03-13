@@ -49,11 +49,13 @@ By end of Phase 6, character behavior is executed by plugins through determinist
 - Night flow enqueues/executes wake steps through plugin runtime.
 - Prompt resolution can re-enter plugin runtime for follow-up effects.
 - Interrupts are drained deterministically before resuming normal wake flow.
+- Plugin-emitted reminder marker lifecycle events are bridged into compatibility status transitions when effective state changes.
 
 ### 5) Imp and Poisoner prove architecture
 
 - `imp` demonstrates prompt-driven kill resolution.
 - `poisoner` demonstrates status-effect lifecycle via reminder marker events (`poisoner:poisoned`) emitted by plugin output.
+- Poisoner marker defaults can use timed expiry (for example `at_night`, next night index) so expiry produces `ReminderMarkerExpired` in normal phase flow.
 - Both implementations prove plugin hooks can express core character behavior without core hardcoding.
 
 ### 6) CLI supports plugin runtime debugging
@@ -140,6 +142,7 @@ Expected deliverables:
 Done when:
 - poisoner wake produces target prompt;
 - prompt resolution emits reminder marker apply/clear lifecycle events for poison targeting;
+- expiry/retarget paths maintain correct poisoned/healthy transitions through compatibility bridge events;
 - scenario behavior is covered by tests.
 
 ### 6.7 CLI Debugging Surface

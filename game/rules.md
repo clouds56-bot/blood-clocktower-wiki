@@ -166,6 +166,12 @@ Character tokens may imply:
 
 The app should model these as character metadata fields, not hard-coded UI rules.
 
+Engine interpretation for this repository:
+
+- reminders are implemented as authoritative hidden effect markers (buff/debuff style), not only visual tokens;
+- multiple reminder sources can stack on one player at the same time;
+- a player is healthy only when no active poisoned-effect marker remains for that player.
+
 ### Character distribution
 
 Each player receives exactly one character token secretly.

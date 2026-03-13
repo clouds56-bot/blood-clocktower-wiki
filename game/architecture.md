@@ -169,6 +169,7 @@ Rules:
 - `kind` is not unique; multiple active markers of the same kind may coexist.
 - `marker_id` must be unique and replay-stable.
 - rule checks use active authoritative markers; reminder UI is a projection of marker state.
+- engine performs an automatic expiry sweep on `AdvancePhase` and appends `ReminderMarkerExpired` events when policies match.
 
 ### Social Claims Model
 
@@ -284,6 +285,7 @@ Rules:
 Compatibility bridge:
 - keep `ApplyPoison` / `ApplyDrunk` commands and `PoisonApplied` / `DrunkApplied` / restore events for existing plugin callers.
 - these compatibility commands are adapter entry points that create/clear authoritative reminder markers.
+- plugin-emitted marker lifecycle events also pass through compatibility transition logic (`PoisonApplied`/`HealthRestored`, `DrunkApplied`/`SobrietyRestored`) when effective status changes.
 - do not dispatch new commands from reducer/event hooks; compute and emit compatibility status events deterministically in command handling flow after marker lifecycle events are known.
 
 ### Runtime Primitives (Phase 6)
