@@ -609,3 +609,98 @@ test('butler yes vote requires master yes vote first', () => {
   );
   assert.equal(allowed.ok, true);
 });
+
+test('virgin executes townsfolk nominator immediately on first nomination', () => {
+  let state = bootstrap_day_state();
+  state = run_command(state, {
+    command_id: 'c-assign-virgin',
+    command_type: 'AssignCharacter',
+    payload: {
+      player_id: 'p2',
+      true_character_id: 'virgin'
+    }
+  });
+  state = run_command(state, {
+    command_id: 'c-assign-chef',
+    command_type: 'AssignCharacter',
+    payload: {
+      player_id: 'p1',
+      true_character_id: 'chef'
+    }
+  });
+  state = run_command(state, {
+    command_id: 'c-open',
+    command_type: 'OpenNominationWindow',
+    payload: { day_number: 1 }
+  });
+  state = run_command(state, {
+    command_id: 'c-nom',
+    command_type: 'NominatePlayer',
+    payload: {
+      nomination_id: 'n1',
+      day_number: 1,
+      nominator_player_id: 'p1',
+      nominee_player_id: 'p2'
+    }
+  });
+
+  assert.equal(state.players_by_id.p1?.alive, false);
+  const virgin_spent = state.active_reminder_marker_ids.some((marker_id) => {
+    const marker = state.reminder_markers_by_id[marker_id];
+    return Boolean(marker && marker.kind === 'virgin:spent' && marker.source_player_id === 'p2');
+  });
+  assert.equal(virgin_spent, true);
+});
+
+test('slayer shot kills demon and is once per game', () => {
+  let state = bootstrap_day_state();
+  state = run_command(state, {
+    command_id: 'c-assign-slayer',
+    command_type: 'AssignCharacter',
+    payload: {
+      player_id: 'p1',
+      true_character_id: 'slayer'
+    }
+  });
+  state = run_command(state, {
+    command_id: 'c-assign-imp',
+    command_type: 'AssignCharacter',
+    payload: {
+      player_id: 'p2',
+      true_character_id: 'imp',
+      is_demon: true
+    }
+  });
+
+  state = run_command(state, {
+    command_id: 'c-slay',
+    command_type: 'UseSlayerShot',
+    payload: {
+      slayer_player_id: 'p1',
+      target_player_id: 'p2',
+      day_number: 1,
+      night_number: 1
+    }
+  });
+
+  assert.equal(state.players_by_id.p2?.alive, false);
+
+  const second = handle_command(
+    state,
+    {
+      command_id: 'c-slay-2',
+      command_type: 'UseSlayerShot',
+      payload: {
+        slayer_player_id: 'p1',
+        target_player_id: 'p3',
+        day_number: 1,
+        night_number: 1
+      }
+    },
+    '2026-03-12T02:00:00.000Z'
+  );
+  assert.equal(second.ok, false);
+  if (!second.ok) {
+    assert.equal(second.error.code, 'slayer_shot_already_used');
+  }
+});

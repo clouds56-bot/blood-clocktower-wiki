@@ -17,9 +17,11 @@ import { mayor_plugin } from '../plugins/characters/mayor.js';
 import { monk_plugin } from '../plugins/characters/monk.js';
 import { poisoner_plugin } from '../plugins/characters/poisoner.js';
 import { saint_plugin } from '../plugins/characters/saint.js';
+import { slayer_plugin } from '../plugins/characters/slayer.js';
 import { soldier_plugin } from '../plugins/characters/soldier.js';
 import { spy_plugin } from '../plugins/characters/spy.js';
 import { undertaker_plugin } from '../plugins/characters/undertaker.js';
+import { virgin_plugin } from '../plugins/characters/virgin.js';
 import { washerwoman_plugin } from '../plugins/characters/washerwoman.js';
 import { PluginRegistry } from '../plugins/registry.js';
 import { project_for_player } from '../projections/player.js';
@@ -642,9 +644,11 @@ export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void
       monk_plugin,
       poisoner_plugin,
       saint_plugin,
+      slayer_plugin,
       soldier_plugin,
       spy_plugin,
       undertaker_plugin,
+      virgin_plugin,
       washerwoman_plugin
     ])
   };

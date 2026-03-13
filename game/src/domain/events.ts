@@ -39,6 +39,7 @@ export type DomainEventType =
   | 'ExecutionOccurred'
   | 'PlayerExecuted'
   | 'PlayerSurvivedExecution'
+  | 'SlayerShotUsed'
   | 'ExecutionConsequencesResolved'
   | 'PlayerDied'
   | 'ReminderMarkerApplied'
@@ -213,6 +214,16 @@ export interface PlayerSurvivedExecutionEvent extends BaseDomainEvent {
   payload: {
     day_number: number;
     player_id: PlayerId;
+  };
+}
+
+export interface SlayerShotUsedEvent extends BaseDomainEvent {
+  event_type: 'SlayerShotUsed';
+  payload: {
+    day_number: number;
+    slayer_player_id: PlayerId;
+    target_player_id: PlayerId;
+    success: boolean;
   };
 }
 
@@ -466,6 +477,7 @@ export type DomainEvent =
   | ExecutionOccurredEvent
   | PlayerExecutedEvent
   | PlayerSurvivedExecutionEvent
+  | SlayerShotUsedEvent
   | ExecutionConsequencesResolvedEvent
   | PlayerDiedEvent
   | ReminderMarkerAppliedEvent

@@ -724,6 +724,29 @@ export function parse_cli_line(input: string, state?: GameState): ParsedCliLine 
     };
   }
 
+  if (command === 'slay' || command === 'slayer-shot') {
+    const slayer_player_id = args[0] ?? null;
+    const target_player_id = args[1] ?? null;
+    const day_number = current_day_number(state);
+    const night_number = current_night_number(state);
+    if (!slayer_player_id || !target_player_id || day_number === null || night_number === null) {
+      return invalid('usage: slay <slayer_player_id> <target_player_id>');
+    }
+    return {
+      ok: true,
+      kind: 'engine',
+      command: {
+        command_type: 'UseSlayerShot',
+        payload: {
+          slayer_player_id,
+          target_player_id,
+          day_number,
+          night_number
+        }
+      }
+    };
+  }
+
   if (command === 'close-vote') {
     const nomination_id =
       args[0] === undefined

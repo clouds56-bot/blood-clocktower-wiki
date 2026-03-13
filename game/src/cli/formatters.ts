@@ -507,6 +507,7 @@ export function format_help(topic: 'phase' | 'all'): string {
     '  nominate | nom <nomination_id> <day_number> <nominator_id> <nominee_id>',
     '  open-vote [nomination_id] [opened_by_id]',
     '  vote <voter_id> <yes|no> | vote <voter_id...> [yes|no] | vote <nomination_id> <voter_id> <yes|no>',
+    '  slay | slayer-shot <slayer_player_id> <target_player_id>',
     '  close-vote [nomination_id] [day_number]',
     '  resolve-exec [day_number]',
     '  resolve-conseq [day_number]',

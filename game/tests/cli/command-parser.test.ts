@@ -418,6 +418,17 @@ test('auto-fills command params from state', () => {
     });
   }
 
+  const slay = parse_cli_line('slay p1 p2', state);
+  assert.equal(slay.ok, true);
+  if (slay.ok && slay.kind === 'engine' && slay.command.command_type === 'UseSlayerShot') {
+    assert.deepEqual(slay.command.payload, {
+      slayer_player_id: 'p1',
+      target_player_id: 'p2',
+      day_number: 1,
+      night_number: 1
+    });
+  }
+
   const bulkVoteDefaultYes = parse_cli_line('vote p1 p2', state);
   assert.equal(bulkVoteDefaultYes.ok, true);
   if (bulkVoteDefaultYes.ok && bulkVoteDefaultYes.kind === 'local') {
