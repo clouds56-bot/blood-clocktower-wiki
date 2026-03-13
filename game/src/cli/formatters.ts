@@ -83,6 +83,63 @@ function render_table(head: string[], rows: string[][]): string {
   return table.toString();
 }
 
+function bool_emoji(value: boolean): string {
+  return value ? '✅' : '❌';
+}
+
+function format_nominations(day_state: PublicProjection['day_state']): string {
+  if (day_state.nominations_today.length === 0) {
+    return 'nominations: none';
+  }
+
+  const table = render_table(
+    ['id', 'nominator', 'nominee', 'votes', 'threshold'],
+    day_state.nominations_today.map((nomination) => [
+      nomination.nomination_id,
+      nomination.nominator_player_id,
+      nomination.nominee_player_id,
+      nomination.vote_total === null ? '-' : String(nomination.vote_total),
+      nomination.threshold === null ? '-' : String(nomination.threshold)
+    ])
+  );
+
+  return ['nominations:', table].join('\n');
+}
+
+function format_active_vote(day_state: PublicProjection['day_state']): string {
+  if (!day_state.active_vote) {
+    return 'active_vote: none';
+  }
+
+  const votes = Object.entries(day_state.active_vote.votes_by_player_id)
+    .sort(([left], [right]) => left.localeCompare(right));
+  const votes_table = votes.length === 0
+    ? 'active_votes: none'
+    : [
+        'active_votes:',
+        render_table(
+          ['voter', 'vote'],
+          votes.map(([player_id, in_favor]) => [player_id, in_favor ? 'yes' : 'no'])
+        )
+      ].join('\n');
+
+  const summary = `active_vote id=${day_state.active_vote.nomination_id} nominee=${day_state.active_vote.nominee_player_id} opened_by=${day_state.active_vote.opened_by_player_id}`;
+  return [summary, votes_table].join('\n');
+}
+
+function format_day_summary(projection: PublicProjection): string {
+  return [
+    `nom_window=${bool_emoji(projection.day_state.nomination_window_open)}`,
+    `exec_attempted=${bool_emoji(projection.day_state.execution_attempted_today)}`,
+    `exec_occurred=${bool_emoji(projection.day_state.execution_occurred_today)}`,
+    `exec_player=${projection.day_state.executed_player_id ?? 'none'}`,
+    `exec_outcome=${projection.day_state.execution_outcome}`,
+    `exec_resolved=${bool_emoji(projection.day_state.execution_consequences_resolved_today)}`,
+    `winning_team=${projection.winning_team ?? 'none'}`,
+    `end_reason=${projection.end_reason ?? 'none'}`
+  ].join(' ');
+}
+
 export function format_public_projection(projection: PublicProjection): string {
   const header = [
     `game=${projection.game_id}`,
@@ -93,37 +150,30 @@ export function format_public_projection(projection: PublicProjection): string {
   ].join(' ');
 
   const players = render_table(
-    ['player_id', 'display_name', 'alive', 'dead_vote_available'],
+    ['id', 'name', 'alive', 'dead_vote'],
     projection.players.map((player) => [
       player.player_id,
       player.display_name,
-      String(player.alive),
-      String(player.dead_vote_available)
+      bool_emoji(player.alive),
+      bool_emoji(player.dead_vote_available)
     ])
   );
 
-  const day = [
-    `nominations=${projection.day_state.nominations_today.length}`,
-    `active_vote=${projection.day_state.active_vote?.nomination_id ?? 'none'}`,
-    `execution_outcome=${projection.day_state.execution_outcome}`,
-    `execution_occurred=${projection.day_state.execution_occurred_today}`,
-    `winning_team=${projection.winning_team ?? 'none'}`,
-    `end_reason=${projection.end_reason ?? 'none'}`
-  ].join(' ');
+  const day_summary = format_day_summary(projection);
 
-  return [header, players, day].join('\n');
+  return [
+    header,
+    players,
+    day_summary,
+    format_nominations(projection.day_state),
+    format_active_vote(projection.day_state)
+  ].join('\n');
 }
 
 export function format_player_projection(projection: PlayerProjection): string {
   const base = format_public_projection(projection);
   const self = render_table(
-    [
-      'viewer_player_id',
-      'perceived_character_id',
-      'known_alignment',
-      'registered_character_id',
-      'registered_alignment'
-    ],
+    ['id', 'perceived', 'team', 'reg_char', 'reg_team'],
     [[
       projection.viewer_player_id,
       projection.self.perceived_character_id ?? 'null',
@@ -144,45 +194,86 @@ export function format_storyteller_projection(projection: StorytellerProjection)
     `day=${projection.clock.day_number} night=${projection.clock.night_number}`
   ].join(' ');
 
+  const has_traveller = Object.values(projection.players).some((player) => player.is_traveller);
+
   const rows = Object.values(projection.players)
     .sort((a, b) => a.player_id.localeCompare(b.player_id))
-    .map((player) => [
-      player.player_id,
-      player.display_name,
-      player.true_character_id ?? 'null',
-      player.perceived_character_id ?? 'null',
-      player.true_alignment ?? 'null',
-      String(player.alive),
-      String(player.is_demon),
-      String(player.is_traveller),
-      String(player.drunk),
-      String(player.poisoned)
-    ]);
+    .map((player) => {
+      const char = player.true_character_id ?? 'null';
+      const perceived = player.perceived_character_id ?? 'null';
+      const perceived_display = char === perceived ? '' : perceived;
+      const row = [
+        player.player_id,
+        player.display_name,
+        char,
+        perceived_display,
+        player.true_alignment ?? 'null',
+        bool_emoji(player.alive),
+        bool_emoji(player.is_demon),
+        bool_emoji(player.drunk),
+        bool_emoji(player.poisoned)
+      ];
+      if (has_traveller) {
+        row.push(bool_emoji(player.is_traveller));
+      }
+      return row;
+    });
 
-  const players = render_table(
-    [
-      'player_id',
-      'display_name',
-      'true_character_id',
-      'perceived_character_id',
-      'true_alignment',
-      'alive',
-      'is_demon',
-      'is_traveller',
-      'drunk',
-      'poisoned'
-    ],
-    rows
-  );
+  const player_head = ['id', 'name', 'char', 'perceived', 'team', 'alive', 'demon', 'drunk', 'pois'];
+  if (has_traveller) {
+    player_head.push('trav');
+  }
 
-  const meta = [
-    `prompts=${projection.prompts.length}`,
-    `storyteller_notes=${projection.storyteller_notes.length}`,
-    `winning_team=${projection.winning_team ?? 'none'}`,
-    `end_reason=${projection.end_reason ?? 'none'}`
-  ].join(' ');
+  const players = render_table(player_head, rows);
 
-  return [header, players, meta].join('\n');
+  const day_projection: PublicProjection = {
+    game_id: projection.game_id,
+    script_id: projection.script_id,
+    edition_id: projection.edition_id,
+    clock: projection.clock,
+    players: [],
+    seat_order: projection.seat_order,
+    day_state: projection.day_state,
+    winning_team: projection.winning_team,
+    end_reason: projection.end_reason
+  };
+
+  const prompts = projection.prompts.length === 0
+    ? 'prompts: none'
+    : [
+        'prompts:',
+        render_table(
+          ['id', 'kind', 'status', 'vis', 'choice', 'notes'],
+          projection.prompts.map((prompt) => [
+            prompt.prompt_id,
+            prompt.kind,
+            prompt.status,
+            prompt.visibility,
+            prompt.resolution_payload?.selected_option_id ?? '-',
+            prompt.notes ?? '-'
+          ])
+        )
+      ].join('\n');
+
+  const notes = projection.storyteller_notes.length === 0
+    ? 'notes: none'
+    : [
+        'notes:',
+        render_table(
+          ['id', 'prompt_id', 'text'],
+          projection.storyteller_notes.map((note) => [note.note_id, note.prompt_id ?? '-', note.text])
+        )
+      ].join('\n');
+
+  return [
+    header,
+    players,
+    format_day_summary(day_projection),
+    format_nominations(projection.day_state),
+    format_active_vote(projection.day_state),
+    prompts,
+    notes
+  ].join('\n');
 }
 
 export function format_event(event: DomainEvent, index: number): string {
