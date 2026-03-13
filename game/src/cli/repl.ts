@@ -347,6 +347,13 @@ function run_quick_setup(context: CliContext, script_input: string, player_num: 
     context.event_log.push(...result.value);
   }
 
+  if (context.event_log.length > 0) {
+    process.stdout.write(`${paint('ok', 'green')} emitted=${context.event_log.length}\n`);
+    context.event_log.forEach((event, index) => {
+      process.stdout.write(`${format_event(event, index + 1)}\n`);
+    });
+  }
+
   process.stdout.write(
     `quick setup complete: script=${script_id} players=${player_num} game=${resolved_game_id}\n`
   );

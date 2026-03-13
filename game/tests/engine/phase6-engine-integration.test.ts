@@ -85,7 +85,7 @@ function run_with_registry(state: GameState, command: Command, registry: PluginR
   return result.value;
 }
 
-test('advance phase night wake boundary integrates plugin runtime and drains interrupts', () => {
+test('advance phase night wake boundary suspends further wakes when a prompt is pending', () => {
   const imp: CharacterPlugin = {
     metadata: make_metadata('imp'),
     hooks: {
@@ -155,24 +155,15 @@ test('advance phase night wake boundary integrates plugin runtime and drains int
     [
       'PhaseAdvanced',
       'WakeScheduled',
+      'WakeScheduled',
       'PromptQueued',
       'InterruptScheduled',
       'WakeConsumed',
-      'InterruptConsumed',
-      'WakeScheduled',
-      'PromptQueued',
-      'WakeConsumed'
+      'InterruptConsumed'
     ]
   );
 
-  const firstWakeConsumedIndex = events.findIndex((event) => event.event_type === 'WakeConsumed');
-  const interruptConsumedIndex = events.findIndex((event) => event.event_type === 'InterruptConsumed');
-  const secondWakeScheduledIndex = events.findIndex(
-    (event, index) => event.event_type === 'WakeScheduled' && index > firstWakeConsumedIndex
-  );
-
-  assert.equal(interruptConsumedIndex > firstWakeConsumedIndex, true);
-  assert.equal(interruptConsumedIndex < secondWakeScheduledIndex, true);
+  assert.equal(events.some((event) => event.event_type === 'PromptQueued' && event.payload.prompt_id === 'plugin:poisoner:night_poison'), false);
 });
 
 test('resolve prompt boundary re-enters plugin runtime via prompt owner tag', () => {
@@ -230,6 +221,97 @@ test('resolve prompt boundary re-enters plugin runtime via prompt owner tag', ()
   assert.deepEqual(
     events.map((event) => event.event_type),
     ['PromptResolved', 'StorytellerChoiceMade', 'StorytellerRulingRecorded']
+  );
+});
+
+test('resolve prompt resumes suspended wake queue', () => {
+  const imp: CharacterPlugin = {
+    metadata: make_metadata('imp'),
+    hooks: {
+      on_night_wake: () => ({
+        emitted_events: [],
+        queued_prompts: [
+          {
+            prompt_id: 'plugin:imp:night_kill',
+            kind: 'choice',
+            reason: 'plugin:imp:choose target',
+            visibility: 'player',
+            options: [{ option_id: 'p2', label: 'Bob' }]
+          }
+        ],
+        queued_interrupts: []
+      }),
+      on_prompt_resolved: () => ({
+        emitted_events: [],
+        queued_prompts: [],
+        queued_interrupts: []
+      })
+    }
+  };
+
+  const poisoner: CharacterPlugin = {
+    metadata: make_metadata('poisoner'),
+    hooks: {
+      on_night_wake: () => ({
+        emitted_events: [],
+        queued_prompts: [
+          {
+            prompt_id: 'plugin:poisoner:night_poison',
+            kind: 'choice',
+            reason: 'plugin:poisoner:choose target',
+            visibility: 'player',
+            options: [{ option_id: 'p1', label: 'Alice' }]
+          }
+        ],
+        queued_interrupts: []
+      })
+    }
+  };
+
+  let state = bootstrap_night_state();
+  const registry = new PluginRegistry([imp, poisoner]);
+
+  const phase_events = run_with_registry(
+    state,
+    {
+      command_id: 'c_phase_resume',
+      command_type: 'AdvancePhase',
+      actor_id: 'storyteller',
+      payload: {
+        phase: 'first_night',
+        subphase: 'night_wake_sequence',
+        day_number: 0,
+        night_number: 1
+      }
+    },
+    registry
+  );
+  state = apply_events(state, phase_events);
+
+  assert.equal(state.pending_prompts.includes('plugin:imp:night_kill'), true);
+  assert.equal(state.pending_prompts.includes('plugin:poisoner:night_poison'), false);
+
+  const resolve_events = run_with_registry(
+    state,
+    {
+      command_id: 'c_resolve_resume',
+      command_type: 'ResolvePrompt',
+      actor_id: 'storyteller',
+      payload: {
+        prompt_id: 'plugin:imp:night_kill',
+        selected_option_id: 'p2',
+        freeform: null,
+        notes: null
+      }
+    },
+    registry
+  );
+
+  assert.equal(
+    resolve_events.some(
+      (event) => event.event_type === 'PromptQueued' && event.payload.prompt_id === 'plugin:poisoner:night_poison'
+    ),
+    true
   );
 });
 

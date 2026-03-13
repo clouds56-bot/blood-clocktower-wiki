@@ -37,67 +37,36 @@ export function integrate_plugin_runtime(
   };
 
   if (command.command_type === 'AdvancePhase' && is_night_wake_boundary(runtime_state)) {
-    const wake_steps = collect_night_wake_steps(runtime_state, plugin_registry);
-    for (const [wake_index, wake_step] of wake_steps.entries()) {
-      const wake_scheduled: DomainEvent = {
-        event_id: `${command.command_id}:WakeScheduled:${wake_index}`,
-        event_type: 'WakeScheduled',
-        created_at,
-        actor_id: command.actor_id,
-        payload: {
-          wake_id: wake_step.wake_id,
-          character_id: wake_step.character_id,
-          player_id: wake_step.player_id
-        }
-      };
-      runtime_events.push(wake_scheduled);
-      runtime_state = apply_events(runtime_state, [wake_scheduled]);
-
-      const dispatch = dispatch_hook(
-        plugin_registry,
-        'on_night_wake',
-        [wake_step.character_id],
-        {
-          state: runtime_state,
-          player_id: wake_step.player_id,
-          wake_step_id: wake_step.wake_id
-        }
-      );
-
-      if (!dispatch.ok) {
-        return as_dispatch_error(dispatch.error.code, dispatch.error.message);
+    if (runtime_state.wake_queue.length === 0) {
+      const wake_steps = collect_night_wake_steps(runtime_state, plugin_registry);
+      for (const [wake_index, wake_step] of wake_steps.entries()) {
+        const wake_scheduled: DomainEvent = {
+          event_id: `${command.command_id}:WakeScheduled:${wake_index}`,
+          event_type: 'WakeScheduled',
+          created_at,
+          actor_id: command.actor_id,
+          payload: {
+            wake_id: wake_step.wake_id,
+            character_id: wake_step.character_id,
+            player_id: wake_step.player_id
+          }
+        };
+        runtime_events.push(wake_scheduled);
+        runtime_state = apply_events(runtime_state, [wake_scheduled]);
       }
-
-      const normalized = normalize_dispatch_output(
-        dispatch.value.output,
-        `${command.command_id}:NightWake:${wake_index}`,
-        created_at,
-        command.actor_id
-      );
-
-      const prompt_id_check = validate_queued_prompt_ids(runtime_state, normalized);
-      if (!prompt_id_check.ok) {
-        return prompt_id_check;
-      }
-
-      runtime_events.push(...normalized);
-      runtime_state = apply_events(runtime_state, normalized);
-
-      const wake_consumed: DomainEvent = {
-        event_id: `${command.command_id}:WakeConsumed:${wake_index}`,
-        event_type: 'WakeConsumed',
-        created_at,
-        actor_id: command.actor_id,
-        payload: {
-          wake_id: wake_step.wake_id
-        }
-      };
-      runtime_events.push(wake_consumed);
-      runtime_state = apply_events(runtime_state, [wake_consumed]);
-
-      const drained = drain_interrupt_queue(runtime_state, context, runtime_events);
-      runtime_state = drained.state;
     }
+
+    const wake_processing = process_wake_queue(
+      runtime_state,
+      plugin_registry,
+      context,
+      runtime_events,
+      `${command.command_id}:NightWake`
+    );
+    if (!wake_processing.ok) {
+      return wake_processing;
+    }
+    runtime_state = wake_processing.value;
   }
 
   if (command.command_type === 'ResolvePrompt') {
@@ -136,6 +105,20 @@ export function integrate_plugin_runtime(
 
       const drained = drain_interrupt_queue(runtime_state, context, runtime_events);
       runtime_state = drained.state;
+
+      if (is_night_wake_boundary(runtime_state) && runtime_state.pending_prompts.length === 0) {
+        const wake_processing = process_wake_queue(
+          runtime_state,
+          plugin_registry,
+          context,
+          runtime_events,
+          `${command.command_id}:ResumeNightWake`
+        );
+        if (!wake_processing.ok) {
+          return wake_processing;
+        }
+        runtime_state = wake_processing.value;
+      }
     }
   }
 
@@ -322,5 +305,73 @@ function validate_queued_prompt_ids(
   return {
     ok: true,
     value: undefined
+  };
+}
+
+function process_wake_queue(
+  state: GameState,
+  plugin_registry: PluginRegistry,
+  context: RuntimeContext,
+  sink: DomainEvent[],
+  event_id_prefix: string
+): EngineResult<GameState> {
+  let runtime_state = state;
+  let wake_index = 0;
+
+  while (runtime_state.wake_queue.length > 0) {
+    if (runtime_state.pending_prompts.length > 0) {
+      break;
+    }
+
+    const wake_step = runtime_state.wake_queue[0];
+    if (!wake_step) {
+      break;
+    }
+
+    const dispatch = dispatch_hook(plugin_registry, 'on_night_wake', [wake_step.character_id], {
+      state: runtime_state,
+      player_id: wake_step.player_id,
+      wake_step_id: wake_step.wake_id
+    });
+
+    if (!dispatch.ok) {
+      return as_dispatch_error(dispatch.error.code, dispatch.error.message);
+    }
+
+    const normalized = normalize_dispatch_output(
+      dispatch.value.output,
+      `${event_id_prefix}:${wake_index}`,
+      context.created_at,
+      context.command.actor_id
+    );
+
+    const prompt_id_check = validate_queued_prompt_ids(runtime_state, normalized);
+    if (!prompt_id_check.ok) {
+      return prompt_id_check;
+    }
+
+    sink.push(...normalized);
+    runtime_state = apply_events(runtime_state, normalized);
+
+    const wake_consumed: DomainEvent = {
+      event_id: `${event_id_prefix}:WakeConsumed:${wake_index}`,
+      event_type: 'WakeConsumed',
+      created_at: context.created_at,
+      ...(context.command.actor_id === undefined ? {} : { actor_id: context.command.actor_id }),
+      payload: {
+        wake_id: wake_step.wake_id
+      }
+    };
+    sink.push(wake_consumed);
+    runtime_state = apply_events(runtime_state, [wake_consumed]);
+
+    const drained = drain_interrupt_queue(runtime_state, context, sink);
+    runtime_state = drained.state;
+    wake_index += 1;
+  }
+
+  return {
+    ok: true,
+    value: runtime_state
   };
 }
