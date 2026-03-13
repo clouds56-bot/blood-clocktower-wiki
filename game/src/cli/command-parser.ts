@@ -19,6 +19,9 @@ export type CliLocalAction =
   | { type: 'view_storyteller'; json: boolean }
   | { type: 'view_public'; json: boolean }
   | { type: 'view_player'; player_id: string; json: boolean }
+  | { type: 'plugins' }
+  | { type: 'queues' }
+  | { type: 'dispatches' }
   | { type: 'prompts' }
   | { type: 'prompt'; prompt_id: string }
   | {
@@ -286,6 +289,15 @@ export function parse_cli_line(input: string, state?: GameState): ParsedCliLine 
   }
   if (command === 'prompts') {
     return { ok: true, kind: 'local', action: { type: 'prompts' } };
+  }
+  if (command === 'plugins') {
+    return { ok: true, kind: 'local', action: { type: 'plugins' } };
+  }
+  if (command === 'queues') {
+    return { ok: true, kind: 'local', action: { type: 'queues' } };
+  }
+  if (command === 'dispatches' || command === 'hook-dispatches') {
+    return { ok: true, kind: 'local', action: { type: 'dispatches' } };
   }
   if (command === 'prompt') {
     const prompt_id = args[0];

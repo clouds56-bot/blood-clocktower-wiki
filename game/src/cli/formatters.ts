@@ -1,7 +1,9 @@
 import Table from 'cli-table3';
 import type { DomainEvent } from '../domain/events.js';
 import type { GameState, PlayerState, PromptState } from '../domain/types.js';
+import type { CharacterPluginMetadata } from '../plugins/contracts.js';
 import type { PlayerProjection, PublicProjection, StorytellerProjection } from '../projections/types.js';
+import type { PluginDispatchDebugRecord } from '../engine/plugin-runtime.js';
 
 const ANSI = {
   reset: '\x1b[0m',
@@ -365,6 +367,58 @@ export function format_prompt(prompt: PromptState): string {
   ].join('\n');
 }
 
+export function format_plugins_table(plugins: CharacterPluginMetadata[]): string {
+  if (plugins.length === 0) {
+    return 'no plugins loaded';
+  }
+
+  const rows = plugins
+    .slice()
+    .sort((left, right) => left.id.localeCompare(right.id))
+    .map((plugin) => [plugin.id, plugin.type, plugin.timing_category, plugin.alignment_at_start]);
+
+  return render_table(['id', 'type', 'timing', 'alignment'], rows);
+}
+
+export function format_runtime_queues(state: GameState): string {
+  const wake_rows = state.wake_queue.map((item) => [item.wake_id, item.character_id, item.player_id]);
+  const interrupt_rows = state.interrupt_queue.map((item) => [
+    item.interrupt_id,
+    item.kind,
+    item.source_plugin_id
+  ]);
+
+  const wake_text = wake_rows.length === 0
+    ? 'wake_queue: empty'
+    : ['wake_queue:', render_table(['wake_id', 'character', 'player'], wake_rows)].join('\n');
+  const interrupt_text = interrupt_rows.length === 0
+    ? 'interrupt_queue: empty'
+    : ['interrupt_queue:', render_table(['interrupt_id', 'kind', 'source'], interrupt_rows)].join('\n');
+
+  return [wake_text, interrupt_text].join('\n');
+}
+
+export function format_dispatch_records(records: PluginDispatchDebugRecord[]): string {
+  if (records.length === 0) {
+    return 'no dispatch records';
+  }
+
+  const rows = records.map((record) => [
+    record.hook_name,
+    record.plugin_ids.join(','),
+    record.ok ? paint('ok', 'green') : paint('error', 'red'),
+    String(record.emitted_events),
+    String(record.queued_prompts),
+    String(record.queued_interrupts),
+    record.error_code ?? '-'
+  ]);
+
+  return render_table(
+    ['hook', 'plugins', 'status', 'events', 'prompts', 'interrupts', 'error'],
+    rows
+  );
+}
+
 export function format_help(topic: 'phase' | 'all'): string {
   if (topic === 'phase') {
     return [
@@ -395,6 +449,9 @@ export function format_help(topic: 'phase' | 'all'): string {
     '  view storyteller|st [--json]',
     '  view public [--json]',
     '  view player <player_id> [--json] | view <player_id> [--json]',
+    '  plugins',
+    '  queues',
+    '  dispatches | hook-dispatches',
     '  prompts',
     '  prompt <prompt_id>',
     '  quit | exit',
