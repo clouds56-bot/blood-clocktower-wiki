@@ -266,3 +266,38 @@ test('WakeScheduled fails fast for unknown player', () => {
     })
   );
 });
+
+test('PromptQueued rejects duplicate prompt ids', () => {
+  const state = replay_events(
+    [
+      {
+        event_id: 'p1',
+        event_type: 'PromptQueued',
+        created_at: '2026-03-13T00:00:00.000Z',
+        payload: {
+          prompt_id: 'dup_prompt',
+          kind: 'choice',
+          reason: 'first',
+          visibility: 'storyteller',
+          options: []
+        }
+      }
+    ],
+    create_initial_state('g1')
+  );
+
+  assert.throws(() =>
+    apply_event(state, {
+      event_id: 'p2',
+      event_type: 'PromptQueued',
+      created_at: '2026-03-13T00:00:01.000Z',
+      payload: {
+        prompt_id: 'dup_prompt',
+        kind: 'choice',
+        reason: 'second',
+        visibility: 'storyteller',
+        options: []
+      }
+    })
+  );
+});

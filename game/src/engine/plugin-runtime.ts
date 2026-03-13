@@ -36,7 +36,7 @@ export function integrate_plugin_runtime(
     created_at
   };
 
-  if (is_night_wake_boundary(runtime_state)) {
+  if (command.command_type === 'AdvancePhase' && is_night_wake_boundary(runtime_state)) {
     const wake_steps = collect_night_wake_steps(runtime_state, plugin_registry);
     for (const [wake_index, wake_step] of wake_steps.entries()) {
       const wake_scheduled: DomainEvent = {

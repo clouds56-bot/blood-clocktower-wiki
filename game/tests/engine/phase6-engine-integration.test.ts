@@ -345,6 +345,8 @@ test('imp plugin prompt resolves into death through engine flow', () => {
     registry
   );
 
+  assert.equal(resolve_events.some((event) => event.event_type === 'WakeScheduled'), false);
+  assert.equal(resolve_events.some((event) => event.event_type === 'PromptQueued'), false);
   assert.equal(resolve_events.some((event) => event.event_type === 'PlayerDied'), true);
 
   const resolved_state = apply_events(state, resolve_events);

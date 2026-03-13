@@ -277,6 +277,9 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
       break;
     }
     case 'PromptQueued': {
+      if (next.prompts_by_id[event.payload.prompt_id]) {
+        throw new Error(`prompt_already_exists:${event.payload.prompt_id}`);
+      }
       next.prompts_by_id[event.payload.prompt_id] = {
         prompt_id: event.payload.prompt_id,
         kind: event.payload.kind,
