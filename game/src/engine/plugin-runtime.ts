@@ -156,8 +156,18 @@ function normalize_dispatch_output(
   const normalized: DomainEvent[] = [];
 
   for (const [index, item] of output.emitted_events.entries()) {
+    const event_id = `${event_id_prefix}:EmittedEvent:${index}`;
+    const payload = structuredClone(item.payload);
+    if (
+      item.event_type === 'ReminderMarkerApplied' &&
+      typeof payload === 'object' &&
+      payload !== null
+    ) {
+      (payload as { marker_id?: string }).marker_id = `event:${event_id}`;
+    }
+
     normalized.push({
-      event_id: `${event_id_prefix}:EmittedEvent:${index}`,
+      event_id,
       event_type: item.event_type,
       created_at,
       ...(item.actor_id === undefined
@@ -165,7 +175,7 @@ function normalize_dispatch_output(
           ? {}
           : { actor_id: fallback_actor_id }
         : { actor_id: item.actor_id }),
-      payload: structuredClone(item.payload)
+      payload
     } as DomainEvent);
   }
 

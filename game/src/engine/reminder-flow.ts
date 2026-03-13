@@ -180,18 +180,22 @@ export function handle_apply_reminder_marker(
   command: ApplyReminderMarkerCommand,
   created_at: string
 ): EngineResult<DomainEvent[]> {
-  if (state.reminder_markers_by_id[command.payload.marker_id]) {
-    return error('marker_id_already_exists', `marker already exists: ${command.payload.marker_id}`);
+  const applied_event_id = `${command.command_id}:ReminderMarkerApplied:0`;
+  const marker_id = `event:${applied_event_id}`;
+
+  if (state.reminder_markers_by_id[marker_id]) {
+    return error('marker_id_already_exists', `marker already exists: ${marker_id}`);
   }
 
   const events: DomainEvent[] = [
     {
-      event_id: `${command.command_id}:ReminderMarkerApplied:0`,
+      event_id: applied_event_id,
       event_type: 'ReminderMarkerApplied',
       created_at,
       actor_id: command.actor_id,
       payload: {
         ...command.payload,
+        marker_id,
         note: command.payload.note ?? ''
       }
     }
@@ -219,12 +223,12 @@ export function handle_apply_reminder_marker(
         event_type: 'DrunkApplied',
         created_at,
         ...(command.actor_id === undefined ? {} : { actor_id: command.actor_id }),
-        payload: {
-          player_id: target_player_id,
-          source_marker_id: command.payload.marker_id,
-          day_number: state.day_number,
-          night_number: state.night_number
-        }
+          payload: {
+            player_id: target_player_id,
+            source_marker_id: marker_id,
+            day_number: state.day_number,
+            night_number: state.night_number
+          }
       });
     }
   }
