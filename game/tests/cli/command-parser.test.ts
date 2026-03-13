@@ -112,6 +112,30 @@ test('parse local commands', () => {
     assert.equal(prompts.action.type, 'prompts');
   }
 
+  const plugins = parse_cli_line('plugins');
+  assert.equal(plugins.ok, true);
+  if (plugins.ok && plugins.kind === 'local') {
+    assert.equal(plugins.action.type, 'plugins');
+  }
+
+  const queues = parse_cli_line('queues');
+  assert.equal(queues.ok, true);
+  if (queues.ok && queues.kind === 'local') {
+    assert.equal(queues.action.type, 'queues');
+  }
+
+  const dispatches = parse_cli_line('dispatches');
+  assert.equal(dispatches.ok, true);
+  if (dispatches.ok && dispatches.kind === 'local') {
+    assert.equal(dispatches.action.type, 'dispatches');
+  }
+
+  const hookDispatchesAlias = parse_cli_line('hook-dispatches');
+  assert.equal(hookDispatchesAlias.ok, true);
+  if (hookDispatchesAlias.ok && hookDispatchesAlias.kind === 'local') {
+    assert.equal(hookDispatchesAlias.action.type, 'dispatches');
+  }
+
   const prompt = parse_cli_line('prompt pr1');
   assert.equal(prompt.ok, true);
   if (prompt.ok && prompt.kind === 'local' && prompt.action.type === 'prompt') {

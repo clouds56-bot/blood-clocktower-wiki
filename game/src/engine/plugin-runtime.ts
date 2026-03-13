@@ -2,7 +2,12 @@ import type { Command, ResolvePromptCommand } from '../domain/commands.js';
 import type { DomainEvent } from '../domain/events.js';
 import { apply_events } from '../domain/reducer.js';
 import type { GameState } from '../domain/types.js';
-import { dispatch_hook, type NormalizedHookOutput } from '../plugins/dispatcher.js';
+import {
+  dispatch_hook,
+  type HookDispatchError,
+  type HookDispatchSuccess,
+  type NormalizedHookOutput
+} from '../plugins/dispatcher.js';
 import type { PluginRegistry } from '../plugins/registry.js';
 import type { EngineResult } from './phase-machine.js';
 import { collect_night_wake_steps } from './night-flow.js';
@@ -11,6 +16,23 @@ interface RuntimeContext {
   state: GameState;
   command: Command;
   created_at: string;
+  observer?: PluginRuntimeObserver;
+}
+
+export interface PluginDispatchDebugRecord {
+  hook_name: string;
+  plugin_ids: string[];
+  ok: boolean;
+  trace: HookDispatchSuccess['trace'] | HookDispatchError['trace'];
+  emitted_events: number;
+  queued_prompts: number;
+  queued_interrupts: number;
+  error_code: string | null;
+  error_message: string | null;
+}
+
+export interface PluginRuntimeObserver {
+  on_dispatch: (record: PluginDispatchDebugRecord) => void;
 }
 
 export function integrate_plugin_runtime(
@@ -18,7 +40,8 @@ export function integrate_plugin_runtime(
   command: Command,
   created_at: string,
   base_events: DomainEvent[],
-  plugin_registry?: PluginRegistry
+  plugin_registry?: PluginRegistry,
+  observer?: PluginRuntimeObserver
 ): EngineResult<DomainEvent[]> {
   if (!plugin_registry) {
     return {
@@ -33,7 +56,8 @@ export function integrate_plugin_runtime(
   const context: RuntimeContext = {
     state,
     command,
-    created_at
+    created_at,
+    ...(observer ? { observer } : {})
   };
 
   if (command.command_type === 'AdvancePhase' && is_night_wake_boundary(runtime_state)) {
@@ -72,10 +96,11 @@ export function integrate_plugin_runtime(
   if (command.command_type === 'ResolvePrompt') {
     const prompt_owner_plugin_id = resolve_prompt_owner_plugin_id(state, command);
     if (prompt_owner_plugin_id !== null) {
+      const plugin_ids = [prompt_owner_plugin_id];
       const dispatch = dispatch_hook(
         plugin_registry,
         'on_prompt_resolved',
-        [prompt_owner_plugin_id],
+        plugin_ids,
         {
           state: runtime_state,
           prompt_id: command.payload.prompt_id,
@@ -83,6 +108,7 @@ export function integrate_plugin_runtime(
           freeform: command.payload.freeform
         }
       );
+      emit_dispatch_debug(context.observer, 'on_prompt_resolved', plugin_ids, dispatch);
 
       if (!dispatch.ok) {
         return as_dispatch_error(dispatch.error.code, dispatch.error.message);
@@ -286,6 +312,52 @@ function validate_queued_prompt_ids(
   };
 }
 
+function emit_dispatch_debug(
+  observer: PluginRuntimeObserver | undefined,
+  hook_name: string,
+  plugin_ids: string[],
+  dispatch:
+    | {
+        ok: true;
+        value: HookDispatchSuccess;
+      }
+    | {
+        ok: false;
+        error: HookDispatchError;
+      }
+): void {
+  if (!observer) {
+    return;
+  }
+
+  if (dispatch.ok) {
+    observer.on_dispatch({
+      hook_name,
+      plugin_ids: [...plugin_ids],
+      ok: true,
+      trace: dispatch.value.trace,
+      emitted_events: dispatch.value.output.emitted_events.length,
+      queued_prompts: dispatch.value.output.queued_prompts.length,
+      queued_interrupts: dispatch.value.output.queued_interrupts.length,
+      error_code: null,
+      error_message: null
+    });
+    return;
+  }
+
+  observer.on_dispatch({
+    hook_name,
+    plugin_ids: [...plugin_ids],
+    ok: false,
+    trace: dispatch.error.trace,
+    emitted_events: 0,
+    queued_prompts: 0,
+    queued_interrupts: 0,
+    error_code: dispatch.error.code,
+    error_message: dispatch.error.message
+  });
+}
+
 function process_wake_queue(
   state: GameState,
   plugin_registry: PluginRegistry,
@@ -329,11 +401,13 @@ function process_wake_queue(
       continue;
     }
 
-    const dispatch = dispatch_hook(plugin_registry, 'on_night_wake', [wake_step.character_id], {
+    const plugin_ids = [wake_step.character_id];
+    const dispatch = dispatch_hook(plugin_registry, 'on_night_wake', plugin_ids, {
       state: runtime_state,
       player_id: wake_step.player_id,
       wake_step_id: wake_step.wake_id
     });
+    emit_dispatch_debug(context.observer, 'on_night_wake', plugin_ids, dispatch);
 
     if (!dispatch.ok) {
       return as_dispatch_error(dispatch.error.code, dispatch.error.message);

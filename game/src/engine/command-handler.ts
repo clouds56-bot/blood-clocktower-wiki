@@ -2,6 +2,7 @@ import type { Command } from '../domain/commands.js';
 import type { DomainEvent } from '../domain/events.js';
 import type { GameState } from '../domain/types.js';
 import type { PluginRegistry } from '../plugins/registry.js';
+import type { PluginRuntimeObserver } from './plugin-runtime.js';
 import { handle_advance_phase, type EngineResult } from './phase-machine.js';
 import {
   handle_cast_vote,
@@ -57,6 +58,7 @@ export function handle_command(
   created_at: string,
   runtime_options: {
     plugin_registry?: PluginRegistry;
+    plugin_runtime_observer?: PluginRuntimeObserver;
   } = {}
 ): EngineResult<DomainEvent[]> {
   if (state.status === 'ended' && MUTATING_COMMANDS.has(command.command_type)) {
@@ -291,6 +293,7 @@ export function handle_command(
     command,
     created_at,
     base_result.value,
-    runtime_options.plugin_registry
+    runtime_options.plugin_registry,
+    runtime_options.plugin_runtime_observer
   );
 }

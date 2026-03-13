@@ -8,6 +8,7 @@ import type { DomainEvent } from '../domain/events.js';
 import { apply_events } from '../domain/reducer.js';
 import { create_initial_state } from '../domain/state.js';
 import type { Alignment, GameState } from '../domain/types.js';
+import type { PluginDispatchDebugRecord } from '../engine/plugin-runtime.js';
 import { handle_command } from '../engine/command-handler.js';
 import { imp_plugin } from '../plugins/characters/imp.js';
 import { poisoner_plugin } from '../plugins/characters/poisoner.js';
@@ -18,14 +19,17 @@ import { project_for_storyteller } from '../projections/storyteller.js';
 import { parse_cli_line, type CliLocalAction } from './command-parser.js';
 import {
   format_event,
+  format_dispatch_records,
   format_help,
   format_player,
   format_player_projection,
+  format_plugins_table,
   format_projection_json,
   format_prompt,
   format_prompt_list,
   format_players_table,
   format_public_projection,
+  format_runtime_queues,
   format_state_brief,
   format_state_json,
   format_storyteller_projection
@@ -36,6 +40,7 @@ interface CliContext {
   event_log: DomainEvent[];
   next_command_index: number;
   plugin_registry: PluginRegistry;
+  last_plugin_dispatches: PluginDispatchDebugRecord[];
 }
 
 const ANSI = {
@@ -258,6 +263,7 @@ function run_quick_setup(context: CliContext, script_input: string, player_num: 
 
   context.state = create_initial_state(resolved_game_id);
   context.event_log = [];
+  context.last_plugin_dispatches = [];
 
   const seed_commands: Array<Omit<Command, 'command_id'>> = [
     {
@@ -335,7 +341,12 @@ function run_quick_setup(context: CliContext, script_input: string, player_num: 
       actor_id: 'cli'
     } as Command;
     const result = handle_command(context.state, full_command, now_iso(), {
-      plugin_registry: context.plugin_registry
+      plugin_registry: context.plugin_registry,
+      plugin_runtime_observer: {
+        on_dispatch: (record) => {
+          context.last_plugin_dispatches.push(record);
+        }
+      }
     });
     if (!result.ok) {
       process.stdout.write(
@@ -367,8 +378,14 @@ function run_engine_command(context: CliContext, command: Omit<Command, 'command
     actor_id: 'cli'
   } as Command;
 
+  context.last_plugin_dispatches = [];
   const result = handle_command(context.state, full_command, now_iso(), {
-    plugin_registry: context.plugin_registry
+    plugin_registry: context.plugin_registry,
+    plugin_runtime_observer: {
+      on_dispatch: (record) => {
+        context.last_plugin_dispatches.push(record);
+      }
+    }
   });
   if (!result.ok) {
     process.stdout.write(
@@ -710,6 +727,21 @@ function handle_local_action(context: CliContext, action: CliLocalAction): boole
     return true;
   }
 
+  if (action.type === 'plugins') {
+    process.stdout.write(`${format_plugins_table(context.plugin_registry.list())}\n`);
+    return true;
+  }
+
+  if (action.type === 'queues') {
+    process.stdout.write(`${format_runtime_queues(context.state)}\n`);
+    return true;
+  }
+
+  if (action.type === 'dispatches') {
+    process.stdout.write(`${format_dispatch_records(context.last_plugin_dispatches)}\n`);
+    return true;
+  }
+
   if (action.type === 'view_storyteller') {
     const projection = project_for_storyteller(context.state);
     if (action.json) {
@@ -767,6 +799,7 @@ function handle_local_action(context: CliContext, action: CliLocalAction): boole
   if (action.type === 'new_game') {
     context.state = create_initial_state(action.game_id);
     context.event_log = [];
+    context.last_plugin_dispatches = [];
     process.stdout.write(`created game ${action.game_id}\n`);
     process.stdout.write(`${format_state_brief(context.state)}\n`);
     return true;
@@ -785,7 +818,8 @@ export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void
     state: create_initial_state(initial_game_id),
     event_log: [],
     next_command_index: 1,
-    plugin_registry: new PluginRegistry([imp_plugin, poisoner_plugin])
+    plugin_registry: new PluginRegistry([imp_plugin, poisoner_plugin]),
+    last_plugin_dispatches: []
   };
 
   process.stdout.write('Clocktower Engine CLI (Phase 5)\n');
