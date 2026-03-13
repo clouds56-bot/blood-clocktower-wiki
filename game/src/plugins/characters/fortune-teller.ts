@@ -37,7 +37,7 @@ export const fortune_teller_plugin: CharacterPlugin = {
       const players = Object.values(context.state.players_by_id).sort((left, right) =>
         left.player_id.localeCompare(right.player_id)
       );
-      const options = build_pair_options(players.map((player) => player.player_id));
+      const player_ids = players.map((player) => player.player_id);
 
       return {
         emitted_events: [],
@@ -47,7 +47,10 @@ export const fortune_teller_plugin: CharacterPlugin = {
             kind: 'choice',
             reason: 'plugin:fortune_teller:choose two players',
             visibility: 'player',
-            options
+            options: [],
+            selection_mode: 'multi_column',
+            multi_columns: [player_ids, player_ids],
+            storyteller_hint: 'select two different players (order does not matter)'
           }
         ],
         queued_interrupts: []
@@ -129,10 +132,13 @@ export const fortune_teller_plugin: CharacterPlugin = {
           'fortune_teller',
           owner_player_id,
           context.state.night_number,
-          [
-            { option_id: 'yes', label: 'Show YES' },
-            { option_id: 'no', label: 'Show NO' }
-          ]
+          {
+            mode: 'single_choice',
+            options: [
+              { option_id: 'yes', label: 'Show YES' },
+              { option_id: 'no', label: 'Show NO' }
+            ]
+          }
         );
         misinfo_prompt.prompt_id = `plugin:fortune_teller:misinfo:${context.state.night_number}:${owner_player_id}:${left_id}:${right_id}`;
         return {
@@ -164,33 +170,16 @@ export function is_fortune_teller_prompt_id(prompt_id: string): boolean {
   return prompt_id.startsWith(FORTUNE_TELLER_PROMPT_PREFIX);
 }
 
-function build_pair_options(player_ids: string[]): Array<{ option_id: string; label: string }> {
-  const options: Array<{ option_id: string; label: string }> = [];
-  for (let i = 0; i < player_ids.length; i += 1) {
-    const left = player_ids[i];
-    if (!left) {
-      continue;
-    }
-    for (let j = i + 1; j < player_ids.length; j += 1) {
-      const right = player_ids[j];
-      if (!right) {
-        continue;
-      }
-      options.push({
-        option_id: `${left}|${right}`,
-        label: `${left} + ${right}`
-      });
-    }
-  }
-  return options;
-}
-
 function parse_pair_option(option_id: string | null): [string, string] | null {
   if (!option_id) {
     return null;
   }
-  const [left, right] = option_id.split('|');
+  const delimiter = option_id.includes(',') ? ',' : '|';
+  const [left, right] = option_id.split(delimiter).map((token) => token.trim());
   if (!left || !right) {
+    return null;
+  }
+  if (left === right) {
     return null;
   }
   return [left, right];

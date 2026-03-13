@@ -21,11 +21,14 @@ const chef_info_hooks = build_info_role_misinformation_hooks({
       queued_interrupts: []
     };
   },
-  build_misinformation_options: () => [
-    { option_id: '0', label: 'Show 0' },
-    { option_id: '1', label: 'Show 1' },
-    { option_id: '2', label: 'Show 2' }
-  ],
+  build_misinformation_selection: () => ({
+    mode: 'number_range',
+    range: {
+      min: 0,
+      max: 2,
+      max_inclusive: true
+    }
+  }),
   build_misinformation_note: (subject_player_id, selected_option_id) => {
     return `chef_info:${subject_player_id}:adjacent_evil_pairs=${selected_option_id ?? '0'}`;
   }

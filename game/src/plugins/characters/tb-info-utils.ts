@@ -1,4 +1,10 @@
-import type { GameState, PlayerState } from '../../domain/types.js';
+import type {
+  GameState,
+  PlayerState,
+  PromptColumnSpec,
+  PromptRangeSpec,
+  PromptSelectionMode
+} from '../../domain/types.js';
 import type {
   NightWakeHookContext,
   PluginPromptSpec,
@@ -33,14 +39,33 @@ export function build_misinformation_prompt(
   role_id: string,
   subject_player_id: string,
   night_number: number,
-  options: Array<{ option_id: string; label: string }>
+  selection: MisinformationSelectionSpec
 ): PluginPromptSpec {
+  let selection_mode: PromptSelectionMode = 'single_choice';
+  let options: Array<{ option_id: string; label: string }> = [];
+  let number_range: PromptRangeSpec | null = null;
+  let multi_columns: PromptColumnSpec[] | null = null;
+
+  if (selection.mode === 'single_choice') {
+    selection_mode = 'single_choice';
+    options = selection.options;
+  } else if (selection.mode === 'number_range') {
+    selection_mode = 'number_range';
+    number_range = selection.range;
+  } else {
+    selection_mode = 'multi_column';
+    multi_columns = selection.columns;
+  }
+
   return {
     prompt_id: `plugin:${role_id}:misinfo:${night_number}:${subject_player_id}`,
     kind: 'choice',
     reason: `plugin:${role_id}:choose misinformation`,
     visibility: 'storyteller',
-    options
+    options,
+    selection_mode,
+    number_range,
+    multi_columns
   };
 }
 
@@ -51,10 +76,24 @@ export function is_misinformation_prompt_id(prompt_id: string, role_id: string):
 export interface InfoRoleMisinformationConfig {
   role_id: string;
   build_truthful_result: (context: NightWakeHookContext) => PluginResult;
-  build_misinformation_options: (context: NightWakeHookContext) => Array<{ option_id: string; label: string }>;
+  build_misinformation_selection: (context: NightWakeHookContext) => MisinformationSelectionSpec;
   build_misinformation_note: (subject_player_id: string, selected_option_id: string | null) => string;
   build_inactive_note?: (subject_player_id: string) => string;
 }
+
+export type MisinformationSelectionSpec =
+  | {
+      mode: 'single_choice';
+      options: Array<{ option_id: string; label: string }>;
+    }
+  | {
+      mode: 'number_range';
+      range: PromptRangeSpec;
+    }
+  | {
+      mode: 'multi_column';
+      columns: PromptColumnSpec[];
+    };
 
 export function build_info_role_misinformation_hooks(config: InfoRoleMisinformationConfig): {
   on_night_wake: (context: NightWakeHookContext) => PluginResult;
@@ -75,7 +114,7 @@ export function build_info_role_misinformation_hooks(config: InfoRoleMisinformat
               config.role_id,
               context.player_id,
               context.state.night_number,
-              config.build_misinformation_options(context)
+              config.build_misinformation_selection(context)
             )
           ],
           queued_interrupts: []

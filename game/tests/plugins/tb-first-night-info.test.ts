@@ -43,6 +43,8 @@ test('chef queues misinformation prompt when poisoned', () => {
   assert.ok(wake);
   assert.equal(wake?.queued_prompts.length, 1);
   assert.equal(wake?.queued_prompts[0]?.prompt_id, 'plugin:chef:misinfo:1:p1');
+  assert.equal(wake?.queued_prompts[0]?.selection_mode, 'number_range');
+  assert.deepEqual(wake?.queued_prompts[0]?.number_range, { min: 0, max: 2, max_inclusive: true });
 
   const resolved = chef_plugin.hooks.on_prompt_resolved?.({
     state,
@@ -88,6 +90,8 @@ test('empath queues misinformation prompt when drunk', () => {
   assert.ok(wake);
   assert.equal(wake?.queued_prompts.length, 1);
   assert.equal(wake?.queued_prompts[0]?.prompt_id, 'plugin:empath:misinfo:2:p1');
+  assert.equal(wake?.queued_prompts[0]?.selection_mode, 'number_range');
+  assert.deepEqual(wake?.queued_prompts[0]?.number_range, { min: 0, max: 2, max_inclusive: true });
 
   const resolved = empath_plugin.hooks.on_prompt_resolved?.({
     state,
@@ -99,7 +103,7 @@ test('empath queues misinformation prompt when drunk', () => {
   assert.equal(resolved?.emitted_events[0]?.payload.note, 'empath_info:p1:alive_neighbor_evil_count=1');
 });
 
-test('fortune teller wake prompt offers pair options', () => {
+test('fortune teller wake prompt uses multi-column player selection', () => {
   const state = create_initial_state('g1');
   state.night_number = 1;
   state.players_by_id.p1 = make_player('p1', 'FT', 'fortune_teller', 'good');
@@ -121,10 +125,11 @@ test('fortune teller wake prompt offers pair options', () => {
   const prompt = result?.queued_prompts[0];
   assert.ok(prompt);
   assert.equal(is_fortune_teller_prompt_id(prompt?.prompt_id ?? ''), true);
-  assert.deepEqual(
-    prompt?.options.map((option) => option.option_id),
-    ['p1|p2', 'p1|p3', 'p1|p4', 'p2|p3', 'p2|p4', 'p3|p4']
-  );
+  assert.equal(prompt?.selection_mode, 'multi_column');
+  assert.deepEqual(prompt?.multi_columns, [
+    ['p1', 'p2', 'p3', 'p4'],
+    ['p1', 'p2', 'p3', 'p4']
+  ]);
 });
 
 test('fortune teller resolves yes when pair includes dead demon', () => {
