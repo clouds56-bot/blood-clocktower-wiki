@@ -72,6 +72,21 @@ test('imp prompt resolution emits PlayerDied consequence', () => {
     is_traveller: false,
     is_demon: true
   };
+  state.players_by_id.p2 = {
+    player_id: 'p2',
+    display_name: 'TargetA',
+    alive: true,
+    dead_vote_available: true,
+    true_character_id: 'washerwoman',
+    perceived_character_id: null,
+    true_alignment: 'good',
+    registered_character_id: null,
+    registered_alignment: null,
+    drunk: false,
+    poisoned: false,
+    is_traveller: false,
+    is_demon: false
+  };
 
   const result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
@@ -91,4 +106,209 @@ test('imp prompt resolution emits PlayerDied consequence', () => {
     night_number: 1,
     reason: 'night_death'
   });
+});
+
+test('imp does not kill dead target', () => {
+  const state = create_initial_state('g1');
+  state.day_number = 1;
+  state.night_number = 2;
+  state.players_by_id.p1 = {
+    player_id: 'p1',
+    display_name: 'ImpPlayer',
+    alive: true,
+    dead_vote_available: true,
+    true_character_id: 'imp',
+    perceived_character_id: null,
+    true_alignment: 'evil',
+    registered_character_id: null,
+    registered_alignment: null,
+    drunk: false,
+    poisoned: false,
+    is_traveller: false,
+    is_demon: true
+  };
+  state.players_by_id.p2 = {
+    player_id: 'p2',
+    display_name: 'DeadTarget',
+    alive: false,
+    dead_vote_available: true,
+    true_character_id: 'washerwoman',
+    perceived_character_id: null,
+    true_alignment: 'good',
+    registered_character_id: null,
+    registered_alignment: null,
+    drunk: false,
+    poisoned: false,
+    is_traveller: false,
+    is_demon: false
+  };
+
+  const result = imp_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_id: 'plugin:imp:night_kill:2:p1',
+    selected_option_id: 'p2',
+    freeform: null
+  });
+
+  assert.ok(result);
+  assert.equal(result?.emitted_events.length, 0);
+});
+
+test('imp does not kill sober Soldier target', () => {
+  const state = create_initial_state('g1');
+  state.day_number = 1;
+  state.night_number = 2;
+  state.players_by_id.p1 = {
+    player_id: 'p1',
+    display_name: 'ImpPlayer',
+    alive: true,
+    dead_vote_available: true,
+    true_character_id: 'imp',
+    perceived_character_id: null,
+    true_alignment: 'evil',
+    registered_character_id: null,
+    registered_alignment: null,
+    drunk: false,
+    poisoned: false,
+    is_traveller: false,
+    is_demon: true
+  };
+  state.players_by_id.p2 = {
+    player_id: 'p2',
+    display_name: 'Soldier',
+    alive: true,
+    dead_vote_available: true,
+    true_character_id: 'soldier',
+    perceived_character_id: null,
+    true_alignment: 'good',
+    registered_character_id: null,
+    registered_alignment: null,
+    drunk: false,
+    poisoned: false,
+    is_traveller: false,
+    is_demon: false
+  };
+
+  const result = imp_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_id: 'plugin:imp:night_kill:2:p1',
+    selected_option_id: 'p2',
+    freeform: null
+  });
+
+  assert.ok(result);
+  assert.equal(result?.emitted_events.length, 0);
+});
+
+test('imp kills poisoned Soldier target', () => {
+  const state = create_initial_state('g1');
+  state.day_number = 1;
+  state.night_number = 2;
+  state.players_by_id.p1 = {
+    player_id: 'p1',
+    display_name: 'ImpPlayer',
+    alive: true,
+    dead_vote_available: true,
+    true_character_id: 'imp',
+    perceived_character_id: null,
+    true_alignment: 'evil',
+    registered_character_id: null,
+    registered_alignment: null,
+    drunk: false,
+    poisoned: false,
+    is_traveller: false,
+    is_demon: true
+  };
+  state.players_by_id.p2 = {
+    player_id: 'p2',
+    display_name: 'Soldier',
+    alive: true,
+    dead_vote_available: true,
+    true_character_id: 'soldier',
+    perceived_character_id: null,
+    true_alignment: 'good',
+    registered_character_id: null,
+    registered_alignment: null,
+    drunk: false,
+    poisoned: true,
+    is_traveller: false,
+    is_demon: false
+  };
+
+  const result = imp_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_id: 'plugin:imp:night_kill:2:p1',
+    selected_option_id: 'p2',
+    freeform: null
+  });
+
+  assert.ok(result);
+  assert.equal(result?.emitted_events.length, 1);
+  assert.equal(result?.emitted_events[0]?.event_type, 'PlayerDied');
+});
+
+test('imp does not kill monk protected target', () => {
+  const state = create_initial_state('g1');
+  state.day_number = 1;
+  state.night_number = 2;
+  state.players_by_id.p1 = {
+    player_id: 'p1',
+    display_name: 'ImpPlayer',
+    alive: true,
+    dead_vote_available: true,
+    true_character_id: 'imp',
+    perceived_character_id: null,
+    true_alignment: 'evil',
+    registered_character_id: null,
+    registered_alignment: null,
+    drunk: false,
+    poisoned: false,
+    is_traveller: false,
+    is_demon: true
+  };
+  state.players_by_id.p2 = {
+    player_id: 'p2',
+    display_name: 'Target',
+    alive: true,
+    dead_vote_available: true,
+    true_character_id: 'washerwoman',
+    perceived_character_id: null,
+    true_alignment: 'good',
+    registered_character_id: null,
+    registered_alignment: null,
+    drunk: false,
+    poisoned: false,
+    is_traveller: false,
+    is_demon: false
+  };
+  state.reminder_markers_by_id.m1 = {
+    marker_id: 'm1',
+    kind: 'monk:safe',
+    effect: 'demon_safe',
+    note: 'safe',
+    status: 'active',
+    source_player_id: 'p3',
+    source_character_id: 'monk',
+    target_player_id: 'p2',
+    target_scope: 'player',
+    authoritative: true,
+    expires_policy: 'end_of_night',
+    expires_at_day_number: null,
+    expires_at_night_number: null,
+    created_at_event_id: 'e1',
+    cleared_at_event_id: null,
+    source_event_id: null,
+    metadata: {}
+  };
+  state.active_reminder_marker_ids = ['m1'];
+
+  const result = imp_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_id: 'plugin:imp:night_kill:2:p1',
+    selected_option_id: 'p2',
+    freeform: null
+  });
+
+  assert.ok(result);
+  assert.equal(result?.emitted_events.length, 0);
 });

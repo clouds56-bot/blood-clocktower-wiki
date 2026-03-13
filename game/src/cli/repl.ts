@@ -12,7 +12,9 @@ import { fortune_teller_plugin } from '../plugins/characters/fortune-teller.js';
 import { imp_plugin } from '../plugins/characters/imp.js';
 import { investigator_plugin } from '../plugins/characters/investigator.js';
 import { librarian_plugin } from '../plugins/characters/librarian.js';
+import { monk_plugin } from '../plugins/characters/monk.js';
 import { poisoner_plugin } from '../plugins/characters/poisoner.js';
+import { soldier_plugin } from '../plugins/characters/soldier.js';
 import { washerwoman_plugin } from '../plugins/characters/washerwoman.js';
 import { PluginRegistry } from '../plugins/registry.js';
 import { project_for_player } from '../projections/player.js';
@@ -581,7 +583,9 @@ export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void
       imp_plugin,
       investigator_plugin,
       librarian_plugin,
+      monk_plugin,
       poisoner_plugin,
+      soldier_plugin,
       washerwoman_plugin
     ])
   };

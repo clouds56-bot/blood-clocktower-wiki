@@ -26,5 +26,7 @@ export * from './plugins/characters/fortune-teller.js';
 export * from './plugins/characters/imp.js';
 export * from './plugins/characters/investigator.js';
 export * from './plugins/characters/librarian.js';
+export * from './plugins/characters/monk.js';
 export * from './plugins/characters/poisoner.js';
+export * from './plugins/characters/soldier.js';
 export * from './plugins/characters/washerwoman.js';
