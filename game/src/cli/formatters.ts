@@ -187,13 +187,6 @@ export function format_player_projection(projection: PlayerProjection): string {
 }
 
 export function format_storyteller_projection(projection: StorytellerProjection): string {
-  const format_marker_source = (marker: StorytellerProjection['reminder_markers'][number]): string => {
-    if (marker.source_character_id && marker.source_player_id) {
-      return `${marker.source_character_id}:${marker.source_player_id}`;
-    }
-    return marker.source_character_id ?? marker.source_player_id ?? '-';
-  };
-
   const header = [
     `game=${projection.game_id}`,
     `script=${projection.script_id ?? 'none'}`,
@@ -282,7 +275,7 @@ export function format_storyteller_projection(projection: StorytellerProjection)
             marker.kind,
             marker.effect,
             marker.target_player_id ?? '-',
-            format_marker_source(marker),
+            marker.source_character_id ?? marker.source_player_id ?? '-',
             marker.status,
             marker.note
           ])
@@ -392,13 +385,6 @@ export function format_prompt(prompt: PromptState): string {
 }
 
 export function format_marker_list(state: GameState): string {
-  const format_marker_source = (marker: ReminderMarkerState): string => {
-    if (marker.source_character_id && marker.source_player_id) {
-      return `${marker.source_character_id}:${marker.source_player_id}`;
-    }
-    return marker.source_character_id ?? marker.source_player_id ?? '-';
-  };
-
   const markers = state.active_reminder_marker_ids
     .map((marker_id) => state.reminder_markers_by_id[marker_id])
     .filter((marker): marker is ReminderMarkerState => Boolean(marker));
@@ -414,7 +400,7 @@ export function format_marker_list(state: GameState): string {
       marker.kind,
       marker.effect,
       marker.target_player_id ?? '-',
-      format_marker_source(marker),
+      marker.source_character_id ?? marker.source_player_id ?? '-',
       marker.status
     ])
   );
