@@ -1,5 +1,7 @@
+import Table from 'cli-table3';
 import type { DomainEvent } from '../domain/events.js';
 import type { GameState, PlayerState, PromptState } from '../domain/types.js';
+import type { PlayerProjection, PublicProjection, StorytellerProjection } from '../projections/types.js';
 
 const ANSI = {
   reset: '\x1b[0m',
@@ -71,6 +73,116 @@ export function format_state_json(state: GameState): string {
 
 export function format_projection_json(value: unknown): string {
   return JSON.stringify(value, null, 2);
+}
+
+function render_table(head: string[], rows: string[][]): string {
+  const table = new Table({ head });
+  for (const row of rows) {
+    table.push(row);
+  }
+  return table.toString();
+}
+
+export function format_public_projection(projection: PublicProjection): string {
+  const header = [
+    `game=${projection.game_id}`,
+    `script=${projection.script_id ?? 'none'}`,
+    `edition=${projection.edition_id ?? 'none'}`,
+    `phase=${projection.clock.phase}/${projection.clock.subphase}`,
+    `day=${projection.clock.day_number} night=${projection.clock.night_number}`
+  ].join(' ');
+
+  const players = render_table(
+    ['player_id', 'display_name', 'alive', 'dead_vote_available'],
+    projection.players.map((player) => [
+      player.player_id,
+      player.display_name,
+      String(player.alive),
+      String(player.dead_vote_available)
+    ])
+  );
+
+  const day = [
+    `nominations=${projection.day_state.nominations_today.length}`,
+    `active_vote=${projection.day_state.active_vote?.nomination_id ?? 'none'}`,
+    `execution_outcome=${projection.day_state.execution_outcome}`,
+    `execution_occurred=${projection.day_state.execution_occurred_today}`,
+    `winning_team=${projection.winning_team ?? 'none'}`,
+    `end_reason=${projection.end_reason ?? 'none'}`
+  ].join(' ');
+
+  return [header, players, day].join('\n');
+}
+
+export function format_player_projection(projection: PlayerProjection): string {
+  const base = format_public_projection(projection);
+  const self = render_table(
+    [
+      'viewer_player_id',
+      'perceived_character_id',
+      'known_alignment',
+      'registered_character_id',
+      'registered_alignment'
+    ],
+    [[
+      projection.viewer_player_id,
+      projection.self.perceived_character_id ?? 'null',
+      projection.self.known_alignment ?? 'null',
+      projection.self.registered_character_id ?? 'null',
+      projection.self.registered_alignment ?? 'null'
+    ]]
+  );
+  return [base, self].join('\n');
+}
+
+export function format_storyteller_projection(projection: StorytellerProjection): string {
+  const header = [
+    `game=${projection.game_id}`,
+    `script=${projection.script_id ?? 'none'}`,
+    `edition=${projection.edition_id ?? 'none'}`,
+    `phase=${projection.clock.phase}/${projection.clock.subphase}`,
+    `day=${projection.clock.day_number} night=${projection.clock.night_number}`
+  ].join(' ');
+
+  const rows = Object.values(projection.players)
+    .sort((a, b) => a.player_id.localeCompare(b.player_id))
+    .map((player) => [
+      player.player_id,
+      player.display_name,
+      player.true_character_id ?? 'null',
+      player.perceived_character_id ?? 'null',
+      player.true_alignment ?? 'null',
+      String(player.alive),
+      String(player.is_demon),
+      String(player.is_traveller),
+      String(player.drunk),
+      String(player.poisoned)
+    ]);
+
+  const players = render_table(
+    [
+      'player_id',
+      'display_name',
+      'true_character_id',
+      'perceived_character_id',
+      'true_alignment',
+      'alive',
+      'is_demon',
+      'is_traveller',
+      'drunk',
+      'poisoned'
+    ],
+    rows
+  );
+
+  const meta = [
+    `prompts=${projection.prompts.length}`,
+    `storyteller_notes=${projection.storyteller_notes.length}`,
+    `winning_team=${projection.winning_team ?? 'none'}`,
+    `end_reason=${projection.end_reason ?? 'none'}`
+  ].join(' ');
+
+  return [header, players, meta].join('\n');
 }
 
 export function format_event(event: DomainEvent, index: number): string {
@@ -162,7 +274,9 @@ export function format_help(topic: 'phase' | 'all'): string {
     '  events [count]',
     '  players',
     '  player <player_id>',
-    '  view storyteller | view public | view player <player_id>',
+    '  view storyteller|st [--json]',
+    '  view public [--json]',
+    '  view player <player_id> [--json] | view <player_id> [--json]',
     '  prompts',
     '  prompt <prompt_id>',
     '  quit | exit',

@@ -109,18 +109,41 @@ test('parse local commands', () => {
   assert.equal(viewStoryteller.ok, true);
   if (viewStoryteller.ok && viewStoryteller.kind === 'local') {
     assert.equal(viewStoryteller.action.type, 'view_storyteller');
+    if (viewStoryteller.action.type === 'view_storyteller') {
+      assert.equal(viewStoryteller.action.json, false);
+    }
+  }
+
+  const viewStorytellerAlias = parse_cli_line('view st --json');
+  assert.equal(viewStorytellerAlias.ok, true);
+  if (viewStorytellerAlias.ok && viewStorytellerAlias.kind === 'local') {
+    assert.equal(viewStorytellerAlias.action.type, 'view_storyteller');
+    if (viewStorytellerAlias.action.type === 'view_storyteller') {
+      assert.equal(viewStorytellerAlias.action.json, true);
+    }
   }
 
   const viewPublic = parse_cli_line('view public');
   assert.equal(viewPublic.ok, true);
   if (viewPublic.ok && viewPublic.kind === 'local') {
     assert.equal(viewPublic.action.type, 'view_public');
+    if (viewPublic.action.type === 'view_public') {
+      assert.equal(viewPublic.action.json, false);
+    }
   }
 
   const viewPlayer = parse_cli_line('view player p1');
   assert.equal(viewPlayer.ok, true);
   if (viewPlayer.ok && viewPlayer.kind === 'local' && viewPlayer.action.type === 'view_player') {
     assert.equal(viewPlayer.action.player_id, 'p1');
+    assert.equal(viewPlayer.action.json, false);
+  }
+
+  const viewPlayerAlias = parse_cli_line('view p1 --json');
+  assert.equal(viewPlayerAlias.ok, true);
+  if (viewPlayerAlias.ok && viewPlayerAlias.kind === 'local' && viewPlayerAlias.action.type === 'view_player') {
+    assert.equal(viewPlayerAlias.action.player_id, 'p1');
+    assert.equal(viewPlayerAlias.action.json, true);
   }
 });
 
@@ -208,9 +231,12 @@ test('invalid command gives usage', () => {
   }
 
   const viewInvalid = parse_cli_line('view maybe');
-  assert.equal(viewInvalid.ok, false);
-  if (!viewInvalid.ok) {
-    assert.match(viewInvalid.message, /usage: view/);
+  assert.equal(viewInvalid.ok, true);
+  if (viewInvalid.ok && viewInvalid.kind === 'local') {
+    assert.equal(viewInvalid.action.type, 'view_player');
+    if (viewInvalid.action.type === 'view_player') {
+      assert.equal(viewInvalid.action.player_id, 'maybe');
+    }
   }
 
   const setupPlayerInvalid = parse_cli_line('setup-player p1 imp maybe');

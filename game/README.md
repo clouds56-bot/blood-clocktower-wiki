@@ -39,9 +39,10 @@ Aliases:
 - `events [count]`
 - `players`
 - `player <player_id>`
-- `view storyteller`
+- `view storyteller` (alias: `view st`)
 - `view public`
-- `view player <player_id>`
+- `view player <player_id>` (alias: `view <player_id>`)
+  - add `--json` to any `view` command for JSON output
 - `setup-player <player_id> <true_character_id> [perceived_character_id] <townsfolk|outsider|minion|demon|traveller> [good|evil]`
 - `prompts`
 - `prompt <prompt_id>`

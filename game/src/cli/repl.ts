@@ -17,12 +17,15 @@ import {
   format_event,
   format_help,
   format_player,
+  format_player_projection,
   format_projection_json,
   format_prompt,
   format_prompt_list,
   format_players_table,
+  format_public_projection,
   format_state_brief,
-  format_state_json
+  format_state_json,
+  format_storyteller_projection
 } from './formatters.js';
 
 interface CliContext {
@@ -693,12 +696,22 @@ function handle_local_action(context: CliContext, action: CliLocalAction): boole
   }
 
   if (action.type === 'view_storyteller') {
-    process.stdout.write(`${format_projection_json(project_for_storyteller(context.state))}\n`);
+    const projection = project_for_storyteller(context.state);
+    if (action.json) {
+      process.stdout.write(`${format_projection_json(projection)}\n`);
+    } else {
+      process.stdout.write(`${format_storyteller_projection(projection)}\n`);
+    }
     return true;
   }
 
   if (action.type === 'view_public') {
-    process.stdout.write(`${format_projection_json(project_for_public(context.state))}\n`);
+    const projection = project_for_public(context.state);
+    if (action.json) {
+      process.stdout.write(`${format_projection_json(projection)}\n`);
+    } else {
+      process.stdout.write(`${format_public_projection(projection)}\n`);
+    }
     return true;
   }
 
@@ -708,7 +721,11 @@ function handle_local_action(context: CliContext, action: CliLocalAction): boole
       process.stdout.write(`projection_error code=${projected.error.code} message=${projected.error.message}\n`);
       return true;
     }
-    process.stdout.write(`${format_projection_json(projected.value)}\n`);
+    if (action.json) {
+      process.stdout.write(`${format_projection_json(projected.value)}\n`);
+    } else {
+      process.stdout.write(`${format_player_projection(projected.value)}\n`);
+    }
     return true;
   }
 

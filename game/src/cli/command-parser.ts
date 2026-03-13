@@ -16,9 +16,9 @@ export type CliLocalAction =
   | { type: 'events'; count: number }
   | { type: 'players' }
   | { type: 'player'; player_id: string }
-  | { type: 'view_storyteller' }
-  | { type: 'view_public' }
-  | { type: 'view_player'; player_id: string }
+  | { type: 'view_storyteller'; json: boolean }
+  | { type: 'view_public'; json: boolean }
+  | { type: 'view_player'; player_id: string; json: boolean }
   | { type: 'prompts' }
   | { type: 'prompt'; prompt_id: string }
   | {
@@ -250,21 +250,29 @@ export function parse_cli_line(input: string, state?: GameState): ParsedCliLine 
     return { ok: true, kind: 'local', action: { type: 'player', player_id } };
   }
   if (command === 'view') {
-    const mode = args[0];
-    if (mode === 'storyteller') {
-      return { ok: true, kind: 'local', action: { type: 'view_storyteller' } };
+    const json = args.includes('--json');
+    const tokens = args.filter((token) => token !== '--json');
+    const mode = tokens[0];
+
+    if (mode === 'storyteller' || mode === 'st') {
+      return { ok: true, kind: 'local', action: { type: 'view_storyteller', json } };
     }
     if (mode === 'public') {
-      return { ok: true, kind: 'local', action: { type: 'view_public' } };
+      return { ok: true, kind: 'local', action: { type: 'view_public', json } };
     }
     if (mode === 'player') {
-      const player_id = args[1];
+      const player_id = tokens[1];
       if (!player_id) {
-        return invalid('usage: view player <player_id>');
+      return invalid('usage: view player <player_id> [--json]');
       }
-      return { ok: true, kind: 'local', action: { type: 'view_player', player_id } };
+      return { ok: true, kind: 'local', action: { type: 'view_player', player_id, json } };
     }
-    return invalid('usage: view <storyteller|public|player <player_id>>');
+    if (mode && mode !== 'public' && mode !== 'storyteller' && mode !== 'st') {
+      return { ok: true, kind: 'local', action: { type: 'view_player', player_id: mode, json } };
+    }
+    return invalid(
+      'usage: view storyteller|st [--json] | view public [--json] | view player <player_id> [--json] | view <player_id> [--json]'
+    );
   }
   if (command === 'prompts') {
     return { ok: true, kind: 'local', action: { type: 'prompts' } };
