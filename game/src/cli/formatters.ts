@@ -194,8 +194,16 @@ export function format_storyteller_projection(projection: StorytellerProjection)
 
   const has_traveller = Object.values(projection.players).some((player) => player.is_traveller);
 
-  const rows = Object.values(projection.players)
-    .sort((a, b) => a.player_id.localeCompare(b.player_id))
+  const ordered_player_ids = [
+    ...projection.seat_order,
+    ...Object.keys(projection.players)
+      .filter((player_id) => !projection.seat_order.includes(player_id))
+      .sort((a, b) => a.localeCompare(b))
+  ];
+
+  const rows = ordered_player_ids
+    .map((player_id) => projection.players[player_id])
+    .filter((player): player is NonNullable<typeof player> => Boolean(player))
     .map((player) => {
       const char = player.true_character_id ?? 'null';
       const perceived = player.perceived_character_id ?? 'null';
