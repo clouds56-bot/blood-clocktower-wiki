@@ -1,8 +1,30 @@
 import type { GameState, PlayerState } from '../../domain/types.js';
 
-export function is_functional_player(state: Readonly<GameState>, player_id: string): boolean {
+export type PlayerInformationMode = 'inactive' | 'truthful' | 'misinformation';
+
+export function get_player_information_mode(
+  state: Readonly<GameState>,
+  player_id: string
+): PlayerInformationMode {
+  // Info roles still wake when drunk/poisoned, but should get Storyteller-selected
+  // misinformation rather than hard failure.
+  const player = state.players_by_id[player_id];
+  if (!player || !player.alive) {
+    return 'inactive';
+  }
+  if (player.drunk || player.poisoned) {
+    return 'misinformation';
+  }
+  return 'truthful';
+}
+
+export function is_ability_active(state: Readonly<GameState>, player_id: string): boolean {
   const player = state.players_by_id[player_id];
   return Boolean(player && player.alive && !player.drunk && !player.poisoned);
+}
+
+export function is_functional_player(state: Readonly<GameState>, player_id: string): boolean {
+  return is_ability_active(state, player_id);
 }
 
 export function find_alive_neighbors(state: Readonly<GameState>, player_id: string): PlayerState[] {

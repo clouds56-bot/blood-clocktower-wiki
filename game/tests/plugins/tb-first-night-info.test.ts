@@ -57,6 +57,10 @@ test('fortune teller wake prompt offers pair options', () => {
   state.players_by_id.p1 = make_player('p1', 'FT', 'fortune_teller', 'good');
   state.players_by_id.p2 = make_player('p2', 'A', 'washerwoman', 'good');
   state.players_by_id.p3 = make_player('p3', 'B', 'poisoner', 'evil');
+  state.players_by_id.p4 = make_player('p4', 'DeadImp', 'imp', 'evil', {
+    alive: false,
+    is_demon: true
+  });
 
   const result = fortune_teller_plugin.hooks.on_night_wake?.({
     state,
@@ -71,8 +75,28 @@ test('fortune teller wake prompt offers pair options', () => {
   assert.equal(is_fortune_teller_prompt_id(prompt?.prompt_id ?? ''), true);
   assert.deepEqual(
     prompt?.options.map((option) => option.option_id),
-    ['p1|p2', 'p1|p3', 'p2|p3']
+    ['p1|p2', 'p1|p3', 'p1|p4', 'p2|p3', 'p2|p4', 'p3|p4']
   );
+});
+
+test('fortune teller resolves yes when pair includes dead demon', () => {
+  const state = create_initial_state('g1');
+  state.players_by_id.p1 = make_player('p1', 'FT', 'fortune_teller', 'good');
+  state.players_by_id.p2 = make_player('p2', 'Butler', 'butler', 'good');
+  state.players_by_id.p3 = make_player('p3', 'DeadImp', 'imp', 'evil', {
+    alive: false,
+    is_demon: true
+  });
+
+  const result = fortune_teller_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_id: 'plugin:fortune_teller:night_check:2:p1',
+    selected_option_id: 'p2|p3',
+    freeform: null
+  });
+
+  assert.ok(result);
+  assert.equal(result?.emitted_events[0]?.payload.note, 'fortune_teller_info:p1:pair=p2,p3;yes=true');
 });
 
 test('fortune teller resolves yes when pair includes red herring', () => {

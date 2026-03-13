@@ -1,5 +1,5 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
-import { is_functional_player } from './tb-info-utils.js';
+import { get_player_information_mode } from './tb-info-utils.js';
 
 export const chef_plugin: CharacterPlugin = {
   metadata: {
@@ -28,9 +28,14 @@ export const chef_plugin: CharacterPlugin = {
   },
   hooks: {
     on_night_wake: (context): PluginResult => {
-      const note = is_functional_player(context.state, context.player_id)
-        ? `chef_info:${context.player_id}:adjacent_evil_pairs=${count_adjacent_evil_pairs(context.state)}`
-        : `chef_info:${context.player_id}:malfunctioning`;
+      const info_mode = get_player_information_mode(context.state, context.player_id);
+      let note = `chef_info:${context.player_id}:inactive`;
+      if (info_mode === 'truthful') {
+        note = `chef_info:${context.player_id}:adjacent_evil_pairs=${count_adjacent_evil_pairs(context.state)}`;
+      } else if (info_mode === 'misinformation') {
+        // Interactive adjudication: Storyteller supplies legal misinformation.
+        note = `chef_info:${context.player_id}:misinformation_required`;
+      }
 
       return {
         emitted_events: [
@@ -49,7 +54,7 @@ export const chef_plugin: CharacterPlugin = {
   }
 };
 
-function count_adjacent_evil_pairs(state: Parameters<typeof is_functional_player>[0]): number {
+function count_adjacent_evil_pairs(state: Parameters<typeof get_player_information_mode>[0]): number {
   const seats = state.seat_order;
   if (seats.length < 2) {
     return 0;

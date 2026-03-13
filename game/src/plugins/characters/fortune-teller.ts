@@ -1,5 +1,5 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
-import { is_functional_player } from './tb-info-utils.js';
+import { get_player_information_mode } from './tb-info-utils.js';
 
 const FORTUNE_TELLER_PROMPT_PREFIX = 'plugin:fortune_teller:night_check';
 
@@ -15,7 +15,7 @@ export const fortune_teller_plugin: CharacterPlugin = {
       min_targets: 2,
       max_targets: 2,
       allow_self: true,
-      require_alive: true,
+      require_alive: false,
       allow_travellers: false
     },
     flags: {
@@ -30,10 +30,10 @@ export const fortune_teller_plugin: CharacterPlugin = {
   },
   hooks: {
     on_night_wake: (context): PluginResult => {
-      const alive_players = Object.values(context.state.players_by_id)
-        .filter((player) => player.alive)
-        .sort((left, right) => left.player_id.localeCompare(right.player_id));
-      const options = build_pair_options(alive_players.map((player) => player.player_id));
+      const players = Object.values(context.state.players_by_id).sort((left, right) =>
+        left.player_id.localeCompare(right.player_id)
+      );
+      const options = build_pair_options(players.map((player) => player.player_id));
 
       return {
         emitted_events: [],
@@ -59,14 +59,15 @@ export const fortune_teller_plugin: CharacterPlugin = {
         };
       }
 
-      if (!is_functional_player(context.state, owner_player_id)) {
+      const info_mode = get_player_information_mode(context.state, owner_player_id);
+      if (info_mode === 'inactive') {
         return {
           emitted_events: [
             {
               event_type: 'StorytellerRulingRecorded',
               payload: {
                 prompt_id: context.prompt_id,
-                note: `fortune_teller_info:${owner_player_id}:malfunctioning`
+                note: `fortune_teller_info:${owner_player_id}:inactive`
               }
             }
           ],
@@ -88,6 +89,23 @@ export const fortune_teller_plugin: CharacterPlugin = {
       if (!left_id || !right_id) {
         return {
           emitted_events: [],
+          queued_prompts: [],
+          queued_interrupts: []
+        };
+      }
+
+      if (info_mode === 'misinformation') {
+        return {
+          emitted_events: [
+            {
+              event_type: 'StorytellerRulingRecorded',
+              payload: {
+                prompt_id: context.prompt_id,
+                // Interactive adjudication: Storyteller picks legal misinformation for this pair.
+                note: `fortune_teller_info:${owner_player_id}:pair=${left_id},${right_id};misinformation_required`
+              }
+            }
+          ],
           queued_prompts: [],
           queued_interrupts: []
         };
@@ -148,7 +166,7 @@ function parse_pair_option(option_id: string | null): [string, string] | null {
 }
 
 function is_demon_check_positive(
-  state: Parameters<typeof is_functional_player>[0],
+  state: Parameters<typeof get_player_information_mode>[0],
   left_player_id: string,
   right_player_id: string
 ): boolean {
@@ -161,6 +179,9 @@ function is_demon_check_positive(
   if (has_real_demon) {
     return true;
   }
+
+  // TODO(tb-registration): include registered-as-demon checks (e.g. Recluse/Spy) once
+  // registration query helpers are implemented in the engine.
 
   return state.active_reminder_marker_ids.some((marker_id) => {
     const marker = state.reminder_markers_by_id[marker_id];

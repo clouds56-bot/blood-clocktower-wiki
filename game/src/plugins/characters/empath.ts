@@ -1,5 +1,5 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
-import { find_alive_neighbors, is_functional_player } from './tb-info-utils.js';
+import { find_alive_neighbors, get_player_information_mode } from './tb-info-utils.js';
 
 export const empath_plugin: CharacterPlugin = {
   metadata: {
@@ -28,9 +28,13 @@ export const empath_plugin: CharacterPlugin = {
   },
   hooks: {
     on_night_wake: (context): PluginResult => {
-      const note = is_functional_player(context.state, context.player_id)
-        ? `empath_info:${context.player_id}:alive_neighbor_evil_count=${count_evil_neighbors(context.state, context.player_id)}`
-        : `empath_info:${context.player_id}:malfunctioning`;
+      const info_mode = get_player_information_mode(context.state, context.player_id);
+      let note = `empath_info:${context.player_id}:inactive`;
+      if (info_mode === 'truthful') {
+        note = `empath_info:${context.player_id}:alive_neighbor_evil_count=${count_evil_neighbors(context.state, context.player_id)}`;
+      } else if (info_mode === 'misinformation') {
+        note = `empath_info:${context.player_id}:misinformation_required`;
+      }
 
       return {
         emitted_events: [
