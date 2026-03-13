@@ -1,5 +1,10 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
-import { find_alive_neighbors, get_player_information_mode } from './tb-info-utils.js';
+import {
+  build_misinformation_prompt,
+  find_alive_neighbors,
+  get_player_information_mode,
+  is_misinformation_prompt_id
+} from './tb-info-utils.js';
 
 export const empath_plugin: CharacterPlugin = {
   metadata: {
@@ -33,7 +38,17 @@ export const empath_plugin: CharacterPlugin = {
       if (info_mode === 'truthful') {
         note = `empath_info:${context.player_id}:alive_neighbor_evil_count=${count_evil_neighbors(context.state, context.player_id)}`;
       } else if (info_mode === 'misinformation') {
-        note = `empath_info:${context.player_id}:misinformation_required`;
+        return {
+          emitted_events: [],
+          queued_prompts: [
+            build_misinformation_prompt('empath', context.player_id, context.state.night_number, [
+              { option_id: '0', label: 'Show 0' },
+              { option_id: '1', label: 'Show 1' },
+              { option_id: '2', label: 'Show 2' }
+            ])
+          ],
+          queued_interrupts: []
+        };
       }
 
       return {
@@ -49,6 +64,39 @@ export const empath_plugin: CharacterPlugin = {
         queued_prompts: [],
         queued_interrupts: []
       };
+    },
+    on_prompt_resolved: (context): PluginResult => {
+      if (!is_misinformation_prompt_id(context.prompt_id, 'empath')) {
+        return {
+          emitted_events: [],
+          queued_prompts: [],
+          queued_interrupts: []
+        };
+      }
+
+      const subject_player_id = parse_subject_player_id(context.prompt_id);
+      if (!subject_player_id) {
+        return {
+          emitted_events: [],
+          queued_prompts: [],
+          queued_interrupts: []
+        };
+      }
+
+      const selected = context.selected_option_id ?? '0';
+      return {
+        emitted_events: [
+          {
+            event_type: 'StorytellerRulingRecorded',
+            payload: {
+              prompt_id: context.prompt_id,
+              note: `empath_info:${subject_player_id}:alive_neighbor_evil_count=${selected}`
+            }
+          }
+        ],
+        queued_prompts: [],
+        queued_interrupts: []
+      };
     }
   }
 };
@@ -58,4 +106,9 @@ function count_evil_neighbors(
   player_id: string
 ): number {
   return find_alive_neighbors(state, player_id).filter((player) => player.true_alignment === 'evil').length;
+}
+
+function parse_subject_player_id(prompt_id: string): string | null {
+  const parts = prompt_id.split(':');
+  return parts[4] ?? null;
 }

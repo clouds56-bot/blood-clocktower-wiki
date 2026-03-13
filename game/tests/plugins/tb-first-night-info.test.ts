@@ -30,6 +30,30 @@ test('chef records adjacent evil pair count', () => {
   assert.equal(note, 'chef_info:p1:adjacent_evil_pairs=1');
 });
 
+test('chef queues misinformation prompt when poisoned', () => {
+  const state = create_initial_state('g1');
+  state.night_number = 1;
+  state.players_by_id.p1 = make_player('p1', 'Chef', 'chef', 'good', { poisoned: true });
+
+  const wake = chef_plugin.hooks.on_night_wake?.({
+    state,
+    player_id: 'p1',
+    wake_step_id: 'wake:1:0:p1:chef'
+  });
+  assert.ok(wake);
+  assert.equal(wake?.queued_prompts.length, 1);
+  assert.equal(wake?.queued_prompts[0]?.prompt_id, 'plugin:chef:misinfo:1:p1');
+
+  const resolved = chef_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_id: 'plugin:chef:misinfo:1:p1',
+    selected_option_id: '2',
+    freeform: null
+  });
+  assert.ok(resolved);
+  assert.equal(resolved?.emitted_events[0]?.payload.note, 'chef_info:p1:adjacent_evil_pairs=2');
+});
+
 test('empath counts alive evil neighbors and skips dead players', () => {
   const state = create_initial_state('g1');
   state.seat_order = ['p1', 'p2', 'p3', 'p4', 'p5'];
@@ -49,6 +73,30 @@ test('empath counts alive evil neighbors and skips dead players', () => {
   assert.equal(result?.emitted_events.length, 1);
   const note = result?.emitted_events[0]?.payload.note;
   assert.equal(note, 'empath_info:p1:alive_neighbor_evil_count=2');
+});
+
+test('empath queues misinformation prompt when drunk', () => {
+  const state = create_initial_state('g1');
+  state.night_number = 2;
+  state.players_by_id.p1 = make_player('p1', 'Empath', 'empath', 'good', { drunk: true });
+
+  const wake = empath_plugin.hooks.on_night_wake?.({
+    state,
+    player_id: 'p1',
+    wake_step_id: 'wake:2:0:p1:empath'
+  });
+  assert.ok(wake);
+  assert.equal(wake?.queued_prompts.length, 1);
+  assert.equal(wake?.queued_prompts[0]?.prompt_id, 'plugin:empath:misinfo:2:p1');
+
+  const resolved = empath_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_id: 'plugin:empath:misinfo:2:p1',
+    selected_option_id: '1',
+    freeform: null
+  });
+  assert.ok(resolved);
+  assert.equal(resolved?.emitted_events[0]?.payload.note, 'empath_info:p1:alive_neighbor_evil_count=1');
 });
 
 test('fortune teller wake prompt offers pair options', () => {
@@ -139,4 +187,34 @@ test('fortune teller resolves yes when pair includes red herring', () => {
   assert.equal(result?.emitted_events.length, 1);
   const note = result?.emitted_events[0]?.payload.note;
   assert.equal(note, 'fortune_teller_info:p1:pair=p2,p3;yes=true');
+});
+
+test('fortune teller queues misinformation prompt when poisoned', () => {
+  const state = create_initial_state('g1');
+  state.night_number = 2;
+  state.players_by_id.p1 = make_player('p1', 'FT', 'fortune_teller', 'good', { poisoned: true });
+  state.players_by_id.p2 = make_player('p2', 'A', 'washerwoman', 'good');
+  state.players_by_id.p3 = make_player('p3', 'B', 'imp', 'evil', { is_demon: true });
+
+  const result = fortune_teller_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_id: 'plugin:fortune_teller:night_check:2:p1',
+    selected_option_id: 'p2|p3',
+    freeform: null
+  });
+  assert.ok(result);
+  assert.equal(result?.queued_prompts.length, 1);
+  assert.equal(result?.queued_prompts[0]?.prompt_id, 'plugin:fortune_teller:misinfo:2:p1:p2:p3');
+
+  const misinfoResolved = fortune_teller_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_id: 'plugin:fortune_teller:misinfo:2:p1:p2:p3',
+    selected_option_id: 'no',
+    freeform: null
+  });
+  assert.ok(misinfoResolved);
+  assert.equal(
+    misinfoResolved?.emitted_events[0]?.payload.note,
+    'fortune_teller_info:p1:pair=p2,p3;yes=false'
+  );
 });

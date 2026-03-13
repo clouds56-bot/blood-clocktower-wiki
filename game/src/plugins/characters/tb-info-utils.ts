@@ -1,4 +1,5 @@
 import type { GameState, PlayerState } from '../../domain/types.js';
+import type { PluginPromptSpec } from '../contracts.js';
 
 export type PlayerInformationMode = 'inactive' | 'truthful' | 'misinformation';
 
@@ -21,6 +22,25 @@ export function get_player_information_mode(
 export function is_ability_active(state: Readonly<GameState>, player_id: string): boolean {
   const player = state.players_by_id[player_id];
   return Boolean(player && player.alive && !player.drunk && !player.poisoned);
+}
+
+export function build_misinformation_prompt(
+  role_id: string,
+  subject_player_id: string,
+  night_number: number,
+  options: Array<{ option_id: string; label: string }>
+): PluginPromptSpec {
+  return {
+    prompt_id: `plugin:${role_id}:misinfo:${night_number}:${subject_player_id}`,
+    kind: 'choice',
+    reason: `plugin:${role_id}:choose misinformation`,
+    visibility: 'storyteller',
+    options
+  };
+}
+
+export function is_misinformation_prompt_id(prompt_id: string, role_id: string): boolean {
+  return prompt_id.startsWith(`plugin:${role_id}:misinfo:`);
 }
 
 export function is_functional_player(state: Readonly<GameState>, player_id: string): boolean {

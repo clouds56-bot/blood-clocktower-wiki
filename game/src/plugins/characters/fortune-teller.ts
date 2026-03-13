@@ -1,5 +1,9 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
-import { get_player_information_mode } from './tb-info-utils.js';
+import {
+  build_misinformation_prompt,
+  get_player_information_mode,
+  is_misinformation_prompt_id
+} from './tb-info-utils.js';
 
 const FORTUNE_TELLER_PROMPT_PREFIX = 'plugin:fortune_teller:night_check';
 
@@ -50,6 +54,32 @@ export const fortune_teller_plugin: CharacterPlugin = {
       };
     },
     on_prompt_resolved: (context): PluginResult => {
+      if (is_misinformation_prompt_id(context.prompt_id, 'fortune_teller')) {
+        const misinfo = parse_fortune_teller_misinfo_prompt(context.prompt_id);
+        if (!misinfo) {
+          return {
+            emitted_events: [],
+            queued_prompts: [],
+            queued_interrupts: []
+          };
+        }
+
+        const yes = context.selected_option_id === 'yes';
+        return {
+          emitted_events: [
+            {
+              event_type: 'StorytellerRulingRecorded',
+              payload: {
+                prompt_id: context.prompt_id,
+                note: `fortune_teller_info:${misinfo.owner_player_id}:pair=${misinfo.left_player_id},${misinfo.right_player_id};yes=${yes}`
+              }
+            }
+          ],
+          queued_prompts: [],
+          queued_interrupts: []
+        };
+      }
+
       const owner_player_id = parse_fortune_teller_prompt_owner_player_id(context.prompt_id);
       if (!owner_player_id) {
         return {
@@ -95,18 +125,19 @@ export const fortune_teller_plugin: CharacterPlugin = {
       }
 
       if (info_mode === 'misinformation') {
+        const misinfo_prompt = build_misinformation_prompt(
+          'fortune_teller',
+          owner_player_id,
+          context.state.night_number,
+          [
+            { option_id: 'yes', label: 'Show YES' },
+            { option_id: 'no', label: 'Show NO' }
+          ]
+        );
+        misinfo_prompt.prompt_id = `plugin:fortune_teller:misinfo:${context.state.night_number}:${owner_player_id}:${left_id}:${right_id}`;
         return {
-          emitted_events: [
-            {
-              event_type: 'StorytellerRulingRecorded',
-              payload: {
-                prompt_id: context.prompt_id,
-                // Interactive adjudication: Storyteller picks legal misinformation for this pair.
-                note: `fortune_teller_info:${owner_player_id}:pair=${left_id},${right_id};misinformation_required`
-              }
-            }
-          ],
-          queued_prompts: [],
+          emitted_events: [],
+          queued_prompts: [misinfo_prompt],
           queued_interrupts: []
         };
       }
@@ -207,4 +238,27 @@ function parse_fortune_teller_prompt_owner_player_id(prompt_id: string): string 
     return null;
   }
   return parts[4] ?? null;
+}
+
+function parse_fortune_teller_misinfo_prompt(
+  prompt_id: string
+): { owner_player_id: string; left_player_id: string; right_player_id: string } | null {
+  const parts = prompt_id.split(':');
+  if (parts.length < 7) {
+    return null;
+  }
+  if (parts[0] !== 'plugin' || parts[1] !== 'fortune_teller' || parts[2] !== 'misinfo') {
+    return null;
+  }
+  const owner_player_id = parts[4] ?? null;
+  const left_player_id = parts[5] ?? null;
+  const right_player_id = parts[6] ?? null;
+  if (!owner_player_id || !left_player_id || !right_player_id) {
+    return null;
+  }
+  return {
+    owner_player_id,
+    left_player_id,
+    right_player_id
+  };
 }
