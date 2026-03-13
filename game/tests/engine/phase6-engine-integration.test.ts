@@ -352,3 +352,65 @@ test('imp plugin prompt resolves into death through engine flow', () => {
   const resolved_state = apply_events(state, resolve_events);
   assert.equal(resolved_state.players_by_id.p2?.alive, false);
 });
+
+test('plugin runtime returns deterministic error on duplicate queued prompt id', () => {
+  const registry = new PluginRegistry([
+    {
+      metadata: make_metadata('imp'),
+      hooks: {
+        on_prompt_resolved: () => ({
+          emitted_events: [],
+          queued_prompts: [
+            {
+              prompt_id: 'plugin:imp:night_kill:1:p1',
+              kind: 'choice',
+              reason: 'plugin:imp:choose night kill target',
+              visibility: 'storyteller',
+              options: []
+            }
+          ],
+          queued_interrupts: []
+        })
+      }
+    }
+  ]);
+
+  const state = apply_events(create_initial_state('g1'), [
+    {
+      event_id: 'e1',
+      event_type: 'PromptQueued',
+      created_at: '2026-03-14T00:00:00.000Z',
+      payload: {
+        prompt_id: 'plugin:imp:night_kill:1:p1',
+        kind: 'choice',
+        reason: 'plugin:imp:choose night kill target',
+        visibility: 'storyteller',
+        options: []
+      }
+    }
+  ]);
+
+  const result = handle_command(
+    state,
+    {
+      command_id: 'c_dup_prompt',
+      command_type: 'ResolvePrompt',
+      actor_id: 'storyteller',
+      payload: {
+        prompt_id: 'plugin:imp:night_kill:1:p1',
+        selected_option_id: null,
+        freeform: null,
+        notes: null
+      }
+    },
+    '2026-03-14T01:00:00.000Z',
+    {
+      plugin_registry: registry
+    }
+  );
+
+  assert.equal(result.ok, false);
+  if (!result.ok) {
+    assert.equal(result.error.code, 'prompt_id_already_exists');
+  }
+});

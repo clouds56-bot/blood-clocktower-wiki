@@ -59,6 +59,19 @@ function make_cli_state(): GameState {
     votes_by_player_id: {}
   };
   state.day_state.executed_player_id = 'p2';
+  state.prompts_by_id.pr1 = {
+    prompt_id: 'pr1',
+    kind: 'choice',
+    reason: 'test prompt',
+    visibility: 'storyteller',
+    options: [],
+    status: 'pending',
+    created_at_event_id: 'e1',
+    resolved_at_event_id: null,
+    resolution_payload: null,
+    notes: null
+  };
+  state.pending_prompts = ['pr1'];
   return state;
 }
 
@@ -428,5 +441,32 @@ test('auto-fill requires state when omitted fields are needed', () => {
   assert.equal(vote.ok, false);
   if (!vote.ok) {
     assert.match(vote.message, /usage: vote/);
+  }
+
+  const resolvePromptNoState = parse_cli_line('resolve-prompt');
+  assert.equal(resolvePromptNoState.ok, false);
+  if (!resolvePromptNoState.ok) {
+    assert.match(resolvePromptNoState.message, /usage: resolve-prompt/);
+  }
+});
+
+test('resolve-prompt can omit prompt_id when exactly one pending prompt exists', () => {
+  const state = make_cli_state();
+  const parsed = parse_cli_line('resolve-prompt', state);
+  assert.equal(parsed.ok, true);
+  if (parsed.ok && parsed.kind === 'engine' && parsed.command.command_type === 'ResolvePrompt') {
+    assert.deepEqual(parsed.command.payload, {
+      prompt_id: 'pr1',
+      selected_option_id: null,
+      freeform: null,
+      notes: null
+    });
+  }
+
+  state.pending_prompts.push('pr2');
+  const ambiguous = parse_cli_line('resolve-prompt', state);
+  assert.equal(ambiguous.ok, false);
+  if (!ambiguous.ok) {
+    assert.match(ambiguous.message, /usage: resolve-prompt/);
   }
 });

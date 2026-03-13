@@ -334,9 +334,9 @@ export function format_prompt_list(state: GameState): string {
       return left.prompt_id.localeCompare(right.prompt_id);
     })
     .map((prompt) => [
-      prompt.prompt_id,
+      prompt.status === 'resolved' ? paint(prompt.prompt_id, 'gray') : prompt.prompt_id,
       prompt.kind,
-      prompt.status,
+      prompt.status === 'resolved' ? paint(prompt.status, 'gray') : prompt.status,
       prompt.visibility,
       prompt.resolution_payload?.selected_option_id ?? '-',
       prompt.reason
@@ -422,7 +422,7 @@ export function format_help(topic: 'phase' | 'all'): string {
     '  check-win [day_number] [night_number]',
     '  force-win <good|evil> [rationale...]',
     '  create-prompt <prompt_id> <kind> <storyteller|player|public> <reason...>',
-    '  resolve-prompt <prompt_id> [selected_option_id|-] [notes...]',
+    '  resolve-prompt [prompt_id] [selected_option_id|-] [notes...]',
     '  cancel-prompt <prompt_id> <reason...>',
     '  end-day [day_number]'
   ].join('\n');

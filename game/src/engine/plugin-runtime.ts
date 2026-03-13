@@ -75,6 +75,11 @@ export function integrate_plugin_runtime(
         command.actor_id
       );
 
+      const prompt_id_check = validate_queued_prompt_ids(runtime_state, normalized);
+      if (!prompt_id_check.ok) {
+        return prompt_id_check;
+      }
+
       runtime_events.push(...normalized);
       runtime_state = apply_events(runtime_state, normalized);
 
@@ -120,6 +125,11 @@ export function integrate_plugin_runtime(
         created_at,
         command.actor_id
       );
+
+      const prompt_id_check = validate_queued_prompt_ids(runtime_state, normalized);
+      if (!prompt_id_check.ok) {
+        return prompt_id_check;
+      }
 
       runtime_events.push(...normalized);
       runtime_state = apply_events(runtime_state, normalized);
@@ -281,5 +291,36 @@ function as_dispatch_error(code: string, message: string): EngineResult<never> {
       code,
       message
     }
+  };
+}
+
+function validate_queued_prompt_ids(
+  state: GameState,
+  events: DomainEvent[]
+): EngineResult<void> {
+  const seenPromptIds = new Set<string>();
+
+  for (const event of events) {
+    if (event.event_type !== 'PromptQueued') {
+      continue;
+    }
+
+    const prompt_id = event.payload.prompt_id;
+    if (state.prompts_by_id[prompt_id] || seenPromptIds.has(prompt_id)) {
+      return {
+        ok: false,
+        error: {
+          code: 'prompt_id_already_exists',
+          message: `prompt already exists: ${prompt_id}`
+        }
+      };
+    }
+
+    seenPromptIds.add(prompt_id);
+  }
+
+  return {
+    ok: true,
+    value: undefined
   };
 }
