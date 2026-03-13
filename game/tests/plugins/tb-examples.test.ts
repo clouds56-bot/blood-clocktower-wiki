@@ -111,7 +111,23 @@ test('fortune teller example: Imp + Empath -> yes', () => {
   assert.equal(result?.emitted_events[0]?.payload.note, 'fortune_teller_info:p1:pair=p2,p3;yes=true');
 });
 
-test.skip('fortune teller example: alive Butler + dead Imp selection (dead target wake options not implemented yet)');
+test('fortune teller example: alive Butler + dead Imp selection -> yes', () => {
+  const state = create_initial_state('g1');
+  state.players_by_id.p1 = make_player('p1', 'FortuneTeller', 'fortune_teller', 'good');
+  state.players_by_id.p2 = make_player('p2', 'Butler', 'butler', 'good');
+  state.players_by_id.p3 = make_player('p3', 'DeadImp', 'imp', 'evil', {
+    alive: false,
+    is_demon: true
+  });
+
+  const result = fortune_teller_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_id: 'plugin:fortune_teller:night_check:2:p1',
+    selected_option_id: 'p2|p3',
+    freeform: null
+  });
+  assert.equal(result?.emitted_events[0]?.payload.note, 'fortune_teller_info:p1:pair=p2,p3;yes=true');
+});
 
 test('fortune teller example: self + red herring Saint -> yes', () => {
   const state = create_initial_state('g1');

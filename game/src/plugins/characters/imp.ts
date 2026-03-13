@@ -14,7 +14,7 @@ export const imp_plugin: CharacterPlugin = {
     target_constraints: {
       min_targets: 1,
       max_targets: 1,
-      allow_self: false,
+      allow_self: true,
       require_alive: false,
       allow_travellers: false
     },
@@ -31,7 +31,6 @@ export const imp_plugin: CharacterPlugin = {
   hooks: {
     on_night_wake: (context): PluginResult => {
       const options = Object.values(context.state.players_by_id)
-        .filter((player) => player.player_id !== context.player_id)
         .map((player) => ({
           option_id: player.player_id,
           label: player.display_name

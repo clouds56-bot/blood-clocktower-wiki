@@ -1,5 +1,5 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
-import { is_functional_player, list_players_by_true_character_type } from './tb-info-utils.js';
+import { get_player_information_mode, list_players_by_true_character_type } from './tb-info-utils.js';
 
 export const washerwoman_plugin: CharacterPlugin = {
   metadata: {
@@ -28,9 +28,13 @@ export const washerwoman_plugin: CharacterPlugin = {
   },
   hooks: {
     on_night_wake: (context): PluginResult => {
-      const note = is_functional_player(context.state, context.player_id)
-        ? build_role_pair_note(context.state, context.player_id, 'townsfolk', 'washerwoman_info')
-        : `washerwoman_info:${context.player_id}:malfunctioning`;
+      const info_mode = get_player_information_mode(context.state, context.player_id);
+      let note = `washerwoman_info:${context.player_id}:inactive`;
+      if (info_mode === 'truthful') {
+        note = build_role_pair_note(context.state, context.player_id, 'townsfolk', 'washerwoman_info');
+      } else if (info_mode === 'misinformation') {
+        note = `washerwoman_info:${context.player_id}:misinformation_required`;
+      }
 
       return {
         emitted_events: [
@@ -50,7 +54,7 @@ export const washerwoman_plugin: CharacterPlugin = {
 };
 
 function build_role_pair_note(
-  state: Parameters<typeof is_functional_player>[0],
+  state: Parameters<typeof get_player_information_mode>[0],
   owner_player_id: string,
   target_type: 'townsfolk',
   prefix: string

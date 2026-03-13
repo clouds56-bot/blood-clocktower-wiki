@@ -1,5 +1,5 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
-import { is_functional_player } from './tb-info-utils.js';
+import { get_player_information_mode } from './tb-info-utils.js';
 
 export const spy_plugin: CharacterPlugin = {
   metadata: {
@@ -28,9 +28,26 @@ export const spy_plugin: CharacterPlugin = {
   },
   hooks: {
     on_night_wake: (context): PluginResult => {
-      if (!is_functional_player(context.state, context.player_id)) {
+      const info_mode = get_player_information_mode(context.state, context.player_id);
+      if (info_mode === 'inactive') {
         return {
           emitted_events: [],
+          queued_prompts: [],
+          queued_interrupts: []
+        };
+      }
+
+      if (info_mode === 'misinformation') {
+        return {
+          emitted_events: [
+            {
+              event_type: 'StorytellerRulingRecorded',
+              payload: {
+                prompt_id: null,
+                note: `spy_grimoire:${context.player_id}:misinformation_required`
+              }
+            }
+          ],
           queued_prompts: [],
           queued_interrupts: []
         };
