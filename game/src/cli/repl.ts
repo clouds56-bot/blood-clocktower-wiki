@@ -9,6 +9,8 @@ import { apply_events } from '../domain/reducer.js';
 import { create_initial_state } from '../domain/state.js';
 import type { Alignment, GameState } from '../domain/types.js';
 import { handle_command } from '../engine/command-handler.js';
+import { imp_plugin } from '../plugins/characters/imp.js';
+import { PluginRegistry } from '../plugins/registry.js';
 import { project_for_player } from '../projections/player.js';
 import { project_for_public } from '../projections/public.js';
 import { project_for_storyteller } from '../projections/storyteller.js';
@@ -32,6 +34,7 @@ interface CliContext {
   state: GameState;
   event_log: DomainEvent[];
   next_command_index: number;
+  plugin_registry: PluginRegistry;
 }
 
 const ANSI = {
@@ -330,7 +333,9 @@ function run_quick_setup(context: CliContext, script_input: string, player_num: 
       command_id: make_command_id(context),
       actor_id: 'cli'
     } as Command;
-    const result = handle_command(context.state, full_command, now_iso());
+    const result = handle_command(context.state, full_command, now_iso(), {
+      plugin_registry: context.plugin_registry
+    });
     if (!result.ok) {
       process.stdout.write(
         `${paint('quick_setup_error', 'red')} code=${result.error.code} message=${result.error.message} command=${command.command_type}\n`
@@ -354,7 +359,9 @@ function run_engine_command(context: CliContext, command: Omit<Command, 'command
     actor_id: 'cli'
   } as Command;
 
-  const result = handle_command(context.state, full_command, now_iso());
+  const result = handle_command(context.state, full_command, now_iso(), {
+    plugin_registry: context.plugin_registry
+  });
   if (!result.ok) {
     process.stdout.write(
       `${paint('engine_error', 'red')} code=${result.error.code} message=${result.error.message}\n`
@@ -769,7 +776,8 @@ export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void
   const context: CliContext = {
     state: create_initial_state(initial_game_id),
     event_log: [],
-    next_command_index: 1
+    next_command_index: 1,
+    plugin_registry: new PluginRegistry([imp_plugin])
   };
 
   process.stdout.write('Clocktower Engine CLI (Phase 5)\n');
