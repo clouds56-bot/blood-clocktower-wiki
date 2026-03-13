@@ -352,3 +352,85 @@ test('mutating commands are rejected after game ended', () => {
     assert.equal(result.error.code, 'game_already_ended');
   }
 });
+
+test('evil wins when Saint is executed and dies', () => {
+  let state = create_execution_state();
+  state = run_command(state, {
+    command_id: 'c-assign-saint',
+    command_type: 'AssignCharacter',
+    payload: {
+      player_id: 'p2',
+      true_character_id: 'saint'
+    }
+  });
+  state = run_command(state, {
+    command_id: 'c-conseq',
+    command_type: 'ResolveExecutionConsequences',
+    payload: { day_number: 1 }
+  });
+  state = run_command(state, {
+    command_id: 'c-check-win',
+    command_type: 'CheckWinConditions',
+    payload: { day_number: 1, night_number: 1 }
+  });
+
+  assert.equal(state.status, 'ended');
+  assert.equal(state.winning_team, 'evil');
+  assert.equal(state.end_reason, 'saint_executed');
+});
+
+test('Mayor wins at final three when no execution occurs', () => {
+  let state = bootstrap_day_state();
+  state = run_command(state, {
+    command_id: 'c-assign-mayor',
+    command_type: 'AssignCharacter',
+    payload: {
+      player_id: 'p1',
+      true_character_id: 'mayor'
+    }
+  });
+  state = run_command(state, {
+    command_id: 'c-add-p4',
+    command_type: 'AddPlayer',
+    payload: {
+      player_id: 'p4',
+      display_name: 'Drew'
+    }
+  });
+  state = run_command(state, {
+    command_id: 'c-seat-order',
+    command_type: 'SetSeatOrder',
+    payload: {
+      seat_order: ['p1', 'p2', 'p3', 'p4']
+    }
+  });
+  state = run_command(state, {
+    command_id: 'c-kill-p3',
+    command_type: 'ApplyDeath',
+    payload: {
+      player_id: 'p3',
+      reason: 'ability',
+      day_number: 1,
+      night_number: 1
+    }
+  });
+  state = run_command(state, {
+    command_id: 'c-open',
+    command_type: 'OpenNominationWindow',
+    payload: { day_number: 1 }
+  });
+  state = run_command(state, {
+    command_id: 'c-resolve',
+    command_type: 'ResolveExecution',
+    payload: { day_number: 1 }
+  });
+  state = run_command(state, {
+    command_id: 'c-check-win',
+    command_type: 'CheckWinConditions',
+    payload: { day_number: 1, night_number: 1 }
+  });
+
+  assert.equal(state.status, 'ended');
+  assert.equal(state.winning_team, 'good');
+  assert.equal(state.end_reason, 'mayor_final_three_no_execution');
+});

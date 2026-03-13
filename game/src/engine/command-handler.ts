@@ -11,7 +11,8 @@ import {
   handle_nominate_player,
   handle_open_nomination_window,
   handle_open_vote,
-  handle_resolve_execution
+  handle_resolve_execution,
+  handle_use_slayer_shot
 } from './day-flow.js';
 import {
   handle_apply_death,
@@ -52,6 +53,7 @@ const MUTATING_COMMANDS: Set<Command['command_type']> = new Set([
   'ResolveExecutionConsequences',
   'ApplyDeath',
   'MarkPlayerSurvivedExecution',
+  'UseSlayerShot',
   'ApplyPoison',
   'ApplyDrunk',
   'ApplyReminderMarker',
@@ -116,6 +118,9 @@ export function handle_command(
       break;
     case 'MarkPlayerSurvivedExecution':
       base_result = handle_mark_player_survived_execution(state, command, created_at);
+      break;
+    case 'UseSlayerShot':
+      base_result = handle_use_slayer_shot(state, command, created_at);
       break;
     case 'ApplyPoison':
       base_result = handle_apply_poison(state, command, created_at);

@@ -26,6 +26,47 @@ function count_alive_non_travellers(state: GameState): number {
   return Object.values(state.players_by_id).filter((player) => player.alive && !player.is_traveller).length;
 }
 
+function has_executed_saint_death(state: GameState): boolean {
+  for (const death of state.death_history) {
+    if (death.reason !== 'execution') {
+      continue;
+    }
+    const player = state.players_by_id[death.player_id];
+    if (!player || player.true_character_id !== 'saint') {
+      continue;
+    }
+    if (player.drunk || player.poisoned) {
+      continue;
+    }
+    return true;
+  }
+  return false;
+}
+
+function has_functional_alive_mayor(state: GameState): boolean {
+  return Object.values(state.players_by_id).some((player) => {
+    return (
+      player.alive &&
+      player.true_character_id === 'mayor' &&
+      !player.drunk &&
+      !player.poisoned
+    );
+  });
+}
+
+function mayor_no_execution_win(state: GameState): boolean {
+  if (state.phase !== 'day' || state.subphase !== 'execution_resolution') {
+    return false;
+  }
+  if (!state.day_state.execution_attempted_today || state.day_state.execution_occurred_today) {
+    return false;
+  }
+  if (count_alive_non_travellers(state) !== 3) {
+    return false;
+  }
+  return has_functional_alive_mayor(state);
+}
+
 export function handle_check_win_conditions(
   state: GameState,
   command: CheckWinConditionsCommand,
@@ -44,8 +85,9 @@ export function handle_check_win_conditions(
 
   const events: DomainEvent[] = [];
 
-  const good_wins = has_dead_demon(state);
-  const evil_wins = count_alive_non_travellers(state) <= 2;
+  const saint_executed = has_executed_saint_death(state);
+  const good_wins = has_dead_demon(state) || mayor_no_execution_win(state);
+  const evil_wins = saint_executed || count_alive_non_travellers(state) <= 2;
 
   events.push({
     event_id: `${command.command_id}:WinCheckCompleted`,
@@ -59,7 +101,36 @@ export function handle_check_win_conditions(
     }
   });
 
+  if (saint_executed) {
+    const reason = 'saint_executed';
+    events.push({
+      event_id: `${command.command_id}:GameWon`,
+      event_type: 'GameWon',
+      created_at,
+      actor_id: command.actor_id,
+      payload: {
+        winning_team: 'evil',
+        reason
+      }
+    });
+    events.push({
+      event_id: `${command.command_id}:GameEnded`,
+      event_type: 'GameEnded',
+      created_at,
+      actor_id: command.actor_id,
+      payload: {
+        winning_team: 'evil',
+        reason
+      }
+    });
+    return {
+      ok: true,
+      value: events
+    };
+  }
+
   if (good_wins) {
+    const reason = has_dead_demon(state) ? 'demon_died' : 'mayor_final_three_no_execution';
     events.push({
       event_id: `${command.command_id}:GameWon`,
       event_type: 'GameWon',
@@ -67,7 +138,7 @@ export function handle_check_win_conditions(
       actor_id: command.actor_id,
       payload: {
         winning_team: 'good',
-        reason: 'demon_died'
+        reason
       }
     });
     events.push({
@@ -77,7 +148,7 @@ export function handle_check_win_conditions(
       actor_id: command.actor_id,
       payload: {
         winning_team: 'good',
-        reason: 'demon_died'
+        reason
       }
     });
     return {
@@ -87,6 +158,7 @@ export function handle_check_win_conditions(
   }
 
   if (evil_wins) {
+    const reason = 'two_alive_non_travellers';
     events.push({
       event_id: `${command.command_id}:GameWon`,
       event_type: 'GameWon',
@@ -94,7 +166,7 @@ export function handle_check_win_conditions(
       actor_id: command.actor_id,
       payload: {
         winning_team: 'evil',
-        reason: 'two_alive_non_travellers'
+        reason
       }
     });
     events.push({
@@ -104,7 +176,7 @@ export function handle_check_win_conditions(
       actor_id: command.actor_id,
       payload: {
         winning_team: 'evil',
-        reason: 'two_alive_non_travellers'
+        reason
       }
     });
   }

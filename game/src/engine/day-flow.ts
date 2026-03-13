@@ -2,6 +2,7 @@ import type {
   CastVoteCommand,
   CloseVoteCommand,
   EndDayCommand,
+  UseSlayerShotCommand,
   NominatePlayerCommand,
   OpenNominationWindowCommand,
   OpenVoteCommand,
@@ -109,24 +110,208 @@ export function handle_nominate_player(
     return error('already_been_nominated_today', 'target has already been nominated today');
   }
 
-  return {
-    ok: true,
-    value: [
-      {
-        event_id: `${command.command_id}:NominationMade`,
-        event_type: 'NominationMade',
+  const events: DomainEvent[] = [
+    {
+      event_id: `${command.command_id}:NominationMade`,
+      event_type: 'NominationMade',
+      created_at,
+      actor_id: command.actor_id,
+      payload: {
+        nomination_id: command.payload.nomination_id,
+        day_number: command.payload.day_number,
+        nominator_player_id: command.payload.nominator_player_id,
+        nominee_player_id: command.payload.nominee_player_id
+      }
+    }
+  ];
+
+  const virgin_is_functional =
+    nominee.true_character_id === 'virgin' && nominee.alive && !nominee.drunk && !nominee.poisoned;
+  const virgin_spent = state.active_reminder_marker_ids.some((marker_id) => {
+    const marker = state.reminder_markers_by_id[marker_id];
+    return Boolean(
+      marker &&
+        marker.status === 'active' &&
+        marker.kind === 'virgin:spent' &&
+        marker.source_player_id === nominee.player_id
+    );
+  });
+
+  if (virgin_is_functional && !virgin_spent && is_townsfolk_id(nominator.true_character_id)) {
+    events.push({
+      event_id: `${command.command_id}:VirginSpentMarker`,
+      event_type: 'ReminderMarkerApplied',
+      created_at,
+      actor_id: command.actor_id,
+      payload: {
+        marker_id: `plugin:virgin:spent:${command.payload.day_number}:${nominee.player_id}`,
+        kind: 'virgin:spent',
+        effect: 'virgin_spent',
+        note: 'Virgin ability spent',
+        source_player_id: nominee.player_id,
+        source_character_id: 'virgin',
+        target_player_id: nominee.player_id,
+        target_scope: 'player',
+        authoritative: true,
+        expires_policy: 'manual',
+        expires_at_day_number: null,
+        expires_at_night_number: null,
+        source_event_id: null,
+        metadata: {
+          trigger: 'nomination'
+        }
+      }
+    });
+    events.push({
+      event_id: `${command.command_id}:VirginNominatorExecuted`,
+      event_type: 'PlayerExecuted',
+      created_at,
+      actor_id: command.actor_id,
+      payload: {
+        day_number: command.payload.day_number,
+        player_id: nominator.player_id
+      }
+    });
+    if (nominator.alive) {
+      events.push({
+        event_id: `${command.command_id}:VirginNominatorDied`,
+        event_type: 'PlayerDied',
         created_at,
         actor_id: command.actor_id,
         payload: {
-          nomination_id: command.payload.nomination_id,
-          day_number: command.payload.day_number,
-          nominator_player_id: command.payload.nominator_player_id,
-          nominee_player_id: command.payload.nominee_player_id
+          player_id: nominator.player_id,
+          day_number: state.day_number,
+          night_number: state.night_number,
+          reason: 'execution'
         }
-      }
-    ]
+      });
+    }
+  }
+
+  return {
+    ok: true,
+    value: events
   };
 }
+
+export function handle_use_slayer_shot(
+  state: GameState,
+  command: UseSlayerShotCommand,
+  created_at: string
+): EngineResult<DomainEvent[]> {
+  const day_context = ensure_day_context(state, command.payload.day_number);
+  if (!day_context.ok) {
+    return day_context;
+  }
+
+  const slayer = state.players_by_id[command.payload.slayer_player_id];
+  const target = state.players_by_id[command.payload.target_player_id];
+  if (!slayer || !target) {
+    return error('player_not_found', 'slayer or target not found');
+  }
+  if (!slayer.alive) {
+    return error('dead_player_cannot_use_slayer', 'dead slayer cannot shoot');
+  }
+  if (slayer.true_character_id !== 'slayer') {
+    return error('slayer_role_required', 'only slayer can use slayer shot');
+  }
+
+  const slayer_already_spent = state.active_reminder_marker_ids.some((marker_id) => {
+    const marker = state.reminder_markers_by_id[marker_id];
+    return Boolean(
+      marker &&
+        marker.status === 'active' &&
+        marker.kind === 'slayer:spent' &&
+        marker.source_player_id === slayer.player_id
+    );
+  });
+  if (slayer_already_spent) {
+    return error('slayer_shot_already_used', 'slayer shot already used');
+  }
+
+  const can_kill = !slayer.poisoned && !slayer.drunk && target.alive && target.is_demon;
+  const events: DomainEvent[] = [
+    {
+      event_id: `${command.command_id}:SlayerShotUsed`,
+      event_type: 'SlayerShotUsed',
+      created_at,
+      actor_id: command.actor_id,
+      payload: {
+        day_number: command.payload.day_number,
+        slayer_player_id: slayer.player_id,
+        target_player_id: target.player_id,
+        success: can_kill
+      }
+    },
+    {
+      event_id: `${command.command_id}:SlayerSpentMarker`,
+      event_type: 'ReminderMarkerApplied',
+      created_at,
+      actor_id: command.actor_id,
+      payload: {
+        marker_id: `plugin:slayer:spent:${command.payload.day_number}:${slayer.player_id}`,
+        kind: 'slayer:spent',
+        effect: 'slayer_spent',
+        note: 'Slayer shot spent',
+        source_player_id: slayer.player_id,
+        source_character_id: 'slayer',
+        target_player_id: slayer.player_id,
+        target_scope: 'player',
+        authoritative: true,
+        expires_policy: 'manual',
+        expires_at_day_number: null,
+        expires_at_night_number: null,
+        source_event_id: null,
+        metadata: {
+          target_player_id: target.player_id
+        }
+      }
+    }
+  ];
+
+  if (can_kill) {
+    events.push({
+      event_id: `${command.command_id}:SlayerTargetDied`,
+      event_type: 'PlayerDied',
+      created_at,
+      actor_id: command.actor_id,
+      payload: {
+        player_id: target.player_id,
+        day_number: command.payload.day_number,
+        night_number: command.payload.night_number,
+        reason: 'ability'
+      }
+    });
+  }
+
+  return {
+    ok: true,
+    value: events
+  };
+}
+
+function is_townsfolk_id(character_id: string | null): boolean {
+  if (!character_id) {
+    return false;
+  }
+  return TOWNSFOLK_IDS.has(character_id);
+}
+
+const TOWNSFOLK_IDS: ReadonlySet<string> = new Set([
+  'chef',
+  'empath',
+  'fortune_teller',
+  'investigator',
+  'librarian',
+  'mayor',
+  'monk',
+  'ravenkeeper',
+  'slayer',
+  'soldier',
+  'undertaker',
+  'virgin',
+  'washerwoman'
+]);
 
 export function handle_open_vote(
   state: GameState,
@@ -201,6 +386,27 @@ export function handle_cast_vote(
   }
   if (!voter.alive && command.payload.in_favor && !voter.dead_vote_available) {
     return error('dead_vote_not_available', 'dead player has no remaining dead vote');
+  }
+
+  if (command.payload.in_favor && voter.alive && voter.true_character_id === 'butler' && !voter.drunk && !voter.poisoned) {
+    const master_marker = state.active_reminder_marker_ids
+      .map((marker_id) => state.reminder_markers_by_id[marker_id])
+      .find((marker) => {
+        return Boolean(
+          marker &&
+            marker.status === 'active' &&
+            marker.kind === 'butler:master' &&
+            marker.authoritative &&
+            marker.source_player_id === voter.player_id
+        );
+      });
+
+    if (master_marker && master_marker.target_player_id) {
+      const master_voted_in_favor = active_vote.votes_by_player_id[master_marker.target_player_id] === true;
+      if (!master_voted_in_favor) {
+        return error('butler_vote_restricted', 'butler can only vote if their master votes');
+      }
+    }
   }
 
   const events: DomainEvent[] = [

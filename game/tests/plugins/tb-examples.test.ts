@@ -1,7 +1,11 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
+import type { Command } from '../../src/domain/commands.js';
+import { apply_events } from '../../src/domain/reducer.js';
 import { create_initial_state } from '../../src/domain/state.js';
+import type { GameState } from '../../src/domain/types.js';
+import { handle_command } from '../../src/engine/command-handler.js';
 import { chef_plugin } from '../../src/plugins/characters/chef.js';
 import { empath_plugin } from '../../src/plugins/characters/empath.js';
 import { fortune_teller_plugin } from '../../src/plugins/characters/fortune-teller.js';
@@ -9,6 +13,8 @@ import { imp_plugin } from '../../src/plugins/characters/imp.js';
 import { investigator_plugin } from '../../src/plugins/characters/investigator.js';
 import { librarian_plugin } from '../../src/plugins/characters/librarian.js';
 import { monk_plugin } from '../../src/plugins/characters/monk.js';
+import { ravenkeeper_plugin } from '../../src/plugins/characters/ravenkeeper.js';
+import { undertaker_plugin } from '../../src/plugins/characters/undertaker.js';
 import { washerwoman_plugin } from '../../src/plugins/characters/washerwoman.js';
 import { make_player } from './tb-test-utils.js';
 
@@ -409,3 +415,357 @@ test('soldier example: drunk Soldier is killed by Imp', () => {
 
 test.skip('imp example: self-kill passes demonhood to a minion (not implemented yet)');
 test.skip('poisoner examples: slayer/undertaker/saint/poison-source removal interactions (not implemented yet)');
+
+test('slayer example: chooses Imp, Imp dies, then good wins', () => {
+  let state = bootstrap_day_state();
+  state = run_command(state, {
+    command_id: 'c-assign-slayer',
+    command_type: 'AssignCharacter',
+    payload: { player_id: 'p1', true_character_id: 'slayer' }
+  });
+  state = run_command(state, {
+    command_id: 'c-assign-imp',
+    command_type: 'AssignCharacter',
+    payload: { player_id: 'p2', true_character_id: 'imp', is_demon: true }
+  });
+  state = run_command(state, {
+    command_id: 'c-slay',
+    command_type: 'UseSlayerShot',
+    payload: {
+      slayer_player_id: 'p1',
+      target_player_id: 'p2',
+      day_number: 1,
+      night_number: 1
+    }
+  });
+  state = run_command(state, {
+    command_id: 'c-check-win',
+    command_type: 'CheckWinConditions',
+    payload: { day_number: 1, night_number: 1 }
+  });
+
+  assert.equal(state.players_by_id.p2?.alive, false);
+  assert.equal(state.winning_team, 'good');
+});
+
+test.skip('slayer example: chooses Recluse and recluse dies via demon registration (registration not implemented yet)');
+
+test('slayer example: Imp bluffing as Slayer cannot use real shot command', () => {
+  const state = bootstrap_day_state();
+  const result = handle_command(
+    state,
+    {
+      command_id: 'c-fake-slay',
+      command_type: 'UseSlayerShot',
+      payload: {
+        slayer_player_id: 'p2',
+        target_player_id: 'p3',
+        day_number: 1,
+        night_number: 1
+      }
+    },
+    '2026-03-12T02:00:00.000Z'
+  );
+
+  assert.equal(result.ok, false);
+  if (!result.ok) {
+    assert.equal(result.error.code, 'slayer_role_required');
+  }
+});
+
+test('virgin example: washerwoman nominates virgin and is executed immediately', () => {
+  let state = bootstrap_day_state();
+  state = run_command(state, {
+    command_id: 'c-assign-virgin',
+    command_type: 'AssignCharacter',
+    payload: { player_id: 'p2', true_character_id: 'virgin' }
+  });
+  state = run_command(state, {
+    command_id: 'c-assign-washerwoman',
+    command_type: 'AssignCharacter',
+    payload: { player_id: 'p1', true_character_id: 'washerwoman' }
+  });
+  state = run_command(state, {
+    command_id: 'c-open',
+    command_type: 'OpenNominationWindow',
+    payload: { day_number: 1 }
+  });
+  state = run_command(state, {
+    command_id: 'c-nom',
+    command_type: 'NominatePlayer',
+    payload: {
+      nomination_id: 'n1',
+      day_number: 1,
+      nominator_player_id: 'p1',
+      nominee_player_id: 'p2'
+    }
+  });
+
+  assert.equal(state.players_by_id.p1?.alive, false);
+});
+
+test.skip('virgin example: Drunk nominates Virgin and Virgin still loses ability (not implemented yet)', () => {
+  let state = bootstrap_day_state();
+  state = run_command(state, {
+    command_id: 'c-assign-virgin',
+    command_type: 'AssignCharacter',
+    payload: { player_id: 'p2', true_character_id: 'virgin' }
+  });
+  state = run_command(state, {
+    command_id: 'c-assign-drunk',
+    command_type: 'AssignCharacter',
+    payload: { player_id: 'p1', true_character_id: 'drunk' }
+  });
+  state = run_command(state, {
+    command_id: 'c-open',
+    command_type: 'OpenNominationWindow',
+    payload: { day_number: 1 }
+  });
+  state = run_command(state, {
+    command_id: 'c-nom',
+    command_type: 'NominatePlayer',
+    payload: {
+      nomination_id: 'n1',
+      day_number: 1,
+      nominator_player_id: 'p1',
+      nominee_player_id: 'p2'
+    }
+  });
+
+  const virgin_spent = state.active_reminder_marker_ids.some((marker_id) => {
+    const marker = state.reminder_markers_by_id[marker_id];
+    return Boolean(marker && marker.kind === 'virgin:spent' && marker.source_player_id === 'p2');
+  });
+
+  assert.equal(state.players_by_id.p1?.alive, true);
+  assert.equal(virgin_spent, true);
+});
+
+test('virgin example: dead player nomination does not count and virgin stays unspent', () => {
+  let state = bootstrap_day_state();
+  state = run_command(state, {
+    command_id: 'c-assign-virgin',
+    command_type: 'AssignCharacter',
+    payload: { player_id: 'p2', true_character_id: 'virgin' }
+  });
+  state = run_command(state, {
+    command_id: 'c-kill-p1',
+    command_type: 'ApplyDeath',
+    payload: { player_id: 'p1', reason: 'ability', day_number: 1, night_number: 1 }
+  });
+  state = run_command(state, {
+    command_id: 'c-open',
+    command_type: 'OpenNominationWindow',
+    payload: { day_number: 1 }
+  });
+  const nomination = handle_command(
+    state,
+    {
+      command_id: 'c-dead-nom',
+      command_type: 'NominatePlayer',
+      payload: {
+        nomination_id: 'n1',
+        day_number: 1,
+        nominator_player_id: 'p1',
+        nominee_player_id: 'p2'
+      }
+    },
+    '2026-03-12T02:00:00.000Z'
+  );
+
+  assert.equal(nomination.ok, false);
+  if (!nomination.ok) {
+    assert.equal(nomination.error.code, 'dead_player_cannot_nominate');
+  }
+});
+
+test('ravenkeeper example: killed by Imp and learns chosen player character', () => {
+  const state = create_initial_state('g1');
+  state.night_number = 2;
+  state.players_by_id.p1 = make_player('p1', 'Imp', 'imp', 'evil', { is_demon: true });
+  state.players_by_id.p2 = make_player('p2', 'Ravenkeeper', 'ravenkeeper', 'good');
+  state.players_by_id.p3 = make_player('p3', 'Benjamin', 'empath', 'good');
+
+  const imp_result = imp_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_id: 'plugin:imp:night_kill:2:p1',
+    selected_option_id: 'p2',
+    freeform: null
+  });
+  assert.equal(imp_result?.queued_prompts[0]?.prompt_id, 'plugin:ravenkeeper:night_reveal:2:p2');
+
+  const rk_result = ravenkeeper_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_id: 'plugin:ravenkeeper:night_reveal:2:p2',
+    selected_option_id: 'p3',
+    freeform: null
+  });
+  assert.equal(rk_result?.emitted_events[0]?.payload.note, 'ravenkeeper_info:p2:target=p3;character=empath');
+});
+
+test.skip('ravenkeeper example: mayor redirection and recluse registration (registration/redirection not fully implemented yet)');
+
+test('saint example: executed saint causes evil win', () => {
+  let state = bootstrap_day_state();
+  state = run_command(state, {
+    command_id: 'c-assign-saint',
+    command_type: 'AssignCharacter',
+    payload: { player_id: 'p2', true_character_id: 'saint' }
+  });
+  state = run_command(state, {
+    command_id: 'c-exec-saint',
+    command_type: 'ApplyDeath',
+    payload: {
+      player_id: 'p2',
+      reason: 'execution',
+      day_number: 1,
+      night_number: 1
+    }
+  });
+  state = run_command(state, {
+    command_id: 'c-check',
+    command_type: 'CheckWinConditions',
+    payload: { day_number: 1, night_number: 1 }
+  });
+
+  assert.equal(state.winning_team, 'evil');
+  assert.equal(state.end_reason, 'saint_executed');
+});
+
+test('butler example: dead butler can vote freely', () => {
+  let state = bootstrap_day_state();
+  state = run_command(state, {
+    command_id: 'c-assign-butler',
+    command_type: 'AssignCharacter',
+    payload: { player_id: 'p1', true_character_id: 'butler' }
+  });
+  state = run_command(state, {
+    command_id: 'c-kill-butler',
+    command_type: 'ApplyDeath',
+    payload: { player_id: 'p1', reason: 'ability', day_number: 1, night_number: 1 }
+  });
+  state = run_command(state, {
+    command_id: 'c-open',
+    command_type: 'OpenNominationWindow',
+    payload: { day_number: 1 }
+  });
+  state = run_command(state, {
+    command_id: 'c-nom',
+    command_type: 'NominatePlayer',
+    payload: {
+      nomination_id: 'n1',
+      day_number: 1,
+      nominator_player_id: 'p2',
+      nominee_player_id: 'p3'
+    }
+  });
+  state = run_command(state, {
+    command_id: 'c-v-open',
+    command_type: 'OpenVote',
+    payload: {
+      nomination_id: 'n1',
+      nominee_player_id: 'p3',
+      opened_by_player_id: 'p2'
+    }
+  });
+  state = run_command(state, {
+    command_id: 'c-vote',
+    command_type: 'CastVote',
+    payload: {
+      nomination_id: 'n1',
+      voter_player_id: 'p1',
+      in_favor: true
+    }
+  });
+
+  assert.equal(state.players_by_id.p1?.dead_vote_available, false);
+});
+
+test('undertaker example: mayor executed today, undertaker learns mayor', () => {
+  const state = create_initial_state('g1');
+  state.players_by_id.p1 = make_player('p1', 'Undertaker', 'undertaker', 'good');
+  state.players_by_id.p2 = make_player('p2', 'Mayor', 'mayor', 'good', { alive: false });
+  state.day_state.executed_player_id = 'p2';
+
+  const result = undertaker_plugin.hooks.on_night_wake?.({
+    state,
+    player_id: 'p1',
+    wake_step_id: 'wake:2'
+  });
+  assert.equal(result?.emitted_events[0]?.payload.note, 'undertaker_info:p1:executed_player=p2;character=mayor');
+});
+
+test('undertaker example: executed Drunk is seen as Drunk token', () => {
+  const state = create_initial_state('g1');
+  state.players_by_id.p1 = make_player('p1', 'Undertaker', 'undertaker', 'good');
+  state.players_by_id.p2 = make_player('p2', 'Drunk', 'drunk', 'good', { alive: false, perceived_character_id: 'virgin' });
+  state.day_state.executed_player_id = 'p2';
+
+  const result = undertaker_plugin.hooks.on_night_wake?.({
+    state,
+    player_id: 'p1',
+    wake_step_id: 'wake:2'
+  });
+  assert.equal(result?.emitted_events[0]?.payload.note, 'undertaker_info:p1:executed_player=p2;character=drunk');
+});
+
+test.skip('undertaker example: spy registers as butler on death (registration not implemented yet)');
+
+test('undertaker example: no execution means undertaker does not wake with info', () => {
+  const state = create_initial_state('g1');
+  state.players_by_id.p1 = make_player('p1', 'Undertaker', 'undertaker', 'good');
+  state.day_state.executed_player_id = null;
+
+  const result = undertaker_plugin.hooks.on_night_wake?.({
+    state,
+    player_id: 'p1',
+    wake_step_id: 'wake:2'
+  });
+  assert.equal(result?.emitted_events[0]?.payload.note, 'undertaker_info:p1:no_execution_today');
+});
+
+test.skip('spy examples are registration-driven and deferred until registration system is implemented');
+
+function bootstrap_day_state(): GameState {
+  const seed = create_initial_state('g1');
+  return apply_events(seed, [
+    {
+      event_id: 'e1',
+      event_type: 'PlayerAdded',
+      created_at: '2026-03-12T00:00:00.000Z',
+      payload: { player_id: 'p1', display_name: 'Alice' }
+    },
+    {
+      event_id: 'e2',
+      event_type: 'PlayerAdded',
+      created_at: '2026-03-12T00:00:01.000Z',
+      payload: { player_id: 'p2', display_name: 'Bob' }
+    },
+    {
+      event_id: 'e3',
+      event_type: 'PlayerAdded',
+      created_at: '2026-03-12T00:00:02.000Z',
+      payload: { player_id: 'p3', display_name: 'Cara' }
+    },
+    {
+      event_id: 'e4',
+      event_type: 'SeatOrderSet',
+      created_at: '2026-03-12T00:00:03.000Z',
+      payload: { seat_order: ['p1', 'p2', 'p3'] }
+    },
+    {
+      event_id: 'e5',
+      event_type: 'PhaseAdvanced',
+      created_at: '2026-03-12T00:00:04.000Z',
+      payload: { phase: 'day', subphase: 'open_discussion', day_number: 1, night_number: 1 }
+    }
+  ]);
+}
+
+function run_command(state: GameState, command: Command, created_at = '2026-03-12T01:00:00.000Z'): GameState {
+  const result = handle_command(state, command, created_at);
+  if (!result.ok) {
+    throw new Error(`${result.error.code}:${result.error.message}`);
+  }
+  return apply_events(state, result.value);
+}

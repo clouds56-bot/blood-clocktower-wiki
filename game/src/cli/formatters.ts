@@ -457,7 +457,7 @@ export function format_help(topic: 'phase' | 'all'): string {
   if (topic === 'phase') {
     return [
       paint('phase flow (phase 5):', 'cyan'),
-      '  next-phase   (auto: open-noms/open-vote/close-vote/resolve-exec/resolve-conseq when applicable)',
+      '  next-phase   (auto-resolves one random pending prompt, then open-noms/open-vote/close-vote/resolve-exec/resolve-conseq when applicable)',
       '  open-noms',
       '  nominate p1 p2',
       '  open-vote',
@@ -507,6 +507,7 @@ export function format_help(topic: 'phase' | 'all'): string {
     '  nominate | nom <nomination_id> <day_number> <nominator_id> <nominee_id>',
     '  open-vote [nomination_id] [opened_by_id]',
     '  vote <voter_id> <yes|no> | vote <voter_id...> [yes|no] | vote <nomination_id> <voter_id> <yes|no>',
+    '  slay | slayer-shot <slayer_player_id> <target_player_id>',
     '  close-vote [nomination_id] [day_number]',
     '  resolve-exec [day_number]',
     '  resolve-conseq [day_number]',
@@ -515,7 +516,7 @@ export function format_help(topic: 'phase' | 'all'): string {
     '  check-win [day_number] [night_number]',
     '  force-win <good|evil> [rationale...]',
      '  create-prompt <prompt_id> <kind> <storyteller|player|public> <reason...>',
-     '  resolve-prompt [prompt_id] [selected_option_id|-] [notes...]',
+      '  resolve-prompt | choose | ch [prompt_id] [selected_option_id|-] [notes...] (choose/ch with no args picks random option)',
      '  cancel-prompt <prompt_id> <reason...>',
      '  apply-marker | apply-reminder <marker_id> <kind> <effect> [target_player_id] [source_character_id] [note...]',
      '  clear-marker | clear-reminder <marker_id> [reason...]',

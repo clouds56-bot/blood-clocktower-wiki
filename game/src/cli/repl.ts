@@ -7,14 +7,22 @@ import { create_initial_state } from '../domain/state.js';
 import type { GameState } from '../domain/types.js';
 import { handle_command } from '../engine/command-handler.js';
 import { chef_plugin } from '../plugins/characters/chef.js';
+import { butler_plugin } from '../plugins/characters/butler.js';
 import { empath_plugin } from '../plugins/characters/empath.js';
 import { fortune_teller_plugin } from '../plugins/characters/fortune-teller.js';
 import { imp_plugin } from '../plugins/characters/imp.js';
 import { investigator_plugin } from '../plugins/characters/investigator.js';
 import { librarian_plugin } from '../plugins/characters/librarian.js';
+import { mayor_plugin } from '../plugins/characters/mayor.js';
 import { monk_plugin } from '../plugins/characters/monk.js';
 import { poisoner_plugin } from '../plugins/characters/poisoner.js';
+import { ravenkeeper_plugin } from '../plugins/characters/ravenkeeper.js';
+import { saint_plugin } from '../plugins/characters/saint.js';
+import { slayer_plugin } from '../plugins/characters/slayer.js';
 import { soldier_plugin } from '../plugins/characters/soldier.js';
+import { spy_plugin } from '../plugins/characters/spy.js';
+import { undertaker_plugin } from '../plugins/characters/undertaker.js';
+import { virgin_plugin } from '../plugins/characters/virgin.js';
 import { washerwoman_plugin } from '../plugins/characters/washerwoman.js';
 import { PluginRegistry } from '../plugins/registry.js';
 import { project_for_player } from '../projections/player.js';
@@ -255,7 +263,56 @@ function run_setup_player(
   });
 }
 
+function choose_random<T>(items: T[]): T | null {
+  if (items.length === 0) {
+    return null;
+  }
+  const index = Math.floor(Math.random() * items.length);
+  return items[index] ?? null;
+}
+
+function resolve_random_pending_prompt(context: CliContext): boolean {
+  const pending_prompt_ids = context.state.pending_prompts.filter((prompt_id) => {
+    const prompt = context.state.prompts_by_id[prompt_id];
+    return Boolean(prompt && prompt.status === 'pending');
+  });
+  const prompt_id = choose_random(pending_prompt_ids);
+  if (!prompt_id) {
+    return true;
+  }
+
+  const prompt = context.state.prompts_by_id[prompt_id];
+  if (!prompt || prompt.status !== 'pending') {
+    return true;
+  }
+
+  const random_option = choose_random(prompt.options);
+  return run_engine_command(context, {
+    command_type: 'ResolvePrompt',
+    payload: {
+      prompt_id,
+      selected_option_id: random_option?.option_id ?? null,
+      freeform: null,
+      notes: 'auto_random_next'
+    }
+  });
+}
+
+function make_repl_prompt(state: GameState): string {
+  if (state.pending_prompts.length > 0) {
+    return `${paint('clocktower>', 'yellow')} `;
+  }
+  return 'clocktower> ';
+}
+
 function run_next_phase(context: CliContext): void {
+  if (context.state.pending_prompts.length > 0) {
+    const resolved = resolve_random_pending_prompt(context);
+    if (!resolved) {
+      return;
+    }
+  }
+
   const { phase, subphase, day_number, night_number } = context.state;
 
   function advance_to(next_subphase: GameState['subphase']): void {
@@ -578,14 +635,22 @@ export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void
     next_command_index: 1,
     plugin_registry: new PluginRegistry([
       chef_plugin,
+      butler_plugin,
       empath_plugin,
       fortune_teller_plugin,
       imp_plugin,
       investigator_plugin,
       librarian_plugin,
+      mayor_plugin,
       monk_plugin,
       poisoner_plugin,
+      ravenkeeper_plugin,
+      saint_plugin,
+      slayer_plugin,
       soldier_plugin,
+      spy_plugin,
+      undertaker_plugin,
+      virgin_plugin,
       washerwoman_plugin
     ])
   };
@@ -600,18 +665,23 @@ export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void
     prompt: 'clocktower> '
   });
 
-  rl.prompt();
+  const prompt_again = (): void => {
+    rl.setPrompt(make_repl_prompt(context.state));
+    rl.prompt();
+  };
+
+  prompt_again();
 
   rl.on('line', (line) => {
     const parsed = parse_cli_line(line, context.state);
     if (!parsed.ok) {
       process.stdout.write(`${parsed.message}\n`);
-      rl.prompt();
+      prompt_again();
       return;
     }
 
     if (parsed.kind === 'empty') {
-      rl.prompt();
+      prompt_again();
       return;
     }
 
@@ -621,12 +691,12 @@ export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void
         rl.close();
         return;
       }
-      rl.prompt();
+      prompt_again();
       return;
     }
 
     run_engine_command(context, parsed.command);
-    rl.prompt();
+    prompt_again();
   });
 
   await new Promise<void>((resolve) => {

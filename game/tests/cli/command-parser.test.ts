@@ -64,7 +64,10 @@ function make_cli_state(): GameState {
     kind: 'choice',
     reason: 'test prompt',
     visibility: 'storyteller',
-    options: [],
+    options: [
+      { option_id: 'opt_a', label: 'A' },
+      { option_id: 'opt_b', label: 'B' }
+    ],
     status: 'pending',
     created_at_event_id: 'e1',
     resolved_at_event_id: null,
@@ -295,6 +298,28 @@ test('parse prompt engine commands', () => {
     });
   }
 
+  const chooseAlias = parse_cli_line('choose pr1 option_a note text');
+  assert.equal(chooseAlias.ok, true);
+  if (chooseAlias.ok && chooseAlias.kind === 'engine' && chooseAlias.command.command_type === 'ResolvePrompt') {
+    assert.deepEqual(chooseAlias.command.payload, {
+      prompt_id: 'pr1',
+      selected_option_id: 'option_a',
+      freeform: null,
+      notes: 'note text'
+    });
+  }
+
+  const chAlias = parse_cli_line('ch pr1 option_a note text');
+  assert.equal(chAlias.ok, true);
+  if (chAlias.ok && chAlias.kind === 'engine' && chAlias.command.command_type === 'ResolvePrompt') {
+    assert.deepEqual(chAlias.command.payload, {
+      prompt_id: 'pr1',
+      selected_option_id: 'option_a',
+      freeform: null,
+      notes: 'note text'
+    });
+  }
+
   const cancel = parse_cli_line('cancel-prompt pr1 no longer needed');
   assert.equal(cancel.ok, true);
   if (cancel.ok && cancel.kind === 'engine' && cancel.command.command_type === 'CancelPrompt') {
@@ -390,6 +415,17 @@ test('auto-fills command params from state', () => {
         voter_player_id: 'p1',
         in_favor: true
       }
+    });
+  }
+
+  const slay = parse_cli_line('slay p1 p2', state);
+  assert.equal(slay.ok, true);
+  if (slay.ok && slay.kind === 'engine' && slay.command.command_type === 'UseSlayerShot') {
+    assert.deepEqual(slay.command.payload, {
+      slayer_player_id: 'p1',
+      target_player_id: 'p2',
+      day_number: 1,
+      night_number: 1
     });
   }
 
@@ -511,6 +547,12 @@ test('auto-fill requires state when omitted fields are needed', () => {
   if (!resolvePromptNoState.ok) {
     assert.match(resolvePromptNoState.message, /usage: resolve-prompt/);
   }
+
+  const chooseNoState = parse_cli_line('choose');
+  assert.equal(chooseNoState.ok, false);
+  if (!chooseNoState.ok) {
+    assert.match(chooseNoState.message, /usage: choose/);
+  }
 });
 
 test('resolve-prompt can omit prompt_id when exactly one pending prompt exists', () => {
@@ -539,6 +581,19 @@ test('resolve-prompt can omit prompt_id when exactly one pending prompt exists',
       freeform: null,
       notes: null
     });
+  }
+
+  const chooseRandom = parse_cli_line('choose', state);
+  assert.equal(chooseRandom.ok, true);
+  if (chooseRandom.ok && chooseRandom.kind === 'engine' && chooseRandom.command.command_type === 'ResolvePrompt') {
+    const payload = chooseRandom.command.payload as {
+      prompt_id: string;
+      selected_option_id: string | null;
+      notes: string | null;
+    };
+    assert.equal(payload.prompt_id, 'pr1');
+    assert.equal(['opt_a', 'opt_b'].includes(payload.selected_option_id ?? ''), true);
+    assert.equal(payload.notes, 'auto_random_choice');
   }
 
   state.pending_prompts.push('pr2');
