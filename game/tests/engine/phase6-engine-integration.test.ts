@@ -548,7 +548,7 @@ test('poisoner prompt resolves into reminder marker apply and clear flow', () =>
   );
   const n1_marker_applied = resolve_n1_events.find((event) => event.event_type === 'ReminderMarkerApplied');
   assert.ok(n1_marker_applied && n1_marker_applied.event_type === 'ReminderMarkerApplied');
-  assert.match(n1_marker_applied.payload.marker_id, /^event:\d+(?::\d+)?$/);
+  assert.equal(n1_marker_applied.payload.marker_id.startsWith('event:'), true);
   assert.equal(resolve_n1_events.some((event) => event.event_type === 'ReminderMarkerApplied'), true);
   assert.equal(resolve_n1_events.some((event) => event.event_type === 'PoisonApplied'), true);
   state = apply_events(state, resolve_n1_events);
@@ -598,7 +598,7 @@ test('poisoner prompt resolves into reminder marker apply and clear flow', () =>
   );
   const n2_marker_applied = resolve_n2_events.find((event) => event.event_type === 'ReminderMarkerApplied');
   assert.ok(n2_marker_applied && n2_marker_applied.event_type === 'ReminderMarkerApplied');
-  assert.match(n2_marker_applied.payload.marker_id, /^event:\d+(?::\d+)?$/);
+  assert.equal(n2_marker_applied.payload.marker_id.startsWith('event:'), true);
 
   assert.equal(resolve_n2_events.some((event) => event.event_type === 'ReminderMarkerCleared'), false);
   assert.equal(resolve_n2_events.some((event) => event.event_type === 'ReminderMarkerApplied'), true);

@@ -34,68 +34,6 @@ import {
   handle_sweep_reminder_expiry
 } from './reminder-flow.js';
 
-function rewrite_marker_ids_to_event_order(events: DomainEvent[], starting_order: number): DomainEvent[] {
-  const marker_id_map = new Map<string, string>();
-
-  const rewritten = events.map((event, index) => {
-    if (event.event_type !== 'ReminderMarkerApplied') {
-      return event;
-    }
-
-    const event_order = starting_order + index + 1;
-    const next_marker_id = `event:${event_order}`;
-    marker_id_map.set(event.payload.marker_id, next_marker_id);
-
-    return {
-      ...event,
-      payload: {
-        ...event.payload,
-        marker_id: next_marker_id
-      }
-    };
-  });
-
-  if (marker_id_map.size === 0) {
-    return rewritten;
-  }
-
-  return rewritten.map((event) => {
-    if (event.event_type === 'ReminderMarkerCleared' || event.event_type === 'ReminderMarkerExpired') {
-      const next_marker_id = marker_id_map.get(event.payload.marker_id);
-      if (!next_marker_id) {
-        return event;
-      }
-      return {
-        ...event,
-        payload: {
-          ...event.payload,
-          marker_id: next_marker_id
-        }
-      };
-    }
-
-    if (
-      event.event_type === 'DrunkApplied' ||
-      event.event_type === 'SobrietyRestored' ||
-      event.event_type === 'HealthRestored'
-    ) {
-      const next_source_marker_id = marker_id_map.get(event.payload.source_marker_id);
-      if (!next_source_marker_id) {
-        return event;
-      }
-      return {
-        ...event,
-        payload: {
-          ...event.payload,
-          source_marker_id: next_source_marker_id
-        }
-      };
-    }
-
-    return event;
-  });
-}
-
 const MUTATING_COMMANDS: Set<Command['command_type']> = new Set([
   'SelectScript',
   'SelectEdition',
@@ -410,20 +348,11 @@ export function handle_command(
     }
   }
 
-  const integrated_result = integrate_plugin_runtime(
+  return integrate_plugin_runtime(
     state,
     command,
     created_at,
     base_result.value,
     runtime_options.plugin_registry
   );
-
-  if (!integrated_result.ok) {
-    return integrated_result;
-  }
-
-  return {
-    ok: true,
-    value: rewrite_marker_ids_to_event_order(integrated_result.value, state.domain_events.length)
-  };
 }
