@@ -15,6 +15,8 @@ export function create_initial_state(game_id: string): GameState {
     day_state: create_empty_day_state(),
     execution_history: [],
     death_history: [],
+    wake_queue: [],
+    interrupt_queue: [],
     prompts_by_id: {},
     pending_prompts: [],
     storyteller_notes: [],

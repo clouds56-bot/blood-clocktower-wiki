@@ -1,6 +1,10 @@
 import type { DomainEvent } from './events.js';
 import { create_empty_day_state, type ActiveVote, type GameState, type PlayerState } from './types.js';
 
+function clone_payload(payload: Record<string, unknown>): Record<string, unknown> {
+  return structuredClone(payload);
+}
+
 function clone_state(state: GameState): GameState {
   return {
     ...state,
@@ -27,6 +31,8 @@ function clone_state(state: GameState): GameState {
     },
     execution_history: state.execution_history.map((item) => ({ ...item })),
     death_history: state.death_history.map((item) => ({ ...item })),
+    wake_queue: state.wake_queue.map((item) => ({ ...item })),
+    interrupt_queue: state.interrupt_queue.map((item) => ({ ...item, payload: clone_payload(item.payload) })),
     prompts_by_id: Object.fromEntries(
       Object.entries(state.prompts_by_id).map(([prompt_id, prompt]) => [
         prompt_id,
@@ -236,6 +242,38 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
       if (!player.alive) {
         player.dead_vote_available = false;
       }
+      break;
+    }
+    case 'WakeScheduled': {
+      ensure_player(next, event.payload.player_id);
+      if (!next.wake_queue.some((item) => item.wake_id === event.payload.wake_id)) {
+        next.wake_queue.push({
+          wake_id: event.payload.wake_id,
+          character_id: event.payload.character_id,
+          player_id: event.payload.player_id
+        });
+      }
+      break;
+    }
+    case 'WakeConsumed': {
+      next.wake_queue = next.wake_queue.filter((item) => item.wake_id !== event.payload.wake_id);
+      break;
+    }
+    case 'InterruptScheduled': {
+      if (!next.interrupt_queue.some((item) => item.interrupt_id === event.payload.interrupt_id)) {
+        next.interrupt_queue.push({
+          interrupt_id: event.payload.interrupt_id,
+          kind: event.payload.kind,
+          source_plugin_id: event.payload.source_plugin_id,
+          payload: clone_payload(event.payload.payload)
+        });
+      }
+      break;
+    }
+    case 'InterruptConsumed': {
+      next.interrupt_queue = next.interrupt_queue.filter(
+        (item) => item.interrupt_id !== event.payload.interrupt_id
+      );
       break;
     }
     case 'PromptQueued': {

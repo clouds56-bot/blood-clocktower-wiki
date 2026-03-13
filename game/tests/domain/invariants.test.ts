@@ -113,3 +113,124 @@ test('validate_invariants detects duplicate/non-pending prompt queue entries', (
   assert.ok(duplicate);
   assert.ok(nonPending);
 });
+
+test('validate_invariants checks wake and interrupt queue integrity', () => {
+  const state = create_initial_state('g1');
+  state.players_by_id.p1 = {
+    player_id: 'p1',
+    display_name: 'Alice',
+    alive: true,
+    dead_vote_available: true,
+    true_character_id: null,
+    perceived_character_id: null,
+    true_alignment: null,
+    registered_character_id: null,
+    registered_alignment: null,
+    drunk: false,
+    poisoned: false,
+    is_traveller: false,
+    is_demon: false
+  };
+  state.wake_queue = [
+    {
+      wake_id: 'w1',
+      character_id: 'imp',
+      player_id: 'missing'
+    },
+    {
+      wake_id: 'w1',
+      character_id: 'poisoner',
+      player_id: 'p1'
+    }
+  ];
+  state.interrupt_queue = [
+    {
+      interrupt_id: 'i1',
+      kind: 'k1',
+      source_plugin_id: 'imp',
+      payload: {}
+    },
+    {
+      interrupt_id: 'i1',
+      kind: 'k2',
+      source_plugin_id: 'poisoner',
+      payload: {}
+    }
+  ];
+
+  const issues = validate_invariants(state);
+  const wakeMissing = issues.find((issue) => issue.code === 'wake_queue_player_missing');
+  const wakeDuplicate = issues.find((issue) => issue.code === 'duplicate_wake_queue_id');
+  const interruptDuplicate = issues.find((issue) => issue.code === 'duplicate_interrupt_queue_id');
+
+  assert.ok(wakeMissing);
+  assert.ok(wakeDuplicate);
+  assert.ok(interruptDuplicate);
+});
+
+test('validate_invariants rejects invalid wake and interrupt queue fields', () => {
+  const state = create_initial_state('g1');
+  state.players_by_id.p1 = {
+    player_id: 'p1',
+    display_name: 'Alice',
+    alive: true,
+    dead_vote_available: true,
+    true_character_id: null,
+    perceived_character_id: null,
+    true_alignment: null,
+    registered_character_id: null,
+    registered_alignment: null,
+    drunk: false,
+    poisoned: false,
+    is_traveller: false,
+    is_demon: false
+  };
+  state.wake_queue = [
+    {
+      wake_id: ' ',
+      character_id: '',
+      player_id: 'p1'
+    }
+  ];
+  state.interrupt_queue = [
+    {
+      interrupt_id: ' ',
+      kind: '',
+      source_plugin_id: ' ',
+      payload: {}
+    }
+  ];
+
+  const issues = validate_invariants(state);
+  const invalidWake = issues.find((issue) => issue.code === 'wake_queue_invalid_entry');
+  const invalidInterrupt = issues.find((issue) => issue.code === 'interrupt_queue_invalid_entry');
+
+  assert.ok(invalidWake);
+  assert.ok(invalidInterrupt);
+});
+
+test('validate_invariants handles malformed queue entry types without throwing', () => {
+  const state = create_initial_state('g1');
+  state.wake_queue = [
+    {
+      wake_id: 123 as unknown as string,
+      character_id: null as unknown as string,
+      player_id: 999 as unknown as string
+    }
+  ];
+  state.interrupt_queue = [
+    {
+      interrupt_id: {} as unknown as string,
+      kind: [] as unknown as string,
+      source_plugin_id: 42 as unknown as string,
+      payload: {}
+    }
+  ];
+
+  assert.doesNotThrow(() => validate_invariants(state));
+  const issues = validate_invariants(state);
+  const issueCodes = new Set(issues.map((issue) => issue.code));
+  assert.equal(issueCodes.has('wake_queue_invalid_entry'), true);
+  assert.equal(issueCodes.has('wake_queue_player_missing'), true);
+  assert.equal(issueCodes.has('interrupt_queue_invalid_entry'), true);
+});

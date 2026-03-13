@@ -166,6 +166,74 @@ export function validate_invariants(state: GameState): InvariantIssue[] {
     }
   }
 
+  const seenWakeIds = new Set<string>();
+  for (const [index, wake] of state.wake_queue.entries()) {
+    const hasWakeId = typeof wake.wake_id === 'string' && wake.wake_id.trim().length > 0;
+    const hasCharacterId = typeof wake.character_id === 'string' && wake.character_id.trim().length > 0;
+    const hasPlayerId = typeof wake.player_id === 'string';
+
+    if (!hasWakeId || !hasCharacterId) {
+      issues.push({
+        code: 'wake_queue_invalid_entry',
+        message: 'wake_queue entry must include non-empty wake_id and character_id',
+        path: `wake_queue.${index}`,
+        severity: 'error'
+      });
+    }
+
+    if (hasWakeId && seenWakeIds.has(wake.wake_id)) {
+      issues.push({
+        code: 'duplicate_wake_queue_id',
+        message: `wake_queue contains duplicate wake id: ${wake.wake_id}`,
+        path: `wake_queue.${index}`,
+        severity: 'error'
+      });
+    }
+    if (hasWakeId) {
+      seenWakeIds.add(wake.wake_id);
+    }
+
+    if (!hasPlayerId || !state.players_by_id[wake.player_id]) {
+      issues.push({
+        code: 'wake_queue_player_missing',
+        message: `wake_queue references missing player: ${wake.player_id}`,
+        path: `wake_queue.${index}.player_id`,
+        severity: 'error'
+      });
+    }
+  }
+
+  const seenInterruptIds = new Set<string>();
+  for (const [index, interrupt] of state.interrupt_queue.entries()) {
+    const hasInterruptId =
+      typeof interrupt.interrupt_id === 'string' && interrupt.interrupt_id.trim().length > 0;
+    const hasKind = typeof interrupt.kind === 'string' && interrupt.kind.trim().length > 0;
+    const hasSourcePluginId =
+      typeof interrupt.source_plugin_id === 'string' && interrupt.source_plugin_id.trim().length > 0;
+
+    if (!hasInterruptId || !hasKind || !hasSourcePluginId) {
+      issues.push({
+        code: 'interrupt_queue_invalid_entry',
+        message:
+          'interrupt_queue entry must include non-empty interrupt_id, kind, and source_plugin_id',
+        path: `interrupt_queue.${index}`,
+        severity: 'error'
+      });
+    }
+
+    if (hasInterruptId && seenInterruptIds.has(interrupt.interrupt_id)) {
+      issues.push({
+        code: 'duplicate_interrupt_queue_id',
+        message: `interrupt_queue contains duplicate interrupt id: ${interrupt.interrupt_id}`,
+        path: `interrupt_queue.${index}`,
+        severity: 'error'
+      });
+    }
+    if (hasInterruptId) {
+      seenInterruptIds.add(interrupt.interrupt_id);
+    }
+  }
+
   const seen_pending_prompt_ids = new Set<string>();
   for (const [index, prompt_id] of state.pending_prompts.entries()) {
     if (seen_pending_prompt_ids.has(prompt_id)) {
