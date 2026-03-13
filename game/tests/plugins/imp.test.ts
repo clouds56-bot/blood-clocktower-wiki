@@ -47,7 +47,7 @@ test('imp wake hook returns storyteller target prompt', () => {
   assert.equal(result?.queued_prompts.length, 1);
   const prompt = result?.queued_prompts[0];
   assert.ok(prompt);
-  assert.equal(prompt?.visibility, 'storyteller');
+  assert.equal(prompt?.visibility, 'player');
   assert.equal(prompt?.kind, 'choice');
   assert.equal(is_imp_prompt_id(prompt?.prompt_id ?? ''), true);
   assert.deepEqual(prompt?.options.map((item) => item.option_id), ['p2']);

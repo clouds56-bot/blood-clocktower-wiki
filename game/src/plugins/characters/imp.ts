@@ -43,7 +43,7 @@ export const imp_plugin: CharacterPlugin = {
             prompt_id: `${IMP_PROMPT_PREFIX}:${context.state.night_number}:${context.player_id}`,
             kind: 'choice',
             reason: 'plugin:imp:choose night kill target',
-            visibility: 'storyteller',
+            visibility: 'player',
             options
           }
         ],

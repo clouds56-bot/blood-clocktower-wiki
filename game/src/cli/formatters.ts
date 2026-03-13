@@ -38,6 +38,9 @@ function event_color(event_type: DomainEvent['event_type']): keyof typeof ANSI {
   if (event_type === 'PhaseAdvanced') {
     return 'blue';
   }
+  if (event_type === 'PromptQueued') {
+    return 'yellow';
+  }
   if (
     event_type === 'NominationMade' ||
     event_type === 'VoteOpened' ||

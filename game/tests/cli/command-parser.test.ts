@@ -463,6 +463,21 @@ test('resolve-prompt can omit prompt_id when exactly one pending prompt exists',
     });
   }
 
+  const withSelectedOption = parse_cli_line('resolve-prompt p1', state);
+  assert.equal(withSelectedOption.ok, true);
+  if (
+    withSelectedOption.ok &&
+    withSelectedOption.kind === 'engine' &&
+    withSelectedOption.command.command_type === 'ResolvePrompt'
+  ) {
+    assert.deepEqual(withSelectedOption.command.payload, {
+      prompt_id: 'pr1',
+      selected_option_id: 'p1',
+      freeform: null,
+      notes: null
+    });
+  }
+
   state.pending_prompts.push('pr2');
   const ambiguous = parse_cli_line('resolve-prompt', state);
   assert.equal(ambiguous.ok, false);
