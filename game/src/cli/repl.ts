@@ -1,10 +1,13 @@
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
 import readline from 'node:readline';
+import { fileURLToPath } from 'node:url';
 
 import type { Command } from '../domain/commands.js';
 import type { DomainEvent } from '../domain/events.js';
 import { apply_events } from '../domain/reducer.js';
 import { create_initial_state } from '../domain/state.js';
-import type { GameState } from '../domain/types.js';
+import type { Alignment, GameState } from '../domain/types.js';
 import { handle_command } from '../engine/command-handler.js';
 import { project_for_player } from '../projections/player.js';
 import { project_for_public } from '../projections/public.js';
@@ -76,6 +79,153 @@ function resolve_edition_id(script: string): string {
   return script;
 }
 
+type CharacterType = 'townsfolk' | 'outsider' | 'minion' | 'demon' | 'traveller';
+
+interface EditionSetupData {
+  characters: {
+    townsfolk: string[];
+    outsider: string[];
+    minion: string[];
+    demon: string[];
+  };
+}
+
+interface SetupRulesData {
+  setups: Record<
+    string,
+    {
+      townsfolk: number;
+      outsiders: number;
+      minions: number;
+      demon: number;
+    }
+  >;
+}
+
+interface AssignedCharacter {
+  player_id: string;
+  character_id: string;
+  character_type: CharacterType;
+  alignment: Alignment;
+}
+
+function resolve_script_file_id(script: string): 'tb' | 'bmr' | 'snv' | null {
+  if (script === 'tb' || script === 'trouble_brewing') {
+    return 'tb';
+  }
+  if (script === 'bmr' || script === 'bad_moon_rising') {
+    return 'bmr';
+  }
+  if (script === 'snv' || script === 'sects_and_violets') {
+    return 'snv';
+  }
+  return null;
+}
+
+function infer_alignment_from_type(character_type: CharacterType): Alignment {
+  if (character_type === 'demon' || character_type === 'minion') {
+    return 'evil';
+  }
+  return 'good';
+}
+
+function is_character_type_token(value: string): value is CharacterType {
+  return (
+    value === 'townsfolk' ||
+    value === 'outsider' ||
+    value === 'minion' ||
+    value === 'demon' ||
+    value === 'traveller'
+  );
+}
+
+function shuffle<T>(values: T[]): T[] {
+  const next = [...values];
+  for (let i = next.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const left = next[i];
+    const right = next[j];
+    if (left === undefined || right === undefined) {
+      continue;
+    }
+    next[i] = right;
+    next[j] = left;
+  }
+  return next;
+}
+
+function take_random_unique(pool: string[], count: number): string[] {
+  if (count === 0) {
+    return [];
+  }
+  if (pool.length < count) {
+    throw new Error(`insufficient_characters pool=${pool.length} required=${count}`);
+  }
+  return shuffle(pool).slice(0, count);
+}
+
+function repo_root_dir(): string {
+  const current_file = fileURLToPath(import.meta.url);
+  return path.resolve(path.dirname(current_file), '../../..');
+}
+
+function read_json<T>(file_path: string): T {
+  const content = readFileSync(file_path, 'utf8');
+  return JSON.parse(content) as T;
+}
+
+function build_random_assignments(script_id: string, player_ids: string[]): AssignedCharacter[] {
+  const script_file_id = resolve_script_file_id(script_id);
+  if (!script_file_id) {
+    throw new Error(`unsupported_quick_setup_script:${script_id}`);
+  }
+
+  const root = repo_root_dir();
+  const edition_path = path.resolve(root, `data/editions/${script_file_id}.json`);
+  const setup_path = path.resolve(root, 'data/rules/setup.json');
+
+  const edition = read_json<EditionSetupData>(edition_path);
+  const setup_rules = read_json<SetupRulesData>(setup_path);
+
+  const setup_key = `${player_ids.length}_players`;
+  const setup = setup_rules.setups[setup_key];
+  if (!setup) {
+    throw new Error(`unsupported_player_count:${player_ids.length}`);
+  }
+
+  const picked: Array<{ character_id: string; character_type: CharacterType }> = [];
+  for (const character_id of take_random_unique(edition.characters.townsfolk, setup.townsfolk)) {
+    picked.push({ character_id, character_type: 'townsfolk' });
+  }
+  for (const character_id of take_random_unique(edition.characters.outsider, setup.outsiders)) {
+    picked.push({ character_id, character_type: 'outsider' });
+  }
+  for (const character_id of take_random_unique(edition.characters.minion, setup.minions)) {
+    picked.push({ character_id, character_type: 'minion' });
+  }
+  for (const character_id of take_random_unique(edition.characters.demon, setup.demon)) {
+    picked.push({ character_id, character_type: 'demon' });
+  }
+
+  if (picked.length !== player_ids.length) {
+    throw new Error(`setup_mismatch expected=${player_ids.length} got=${picked.length}`);
+  }
+
+  const randomized = shuffle(picked);
+  return randomized.map((item, index) => {
+    const player_id = player_ids[index];
+    if (!player_id) {
+      throw new Error(`player_id_missing_at_index:${index}`);
+    }
+    return {
+      player_id,
+      character_id: item.character_id,
+      character_type: item.character_type,
+      alignment: infer_alignment_from_type(item.character_type)
+    };
+  });
+}
+
 function build_player_ids(player_num: number): string[] {
   const ids: string[] = [];
   for (let i = 1; i <= player_num; i += 1) {
@@ -89,6 +239,15 @@ function run_quick_setup(context: CliContext, script_input: string, player_num: 
   const edition_id = resolve_edition_id(script_id);
   const player_ids = build_player_ids(player_num);
   const resolved_game_id = game_id ?? `${script_id}_${player_num}`;
+
+  let random_assignments: AssignedCharacter[] = [];
+  try {
+    random_assignments = build_random_assignments(script_id, player_ids);
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : String(error);
+    process.stdout.write(`${paint('quick_setup_error', 'red')} ${message}\n`);
+    return;
+  }
 
   context.state = create_initial_state(resolved_game_id);
   context.event_log = [];
@@ -126,6 +285,32 @@ function run_quick_setup(context: CliContext, script_input: string, player_num: 
     }
   });
 
+  for (const assignment of random_assignments) {
+    seed_commands.push({
+      command_type: 'AssignCharacter',
+      payload: {
+        player_id: assignment.player_id,
+        true_character_id: assignment.character_id,
+        is_demon: assignment.character_type === 'demon',
+        is_traveller: assignment.character_type === 'traveller'
+      }
+    });
+    seed_commands.push({
+      command_type: 'AssignPerceivedCharacter',
+      payload: {
+        player_id: assignment.player_id,
+        perceived_character_id: assignment.character_id
+      }
+    });
+    seed_commands.push({
+      command_type: 'AssignAlignment',
+      payload: {
+        player_id: assignment.player_id,
+        true_alignment: assignment.alignment
+      }
+    });
+  }
+
   seed_commands.push({
     command_type: 'AdvancePhase',
     payload: {
@@ -159,7 +344,7 @@ function run_quick_setup(context: CliContext, script_input: string, player_num: 
   process.stdout.write(`${format_state_brief(context.state)}\n`);
 }
 
-function run_engine_command(context: CliContext, command: Omit<Command, 'command_id'>): void {
+function run_engine_command(context: CliContext, command: Omit<Command, 'command_id'>): boolean {
   const full_command: Command = {
     ...command,
     command_id: make_command_id(context),
@@ -171,7 +356,7 @@ function run_engine_command(context: CliContext, command: Omit<Command, 'command
     process.stdout.write(
       `${paint('engine_error', 'red')} code=${result.error.code} message=${result.error.message}\n`
     );
-    return;
+    return false;
   }
 
   const events = result.value;
@@ -180,7 +365,7 @@ function run_engine_command(context: CliContext, command: Omit<Command, 'command
 
   if (events.length === 0) {
     process.stdout.write(`${paint('ok', 'green')} (no events)\n`);
-    return;
+    return true;
   }
 
   process.stdout.write(`${paint('ok', 'green')} emitted=${events.length}\n`);
@@ -188,6 +373,7 @@ function run_engine_command(context: CliContext, command: Omit<Command, 'command
   events.forEach((event, event_index) => {
     process.stdout.write(`${format_event(event, start_index + event_index)}\n`);
   });
+  return true;
 }
 
 function all_player_ids_for_vote(state: GameState): string[] {
@@ -222,6 +408,57 @@ function run_bulk_vote(
       }
     });
   }
+}
+
+function run_setup_player(
+  context: CliContext,
+  action: Extract<CliLocalAction, { type: 'setup_player' }>
+): void {
+  if (!is_character_type_token(action.character_type)) {
+    process.stdout.write(`invalid setup-player type: ${action.character_type}\n`);
+    return;
+  }
+
+  const inferred_alignment = infer_alignment_from_type(action.character_type);
+  const alignment = action.alignment ?? inferred_alignment;
+  if (action.character_type !== 'traveller' && alignment !== inferred_alignment) {
+    process.stdout.write(
+      `setup-player alignment mismatch: type=${action.character_type} expects=${inferred_alignment} got=${alignment}\n`
+    );
+    return;
+  }
+
+  const assign_character_ok = run_engine_command(context, {
+    command_type: 'AssignCharacter',
+    payload: {
+      player_id: action.player_id,
+      true_character_id: action.true_character_id,
+      is_demon: action.character_type === 'demon',
+      is_traveller: action.character_type === 'traveller'
+    }
+  });
+  if (!assign_character_ok) {
+    return;
+  }
+
+  const assign_perceived_ok = run_engine_command(context, {
+    command_type: 'AssignPerceivedCharacter',
+    payload: {
+      player_id: action.player_id,
+      perceived_character_id: action.perceived_character_id
+    }
+  });
+  if (!assign_perceived_ok) {
+    return;
+  }
+
+  run_engine_command(context, {
+    command_type: 'AssignAlignment',
+    payload: {
+      player_id: action.player_id,
+      true_alignment: alignment
+    }
+  });
 }
 
 function run_next_phase(context: CliContext): void {
@@ -472,6 +709,11 @@ function handle_local_action(context: CliContext, action: CliLocalAction): boole
       return true;
     }
     process.stdout.write(`${format_projection_json(projected.value)}\n`);
+    return true;
+  }
+
+  if (action.type === 'setup_player') {
+    run_setup_player(context, action);
     return true;
   }
 

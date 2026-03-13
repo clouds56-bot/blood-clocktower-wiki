@@ -175,6 +175,7 @@ export function format_help(topic: 'phase' | 'all'): string {
     '  assign-character <player_id> <character_id> [--demon] [--traveller]',
     '  assign-perceived <player_id> <character_id>',
     '  assign-alignment <player_id> <good|evil>',
+    '  setup-player <player_id> <true_character_id> [perceived_character_id] <townsfolk|outsider|minion|demon|traveller> [good|evil]',
     '  phase <phase> <subphase> <day_number> <night_number>',
     '',
     paint('engine day/death/win commands:', 'cyan'),

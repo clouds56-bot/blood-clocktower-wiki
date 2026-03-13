@@ -21,6 +21,14 @@ export type CliLocalAction =
   | { type: 'view_player'; player_id: string }
   | { type: 'prompts' }
   | { type: 'prompt'; prompt_id: string }
+  | {
+      type: 'setup_player';
+      player_id: string;
+      true_character_id: string;
+      perceived_character_id: string;
+      character_type: CharacterSetupType;
+      alignment: Alignment | null;
+    }
   | { type: 'new_game'; game_id: string }
   | { type: 'quick_setup'; script: string; player_num: number; game_id?: string }
   | { type: 'quit' };
@@ -32,6 +40,7 @@ export type ParsedCliLine =
   | { ok: false; message: string };
 
 type DeathReason = 'execution' | 'night_death' | 'ability' | 'storyteller';
+type CharacterSetupType = 'townsfolk' | 'outsider' | 'minion' | 'demon' | 'traveller';
 
 function parse_int(value: string, field: string): number | null {
   if (value.trim().length === 0) {
@@ -105,6 +114,19 @@ function parse_death_reason(value: string): DeathReason | null {
 
 function parse_prompt_visibility(value: string): PromptVisibility | null {
   if (value === 'storyteller' || value === 'player' || value === 'public') {
+    return value;
+  }
+  return null;
+}
+
+function parse_character_setup_type(value: string): CharacterSetupType | null {
+  if (
+    value === 'townsfolk' ||
+    value === 'outsider' ||
+    value === 'minion' ||
+    value === 'demon' ||
+    value === 'traveller'
+  ) {
     return value;
   }
   return null;
@@ -278,6 +300,54 @@ export function parse_cli_line(input: string, state?: GameState): ParsedCliLine 
       action: game_id
         ? { type: 'quick_setup', script, player_num, game_id }
         : { type: 'quick_setup', script, player_num }
+    };
+  }
+
+  if (command === 'setup-player') {
+    const usage =
+      'usage: setup-player <player_id> <true_character_id> [perceived_character_id] <townsfolk|outsider|minion|demon|traveller> [good|evil]';
+    if (args.length < 3) {
+      return invalid(usage);
+    }
+
+    let alignment: Alignment | null = null;
+    const parts = [...args];
+    const last = parts[parts.length - 1];
+    const parsed_alignment = last ? parse_alignment(last) : null;
+    if (parsed_alignment) {
+      alignment = parsed_alignment;
+      parts.pop();
+    }
+
+    const type_token = parts[parts.length - 1];
+    const character_type = type_token ? parse_character_setup_type(type_token) : null;
+    if (!character_type) {
+      return invalid(usage);
+    }
+    parts.pop();
+
+    if (parts.length < 2 || parts.length > 3) {
+      return invalid(usage);
+    }
+
+    const player_id = parts[0];
+    const true_character_id = parts[1];
+    const perceived_character_id = parts[2] ?? true_character_id;
+    if (!player_id || !true_character_id || !perceived_character_id) {
+      return invalid(usage);
+    }
+
+    return {
+      ok: true,
+      kind: 'local',
+      action: {
+        type: 'setup_player',
+        player_id,
+        true_character_id,
+        perceived_character_id,
+        character_type,
+        alignment
+      }
     };
   }
 

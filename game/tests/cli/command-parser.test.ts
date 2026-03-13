@@ -160,6 +160,46 @@ test('parse assign-character flags', () => {
   }
 });
 
+test('parse setup-player local command', () => {
+  const withDefaults = parse_cli_line('setup-player p1 washerwoman townsfolk');
+  assert.equal(withDefaults.ok, true);
+  if (withDefaults.ok && withDefaults.kind === 'local' && withDefaults.action.type === 'setup_player') {
+    assert.deepEqual(withDefaults.action, {
+      type: 'setup_player',
+      player_id: 'p1',
+      true_character_id: 'washerwoman',
+      perceived_character_id: 'washerwoman',
+      character_type: 'townsfolk',
+      alignment: null
+    });
+  }
+
+  const withPerceivedAndAlignment = parse_cli_line(
+    'setup-player p2 imp soldier demon evil'
+  );
+  assert.equal(withPerceivedAndAlignment.ok, true);
+  if (
+    withPerceivedAndAlignment.ok &&
+    withPerceivedAndAlignment.kind === 'local' &&
+    withPerceivedAndAlignment.action.type === 'setup_player'
+  ) {
+    assert.deepEqual(withPerceivedAndAlignment.action, {
+      type: 'setup_player',
+      player_id: 'p2',
+      true_character_id: 'imp',
+      perceived_character_id: 'soldier',
+      character_type: 'demon',
+      alignment: 'evil'
+    });
+  }
+
+  const travellerEvil = parse_cli_line('setup-player p3 thief thief traveller evil');
+  assert.equal(travellerEvil.ok, true);
+  if (travellerEvil.ok && travellerEvil.kind === 'local' && travellerEvil.action.type === 'setup_player') {
+    assert.equal(travellerEvil.action.alignment, 'evil');
+  }
+});
+
 test('invalid command gives usage', () => {
   const parsed = parse_cli_line('vote n1 p1 maybe');
   assert.equal(parsed.ok, false);
@@ -171,6 +211,12 @@ test('invalid command gives usage', () => {
   assert.equal(viewInvalid.ok, false);
   if (!viewInvalid.ok) {
     assert.match(viewInvalid.message, /usage: view/);
+  }
+
+  const setupPlayerInvalid = parse_cli_line('setup-player p1 imp maybe');
+  assert.equal(setupPlayerInvalid.ok, false);
+  if (!setupPlayerInvalid.ok) {
+    assert.match(setupPlayerInvalid.message, /usage: setup-player/);
   }
 });
 

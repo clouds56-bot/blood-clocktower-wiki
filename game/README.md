@@ -20,7 +20,7 @@ pnpm --filter game run cli -- my_game
 
 ## Quick Start
 
-Create a ready-to-run setup:
+Create a ready-to-run setup (players + seats + random script-valid character/alignment assignment):
 
 ```text
 start bmr 7
@@ -42,6 +42,7 @@ Aliases:
 - `view storyteller`
 - `view public`
 - `view player <player_id>`
+- `setup-player <player_id> <true_character_id> [perceived_character_id] <townsfolk|outsider|minion|demon|traveller> [good|evil]`
 - `prompts`
 - `prompt <prompt_id>`
 - `new <game_id>`
@@ -52,6 +53,12 @@ Aliases:
 - `create-prompt <prompt_id> <kind> <storyteller|player|public> <reason...>`
 - `resolve-prompt <prompt_id> [selected_option_id|-] [notes...]`
 - `cancel-prompt <prompt_id> <reason...>`
+
+## Manual Setup Commands
+
+- `assign-character <player_id> <character_id> [--demon] [--traveller]`
+- `assign-perceived <player_id> <character_id>`
+- `assign-alignment <player_id> <good|evil>`
 
 ## Phase Step Command
 
