@@ -77,6 +77,26 @@ function make_state() {
     text: 'secret adjudication',
     created_at_event_id: 'e2'
   });
+  state.reminder_markers_by_id.mk1 = {
+    marker_id: 'mk1',
+    kind: 'poisoner:poisoned',
+    effect: 'poisoned',
+    note: 'secret marker',
+    status: 'active',
+    source_player_id: 'p2',
+    source_character_id: 'poisoner',
+    target_player_id: 'p1',
+    target_scope: 'player',
+    authoritative: true,
+    expires_policy: 'manual',
+    expires_at_day_number: null,
+    expires_at_night_number: null,
+    created_at_event_id: 'e3',
+    cleared_at_event_id: null,
+    source_event_id: null,
+    metadata: {}
+  };
+  state.active_reminder_marker_ids = ['mk1'];
 
   return state;
 }
@@ -87,6 +107,7 @@ test('storyteller projection includes hidden truth and adjudication data', () =>
   assert.equal(projection.players.p2?.poisoned, true);
   assert.equal(projection.prompts.length, 1);
   assert.equal(projection.storyteller_notes.length, 1);
+  assert.equal(projection.reminder_markers.length, 1);
 });
 
 test('player projection excludes other hidden truth and storyteller-only data', () => {
@@ -103,6 +124,7 @@ test('player projection excludes other hidden truth and storyteller-only data', 
   assert.equal(serialized.includes('"registered_alignment"'), false);
   assert.equal(serialized.includes('"storyteller_notes"'), false);
   assert.equal(serialized.includes('"pending_prompts"'), false);
+  assert.equal(serialized.includes('"reminder_markers"'), false);
 });
 
 test('public projection includes public flow and excludes hidden fields', () => {
@@ -115,6 +137,7 @@ test('public projection includes public flow and excludes hidden fields', () => 
   assert.equal(serialized.includes('"storyteller_notes"'), false);
   assert.equal(serialized.includes('"poisoned"'), false);
   assert.equal(serialized.includes('"pending_prompts"'), false);
+  assert.equal(serialized.includes('"reminder_markers"'), false);
 });
 
 test('projection output is deterministic for identical input state', () => {

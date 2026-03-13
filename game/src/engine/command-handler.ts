@@ -1,6 +1,7 @@
 import type { Command } from '../domain/commands.js';
 import type { DomainEvent } from '../domain/events.js';
 import type { GameState } from '../domain/types.js';
+import { apply_events } from '../domain/reducer.js';
 import type { PluginRegistry } from '../plugins/registry.js';
 import { handle_advance_phase, type EngineResult } from './phase-machine.js';
 import {
@@ -24,6 +25,14 @@ import {
   handle_resolve_prompt
 } from '../adjudication/prompts.js';
 import { integrate_plugin_runtime } from './plugin-runtime.js';
+import {
+  handle_apply_drunk,
+  handle_apply_poison,
+  handle_apply_reminder_marker,
+  handle_clear_reminder_marker,
+  handle_clear_reminder_markers_by_selector,
+  handle_sweep_reminder_expiry
+} from './reminder-flow.js';
 
 const MUTATING_COMMANDS: Set<Command['command_type']> = new Set([
   'SelectScript',
@@ -43,6 +52,12 @@ const MUTATING_COMMANDS: Set<Command['command_type']> = new Set([
   'ResolveExecutionConsequences',
   'ApplyDeath',
   'MarkPlayerSurvivedExecution',
+  'ApplyPoison',
+  'ApplyDrunk',
+  'ApplyReminderMarker',
+  'ClearReminderMarker',
+  'ClearReminderMarkersBySelector',
+  'SweepReminderExpiry',
   'CreatePrompt',
   'ResolvePrompt',
   'CancelPrompt',
@@ -101,6 +116,24 @@ export function handle_command(
       break;
     case 'MarkPlayerSurvivedExecution':
       base_result = handle_mark_player_survived_execution(state, command, created_at);
+      break;
+    case 'ApplyPoison':
+      base_result = handle_apply_poison(state, command, created_at);
+      break;
+    case 'ApplyDrunk':
+      base_result = handle_apply_drunk(state, command, created_at);
+      break;
+    case 'ApplyReminderMarker':
+      base_result = handle_apply_reminder_marker(state, command, created_at);
+      break;
+    case 'ClearReminderMarker':
+      base_result = handle_clear_reminder_marker(state, command, created_at);
+      break;
+    case 'ClearReminderMarkersBySelector':
+      base_result = handle_clear_reminder_markers_by_selector(state, command, created_at);
+      break;
+    case 'SweepReminderExpiry':
+      base_result = handle_sweep_reminder_expiry(state, command, created_at);
       break;
     case 'CreatePrompt':
       base_result = handle_create_prompt(state, command, created_at);
@@ -284,6 +317,35 @@ export function handle_command(
 
   if (!base_result.ok) {
     return base_result;
+  }
+
+  if (command.command_type === 'AdvancePhase') {
+    const state_after_phase = apply_events(state, base_result.value);
+    const sweep_command = {
+      command_type: 'SweepReminderExpiry' as const,
+      command_id: `${command.command_id}:AutoSweepReminderExpiry`,
+      ...(command.actor_id === undefined ? {} : { actor_id: command.actor_id }),
+      payload: {
+        phase: command.payload.phase,
+        subphase: command.payload.subphase,
+        day_number: command.payload.day_number,
+        night_number: command.payload.night_number
+      }
+    };
+    const sweep_result = handle_sweep_reminder_expiry(
+      state_after_phase,
+      sweep_command,
+      created_at
+    );
+    if (!sweep_result.ok) {
+      return sweep_result;
+    }
+    if (sweep_result.value.length > 0) {
+      base_result = {
+        ok: true,
+        value: [...base_result.value, ...sweep_result.value]
+      };
+    }
   }
 
   return integrate_plugin_runtime(

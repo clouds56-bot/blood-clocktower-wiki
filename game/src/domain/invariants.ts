@@ -278,6 +278,92 @@ export function validate_invariants(state: GameState): InvariantIssue[] {
     }
   }
 
+  const seen_active_marker_ids = new Set<string>();
+  for (const [index, marker_id] of state.active_reminder_marker_ids.entries()) {
+    if (seen_active_marker_ids.has(marker_id)) {
+      issues.push({
+        code: 'duplicate_active_reminder_marker_id',
+        message: `active_reminder_marker_ids contains duplicate marker id: ${marker_id}`,
+        path: `active_reminder_marker_ids.${index}`,
+        severity: 'error'
+      });
+    }
+    seen_active_marker_ids.add(marker_id);
+
+    const marker = state.reminder_markers_by_id[marker_id];
+    if (!marker) {
+      issues.push({
+        code: 'active_reminder_marker_missing',
+        message: `active_reminder_marker_ids references missing marker: ${marker_id}`,
+        path: `active_reminder_marker_ids.${index}`,
+        severity: 'error'
+      });
+      continue;
+    }
+
+    if (marker.status !== 'active') {
+      issues.push({
+        code: 'active_reminder_marker_not_active',
+        message: `active marker ${marker_id} has non-active status ${marker.status}`,
+        path: `reminder_markers_by_id.${marker_id}.status`,
+        severity: 'error'
+      });
+    }
+  }
+
+  for (const [marker_id, marker] of Object.entries(state.reminder_markers_by_id)) {
+    if (marker.authoritative && marker.target_scope === 'player') {
+      if (marker.target_player_id === null || !state.players_by_id[marker.target_player_id]) {
+        issues.push({
+          code: 'authoritative_reminder_target_missing',
+          message: `authoritative marker ${marker_id} references missing target player`,
+          path: `reminder_markers_by_id.${marker_id}.target_player_id`,
+          severity: 'error'
+        });
+      }
+    }
+  }
+
+  for (const [player_id, player] of Object.entries(state.players_by_id)) {
+    const has_poisoned_marker = state.active_reminder_marker_ids.some((marker_id) => {
+      const marker = state.reminder_markers_by_id[marker_id];
+      return Boolean(
+        marker &&
+          marker.status === 'active' &&
+          marker.authoritative &&
+          marker.effect === 'poisoned' &&
+          marker.target_player_id === player_id
+      );
+    });
+    if (player.poisoned !== has_poisoned_marker) {
+      issues.push({
+        code: 'player_poisoned_status_mismatch',
+        message: `player ${player_id} poisoned flag does not match active authoritative poisoned markers`,
+        path: `players_by_id.${player_id}.poisoned`,
+        severity: 'error'
+      });
+    }
+
+    const has_drunk_marker = state.active_reminder_marker_ids.some((marker_id) => {
+      const marker = state.reminder_markers_by_id[marker_id];
+      return Boolean(
+        marker &&
+          marker.status === 'active' &&
+          marker.authoritative &&
+          marker.effect === 'drunk' &&
+          marker.target_player_id === player_id
+      );
+    });
+    if (player.drunk !== has_drunk_marker) {
+      issues.push({
+        code: 'player_drunk_status_mismatch',
+        message: `player ${player_id} drunk flag does not match active authoritative drunk markers`,
+        path: `players_by_id.${player_id}.drunk`,
+        severity: 'error'
+      });
+    }
+  }
+
   if (state.status !== 'ended' && state.winning_team !== null) {
     issues.push({
       code: 'winning_team_present_before_end',

@@ -234,3 +234,48 @@ test('validate_invariants handles malformed queue entry types without throwing',
   assert.equal(issueCodes.has('wake_queue_player_missing'), true);
   assert.equal(issueCodes.has('interrupt_queue_invalid_entry'), true);
 });
+
+test('validate_invariants checks active reminder marker integrity and derived status', () => {
+  const state = create_initial_state('g1');
+  state.players_by_id.p1 = {
+    player_id: 'p1',
+    display_name: 'Alice',
+    alive: true,
+    dead_vote_available: true,
+    true_character_id: null,
+    perceived_character_id: null,
+    true_alignment: null,
+    registered_character_id: null,
+    registered_alignment: null,
+    drunk: false,
+    poisoned: true,
+    is_traveller: false,
+    is_demon: false
+  };
+  state.active_reminder_marker_ids = ['missing', 'missing'];
+  state.reminder_markers_by_id.mk1 = {
+    marker_id: 'mk1',
+    kind: 'poisoner:poisoned',
+    effect: 'poisoned',
+    note: 'poisoned',
+    status: 'active',
+    source_player_id: 'p2',
+    source_character_id: 'poisoner',
+    target_player_id: 'p1',
+    target_scope: 'player',
+    authoritative: true,
+    expires_policy: 'manual',
+    expires_at_day_number: null,
+    expires_at_night_number: null,
+    created_at_event_id: 'e1',
+    cleared_at_event_id: null,
+    source_event_id: null,
+    metadata: {}
+  };
+
+  const issues = validate_invariants(state);
+  const issue_codes = new Set(issues.map((issue) => issue.code));
+  assert.equal(issue_codes.has('active_reminder_marker_missing'), true);
+  assert.equal(issue_codes.has('duplicate_active_reminder_marker_id'), true);
+  assert.equal(issue_codes.has('player_poisoned_status_mismatch'), true);
+});

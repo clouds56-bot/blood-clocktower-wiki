@@ -113,6 +113,43 @@ export interface InterruptQueueEntry {
   payload: Record<string, unknown>;
 }
 
+export type ReminderEffect = 'poisoned' | 'drunk' | string;
+
+export type ReminderMarkerStatus = 'active' | 'cleared' | 'expired';
+
+export type ReminderTargetScope = 'player' | 'game' | 'pair';
+
+export type ReminderExpiryPolicy =
+  | 'manual'
+  | 'end_of_day'
+  | 'start_of_day'
+  | 'end_of_night'
+  | 'start_of_night'
+  | 'on_source_death'
+  | 'on_target_death'
+  | 'at_day'
+  | 'at_night';
+
+export interface ReminderMarkerState {
+  marker_id: string;
+  kind: string;
+  effect: ReminderEffect;
+  note: string;
+  status: ReminderMarkerStatus;
+  source_player_id: PlayerId | null;
+  source_character_id: string | null;
+  target_player_id: PlayerId | null;
+  target_scope: ReminderTargetScope;
+  authoritative: boolean;
+  expires_policy: ReminderExpiryPolicy;
+  expires_at_day_number: number | null;
+  expires_at_night_number: number | null;
+  created_at_event_id: EventId;
+  cleared_at_event_id: EventId | null;
+  source_event_id: EventId | null;
+  metadata: Record<string, unknown>;
+}
+
 export interface PlayerState {
   player_id: PlayerId;
   display_name: string;
@@ -147,6 +184,8 @@ export interface GameState {
   interrupt_queue: InterruptQueueEntry[];
   prompts_by_id: Record<string, PromptState>;
   pending_prompts: string[];
+  reminder_markers_by_id: Record<string, ReminderMarkerState>;
+  active_reminder_marker_ids: string[];
   storyteller_notes: StorytellerNoteRecord[];
   winning_team: Alignment | null;
   end_reason: string | null;
@@ -190,6 +229,12 @@ export type InvariantIssueCode =
   | 'pending_prompt_missing'
   | 'pending_prompt_not_pending'
   | 'resolved_prompt_missing_event_id'
+  | 'duplicate_active_reminder_marker_id'
+  | 'active_reminder_marker_missing'
+  | 'active_reminder_marker_not_active'
+  | 'authoritative_reminder_target_missing'
+  | 'player_poisoned_status_mismatch'
+  | 'player_drunk_status_mismatch'
   | 'winning_team_present_before_end'
   | 'ended_game_missing_outcome';
 

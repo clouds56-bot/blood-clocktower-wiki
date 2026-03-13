@@ -44,12 +44,61 @@ function clone_state(state: GameState): GameState {
       ])
     ),
     pending_prompts: [...state.pending_prompts],
+    reminder_markers_by_id: Object.fromEntries(
+      Object.entries(state.reminder_markers_by_id).map(([marker_id, marker]) => [
+        marker_id,
+        {
+          ...marker,
+          metadata: clone_payload(marker.metadata)
+        }
+      ])
+    ),
+    active_reminder_marker_ids: [...state.active_reminder_marker_ids],
     storyteller_notes: state.storyteller_notes.map((note) => ({ ...note })),
     winning_team: state.winning_team,
     end_reason: state.end_reason,
     ended_at_event_id: state.ended_at_event_id,
     domain_events: [...state.domain_events]
   };
+}
+
+function active_markers_for_player_effect(
+  state: GameState,
+  player_id: string,
+  effect: 'poisoned' | 'drunk'
+): number {
+  let count = 0;
+  for (const marker_id of state.active_reminder_marker_ids) {
+    const marker = state.reminder_markers_by_id[marker_id];
+    if (!marker || marker.status !== 'active' || !marker.authoritative) {
+      continue;
+    }
+    if (marker.target_player_id !== player_id || marker.effect !== effect) {
+      continue;
+    }
+    count += 1;
+  }
+  return count;
+}
+
+function sync_derived_effect_flags(state: GameState, player_id: string): void {
+  const player = ensure_player(state, player_id);
+  player.poisoned = active_markers_for_player_effect(state, player_id, 'poisoned') > 0;
+  player.drunk = active_markers_for_player_effect(state, player_id, 'drunk') > 0;
+}
+
+function clear_marker(state: GameState, marker_id: string, event_id: string, status: 'cleared' | 'expired'): void {
+  const marker = state.reminder_markers_by_id[marker_id];
+  if (!marker || marker.status !== 'active') {
+    return;
+  }
+
+  marker.status = status;
+  marker.cleared_at_event_id = event_id;
+  state.active_reminder_marker_ids = state.active_reminder_marker_ids.filter((item) => item !== marker_id);
+  if (marker.target_player_id) {
+    sync_derived_effect_flags(state, marker.target_player_id);
+  }
 }
 
 function ensure_player(state: GameState, player_id: string): PlayerState {
@@ -235,6 +284,62 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
           reason: event.payload.reason
         });
       }
+      break;
+    }
+    case 'ReminderMarkerApplied': {
+      const marker_id = event.payload.marker_id;
+      if (next.reminder_markers_by_id[marker_id]) {
+        break;
+      }
+
+      next.reminder_markers_by_id[marker_id] = {
+        marker_id,
+        kind: event.payload.kind,
+        effect: event.payload.effect,
+        note: event.payload.note,
+        status: 'active',
+        source_player_id: event.payload.source_player_id,
+        source_character_id: event.payload.source_character_id,
+        target_player_id: event.payload.target_player_id,
+        target_scope: event.payload.target_scope,
+        authoritative: event.payload.authoritative,
+        expires_policy: event.payload.expires_policy,
+        expires_at_day_number: event.payload.expires_at_day_number,
+        expires_at_night_number: event.payload.expires_at_night_number,
+        created_at_event_id: event.event_id,
+        cleared_at_event_id: null,
+        source_event_id: event.payload.source_event_id,
+        metadata: clone_payload(event.payload.metadata)
+      };
+      if (!next.active_reminder_marker_ids.includes(marker_id)) {
+        next.active_reminder_marker_ids.push(marker_id);
+      }
+      if (event.payload.target_player_id) {
+        sync_derived_effect_flags(next, event.payload.target_player_id);
+      }
+      break;
+    }
+    case 'ReminderMarkerCleared': {
+      clear_marker(next, event.payload.marker_id, event.event_id, 'cleared');
+      break;
+    }
+    case 'ReminderMarkerExpired': {
+      clear_marker(next, event.payload.marker_id, event.event_id, 'expired');
+      break;
+    }
+    case 'DrunkApplied': {
+      const player = ensure_player(next, event.payload.player_id);
+      player.drunk = true;
+      break;
+    }
+    case 'SobrietyRestored': {
+      const player = ensure_player(next, event.payload.player_id);
+      player.drunk = false;
+      break;
+    }
+    case 'HealthRestored': {
+      const player = ensure_player(next, event.payload.player_id);
+      player.poisoned = false;
       break;
     }
     case 'PoisonApplied': {

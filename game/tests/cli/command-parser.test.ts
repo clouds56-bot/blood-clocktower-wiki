@@ -118,6 +118,18 @@ test('parse local commands', () => {
     assert.equal(prompt.action.prompt_id, 'pr1');
   }
 
+  const reminders = parse_cli_line('reminders');
+  assert.equal(reminders.ok, true);
+  if (reminders.ok && reminders.kind === 'local') {
+    assert.equal(reminders.action.type, 'markers');
+  }
+
+  const reminder = parse_cli_line('reminder mk1');
+  assert.equal(reminder.ok, true);
+  if (reminder.ok && reminder.kind === 'local' && reminder.action.type === 'marker') {
+    assert.equal(reminder.action.marker_id, 'mk1');
+  }
+
   const viewStoryteller = parse_cli_line('view storyteller');
   assert.equal(viewStoryteller.ok, true);
   if (viewStoryteller.ok && viewStoryteller.kind === 'local') {
@@ -291,6 +303,42 @@ test('parse prompt engine commands', () => {
       reason: 'no longer needed'
     });
   }
+
+  const applyReminder = parse_cli_line('apply-reminder mk1 poisoner:poisoned poisoned p1 poisoner nightly poison');
+  assert.equal(applyReminder.ok, true);
+  if (applyReminder.ok && applyReminder.kind === 'engine') {
+    assert.deepEqual(applyReminder.command, {
+      command_type: 'ApplyReminderMarker',
+      payload: {
+        marker_id: 'mk1',
+        kind: 'poisoner:poisoned',
+        effect: 'poisoned',
+        note: 'nightly poison',
+        source_player_id: null,
+        source_character_id: 'poisoner',
+        target_player_id: 'p1',
+        target_scope: 'player',
+        authoritative: true,
+        expires_policy: 'manual',
+        expires_at_day_number: null,
+        expires_at_night_number: null,
+        source_event_id: null,
+        metadata: {}
+      }
+    });
+  }
+
+  const clearReminder = parse_cli_line('clear-reminder mk1 expired');
+  assert.equal(clearReminder.ok, true);
+  if (clearReminder.ok && clearReminder.kind === 'engine') {
+    assert.deepEqual(clearReminder.command, {
+      command_type: 'ClearReminderMarker',
+      payload: {
+        marker_id: 'mk1',
+        reason: 'expired'
+      }
+    });
+  }
 });
 
 test('auto-fills command params from state', () => {
@@ -426,6 +474,21 @@ test('auto-fills command params from state', () => {
     assert.deepEqual(endDay.command, {
       command_type: 'EndDay',
       payload: { day_number: 1 }
+    });
+  }
+
+  const sweepReminders = parse_cli_line('sweep-reminders', state);
+  assert.equal(sweepReminders.ok, true);
+  if (
+    sweepReminders.ok &&
+    sweepReminders.kind === 'engine' &&
+    sweepReminders.command.command_type === 'SweepReminderExpiry'
+  ) {
+    assert.deepEqual(sweepReminders.command.payload, {
+      phase: 'day',
+      subphase: 'idle',
+      day_number: 1,
+      night_number: 1
     });
   }
 });

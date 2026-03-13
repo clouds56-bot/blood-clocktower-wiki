@@ -498,7 +498,7 @@ test('plugin runtime returns deterministic error on duplicate queued prompt id',
   }
 });
 
-test('poisoner prompt resolves into poison apply and restore flow', () => {
+test('poisoner prompt resolves into reminder marker apply and clear flow', () => {
   let state = bootstrap_night_state();
   state.phase = 'night';
   state.subphase = 'dusk';
@@ -546,6 +546,7 @@ test('poisoner prompt resolves into poison apply and restore flow', () => {
     },
     registry
   );
+  assert.equal(resolve_n1_events.some((event) => event.event_type === 'ReminderMarkerApplied'), true);
   assert.equal(resolve_n1_events.some((event) => event.event_type === 'PoisonApplied'), true);
   state = apply_events(state, resolve_n1_events);
   assert.equal(state.players_by_id.p1?.poisoned, true);
@@ -565,7 +566,10 @@ test('poisoner prompt resolves into poison apply and restore flow', () => {
     },
     registry
   );
+  assert.equal(phase_to_n2.some((event) => event.event_type === 'ReminderMarkerExpired'), true);
+  assert.equal(phase_to_n2.some((event) => event.event_type === 'HealthRestored'), true);
   state = apply_events(state, phase_to_n2);
+  assert.equal(state.players_by_id.p1?.poisoned, false);
 
   const poisoner_prompt_n2 = phase_to_n2.find(
     (event) =>
@@ -590,7 +594,9 @@ test('poisoner prompt resolves into poison apply and restore flow', () => {
     registry
   );
 
-  assert.equal(resolve_n2_events.some((event) => event.event_type === 'PoisonCleared'), true);
+  assert.equal(resolve_n2_events.some((event) => event.event_type === 'ReminderMarkerCleared'), false);
+  assert.equal(resolve_n2_events.some((event) => event.event_type === 'ReminderMarkerApplied'), true);
+  assert.equal(resolve_n2_events.some((event) => event.event_type === 'HealthRestored'), false);
   assert.equal(resolve_n2_events.some((event) => event.event_type === 'PoisonApplied'), true);
 
   const resolved_n2_state = apply_events(state, resolve_n2_events);
@@ -685,6 +691,7 @@ test('poisoned imp still wakes and chooses but kill effect is suppressed', () =>
     registry
   );
 
+  assert.equal(resolve_events.some((event) => event.event_type === 'ReminderMarkerApplied'), true);
   assert.equal(resolve_events.some((event) => event.event_type === 'PoisonApplied'), true);
   assert.equal(
     resolve_events.some(

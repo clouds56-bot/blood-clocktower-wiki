@@ -19,6 +19,8 @@ import { parse_cli_line, type CliLocalAction } from './command-parser.js';
 import {
   format_event,
   format_help,
+  format_marker,
+  format_marker_list,
   format_player,
   format_player_projection,
   format_projection_json,
@@ -761,6 +763,21 @@ function handle_local_action(context: CliContext, action: CliLocalAction): boole
       return true;
     }
     process.stdout.write(`${format_prompt(prompt)}\n`);
+    return true;
+  }
+
+  if (action.type === 'markers') {
+    process.stdout.write(`${format_marker_list(context.state)}\n`);
+    return true;
+  }
+
+  if (action.type === 'marker') {
+    const marker = context.state.reminder_markers_by_id[action.marker_id];
+    if (!marker) {
+      process.stdout.write(`marker not found: ${action.marker_id}\n`);
+      return true;
+    }
+    process.stdout.write(`${format_marker(marker)}\n`);
     return true;
   }
 

@@ -33,7 +33,7 @@ This convention is required for easy persistence and de/serialization consistenc
 
 ## Core Architecture
 
-Split into 6 layers:
+Split into 7 layers:
 
 1. **Core Rules Engine**
    - setup flow, phase machine, nomination/vote/execution/death/win logic.
@@ -55,7 +55,12 @@ Split into 6 layers:
    - stores player statements as non-authoritative records.
    - includes claimed character + claimed event timeline.
 
-6. **CLI Interaction Layer**
+6. **Reminder Marker Layer (Authoritative Buff/Debuff System)**
+   - reminder markers are authoritative hidden rule state, not cosmetic UI tokens.
+   - supports stackable multi-source effects (for example `poisoner:poisoned` and `no_dashii:poisoned` on one player).
+   - status fields such as poisoned/drunk are derived from active reminder markers.
+
+7. **CLI Interaction Layer**
    - interactive shell for running engine commands.
    - command parser (human-friendly input -> typed engine command).
    - console formatters for event stream and state snapshots.
@@ -72,6 +77,7 @@ Split into 6 layers:
 - `game/src/engine/phase-machine.ts`   # phase/subphase transitions
 - `game/src/engine/day-flow.ts`        # nominations/votes/execution logic
 - `game/src/engine/night-flow.ts`      # wake queue + interrupt queue
+- `game/src/engine/reminder-flow.ts`   # reminder marker lifecycle + expiry sweeps
 - `game/src/engine/win-check.ts`       # automatic + override entry points
 - `game/src/plugins/contracts.ts`      # plugin API
 - `game/src/plugins/registry.ts`       # plugin lookup/dispatch
@@ -114,8 +120,8 @@ Split into 6 layers:
   - `registered_character_id?`
   - `registered_alignment?`
   - `alive`
-  - `drunk`
-  - `poisoned`
+  - `drunk` (derived convenience field from active reminder markers)
+  - `poisoned` (derived convenience field from active reminder markers)
   - `dead_vote_available`
 - day tracking:
   - `has_nominated_today[player_id]`
@@ -125,6 +131,9 @@ Split into 6 layers:
   - `wake_queue`
   - `interrupt_queue`
   - `pending_prompts`
+- reminder markers:
+  - `reminder_markers_by_id[marker_id]`
+  - `active_reminder_marker_ids`
 - logs:
   - `domain_events`
   - `private_info_log_by_player`
@@ -132,6 +141,35 @@ Split into 6 layers:
   - `storyteller_notes`
 - social:
   - `claims`
+
+### Reminder Marker Model
+
+Reminder markers are authoritative hidden state used by rule checks.
+
+`ReminderMarker` keys (snake_case):
+- `marker_id` (deterministic, event-linked instance id)
+- `kind` (stable reminder/token kind id, for example `poisoner:poisoned`)
+- `effect` (`poisoned` | `drunk` | ...)
+- `note` (string; short storyteller-facing text)
+- `status` (`active` | `cleared` | `expired`)
+- `source_player_id?`
+- `source_character_id?`
+- `target_player_id?`
+- `target_scope` (`player` | `game` | `pair`)
+- `authoritative` (`true` means marker participates in rule checks)
+- `expires_policy` (`manual` | `end_of_day` | `start_of_day` | `end_of_night` | `start_of_night` | `on_source_death` | `on_target_death` | `at_day` | `at_night`)
+- `expires_at_day_number?`
+- `expires_at_night_number?`
+- `created_at_event_id`
+- `cleared_at_event_id?`
+- `source_event_id?`
+- `metadata?`
+
+Rules:
+- `kind` is not unique; multiple active markers of the same kind may coexist.
+- `marker_id` must be unique and replay-stable.
+- rule checks use active authoritative markers; reminder UI is a projection of marker state.
+- engine performs an automatic expiry sweep on `AdvancePhase` and appends `ReminderMarkerExpired` events when policies match.
 
 ### Social Claims Model
 
@@ -168,8 +206,8 @@ Engine is event-oriented.
 - `CloseVote`
 - `ResolveExecution`
 - `ApplyDeath`
-- `ApplyPoison`
-- `ApplyDrunk`
+- `ApplyPoison` (compatibility command; resolved through reminder markers)
+- `ApplyDrunk` (compatibility command; resolved through reminder markers)
 - `ChangeCharacter`
 - `ChangeAlignment`
 - `ResolvePrompt`
@@ -177,6 +215,10 @@ Engine is event-oriented.
 - `RecordClaim`
 - `RetractClaim`
 - `MarkClaimStatus`
+- `ApplyReminderMarker`
+- `ClearReminderMarker`
+- `ClearReminderMarkersBySelector`
+- `SweepReminderExpiry`
 
 ### Events (PascalCase names)
 
@@ -202,10 +244,10 @@ Engine is event-oriented.
   - `PlayerSurvivedExecution`
   - `ExileOccurred`
 - state changes:
-  - `DrunkApplied`
-  - `PoisonApplied`
-  - `SobrietyRestored`
-  - `HealthRestored`
+  - `DrunkApplied` (compatibility status transition event)
+  - `PoisonApplied` (compatibility status transition event)
+  - `SobrietyRestored` (compatibility status transition event)
+  - `HealthRestored` (compatibility status transition event)
   - `AlignmentChanged`
   - `CharacterChanged`
   - `RegistrationChanged`
@@ -218,6 +260,10 @@ Engine is event-oriented.
   - `ClaimRecorded`
   - `ClaimRetracted`
   - `ClaimStatusChanged`
+- reminder markers:
+  - `ReminderMarkerApplied`
+  - `ReminderMarkerCleared`
+  - `ReminderMarkerExpired`
 
 ---
 
@@ -234,6 +280,13 @@ Each character definition includes:
 Rules:
 - plugin returns events/prompts, never mutates state directly.
 - immediate triggers can enqueue interrupt resolution.
+- plugin applies/removes effects through reminder marker events, not direct bool mutation.
+
+Compatibility bridge:
+- keep `ApplyPoison` / `ApplyDrunk` commands and `PoisonApplied` / `DrunkApplied` / restore events for existing plugin callers.
+- these compatibility commands are adapter entry points that create/clear authoritative reminder markers.
+- plugin-emitted marker lifecycle events also pass through compatibility transition logic (`PoisonApplied`/`HealthRestored`, `DrunkApplied`/`SobrietyRestored`) when effective status changes.
+- do not dispatch new commands from reducer/event hooks; compute and emit compatibility status events deterministically in command handling flow after marker lifecycle events are known.
 
 ### Runtime Primitives (Phase 6)
 
@@ -295,6 +348,7 @@ No projection may leak hidden fields by default.
 Projection policy notes:
 - `registered_character_id` and `registered_alignment` are Storyteller/internal by default.
 - player/public projections must not expose `registered_*` unless a specific rules-backed effect grants that knowledge.
+- reminder markers are deny-by-default in player/public projections unless explicitly rules-visible.
 
 ---
 
@@ -310,6 +364,9 @@ Continuously validate:
 - dead vote spends at most once post-death;
 - evil 2-alive win excludes Travellers;
 - projection privacy boundaries hold.
+- `active_reminder_marker_ids` reference existing markers with `status=active`;
+- authoritative marker target/source references are valid when required;
+- derived poisoned/drunk fields are consistent with active authoritative markers.
 
 ---
 
@@ -321,6 +378,7 @@ Phase 3: death consequences + dead vote + win checks + forced victory.
 Phase 3.1: CLI interaction shell (command execution + event/state inspection) over existing engine API.  
 Phase 4: prompted adjudication queue + `ResolvePrompt` lifecycle.  
 Phase 5: visibility projections + anti-leak tests.  
+Phase 5.5: reminder marker system (authoritative reminders/buffs) + derived status wiring.  
 Phase 6: plugin runtime + sample characters (Imp, Poisoner), delivered as 6.1-6.8 subphases above.  
 Phase 7: social claims tracking + timeline tooling.  
 Phase 8: hardening, fixture matrix, and API/DX stabilization.
@@ -351,6 +409,14 @@ Phase 8: hardening, fixture matrix, and API/DX stabilization.
     - `setup-player <player_id> <true_character_id> [perceived_character_id] <townsfolk|outsider|minion|demon|traveller> [good|evil]`
   - Keep granular setup commands (`assign-character`, `assign-perceived`, `assign-alignment`).
   - Make `quick-setup` / `start` assign random script-valid characters + alignments from edition/setup data.
+
+- **Phase 5.5 (reminder markers)**
+  - Add CLI commands for marker inspection and lifecycle:
+    - `markers` / `marker <marker_id>`
+    - `apply-marker ...`
+    - `clear-marker <marker_id>`
+    - `sweep-markers`
+  - Keep authoritative marker overrides explicit and auditable.
 
 - **Phase 6 (plugin runtime)**
   - Add plugin debugging commands:

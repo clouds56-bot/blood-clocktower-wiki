@@ -1,6 +1,6 @@
 import Table from 'cli-table3';
 import type { DomainEvent } from '../domain/events.js';
-import type { GameState, PlayerState, PromptState } from '../domain/types.js';
+import type { GameState, PlayerState, PromptState, ReminderMarkerState } from '../domain/types.js';
 import type { PlayerProjection, PublicProjection, StorytellerProjection } from '../projections/types.js';
 
 const ANSI = {
@@ -264,6 +264,24 @@ export function format_storyteller_projection(projection: StorytellerProjection)
         )
       ].join('\n');
 
+  const reminders = projection.reminder_markers.length === 0
+    ? 'reminders: none'
+    : [
+        'reminders:',
+        render_table(
+          ['id', 'kind', 'effect', 'target', 'source', 'status', 'note'],
+          projection.reminder_markers.map((marker) => [
+            marker.marker_id,
+            marker.kind,
+            marker.effect,
+            marker.target_player_id ?? '-',
+            marker.source_character_id ?? marker.source_player_id ?? '-',
+            marker.status,
+            marker.note
+          ])
+        )
+      ].join('\n');
+
   const notes = projection.storyteller_notes.length === 0
     ? 'notes: none'
     : [
@@ -280,6 +298,7 @@ export function format_storyteller_projection(projection: StorytellerProjection)
     format_day_summary(day_projection),
     format_nominations(projection.day_state),
     format_active_vote(projection.day_state),
+    reminders,
     prompts,
     notes
   ].join('\n');
@@ -365,6 +384,40 @@ export function format_prompt(prompt: PromptState): string {
   ].join('\n');
 }
 
+export function format_marker_list(state: GameState): string {
+  const markers = state.active_reminder_marker_ids
+    .map((marker_id) => state.reminder_markers_by_id[marker_id])
+    .filter((marker): marker is ReminderMarkerState => Boolean(marker));
+
+  if (markers.length === 0) {
+    return 'no markers';
+  }
+
+  return render_table(
+    ['marker_id', 'kind', 'effect', 'target', 'source', 'status'],
+    markers.map((marker) => [
+      marker.marker_id,
+      marker.kind,
+      marker.effect,
+      marker.target_player_id ?? '-',
+      marker.source_character_id ?? marker.source_player_id ?? '-',
+      marker.status
+    ])
+  );
+}
+
+export function format_marker(marker: ReminderMarkerState): string {
+  return [
+    `marker_id=${marker.marker_id} kind=${marker.kind} effect=${marker.effect} status=${marker.status}`,
+    `target_scope=${marker.target_scope} target_player_id=${marker.target_player_id ?? 'null'} authoritative=${marker.authoritative}`,
+    `source_player_id=${marker.source_player_id ?? 'null'} source_character_id=${marker.source_character_id ?? 'null'}`,
+    `expires_policy=${marker.expires_policy} expires_at_day=${marker.expires_at_day_number ?? 'null'} expires_at_night=${marker.expires_at_night_number ?? 'null'}`,
+    `note=${marker.note}`,
+    `created_at_event_id=${marker.created_at_event_id} cleared_at_event_id=${marker.cleared_at_event_id ?? 'null'}`,
+    `source_event_id=${marker.source_event_id ?? 'null'} metadata=${JSON.stringify(marker.metadata)}`
+  ].join('\n');
+}
+
 export function format_help(topic: 'phase' | 'all'): string {
   if (topic === 'phase') {
     return [
@@ -395,9 +448,11 @@ export function format_help(topic: 'phase' | 'all'): string {
     '  view storyteller|st [--json]',
     '  view public [--json]',
     '  view player <player_id> [--json] | view <player_id> [--json]',
-    '  prompts',
-    '  prompt <prompt_id>',
-    '  quit | exit',
+     '  prompts',
+     '  prompt <prompt_id>',
+     '  markers | reminders',
+     '  marker | reminder <marker_id>',
+     '  quit | exit',
     '',
     paint('engine setup commands:', 'cyan'),
     '  select-script <script_id>',
@@ -424,9 +479,12 @@ export function format_help(topic: 'phase' | 'all'): string {
     '  survive-exec [player_id] [day_number]',
     '  check-win [day_number] [night_number]',
     '  force-win <good|evil> [rationale...]',
-    '  create-prompt <prompt_id> <kind> <storyteller|player|public> <reason...>',
-    '  resolve-prompt [prompt_id] [selected_option_id|-] [notes...]',
-    '  cancel-prompt <prompt_id> <reason...>',
-    '  end-day [day_number]'
-  ].join('\n');
+     '  create-prompt <prompt_id> <kind> <storyteller|player|public> <reason...>',
+     '  resolve-prompt [prompt_id] [selected_option_id|-] [notes...]',
+     '  cancel-prompt <prompt_id> <reason...>',
+     '  apply-marker | apply-reminder <marker_id> <kind> <effect> [target_player_id] [source_character_id] [note...]',
+     '  clear-marker | clear-reminder <marker_id> [reason...]',
+     '  sweep-markers | sweep-reminders',
+     '  end-day [day_number]'
+   ].join('\n');
 }

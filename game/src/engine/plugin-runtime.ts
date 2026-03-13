@@ -101,7 +101,21 @@ export function integrate_plugin_runtime(
       }
 
       runtime_events.push(...normalized);
+      const state_before_compat = runtime_state;
       runtime_state = apply_events(runtime_state, normalized);
+
+      const compatibility_events = build_marker_compatibility_events(
+        state_before_compat,
+        runtime_state,
+        normalized,
+        `${command.command_id}:PromptResolvedCompat`,
+        created_at,
+        command.actor_id
+      );
+      if (compatibility_events.length > 0) {
+        runtime_events.push(...compatibility_events);
+        runtime_state = apply_events(runtime_state, compatibility_events);
+      }
 
       const drained = drain_interrupt_queue(runtime_state, context, runtime_events);
       runtime_state = drained.state;
@@ -187,6 +201,140 @@ function normalize_dispatch_output(
   }
 
   return normalized;
+}
+
+function active_marker_count_for_effect(
+  state: GameState,
+  player_id: string,
+  effect: 'poisoned' | 'drunk'
+): number {
+  let count = 0;
+  for (const marker_id of state.active_reminder_marker_ids) {
+    const marker = state.reminder_markers_by_id[marker_id];
+    if (!marker || marker.status !== 'active' || !marker.authoritative) {
+      continue;
+    }
+    if (marker.target_player_id !== player_id || marker.effect !== effect) {
+      continue;
+    }
+    count += 1;
+  }
+  return count;
+}
+
+function build_marker_compatibility_events(
+  before_state: GameState,
+  after_state: GameState,
+  source_events: DomainEvent[],
+  event_id_prefix: string,
+  created_at: string,
+  fallback_actor_id?: string
+): DomainEvent[] {
+  const affected_players = new Map<string, Set<'poisoned' | 'drunk'>>();
+
+  for (const event of source_events) {
+    if (event.event_type === 'ReminderMarkerApplied') {
+      if (!event.payload.authoritative || !event.payload.target_player_id) {
+        continue;
+      }
+      if (event.payload.effect !== 'poisoned' && event.payload.effect !== 'drunk') {
+        continue;
+      }
+      if (!affected_players.has(event.payload.target_player_id)) {
+        affected_players.set(event.payload.target_player_id, new Set());
+      }
+      affected_players.get(event.payload.target_player_id)?.add(event.payload.effect);
+      continue;
+    }
+
+    if (event.event_type === 'ReminderMarkerCleared' || event.event_type === 'ReminderMarkerExpired') {
+      const marker = before_state.reminder_markers_by_id[event.payload.marker_id];
+      if (!marker || !marker.authoritative || !marker.target_player_id) {
+        continue;
+      }
+      if (marker.effect !== 'poisoned' && marker.effect !== 'drunk') {
+        continue;
+      }
+      if (!affected_players.has(marker.target_player_id)) {
+        affected_players.set(marker.target_player_id, new Set());
+      }
+      affected_players.get(marker.target_player_id)?.add(marker.effect);
+    }
+  }
+
+  const events: DomainEvent[] = [];
+  let index = 0;
+  for (const [player_id, effects] of affected_players) {
+    for (const effect of effects) {
+      const before_active = active_marker_count_for_effect(before_state, player_id, effect) > 0;
+      const after_active = active_marker_count_for_effect(after_state, player_id, effect) > 0;
+
+      if (!before_active && after_active) {
+        if (effect === 'poisoned') {
+          events.push({
+            event_id: `${event_id_prefix}:PoisonApplied:${index}`,
+            event_type: 'PoisonApplied',
+            created_at,
+            ...(fallback_actor_id === undefined ? {} : { actor_id: fallback_actor_id }),
+            payload: {
+              player_id,
+              source_plugin_id: 'reminder_marker',
+              day_number: after_state.day_number,
+              night_number: after_state.night_number
+            }
+          });
+        } else {
+          events.push({
+            event_id: `${event_id_prefix}:DrunkApplied:${index}`,
+            event_type: 'DrunkApplied',
+            created_at,
+            ...(fallback_actor_id === undefined ? {} : { actor_id: fallback_actor_id }),
+            payload: {
+              player_id,
+              source_marker_id: 'multiple',
+              day_number: after_state.day_number,
+              night_number: after_state.night_number
+            }
+          });
+        }
+        index += 1;
+        continue;
+      }
+
+      if (before_active && !after_active) {
+        if (effect === 'poisoned') {
+          events.push({
+            event_id: `${event_id_prefix}:HealthRestored:${index}`,
+            event_type: 'HealthRestored',
+            created_at,
+            ...(fallback_actor_id === undefined ? {} : { actor_id: fallback_actor_id }),
+            payload: {
+              player_id,
+              source_marker_id: 'multiple',
+              day_number: after_state.day_number,
+              night_number: after_state.night_number
+            }
+          });
+        } else {
+          events.push({
+            event_id: `${event_id_prefix}:SobrietyRestored:${index}`,
+            event_type: 'SobrietyRestored',
+            created_at,
+            ...(fallback_actor_id === undefined ? {} : { actor_id: fallback_actor_id }),
+            payload: {
+              player_id,
+              source_marker_id: 'multiple',
+              day_number: after_state.day_number,
+              night_number: after_state.night_number
+            }
+          });
+        }
+        index += 1;
+      }
+    }
+  }
+
+  return events;
 }
 
 function resolve_prompt_owner_plugin_id(
@@ -352,7 +500,21 @@ function process_wake_queue(
     }
 
     sink.push(...normalized);
+    const state_before_compat = runtime_state;
     runtime_state = apply_events(runtime_state, normalized);
+
+    const compatibility_events = build_marker_compatibility_events(
+      state_before_compat,
+      runtime_state,
+      normalized,
+      `${event_id_prefix}:${wake_index}:Compat`,
+      context.created_at,
+      context.command.actor_id
+    );
+    if (compatibility_events.length > 0) {
+      sink.push(...compatibility_events);
+      runtime_state = apply_events(runtime_state, compatibility_events);
+    }
 
     const wake_consumed: DomainEvent = {
       event_id: `${event_id_prefix}:WakeConsumed:${wake_index}`,
