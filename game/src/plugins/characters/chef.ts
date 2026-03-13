@@ -25,8 +25,7 @@ const chef_info_hooks = build_info_role_misinformation_hooks({
     mode: 'number_range',
     range: {
       min: 0,
-      max: 2,
-      max_inclusive: true
+      max: 2
     }
   }),
   build_misinformation_note: (subject_player_id, selected_option_id) => {

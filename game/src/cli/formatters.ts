@@ -165,8 +165,10 @@ function format_active_vote(day_state: PublicProjection['day_state']): string {
 function describe_prompt_input(prompt: PromptState): string {
   const mode = prompt.selection_mode ?? 'single_choice';
   if (mode === 'number_range' && prompt.number_range) {
-    const suffix = prompt.number_range.max_inclusive ?? true ? 'inc' : 'exc';
-    return `range min=${prompt.number_range.min} max=${prompt.number_range.max} max_${suffix}`;
+    if (prompt.number_range.max_inclusive === false) {
+      return `range min=${prompt.number_range.min} max=${prompt.number_range.max} max_exclusive`;
+    }
+    return `range min=${prompt.number_range.min} max=${prompt.number_range.max}`;
   }
   if (mode === 'multi_column' && prompt.multi_columns) {
     return `multi columns=${prompt.multi_columns.length}`;

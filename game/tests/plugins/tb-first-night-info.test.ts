@@ -44,7 +44,7 @@ test('chef queues misinformation prompt when poisoned', () => {
   assert.equal(wake?.queued_prompts.length, 1);
   assert.equal(wake?.queued_prompts[0]?.prompt_id, 'plugin:chef:misinfo:1:p1');
   assert.equal(wake?.queued_prompts[0]?.selection_mode, 'number_range');
-  assert.deepEqual(wake?.queued_prompts[0]?.number_range, { min: 0, max: 2, max_inclusive: true });
+  assert.deepEqual(wake?.queued_prompts[0]?.number_range, { min: 0, max: 2 });
 
   const resolved = chef_plugin.hooks.on_prompt_resolved?.({
     state,
@@ -91,7 +91,7 @@ test('empath queues misinformation prompt when drunk', () => {
   assert.equal(wake?.queued_prompts.length, 1);
   assert.equal(wake?.queued_prompts[0]?.prompt_id, 'plugin:empath:misinfo:2:p1');
   assert.equal(wake?.queued_prompts[0]?.selection_mode, 'number_range');
-  assert.deepEqual(wake?.queued_prompts[0]?.number_range, { min: 0, max: 2, max_inclusive: true });
+  assert.deepEqual(wake?.queued_prompts[0]?.number_range, { min: 0, max: 2 });
 
   const resolved = empath_plugin.hooks.on_prompt_resolved?.({
     state,

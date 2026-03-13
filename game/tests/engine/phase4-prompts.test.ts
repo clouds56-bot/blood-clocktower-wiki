@@ -177,8 +177,7 @@ test('number range prompt accepts values within min/max', () => {
       selection_mode: 'number_range',
       number_range: {
         min: 0,
-        max: 5,
-        max_inclusive: true
+        max: 5
       }
     }
   });
