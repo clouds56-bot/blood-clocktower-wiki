@@ -1,6 +1,7 @@
 import type { AdvancePhaseCommand } from '../domain/commands.js';
 import type { DomainEvent } from '../domain/events.js';
 import type { GameState, WakeQueueEntry } from '../domain/types.js';
+import type { TimingCategory } from '../plugins/contracts.js';
 import type { PluginRegistry } from '../plugins/registry.js';
 import type { EngineResult } from './phase-machine.js';
 
@@ -50,7 +51,11 @@ export function collect_night_wake_steps(state: GameState, plugin_registry: Plug
     if (!player || !player.alive || player.true_character_id === null) {
       continue;
     }
-    if (!plugin_registry.has(player.true_character_id)) {
+    const plugin = plugin_registry.get(player.true_character_id);
+    if (!plugin) {
+      continue;
+    }
+    if (!should_wake_for_phase(plugin.metadata.timing_category, state.phase)) {
       continue;
     }
 
@@ -62,4 +67,17 @@ export function collect_night_wake_steps(state: GameState, plugin_registry: Plug
   }
 
   return wake_steps;
+}
+
+function should_wake_for_phase(
+  timing_category: TimingCategory,
+  phase: GameState['phase']
+): boolean {
+  if (phase === 'first_night') {
+    return timing_category === 'first_night' || timing_category === 'each_night';
+  }
+  if (phase === 'night') {
+    return timing_category === 'each_night' || timing_category === 'each_night_except_first';
+  }
+  return false;
 }

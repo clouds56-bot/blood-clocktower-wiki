@@ -272,8 +272,35 @@ test('non-boundary commands do not invoke plugin hooks', () => {
   assert.equal(promptResolveCalls, 0);
 });
 
+test('imp does not wake on first night', () => {
+  const state = bootstrap_night_state();
+  const registry = new PluginRegistry([imp_plugin]);
+
+  const events = run_with_registry(
+    state,
+    {
+      command_id: 'c_phase_imp_first_night',
+      command_type: 'AdvancePhase',
+      actor_id: 'storyteller',
+      payload: {
+        phase: 'first_night',
+        subphase: 'night_wake_sequence',
+        day_number: 0,
+        night_number: 1
+      }
+    },
+    registry
+  );
+
+  assert.deepEqual(events.map((event) => event.event_type), ['PhaseAdvanced']);
+});
+
 test('imp plugin prompt resolves into death through engine flow', () => {
   let state = bootstrap_night_state();
+  state.phase = 'night';
+  state.subphase = 'dusk';
+  state.day_number = 1;
+  state.night_number = 1;
   const registry = new PluginRegistry([imp_plugin]);
 
   const wake_events = run_with_registry(
@@ -283,9 +310,9 @@ test('imp plugin prompt resolves into death through engine flow', () => {
       command_type: 'AdvancePhase',
       actor_id: 'storyteller',
       payload: {
-        phase: 'first_night',
+        phase: 'night',
         subphase: 'night_wake_sequence',
-        day_number: 0,
+        day_number: 1,
         night_number: 1
       }
     },

@@ -8,7 +8,7 @@ export const imp_plugin: CharacterPlugin = {
     name: 'Imp',
     type: 'demon',
     alignment_at_start: 'evil',
-    timing_category: 'each_night',
+    timing_category: 'each_night_except_first',
     is_once_per_game: false,
     target_constraints: {
       min_targets: 1,
