@@ -6,11 +6,15 @@ import { apply_events } from '../domain/reducer.js';
 import { create_initial_state } from '../domain/state.js';
 import type { GameState } from '../domain/types.js';
 import { handle_command } from '../engine/command-handler.js';
+import { project_for_player } from '../projections/player.js';
+import { project_for_public } from '../projections/public.js';
+import { project_for_storyteller } from '../projections/storyteller.js';
 import { parse_cli_line, type CliLocalAction } from './command-parser.js';
 import {
   format_event,
   format_help,
   format_player,
+  format_projection_json,
   format_prompt,
   format_prompt_list,
   format_players_table,
@@ -451,6 +455,26 @@ function handle_local_action(context: CliContext, action: CliLocalAction): boole
     return true;
   }
 
+  if (action.type === 'view_storyteller') {
+    process.stdout.write(`${format_projection_json(project_for_storyteller(context.state))}\n`);
+    return true;
+  }
+
+  if (action.type === 'view_public') {
+    process.stdout.write(`${format_projection_json(project_for_public(context.state))}\n`);
+    return true;
+  }
+
+  if (action.type === 'view_player') {
+    const projected = project_for_player(context.state, action.player_id);
+    if (!projected.ok) {
+      process.stdout.write(`projection_error code=${projected.error.code} message=${projected.error.message}\n`);
+      return true;
+    }
+    process.stdout.write(`${format_projection_json(projected.value)}\n`);
+    return true;
+  }
+
   if (action.type === 'prompts') {
     process.stdout.write(`${format_prompt_list(context.state)}\n`);
     return true;
@@ -489,7 +513,7 @@ export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void
     next_command_index: 1
   };
 
-  process.stdout.write('Clocktower Engine CLI (Phase 4)\n');
+  process.stdout.write('Clocktower Engine CLI (Phase 5)\n');
   process.stdout.write(`${paint('type "help" for commands', 'yellow')}\n`);
   process.stdout.write(`${format_state_brief(context.state)}\n`);
 

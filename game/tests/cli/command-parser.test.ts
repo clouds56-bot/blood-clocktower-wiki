@@ -104,6 +104,24 @@ test('parse local commands', () => {
   if (prompt.ok && prompt.kind === 'local' && prompt.action.type === 'prompt') {
     assert.equal(prompt.action.prompt_id, 'pr1');
   }
+
+  const viewStoryteller = parse_cli_line('view storyteller');
+  assert.equal(viewStoryteller.ok, true);
+  if (viewStoryteller.ok && viewStoryteller.kind === 'local') {
+    assert.equal(viewStoryteller.action.type, 'view_storyteller');
+  }
+
+  const viewPublic = parse_cli_line('view public');
+  assert.equal(viewPublic.ok, true);
+  if (viewPublic.ok && viewPublic.kind === 'local') {
+    assert.equal(viewPublic.action.type, 'view_public');
+  }
+
+  const viewPlayer = parse_cli_line('view player p1');
+  assert.equal(viewPlayer.ok, true);
+  if (viewPlayer.ok && viewPlayer.kind === 'local' && viewPlayer.action.type === 'view_player') {
+    assert.equal(viewPlayer.action.player_id, 'p1');
+  }
 });
 
 test('parse engine nominate command', () => {
@@ -147,6 +165,12 @@ test('invalid command gives usage', () => {
   assert.equal(parsed.ok, false);
   if (!parsed.ok) {
     assert.match(parsed.message, /usage: vote/);
+  }
+
+  const viewInvalid = parse_cli_line('view maybe');
+  assert.equal(viewInvalid.ok, false);
+  if (!viewInvalid.ok) {
+    assert.match(viewInvalid.message, /usage: view/);
   }
 });
 

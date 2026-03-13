@@ -16,6 +16,9 @@ export type CliLocalAction =
   | { type: 'events'; count: number }
   | { type: 'players' }
   | { type: 'player'; player_id: string }
+  | { type: 'view_storyteller' }
+  | { type: 'view_public' }
+  | { type: 'view_player'; player_id: string }
   | { type: 'prompts' }
   | { type: 'prompt'; prompt_id: string }
   | { type: 'new_game'; game_id: string }
@@ -223,6 +226,23 @@ export function parse_cli_line(input: string, state?: GameState): ParsedCliLine 
       return invalid('usage: player <player_id>');
     }
     return { ok: true, kind: 'local', action: { type: 'player', player_id } };
+  }
+  if (command === 'view') {
+    const mode = args[0];
+    if (mode === 'storyteller') {
+      return { ok: true, kind: 'local', action: { type: 'view_storyteller' } };
+    }
+    if (mode === 'public') {
+      return { ok: true, kind: 'local', action: { type: 'view_public' } };
+    }
+    if (mode === 'player') {
+      const player_id = args[1];
+      if (!player_id) {
+        return invalid('usage: view player <player_id>');
+      }
+      return { ok: true, kind: 'local', action: { type: 'view_player', player_id } };
+    }
+    return invalid('usage: view <storyteller|public|player <player_id>>');
   }
   if (command === 'prompts') {
     return { ok: true, kind: 'local', action: { type: 'prompts' } };

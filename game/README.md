@@ -1,6 +1,6 @@
 # Game Engine CLI
 
-Interactive CLI for the `game` package (Phase 4).
+Interactive CLI for the `game` package (Phase 5).
 
 It lets you run engine commands, inspect emitted events, and inspect state while staying event-driven (`handle_command` + `apply_events`).
 
@@ -39,6 +39,9 @@ Aliases:
 - `events [count]`
 - `players`
 - `player <player_id>`
+- `view storyteller`
+- `view public`
+- `view player <player_id>`
 - `prompts`
 - `prompt <prompt_id>`
 - `new <game_id>`

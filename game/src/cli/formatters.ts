@@ -69,6 +69,10 @@ export function format_state_json(state: GameState): string {
   return JSON.stringify(state, null, 2);
 }
 
+export function format_projection_json(value: unknown): string {
+  return JSON.stringify(value, null, 2);
+}
+
 export function format_event(event: DomainEvent, index: number): string {
   return `#${index} ${paint(event.event_type, event_color(event.event_type))} ${JSON.stringify(event.payload)}`;
 }
@@ -134,7 +138,7 @@ export function format_prompt(prompt: PromptState): string {
 export function format_help(topic: 'phase' | 'all'): string {
   if (topic === 'phase') {
     return [
-      paint('phase flow (phase 4):', 'cyan'),
+      paint('phase flow (phase 5):', 'cyan'),
       '  next-phase   (auto: open-noms/open-vote/close-vote/resolve-exec/resolve-conseq when applicable)',
       '  open-noms',
       '  nominate p1 p2',
@@ -158,6 +162,7 @@ export function format_help(topic: 'phase' | 'all'): string {
     '  events [count]',
     '  players',
     '  player <player_id>',
+    '  view storyteller | view public | view player <player_id>',
     '  prompts',
     '  prompt <prompt_id>',
     '  quit | exit',
