@@ -547,6 +547,7 @@ test('poisoner prompt resolves into reminder marker apply and clear flow', () =>
     registry
   );
   assert.equal(resolve_n1_events.some((event) => event.event_type === 'ReminderMarkerApplied'), true);
+  assert.equal(resolve_n1_events.some((event) => event.event_type === 'PoisonApplied'), true);
   state = apply_events(state, resolve_n1_events);
   assert.equal(state.players_by_id.p1?.poisoned, true);
 
@@ -592,6 +593,8 @@ test('poisoner prompt resolves into reminder marker apply and clear flow', () =>
 
   assert.equal(resolve_n2_events.some((event) => event.event_type === 'ReminderMarkerCleared'), true);
   assert.equal(resolve_n2_events.some((event) => event.event_type === 'ReminderMarkerApplied'), true);
+  assert.equal(resolve_n2_events.some((event) => event.event_type === 'HealthRestored'), true);
+  assert.equal(resolve_n2_events.some((event) => event.event_type === 'PoisonApplied'), true);
 
   const resolved_n2_state = apply_events(state, resolve_n2_events);
   assert.equal(resolved_n2_state.players_by_id.p1?.poisoned, false);
@@ -686,6 +689,7 @@ test('poisoned imp still wakes and chooses but kill effect is suppressed', () =>
   );
 
   assert.equal(resolve_events.some((event) => event.event_type === 'ReminderMarkerApplied'), true);
+  assert.equal(resolve_events.some((event) => event.event_type === 'PoisonApplied'), true);
   assert.equal(
     resolve_events.some(
       (event) =>

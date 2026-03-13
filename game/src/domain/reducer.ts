@@ -343,51 +343,13 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
       break;
     }
     case 'PoisonApplied': {
-      const marker_id = `compat:${event.event_id}`;
-      if (!next.reminder_markers_by_id[marker_id]) {
-        next.reminder_markers_by_id[marker_id] = {
-          marker_id,
-          kind: `${event.payload.source_plugin_id}:poisoned`,
-          effect: 'poisoned',
-          note: `compat poison applied by ${event.payload.source_plugin_id}`,
-          status: 'active',
-          source_player_id: null,
-          source_character_id: event.payload.source_plugin_id,
-          target_player_id: event.payload.player_id,
-          target_scope: 'player',
-          authoritative: true,
-          expires_policy: 'manual',
-          expires_at_day_number: null,
-          expires_at_night_number: null,
-          created_at_event_id: event.event_id,
-          cleared_at_event_id: null,
-          source_event_id: event.event_id,
-          metadata: {
-            compatibility: true
-          }
-        };
-      }
-      if (!next.active_reminder_marker_ids.includes(marker_id)) {
-        next.active_reminder_marker_ids.push(marker_id);
-      }
-      sync_derived_effect_flags(next, event.payload.player_id);
+      const player = ensure_player(next, event.payload.player_id);
+      player.poisoned = true;
       break;
     }
     case 'PoisonCleared': {
-      for (const marker_id of [...next.active_reminder_marker_ids]) {
-        const marker = next.reminder_markers_by_id[marker_id];
-        if (!marker || marker.status !== 'active') {
-          continue;
-        }
-        if (marker.target_player_id !== event.payload.player_id) {
-          continue;
-        }
-        if (marker.kind !== `${event.payload.source_plugin_id}:poisoned`) {
-          continue;
-        }
-        clear_marker(next, marker_id, event.event_id, 'cleared');
-      }
-      sync_derived_effect_flags(next, event.payload.player_id);
+      const player = ensure_player(next, event.payload.player_id);
+      player.poisoned = false;
       break;
     }
     case 'DeadVoteConsumed': {

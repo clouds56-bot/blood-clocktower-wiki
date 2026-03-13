@@ -112,9 +112,9 @@ export const poisoner_plugin: CharacterPlugin = {
             target_player_id: context.selected_option_id,
             target_scope: 'player',
             authoritative: true,
-            expires_policy: 'manual',
+            expires_policy: 'at_night',
             expires_at_day_number: null,
-            expires_at_night_number: null,
+            expires_at_night_number: context.state.night_number + 1,
             source_event_id: null,
             metadata: {
               from_prompt_id: context.prompt_id
