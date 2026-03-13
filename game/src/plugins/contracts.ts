@@ -124,19 +124,33 @@ export function empty_plugin_result(): PluginResult {
 
 export function validate_plugin_metadata(metadata: CharacterPluginMetadata): PluginValidationIssue[] {
   const issues: PluginValidationIssue[] = [];
+  const trimmedId = metadata.id.trim();
+  const trimmedName = metadata.name.trim();
 
-  if (metadata.id.trim().length === 0) {
+  if (trimmedId.length === 0) {
     issues.push({
       code: 'plugin_id_required',
       message: 'metadata.id must be a non-empty string',
       path: 'id'
     });
+  } else if (metadata.id !== trimmedId) {
+    issues.push({
+      code: 'plugin_id_canonical',
+      message: 'metadata.id must not include leading or trailing whitespace',
+      path: 'id'
+    });
   }
 
-  if (metadata.name.trim().length === 0) {
+  if (trimmedName.length === 0) {
     issues.push({
       code: 'plugin_name_required',
       message: 'metadata.name must be a non-empty string',
+      path: 'name'
+    });
+  } else if (metadata.name !== trimmedName) {
+    issues.push({
+      code: 'plugin_name_canonical',
+      message: 'metadata.name must not include leading or trailing whitespace',
       path: 'name'
     });
   }

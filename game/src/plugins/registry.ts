@@ -26,6 +26,21 @@ function error(code: string, message: string): PluginRegistryResult<never> {
   };
 }
 
+function clone_metadata(metadata: CharacterPluginMetadata): CharacterPluginMetadata {
+  return {
+    ...metadata,
+    target_constraints: { ...metadata.target_constraints },
+    flags: { ...metadata.flags }
+  };
+}
+
+function clone_plugin(plugin: CharacterPlugin): CharacterPlugin {
+  return {
+    metadata: clone_metadata(plugin.metadata),
+    hooks: { ...plugin.hooks }
+  };
+}
+
 export class PluginRegistry {
   private readonly plugins_by_id: Map<string, CharacterPlugin>;
 
@@ -53,7 +68,7 @@ export class PluginRegistry {
       return error('plugin_already_registered', `plugin ${id} is already registered`);
     }
 
-    this.plugins_by_id.set(id, plugin);
+    this.plugins_by_id.set(id, clone_plugin(plugin));
     return {
       ok: true,
       value: undefined
@@ -65,12 +80,13 @@ export class PluginRegistry {
   }
 
   get(character_id: string): CharacterPlugin | null {
-    return this.plugins_by_id.get(character_id) ?? null;
+    const plugin = this.plugins_by_id.get(character_id);
+    return plugin ? clone_plugin(plugin) : null;
   }
 
   list(): CharacterPluginMetadata[] {
     return [...this.plugins_by_id.values()]
-      .map((plugin) => ({ ...plugin.metadata }))
+      .map((plugin) => clone_metadata(plugin.metadata))
       .sort((left, right) => left.id.localeCompare(right.id));
   }
 }
@@ -94,5 +110,6 @@ function format_validation_issues(plugin_id: string, issues: PluginValidationIss
     .map((issue) => `${issue.code}${issue.path ? `(${issue.path})` : ''}: ${issue.message}`)
     .join('; ');
 
-  return `plugin ${plugin_id || '<unknown>'} metadata invalid: ${issue_text}`;
+  const displayId = plugin_id.trim().length > 0 ? plugin_id.trim() : '<unknown>';
+  return `plugin ${displayId} metadata invalid: ${issue_text}`;
 }

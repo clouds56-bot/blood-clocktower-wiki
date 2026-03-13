@@ -176,59 +176,75 @@ test('reducer tracks prompt lifecycle and storyteller notes', () => {
 });
 
 test('reducer tracks wake and interrupt queues', () => {
-  const state = replay_events(
-    [
-      {
-        event_id: 'q1',
-        event_type: 'PlayerAdded',
-        created_at: '2026-03-13T00:00:00.000Z',
+  const events: DomainEvent[] = [
+    {
+      event_id: 'q1',
+      event_type: 'PlayerAdded',
+      created_at: '2026-03-13T00:00:00.000Z',
+      payload: {
+        player_id: 'p1',
+        display_name: 'Alice'
+      }
+    },
+    {
+      event_id: 'q2',
+      event_type: 'WakeScheduled',
+      created_at: '2026-03-13T00:00:01.000Z',
+      payload: {
+        wake_id: 'w1',
+        character_id: 'imp',
+        player_id: 'p1'
+      }
+    },
+    {
+      event_id: 'q3',
+      event_type: 'InterruptScheduled',
+      created_at: '2026-03-13T00:00:02.000Z',
+      payload: {
+        interrupt_id: 'i1',
+        kind: 'immediate_death_resolution',
+        source_plugin_id: 'imp',
         payload: {
-          player_id: 'p1',
-          display_name: 'Alice'
-        }
-      },
-      {
-        event_id: 'q2',
-        event_type: 'WakeScheduled',
-        created_at: '2026-03-13T00:00:01.000Z',
-        payload: {
-          wake_id: 'w1',
-          character_id: 'imp',
-          player_id: 'p1'
-        }
-      },
-      {
-        event_id: 'q3',
-        event_type: 'InterruptScheduled',
-        created_at: '2026-03-13T00:00:02.000Z',
-        payload: {
-          interrupt_id: 'i1',
-          kind: 'immediate_death_resolution',
-          source_plugin_id: 'imp',
-          payload: {
-            target_player_id: 'p2'
-          }
-        }
-      },
-      {
-        event_id: 'q4',
-        event_type: 'WakeConsumed',
-        created_at: '2026-03-13T00:00:03.000Z',
-        payload: {
-          wake_id: 'w1'
-        }
-      },
-      {
-        event_id: 'q5',
-        event_type: 'InterruptConsumed',
-        created_at: '2026-03-13T00:00:04.000Z',
-        payload: {
-          interrupt_id: 'i1'
+          target_player_id: 'p2'
         }
       }
-    ],
-    create_initial_state('g1')
-  );
+    },
+    {
+      event_id: 'q4',
+      event_type: 'WakeConsumed',
+      created_at: '2026-03-13T00:00:03.000Z',
+      payload: {
+        wake_id: 'w1'
+      }
+    },
+    {
+      event_id: 'q5',
+      event_type: 'InterruptConsumed',
+      created_at: '2026-03-13T00:00:04.000Z',
+      payload: {
+        interrupt_id: 'i1'
+      }
+    }
+  ];
+
+  const scheduled = replay_events(events.slice(0, 3), create_initial_state('g1'));
+  assert.equal(scheduled.wake_queue.length, 1);
+  assert.deepEqual(scheduled.wake_queue[0], {
+    wake_id: 'w1',
+    character_id: 'imp',
+    player_id: 'p1'
+  });
+  assert.equal(scheduled.interrupt_queue.length, 1);
+  assert.deepEqual(scheduled.interrupt_queue[0], {
+    interrupt_id: 'i1',
+    kind: 'immediate_death_resolution',
+    source_plugin_id: 'imp',
+    payload: {
+      target_player_id: 'p2'
+    }
+  });
+
+  const state = replay_events(events, create_initial_state('g1'));
 
   assert.deepEqual(state.wake_queue, []);
   assert.deepEqual(state.interrupt_queue, []);

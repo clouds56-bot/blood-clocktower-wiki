@@ -84,6 +84,22 @@ test('registry rejects invalid plugin metadata', () => {
   }
 });
 
+test('registry rejects non-canonical metadata id and name', () => {
+  const registry = new PluginRegistry();
+  const plugin = make_plugin('imp');
+  plugin.metadata.id = ' imp ';
+  plugin.metadata.name = ' Imp ';
+
+  const result = registry.register(plugin);
+  assert.equal(result.ok, false);
+
+  if (!result.ok) {
+    assert.equal(result.error.code, 'plugin_metadata_invalid');
+    assert.match(result.error.message, /plugin_id_canonical/);
+    assert.match(result.error.message, /plugin_name_canonical/);
+  }
+});
+
 test('registry list is sorted by id', () => {
   const registry = new PluginRegistry([make_plugin('poisoner'), make_plugin('imp')]);
   assert.deepEqual(registry.list().map((item) => item.id), ['imp', 'poisoner']);
@@ -97,4 +113,35 @@ test('create_plugin_registry returns initialization error for invalid input', ()
     assert.equal(result.error.code, 'plugin_registry_init_failed');
     assert.match(result.error.message, /plugin_already_registered/);
   }
+});
+
+test('registry does not expose mutable internal metadata', () => {
+  const registry = new PluginRegistry([make_plugin('imp')]);
+
+  const listed = registry.list();
+  assert.ok(listed[0]);
+  listed[0]!.id = 'mutated_id';
+  listed[0]!.target_constraints.min_targets = 99;
+  listed[0]!.flags.may_change_character = true;
+
+  const plugin = registry.get('imp');
+  assert.ok(plugin);
+  if (!plugin) {
+    return;
+  }
+
+  plugin.metadata.id = 'mutated_plugin';
+  plugin.metadata.target_constraints.max_targets = 99;
+  plugin.metadata.flags.may_change_alignment = true;
+
+  const listed_again = registry.list();
+  assert.deepEqual(listed_again.map((item) => item.id), ['imp']);
+
+  const imp = registry.get('imp');
+  assert.ok(imp);
+  assert.equal(imp?.metadata.id, 'imp');
+  assert.equal(imp?.metadata.target_constraints.min_targets, 1);
+  assert.equal(imp?.metadata.target_constraints.max_targets, 1);
+  assert.equal(imp?.metadata.flags.may_change_character, false);
+  assert.equal(imp?.metadata.flags.may_change_alignment, false);
 });

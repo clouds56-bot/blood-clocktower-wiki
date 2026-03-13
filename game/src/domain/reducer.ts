@@ -1,6 +1,10 @@
 import type { DomainEvent } from './events.js';
 import { create_empty_day_state, type ActiveVote, type GameState, type PlayerState } from './types.js';
 
+function clone_payload(payload: Record<string, unknown>): Record<string, unknown> {
+  return structuredClone(payload);
+}
+
 function clone_state(state: GameState): GameState {
   return {
     ...state,
@@ -28,7 +32,7 @@ function clone_state(state: GameState): GameState {
     execution_history: state.execution_history.map((item) => ({ ...item })),
     death_history: state.death_history.map((item) => ({ ...item })),
     wake_queue: state.wake_queue.map((item) => ({ ...item })),
-    interrupt_queue: state.interrupt_queue.map((item) => ({ ...item, payload: { ...item.payload } })),
+    interrupt_queue: state.interrupt_queue.map((item) => ({ ...item, payload: clone_payload(item.payload) })),
     prompts_by_id: Object.fromEntries(
       Object.entries(state.prompts_by_id).map(([prompt_id, prompt]) => [
         prompt_id,
@@ -260,7 +264,7 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
           interrupt_id: event.payload.interrupt_id,
           kind: event.payload.kind,
           source_plugin_id: event.payload.source_plugin_id,
-          payload: { ...event.payload.payload }
+          payload: clone_payload(event.payload.payload)
         });
       }
       break;

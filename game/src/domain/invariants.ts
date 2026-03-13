@@ -166,7 +166,7 @@ export function validate_invariants(state: GameState): InvariantIssue[] {
     }
   }
 
-  const seen_wake_ids = new Set<string>();
+  const seenWakeIds = new Set<string>();
   for (const [index, wake] of state.wake_queue.entries()) {
     if (wake.wake_id.trim().length === 0 || wake.character_id.trim().length === 0) {
       issues.push({
@@ -177,7 +177,7 @@ export function validate_invariants(state: GameState): InvariantIssue[] {
       });
     }
 
-    if (seen_wake_ids.has(wake.wake_id)) {
+    if (seenWakeIds.has(wake.wake_id)) {
       issues.push({
         code: 'duplicate_wake_queue_id',
         message: `wake_queue contains duplicate wake id: ${wake.wake_id}`,
@@ -185,7 +185,7 @@ export function validate_invariants(state: GameState): InvariantIssue[] {
         severity: 'error'
       });
     }
-    seen_wake_ids.add(wake.wake_id);
+    seenWakeIds.add(wake.wake_id);
 
     if (!state.players_by_id[wake.player_id]) {
       issues.push({
@@ -197,7 +197,7 @@ export function validate_invariants(state: GameState): InvariantIssue[] {
     }
   }
 
-  const seen_interrupt_ids = new Set<string>();
+  const seenInterruptIds = new Set<string>();
   for (const [index, interrupt] of state.interrupt_queue.entries()) {
     if (
       interrupt.interrupt_id.trim().length === 0 ||
@@ -213,7 +213,7 @@ export function validate_invariants(state: GameState): InvariantIssue[] {
       });
     }
 
-    if (seen_interrupt_ids.has(interrupt.interrupt_id)) {
+    if (seenInterruptIds.has(interrupt.interrupt_id)) {
       issues.push({
         code: 'duplicate_interrupt_queue_id',
         message: `interrupt_queue contains duplicate interrupt id: ${interrupt.interrupt_id}`,
@@ -221,7 +221,7 @@ export function validate_invariants(state: GameState): InvariantIssue[] {
         severity: 'error'
       });
     }
-    seen_interrupt_ids.add(interrupt.interrupt_id);
+    seenInterruptIds.add(interrupt.interrupt_id);
   }
 
   const seen_pending_prompt_ids = new Set<string>();
