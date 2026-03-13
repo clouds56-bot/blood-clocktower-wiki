@@ -1,6 +1,7 @@
 import type {
   Alignment,
   DayState,
+  PlayerId,
   GameId,
   GamePhase,
   GameStatus,
@@ -35,7 +36,7 @@ export interface ProjectionClock {
 }
 
 export interface PublicPlayerView {
-  player_id: string;
+  player_id: PlayerId;
   display_name: string;
   alive: boolean;
   dead_vote_available: boolean;
@@ -44,8 +45,6 @@ export interface PublicPlayerView {
 export interface PlayerSelfView extends PublicPlayerView {
   perceived_character_id: string | null;
   known_alignment: Alignment | null;
-  registered_character_id: string | null;
-  registered_alignment: Alignment | null;
 }
 
 export interface PublicProjection {
@@ -54,14 +53,14 @@ export interface PublicProjection {
   edition_id: EditionId | null;
   clock: ProjectionClock;
   players: PublicPlayerView[];
-  seat_order: string[];
+  seat_order: PlayerId[];
   day_state: DayState;
   winning_team: Alignment | null;
   end_reason: string | null;
 }
 
 export interface PlayerProjection extends PublicProjection {
-  viewer_player_id: string;
+  viewer_player_id: PlayerId;
   self: PlayerSelfView;
 }
 
@@ -70,8 +69,8 @@ export interface StorytellerProjection {
   script_id: ScriptId | null;
   edition_id: EditionId | null;
   clock: ProjectionClock;
-  players: Record<string, {
-    player_id: string;
+  players: Record<PlayerId, {
+    player_id: PlayerId;
     display_name: string;
     alive: boolean;
     dead_vote_available: boolean;
@@ -85,7 +84,7 @@ export interface StorytellerProjection {
     is_traveller: boolean;
     is_demon: boolean;
   }>;
-  seat_order: string[];
+  seat_order: PlayerId[];
   day_state: DayState;
   prompts: PromptState[];
   storyteller_notes: StorytellerNoteRecord[];

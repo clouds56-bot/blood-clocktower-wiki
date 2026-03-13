@@ -99,6 +99,8 @@ test('player projection excludes other hidden truth and storyteller-only data', 
   const serialized = JSON.stringify(result.value);
   assert.equal(serialized.includes('"true_character_id"'), false);
   assert.equal(serialized.includes('"poisoned"'), false);
+  assert.equal(serialized.includes('"registered_character_id"'), false);
+  assert.equal(serialized.includes('"registered_alignment"'), false);
   assert.equal(serialized.includes('"storyteller_notes"'), false);
   assert.equal(serialized.includes('"pending_prompts"'), false);
 });

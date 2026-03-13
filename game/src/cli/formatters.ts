@@ -173,13 +173,11 @@ export function format_public_projection(projection: PublicProjection): string {
 export function format_player_projection(projection: PlayerProjection): string {
   const base = format_public_projection(projection);
   const self = render_table(
-    ['id', 'perceived', 'team', 'reg_char', 'reg_team'],
+    ['id', 'perceived', 'team'],
     [[
       projection.viewer_player_id,
       projection.self.perceived_character_id ?? 'null',
-      projection.self.known_alignment ?? 'null',
-      projection.self.registered_character_id ?? 'null',
-      projection.self.registered_alignment ?? 'null'
+      projection.self.known_alignment ?? 'null'
     ]]
   );
   return [base, self].join('\n');
