@@ -1,6 +1,7 @@
 import type { Command } from '../domain/commands.js';
 import type { DomainEvent } from '../domain/events.js';
 import type { GameState } from '../domain/types.js';
+import type { PluginRegistry } from '../plugins/registry.js';
 import { handle_advance_phase, type EngineResult } from './phase-machine.js';
 import {
   handle_cast_vote,
@@ -22,6 +23,7 @@ import {
   handle_create_prompt,
   handle_resolve_prompt
 } from '../adjudication/prompts.js';
+import { integrate_plugin_runtime } from './plugin-runtime.js';
 
 const MUTATING_COMMANDS: Set<Command['command_type']> = new Set([
   'SelectScript',
@@ -52,7 +54,10 @@ const MUTATING_COMMANDS: Set<Command['command_type']> = new Set([
 export function handle_command(
   state: GameState,
   command: Command,
-  created_at: string
+  created_at: string,
+  runtime_options: {
+    plugin_registry?: PluginRegistry;
+  } = {}
 ): EngineResult<DomainEvent[]> {
   if (state.status === 'ended' && MUTATING_COMMANDS.has(command.command_type)) {
     return {
@@ -64,41 +69,59 @@ export function handle_command(
     };
   }
 
+  let base_result: EngineResult<DomainEvent[]>;
+
   switch (command.command_type) {
     case 'AdvancePhase':
-      return handle_advance_phase(state, command, created_at);
+      base_result = handle_advance_phase(state, command, created_at);
+      break;
     case 'OpenNominationWindow':
-      return handle_open_nomination_window(state, command, created_at);
+      base_result = handle_open_nomination_window(state, command, created_at);
+      break;
     case 'NominatePlayer':
-      return handle_nominate_player(state, command, created_at);
+      base_result = handle_nominate_player(state, command, created_at);
+      break;
     case 'OpenVote':
-      return handle_open_vote(state, command, created_at);
+      base_result = handle_open_vote(state, command, created_at);
+      break;
     case 'CastVote':
-      return handle_cast_vote(state, command, created_at);
+      base_result = handle_cast_vote(state, command, created_at);
+      break;
     case 'CloseVote':
-      return handle_close_vote(state, command, created_at);
+      base_result = handle_close_vote(state, command, created_at);
+      break;
     case 'ResolveExecution':
-      return handle_resolve_execution(state, command, created_at);
+      base_result = handle_resolve_execution(state, command, created_at);
+      break;
     case 'ResolveExecutionConsequences':
-      return handle_resolve_execution_consequences(state, command, created_at);
+      base_result = handle_resolve_execution_consequences(state, command, created_at);
+      break;
     case 'ApplyDeath':
-      return handle_apply_death(state, command, created_at);
+      base_result = handle_apply_death(state, command, created_at);
+      break;
     case 'MarkPlayerSurvivedExecution':
-      return handle_mark_player_survived_execution(state, command, created_at);
+      base_result = handle_mark_player_survived_execution(state, command, created_at);
+      break;
     case 'CreatePrompt':
-      return handle_create_prompt(state, command, created_at);
+      base_result = handle_create_prompt(state, command, created_at);
+      break;
     case 'ResolvePrompt':
-      return handle_resolve_prompt(state, command, created_at);
+      base_result = handle_resolve_prompt(state, command, created_at);
+      break;
     case 'CancelPrompt':
-      return handle_cancel_prompt(state, command, created_at);
+      base_result = handle_cancel_prompt(state, command, created_at);
+      break;
     case 'CheckWinConditions':
-      return handle_check_win_conditions(state, command, created_at);
+      base_result = handle_check_win_conditions(state, command, created_at);
+      break;
     case 'DeclareForcedVictory':
-      return handle_declare_forced_victory(state, command, created_at);
+      base_result = handle_declare_forced_victory(state, command, created_at);
+      break;
     case 'EndDay':
-      return handle_end_day(state, command, created_at);
+      base_result = handle_end_day(state, command, created_at);
+      break;
     case 'CreateGame':
-      return {
+      base_result = {
         ok: true,
         value: [
           {
@@ -113,8 +136,9 @@ export function handle_command(
           }
         ]
       };
+      break;
     case 'SelectScript':
-      return {
+      base_result = {
         ok: true,
         value: [
           {
@@ -128,8 +152,9 @@ export function handle_command(
           }
         ]
       };
+      break;
     case 'SelectEdition':
-      return {
+      base_result = {
         ok: true,
         value: [
           {
@@ -143,8 +168,9 @@ export function handle_command(
           }
         ]
       };
+      break;
     case 'AddPlayer':
-      return {
+      base_result = {
         ok: true,
         value: [
           {
@@ -159,8 +185,9 @@ export function handle_command(
           }
         ]
       };
+      break;
     case 'SetSeatOrder':
-      return {
+      base_result = {
         ok: true,
         value: [
           {
@@ -174,6 +201,7 @@ export function handle_command(
           }
         ]
       };
+      break;
     case 'AssignCharacter':
       {
       const payload = {
@@ -193,7 +221,7 @@ export function handle_command(
         payload.is_traveller = command.payload.is_traveller;
       }
 
-      return {
+      base_result = {
         ok: true,
         value: [
           {
@@ -205,9 +233,10 @@ export function handle_command(
           }
         ]
       };
+      break;
     }
     case 'AssignPerceivedCharacter':
-      return {
+      base_result = {
         ok: true,
         value: [
           {
@@ -222,8 +251,9 @@ export function handle_command(
           }
         ]
       };
+      break;
     case 'AssignAlignment':
-      return {
+      base_result = {
         ok: true,
         value: [
           {
@@ -238,15 +268,29 @@ export function handle_command(
           }
         ]
       };
+      break;
     default: {
       const neverCommand: never = command;
-      return {
+      base_result = {
         ok: false,
         error: {
           code: 'unknown_command_type',
           message: `unknown command type: ${JSON.stringify(neverCommand)}`
         }
       };
+      break;
     }
   }
+
+  if (!base_result.ok) {
+    return base_result;
+  }
+
+  return integrate_plugin_runtime(
+    state,
+    command,
+    created_at,
+    base_result.value,
+    runtime_options.plugin_registry
+  );
 }

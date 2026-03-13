@@ -11,6 +11,7 @@ export * from './engine/death-flow.js';
 export * from './engine/night-flow.js';
 export * from './engine/win-check.js';
 export * from './engine/command-handler.js';
+export * from './engine/plugin-runtime.js';
 export * from './adjudication/prompts.js';
 export * from './projections/types.js';
 export * from './projections/storyteller.js';
