@@ -1,6 +1,6 @@
 import type { Command } from '../domain/commands.js';
 import type { DomainEvent } from '../domain/events.js';
-import type { GameState } from '../domain/types.js';
+import type { GameState, PlayerCharacterType } from '../domain/types.js';
 import { apply_events } from '../domain/reducer.js';
 import type { PluginRegistry } from '../plugins/registry.js';
 import { handle_advance_phase, type EngineResult } from './phase-machine.js';
@@ -243,7 +243,7 @@ export function handle_command(
       } as {
         player_id: string;
         true_character_id: string;
-        true_character_type?: 'townsfolk' | 'outsider' | 'minion' | 'demon' | 'traveller';
+        true_character_type?: PlayerCharacterType;
         is_demon?: boolean;
         is_traveller?: boolean;
       };

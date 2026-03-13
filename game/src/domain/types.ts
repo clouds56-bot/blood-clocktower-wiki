@@ -26,7 +26,15 @@ export type GameSubphase = DaySubphase | NightSubphase | SetupSubphase | EndedSu
 
 export type Alignment = 'good' | 'evil';
 
-export type PlayerCharacterType = 'townsfolk' | 'outsider' | 'minion' | 'demon' | 'traveller';
+export type CharacterType =
+  | 'townsfolk'
+  | 'outsider'
+  | 'minion'
+  | 'demon'
+  | 'traveller'
+  | 'fabled';
+
+export type PlayerCharacterType = Exclude<CharacterType, 'fabled'>;
 
 export type PromptVisibility = 'storyteller' | 'player' | 'public';
 

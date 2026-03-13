@@ -3,9 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import type { Command } from '../domain/commands.js';
-import type { Alignment } from '../domain/types.js';
-
-export type CharacterType = 'townsfolk' | 'outsider' | 'minion' | 'demon' | 'traveller';
+import type { Alignment, PlayerCharacterType } from '../domain/types.js';
 
 export interface EditionSetupData {
   characters: {
@@ -31,13 +29,13 @@ export interface AssignedCharacter {
   player_id: string;
   true_character_id: string;
   perceived_character_id: string;
-  character_type: CharacterType;
+  character_type: PlayerCharacterType;
   alignment: Alignment;
 }
 
 interface PickedCharacter {
   character_id: string;
-  character_type: CharacterType;
+  character_type: PlayerCharacterType;
 }
 
 export interface QuickSetupSeedBuild {
@@ -118,14 +116,14 @@ export function resolve_edition_id(script: string): string {
   return script;
 }
 
-export function infer_alignment_from_type(character_type: CharacterType): Alignment {
+export function infer_alignment_from_type(character_type: PlayerCharacterType): Alignment {
   if (character_type === 'demon' || character_type === 'minion') {
     return 'evil';
   }
   return 'good';
 }
 
-export function is_character_type_token(value: string): value is CharacterType {
+export function is_character_type_token(value: string): value is PlayerCharacterType {
   return (
     value === 'townsfolk' ||
     value === 'outsider' ||

@@ -98,10 +98,10 @@ function bool_emoji(value: boolean): string {
 
 function character_type_color(character_type: PlayerCharacterType | null): keyof typeof ANSI {
   if (character_type === 'townsfolk') {
-    return 'cyan';
+    return 'blue';
   }
   if (character_type === 'outsider') {
-    return 'blue';
+    return 'cyan';
   }
   if (character_type === 'minion') {
     return 'magenta';
