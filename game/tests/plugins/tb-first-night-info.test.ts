@@ -47,15 +47,21 @@ test('chef queues misinformation prompt when poisoned', () => {
   assert.equal(wake?.queued_prompts[0]?.prompt_id, 'plugin:chef:misinfo:1:p1');
   assert.equal(wake?.queued_prompts[0]?.selection_mode, 'number_range');
   assert.deepEqual(wake?.queued_prompts[0]?.number_range, { min: 0, max: 3 });
+  const chef_range = wake?.queued_prompts[0]?.number_range;
+  assert.ok(chef_range);
+  const selected_for_chef = chef_range ? String(chef_range.max) : '0';
 
   const resolved = chef_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_id: 'plugin:chef:misinfo:1:p1',
-    selected_option_id: '2',
+    selected_option_id: selected_for_chef,
     freeform: null
   });
   assert.ok(resolved);
-  assert.equal(resolved?.emitted_events[0]?.payload.note, 'chef_info:p1:adjacent_evil_pairs=2');
+  assert.equal(
+    resolved?.emitted_events[0]?.payload.note,
+    `chef_info:p1:adjacent_evil_pairs=${selected_for_chef}`
+  );
 });
 
 test('poisoned chef prompt includes truthful hint for storyteller', () => {
@@ -115,15 +121,21 @@ test('empath queues misinformation prompt when drunk', () => {
   assert.equal(wake?.queued_prompts[0]?.prompt_id, 'plugin:empath:misinfo:2:p1');
   assert.equal(wake?.queued_prompts[0]?.selection_mode, 'number_range');
   assert.deepEqual(wake?.queued_prompts[0]?.number_range, { min: 0, max: 2 });
+  const empath_range = wake?.queued_prompts[0]?.number_range;
+  assert.ok(empath_range);
+  const selected_for_empath = empath_range ? String(empath_range.min) : '0';
 
   const resolved = empath_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_id: 'plugin:empath:misinfo:2:p1',
-    selected_option_id: '1',
+    selected_option_id: selected_for_empath,
     freeform: null
   });
   assert.ok(resolved);
-  assert.equal(resolved?.emitted_events[0]?.payload.note, 'empath_info:p1:alive_neighbor_evil_count=1');
+  assert.equal(
+    resolved?.emitted_events[0]?.payload.note,
+    `empath_info:p1:alive_neighbor_evil_count=${selected_for_empath}`
+  );
 });
 
 test('fortune teller wake prompt uses multi-column player selection', () => {
@@ -233,16 +245,23 @@ test('fortune teller queues misinformation prompt when poisoned', () => {
   assert.ok(result);
   assert.equal(result?.queued_prompts.length, 1);
   assert.equal(result?.queued_prompts[0]?.prompt_id, 'plugin:fortune_teller:misinfo:2:p1:p2:p3');
+  assert.equal(result?.queued_prompts[0]?.selection_mode, 'single_choice');
+  assert.deepEqual(
+    result?.queued_prompts[0]?.options.map((option) => option.option_id),
+    ['yes', 'no']
+  );
+
+  const misinfo_choice = result?.queued_prompts[0]?.options[1]?.option_id ?? 'no';
 
   const misinfoResolved = fortune_teller_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_id: 'plugin:fortune_teller:misinfo:2:p1:p2:p3',
-    selected_option_id: 'no',
+    selected_option_id: misinfo_choice,
     freeform: null
   });
   assert.ok(misinfoResolved);
   assert.equal(
     misinfoResolved?.emitted_events[0]?.payload.note,
-    'fortune_teller_info:p1:pair=p2,p3;yes=false'
+    `fortune_teller_info:p1:pair=p2,p3;yes=${misinfo_choice === 'yes'}`
   );
 });

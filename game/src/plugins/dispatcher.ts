@@ -249,6 +249,8 @@ function normalize_plugin_result(
     }
 
     const seenOptionIds = new Set<string>();
+    const selection_mode = item.selection_mode ?? 'single_choice';
+
     const normalized_options = item.options.map((option, option_index) => {
       if (option.option_id.trim().length === 0) {
         issues.push({
@@ -282,12 +284,36 @@ function normalize_plugin_result(
       };
     });
 
+    if (selection_mode === 'number_range' && !item.number_range) {
+      issues.push({
+        code: 'invalid_plugin_prompt_number_range',
+        message: 'number_range prompt requires number_range field',
+        plugin_id,
+        path: `queued_prompts.${prompt_index}.number_range`
+      });
+    }
+
+    if (selection_mode === 'multi_column' && (!item.multi_columns || item.multi_columns.length === 0)) {
+      issues.push({
+        code: 'invalid_plugin_prompt_multi_columns',
+        message: 'multi_column prompt requires multi_columns field',
+        plugin_id,
+        path: `queued_prompts.${prompt_index}.multi_columns`
+      });
+    }
+
     return {
       prompt_id: item.prompt_id,
       kind: item.kind,
       reason: item.reason,
       visibility: item.visibility,
-      options: normalized_options
+      options: normalized_options,
+      selection_mode,
+      number_range: item.number_range ? { ...item.number_range } : null,
+      multi_columns: item.multi_columns
+        ? item.multi_columns.map((column) => (Array.isArray(column) ? [...column] : { ...column }))
+        : null,
+      storyteller_hint: item.storyteller_hint ?? null
     } satisfies PluginPromptSpec;
   });
 
