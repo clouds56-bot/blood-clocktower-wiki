@@ -498,7 +498,7 @@ test('plugin runtime returns deterministic error on duplicate queued prompt id',
   }
 });
 
-test('poisoner prompt resolves into poison apply and restore flow', () => {
+test('poisoner prompt resolves into reminder marker apply and clear flow', () => {
   let state = bootstrap_night_state();
   state.phase = 'night';
   state.subphase = 'dusk';
@@ -546,7 +546,7 @@ test('poisoner prompt resolves into poison apply and restore flow', () => {
     },
     registry
   );
-  assert.equal(resolve_n1_events.some((event) => event.event_type === 'PoisonApplied'), true);
+  assert.equal(resolve_n1_events.some((event) => event.event_type === 'ReminderMarkerApplied'), true);
   state = apply_events(state, resolve_n1_events);
   assert.equal(state.players_by_id.p1?.poisoned, true);
 
@@ -590,8 +590,8 @@ test('poisoner prompt resolves into poison apply and restore flow', () => {
     registry
   );
 
-  assert.equal(resolve_n2_events.some((event) => event.event_type === 'PoisonCleared'), true);
-  assert.equal(resolve_n2_events.some((event) => event.event_type === 'PoisonApplied'), true);
+  assert.equal(resolve_n2_events.some((event) => event.event_type === 'ReminderMarkerCleared'), true);
+  assert.equal(resolve_n2_events.some((event) => event.event_type === 'ReminderMarkerApplied'), true);
 
   const resolved_n2_state = apply_events(state, resolve_n2_events);
   assert.equal(resolved_n2_state.players_by_id.p1?.poisoned, false);
@@ -685,7 +685,7 @@ test('poisoned imp still wakes and chooses but kill effect is suppressed', () =>
     registry
   );
 
-  assert.equal(resolve_events.some((event) => event.event_type === 'PoisonApplied'), true);
+  assert.equal(resolve_events.some((event) => event.event_type === 'ReminderMarkerApplied'), true);
   assert.equal(
     resolve_events.some(
       (event) =>

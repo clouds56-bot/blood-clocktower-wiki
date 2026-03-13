@@ -342,3 +342,125 @@ test('reducer applies poison lifecycle events', () => {
 
   assert.equal(state.players_by_id.p1?.poisoned, false);
 });
+
+test('reducer applies reminder marker lifecycle and derives statuses', () => {
+  const state = replay_events(
+    [
+      {
+        event_id: 'm1',
+        event_type: 'PlayerAdded',
+        created_at: '2026-03-13T00:00:00.000Z',
+        payload: {
+          player_id: 'p1',
+          display_name: 'Alice'
+        }
+      },
+      {
+        event_id: 'm2',
+        event_type: 'ReminderMarkerApplied',
+        created_at: '2026-03-13T00:00:01.000Z',
+        payload: {
+          marker_id: 'mk1',
+          kind: 'poisoner:poisoned',
+          effect: 'poisoned',
+          note: 'poisoned by poisoner',
+          source_player_id: 'p2',
+          source_character_id: 'poisoner',
+          target_player_id: 'p1',
+          target_scope: 'player',
+          authoritative: true,
+          expires_policy: 'manual',
+          expires_at_day_number: null,
+          expires_at_night_number: null,
+          source_event_id: null,
+          metadata: {}
+        }
+      },
+      {
+        event_id: 'm3',
+        event_type: 'ReminderMarkerCleared',
+        created_at: '2026-03-13T00:00:02.000Z',
+        payload: {
+          marker_id: 'mk1',
+          reason: 'manual'
+        }
+      }
+    ],
+    create_initial_state('g1')
+  );
+
+  assert.equal(state.players_by_id.p1?.poisoned, false);
+  assert.equal(state.active_reminder_marker_ids.length, 0);
+  assert.equal(state.reminder_markers_by_id.mk1?.status, 'cleared');
+});
+
+test('reducer keeps poisoned=true when one poison source clears but another remains', () => {
+  const state = replay_events(
+    [
+      {
+        event_id: 's1',
+        event_type: 'PlayerAdded',
+        created_at: '2026-03-13T00:00:00.000Z',
+        payload: {
+          player_id: 'p1',
+          display_name: 'Alice'
+        }
+      },
+      {
+        event_id: 's2',
+        event_type: 'ReminderMarkerApplied',
+        created_at: '2026-03-13T00:00:01.000Z',
+        payload: {
+          marker_id: 'mk_poisoner',
+          kind: 'poisoner:poisoned',
+          effect: 'poisoned',
+          note: 'poisoner',
+          source_player_id: 'p5',
+          source_character_id: 'poisoner',
+          target_player_id: 'p1',
+          target_scope: 'player',
+          authoritative: true,
+          expires_policy: 'manual',
+          expires_at_day_number: null,
+          expires_at_night_number: null,
+          source_event_id: null,
+          metadata: {}
+        }
+      },
+      {
+        event_id: 's3',
+        event_type: 'ReminderMarkerApplied',
+        created_at: '2026-03-13T00:00:02.000Z',
+        payload: {
+          marker_id: 'mk_nodashii',
+          kind: 'no_dashii:poisoned',
+          effect: 'poisoned',
+          note: 'no dashii',
+          source_player_id: 'p3',
+          source_character_id: 'no_dashii',
+          target_player_id: 'p1',
+          target_scope: 'player',
+          authoritative: true,
+          expires_policy: 'manual',
+          expires_at_day_number: null,
+          expires_at_night_number: null,
+          source_event_id: null,
+          metadata: {}
+        }
+      },
+      {
+        event_id: 's4',
+        event_type: 'ReminderMarkerCleared',
+        created_at: '2026-03-13T00:00:03.000Z',
+        payload: {
+          marker_id: 'mk_poisoner',
+          reason: 'retarget'
+        }
+      }
+    ],
+    create_initial_state('g1')
+  );
+
+  assert.equal(state.players_by_id.p1?.poisoned, true);
+  assert.deepEqual(state.active_reminder_marker_ids, ['mk_nodashii']);
+});

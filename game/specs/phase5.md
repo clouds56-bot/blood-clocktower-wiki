@@ -11,6 +11,7 @@ Focus areas:
 - test matrix that proves privacy boundaries under replayed state.
 
 Out of scope:
+- authoritative reminder marker lifecycle and command/event model (Phase 5.5);
 - plugin hook runtime and character ability execution (Phase 6);
 - social claims timeline workflow and review tools (Phase 7);
 - full almanac-perfect character semantics.
@@ -36,6 +37,7 @@ By end of Phase 5, all state inspection for non-Storyteller audiences goes throu
   - other players' `true_character_id`
   - other players' `true_alignment`
   - `drunk` / `poisoned`
+  - hidden reminder markers and marker metadata
   - pending prompt internals
   - Storyteller notes
   - private info logs not addressed to viewer

@@ -5,7 +5,10 @@ import type {
   GameSubphase,
   PlayerId,
   PromptOption,
-  PromptVisibility
+  PromptVisibility,
+  ReminderEffect,
+  ReminderExpiryPolicy,
+  ReminderTargetScope
 } from './types.js';
 
 export interface BaseCommand {
@@ -33,6 +36,12 @@ export type CommandType =
   | 'ResolveExecutionConsequences'
   | 'ApplyDeath'
   | 'MarkPlayerSurvivedExecution'
+  | 'ApplyPoison'
+  | 'ApplyDrunk'
+  | 'ApplyReminderMarker'
+  | 'ClearReminderMarker'
+  | 'ClearReminderMarkersBySelector'
+  | 'SweepReminderExpiry'
   | 'CreatePrompt'
   | 'ResolvePrompt'
   | 'CancelPrompt'
@@ -195,6 +204,84 @@ export interface MarkPlayerSurvivedExecutionCommand extends BaseCommand {
   };
 }
 
+export interface ApplyPoisonCommand extends BaseCommand {
+  command_type: 'ApplyPoison';
+  payload: {
+    marker_id: string;
+    kind: string;
+    note?: string;
+    source_player_id: PlayerId | null;
+    source_character_id: string;
+    target_player_id: PlayerId;
+    day_number: number;
+    night_number: number;
+  };
+}
+
+export interface ApplyDrunkCommand extends BaseCommand {
+  command_type: 'ApplyDrunk';
+  payload: {
+    marker_id: string;
+    kind: string;
+    note?: string;
+    source_player_id: PlayerId | null;
+    source_character_id: string;
+    target_player_id: PlayerId;
+    day_number: number;
+    night_number: number;
+  };
+}
+
+export interface ApplyReminderMarkerCommand extends BaseCommand {
+  command_type: 'ApplyReminderMarker';
+  payload: {
+    marker_id: string;
+    kind: string;
+    effect: ReminderEffect;
+    note: string;
+    source_player_id: PlayerId | null;
+    source_character_id: string | null;
+    target_player_id: PlayerId | null;
+    target_scope: ReminderTargetScope;
+    authoritative: boolean;
+    expires_policy: ReminderExpiryPolicy;
+    expires_at_day_number: number | null;
+    expires_at_night_number: number | null;
+    source_event_id: string | null;
+    metadata: Record<string, unknown>;
+  };
+}
+
+export interface ClearReminderMarkerCommand extends BaseCommand {
+  command_type: 'ClearReminderMarker';
+  payload: {
+    marker_id: string;
+    reason: string;
+  };
+}
+
+export interface ClearReminderMarkersBySelectorCommand extends BaseCommand {
+  command_type: 'ClearReminderMarkersBySelector';
+  payload: {
+    kind: string | null;
+    effect: ReminderEffect | null;
+    source_player_id: PlayerId | null;
+    source_character_id: string | null;
+    target_player_id: PlayerId | null;
+    reason: string;
+  };
+}
+
+export interface SweepReminderExpiryCommand extends BaseCommand {
+  command_type: 'SweepReminderExpiry';
+  payload: {
+    phase: GamePhase;
+    subphase: GameSubphase;
+    day_number: number;
+    night_number: number;
+  };
+}
+
 export interface CreatePromptCommand extends BaseCommand {
   command_type: 'CreatePrompt';
   payload: {
@@ -259,6 +346,12 @@ export type Command =
   | ResolveExecutionConsequencesCommand
   | ApplyDeathCommand
   | MarkPlayerSurvivedExecutionCommand
+  | ApplyPoisonCommand
+  | ApplyDrunkCommand
+  | ApplyReminderMarkerCommand
+  | ClearReminderMarkerCommand
+  | ClearReminderMarkersBySelectorCommand
+  | SweepReminderExpiryCommand
   | CreatePromptCommand
   | ResolvePromptCommand
   | CancelPromptCommand

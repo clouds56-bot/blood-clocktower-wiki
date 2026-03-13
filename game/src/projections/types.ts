@@ -9,6 +9,7 @@ import type {
   PromptState,
   ScriptId,
   EditionId,
+  ReminderMarkerState,
   StorytellerNoteRecord
 } from '../domain/types.js';
 
@@ -87,6 +88,7 @@ export interface StorytellerProjection {
   seat_order: PlayerId[];
   day_state: DayState;
   prompts: PromptState[];
+  reminder_markers: ReminderMarkerState[];
   storyteller_notes: StorytellerNoteRecord[];
   winning_team: Alignment | null;
   end_reason: string | null;

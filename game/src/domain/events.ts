@@ -9,6 +9,9 @@ import type {
   PlayerId,
   PromptOption,
   PromptVisibility,
+  ReminderEffect,
+  ReminderExpiryPolicy,
+  ReminderTargetScope,
   ScriptId
 } from './types.js';
 
@@ -37,6 +40,12 @@ export type DomainEventType =
   | 'PlayerSurvivedExecution'
   | 'ExecutionConsequencesResolved'
   | 'PlayerDied'
+  | 'ReminderMarkerApplied'
+  | 'ReminderMarkerCleared'
+  | 'ReminderMarkerExpired'
+  | 'DrunkApplied'
+  | 'SobrietyRestored'
+  | 'HealthRestored'
   | 'PoisonApplied'
   | 'PoisonCleared'
   | 'DeadVoteConsumed'
@@ -230,6 +239,72 @@ export interface PlayerDiedEvent extends BaseDomainEvent {
   };
 }
 
+export interface ReminderMarkerAppliedEvent extends BaseDomainEvent {
+  event_type: 'ReminderMarkerApplied';
+  payload: {
+    marker_id: string;
+    kind: string;
+    effect: ReminderEffect;
+    note: string;
+    source_player_id: PlayerId | null;
+    source_character_id: string | null;
+    target_player_id: PlayerId | null;
+    target_scope: ReminderTargetScope;
+    authoritative: boolean;
+    expires_policy: ReminderExpiryPolicy;
+    expires_at_day_number: number | null;
+    expires_at_night_number: number | null;
+    source_event_id: string | null;
+    metadata: Record<string, unknown>;
+  };
+}
+
+export interface ReminderMarkerClearedEvent extends BaseDomainEvent {
+  event_type: 'ReminderMarkerCleared';
+  payload: {
+    marker_id: string;
+    reason: string;
+  };
+}
+
+export interface ReminderMarkerExpiredEvent extends BaseDomainEvent {
+  event_type: 'ReminderMarkerExpired';
+  payload: {
+    marker_id: string;
+    reason: string;
+  };
+}
+
+export interface DrunkAppliedEvent extends BaseDomainEvent {
+  event_type: 'DrunkApplied';
+  payload: {
+    player_id: PlayerId;
+    source_marker_id: string;
+    day_number: number;
+    night_number: number;
+  };
+}
+
+export interface SobrietyRestoredEvent extends BaseDomainEvent {
+  event_type: 'SobrietyRestored';
+  payload: {
+    player_id: PlayerId;
+    source_marker_id: string;
+    day_number: number;
+    night_number: number;
+  };
+}
+
+export interface HealthRestoredEvent extends BaseDomainEvent {
+  event_type: 'HealthRestored';
+  payload: {
+    player_id: PlayerId;
+    source_marker_id: string;
+    day_number: number;
+    night_number: number;
+  };
+}
+
 export interface PoisonAppliedEvent extends BaseDomainEvent {
   event_type: 'PoisonApplied';
   payload: {
@@ -391,6 +466,12 @@ export type DomainEvent =
   | PlayerSurvivedExecutionEvent
   | ExecutionConsequencesResolvedEvent
   | PlayerDiedEvent
+  | ReminderMarkerAppliedEvent
+  | ReminderMarkerClearedEvent
+  | ReminderMarkerExpiredEvent
+  | DrunkAppliedEvent
+  | SobrietyRestoredEvent
+  | HealthRestoredEvent
   | PoisonAppliedEvent
   | PoisonClearedEvent
   | DeadVoteConsumedEvent

@@ -19,6 +19,8 @@ export function create_initial_state(game_id: string): GameState {
     interrupt_queue: [],
     prompts_by_id: {},
     pending_prompts: [],
+    reminder_markers_by_id: {},
+    active_reminder_marker_ids: [],
     storyteller_notes: [],
     winning_team: null,
     end_reason: null,

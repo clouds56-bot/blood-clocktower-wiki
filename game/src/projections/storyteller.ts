@@ -57,6 +57,13 @@ export function project_for_storyteller(state: GameState): StorytellerProjection
       options: prompt.options.map((option) => ({ ...option })),
       resolution_payload: prompt.resolution_payload ? { ...prompt.resolution_payload } : null
     })),
+    reminder_markers: state.active_reminder_marker_ids
+      .map((marker_id) => state.reminder_markers_by_id[marker_id])
+      .filter((marker): marker is NonNullable<typeof marker> => Boolean(marker))
+      .map((marker) => ({
+        ...marker,
+        metadata: { ...marker.metadata }
+      })),
     storyteller_notes: state.storyteller_notes.map((note) => ({ ...note })),
     winning_team: state.winning_team,
     end_reason: state.end_reason

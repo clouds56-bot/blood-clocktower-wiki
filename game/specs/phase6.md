@@ -2,7 +2,7 @@
 
 ## Scope
 
-Phase 6 implements the character plugin runtime on top of Phase 1-5 core engine, adjudication, and visibility layers.
+Phase 6 implements the character plugin runtime on top of Phase 1-5.5 core engine, adjudication, visibility, and reminder-marker layers.
 
 Focus areas:
 - plugin contract and metadata for character behavior;
@@ -53,7 +53,7 @@ By end of Phase 6, character behavior is executed by plugins through determinist
 ### 5) Imp and Poisoner prove architecture
 
 - `imp` demonstrates prompt-driven kill resolution.
-- `poisoner` demonstrates status-effect lifecycle via plugin output.
+- `poisoner` demonstrates status-effect lifecycle via reminder marker events (`poisoner:poisoned`) emitted by plugin output.
 - Both implementations prove plugin hooks can express core character behavior without core hardcoding.
 
 ### 6) CLI supports plugin runtime debugging
@@ -139,7 +139,7 @@ Expected deliverables:
 
 Done when:
 - poisoner wake produces target prompt;
-- prompt resolution emits poison apply/restore lifecycle events;
+- prompt resolution emits reminder marker apply/clear lifecycle events for poison targeting;
 - scenario behavior is covered by tests.
 
 ### 6.7 CLI Debugging Surface

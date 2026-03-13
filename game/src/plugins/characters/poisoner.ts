@@ -80,27 +80,45 @@ export const poisoner_plugin: CharacterPlugin = {
         };
       }
 
-      const emitted_events: PluginResult['emitted_events'] = Object.values(context.state.players_by_id)
-        .filter((player) => player.poisoned && player.player_id !== context.selected_option_id)
-        .map((player) => ({
-          event_type: 'PoisonCleared',
+      const emitted_events: PluginResult['emitted_events'] = context.state.active_reminder_marker_ids
+        .map((marker_id) => context.state.reminder_markers_by_id[marker_id])
+        .filter((marker) =>
+          Boolean(
+            marker &&
+              marker.status === 'active' &&
+              marker.kind === 'poisoner:poisoned' &&
+              marker.source_player_id === poisoner_player_id
+          )
+        )
+        .map((marker) => ({
+          event_type: 'ReminderMarkerCleared',
           payload: {
-            player_id: player.player_id,
-            source_plugin_id: 'poisoner',
-            day_number: context.state.day_number,
-            night_number: context.state.night_number
+            marker_id: marker!.marker_id,
+            reason: 'poisoner_retarget'
           }
         }));
 
       const selected_player = context.state.players_by_id[context.selected_option_id];
-      if (selected_player && !selected_player.poisoned) {
+      if (selected_player) {
         emitted_events.push({
-          event_type: 'PoisonApplied',
+          event_type: 'ReminderMarkerApplied',
           payload: {
-            player_id: context.selected_option_id,
-            source_plugin_id: 'poisoner',
-            day_number: context.state.day_number,
-            night_number: context.state.night_number
+            marker_id: `plugin:poisoner:poisoned:${context.state.night_number}:${poisoner_player_id}:${context.selected_option_id}`,
+            kind: 'poisoner:poisoned',
+            effect: 'poisoned',
+            note: 'poisoned by poisoner',
+            source_player_id: poisoner_player_id,
+            source_character_id: 'poisoner',
+            target_player_id: context.selected_option_id,
+            target_scope: 'player',
+            authoritative: true,
+            expires_policy: 'manual',
+            expires_at_day_number: null,
+            expires_at_night_number: null,
+            source_event_id: null,
+            metadata: {
+              from_prompt_id: context.prompt_id
+            }
           }
         });
       }

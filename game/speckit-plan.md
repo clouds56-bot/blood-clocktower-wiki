@@ -5,6 +5,7 @@
 - Build deterministic core first, character complexity second.
 - Keep Storyteller adjudication explicit, never implicit.
 - Keep social claims separate from authoritative state.
+- Treat reminder markers as authoritative buff/debuff state (not arbitrary UI-only tokens).
 - Enforce naming convention:
   - payload/state keys = `snake_case`
   - command/event/type names = `PascalCase`
@@ -154,6 +155,58 @@ Enforce hidden-information boundaries.
 
 ---
 
+### SPEC-05.5 Authoritative Reminder Marker System
+
+**Goal**
+Redesign reminders as an authoritative buff/debuff and role-parameter system used directly by rule checks.
+
+**Tasks**
+- Define `ReminderMarker` model and state indexes:
+  - `reminder_markers_by_id`
+  - `active_reminder_marker_ids`
+- Include marker fields:
+  - `kind` (for example `poisoner:poisoned`)
+  - `effect` (`poisoned` | `drunk` | ...)
+  - `note` (short storyteller-facing text)
+  - source/target linkage and expiry metadata
+- Add reminder marker commands:
+  - `ApplyReminderMarker`
+  - `ClearReminderMarker`
+  - `ClearReminderMarkersBySelector`
+  - `SweepReminderExpiry`
+- Keep compatibility status commands for existing plugin callers:
+  - `ApplyPoison`
+  - `ApplyDrunk`
+- Add reminder marker events:
+  - `ReminderMarkerApplied`
+  - `ReminderMarkerCleared`
+  - `ReminderMarkerExpired`
+- Keep compatibility status transition events:
+  - `PoisonApplied`, `HealthRestored`
+  - `DrunkApplied`, `SobrietyRestored`
+- Make `poisoned`/`drunk` state marker-derived (support stacked concurrent sources).
+- Add deterministic `marker_id` policy (event-linked id, stable under replay).
+- Add projection rules so markers are deny-by-default outside Storyteller view unless rules-visible.
+- Add CLI commands for marker inspection/lifecycle.
+
+**Deliverables**
+- updates in `game/src/domain/types.ts`, `game/src/domain/state.ts`
+- updates in `game/src/domain/commands.ts`, `game/src/domain/events.ts`
+- reducer + invariant integration for marker lifecycle
+- deterministic compatibility bridge (marker lifecycle -> status transition events)
+- projection + CLI integration for marker visibility/operations
+- marker-focused tests
+
+**Definition of Done**
+- marker lifecycle is fully evented and replay-safe;
+- same-kind markers can coexist with distinct `marker_id` instances;
+- selective clear does not remove unrelated sources (for example poisoner retarget does not clear no-dashii poison);
+- derived status fields match active authoritative markers;
+- `ApplyPoison` / `ApplyDrunk` remain supported as adapter commands over markers;
+- player/public projections do not leak hidden markers by default.
+
+---
+
 ### SPEC-06 Plugin Runtime (Character Engine)
 
 **Goal**
@@ -183,7 +236,7 @@ Support character-specific behavior via plugins.
   - Prompt resolution hook emits consequence events via engine flow.
 - **SPEC-06.6 Sample Plugin: Poisoner**
   - Wake hook requests poison target prompt.
-  - Prompt resolution hook emits poison apply/restore lifecycle events.
+  - Prompt resolution hook emits reminder marker apply/clear lifecycle events (`poisoner:poisoned`).
 - **SPEC-06.7 CLI Debugging Surface**
   - Add commands to list plugins, inspect last hook dispatch output, inspect queues.
 - **SPEC-06.8 Test + Hardening**
@@ -267,9 +320,10 @@ Stabilize API and improve developer workflow.
 3. SPEC-03
 4. SPEC-03.1
 5. SPEC-04 + SPEC-05 (parallel possible after SPEC-02/03)
-6. SPEC-06.1 -> SPEC-06.8
-7. SPEC-07
-8. SPEC-08
+6. SPEC-05.5
+7. SPEC-06.1 -> SPEC-06.8
+8. SPEC-07
+9. SPEC-08
 
 ## Test Matrix (minimum)
 
@@ -287,6 +341,12 @@ Stabilize API and improve developer workflow.
 - projection non-leak guarantees
 - projection omits `registered_*` from player/public by default
 - projection DTO id types align with domain id aliases
+- reminder marker apply/clear/expire lifecycle
+- same-kind reminder markers coexist with unique `marker_id`
+- poison stacking scenario (`poisoner:poisoned` + `no_dashii:poisoned`) remains poisoned when one source clears
+- deterministic event-linked marker ids under replay
+- marker visibility is deny-by-default for player/public projections
+- compatibility bridge emits `PoisonApplied` / `HealthRestored` and `DrunkApplied` / `SobrietyRestored` only on effective status transitions
 - plugin interrupt behavior
 - social claims lifecycle and querying
 
