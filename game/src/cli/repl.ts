@@ -218,6 +218,7 @@ function run_setup_player(
     payload: {
       player_id: action.player_id,
       true_character_id: action.true_character_id,
+      true_character_type: action.character_type,
       is_demon: action.character_type === 'demon',
       is_traveller: action.character_type === 'traveller'
     }

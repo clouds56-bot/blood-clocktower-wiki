@@ -21,6 +21,7 @@ export function project_for_storyteller(state: GameState): StorytellerProjection
         alive: player.alive,
         dead_vote_available: player.dead_vote_available,
         true_character_id: player.true_character_id,
+        true_character_type: player.true_character_type ?? null,
         perceived_character_id: player.perceived_character_id,
         true_alignment: player.true_alignment,
         registered_character_id: player.registered_character_id,

@@ -243,10 +243,14 @@ export function handle_command(
       } as {
         player_id: string;
         true_character_id: string;
+        true_character_type?: 'townsfolk' | 'outsider' | 'minion' | 'demon' | 'traveller';
         is_demon?: boolean;
         is_traveller?: boolean;
       };
 
+      if (command.payload.true_character_type !== undefined) {
+        payload.true_character_type = command.payload.true_character_type;
+      }
       if (command.payload.is_demon !== undefined) {
         payload.is_demon = command.payload.is_demon;
       }

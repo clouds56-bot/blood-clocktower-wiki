@@ -451,6 +451,7 @@ export function build_quick_setup_seed_commands(
       payload: {
         player_id: assignment.player_id,
         true_character_id: assignment.true_character_id,
+        true_character_type: assignment.character_type,
         is_demon: assignment.character_type === 'demon',
         is_traveller: assignment.character_type === 'traveller'
       }
