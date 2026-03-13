@@ -258,7 +258,56 @@ function run_setup_player(
   });
 }
 
+function choose_random<T>(items: T[]): T | null {
+  if (items.length === 0) {
+    return null;
+  }
+  const index = Math.floor(Math.random() * items.length);
+  return items[index] ?? null;
+}
+
+function resolve_random_pending_prompt(context: CliContext): boolean {
+  const pending_prompt_ids = context.state.pending_prompts.filter((prompt_id) => {
+    const prompt = context.state.prompts_by_id[prompt_id];
+    return Boolean(prompt && prompt.status === 'pending');
+  });
+  const prompt_id = choose_random(pending_prompt_ids);
+  if (!prompt_id) {
+    return true;
+  }
+
+  const prompt = context.state.prompts_by_id[prompt_id];
+  if (!prompt || prompt.status !== 'pending') {
+    return true;
+  }
+
+  const random_option = choose_random(prompt.options);
+  return run_engine_command(context, {
+    command_type: 'ResolvePrompt',
+    payload: {
+      prompt_id,
+      selected_option_id: random_option?.option_id ?? null,
+      freeform: null,
+      notes: 'auto_random_next'
+    }
+  });
+}
+
+function make_repl_prompt(state: GameState): string {
+  if (state.pending_prompts.length > 0) {
+    return `${paint('clocktower>', 'yellow')} `;
+  }
+  return 'clocktower> ';
+}
+
 function run_next_phase(context: CliContext): void {
+  if (context.state.pending_prompts.length > 0) {
+    const resolved = resolve_random_pending_prompt(context);
+    if (!resolved) {
+      return;
+    }
+  }
+
   const { phase, subphase, day_number, night_number } = context.state;
 
   function advance_to(next_subphase: GameState['subphase']): void {
@@ -606,18 +655,23 @@ export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void
     prompt: 'clocktower> '
   });
 
-  rl.prompt();
+  const prompt_again = (): void => {
+    rl.setPrompt(make_repl_prompt(context.state));
+    rl.prompt();
+  };
+
+  prompt_again();
 
   rl.on('line', (line) => {
     const parsed = parse_cli_line(line, context.state);
     if (!parsed.ok) {
       process.stdout.write(`${parsed.message}\n`);
-      rl.prompt();
+      prompt_again();
       return;
     }
 
     if (parsed.kind === 'empty') {
-      rl.prompt();
+      prompt_again();
       return;
     }
 
@@ -627,12 +681,12 @@ export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void
         rl.close();
         return;
       }
-      rl.prompt();
+      prompt_again();
       return;
     }
 
     run_engine_command(context, parsed.command);
-    rl.prompt();
+    prompt_again();
   });
 
   await new Promise<void>((resolve) => {

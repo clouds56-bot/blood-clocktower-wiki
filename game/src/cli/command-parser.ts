@@ -207,6 +207,19 @@ function default_pending_prompt_id(state?: GameState): string | null {
   return state.pending_prompts[0] ?? null;
 }
 
+function random_option_id_for_prompt(state: GameState | undefined, prompt_id: string): string | null {
+  if (!state) {
+    return null;
+  }
+  const prompt = state.prompts_by_id[prompt_id];
+  if (!prompt || prompt.status !== 'pending' || prompt.options.length === 0) {
+    return null;
+  }
+  const index = Math.floor(Math.random() * prompt.options.length);
+  const option = prompt.options[index];
+  return option?.option_id ?? null;
+}
+
 export function parse_cli_line(input: string, state?: GameState): ParsedCliLine {
   const line = input.trim();
   if (line.length === 0) {
@@ -893,8 +906,29 @@ export function parse_cli_line(input: string, state?: GameState): ParsedCliLine 
     };
   }
 
-  if (command === 'resolve-prompt') {
+  if (command === 'resolve-prompt' || command === 'choose' || command === 'ch') {
+    const is_choose_alias = command === 'choose' || command === 'ch';
     const default_prompt_id = default_pending_prompt_id(state);
+
+    if (is_choose_alias && args.length === 0) {
+      if (!default_prompt_id) {
+        return invalid('usage: choose [prompt_id] [selected_option_id|-] [notes...]');
+      }
+      return {
+        ok: true,
+        kind: 'engine',
+        command: {
+          command_type: 'ResolvePrompt',
+          payload: {
+            prompt_id: default_prompt_id,
+            selected_option_id: random_option_id_for_prompt(state, default_prompt_id),
+            freeform: null,
+            notes: 'auto_random_choice'
+          }
+        }
+      };
+    }
+
     let prompt_id = args[0] ?? default_prompt_id;
     let selected_option_id: string | null = args[1] === undefined || args[1] === '-' ? null : (args[1] ?? null);
     let notes_text = args.slice(2).join(' ').trim();
@@ -908,6 +942,14 @@ export function parse_cli_line(input: string, state?: GameState): ParsedCliLine 
     if (!prompt_id) {
       return invalid('usage: resolve-prompt [prompt_id] [selected_option_id|-] [notes...]');
     }
+
+    if (is_choose_alias && selected_option_id === null) {
+      selected_option_id = random_option_id_for_prompt(state, prompt_id);
+      if (notes_text.length === 0) {
+        notes_text = 'auto_random_choice';
+      }
+    }
+
     return {
       ok: true,
       kind: 'engine',
