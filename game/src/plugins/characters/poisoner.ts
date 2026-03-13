@@ -51,7 +51,20 @@ export const poisoner_plugin: CharacterPlugin = {
       };
     },
     on_prompt_resolved: (context): PluginResult => {
-      if (!context.prompt_id.startsWith(POISONER_PROMPT_PREFIX)) {
+      const poisoner_player_id = parse_poisoner_prompt_owner_player_id(context.prompt_id);
+      if (!poisoner_player_id) {
+        return {
+          emitted_events: [],
+          queued_prompts: [],
+          queued_interrupts: []
+        };
+      }
+
+      const poisoner_player = context.state.players_by_id[poisoner_player_id];
+      const poisoner_can_use_ability = Boolean(
+        poisoner_player && poisoner_player.alive && !poisoner_player.drunk && !poisoner_player.poisoned
+      );
+      if (!poisoner_can_use_ability) {
         return {
           emitted_events: [],
           queued_prompts: [],
@@ -103,4 +116,15 @@ export const poisoner_plugin: CharacterPlugin = {
 
 export function is_poisoner_prompt_id(prompt_id: string): boolean {
   return prompt_id.startsWith(POISONER_PROMPT_PREFIX);
+}
+
+function parse_poisoner_prompt_owner_player_id(prompt_id: string): string | null {
+  const parts = prompt_id.split(':');
+  if (parts.length < 5) {
+    return null;
+  }
+  if (parts[0] !== 'plugin' || parts[1] !== 'poisoner' || parts[2] !== 'night_poison') {
+    return null;
+  }
+  return parts[4] ?? null;
 }

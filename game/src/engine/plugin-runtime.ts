@@ -333,9 +333,7 @@ function process_wake_queue(
     const ability_blocked =
       !wake_player ||
       !wake_plugin ||
-      (!wake_player.alive && !wake_plugin.metadata.flags.can_function_while_dead) ||
-      wake_player.drunk ||
-      wake_player.poisoned;
+      (!wake_player.alive && !wake_plugin.metadata.flags.can_function_while_dead);
 
     if (ability_blocked) {
       const wake_consumed: DomainEvent = {

@@ -598,7 +598,7 @@ test('poisoner prompt resolves into poison apply and restore flow', () => {
   assert.equal(resolved_n2_state.players_by_id.p2?.poisoned, true);
 });
 
-test('poisoned imp wake is consumed without kill prompt', () => {
+test('poisoned imp still wakes and chooses but kill effect is suppressed', () => {
   let state = create_initial_state('g1');
   state = apply_events(state, [
     {
@@ -691,6 +691,39 @@ test('poisoned imp wake is consumed without kill prompt', () => {
       (event) =>
         event.event_type === 'PromptQueued' &&
         event.payload.prompt_id.startsWith('plugin:imp:night_kill:')
+    ),
+    true
+  );
+
+  state = apply_events(state, resolve_events);
+  const imp_prompt = resolve_events.find(
+    (event) =>
+      event.event_type === 'PromptQueued' &&
+      event.payload.prompt_id.startsWith('plugin:imp:night_kill:1:p2')
+  );
+  assert.ok(imp_prompt && imp_prompt.event_type === 'PromptQueued');
+
+  const resolve_imp_events = run_with_registry(
+    state,
+    {
+      command_id: 'c_resolve_imp_poisoned',
+      command_type: 'ResolvePrompt',
+      actor_id: 'storyteller',
+      payload: {
+        prompt_id: imp_prompt.payload.prompt_id,
+        selected_option_id: 'p3',
+        freeform: null,
+        notes: null
+      }
+    },
+    registry
+  );
+
+  assert.equal(
+    resolve_imp_events.some(
+      (event) =>
+        event.event_type === 'PlayerDied' &&
+        event.payload.player_id === 'p3'
     ),
     false
   );

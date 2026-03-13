@@ -57,6 +57,21 @@ test('poisoner prompt resolution emits poison apply and restore lifecycle events
   const state = create_initial_state('g1');
   state.day_number = 1;
   state.night_number = 2;
+  state.players_by_id.p1 = {
+    player_id: 'p1',
+    display_name: 'PoisonerPlayer',
+    alive: true,
+    dead_vote_available: true,
+    true_character_id: 'poisoner',
+    perceived_character_id: null,
+    true_alignment: 'evil',
+    registered_character_id: null,
+    registered_alignment: null,
+    drunk: false,
+    poisoned: false,
+    is_traveller: false,
+    is_demon: false
+  };
   state.players_by_id.p2 = {
     player_id: 'p2',
     display_name: 'OldTarget',

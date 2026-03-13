@@ -51,7 +51,18 @@ export const imp_plugin: CharacterPlugin = {
       };
     },
     on_prompt_resolved: (context): PluginResult => {
-      if (!context.prompt_id.startsWith(IMP_PROMPT_PREFIX)) {
+      const imp_player_id = parse_imp_prompt_owner_player_id(context.prompt_id);
+      if (!imp_player_id) {
+        return {
+          emitted_events: [],
+          queued_prompts: [],
+          queued_interrupts: []
+        };
+      }
+
+      const imp_player = context.state.players_by_id[imp_player_id];
+      const imp_can_use_ability = Boolean(imp_player && imp_player.alive && !imp_player.drunk && !imp_player.poisoned);
+      if (!imp_can_use_ability) {
         return {
           emitted_events: [],
           queued_prompts: [],
@@ -88,4 +99,15 @@ export const imp_plugin: CharacterPlugin = {
 
 export function is_imp_prompt_id(prompt_id: string): boolean {
   return prompt_id.startsWith(IMP_PROMPT_PREFIX);
+}
+
+function parse_imp_prompt_owner_player_id(prompt_id: string): string | null {
+  const parts = prompt_id.split(':');
+  if (parts.length < 5) {
+    return null;
+  }
+  if (parts[0] !== 'plugin' || parts[1] !== 'imp' || parts[2] !== 'night_kill') {
+    return null;
+  }
+  return parts[4] ?? null;
 }
