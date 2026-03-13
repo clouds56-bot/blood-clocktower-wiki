@@ -3,39 +3,12 @@ import test from 'node:test';
 
 import { create_initial_state } from '../../src/domain/state.js';
 import { imp_plugin, is_imp_prompt_id } from '../../src/plugins/characters/imp.js';
+import { make_player } from './tb-test-utils.js';
 
 test('imp wake hook returns player-visible target prompt', () => {
   const state = create_initial_state('g1');
-  state.players_by_id.p1 = {
-    player_id: 'p1',
-    display_name: 'ImpPlayer',
-    alive: true,
-    dead_vote_available: true,
-    true_character_id: 'imp',
-    perceived_character_id: null,
-    true_alignment: 'evil',
-    registered_character_id: null,
-    registered_alignment: null,
-    drunk: false,
-    poisoned: false,
-    is_traveller: false,
-    is_demon: true
-  };
-  state.players_by_id.p2 = {
-    player_id: 'p2',
-    display_name: 'TargetA',
-    alive: true,
-    dead_vote_available: true,
-    true_character_id: 'washerwoman',
-    perceived_character_id: null,
-    true_alignment: 'good',
-    registered_character_id: null,
-    registered_alignment: null,
-    drunk: false,
-    poisoned: false,
-    is_traveller: false,
-    is_demon: false
-  };
+  state.players_by_id.p1 = make_player('p1', 'ImpPlayer', 'imp', 'evil', { is_demon: true });
+  state.players_by_id.p2 = make_player('p2', 'TargetA', 'washerwoman', 'good');
 
   const result = imp_plugin.hooks.on_night_wake?.({
     state,
@@ -57,36 +30,8 @@ test('imp prompt resolution emits PlayerDied consequence', () => {
   const state = create_initial_state('g1');
   state.day_number = 0;
   state.night_number = 1;
-  state.players_by_id.p1 = {
-    player_id: 'p1',
-    display_name: 'ImpPlayer',
-    alive: true,
-    dead_vote_available: true,
-    true_character_id: 'imp',
-    perceived_character_id: null,
-    true_alignment: 'evil',
-    registered_character_id: null,
-    registered_alignment: null,
-    drunk: false,
-    poisoned: false,
-    is_traveller: false,
-    is_demon: true
-  };
-  state.players_by_id.p2 = {
-    player_id: 'p2',
-    display_name: 'TargetA',
-    alive: true,
-    dead_vote_available: true,
-    true_character_id: 'washerwoman',
-    perceived_character_id: null,
-    true_alignment: 'good',
-    registered_character_id: null,
-    registered_alignment: null,
-    drunk: false,
-    poisoned: false,
-    is_traveller: false,
-    is_demon: false
-  };
+  state.players_by_id.p1 = make_player('p1', 'ImpPlayer', 'imp', 'evil', { is_demon: true });
+  state.players_by_id.p2 = make_player('p2', 'TargetA', 'washerwoman', 'good');
 
   const result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
@@ -112,36 +57,8 @@ test('imp does not kill dead target', () => {
   const state = create_initial_state('g1');
   state.day_number = 1;
   state.night_number = 2;
-  state.players_by_id.p1 = {
-    player_id: 'p1',
-    display_name: 'ImpPlayer',
-    alive: true,
-    dead_vote_available: true,
-    true_character_id: 'imp',
-    perceived_character_id: null,
-    true_alignment: 'evil',
-    registered_character_id: null,
-    registered_alignment: null,
-    drunk: false,
-    poisoned: false,
-    is_traveller: false,
-    is_demon: true
-  };
-  state.players_by_id.p2 = {
-    player_id: 'p2',
-    display_name: 'DeadTarget',
-    alive: false,
-    dead_vote_available: true,
-    true_character_id: 'washerwoman',
-    perceived_character_id: null,
-    true_alignment: 'good',
-    registered_character_id: null,
-    registered_alignment: null,
-    drunk: false,
-    poisoned: false,
-    is_traveller: false,
-    is_demon: false
-  };
+  state.players_by_id.p1 = make_player('p1', 'ImpPlayer', 'imp', 'evil', { is_demon: true });
+  state.players_by_id.p2 = make_player('p2', 'DeadTarget', 'washerwoman', 'good', { alive: false });
 
   const result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
@@ -158,36 +75,8 @@ test('imp does not kill sober Soldier target', () => {
   const state = create_initial_state('g1');
   state.day_number = 1;
   state.night_number = 2;
-  state.players_by_id.p1 = {
-    player_id: 'p1',
-    display_name: 'ImpPlayer',
-    alive: true,
-    dead_vote_available: true,
-    true_character_id: 'imp',
-    perceived_character_id: null,
-    true_alignment: 'evil',
-    registered_character_id: null,
-    registered_alignment: null,
-    drunk: false,
-    poisoned: false,
-    is_traveller: false,
-    is_demon: true
-  };
-  state.players_by_id.p2 = {
-    player_id: 'p2',
-    display_name: 'Soldier',
-    alive: true,
-    dead_vote_available: true,
-    true_character_id: 'soldier',
-    perceived_character_id: null,
-    true_alignment: 'good',
-    registered_character_id: null,
-    registered_alignment: null,
-    drunk: false,
-    poisoned: false,
-    is_traveller: false,
-    is_demon: false
-  };
+  state.players_by_id.p1 = make_player('p1', 'ImpPlayer', 'imp', 'evil', { is_demon: true });
+  state.players_by_id.p2 = make_player('p2', 'Soldier', 'soldier', 'good');
 
   const result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
@@ -204,36 +93,8 @@ test('imp kills poisoned Soldier target', () => {
   const state = create_initial_state('g1');
   state.day_number = 1;
   state.night_number = 2;
-  state.players_by_id.p1 = {
-    player_id: 'p1',
-    display_name: 'ImpPlayer',
-    alive: true,
-    dead_vote_available: true,
-    true_character_id: 'imp',
-    perceived_character_id: null,
-    true_alignment: 'evil',
-    registered_character_id: null,
-    registered_alignment: null,
-    drunk: false,
-    poisoned: false,
-    is_traveller: false,
-    is_demon: true
-  };
-  state.players_by_id.p2 = {
-    player_id: 'p2',
-    display_name: 'Soldier',
-    alive: true,
-    dead_vote_available: true,
-    true_character_id: 'soldier',
-    perceived_character_id: null,
-    true_alignment: 'good',
-    registered_character_id: null,
-    registered_alignment: null,
-    drunk: false,
-    poisoned: true,
-    is_traveller: false,
-    is_demon: false
-  };
+  state.players_by_id.p1 = make_player('p1', 'ImpPlayer', 'imp', 'evil', { is_demon: true });
+  state.players_by_id.p2 = make_player('p2', 'Soldier', 'soldier', 'good', { poisoned: true });
 
   const result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
@@ -251,36 +112,8 @@ test('imp does not kill monk protected target', () => {
   const state = create_initial_state('g1');
   state.day_number = 1;
   state.night_number = 2;
-  state.players_by_id.p1 = {
-    player_id: 'p1',
-    display_name: 'ImpPlayer',
-    alive: true,
-    dead_vote_available: true,
-    true_character_id: 'imp',
-    perceived_character_id: null,
-    true_alignment: 'evil',
-    registered_character_id: null,
-    registered_alignment: null,
-    drunk: false,
-    poisoned: false,
-    is_traveller: false,
-    is_demon: true
-  };
-  state.players_by_id.p2 = {
-    player_id: 'p2',
-    display_name: 'Target',
-    alive: true,
-    dead_vote_available: true,
-    true_character_id: 'washerwoman',
-    perceived_character_id: null,
-    true_alignment: 'good',
-    registered_character_id: null,
-    registered_alignment: null,
-    drunk: false,
-    poisoned: false,
-    is_traveller: false,
-    is_demon: false
-  };
+  state.players_by_id.p1 = make_player('p1', 'ImpPlayer', 'imp', 'evil', { is_demon: true });
+  state.players_by_id.p2 = make_player('p2', 'Target', 'washerwoman', 'good');
   state.reminder_markers_by_id.m1 = {
     marker_id: 'm1',
     kind: 'monk:safe',

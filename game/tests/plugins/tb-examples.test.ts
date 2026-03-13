@@ -10,13 +10,14 @@ import { investigator_plugin } from '../../src/plugins/characters/investigator.j
 import { librarian_plugin } from '../../src/plugins/characters/librarian.js';
 import { monk_plugin } from '../../src/plugins/characters/monk.js';
 import { washerwoman_plugin } from '../../src/plugins/characters/washerwoman.js';
+import { make_player } from './tb-test-utils.js';
 
 test('chef example: no adjacent evil players -> learns 0', () => {
   const state = create_initial_state('g1');
   state.seat_order = ['p1', 'p2', 'p3', 'p4'];
   state.players_by_id.p1 = make_player('p1', 'Chef', 'chef', 'good');
   state.players_by_id.p2 = make_player('p2', 'GoodA', 'washerwoman', 'good');
-  state.players_by_id.p3 = make_player('p3', 'Imp', 'imp', 'evil', true, true);
+  state.players_by_id.p3 = make_player('p3', 'Imp', 'imp', 'evil', { is_demon: true });
   state.players_by_id.p4 = make_player('p4', 'GoodB', 'librarian', 'good');
 
   const result = chef_plugin.hooks.on_night_wake?.({ state, player_id: 'p1', wake_step_id: 'wake:1' });
@@ -27,7 +28,7 @@ test('chef example: two adjacent evil pairs -> learns 2', () => {
   const state = create_initial_state('g1');
   state.seat_order = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6'];
   state.players_by_id.p1 = make_player('p1', 'Chef', 'chef', 'good');
-  state.players_by_id.p2 = make_player('p2', 'Imp', 'imp', 'evil', true, true);
+  state.players_by_id.p2 = make_player('p2', 'Imp', 'imp', 'evil', { is_demon: true });
   state.players_by_id.p3 = make_player('p3', 'Baron', 'baron', 'evil');
   state.players_by_id.p4 = make_player('p4', 'GoodA', 'washerwoman', 'good');
   state.players_by_id.p5 = make_player('p5', 'Poisoner', 'poisoner', 'evil');
@@ -54,9 +55,9 @@ test('empath example: after neighbors die, nearest alive include one evil -> lea
   const state = create_initial_state('g1');
   state.seat_order = ['p1', 'p2', 'p3', 'p4', 'p5'];
   state.players_by_id.p1 = make_player('p1', 'Empath', 'empath', 'good');
-  state.players_by_id.p2 = make_player('p2', 'Soldier', 'soldier', 'good', false);
+  state.players_by_id.p2 = make_player('p2', 'Soldier', 'soldier', 'good', { alive: false });
   state.players_by_id.p3 = make_player('p3', 'Librarian', 'librarian', 'good');
-  state.players_by_id.p4 = make_player('p4', 'Monk', 'monk', 'good', false);
+  state.players_by_id.p4 = make_player('p4', 'Monk', 'monk', 'good', { alive: false });
   state.players_by_id.p5 = make_player('p5', 'Gunslinger', 'gunslinger', 'evil');
 
   const result = empath_plugin.hooks.on_night_wake?.({ state, player_id: 'p1', wake_step_id: 'wake:2' });
@@ -67,7 +68,7 @@ test('empath example: final 3 with Imp and Baron neighbors -> learns 2', () => {
   const state = create_initial_state('g1');
   state.seat_order = ['p1', 'p2', 'p3'];
   state.players_by_id.p1 = make_player('p1', 'Empath', 'empath', 'good');
-  state.players_by_id.p2 = make_player('p2', 'Imp', 'imp', 'evil', true, true);
+  state.players_by_id.p2 = make_player('p2', 'Imp', 'imp', 'evil', { is_demon: true });
   state.players_by_id.p3 = make_player('p3', 'Baron', 'baron', 'evil');
 
   const result = empath_plugin.hooks.on_night_wake?.({ state, player_id: 'p1', wake_step_id: 'wake:3' });
@@ -92,7 +93,7 @@ test('fortune teller example: Monk + Undertaker -> no', () => {
 test('fortune teller example: Imp + Empath -> yes', () => {
   const state = create_initial_state('g1');
   state.players_by_id.p1 = make_player('p1', 'FortuneTeller', 'fortune_teller', 'good');
-  state.players_by_id.p2 = make_player('p2', 'Imp', 'imp', 'evil', true, true);
+  state.players_by_id.p2 = make_player('p2', 'Imp', 'imp', 'evil', { is_demon: true });
   state.players_by_id.p3 = make_player('p3', 'Empath', 'empath', 'good');
 
   const result = fortune_teller_plugin.hooks.on_prompt_resolved?.({
@@ -223,7 +224,7 @@ test('washerwoman example: Imp + Virgin pair -> learns Virgin', () => {
   const state = create_initial_state('g1');
   state.seat_order = ['p1', 'p2', 'p3'];
   state.players_by_id.p1 = make_player('p1', 'Washerwoman', 'washerwoman', 'good');
-  state.players_by_id.p2 = make_player('p2', 'Julian', 'imp', 'evil', true, true);
+  state.players_by_id.p2 = make_player('p2', 'Julian', 'imp', 'evil', { is_demon: true });
   state.players_by_id.p3 = make_player('p3', 'Alex', 'virgin', 'good');
 
   const result = washerwoman_plugin.hooks.on_night_wake?.({ state, player_id: 'p1', wake_step_id: 'wake:1' });
@@ -240,7 +241,7 @@ test('monk example: protects Fortune Teller from Imp attack', () => {
   state.night_number = 2;
   state.players_by_id.p1 = make_player('p1', 'Monk', 'monk', 'good');
   state.players_by_id.p2 = make_player('p2', 'FortuneTeller', 'fortune_teller', 'good');
-  state.players_by_id.p3 = make_player('p3', 'Imp', 'imp', 'evil', true, true);
+  state.players_by_id.p3 = make_player('p3', 'Imp', 'imp', 'evil', { is_demon: true });
 
   const monk_result = monk_plugin.hooks.on_prompt_resolved?.({
     state,
@@ -301,7 +302,7 @@ test('monk example: protects Mayor from Imp attack (no death)', () => {
   state.night_number = 2;
   state.players_by_id.p1 = make_player('p1', 'Monk', 'monk', 'good');
   state.players_by_id.p2 = make_player('p2', 'Mayor', 'mayor', 'good');
-  state.players_by_id.p3 = make_player('p3', 'Imp', 'imp', 'evil', true, true);
+  state.players_by_id.p3 = make_player('p3', 'Imp', 'imp', 'evil', { is_demon: true });
 
   const monk_result = monk_plugin.hooks.on_prompt_resolved?.({
     state,
@@ -362,7 +363,7 @@ test.skip('monk example: monk protects Imp self-kill transfer case (Imp self-tar
 test('soldier example: Imp attacks Soldier -> no death', () => {
   const state = create_initial_state('g1');
   state.night_number = 2;
-  state.players_by_id.p1 = make_player('p1', 'Imp', 'imp', 'evil', true, true);
+  state.players_by_id.p1 = make_player('p1', 'Imp', 'imp', 'evil', { is_demon: true });
   state.players_by_id.p2 = make_player('p2', 'Soldier', 'soldier', 'good');
 
   const result = imp_plugin.hooks.on_prompt_resolved?.({
@@ -377,11 +378,8 @@ test('soldier example: Imp attacks Soldier -> no death', () => {
 test('soldier example: poisoned Soldier is killed by Imp', () => {
   const state = create_initial_state('g1');
   state.night_number = 2;
-  state.players_by_id.p1 = make_player('p1', 'Imp', 'imp', 'evil', true, true);
-  state.players_by_id.p2 = {
-    ...make_player('p2', 'Soldier', 'soldier', 'good'),
-    poisoned: true
-  };
+  state.players_by_id.p1 = make_player('p1', 'Imp', 'imp', 'evil', { is_demon: true });
+  state.players_by_id.p2 = make_player('p2', 'Soldier', 'soldier', 'good', { poisoned: true });
 
   const result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
@@ -396,11 +394,8 @@ test('soldier example: poisoned Soldier is killed by Imp', () => {
 test('soldier example: drunk Soldier is killed by Imp', () => {
   const state = create_initial_state('g1');
   state.night_number = 2;
-  state.players_by_id.p1 = make_player('p1', 'Imp', 'imp', 'evil', true, true);
-  state.players_by_id.p2 = {
-    ...make_player('p2', 'Soldier', 'soldier', 'good'),
-    drunk: true
-  };
+  state.players_by_id.p1 = make_player('p1', 'Imp', 'imp', 'evil', { is_demon: true });
+  state.players_by_id.p2 = make_player('p2', 'Soldier', 'soldier', 'good', { drunk: true });
 
   const result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
@@ -414,28 +409,3 @@ test('soldier example: drunk Soldier is killed by Imp', () => {
 
 test.skip('imp example: self-kill passes demonhood to a minion (not implemented yet)');
 test.skip('poisoner examples: slayer/undertaker/saint/poison-source removal interactions (not implemented yet)');
-
-function make_player(
-  player_id: string,
-  display_name: string,
-  true_character_id: string,
-  true_alignment: 'good' | 'evil',
-  alive = true,
-  is_demon = false
-) {
-  return {
-    player_id,
-    display_name,
-    alive,
-    dead_vote_available: true,
-    true_character_id,
-    perceived_character_id: null,
-    true_alignment,
-    registered_character_id: null,
-    registered_alignment: null,
-    drunk: false,
-    poisoned: false,
-    is_traveller: false,
-    is_demon
-  };
-}

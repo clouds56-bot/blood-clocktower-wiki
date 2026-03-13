@@ -8,6 +8,7 @@ import {
   fortune_teller_plugin,
   is_fortune_teller_prompt_id
 } from '../../src/plugins/characters/fortune-teller.js';
+import { make_player } from './tb-test-utils.js';
 
 test('chef records adjacent evil pair count', () => {
   const state = create_initial_state('g1');
@@ -33,7 +34,7 @@ test('empath counts alive evil neighbors and skips dead players', () => {
   const state = create_initial_state('g1');
   state.seat_order = ['p1', 'p2', 'p3', 'p4', 'p5'];
   state.players_by_id.p1 = make_player('p1', 'Empath', 'empath', 'good');
-  state.players_by_id.p2 = make_player('p2', 'DeadGood', 'washerwoman', 'good', false);
+  state.players_by_id.p2 = make_player('p2', 'DeadGood', 'washerwoman', 'good', { alive: false });
   state.players_by_id.p3 = make_player('p3', 'Minion', 'poisoner', 'evil');
   state.players_by_id.p4 = make_player('p4', 'Good2', 'chef', 'good');
   state.players_by_id.p5 = make_player('p5', 'Demon', 'imp', 'evil');
@@ -81,7 +82,7 @@ test('fortune teller resolves yes when pair includes red herring', () => {
   state.players_by_id.p1 = make_player('p1', 'FT', 'fortune_teller', 'good');
   state.players_by_id.p2 = make_player('p2', 'GoodA', 'chef', 'good');
   state.players_by_id.p3 = make_player('p3', 'GoodB', 'washerwoman', 'good');
-  state.players_by_id.p4 = make_player('p4', 'Imp', 'imp', 'evil', true, true);
+  state.players_by_id.p4 = make_player('p4', 'Imp', 'imp', 'evil', { is_demon: true });
   state.reminder_markers_by_id.rh = {
     marker_id: 'rh',
     kind: 'fortune_teller:red_herring',
@@ -115,28 +116,3 @@ test('fortune teller resolves yes when pair includes red herring', () => {
   const note = result?.emitted_events[0]?.payload.note;
   assert.equal(note, 'fortune_teller_info:p1:pair=p2,p3;yes=true');
 });
-
-function make_player(
-  player_id: string,
-  display_name: string,
-  true_character_id: string,
-  true_alignment: 'good' | 'evil',
-  alive = true,
-  is_demon = false
-) {
-  return {
-    player_id,
-    display_name,
-    alive,
-    dead_vote_available: true,
-    true_character_id,
-    perceived_character_id: null,
-    true_alignment,
-    registered_character_id: null,
-    registered_alignment: null,
-    drunk: false,
-    poisoned: false,
-    is_traveller: false,
-    is_demon
-  };
-}

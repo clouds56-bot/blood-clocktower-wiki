@@ -3,39 +3,12 @@ import test from 'node:test';
 
 import { create_initial_state } from '../../src/domain/state.js';
 import { poisoner_plugin, is_poisoner_prompt_id } from '../../src/plugins/characters/poisoner.js';
+import { make_player } from './tb-test-utils.js';
 
 test('poisoner wake hook returns player-visible poison target prompt', () => {
   const state = create_initial_state('g1');
-  state.players_by_id.p1 = {
-    player_id: 'p1',
-    display_name: 'PoisonerPlayer',
-    alive: true,
-    dead_vote_available: true,
-    true_character_id: 'poisoner',
-    perceived_character_id: null,
-    true_alignment: 'evil',
-    registered_character_id: null,
-    registered_alignment: null,
-    drunk: false,
-    poisoned: false,
-    is_traveller: false,
-    is_demon: false
-  };
-  state.players_by_id.p2 = {
-    player_id: 'p2',
-    display_name: 'TargetA',
-    alive: true,
-    dead_vote_available: true,
-    true_character_id: 'washerwoman',
-    perceived_character_id: null,
-    true_alignment: 'good',
-    registered_character_id: null,
-    registered_alignment: null,
-    drunk: false,
-    poisoned: false,
-    is_traveller: false,
-    is_demon: false
-  };
+  state.players_by_id.p1 = make_player('p1', 'PoisonerPlayer', 'poisoner', 'evil');
+  state.players_by_id.p2 = make_player('p2', 'TargetA', 'washerwoman', 'good');
 
   const result = poisoner_plugin.hooks.on_night_wake?.({
     state,
@@ -57,51 +30,9 @@ test('poisoner prompt resolution emits reminder marker lifecycle events', () => 
   const state = create_initial_state('g1');
   state.day_number = 1;
   state.night_number = 2;
-  state.players_by_id.p1 = {
-    player_id: 'p1',
-    display_name: 'PoisonerPlayer',
-    alive: true,
-    dead_vote_available: true,
-    true_character_id: 'poisoner',
-    perceived_character_id: null,
-    true_alignment: 'evil',
-    registered_character_id: null,
-    registered_alignment: null,
-    drunk: false,
-    poisoned: false,
-    is_traveller: false,
-    is_demon: false
-  };
-  state.players_by_id.p2 = {
-    player_id: 'p2',
-    display_name: 'OldTarget',
-    alive: true,
-    dead_vote_available: true,
-    true_character_id: 'washerwoman',
-    perceived_character_id: null,
-    true_alignment: 'good',
-    registered_character_id: null,
-    registered_alignment: null,
-    drunk: false,
-    poisoned: true,
-    is_traveller: false,
-    is_demon: false
-  };
-  state.players_by_id.p3 = {
-    player_id: 'p3',
-    display_name: 'NewTarget',
-    alive: true,
-    dead_vote_available: true,
-    true_character_id: 'chef',
-    perceived_character_id: null,
-    true_alignment: 'good',
-    registered_character_id: null,
-    registered_alignment: null,
-    drunk: false,
-    poisoned: false,
-    is_traveller: false,
-    is_demon: false
-  };
+  state.players_by_id.p1 = make_player('p1', 'PoisonerPlayer', 'poisoner', 'evil');
+  state.players_by_id.p2 = make_player('p2', 'OldTarget', 'washerwoman', 'good', { poisoned: true });
+  state.players_by_id.p3 = make_player('p3', 'NewTarget', 'chef', 'good');
   state.reminder_markers_by_id.m1 = {
     marker_id: 'm1',
     kind: 'poisoner:poisoned',

@@ -3,39 +3,12 @@ import test from 'node:test';
 
 import { create_initial_state } from '../../src/domain/state.js';
 import { is_monk_prompt_id, monk_plugin } from '../../src/plugins/characters/monk.js';
+import { make_player } from './tb-test-utils.js';
 
 test('monk wake hook returns player-visible protection prompt', () => {
   const state = create_initial_state('g1');
-  state.players_by_id.p1 = {
-    player_id: 'p1',
-    display_name: 'MonkPlayer',
-    alive: true,
-    dead_vote_available: true,
-    true_character_id: 'monk',
-    perceived_character_id: null,
-    true_alignment: 'good',
-    registered_character_id: null,
-    registered_alignment: null,
-    drunk: false,
-    poisoned: false,
-    is_traveller: false,
-    is_demon: false
-  };
-  state.players_by_id.p2 = {
-    player_id: 'p2',
-    display_name: 'TargetA',
-    alive: true,
-    dead_vote_available: true,
-    true_character_id: 'washerwoman',
-    perceived_character_id: null,
-    true_alignment: 'good',
-    registered_character_id: null,
-    registered_alignment: null,
-    drunk: false,
-    poisoned: false,
-    is_traveller: false,
-    is_demon: false
-  };
+  state.players_by_id.p1 = make_player('p1', 'MonkPlayer', 'monk', 'good');
+  state.players_by_id.p2 = make_player('p2', 'TargetA', 'washerwoman', 'good');
 
   const result = monk_plugin.hooks.on_night_wake?.({
     state,
@@ -56,51 +29,9 @@ test('monk wake hook returns player-visible protection prompt', () => {
 test('monk prompt resolution clears prior target and applies fresh protection marker', () => {
   const state = create_initial_state('g1');
   state.night_number = 2;
-  state.players_by_id.p1 = {
-    player_id: 'p1',
-    display_name: 'MonkPlayer',
-    alive: true,
-    dead_vote_available: true,
-    true_character_id: 'monk',
-    perceived_character_id: null,
-    true_alignment: 'good',
-    registered_character_id: null,
-    registered_alignment: null,
-    drunk: false,
-    poisoned: false,
-    is_traveller: false,
-    is_demon: false
-  };
-  state.players_by_id.p2 = {
-    player_id: 'p2',
-    display_name: 'OldTarget',
-    alive: true,
-    dead_vote_available: true,
-    true_character_id: 'washerwoman',
-    perceived_character_id: null,
-    true_alignment: 'good',
-    registered_character_id: null,
-    registered_alignment: null,
-    drunk: false,
-    poisoned: false,
-    is_traveller: false,
-    is_demon: false
-  };
-  state.players_by_id.p3 = {
-    player_id: 'p3',
-    display_name: 'NewTarget',
-    alive: true,
-    dead_vote_available: true,
-    true_character_id: 'chef',
-    perceived_character_id: null,
-    true_alignment: 'good',
-    registered_character_id: null,
-    registered_alignment: null,
-    drunk: false,
-    poisoned: false,
-    is_traveller: false,
-    is_demon: false
-  };
+  state.players_by_id.p1 = make_player('p1', 'MonkPlayer', 'monk', 'good');
+  state.players_by_id.p2 = make_player('p2', 'OldTarget', 'washerwoman', 'good');
+  state.players_by_id.p3 = make_player('p3', 'NewTarget', 'chef', 'good');
   state.reminder_markers_by_id.m1 = {
     marker_id: 'm1',
     kind: 'monk:safe',
