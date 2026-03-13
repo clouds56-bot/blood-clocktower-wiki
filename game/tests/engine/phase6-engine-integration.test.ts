@@ -7,6 +7,7 @@ import { create_initial_state } from '../../src/domain/state.js';
 import type { GameState } from '../../src/domain/types.js';
 import type { CharacterPlugin, CharacterPluginMetadata } from '../../src/plugins/contracts.js';
 import { empty_plugin_result } from '../../src/plugins/contracts.js';
+import { imp_plugin } from '../../src/plugins/characters/imp.js';
 import { PluginRegistry } from '../../src/plugins/registry.js';
 import { handle_command } from '../../src/engine/command-handler.js';
 
@@ -269,4 +270,56 @@ test('non-boundary commands do not invoke plugin hooks', () => {
   assert.deepEqual(events.map((event) => event.event_type), ['PlayerAdded']);
   assert.equal(nightWakeCalls, 0);
   assert.equal(promptResolveCalls, 0);
+});
+
+test('imp plugin prompt resolves into death through engine flow', () => {
+  let state = bootstrap_night_state();
+  const registry = new PluginRegistry([imp_plugin]);
+
+  const wake_events = run_with_registry(
+    state,
+    {
+      command_id: 'c_phase_imp',
+      command_type: 'AdvancePhase',
+      actor_id: 'storyteller',
+      payload: {
+        phase: 'first_night',
+        subphase: 'night_wake_sequence',
+        day_number: 0,
+        night_number: 1
+      }
+    },
+    registry
+  );
+
+  state = apply_events(state, wake_events);
+
+  const imp_prompt = wake_events.find(
+    (event) => event.event_type === 'PromptQueued' && event.payload.prompt_id.startsWith('plugin:imp:night_kill:')
+  );
+  assert.ok(imp_prompt);
+  const imp_prompt_id =
+    imp_prompt && imp_prompt.event_type === 'PromptQueued' ? imp_prompt.payload.prompt_id : null;
+  assert.ok(imp_prompt_id);
+
+  const resolve_events = run_with_registry(
+    state,
+    {
+      command_id: 'c_resolve_imp_prompt',
+      command_type: 'ResolvePrompt',
+      actor_id: 'storyteller',
+      payload: {
+        prompt_id: imp_prompt_id!,
+        selected_option_id: 'p2',
+        freeform: null,
+        notes: 'imp chooses Bob'
+      }
+    },
+    registry
+  );
+
+  assert.equal(resolve_events.some((event) => event.event_type === 'PlayerDied'), true);
+
+  const resolved_state = apply_events(state, resolve_events);
+  assert.equal(resolved_state.players_by_id.p2?.alive, false);
 });

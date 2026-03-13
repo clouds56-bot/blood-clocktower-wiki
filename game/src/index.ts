@@ -20,3 +20,4 @@ export * from './projections/public.js';
 export * from './plugins/contracts.js';
 export * from './plugins/registry.js';
 export * from './plugins/dispatcher.js';
+export * from './plugins/characters/imp.js';
