@@ -1,11 +1,35 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
 import {
+  build_info_role_misinformation_hooks,
   build_misinformation_prompt,
   get_player_information_mode,
   is_misinformation_prompt_id
 } from './tb-info-utils.js';
 
 const FORTUNE_TELLER_PROMPT_PREFIX = 'plugin:fortune_teller:night_check';
+
+const fortune_teller_misinfo_hooks = build_info_role_misinformation_hooks({
+  role_id: 'fortune_teller',
+  build_truthful_result: (): PluginResult => ({
+    emitted_events: [],
+    queued_prompts: [],
+    queued_interrupts: []
+  }),
+  build_misinformation_selection: () => ({
+    mode: 'single_choice',
+    options: [
+      { option_id: 'yes', label: 'Show YES' },
+      { option_id: 'no', label: 'Show NO' }
+    ]
+  }),
+  build_misinformation_note: ({ subject_player_id, selected_option_id, prompt_id }) => {
+    const parsed = parse_fortune_teller_misinfo_prompt(prompt_id);
+    if (!parsed) {
+      return `fortune_teller_info:${subject_player_id}:pair=unknown,unknown;yes=${selected_option_id === 'yes'}`;
+    }
+    return `fortune_teller_info:${parsed.owner_player_id}:pair=${parsed.left_player_id},${parsed.right_player_id};yes=${selected_option_id === 'yes'}`;
+  }
+});
 
 export const fortune_teller_plugin: CharacterPlugin = {
   metadata: {
@@ -58,29 +82,7 @@ export const fortune_teller_plugin: CharacterPlugin = {
     },
     on_prompt_resolved: (context): PluginResult => {
       if (is_misinformation_prompt_id(context.prompt_id, 'fortune_teller')) {
-        const misinfo = parse_fortune_teller_misinfo_prompt(context.prompt_id);
-        if (!misinfo) {
-          return {
-            emitted_events: [],
-            queued_prompts: [],
-            queued_interrupts: []
-          };
-        }
-
-        const yes = context.selected_option_id === 'yes';
-        return {
-          emitted_events: [
-            {
-              event_type: 'StorytellerRulingRecorded',
-              payload: {
-                prompt_id: context.prompt_id,
-                note: `fortune_teller_info:${misinfo.owner_player_id}:pair=${misinfo.left_player_id},${misinfo.right_player_id};yes=${yes}`
-              }
-            }
-          ],
-          queued_prompts: [],
-          queued_interrupts: []
-        };
+        return fortune_teller_misinfo_hooks.on_prompt_resolved(context);
       }
 
       const owner_player_id = parse_fortune_teller_prompt_owner_player_id(context.prompt_id);

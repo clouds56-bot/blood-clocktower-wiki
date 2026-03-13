@@ -34,6 +34,8 @@ test('chef queues misinformation prompt when poisoned', () => {
   const state = create_initial_state('g1');
   state.night_number = 1;
   state.players_by_id.p1 = make_player('p1', 'Chef', 'chef', 'good', { poisoned: true });
+  state.players_by_id.p2 = make_player('p2', 'A', 'washerwoman', 'good');
+  state.players_by_id.p3 = make_player('p3', 'B', 'imp', 'evil', { is_demon: true });
 
   const wake = chef_plugin.hooks.on_night_wake?.({
     state,
@@ -44,7 +46,7 @@ test('chef queues misinformation prompt when poisoned', () => {
   assert.equal(wake?.queued_prompts.length, 1);
   assert.equal(wake?.queued_prompts[0]?.prompt_id, 'plugin:chef:misinfo:1:p1');
   assert.equal(wake?.queued_prompts[0]?.selection_mode, 'number_range');
-  assert.deepEqual(wake?.queued_prompts[0]?.number_range, { min: 0, max: 2 });
+  assert.deepEqual(wake?.queued_prompts[0]?.number_range, { min: 0, max: 3 });
 
   const resolved = chef_plugin.hooks.on_prompt_resolved?.({
     state,

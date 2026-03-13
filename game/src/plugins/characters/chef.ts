@@ -21,16 +21,16 @@ const chef_info_hooks = build_info_role_misinformation_hooks({
       queued_interrupts: []
     };
   },
-  build_misinformation_selection: () => ({
+  build_misinformation_selection: ({ context }) => ({
     mode: 'number_range',
     range: {
       min: 0,
-      max: 2
+      max: Object.keys(context.state.players_by_id).length
     }
   }),
-  build_misinformation_note: (subject_player_id, selected_option_id) => {
-    return `chef_info:${subject_player_id}:adjacent_evil_pairs=${selected_option_id ?? '0'}`;
-  }
+  build_misinformation_note: ({ subject_player_id, selected_option_id }) =>
+    `chef_info:${subject_player_id}:adjacent_evil_pairs=${selected_option_id ?? '0'}`,
+  build_truthful_answer: (context) => String(count_adjacent_evil_pairs(context.state))
 });
 
 export const chef_plugin: CharacterPlugin = {

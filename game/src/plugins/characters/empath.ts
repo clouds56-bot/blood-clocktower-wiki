@@ -28,9 +28,9 @@ const empath_info_hooks = build_info_role_misinformation_hooks({
       max: 2
     }
   }),
-  build_misinformation_note: (subject_player_id, selected_option_id) => {
-    return `empath_info:${subject_player_id}:alive_neighbor_evil_count=${selected_option_id ?? '0'}`;
-  }
+  build_misinformation_note: ({ subject_player_id, selected_option_id }) =>
+    `empath_info:${subject_player_id}:alive_neighbor_evil_count=${selected_option_id ?? '0'}`,
+  build_truthful_answer: (context) => String(count_evil_neighbors(context.state, context.player_id))
 });
 
 export const empath_plugin: CharacterPlugin = {

@@ -76,8 +76,17 @@ export function is_misinformation_prompt_id(prompt_id: string, role_id: string):
 export interface InfoRoleMisinformationConfig {
   role_id: string;
   build_truthful_result: (context: NightWakeHookContext) => PluginResult;
-  build_misinformation_selection: (context: NightWakeHookContext) => MisinformationSelectionSpec;
-  build_misinformation_note: (subject_player_id: string, selected_option_id: string | null) => string;
+  build_misinformation_selection: (args: {
+    context: NightWakeHookContext;
+    truthful_answer: string | null;
+  }) => MisinformationSelectionSpec;
+  build_misinformation_note: (args: {
+    subject_player_id: string;
+    selected_option_id: string | null;
+    prompt_id: string;
+    state: Readonly<GameState>;
+  }) => string;
+  build_truthful_answer?: (context: NightWakeHookContext) => string | null;
   build_inactive_note?: (subject_player_id: string) => string;
 }
 
@@ -107,15 +116,22 @@ export function build_info_role_misinformation_hooks(config: InfoRoleMisinformat
       }
 
       if (info_mode === 'misinformation') {
+        const truthful_answer = config.build_truthful_answer ? config.build_truthful_answer(context) : null;
         return {
           emitted_events: [],
           queued_prompts: [
-            build_misinformation_prompt(
-              config.role_id,
-              context.player_id,
-              context.state.night_number,
-              config.build_misinformation_selection(context)
-            )
+            {
+              ...build_misinformation_prompt(
+                config.role_id,
+                context.player_id,
+                context.state.night_number,
+                config.build_misinformation_selection({
+                  context,
+                  truthful_answer
+                })
+              ),
+              storyteller_hint: truthful_answer
+            }
           ],
           queued_interrupts: []
         };
@@ -163,7 +179,12 @@ export function build_info_role_misinformation_hooks(config: InfoRoleMisinformat
             event_type: 'StorytellerRulingRecorded',
             payload: {
               prompt_id: context.prompt_id,
-              note: config.build_misinformation_note(subject_player_id, context.selected_option_id)
+              note: config.build_misinformation_note({
+                subject_player_id,
+                selected_option_id: context.selected_option_id,
+                prompt_id: context.prompt_id,
+                state: context.state
+              })
             }
           }
         ],
