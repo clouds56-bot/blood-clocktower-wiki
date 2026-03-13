@@ -408,6 +408,14 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
         reason: event.payload.reason,
         visibility: event.payload.visibility,
         options: event.payload.options.map((option) => ({ ...option })),
+        selection_mode: event.payload.selection_mode ?? 'single_choice',
+        number_range: event.payload.number_range ? { ...event.payload.number_range } : null,
+        multi_columns: event.payload.multi_columns
+          ? event.payload.multi_columns.map((column) =>
+              Array.isArray(column) ? [...column] : { ...column }
+            )
+          : null,
+        storyteller_hint: event.payload.storyteller_hint ?? null,
         status: 'pending',
         created_at_event_id: event.event_id,
         resolved_at_event_id: null,

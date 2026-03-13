@@ -43,6 +43,16 @@ export interface PromptOption {
   label: string;
 }
 
+export type PromptSelectionMode = 'single_choice' | 'number_range' | 'multi_column';
+
+export interface PromptRangeSpec {
+  min: number;
+  max: number;
+  max_inclusive?: boolean;
+}
+
+export type PromptColumnSpec = PromptRangeSpec | string[];
+
 export interface PromptResolutionPayload {
   selected_option_id: string | null;
   freeform: string | null;
@@ -54,6 +64,10 @@ export interface PromptState {
   reason: string;
   visibility: PromptVisibility;
   options: PromptOption[];
+  selection_mode?: PromptSelectionMode;
+  number_range?: PromptRangeSpec | null;
+  multi_columns?: PromptColumnSpec[] | null;
+  storyteller_hint?: string | null;
   status: 'pending' | 'resolved' | 'cancelled';
   created_at_event_id: EventId;
   resolved_at_event_id: EventId | null;

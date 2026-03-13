@@ -8,7 +8,10 @@ import type {
   GameSubphase,
   IsoTimestamp,
   PlayerId,
+  PromptColumnSpec,
   PromptOption,
+  PromptRangeSpec,
+  PromptSelectionMode,
   PromptVisibility,
   ReminderEffect,
   ReminderExpiryPolicy,
@@ -387,6 +390,10 @@ export interface PromptQueuedEvent extends BaseDomainEvent {
     reason: string;
     visibility: PromptVisibility;
     options: PromptOption[];
+    selection_mode?: PromptSelectionMode;
+    number_range?: PromptRangeSpec | null;
+    multi_columns?: PromptColumnSpec[] | null;
+    storyteller_hint?: string | null;
   };
 }
 
