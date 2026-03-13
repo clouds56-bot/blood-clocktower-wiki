@@ -58,6 +58,27 @@ test('chef queues misinformation prompt when poisoned', () => {
   assert.equal(resolved?.emitted_events[0]?.payload.note, 'chef_info:p1:adjacent_evil_pairs=2');
 });
 
+test('poisoned chef prompt includes truthful hint for storyteller', () => {
+  const state = create_initial_state('g1');
+  state.night_number = 2;
+  state.seat_order = ['p1', 'p2', 'p3', 'p4'];
+  state.players_by_id.p1 = make_player('p1', 'Chef', 'chef', 'good', { poisoned: true });
+  state.players_by_id.p2 = make_player('p2', 'Poisoner', 'poisoner', 'evil');
+  state.players_by_id.p3 = make_player('p3', 'Imp', 'imp', 'evil', { is_demon: true });
+  state.players_by_id.p4 = make_player('p4', 'Good', 'washerwoman', 'good');
+
+  const wake = chef_plugin.hooks.on_night_wake?.({
+    state,
+    player_id: 'p1',
+    wake_step_id: 'wake:2:0:p1:chef'
+  });
+
+  assert.ok(wake);
+  assert.equal(wake?.queued_prompts.length, 1);
+  assert.equal(wake?.queued_prompts[0]?.prompt_id, 'plugin:chef:misinfo:2:p1');
+  assert.equal(wake?.queued_prompts[0]?.storyteller_hint, '1');
+});
+
 test('empath counts alive evil neighbors and skips dead players', () => {
   const state = create_initial_state('g1');
   state.seat_order = ['p1', 'p2', 'p3', 'p4', 'p5'];
