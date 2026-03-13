@@ -167,3 +167,44 @@ test('validate_invariants checks wake and interrupt queue integrity', () => {
   assert.ok(wakeDuplicate);
   assert.ok(interruptDuplicate);
 });
+
+test('validate_invariants rejects invalid wake and interrupt queue fields', () => {
+  const state = create_initial_state('g1');
+  state.players_by_id.p1 = {
+    player_id: 'p1',
+    display_name: 'Alice',
+    alive: true,
+    dead_vote_available: true,
+    true_character_id: null,
+    perceived_character_id: null,
+    true_alignment: null,
+    registered_character_id: null,
+    registered_alignment: null,
+    drunk: false,
+    poisoned: false,
+    is_traveller: false,
+    is_demon: false
+  };
+  state.wake_queue = [
+    {
+      wake_id: ' ',
+      character_id: '',
+      player_id: 'p1'
+    }
+  ];
+  state.interrupt_queue = [
+    {
+      interrupt_id: ' ',
+      kind: '',
+      source_plugin_id: ' ',
+      payload: {}
+    }
+  ];
+
+  const issues = validate_invariants(state);
+  const invalidWake = issues.find((issue) => issue.code === 'wake_queue_invalid_entry');
+  const invalidInterrupt = issues.find((issue) => issue.code === 'interrupt_queue_invalid_entry');
+
+  assert.ok(invalidWake);
+  assert.ok(invalidInterrupt);
+});

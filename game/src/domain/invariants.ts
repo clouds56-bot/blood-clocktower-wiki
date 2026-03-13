@@ -168,6 +168,15 @@ export function validate_invariants(state: GameState): InvariantIssue[] {
 
   const seen_wake_ids = new Set<string>();
   for (const [index, wake] of state.wake_queue.entries()) {
+    if (wake.wake_id.trim().length === 0 || wake.character_id.trim().length === 0) {
+      issues.push({
+        code: 'wake_queue_invalid_entry',
+        message: 'wake_queue entry must include non-empty wake_id and character_id',
+        path: `wake_queue.${index}`,
+        severity: 'error'
+      });
+    }
+
     if (seen_wake_ids.has(wake.wake_id)) {
       issues.push({
         code: 'duplicate_wake_queue_id',
@@ -190,6 +199,20 @@ export function validate_invariants(state: GameState): InvariantIssue[] {
 
   const seen_interrupt_ids = new Set<string>();
   for (const [index, interrupt] of state.interrupt_queue.entries()) {
+    if (
+      interrupt.interrupt_id.trim().length === 0 ||
+      interrupt.kind.trim().length === 0 ||
+      interrupt.source_plugin_id.trim().length === 0
+    ) {
+      issues.push({
+        code: 'interrupt_queue_invalid_entry',
+        message:
+          'interrupt_queue entry must include non-empty interrupt_id, kind, and source_plugin_id',
+        path: `interrupt_queue.${index}`,
+        severity: 'error'
+      });
+    }
+
     if (seen_interrupt_ids.has(interrupt.interrupt_id)) {
       issues.push({
         code: 'duplicate_interrupt_queue_id',
