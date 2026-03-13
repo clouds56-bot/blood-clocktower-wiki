@@ -203,6 +203,27 @@ export function handle_cast_vote(
     return error('dead_vote_not_available', 'dead player has no remaining dead vote');
   }
 
+  if (command.payload.in_favor && voter.alive && voter.true_character_id === 'butler' && !voter.drunk && !voter.poisoned) {
+    const master_marker = state.active_reminder_marker_ids
+      .map((marker_id) => state.reminder_markers_by_id[marker_id])
+      .find((marker) => {
+        return Boolean(
+          marker &&
+            marker.status === 'active' &&
+            marker.kind === 'butler:master' &&
+            marker.authoritative &&
+            marker.source_player_id === voter.player_id
+        );
+      });
+
+    if (master_marker && master_marker.target_player_id) {
+      const master_voted_in_favor = active_vote.votes_by_player_id[master_marker.target_player_id] === true;
+      if (!master_voted_in_favor) {
+        return error('butler_vote_restricted', 'butler can only vote if their master votes');
+      }
+    }
+  }
+
   const events: DomainEvent[] = [
     {
       event_id: `${command.command_id}:VoteCast`,

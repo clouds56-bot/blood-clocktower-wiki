@@ -7,6 +7,7 @@ import { create_initial_state } from '../domain/state.js';
 import type { GameState } from '../domain/types.js';
 import { handle_command } from '../engine/command-handler.js';
 import { chef_plugin } from '../plugins/characters/chef.js';
+import { butler_plugin } from '../plugins/characters/butler.js';
 import { empath_plugin } from '../plugins/characters/empath.js';
 import { fortune_teller_plugin } from '../plugins/characters/fortune-teller.js';
 import { imp_plugin } from '../plugins/characters/imp.js';
@@ -15,6 +16,8 @@ import { librarian_plugin } from '../plugins/characters/librarian.js';
 import { monk_plugin } from '../plugins/characters/monk.js';
 import { poisoner_plugin } from '../plugins/characters/poisoner.js';
 import { soldier_plugin } from '../plugins/characters/soldier.js';
+import { spy_plugin } from '../plugins/characters/spy.js';
+import { undertaker_plugin } from '../plugins/characters/undertaker.js';
 import { washerwoman_plugin } from '../plugins/characters/washerwoman.js';
 import { PluginRegistry } from '../plugins/registry.js';
 import { project_for_player } from '../projections/player.js';
@@ -578,6 +581,7 @@ export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void
     next_command_index: 1,
     plugin_registry: new PluginRegistry([
       chef_plugin,
+      butler_plugin,
       empath_plugin,
       fortune_teller_plugin,
       imp_plugin,
@@ -586,6 +590,8 @@ export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void
       monk_plugin,
       poisoner_plugin,
       soldier_plugin,
+      spy_plugin,
+      undertaker_plugin,
       washerwoman_plugin
     ])
   };

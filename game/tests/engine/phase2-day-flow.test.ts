@@ -511,3 +511,101 @@ test('open vote emits PhaseAdvanced before VoteOpened', () => {
   assert.equal(result.value[0]?.event_type, 'PhaseAdvanced');
   assert.equal(result.value[1]?.event_type, 'VoteOpened');
 });
+
+test('butler yes vote requires master yes vote first', () => {
+  let state = bootstrap_day_state();
+  const p1 = state.players_by_id.p1;
+  assert.ok(p1);
+  p1.true_character_id = 'butler';
+  p1.true_alignment = 'good';
+
+  state.reminder_markers_by_id.m1 = {
+    marker_id: 'm1',
+    kind: 'butler:master',
+    effect: 'butler_master',
+    note: 'master',
+    status: 'active',
+    source_player_id: 'p1',
+    source_character_id: 'butler',
+    target_player_id: 'p2',
+    target_scope: 'player',
+    authoritative: true,
+    expires_policy: 'end_of_day',
+    expires_at_day_number: null,
+    expires_at_night_number: null,
+    created_at_event_id: 'e_master',
+    cleared_at_event_id: null,
+    source_event_id: null,
+    metadata: {}
+  };
+  state.active_reminder_marker_ids = ['m1'];
+
+  state = run_command(state, {
+    command_id: 'c-open',
+    command_type: 'OpenNominationWindow',
+    payload: { day_number: 1 }
+  });
+  state = run_command(state, {
+    command_id: 'c-nom',
+    command_type: 'NominatePlayer',
+    payload: {
+      nomination_id: 'n1',
+      day_number: 1,
+      nominator_player_id: 'p1',
+      nominee_player_id: 'p3'
+    }
+  });
+  state = run_command(state, {
+    command_id: 'c-v-open',
+    command_type: 'OpenVote',
+    payload: {
+      nomination_id: 'n1',
+      nominee_player_id: 'p3',
+      opened_by_player_id: 'p1'
+    }
+  });
+
+  const blocked = handle_command(
+    state,
+    {
+      command_id: 'c-v1',
+      command_type: 'CastVote',
+      payload: {
+        nomination_id: 'n1',
+        voter_player_id: 'p1',
+        in_favor: true
+      }
+    },
+    '2026-03-12T02:00:00.000Z'
+  );
+
+  assert.equal(blocked.ok, false);
+  if (!blocked.ok) {
+    assert.equal(blocked.error.code, 'butler_vote_restricted');
+  }
+
+  state = run_command(state, {
+    command_id: 'c-v2',
+    command_type: 'CastVote',
+    payload: {
+      nomination_id: 'n1',
+      voter_player_id: 'p2',
+      in_favor: true
+    }
+  });
+
+  const allowed = handle_command(
+    state,
+    {
+      command_id: 'c-v3',
+      command_type: 'CastVote',
+      payload: {
+        nomination_id: 'n1',
+        voter_player_id: 'p1',
+        in_favor: true
+      }
+    },
+    '2026-03-12T02:00:01.000Z'
+  );
+  assert.equal(allowed.ok, true);
+});
