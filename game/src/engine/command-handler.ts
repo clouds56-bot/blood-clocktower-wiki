@@ -1,6 +1,7 @@
 import type { Command } from '../domain/commands.js';
 import type { DomainEvent } from '../domain/events.js';
 import type { GameState, PlayerCharacterType } from '../domain/types.js';
+import { infer_character_type_from_id } from '../domain/character-types.js';
 import { apply_events } from '../domain/reducer.js';
 import { dispatch_vote_cast_validate } from '../plugins/dispatcher.js';
 import type { PluginRegistry } from '../plugins/registry.js';
@@ -281,6 +282,11 @@ export function handle_command(
 
       if (command.payload.true_character_type !== undefined) {
         payload.true_character_type = command.payload.true_character_type;
+      } else {
+        const inferred_type = infer_character_type_from_id(command.payload.true_character_id);
+        if (inferred_type !== null) {
+          payload.true_character_type = inferred_type;
+        }
       }
       if (command.payload.is_demon !== undefined) {
         payload.is_demon = command.payload.is_demon;

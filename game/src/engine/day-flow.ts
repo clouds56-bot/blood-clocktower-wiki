@@ -11,7 +11,6 @@ import type {
 import type { DomainEvent } from '../domain/events.js';
 import type { GameState } from '../domain/types.js';
 import { validate_butler_vote_cast } from '../plugins/characters/butler.js';
-import { virgin_plugin } from '../plugins/characters/virgin.js';
 import type { EngineResult } from './phase-machine.js';
 
 function error(code: string, message: string): EngineResult<never> {
@@ -126,67 +125,6 @@ export function handle_nominate_player(
       }
     }
   ];
-
-  const virgin_events =
-    virgin_plugin.hooks.on_nomination_made?.({
-      state,
-      nomination_id: command.payload.nomination_id,
-      day_number: command.payload.day_number,
-      nominator_player_id: nominator.player_id,
-      nominee_player_id: nominee.player_id
-    }).emitted_events ?? [];
-
-  for (const [index, event] of virgin_events.entries()) {
-    if (event.event_type === 'ReminderMarkerApplied') {
-      events.push({
-        event_id: `${command.command_id}:VirginHook:${index}`,
-        event_type: 'ReminderMarkerApplied',
-        created_at,
-        actor_id: command.actor_id,
-        payload: event.payload as Extract<
-          DomainEvent,
-          {
-            event_type: 'ReminderMarkerApplied';
-          }
-        >['payload']
-      });
-      continue;
-    }
-
-    if (event.event_type === 'PlayerExecuted') {
-      const executed_payload = event.payload as Extract<
-        DomainEvent,
-        {
-          event_type: 'PlayerExecuted';
-        }
-      >['payload'];
-
-      events.push({
-        event_id: `${command.command_id}:VirginHook:${index}`,
-        event_type: 'PlayerExecuted',
-        created_at,
-        actor_id: command.actor_id,
-        payload: executed_payload
-      });
-
-      const executed_player = state.players_by_id[executed_payload.player_id];
-      if (executed_player?.alive) {
-        events.push({
-          event_id: `${command.command_id}:VirginHook:${index}:Death`,
-          event_type: 'PlayerDied',
-          created_at,
-          actor_id: command.actor_id,
-          payload: {
-            player_id: executed_payload.player_id,
-            day_number: state.day_number,
-            night_number: state.night_number,
-            reason: 'execution'
-          }
-        });
-      }
-      continue;
-    }
-  }
 
   return {
     ok: true,

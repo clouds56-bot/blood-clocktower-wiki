@@ -143,6 +143,42 @@ function bootstrap_day_vote_state(): GameState {
   ]);
 }
 
+function bootstrap_day_nomination_state(): GameState {
+  const seed = create_initial_state('g1');
+  return apply_events(seed, [
+    {
+      event_id: 'n1',
+      event_type: 'PlayerAdded',
+      created_at: '2026-03-14T00:00:00.000Z',
+      payload: { player_id: 'p1', display_name: 'Alice' }
+    },
+    {
+      event_id: 'n2',
+      event_type: 'PlayerAdded',
+      created_at: '2026-03-14T00:00:01.000Z',
+      payload: { player_id: 'p2', display_name: 'Bob' }
+    },
+    {
+      event_id: 'n3',
+      event_type: 'CharacterAssigned',
+      created_at: '2026-03-14T00:00:02.000Z',
+      payload: { player_id: 'p2', true_character_id: 'custom_nominee' }
+    },
+    {
+      event_id: 'n4',
+      event_type: 'PhaseAdvanced',
+      created_at: '2026-03-14T00:00:03.000Z',
+      payload: { phase: 'day', subphase: 'nomination_window', day_number: 1, night_number: 1 }
+    },
+    {
+      event_id: 'n5',
+      event_type: 'NominationWindowOpened',
+      created_at: '2026-03-14T00:00:04.000Z',
+      payload: { day_number: 1 }
+    }
+  ]);
+}
+
 function run_with_registry(state: GameState, command: Command, registry: PluginRegistry) {
   const result = handle_command(state, command, '2026-03-14T01:00:00.000Z', {
     plugin_registry: registry
@@ -290,6 +326,73 @@ test('resolve prompt boundary re-enters plugin runtime via prompt owner tag', ()
     events.map((event) => event.event_type),
     ['PromptResolved', 'StorytellerChoiceMade', 'StorytellerRulingRecorded']
   );
+});
+
+test('nomination boundary dispatches on_nomination_made for nominee plugin', () => {
+  const nominee_plugin: CharacterPlugin = {
+    metadata: {
+      id: 'custom_nominee',
+      name: 'CUSTOM_NOMINEE',
+      type: 'townsfolk',
+      alignment_at_start: 'good',
+      timing_category: 'day',
+      is_once_per_game: false,
+      target_constraints: {
+        min_targets: 0,
+        max_targets: 0,
+        allow_self: false,
+        require_alive: true,
+        allow_travellers: false
+      },
+      flags: {
+        can_function_while_dead: false,
+        can_trigger_on_death: false,
+        may_cause_drunkenness: false,
+        may_cause_poisoning: false,
+        may_change_alignment: false,
+        may_change_character: false,
+        may_register_as_other: false
+      }
+    },
+    hooks: {
+      on_nomination_made: (context) => ({
+        emitted_events: [
+          {
+            event_type: 'StorytellerRulingRecorded',
+            payload: {
+              prompt_id: null,
+              note: `nomination_hook:${context.nomination_id}:${context.nominator_player_id}->${context.nominee_player_id}`
+            }
+          }
+        ],
+        queued_prompts: [],
+        queued_interrupts: []
+      })
+    }
+  };
+
+  const state = bootstrap_day_nomination_state();
+  const registry = new PluginRegistry([nominee_plugin]);
+
+  const events = run_with_registry(
+    state,
+    {
+      command_id: 'c_nomination_hook',
+      command_type: 'NominatePlayer',
+      actor_id: 'storyteller',
+      payload: {
+        nomination_id: 'n-custom',
+        day_number: 1,
+        nominator_player_id: 'p1',
+        nominee_player_id: 'p2'
+      }
+    },
+    registry
+  );
+
+  assert.equal(events[0]?.event_type, 'NominationMade');
+  assert.equal(events[1]?.event_type, 'StorytellerRulingRecorded');
+  assert.equal(events[1]?.payload.note, 'nomination_hook:n-custom:p1->p2');
 });
 
 test('cast vote validation boundary can reject vote through plugin hook', () => {

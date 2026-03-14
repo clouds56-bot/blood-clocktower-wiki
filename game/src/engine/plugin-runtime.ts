@@ -136,6 +136,67 @@ export function integrate_plugin_runtime(
     }
   }
 
+  if (command.command_type === 'NominatePlayer') {
+    const nominee = runtime_state.players_by_id[command.payload.nominee_player_id];
+    const nominee_plugin_id = nominee?.true_character_id ?? null;
+
+    if (nominee_plugin_id !== null) {
+      const dispatch = dispatch_hook(plugin_registry, 'on_nomination_made', [nominee_plugin_id], {
+        state: runtime_state,
+        nomination_id: command.payload.nomination_id,
+        day_number: command.payload.day_number,
+        nominator_player_id: command.payload.nominator_player_id,
+        nominee_player_id: command.payload.nominee_player_id
+      });
+
+      if (!dispatch.ok) {
+        return as_dispatch_error(dispatch.error.code, dispatch.error.message);
+      }
+
+      const normalized = normalize_dispatch_output(
+        dispatch.value.output,
+        `${command.command_id}:NominationMade`,
+        created_at,
+        command.actor_id
+      );
+
+      const settled_execution_deaths = build_execution_death_events(
+        runtime_state,
+        normalized,
+        `${command.command_id}:NominationMade:ExecutionSettled`,
+        created_at,
+        command.actor_id
+      );
+
+      const combined = [...normalized, ...settled_execution_deaths];
+
+      const prompt_id_check = validate_queued_prompt_ids(runtime_state, combined);
+      if (!prompt_id_check.ok) {
+        return prompt_id_check;
+      }
+
+      runtime_events.push(...combined);
+      const state_before_compat = runtime_state;
+      runtime_state = apply_events(runtime_state, combined);
+
+      const compatibility_events = build_marker_compatibility_events(
+        state_before_compat,
+        runtime_state,
+        combined,
+        `${command.command_id}:NominationMadeCompat`,
+        created_at,
+        command.actor_id
+      );
+      if (compatibility_events.length > 0) {
+        runtime_events.push(...compatibility_events);
+        runtime_state = apply_events(runtime_state, compatibility_events);
+      }
+
+      const drained = drain_interrupt_queue(runtime_state, context, runtime_events);
+      runtime_state = drained.state;
+    }
+  }
+
   return {
     ok: true,
     value: [...base_events, ...runtime_events]
@@ -207,6 +268,59 @@ function normalize_dispatch_output(
   }
 
   return normalized;
+}
+
+function build_execution_death_events(
+  state: GameState,
+  source_events: DomainEvent[],
+  event_id_prefix: string,
+  created_at: string,
+  fallback_actor_id?: string
+): DomainEvent[] {
+  const already_dead_by_source = new Set<string>();
+  for (const event of source_events) {
+    if (event.event_type !== 'PlayerDied') {
+      continue;
+    }
+    if (event.payload.reason !== 'execution') {
+      continue;
+    }
+    already_dead_by_source.add(event.payload.player_id);
+  }
+
+  const settled: DomainEvent[] = [];
+  let index = 0;
+  for (const event of source_events) {
+    if (event.event_type !== 'PlayerExecuted') {
+      continue;
+    }
+
+    const executed_player_id = event.payload.player_id;
+    if (already_dead_by_source.has(executed_player_id)) {
+      continue;
+    }
+
+    const player = state.players_by_id[executed_player_id];
+    if (!player || !player.alive) {
+      continue;
+    }
+
+    settled.push({
+      event_id: `${event_id_prefix}:${index}`,
+      event_type: 'PlayerDied',
+      created_at,
+      ...(fallback_actor_id === undefined ? {} : { actor_id: fallback_actor_id }),
+      payload: {
+        player_id: executed_player_id,
+        day_number: state.day_number,
+        night_number: state.night_number,
+        reason: 'execution'
+      }
+    });
+    index += 1;
+  }
+
+  return settled;
 }
 
 function active_marker_count_for_effect(

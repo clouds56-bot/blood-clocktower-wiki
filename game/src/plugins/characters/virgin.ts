@@ -72,9 +72,11 @@ export function build_virgin_nomination_events(
         marker.source_player_id === nominee.player_id
     );
   });
-  if (virgin_spent || !is_townsfolk_nominator(nominator)) {
+  if (virgin_spent) {
     return [];
   }
+
+  const nominator_is_townsfolk = nominator.true_character_type === 'townsfolk';
 
   const emitted_events: PluginResult['emitted_events'] = [
     {
@@ -99,7 +101,7 @@ export function build_virgin_nomination_events(
         }
       }
     },
-    ...(virgin_is_functional
+    ...(virgin_is_functional && nominator_is_townsfolk
       ? [
           {
             event_type: 'PlayerExecuted' as const,
@@ -114,31 +116,3 @@ export function build_virgin_nomination_events(
 
   return emitted_events;
 }
-
-function is_townsfolk_nominator(player: Readonly<GameState>['players_by_id'][string]): boolean {
-  if (player.true_character_type === 'townsfolk') {
-    return true;
-  }
-
-  const character_id = player.true_character_id;
-  if (!character_id) {
-    return false;
-  }
-  return TOWNSFOLK_IDS.has(character_id);
-}
-
-const TOWNSFOLK_IDS: ReadonlySet<string> = new Set([
-  'chef',
-  'empath',
-  'fortune_teller',
-  'investigator',
-  'librarian',
-  'mayor',
-  'monk',
-  'ravenkeeper',
-  'slayer',
-  'soldier',
-  'undertaker',
-  'virgin',
-  'washerwoman'
-]);

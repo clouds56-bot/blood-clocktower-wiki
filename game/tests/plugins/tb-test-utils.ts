@@ -1,4 +1,5 @@
 import type { PlayerState } from '../../src/domain/types.js';
+import { infer_character_type_from_id } from '../../src/domain/character-types.js';
 
 interface MakePlayerOptions {
   alive?: boolean;
@@ -22,6 +23,7 @@ export function make_player(
     alive: options.alive ?? true,
     dead_vote_available: true,
     true_character_id,
+    true_character_type: infer_character_type_from_id(true_character_id),
     perceived_character_id: options.perceived_character_id ?? null,
     true_alignment,
     registered_character_id: null,
