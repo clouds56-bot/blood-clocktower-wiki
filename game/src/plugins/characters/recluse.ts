@@ -36,21 +36,13 @@ export const recluse_plugin: CharacterPlugin = {
         return null;
       }
 
-      if (!should_use_alternate_registration(context.query_id)) {
+      // Registration adjudication is Storyteller-chosen per query and should be
+      // recorded in registration query state. Providers do not auto-randomize.
+      if (context.requested_fields.length === 0) {
         return null;
       }
 
-      const index = stable_hash(`${context.query_id}:recluse`) % RECLUSE_REGISTER_CHARACTER_IDS.length;
-      const resolved_character_id = RECLUSE_REGISTER_CHARACTER_IDS[index] ?? null;
-      const resolved_character_type = stable_hash(`${context.query_id}:type`) % 2 === 0
-        ? 'minion'
-        : 'demon';
-
-      return {
-        resolved_alignment: 'evil',
-        resolved_character_id,
-        resolved_character_type
-      };
+      return null;
     }
   }
 };
@@ -69,24 +61,3 @@ function can_apply_registration_provider(subject: {
   }
   return !subject.drunk && !subject.poisoned;
 }
-
-function should_use_alternate_registration(query_id: string): boolean {
-  return stable_hash(query_id) % 2 === 0;
-}
-
-function stable_hash(input: string): number {
-  let hash = 0;
-  for (let i = 0; i < input.length; i += 1) {
-    const code = input.charCodeAt(i) ?? 0;
-    hash = (hash * 31 + code) >>> 0;
-  }
-  return hash;
-}
-
-const RECLUSE_REGISTER_CHARACTER_IDS: ReadonlyArray<string> = [
-  'baron',
-  'poisoner',
-  'scarlet_woman',
-  'spy',
-  'imp'
-];

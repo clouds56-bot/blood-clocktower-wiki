@@ -134,6 +134,7 @@ export interface RegistrationQueryHookContext {
   query_kind: 'alignment_check' | 'character_type_check' | 'character_check' | 'demon_check';
   subject_player_id: PlayerId;
   subject_context_player_ids: PlayerId[];
+  requested_fields: Array<'alignment' | 'character_id' | 'character_type'>;
 }
 
 export interface RegistrationQueryHookResult {

@@ -29,7 +29,7 @@ test('spy wake hook records grimoire snapshot note', () => {
   assert.equal(result?.emitted_events[0]?.payload.note, 'spy_grimoire:p1:p1:spy,p2:imp,p3:chef');
 });
 
-test('spy registration provider can resolve differently across query ids', () => {
+test('spy registration provider does not auto-randomize unresolved query', () => {
   const state = create_initial_state('g1');
   state.day_number = 1;
   state.night_number = 1;
@@ -54,11 +54,10 @@ test('spy registration provider can resolve differently across query ids', () =>
     outcomes.add(alignment ?? 'null');
   }
 
-  assert.ok(outcomes.has('evil'));
-  assert.ok(outcomes.has('good'));
+  assert.deepEqual([...outcomes], ['evil']);
 });
 
-test('dead spy still provides registration type outcomes', () => {
+test('dead spy uses storyteller-decided registration query outcome', () => {
   const state = create_initial_state('g1');
   state.day_number = 1;
   state.night_number = 1;
@@ -73,6 +72,25 @@ test('dead spy still provides registration type outcomes', () => {
     query_slot: 'dead_spy'
   });
 
+  state.registration_queries_by_id[query_id] = {
+    query_id,
+    consumer_role_id: 'fortune_teller',
+    query_kind: 'character_type_check',
+    subject_player_id: 'p1',
+    subject_context_player_ids: [],
+    phase: 'night',
+    day_number: 1,
+    night_number: 1,
+    status: 'resolved',
+    resolved_character_id: 'chef',
+    resolved_character_type: 'townsfolk',
+    resolved_alignment: 'good',
+    decision_source: 'storyteller_prompt',
+    created_at_event_id: 'q1',
+    resolved_at_event_id: 'q2',
+    note: 'spy registers as townsfolk for this query'
+  };
+
   const type = resolve_registered_character_type(state, {
     query_id,
     consumer_role_id: 'fortune_teller',
@@ -80,5 +98,5 @@ test('dead spy still provides registration type outcomes', () => {
     subject_player_id: 'p1'
   });
 
-  assert.ok(type === 'townsfolk' || type === 'outsider' || type === 'minion');
+  assert.equal(type, 'townsfolk');
 });

@@ -457,10 +457,29 @@ function resolve_provider_registration(
     consumer_role_id: request.consumer_role_id,
     query_kind: request.query_kind,
     subject_player_id: request.subject_player_id,
-    subject_context_player_ids: [...(request.subject_context_player_ids ?? [])]
+    subject_context_player_ids: [...(request.subject_context_player_ids ?? [])],
+    requested_fields: infer_requested_fields(request.query_kind)
   };
 
   return provider.hooks.on_registration_query(context);
+}
+
+function infer_requested_fields(
+  query_kind: RegistrationQueryRequest['query_kind']
+): Array<'alignment' | 'character_id' | 'character_type'> {
+  if (query_kind === 'alignment_check') {
+    return ['alignment'];
+  }
+  if (query_kind === 'character_check') {
+    return ['character_id'];
+  }
+  if (query_kind === 'character_type_check') {
+    return ['character_type'];
+  }
+  if (query_kind === 'demon_check') {
+    return ['character_type'];
+  }
+  return ['alignment', 'character_id', 'character_type'];
 }
 
 const REGISTRATION_PROVIDERS_BY_CHARACTER_ID: Record<string, CharacterPlugin> = {

@@ -82,21 +82,14 @@ export const spy_plugin: CharacterPlugin = {
         return null;
       }
 
-      if (!should_use_alternate_registration(context.query_id)) {
+      // Registration adjudication is Storyteller-chosen per query and should be
+      // recorded in registration query state. Providers do not auto-randomize.
+      // If query resolution is absent, keep true/default registration.
+      if (context.requested_fields.length === 0) {
         return null;
       }
 
-      const index = stable_hash(`${context.query_id}:spy`) % SPY_REGISTER_CHARACTER_IDS.length;
-      const resolved_character_id = SPY_REGISTER_CHARACTER_IDS[index] ?? null;
-      const resolved_character_type = stable_hash(`${context.query_id}:type`) % 2 === 0
-        ? 'townsfolk'
-        : 'outsider';
-
-      return {
-        resolved_alignment: 'good',
-        resolved_character_id,
-        resolved_character_type
-      };
+      return null;
     }
   }
 };
@@ -131,36 +124,3 @@ function can_apply_registration_provider(subject: {
   }
   return !subject.drunk && !subject.poisoned;
 }
-
-function should_use_alternate_registration(query_id: string): boolean {
-  return stable_hash(query_id) % 2 === 0;
-}
-
-function stable_hash(input: string): number {
-  let hash = 0;
-  for (let i = 0; i < input.length; i += 1) {
-    const code = input.charCodeAt(i) ?? 0;
-    hash = (hash * 31 + code) >>> 0;
-  }
-  return hash;
-}
-
-const SPY_REGISTER_CHARACTER_IDS: ReadonlyArray<string> = [
-  'chef',
-  'empath',
-  'fortune_teller',
-  'investigator',
-  'librarian',
-  'mayor',
-  'monk',
-  'ravenkeeper',
-  'slayer',
-  'soldier',
-  'undertaker',
-  'virgin',
-  'washerwoman',
-  'butler',
-  'drunk',
-  'recluse',
-  'saint'
-];
