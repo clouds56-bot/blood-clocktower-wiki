@@ -61,8 +61,7 @@ export const imp_plugin: CharacterPlugin = {
       }
 
       const imp_player = context.state.players_by_id[imp_player_id];
-      const imp_can_use_ability = Boolean(imp_player && imp_player.alive && !imp_player.drunk && !imp_player.poisoned);
-      if (!imp_can_use_ability) {
+      if (!imp_player || !imp_player.alive || imp_player.drunk || imp_player.poisoned) {
         return {
           emitted_events: [],
           queued_prompts: [],
@@ -123,6 +122,31 @@ export const imp_plugin: CharacterPlugin = {
         }
       ];
 
+      if (context.selected_option_id === imp_player_id) {
+        const transfer_target = find_imp_transfer_target(context.state, imp_player_id);
+        if (transfer_target) {
+          emitted_events.push(
+            {
+              event_type: 'CharacterAssigned',
+              payload: {
+                player_id: imp_player_id,
+                true_character_id: imp_player.true_character_id ?? 'imp',
+                is_demon: false
+              }
+            },
+            {
+              event_type: 'CharacterAssigned',
+              payload: {
+                player_id: transfer_target.player_id,
+                true_character_id: 'imp',
+                true_character_type: 'demon',
+                is_demon: true
+              }
+            }
+          );
+        }
+      }
+
       const queued_prompts: PluginResult['queued_prompts'] = [];
       if (
         target_player.true_character_id === 'ravenkeeper' &&
@@ -154,4 +178,38 @@ function parse_imp_prompt_owner_player_id(prompt_id: string): string | null {
     return null;
   }
   return parts[4] ?? null;
+}
+
+function find_imp_transfer_target(
+  state: Parameters<typeof build_ravenkeeper_reveal_prompt>[0],
+  imp_player_id: string
+): { player_id: string } | null {
+  for (const player_id of state.seat_order) {
+    const player = state.players_by_id[player_id];
+    if (!player || !player.alive) {
+      continue;
+    }
+    if (player.player_id === imp_player_id) {
+      continue;
+    }
+    if (player.true_alignment !== 'evil') {
+      continue;
+    }
+    if (player.true_character_type === 'minion') {
+      return { player_id: player.player_id };
+    }
+    if (player.true_character_type == null && player.true_character_id === 'scarlet_woman') {
+      return { player_id: player.player_id };
+    }
+    if (player.true_character_type == null && player.true_character_id === 'poisoner') {
+      return { player_id: player.player_id };
+    }
+    if (player.true_character_type == null && player.true_character_id === 'baron') {
+      return { player_id: player.player_id };
+    }
+    if (player.true_character_type == null && player.true_character_id === 'spy') {
+      return { player_id: player.player_id };
+    }
+  }
+  return null;
 }

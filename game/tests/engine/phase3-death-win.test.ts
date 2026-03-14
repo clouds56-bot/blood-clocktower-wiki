@@ -263,6 +263,135 @@ test('good wins when demon dies', () => {
   assert.equal(state.winning_team, 'good');
 });
 
+test('scarlet woman takeover prevents immediate good win at 5+ alive', () => {
+  let state = bootstrap_day_state();
+  state = run_command(state, {
+    command_id: 'c-add-p4',
+    command_type: 'AddPlayer',
+    payload: { player_id: 'p4', display_name: 'Drew' }
+  });
+  state = run_command(state, {
+    command_id: 'c-add-p5',
+    command_type: 'AddPlayer',
+    payload: { player_id: 'p5', display_name: 'Eve' }
+  });
+  state = run_command(state, {
+    command_id: 'c-seat-order',
+    command_type: 'SetSeatOrder',
+    payload: { seat_order: ['p1', 'p2', 'p3', 'p4', 'p5'] }
+  });
+  state = run_command(state, {
+    command_id: 'c-assign-imp',
+    command_type: 'AssignCharacter',
+    payload: {
+      player_id: 'p2',
+      true_character_id: 'imp',
+      true_character_type: 'demon',
+      is_demon: true
+    }
+  });
+  state = run_command(state, {
+    command_id: 'c-assign-sw',
+    command_type: 'AssignCharacter',
+    payload: {
+      player_id: 'p4',
+      true_character_id: 'scarlet_woman',
+      true_character_type: 'minion'
+    }
+  });
+  state = run_command(state, {
+    command_id: 'c-kill-demon',
+    command_type: 'ApplyDeath',
+    payload: {
+      player_id: 'p2',
+      reason: 'execution',
+      day_number: 1,
+      night_number: 1
+    }
+  });
+
+  state = run_command(state, {
+    command_id: 'c-check-win',
+    command_type: 'CheckWinConditions',
+    payload: { day_number: 1, night_number: 1 }
+  });
+
+  assert.equal(state.status, 'in_progress');
+  assert.equal(state.players_by_id.p2?.is_demon, false);
+  assert.equal(state.players_by_id.p4?.is_demon, true);
+  assert.equal(state.players_by_id.p4?.true_character_id, 'imp');
+});
+
+test('scarlet woman does not takeover while poisoned and good wins on demon death', () => {
+  let state = bootstrap_day_state();
+  state = run_command(state, {
+    command_id: 'c-add-p4',
+    command_type: 'AddPlayer',
+    payload: { player_id: 'p4', display_name: 'Drew' }
+  });
+  state = run_command(state, {
+    command_id: 'c-add-p5',
+    command_type: 'AddPlayer',
+    payload: { player_id: 'p5', display_name: 'Eve' }
+  });
+  state = run_command(state, {
+    command_id: 'c-seat-order',
+    command_type: 'SetSeatOrder',
+    payload: { seat_order: ['p1', 'p2', 'p3', 'p4', 'p5'] }
+  });
+  state = run_command(state, {
+    command_id: 'c-assign-imp',
+    command_type: 'AssignCharacter',
+    payload: {
+      player_id: 'p2',
+      true_character_id: 'imp',
+      true_character_type: 'demon',
+      is_demon: true
+    }
+  });
+  state = run_command(state, {
+    command_id: 'c-assign-sw',
+    command_type: 'AssignCharacter',
+    payload: {
+      player_id: 'p4',
+      true_character_id: 'scarlet_woman',
+      true_character_type: 'minion'
+    }
+  });
+  state = run_command(state, {
+    command_id: 'c-poison-sw',
+    command_type: 'ApplyPoison',
+    payload: {
+      marker_id: 'm-sw-poison',
+      kind: 'test:poison',
+      source_player_id: null,
+      source_character_id: 'test',
+      target_player_id: 'p4',
+      day_number: 1,
+      night_number: 1
+    }
+  });
+  state = run_command(state, {
+    command_id: 'c-kill-demon',
+    command_type: 'ApplyDeath',
+    payload: {
+      player_id: 'p2',
+      reason: 'execution',
+      day_number: 1,
+      night_number: 1
+    }
+  });
+
+  state = run_command(state, {
+    command_id: 'c-check-win',
+    command_type: 'CheckWinConditions',
+    payload: { day_number: 1, night_number: 1 }
+  });
+
+  assert.equal(state.status, 'ended');
+  assert.equal(state.winning_team, 'good');
+});
+
 test('evil wins when two non-traveller players alive', () => {
   let state = bootstrap_day_state();
   state = run_command(state, {
