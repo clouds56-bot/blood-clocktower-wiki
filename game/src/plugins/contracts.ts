@@ -4,7 +4,10 @@ import type {
   CharacterType,
   GameState,
   PlayerId,
+  PromptColumnSpec,
   PromptOption,
+  PromptRangeSpec,
+  PromptSelectionMode,
   PromptVisibility
 } from '../domain/types.js';
 
@@ -62,6 +65,10 @@ export interface PluginPromptSpec {
   reason: string;
   visibility: PromptVisibility;
   options: PromptOption[];
+  selection_mode?: PromptSelectionMode;
+  number_range?: PromptRangeSpec | null;
+  multi_columns?: PromptColumnSpec[] | null;
+  storyteller_hint?: string | null;
 }
 
 export interface PluginInterruptSpec {

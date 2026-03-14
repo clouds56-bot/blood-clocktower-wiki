@@ -162,6 +162,20 @@ function format_active_vote(day_state: PublicProjection['day_state']): string {
   return [summary, votes_table].join('\n');
 }
 
+function describe_prompt_input(prompt: PromptState): string {
+  const mode = prompt.selection_mode ?? 'single_choice';
+  if (mode === 'number_range' && prompt.number_range) {
+    if (prompt.number_range.max_inclusive === false) {
+      return `range min=${prompt.number_range.min} max=${prompt.number_range.max} max_exclusive`;
+    }
+    return `range min=${prompt.number_range.min} max=${prompt.number_range.max}`;
+  }
+  if (mode === 'multi_column' && prompt.multi_columns) {
+    return `multi columns=${prompt.multi_columns.length}`;
+  }
+  return `choice options=${prompt.options.length}`;
+}
+
 function format_day_summary(projection: PublicProjection): string {
   return [
     `nom_window=${bool_emoji(projection.day_state.nomination_window_open)}`,
@@ -287,14 +301,16 @@ export function format_storyteller_projection(projection: StorytellerProjection)
     : [
         'prompts:',
         render_table(
-          ['id', 'kind', 'status', 'vis', 'choice', 'notes'],
+          ['id', 'kind', 'status', 'vis', 'input', 'choice', 'notes', 'hint'],
           projection.prompts.map((prompt) => [
             prompt.prompt_id,
             prompt.kind,
             prompt.status,
             prompt.visibility,
+            describe_prompt_input(prompt),
             prompt.resolution_payload?.selected_option_id ?? '-',
-            prompt.notes ?? '-'
+            prompt.notes ?? '-',
+            prompt.storyteller_hint ?? '-'
           ])
         )
       ].join('\n');

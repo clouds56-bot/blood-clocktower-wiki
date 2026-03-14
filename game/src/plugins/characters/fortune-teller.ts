@@ -1,7 +1,37 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
-import { is_functional_player } from './tb-info-utils.js';
+import {
+  build_registration_query_id,
+  build_info_role_misinformation_hooks,
+  build_misinformation_prompt,
+  get_player_information_mode,
+  is_misinformation_prompt_id,
+  resolves_as_demon
+} from './tb-info-utils.js';
 
 const FORTUNE_TELLER_PROMPT_PREFIX = 'plugin:fortune_teller:night_check';
+
+const fortune_teller_misinfo_hooks = build_info_role_misinformation_hooks({
+  role_id: 'fortune_teller',
+  build_truthful_result: (): PluginResult => ({
+    emitted_events: [],
+    queued_prompts: [],
+    queued_interrupts: []
+  }),
+  build_misinformation_selection: () => ({
+    mode: 'single_choice',
+    options: [
+      { option_id: 'yes', label: 'Show YES' },
+      { option_id: 'no', label: 'Show NO' }
+    ]
+  }),
+  build_misinformation_note: ({ subject_player_id, selected_option_id, prompt_id }) => {
+    const parsed = parse_fortune_teller_misinfo_prompt(prompt_id);
+    if (!parsed) {
+      return `fortune_teller_info:${subject_player_id}:pair=unknown,unknown;yes=${selected_option_id === 'yes'}`;
+    }
+    return `fortune_teller_info:${parsed.owner_player_id}:pair=${parsed.left_player_id},${parsed.right_player_id};yes=${selected_option_id === 'yes'}`;
+  }
+});
 
 export const fortune_teller_plugin: CharacterPlugin = {
   metadata: {
@@ -15,7 +45,7 @@ export const fortune_teller_plugin: CharacterPlugin = {
       min_targets: 2,
       max_targets: 2,
       allow_self: true,
-      require_alive: true,
+      require_alive: false,
       allow_travellers: false
     },
     flags: {
@@ -30,10 +60,10 @@ export const fortune_teller_plugin: CharacterPlugin = {
   },
   hooks: {
     on_night_wake: (context): PluginResult => {
-      const alive_players = Object.values(context.state.players_by_id)
-        .filter((player) => player.alive)
-        .sort((left, right) => left.player_id.localeCompare(right.player_id));
-      const options = build_pair_options(alive_players.map((player) => player.player_id));
+      const players = Object.values(context.state.players_by_id).sort((left, right) =>
+        left.player_id.localeCompare(right.player_id)
+      );
+      const player_ids = players.map((player) => player.player_id);
 
       return {
         emitted_events: [],
@@ -43,13 +73,20 @@ export const fortune_teller_plugin: CharacterPlugin = {
             kind: 'choice',
             reason: 'plugin:fortune_teller:choose two players',
             visibility: 'player',
-            options
+            options: [],
+            selection_mode: 'multi_column',
+            multi_columns: [player_ids, player_ids],
+            storyteller_hint: 'select two different players (order does not matter)'
           }
         ],
         queued_interrupts: []
       };
     },
     on_prompt_resolved: (context): PluginResult => {
+      if (is_misinformation_prompt_id(context.prompt_id, 'fortune_teller')) {
+        return fortune_teller_misinfo_hooks.on_prompt_resolved(context);
+      }
+
       const owner_player_id = parse_fortune_teller_prompt_owner_player_id(context.prompt_id);
       if (!owner_player_id) {
         return {
@@ -59,14 +96,15 @@ export const fortune_teller_plugin: CharacterPlugin = {
         };
       }
 
-      if (!is_functional_player(context.state, owner_player_id)) {
+      const info_mode = get_player_information_mode(context.state, owner_player_id);
+      if (info_mode === 'inactive') {
         return {
           emitted_events: [
             {
               event_type: 'StorytellerRulingRecorded',
               payload: {
                 prompt_id: context.prompt_id,
-                note: `fortune_teller_info:${owner_player_id}:malfunctioning`
+                note: `fortune_teller_info:${owner_player_id}:inactive`
               }
             }
           ],
@@ -93,6 +131,27 @@ export const fortune_teller_plugin: CharacterPlugin = {
         };
       }
 
+      if (info_mode === 'misinformation') {
+        const misinfo_prompt = build_misinformation_prompt(
+          'fortune_teller',
+          owner_player_id,
+          context.state.night_number,
+          {
+            mode: 'single_choice',
+            options: [
+              { option_id: 'yes', label: 'Show YES' },
+              { option_id: 'no', label: 'Show NO' }
+            ]
+          }
+        );
+        misinfo_prompt.prompt_id = `plugin:fortune_teller:misinfo:${context.state.night_number}:${owner_player_id}:${left_id}:${right_id}`;
+        return {
+          emitted_events: [],
+          queued_prompts: [misinfo_prompt],
+          queued_interrupts: []
+        };
+      }
+
       const yes = is_demon_check_positive(context.state, left_id, right_id);
       return {
         emitted_events: [
@@ -115,49 +174,59 @@ export function is_fortune_teller_prompt_id(prompt_id: string): boolean {
   return prompt_id.startsWith(FORTUNE_TELLER_PROMPT_PREFIX);
 }
 
-function build_pair_options(player_ids: string[]): Array<{ option_id: string; label: string }> {
-  const options: Array<{ option_id: string; label: string }> = [];
-  for (let i = 0; i < player_ids.length; i += 1) {
-    const left = player_ids[i];
-    if (!left) {
-      continue;
-    }
-    for (let j = i + 1; j < player_ids.length; j += 1) {
-      const right = player_ids[j];
-      if (!right) {
-        continue;
-      }
-      options.push({
-        option_id: `${left}|${right}`,
-        label: `${left} + ${right}`
-      });
-    }
-  }
-  return options;
-}
-
 function parse_pair_option(option_id: string | null): [string, string] | null {
   if (!option_id) {
     return null;
   }
-  const [left, right] = option_id.split('|');
+  const delimiter = option_id.includes(',') ? ',' : '|';
+  const [left, right] = option_id.split(delimiter).map((token) => token.trim());
   if (!left || !right) {
+    return null;
+  }
+  if (left === right) {
     return null;
   }
   return [left, right];
 }
 
 function is_demon_check_positive(
-  state: Parameters<typeof is_functional_player>[0],
+  state: Parameters<typeof get_player_information_mode>[0],
   left_player_id: string,
   right_player_id: string
 ): boolean {
-  const left_player = state.players_by_id[left_player_id];
-  const right_player = state.players_by_id[right_player_id];
   const selected_ids = new Set([left_player_id, right_player_id]);
 
   const has_real_demon =
-    Boolean(left_player && left_player.is_demon) || Boolean(right_player && right_player.is_demon);
+    resolves_as_demon(state, {
+      query_id: build_registration_query_id({
+        consumer_role_id: 'fortune_teller',
+        query_kind: 'demon_check',
+        day_number: state.day_number,
+        night_number: state.night_number,
+        subject_player_id: left_player_id,
+        query_slot: 'pair_left',
+        context_player_ids: [right_player_id]
+      }),
+      consumer_role_id: 'fortune_teller',
+      query_kind: 'demon_check',
+      subject_player_id: left_player_id,
+      subject_context_player_ids: [right_player_id]
+    }) ||
+    resolves_as_demon(state, {
+      query_id: build_registration_query_id({
+        consumer_role_id: 'fortune_teller',
+        query_kind: 'demon_check',
+        day_number: state.day_number,
+        night_number: state.night_number,
+        subject_player_id: right_player_id,
+        query_slot: 'pair_right',
+        context_player_ids: [left_player_id]
+      }),
+      consumer_role_id: 'fortune_teller',
+      query_kind: 'demon_check',
+      subject_player_id: right_player_id,
+      subject_context_player_ids: [left_player_id]
+    });
   if (has_real_demon) {
     return true;
   }
@@ -186,4 +255,27 @@ function parse_fortune_teller_prompt_owner_player_id(prompt_id: string): string 
     return null;
   }
   return parts[4] ?? null;
+}
+
+function parse_fortune_teller_misinfo_prompt(
+  prompt_id: string
+): { owner_player_id: string; left_player_id: string; right_player_id: string } | null {
+  const parts = prompt_id.split(':');
+  if (parts.length < 7) {
+    return null;
+  }
+  if (parts[0] !== 'plugin' || parts[1] !== 'fortune_teller' || parts[2] !== 'misinfo') {
+    return null;
+  }
+  const owner_player_id = parts[4] ?? null;
+  const left_player_id = parts[5] ?? null;
+  const right_player_id = parts[6] ?? null;
+  if (!owner_player_id || !left_player_id || !right_player_id) {
+    return null;
+  }
+  return {
+    owner_player_id,
+    left_player_id,
+    right_player_id
+  };
 }

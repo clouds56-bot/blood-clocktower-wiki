@@ -43,6 +43,16 @@ export interface PromptOption {
   label: string;
 }
 
+export type PromptSelectionMode = 'single_choice' | 'number_range' | 'multi_column';
+
+export interface PromptRangeSpec {
+  min: number;
+  max: number;
+  max_inclusive?: boolean;
+}
+
+export type PromptColumnSpec = PromptRangeSpec | string[];
+
 export interface PromptResolutionPayload {
   selected_option_id: string | null;
   freeform: string | null;
@@ -54,6 +64,10 @@ export interface PromptState {
   reason: string;
   visibility: PromptVisibility;
   options: PromptOption[];
+  selection_mode?: PromptSelectionMode;
+  number_range?: PromptRangeSpec | null;
+  multi_columns?: PromptColumnSpec[] | null;
+  storyteller_hint?: string | null;
   status: 'pending' | 'resolved' | 'cancelled';
   created_at_event_id: EventId;
   resolved_at_event_id: EventId | null;
@@ -127,6 +141,14 @@ export type ReminderEffect = 'poisoned' | 'drunk' | string;
 
 export type ReminderMarkerStatus = 'active' | 'cleared' | 'expired';
 
+export type RegistrationQueryKind =
+  | 'alignment_check'
+  | 'character_type_check'
+  | 'character_check'
+  | 'demon_check';
+
+export type RegistrationDecisionSource = 'storyteller_prompt' | 'deterministic_rule';
+
 export type ReminderTargetScope = 'player' | 'game' | 'pair';
 
 export type ReminderExpiryPolicy =
@@ -158,6 +180,25 @@ export interface ReminderMarkerState {
   cleared_at_event_id: EventId | null;
   source_event_id: EventId | null;
   metadata: Record<string, unknown>;
+}
+
+export interface RegistrationQueryState {
+  query_id: string;
+  consumer_role_id: string;
+  query_kind: RegistrationQueryKind;
+  subject_player_id: PlayerId;
+  subject_context_player_ids: PlayerId[];
+  phase: GamePhase;
+  day_number: number;
+  night_number: number;
+  status: 'pending' | 'resolved';
+  resolved_character_id: string | null;
+  resolved_character_type: PlayerCharacterType | null;
+  resolved_alignment: Alignment | null;
+  decision_source: RegistrationDecisionSource;
+  created_at_event_id: EventId;
+  resolved_at_event_id: EventId | null;
+  note: string | null;
 }
 
 export interface PlayerState {
@@ -197,6 +238,8 @@ export interface GameState {
   pending_prompts: string[];
   reminder_markers_by_id: Record<string, ReminderMarkerState>;
   active_reminder_marker_ids: string[];
+  registration_queries_by_id: Record<string, RegistrationQueryState>;
+  pending_registration_query_ids: string[];
   storyteller_notes: StorytellerNoteRecord[];
   winning_team: Alignment | null;
   end_reason: string | null;

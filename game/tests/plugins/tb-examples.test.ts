@@ -111,7 +111,23 @@ test('fortune teller example: Imp + Empath -> yes', () => {
   assert.equal(result?.emitted_events[0]?.payload.note, 'fortune_teller_info:p1:pair=p2,p3;yes=true');
 });
 
-test.skip('fortune teller example: alive Butler + dead Imp selection (dead target wake options not implemented yet)');
+test('fortune teller example: alive Butler + dead Imp selection -> yes', () => {
+  const state = create_initial_state('g1');
+  state.players_by_id.p1 = make_player('p1', 'FortuneTeller', 'fortune_teller', 'good');
+  state.players_by_id.p2 = make_player('p2', 'Butler', 'butler', 'good');
+  state.players_by_id.p3 = make_player('p3', 'DeadImp', 'imp', 'evil', {
+    alive: false,
+    is_demon: true
+  });
+
+  const result = fortune_teller_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_id: 'plugin:fortune_teller:night_check:2:p1',
+    selected_option_id: 'p2|p3',
+    freeform: null
+  });
+  assert.equal(result?.emitted_events[0]?.payload.note, 'fortune_teller_info:p1:pair=p2,p3;yes=true');
+});
 
 test('fortune teller example: self + red herring Saint -> yes', () => {
   const state = create_initial_state('g1');
@@ -364,7 +380,67 @@ test('monk example: protects Mayor from Imp attack (no death)', () => {
   assert.equal(imp_result?.emitted_events.length, 0);
 });
 
-test.skip('monk example: monk protects Imp self-kill transfer case (Imp self-target transfer not implemented yet)');
+test('monk example: monk protects Imp self-kill transfer case', () => {
+  const state = create_initial_state('g1');
+  state.night_number = 2;
+  state.seat_order = ['p1', 'p2', 'p3'];
+  state.players_by_id.p1 = make_player('p1', 'Monk', 'monk', 'good');
+  state.players_by_id.p2 = make_player('p2', 'Imp', 'imp', 'evil', { is_demon: true });
+  state.players_by_id.p3 = make_player('p3', 'Poisoner', 'poisoner', 'evil');
+
+  const monk_result = monk_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_id: 'plugin:monk:night_protect:2:p1',
+    selected_option_id: 'p2',
+    freeform: null
+  });
+  const marker_apply = monk_result?.emitted_events.find((event) => event.event_type === 'ReminderMarkerApplied');
+  assert.ok(marker_apply);
+
+  if (marker_apply && marker_apply.event_type === 'ReminderMarkerApplied') {
+    const payload = marker_apply.payload as {
+      marker_id: string;
+      kind: string;
+      effect: string;
+      note: string;
+      source_player_id: string | null;
+      source_character_id: string | null;
+      target_player_id: string | null;
+      target_scope: 'player' | 'game' | 'pair';
+      authoritative: boolean;
+      expires_policy:
+        | 'manual'
+        | 'end_of_day'
+        | 'start_of_day'
+        | 'end_of_night'
+        | 'start_of_night'
+        | 'on_source_death'
+        | 'on_target_death'
+        | 'at_day'
+        | 'at_night';
+      expires_at_day_number: number | null;
+      expires_at_night_number: number | null;
+      source_event_id: string | null;
+      metadata: Record<string, unknown>;
+    };
+
+    state.reminder_markers_by_id[payload.marker_id] = {
+      ...payload,
+      status: 'active',
+      created_at_event_id: 'm1',
+      cleared_at_event_id: null
+    };
+    state.active_reminder_marker_ids = [payload.marker_id];
+  }
+
+  const imp_result = imp_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_id: 'plugin:imp:night_kill:2:p2',
+    selected_option_id: 'p2',
+    freeform: null
+  });
+  assert.equal(imp_result?.emitted_events.length, 0);
+});
 
 test('soldier example: Imp attacks Soldier -> no death', () => {
   const state = create_initial_state('g1');
@@ -413,7 +489,27 @@ test('soldier example: drunk Soldier is killed by Imp', () => {
   assert.equal(result?.emitted_events[0]?.event_type, 'PlayerDied');
 });
 
-test.skip('imp example: self-kill passes demonhood to a minion (not implemented yet)');
+test('imp example: self-kill passes demonhood to a minion', () => {
+  const state = create_initial_state('g1');
+  state.night_number = 2;
+  state.seat_order = ['p1', 'p2', 'p3'];
+  state.players_by_id.p1 = make_player('p1', 'Imp', 'imp', 'evil', { is_demon: true });
+  state.players_by_id.p2 = make_player('p2', 'Poisoner', 'poisoner', 'evil');
+  state.players_by_id.p3 = make_player('p3', 'Spy', 'spy', 'evil');
+
+  const result = imp_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_id: 'plugin:imp:night_kill:2:p1',
+    selected_option_id: 'p1',
+    freeform: null
+  });
+
+  assert.ok(result);
+  assert.deepEqual(
+    result?.emitted_events.map((event) => event.event_type),
+    ['PlayerDied', 'CharacterAssigned', 'CharacterAssigned']
+  );
+});
 test.skip('poisoner examples: slayer/undertaker/saint/poison-source removal interactions (not implemented yet)');
 
 test('slayer example: chooses Imp, Imp dies, then good wins', () => {

@@ -21,6 +21,8 @@ export function create_initial_state(game_id: string): GameState {
     pending_prompts: [],
     reminder_markers_by_id: {},
     active_reminder_marker_ids: [],
+    registration_queries_by_id: {},
+    pending_registration_query_ids: [],
     storyteller_notes: [],
     winning_team: null,
     end_reason: null,

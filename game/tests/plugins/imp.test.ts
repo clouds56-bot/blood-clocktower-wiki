@@ -23,7 +23,27 @@ test('imp wake hook returns player-visible target prompt', () => {
   assert.equal(prompt?.visibility, 'player');
   assert.equal(prompt?.kind, 'choice');
   assert.equal(is_imp_prompt_id(prompt?.prompt_id ?? ''), true);
-  assert.deepEqual(prompt?.options.map((item) => item.option_id), ['p2']);
+  assert.deepEqual(prompt?.options.map((item) => item.option_id), ['p1', 'p2']);
+});
+
+test('imp can choose itself and dies', () => {
+  const state = create_initial_state('g1');
+  state.day_number = 1;
+  state.night_number = 2;
+  state.players_by_id.p1 = make_player('p1', 'ImpPlayer', 'imp', 'evil', { is_demon: true });
+  state.players_by_id.p2 = make_player('p2', 'Minion', 'poisoner', 'evil');
+
+  const result = imp_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_id: 'plugin:imp:night_kill:2:p1',
+    selected_option_id: 'p1',
+    freeform: null
+  });
+
+  assert.ok(result);
+  assert.equal(result?.emitted_events.length, 1);
+  assert.equal(result?.emitted_events[0]?.event_type, 'PlayerDied');
+  assert.equal(result?.emitted_events[0]?.payload.player_id, 'p1');
 });
 
 test('imp prompt resolution emits PlayerDied consequence', () => {
@@ -168,4 +188,33 @@ test('imp kill queues ravenkeeper death reveal prompt', () => {
   );
   assert.equal(result?.queued_prompts.length, 1);
   assert.equal(result?.queued_prompts[0]?.prompt_id, 'plugin:ravenkeeper:night_reveal:2:p2');
+});
+
+test('imp self-kill transfers demonhood to first alive minion in seat order', () => {
+  const state = create_initial_state('g1');
+  state.day_number = 1;
+  state.night_number = 2;
+  state.seat_order = ['p1', 'p2', 'p3'];
+  state.players_by_id.p1 = make_player('p1', 'ImpPlayer', 'imp', 'evil', { is_demon: true });
+  state.players_by_id.p2 = make_player('p2', 'Poisoner', 'poisoner', 'evil');
+  state.players_by_id.p3 = make_player('p3', 'Spy', 'spy', 'evil');
+
+  const result = imp_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_id: 'plugin:imp:night_kill:2:p1',
+    selected_option_id: 'p1',
+    freeform: null
+  });
+
+  assert.ok(result);
+  assert.deepEqual(
+    result?.emitted_events.map((event) => event.event_type),
+    ['PlayerDied', 'CharacterAssigned', 'CharacterAssigned']
+  );
+  assert.equal(result?.emitted_events[0]?.payload.player_id, 'p1');
+  assert.equal(result?.emitted_events[1]?.payload.player_id, 'p1');
+  assert.equal(result?.emitted_events[1]?.payload.is_demon, false);
+  assert.equal(result?.emitted_events[2]?.payload.player_id, 'p2');
+  assert.equal(result?.emitted_events[2]?.payload.true_character_id, 'imp');
+  assert.equal(result?.emitted_events[2]?.payload.is_demon, true);
 });

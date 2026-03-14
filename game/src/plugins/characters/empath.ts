@@ -1,5 +1,39 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
-import { find_alive_neighbors, is_functional_player } from './tb-info-utils.js';
+import {
+  build_registration_query_id,
+  build_info_role_misinformation_hooks,
+  find_alive_neighbors,
+  resolves_as_evil
+} from './tb-info-utils.js';
+
+const empath_info_hooks = build_info_role_misinformation_hooks({
+  role_id: 'empath',
+  build_truthful_result: (context): PluginResult => {
+    return {
+      emitted_events: [
+        {
+          event_type: 'StorytellerRulingRecorded',
+          payload: {
+            prompt_id: null,
+            note: `empath_info:${context.player_id}:alive_neighbor_evil_count=${count_evil_neighbors(context.state, context.player_id)}`
+          }
+        }
+      ],
+      queued_prompts: [],
+      queued_interrupts: []
+    };
+  },
+  build_misinformation_selection: () => ({
+    mode: 'number_range',
+    range: {
+      min: 0,
+      max: 2
+    }
+  }),
+  build_misinformation_note: ({ subject_player_id, selected_option_id }) =>
+    `empath_info:${subject_player_id}:alive_neighbor_evil_count=${selected_option_id ?? '0'}`,
+  build_truthful_answer: (context) => String(count_evil_neighbors(context.state, context.player_id))
+});
 
 export const empath_plugin: CharacterPlugin = {
   metadata: {
@@ -27,25 +61,8 @@ export const empath_plugin: CharacterPlugin = {
     }
   },
   hooks: {
-    on_night_wake: (context): PluginResult => {
-      const note = is_functional_player(context.state, context.player_id)
-        ? `empath_info:${context.player_id}:alive_neighbor_evil_count=${count_evil_neighbors(context.state, context.player_id)}`
-        : `empath_info:${context.player_id}:malfunctioning`;
-
-      return {
-        emitted_events: [
-          {
-            event_type: 'StorytellerRulingRecorded',
-            payload: {
-              prompt_id: null,
-              note
-            }
-          }
-        ],
-        queued_prompts: [],
-        queued_interrupts: []
-      };
-    }
+    on_night_wake: empath_info_hooks.on_night_wake,
+    on_prompt_resolved: empath_info_hooks.on_prompt_resolved
   }
 };
 
@@ -53,5 +70,21 @@ function count_evil_neighbors(
   state: Parameters<typeof find_alive_neighbors>[0],
   player_id: string
 ): number {
-  return find_alive_neighbors(state, player_id).filter((player) => player.true_alignment === 'evil').length;
+  return find_alive_neighbors(state, player_id).filter((player, index) => {
+    return resolves_as_evil(state, {
+      query_id: build_registration_query_id({
+        consumer_role_id: 'empath',
+        query_kind: 'alignment_check',
+        day_number: state.day_number,
+        night_number: state.night_number,
+        subject_player_id: player.player_id,
+        query_slot: `neighbor_${index}`,
+        context_player_ids: [player_id]
+      }),
+      consumer_role_id: 'empath',
+      query_kind: 'alignment_check',
+      subject_player_id: player.player_id,
+      subject_context_player_ids: [player_id]
+    });
+  }).length;
 }

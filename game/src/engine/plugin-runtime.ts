@@ -180,7 +180,13 @@ function normalize_dispatch_output(
         kind: item.kind,
         reason: item.reason,
         visibility: item.visibility,
-        options: item.options.map((option) => ({ ...option }))
+        options: item.options.map((option) => ({ ...option })),
+        selection_mode: item.selection_mode ?? 'single_choice',
+        number_range: item.number_range ? { ...item.number_range } : null,
+        multi_columns: item.multi_columns
+          ? item.multi_columns.map((column) => (Array.isArray(column) ? [...column] : { ...column }))
+          : null,
+        storyteller_hint: item.storyteller_hint ?? null
       }
     });
   }

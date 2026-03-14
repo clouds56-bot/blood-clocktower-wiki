@@ -212,7 +212,49 @@ function random_option_id_for_prompt(state: GameState | undefined, prompt_id: st
     return null;
   }
   const prompt = state.prompts_by_id[prompt_id];
-  if (!prompt || prompt.status !== 'pending' || prompt.options.length === 0) {
+  if (!prompt || prompt.status !== 'pending') {
+    return null;
+  }
+
+  if (prompt.selection_mode === 'number_range' && prompt.number_range) {
+    const min = Math.ceil(prompt.number_range.min);
+    const raw_max = prompt.number_range.max_inclusive ?? true
+      ? Math.floor(prompt.number_range.max)
+      : Math.ceil(prompt.number_range.max) - 1;
+    if (raw_max < min) {
+      return null;
+    }
+    const value = min + Math.floor(Math.random() * (raw_max - min + 1));
+    return String(value);
+  }
+
+  if (prompt.selection_mode === 'multi_column' && prompt.multi_columns && prompt.multi_columns.length > 0) {
+    const picked: string[] = [];
+    for (const column of prompt.multi_columns) {
+      if (Array.isArray(column)) {
+        if (column.length === 0) {
+          return null;
+        }
+        const value = column[Math.floor(Math.random() * column.length)];
+        if (!value) {
+          return null;
+        }
+        picked.push(value);
+        continue;
+      }
+
+      const min = Math.ceil(column.min);
+      const raw_max = column.max_inclusive ?? true ? Math.floor(column.max) : Math.ceil(column.max) - 1;
+      if (raw_max < min) {
+        return null;
+      }
+      const value = min + Math.floor(Math.random() * (raw_max - min + 1));
+      picked.push(String(value));
+    }
+    return picked.join(',');
+  }
+
+  if (prompt.options.length === 0) {
     return null;
   }
   const index = Math.floor(Math.random() * prompt.options.length);

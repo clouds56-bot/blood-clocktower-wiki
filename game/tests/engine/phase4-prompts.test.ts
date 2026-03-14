@@ -163,3 +163,126 @@ test('resolve prompt emits adjudication event stream', () => {
     ['PromptResolved', 'StorytellerChoiceMade', 'StorytellerRulingRecorded']
   );
 });
+
+test('number range prompt accepts values within min/max', () => {
+  let state = create_initial_state('g1');
+  state = run(state, {
+    command_type: 'CreatePrompt',
+    payload: {
+      prompt_id: 'pr_range',
+      kind: 'number_pick',
+      reason: 'pick number',
+      visibility: 'storyteller',
+      options: [],
+      selection_mode: 'number_range',
+      number_range: {
+        min: 0,
+        max: 5
+      }
+    }
+  });
+
+  state = run(state, {
+    command_type: 'ResolvePrompt',
+    payload: {
+      prompt_id: 'pr_range',
+      selected_option_id: '3',
+      freeform: null,
+      notes: null
+    }
+  });
+
+  assert.equal(state.prompts_by_id.pr_range?.resolution_payload?.selected_option_id, '3');
+});
+
+test('number range prompt rejects out-of-range values', () => {
+  let state = create_initial_state('g1');
+  state = run(state, {
+    command_type: 'CreatePrompt',
+    payload: {
+      prompt_id: 'pr_range_exc',
+      kind: 'number_pick',
+      reason: 'pick number',
+      visibility: 'storyteller',
+      options: [],
+      selection_mode: 'number_range',
+      number_range: {
+        min: 0,
+        max: 100,
+        max_inclusive: false
+      }
+    }
+  });
+
+  const result = handle_command(
+    state,
+    {
+      command_id: 'c_bad_range',
+      command_type: 'ResolvePrompt',
+      actor_id: 'test',
+      payload: {
+        prompt_id: 'pr_range_exc',
+        selected_option_id: '100',
+        freeform: null,
+        notes: null
+      }
+    },
+    '2026-03-13T00:00:00.000Z'
+  );
+
+  assert.equal(result.ok, false);
+  if (!result.ok) {
+    assert.equal(result.error.code, 'invalid_prompt_option');
+  }
+});
+
+test('multi-column prompt validates tuple selections', () => {
+  let state = create_initial_state('g1');
+  state = run(state, {
+    command_type: 'CreatePrompt',
+    payload: {
+      prompt_id: 'pr_multi',
+      kind: 'matrix_pick',
+      reason: 'pick tuple',
+      visibility: 'storyteller',
+      options: [],
+      selection_mode: 'multi_column',
+      multi_columns: [
+        { min: 0, max: 5 },
+        ['a', 'b', 'c']
+      ]
+    }
+  });
+
+  state = run(state, {
+    command_type: 'ResolvePrompt',
+    payload: {
+      prompt_id: 'pr_multi',
+      selected_option_id: '5,c',
+      freeform: null,
+      notes: null
+    }
+  });
+
+  assert.equal(state.prompts_by_id.pr_multi?.resolution_payload?.selected_option_id, '5,c');
+});
+
+test('storyteller hint is stored on prompt state', () => {
+  let state = create_initial_state('g1');
+  state = run(state, {
+    command_type: 'CreatePrompt',
+    payload: {
+      prompt_id: 'pr_hint',
+      kind: 'false_info',
+      reason: 'pick misinformation',
+      visibility: 'storyteller',
+      options: [
+        { option_id: 'o1', label: 'show good' },
+        { option_id: 'o2', label: 'show evil' }
+      ],
+      storyteller_hint: 'truthful answer is o1'
+    }
+  });
+
+  assert.equal(state.prompts_by_id.pr_hint?.storyteller_hint, 'truthful answer is o1');
+});

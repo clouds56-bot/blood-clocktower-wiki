@@ -8,8 +8,13 @@ import type {
   GameSubphase,
   IsoTimestamp,
   PlayerId,
+  PromptColumnSpec,
   PromptOption,
+  PromptRangeSpec,
+  PromptSelectionMode,
   PromptVisibility,
+  RegistrationDecisionSource,
+  RegistrationQueryKind,
   ReminderEffect,
   ReminderExpiryPolicy,
   ReminderTargetScope,
@@ -58,6 +63,8 @@ export type DomainEventType =
   | 'PromptQueued'
   | 'PromptResolved'
   | 'PromptCancelled'
+  | 'RegistrationQueryCreated'
+  | 'RegistrationDecisionRecorded'
   | 'StorytellerChoiceMade'
   | 'StorytellerRulingRecorded'
   | 'WinCheckCompleted'
@@ -387,6 +394,10 @@ export interface PromptQueuedEvent extends BaseDomainEvent {
     reason: string;
     visibility: PromptVisibility;
     options: PromptOption[];
+    selection_mode?: PromptSelectionMode;
+    number_range?: PromptRangeSpec | null;
+    multi_columns?: PromptColumnSpec[] | null;
+    storyteller_hint?: string | null;
   };
 }
 
@@ -405,6 +416,32 @@ export interface PromptCancelledEvent extends BaseDomainEvent {
   payload: {
     prompt_id: string;
     reason: string;
+  };
+}
+
+export interface RegistrationQueryCreatedEvent extends BaseDomainEvent {
+  event_type: 'RegistrationQueryCreated';
+  payload: {
+    query_id: string;
+    consumer_role_id: string;
+    query_kind: RegistrationQueryKind;
+    subject_player_id: PlayerId;
+    subject_context_player_ids: PlayerId[];
+    phase: GamePhase;
+    day_number: number;
+    night_number: number;
+  };
+}
+
+export interface RegistrationDecisionRecordedEvent extends BaseDomainEvent {
+  event_type: 'RegistrationDecisionRecorded';
+  payload: {
+    query_id: string;
+    resolved_character_id: string | null;
+    resolved_character_type: PlayerCharacterType | null;
+    resolved_alignment: Alignment | null;
+    decision_source: RegistrationDecisionSource;
+    note: string | null;
   };
 }
 
@@ -496,6 +533,8 @@ export type DomainEvent =
   | PromptQueuedEvent
   | PromptResolvedEvent
   | PromptCancelledEvent
+  | RegistrationQueryCreatedEvent
+  | RegistrationDecisionRecordedEvent
   | StorytellerChoiceMadeEvent
   | StorytellerRulingRecordedEvent
   | WinCheckCompletedEvent

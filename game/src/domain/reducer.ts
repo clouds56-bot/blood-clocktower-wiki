@@ -54,6 +54,16 @@ function clone_state(state: GameState): GameState {
       ])
     ),
     active_reminder_marker_ids: [...state.active_reminder_marker_ids],
+    registration_queries_by_id: Object.fromEntries(
+      Object.entries(state.registration_queries_by_id).map(([query_id, query]) => [
+        query_id,
+        {
+          ...query,
+          subject_context_player_ids: [...query.subject_context_player_ids]
+        }
+      ])
+    ),
+    pending_registration_query_ids: [...state.pending_registration_query_ids],
     storyteller_notes: state.storyteller_notes.map((note) => ({ ...note })),
     winning_team: state.winning_team,
     end_reason: state.end_reason,
@@ -408,6 +418,14 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
         reason: event.payload.reason,
         visibility: event.payload.visibility,
         options: event.payload.options.map((option) => ({ ...option })),
+        selection_mode: event.payload.selection_mode ?? 'single_choice',
+        number_range: event.payload.number_range ? { ...event.payload.number_range } : null,
+        multi_columns: event.payload.multi_columns
+          ? event.payload.multi_columns.map((column) =>
+              Array.isArray(column) ? [...column] : { ...column }
+            )
+          : null,
+        storyteller_hint: event.payload.storyteller_hint ?? null,
         status: 'pending',
         created_at_event_id: event.event_id,
         resolved_at_event_id: null,
@@ -443,6 +461,54 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
       prompt.resolved_at_event_id = event.event_id;
       prompt.notes = event.payload.reason;
       next.pending_prompts = next.pending_prompts.filter((prompt_id) => prompt_id !== event.payload.prompt_id);
+      break;
+    }
+    case 'RegistrationQueryCreated': {
+      if (next.registration_queries_by_id[event.payload.query_id]) {
+        break;
+      }
+
+      next.registration_queries_by_id[event.payload.query_id] = {
+        query_id: event.payload.query_id,
+        consumer_role_id: event.payload.consumer_role_id,
+        query_kind: event.payload.query_kind,
+        subject_player_id: event.payload.subject_player_id,
+        subject_context_player_ids: [...event.payload.subject_context_player_ids],
+        phase: event.payload.phase,
+        day_number: event.payload.day_number,
+        night_number: event.payload.night_number,
+        status: 'pending',
+        resolved_character_id: null,
+        resolved_character_type: null,
+        resolved_alignment: null,
+        decision_source: 'deterministic_rule',
+        created_at_event_id: event.event_id,
+        resolved_at_event_id: null,
+        note: null
+      };
+
+      if (!next.pending_registration_query_ids.includes(event.payload.query_id)) {
+        next.pending_registration_query_ids.push(event.payload.query_id);
+      }
+      break;
+    }
+    case 'RegistrationDecisionRecorded': {
+      const query = next.registration_queries_by_id[event.payload.query_id];
+      if (!query) {
+        break;
+      }
+
+      query.status = 'resolved';
+      query.resolved_character_id = event.payload.resolved_character_id;
+      query.resolved_character_type = event.payload.resolved_character_type;
+      query.resolved_alignment = event.payload.resolved_alignment;
+      query.decision_source = event.payload.decision_source;
+      query.resolved_at_event_id = event.event_id;
+      query.note = event.payload.note;
+
+      next.pending_registration_query_ids = next.pending_registration_query_ids.filter(
+        (query_id) => query_id !== event.payload.query_id
+      );
       break;
     }
     case 'StorytellerChoiceMade': {

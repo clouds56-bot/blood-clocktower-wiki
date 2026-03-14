@@ -117,8 +117,8 @@ Split into 7 layers:
   - `true_character_id`
   - `perceived_character_id`
   - `true_alignment`
-  - `registered_character_id?`
-  - `registered_alignment?`
+  - `registered_character_id?` (optional snapshot/debug field; not authoritative for query-time checks)
+  - `registered_alignment?` (optional snapshot/debug field; not authoritative for query-time checks)
   - `alive`
   - `drunk` (derived convenience field from active reminder markers)
   - `poisoned` (derived convenience field from active reminder markers)
@@ -141,6 +141,41 @@ Split into 7 layers:
   - `storyteller_notes`
 - social:
   - `claims`
+
+### Registration Query Model
+
+Registration is query-scoped adjudication state, not a globally fixed player property.
+
+Design intent:
+- support per-check Storyteller decisions for `might register as` behavior;
+- allow the same player to register differently across separate checks in the same night/day;
+- keep replay deterministic by recording each decision as an event.
+
+`RegistrationQuery` keys (snake_case):
+- `query_id` (deterministic id scoped to one rule check)
+- `consumer_role_id` (role performing the check, for example `chef`, `fortune_teller`)
+- `query_kind` (for example `alignment_check`, `character_type_check`, `character_check`, `demon_check`)
+- `subject_player_id`
+- `subject_context_player_ids` (optional related players for pair/group checks)
+- `phase`, `day_number`, `night_number`
+- `status` (`pending` | `resolved`)
+- `resolved_character_id?`
+- `resolved_character_type?`
+- `resolved_alignment?`
+- `decision_source` (`storyteller_prompt` | `deterministic_rule`)
+- `created_at_event_id`
+- `resolved_at_event_id?`
+- `note?`
+
+State indexes:
+- `registration_queries_by_id[query_id]`
+- `pending_registration_query_ids`
+
+Rules:
+- rule checks must use registration query resolution, not `players_by_id.registered_*` directly;
+- one query id resolves once and is replay-stable;
+- query resolution may differ between checks for the same subject player;
+- registration query data is Storyteller/internal by default and deny-by-default in player/public views.
 
 ### Reminder Marker Model
 
@@ -264,6 +299,9 @@ Engine is event-oriented.
   - `ReminderMarkerApplied`
   - `ReminderMarkerCleared`
   - `ReminderMarkerExpired`
+- registration queries:
+  - `RegistrationQueryCreated`
+  - `RegistrationDecisionRecorded`
 
 ---
 
@@ -281,6 +319,7 @@ Rules:
 - plugin returns events/prompts, never mutates state directly.
 - immediate triggers can enqueue interrupt resolution.
 - plugin applies/removes effects through reminder marker events, not direct bool mutation.
+- registration providers (for example `recluse`, `spy`) do not mutate persistent player fields to answer checks; they request/emit query-scoped registration decisions.
 
 Compatibility bridge:
 - keep `ApplyPoison` / `ApplyDrunk` commands and `PoisonApplied` / `DrunkApplied` / restore events for existing plugin callers.
@@ -346,7 +385,8 @@ Three projection functions:
 No projection may leak hidden fields by default.
 
 Projection policy notes:
-- `registered_character_id` and `registered_alignment` are Storyteller/internal by default.
+- `registered_character_id` and `registered_alignment` are Storyteller/internal by default and may be stale snapshots.
+- registration query records and decisions are Storyteller/internal by default.
 - player/public projections must not expose `registered_*` unless a specific rules-backed effect grants that knowledge.
 - reminder markers are deny-by-default in player/public projections unless explicitly rules-visible.
 
@@ -367,6 +407,8 @@ Continuously validate:
 - `active_reminder_marker_ids` reference existing markers with `status=active`;
 - authoritative marker target/source references are valid when required;
 - derived poisoned/drunk fields are consistent with active authoritative markers.
+- registration query ids are unique and resolve at most once;
+- registration-sensitive checks are tied to a deterministic query id and resolved decision.
 
 ---
 

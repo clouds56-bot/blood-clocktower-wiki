@@ -1,5 +1,45 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
-import { is_functional_player, list_players_by_true_character_type } from './tb-info-utils.js';
+import {
+  build_info_role_misinformation_hooks,
+  get_player_information_mode,
+  list_players_by_true_character_type
+} from './tb-info-utils.js';
+
+const LIBRARIAN_OUTSIDERS = ['butler', 'drunk', 'recluse', 'saint'];
+
+const librarian_info_hooks = build_info_role_misinformation_hooks({
+  role_id: 'librarian',
+  build_truthful_result: (context): PluginResult => {
+    return {
+      emitted_events: [
+        {
+          event_type: 'StorytellerRulingRecorded',
+          payload: {
+            prompt_id: null,
+            note: build_role_pair_note(context.state, context.player_id, 'outsider', 'librarian_info')
+          }
+        }
+      ],
+      queued_prompts: [],
+      queued_interrupts: []
+    };
+  },
+  build_misinformation_selection: ({ context }) => {
+    const player_ids = Object.keys(context.state.players_by_id).sort((a, b) => a.localeCompare(b));
+    return {
+      mode: 'multi_column',
+      columns: [LIBRARIAN_OUTSIDERS, player_ids, player_ids]
+    };
+  },
+  build_misinformation_note: ({ subject_player_id, selected_option_id }) => {
+    const parsed = parse_three_column_choice(selected_option_id);
+    if (!parsed) {
+      return `librarian_info:${subject_player_id}:none_in_play`;
+    }
+    return `librarian_info:${subject_player_id}:character=${parsed.character_id};players=${parsed.left_player_id},${parsed.right_player_id}`;
+  },
+  build_truthful_answer: (context) => build_role_pair_note(context.state, context.player_id, 'outsider', 'librarian_info')
+});
 
 export const librarian_plugin: CharacterPlugin = {
   metadata: {
@@ -27,30 +67,13 @@ export const librarian_plugin: CharacterPlugin = {
     }
   },
   hooks: {
-    on_night_wake: (context): PluginResult => {
-      const note = is_functional_player(context.state, context.player_id)
-        ? build_role_pair_note(context.state, context.player_id, 'outsider', 'librarian_info')
-        : `librarian_info:${context.player_id}:malfunctioning`;
-
-      return {
-        emitted_events: [
-          {
-            event_type: 'StorytellerRulingRecorded',
-            payload: {
-              prompt_id: null,
-              note
-            }
-          }
-        ],
-        queued_prompts: [],
-        queued_interrupts: []
-      };
-    }
+    on_night_wake: librarian_info_hooks.on_night_wake,
+    on_prompt_resolved: librarian_info_hooks.on_prompt_resolved
   }
 };
 
 function build_role_pair_note(
-  state: Parameters<typeof is_functional_player>[0],
+  state: Parameters<typeof get_player_information_mode>[0],
   owner_player_id: string,
   target_type: 'outsider',
   prefix: string
@@ -76,4 +99,21 @@ function build_role_pair_note(
   }
 
   return `${prefix}:${owner_player_id}:character=${shown.true_character_id};players=${shown.player_id},${decoy.player_id}`;
+}
+
+function parse_three_column_choice(
+  selected_option_id: string | null
+): { character_id: string; left_player_id: string; right_player_id: string } | null {
+  if (!selected_option_id) {
+    return null;
+  }
+  const [character_id, left_player_id, right_player_id] = selected_option_id.split(',').map((token) => token.trim());
+  if (!character_id || !left_player_id || !right_player_id) {
+    return null;
+  }
+  return {
+    character_id,
+    left_player_id,
+    right_player_id
+  };
 }
