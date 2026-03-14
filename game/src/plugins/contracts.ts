@@ -138,9 +138,18 @@ export interface RegistrationQueryHookContext {
 }
 
 export interface RegistrationQueryHookResult {
+  status: 'resolved' | 'needs_storyteller';
   resolved_alignment?: Alignment | null;
   resolved_character_id?: string | null;
   resolved_character_type?: PlayerCharacterType | null;
+  prompt_options?: Array<{
+    option_id: string;
+    label: string;
+    resolved_alignment?: Alignment | null;
+    resolved_character_id?: string | null;
+    resolved_character_type?: PlayerCharacterType | null;
+  }>;
+  prompt_hint?: string | null;
 }
 
 export type VoteCastValidateHookResult =

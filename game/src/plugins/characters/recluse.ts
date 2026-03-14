@@ -36,16 +36,69 @@ export const recluse_plugin: CharacterPlugin = {
         return null;
       }
 
-      // Registration adjudication is Storyteller-chosen per query and should be
-      // recorded in registration query state. Providers do not auto-randomize.
-      if (context.requested_fields.length === 0) {
+      const requested = context.requested_fields[0];
+      if (!requested) {
         return null;
       }
 
-      return null;
+      if (requested === 'alignment') {
+        return {
+          status: 'needs_storyteller',
+          prompt_hint: 'Recluse may register as evil for this query, or not trigger.',
+          prompt_options: [
+            { option_id: 'default', label: 'Not triggered' },
+            {
+              option_id: 'alignment:evil',
+              label: 'Register Evil',
+              resolved_alignment: 'evil'
+            }
+          ]
+        };
+      }
+
+      if (requested === 'character_type') {
+        return {
+          status: 'needs_storyteller',
+          prompt_hint: 'Recluse may register as Minion or Demon for this query.',
+          prompt_options: [
+            { option_id: 'default', label: 'Not triggered' },
+            {
+              option_id: 'character_type:minion',
+              label: 'Register Minion',
+              resolved_character_type: 'minion'
+            },
+            {
+              option_id: 'character_type:demon',
+              label: 'Register Demon',
+              resolved_character_type: 'demon'
+            }
+          ]
+        };
+      }
+
+      return {
+        status: 'needs_storyteller',
+        prompt_hint: 'Recluse may register as Minion/Demon character for this query.',
+        prompt_options: [
+          { option_id: 'default', label: 'Not triggered' },
+          ...RECLUSE_REGISTER_CHARACTER_IDS.map((character_id) => ({
+            option_id: `character_id:${character_id}`,
+            label: `Register ${character_id}`,
+            resolved_character_id: character_id
+          }))
+        ]
+      };
     }
   }
 };
+
+const RECLUSE_REGISTER_CHARACTER_IDS: ReadonlyArray<string> = [
+  'baron',
+  'poisoner',
+  'scarlet_woman',
+  'spy',
+  'imp'
+];
 
 function can_apply_registration_provider(subject: {
   true_character_id: string | null;

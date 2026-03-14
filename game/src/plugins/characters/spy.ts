@@ -82,14 +82,58 @@ export const spy_plugin: CharacterPlugin = {
         return null;
       }
 
-      // Registration adjudication is Storyteller-chosen per query and should be
-      // recorded in registration query state. Providers do not auto-randomize.
-      // If query resolution is absent, keep true/default registration.
-      if (context.requested_fields.length === 0) {
+      const requested = context.requested_fields[0];
+      if (!requested) {
         return null;
       }
 
-      return null;
+      if (requested === 'alignment') {
+        return {
+          status: 'needs_storyteller',
+          prompt_hint: 'Spy may register as good for this query, or not trigger.',
+          prompt_options: [
+            { option_id: 'default', label: 'Not triggered' },
+            {
+              option_id: 'alignment:good',
+              label: 'Register Good',
+              resolved_alignment: 'good'
+            }
+          ]
+        };
+      }
+
+      if (requested === 'character_type') {
+        return {
+          status: 'needs_storyteller',
+          prompt_hint: 'Spy may register as Townsfolk or Outsider for this query.',
+          prompt_options: [
+            { option_id: 'default', label: 'Not triggered' },
+            {
+              option_id: 'character_type:townsfolk',
+              label: 'Register Townsfolk',
+              resolved_character_type: 'townsfolk'
+            },
+            {
+              option_id: 'character_type:outsider',
+              label: 'Register Outsider',
+              resolved_character_type: 'outsider'
+            }
+          ]
+        };
+      }
+
+      return {
+        status: 'needs_storyteller',
+        prompt_hint: 'Spy may register as Townsfolk/Outsider character for this query.',
+        prompt_options: [
+          { option_id: 'default', label: 'Not triggered' },
+          ...SPY_REGISTER_CHARACTER_IDS.map((character_id) => ({
+            option_id: `character_id:${character_id}`,
+            label: `Register ${character_id}`,
+            resolved_character_id: character_id
+          }))
+        ]
+      };
     }
   }
 };
@@ -124,3 +168,23 @@ function can_apply_registration_provider(subject: {
   }
   return !subject.drunk && !subject.poisoned;
 }
+
+const SPY_REGISTER_CHARACTER_IDS: ReadonlyArray<string> = [
+  'chef',
+  'empath',
+  'fortune_teller',
+  'investigator',
+  'librarian',
+  'mayor',
+  'monk',
+  'ravenkeeper',
+  'slayer',
+  'soldier',
+  'undertaker',
+  'virgin',
+  'washerwoman',
+  'butler',
+  'drunk',
+  'recluse',
+  'saint'
+];

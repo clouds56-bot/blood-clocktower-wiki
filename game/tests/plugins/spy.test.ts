@@ -100,3 +100,25 @@ test('dead spy uses storyteller-decided registration query outcome', () => {
 
   assert.equal(type, 'townsfolk');
 });
+
+test('spy registration query options match caller concern', () => {
+  const state = create_initial_state('g1');
+  state.players_by_id.p1 = make_player('p1', 'Spy', 'spy', 'evil');
+
+  const alignment_query = spy_plugin.hooks.on_registration_query?.({
+    state,
+    query_id: 'reg:test:alignment',
+    consumer_role_id: 'chef',
+    query_kind: 'alignment_check',
+    subject_player_id: 'p1',
+    subject_context_player_ids: [],
+    requested_fields: ['alignment']
+  });
+
+  assert.ok(alignment_query);
+  assert.equal(alignment_query?.status, 'needs_storyteller');
+  assert.deepEqual(
+    alignment_query?.prompt_options?.map((option) => option.option_id),
+    ['default', 'alignment:good']
+  );
+});

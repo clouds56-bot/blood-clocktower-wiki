@@ -313,6 +313,61 @@ test('fortune teller can resolve yes from query-scoped demon registration', () =
   assert.equal(result?.emitted_events[0]?.payload.note, 'fortune_teller_info:p1:pair=p2,p3;yes=true');
 });
 
+test('fortune teller queues storyteller registration prompt for unresolved recluse query', () => {
+  const state = create_initial_state('g1');
+  state.day_number = 1;
+  state.night_number = 2;
+  state.players_by_id.p1 = make_player('p1', 'FT', 'fortune_teller', 'good');
+  state.players_by_id.p2 = make_player('p2', 'Recluse', 'recluse', 'good');
+  state.players_by_id.p3 = make_player('p3', 'Chef', 'chef', 'good');
+
+  const first = fortune_teller_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_id: 'plugin:fortune_teller:night_check:2:p1',
+    selected_option_id: 'p2|p3',
+    freeform: null
+  });
+
+  assert.ok(first);
+  assert.equal(first?.emitted_events[0]?.event_type, 'RegistrationQueryCreated');
+  assert.equal(first?.queued_prompts.length, 1);
+  const registration_prompt_id = first?.queued_prompts[0]?.prompt_id ?? '';
+  assert.equal(registration_prompt_id.startsWith('plugin:fortune_teller:registration:'), true);
+
+  const after_create = create_initial_state('g1');
+  Object.assign(after_create, state);
+  const query_id = String(first?.emitted_events[0]?.payload.query_id ?? '');
+  after_create.registration_queries_by_id[query_id] = {
+    query_id,
+    consumer_role_id: 'fortune_teller',
+    query_kind: 'demon_check',
+    subject_player_id: 'p2',
+    subject_context_player_ids: ['p3'],
+    phase: 'night',
+    day_number: 1,
+    night_number: 2,
+    status: 'pending',
+    resolved_character_id: null,
+    resolved_character_type: null,
+    resolved_alignment: null,
+    decision_source: 'storyteller_prompt',
+    created_at_event_id: 'q1',
+    resolved_at_event_id: null,
+    note: null
+  };
+
+  const resolved = fortune_teller_plugin.hooks.on_prompt_resolved?.({
+    state: after_create,
+    prompt_id: registration_prompt_id,
+    selected_option_id: 'character_type:demon',
+    freeform: null
+  });
+
+  assert.ok(resolved);
+  assert.equal(resolved?.emitted_events[0]?.event_type, 'RegistrationDecisionRecorded');
+  assert.equal(resolved?.emitted_events[1]?.payload.note, 'fortune_teller_info:p1:pair=p2,p3;yes=true');
+});
+
 test('fortune teller resolves yes when pair includes red herring', () => {
   const state = create_initial_state('g1');
   state.day_number = 0;
