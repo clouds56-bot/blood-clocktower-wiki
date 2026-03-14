@@ -8,11 +8,16 @@ import type {
   PromptSelectionMode
 } from '../../domain/types.js';
 import type {
+  CharacterPlugin,
   NightWakeHookContext,
   PluginPromptSpec,
   PluginResult,
-  PromptResolvedHookContext
+  PromptResolvedHookContext,
+  RegistrationQueryHookContext,
+  RegistrationQueryHookResult
 } from '../contracts.js';
+import { recluse_plugin } from './recluse.js';
+import { spy_plugin } from './spy.js';
 
 export type PlayerInformationMode = 'inactive' | 'truthful' | 'misinformation';
 
@@ -241,7 +246,7 @@ export function resolve_registered_alignment(
     return null;
   }
 
-  const provider_alignment = resolve_provider_alignment(player, request);
+  const provider_alignment = resolve_provider_registration(state, request)?.resolved_alignment ?? null;
   if (provider_alignment !== null) {
     return provider_alignment;
   }
@@ -263,7 +268,7 @@ export function resolve_registered_character_id(
     return null;
   }
 
-  const provider_character_id = resolve_provider_character_id(player, request);
+  const provider_character_id = resolve_provider_registration(state, request)?.resolved_character_id ?? null;
   if (provider_character_id !== null) {
     return provider_character_id;
   }
@@ -280,12 +285,9 @@ export function resolve_registered_character_type(
     return query.resolved_character_type;
   }
 
-  const player = state.players_by_id[request.subject_player_id];
-  if (player) {
-    const provider_type = resolve_provider_character_type(player, request);
-    if (provider_type !== null) {
-      return provider_type;
-    }
+  const provider_type = resolve_provider_registration(state, request)?.resolved_character_type ?? null;
+  if (provider_type !== null) {
+    return provider_type;
   }
 
   const registered_character_id = resolve_registered_character_id(state, request);
@@ -435,100 +437,33 @@ const TB_MINIONS: ReadonlySet<string> = new Set(['baron', 'poisoner', 'scarlet_w
 
 const TB_DEMONS: ReadonlySet<string> = new Set(['imp']);
 
-const SPY_REGISTER_CHARACTER_IDS: ReadonlyArray<string> = [...TB_TOWNSFOLK, ...TB_OUTSIDERS];
-
-const RECLUSE_REGISTER_CHARACTER_IDS: ReadonlyArray<string> = [...TB_MINIONS, ...TB_DEMONS];
-
-function resolve_provider_alignment(
-  player: Readonly<PlayerState>,
+function resolve_provider_registration(
+  state: Readonly<GameState>,
   request: RegistrationQueryRequest
-): Alignment | null {
-  if (!can_apply_registration_provider(player)) {
+): RegistrationQueryHookResult | null {
+  const subject = state.players_by_id[request.subject_player_id];
+  if (!subject || !subject.true_character_id) {
     return null;
   }
 
-  const should_alternate = should_use_alternate_registration(request.query_id);
-  if (!should_alternate) {
+  const provider = REGISTRATION_PROVIDERS_BY_CHARACTER_ID[subject.true_character_id] ?? null;
+  if (!provider || !provider.hooks.on_registration_query) {
     return null;
   }
 
-  if (player.true_character_id === 'spy') {
-    return 'good';
-  }
-  if (player.true_character_id === 'recluse') {
-    return 'evil';
-  }
+  const context: RegistrationQueryHookContext = {
+    state,
+    query_id: request.query_id,
+    consumer_role_id: request.consumer_role_id,
+    query_kind: request.query_kind,
+    subject_player_id: request.subject_player_id,
+    subject_context_player_ids: [...(request.subject_context_player_ids ?? [])]
+  };
 
-  return null;
+  return provider.hooks.on_registration_query(context);
 }
 
-function resolve_provider_character_type(
-  player: Readonly<PlayerState>,
-  request: RegistrationQueryRequest
-): PlayerCharacterType | null {
-  if (!can_apply_registration_provider(player)) {
-    return null;
-  }
-  if (!should_use_alternate_registration(request.query_id)) {
-    return null;
-  }
-
-  const hash = stable_hash(`${request.query_id}:type`);
-  if (player.true_character_id === 'spy') {
-    return hash % 2 === 0 ? 'townsfolk' : 'outsider';
-  }
-  if (player.true_character_id === 'recluse') {
-    return hash % 2 === 0 ? 'minion' : 'demon';
-  }
-
-  return null;
-}
-
-function resolve_provider_character_id(
-  player: Readonly<PlayerState>,
-  request: RegistrationQueryRequest
-): string | null {
-  if (!can_apply_registration_provider(player)) {
-    return null;
-  }
-  if (!should_use_alternate_registration(request.query_id)) {
-    return null;
-  }
-
-  if (player.true_character_id === 'spy') {
-    const index = stable_hash(`${request.query_id}:spy`) % SPY_REGISTER_CHARACTER_IDS.length;
-    return SPY_REGISTER_CHARACTER_IDS[index] ?? null;
-  }
-
-  if (player.true_character_id === 'recluse') {
-    const index = stable_hash(`${request.query_id}:recluse`) % RECLUSE_REGISTER_CHARACTER_IDS.length;
-    return RECLUSE_REGISTER_CHARACTER_IDS[index] ?? null;
-  }
-
-  return null;
-}
-
-function can_apply_registration_provider(player: Readonly<PlayerState>): boolean {
-  if (player.true_character_id !== 'spy' && player.true_character_id !== 'recluse') {
-    return false;
-  }
-
-  if (!player.alive) {
-    return true;
-  }
-
-  return !player.drunk && !player.poisoned;
-}
-
-function should_use_alternate_registration(query_id: string): boolean {
-  return stable_hash(query_id) % 2 === 0;
-}
-
-function stable_hash(input: string): number {
-  let hash = 0;
-  for (let i = 0; i < input.length; i += 1) {
-    const code = input.charCodeAt(i) ?? 0;
-    hash = (hash * 31 + code) >>> 0;
-  }
-  return hash;
-}
+const REGISTRATION_PROVIDERS_BY_CHARACTER_ID: Record<string, CharacterPlugin> = {
+  spy: spy_plugin,
+  recluse: recluse_plugin
+};

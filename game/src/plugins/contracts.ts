@@ -3,6 +3,7 @@ import type {
   Alignment,
   CharacterType,
   GameState,
+  PlayerCharacterType,
   PlayerId,
   PromptColumnSpec,
   PromptOption,
@@ -126,6 +127,21 @@ export interface PlayerDiedHookContext {
   reason: string;
 }
 
+export interface RegistrationQueryHookContext {
+  state: Readonly<GameState>;
+  query_id: string;
+  consumer_role_id: string;
+  query_kind: 'alignment_check' | 'character_type_check' | 'character_check' | 'demon_check';
+  subject_player_id: PlayerId;
+  subject_context_player_ids: PlayerId[];
+}
+
+export interface RegistrationQueryHookResult {
+  resolved_alignment?: Alignment | null;
+  resolved_character_id?: string | null;
+  resolved_character_type?: PlayerCharacterType | null;
+}
+
 export type VoteCastValidateHookResult =
   | {
       ok: true;
@@ -145,6 +161,9 @@ export interface CharacterPluginHooks {
   on_nomination_made?: (context: NominationMadeHookContext) => PluginResult;
   on_vote_cast_validate?: (context: VoteCastValidateHookContext) => VoteCastValidateHookResult;
   on_player_died?: (context: PlayerDiedHookContext) => PluginResult;
+  on_registration_query?: (
+    context: RegistrationQueryHookContext
+  ) => RegistrationQueryHookResult | null;
 }
 
 export interface CharacterPlugin {
