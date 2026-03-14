@@ -84,17 +84,21 @@ Tests:
 
 Scope:
 - Implement registration providers: `recluse`, `spy`.
+- Add registration-query runtime (`query_id`, create/resolve lifecycle, deterministic replay records).
 - Add registration-aware query helpers consumed by role checks.
 - Implement Spy nightly grimoire reveal in private projection-safe path.
+- Enforce per-check registration semantics (no sticky once/night lock).
 
 Done when:
 - registration-aware checks are used by all TB-sensitive roles;
 - spy/recluse registration decisions are auditable and replay-safe;
+- same subject can resolve differently across different query ids in one night/day;
 - no hidden-state leaks in non-storyteller projections.
 
 Tests:
 - chef/empath/fortune_teller/investigator/slayer/virgin registration edge cases;
 - undertaker/ravenkeeper read using registered state;
+- chef pair-case proving different registrations for one subject across two query ids;
 - projection anti-leak tests for registration internals.
 
 ## TB-06 Demon Continuity + Win Integration

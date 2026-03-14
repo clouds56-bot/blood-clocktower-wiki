@@ -4,6 +4,7 @@ import test from 'node:test';
 import { create_initial_state } from '../../src/domain/state.js';
 import { chef_plugin } from '../../src/plugins/characters/chef.js';
 import { empath_plugin } from '../../src/plugins/characters/empath.js';
+import { build_registration_query_id } from '../../src/plugins/characters/tb-info-utils.js';
 import {
   fortune_teller_plugin,
   is_fortune_teller_prompt_id
@@ -83,6 +84,83 @@ test('poisoned chef prompt includes truthful hint for storyteller', () => {
   assert.equal(wake?.queued_prompts.length, 1);
   assert.equal(wake?.queued_prompts[0]?.prompt_id, 'plugin:chef:misinfo:2:p1');
   assert.equal(wake?.queued_prompts[0]?.storyteller_hint, '1');
+});
+
+test('chef can use different registration outcomes for the same player across pair checks', () => {
+  const state = create_initial_state('g1');
+  state.day_number = 1;
+  state.night_number = 1;
+  state.seat_order = ['p1', 'p2', 'p3', 'p4'];
+  state.players_by_id.p1 = make_player('p1', 'Poisoner', 'poisoner', 'evil');
+  state.players_by_id.p2 = make_player('p2', 'Spy', 'spy', 'evil');
+  state.players_by_id.p3 = make_player('p3', 'Imp', 'imp', 'evil', { is_demon: true });
+  state.players_by_id.p4 = make_player('p4', 'Chef', 'chef', 'good');
+
+  const p2_as_good_for_pair0 = build_registration_query_id({
+    consumer_role_id: 'chef',
+    query_kind: 'alignment_check',
+    day_number: 1,
+    night_number: 1,
+    subject_player_id: 'p2',
+    query_slot: 'pair_0_right',
+    context_player_ids: ['p1']
+  });
+  const p2_as_evil_for_pair1 = build_registration_query_id({
+    consumer_role_id: 'chef',
+    query_kind: 'alignment_check',
+    day_number: 1,
+    night_number: 1,
+    subject_player_id: 'p2',
+    query_slot: 'pair_1_left',
+    context_player_ids: ['p3']
+  });
+
+  state.registration_queries_by_id[p2_as_good_for_pair0] = {
+    query_id: p2_as_good_for_pair0,
+    consumer_role_id: 'chef',
+    query_kind: 'alignment_check',
+    subject_player_id: 'p2',
+    subject_context_player_ids: ['p1'],
+    phase: 'first_night',
+    day_number: 1,
+    night_number: 1,
+    status: 'resolved',
+    resolved_character_id: null,
+    resolved_character_type: null,
+    resolved_alignment: 'good',
+    decision_source: 'storyteller_prompt',
+    created_at_event_id: 'q1',
+    resolved_at_event_id: 'q1r',
+    note: 'spy registers good for pair 0'
+  };
+  state.registration_queries_by_id[p2_as_evil_for_pair1] = {
+    query_id: p2_as_evil_for_pair1,
+    consumer_role_id: 'chef',
+    query_kind: 'alignment_check',
+    subject_player_id: 'p2',
+    subject_context_player_ids: ['p3'],
+    phase: 'first_night',
+    day_number: 1,
+    night_number: 1,
+    status: 'resolved',
+    resolved_character_id: null,
+    resolved_character_type: null,
+    resolved_alignment: 'evil',
+    decision_source: 'storyteller_prompt',
+    created_at_event_id: 'q2',
+    resolved_at_event_id: 'q2r',
+    note: 'spy registers evil for pair 1'
+  };
+
+  const result = chef_plugin.hooks.on_night_wake?.({
+    state,
+    player_id: 'p4',
+    wake_step_id: 'wake:1:0:p4:chef'
+  });
+
+  assert.ok(result);
+  assert.equal(result?.emitted_events.length, 1);
+  assert.equal(result?.emitted_events[0]?.payload.note, 'chef_info:p4:adjacent_evil_pairs=1');
 });
 
 test('empath counts alive evil neighbors and skips dead players', () => {
@@ -175,6 +253,54 @@ test('fortune teller resolves yes when pair includes dead demon', () => {
     alive: false,
     is_demon: true
   });
+
+  const result = fortune_teller_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_id: 'plugin:fortune_teller:night_check:2:p1',
+    selected_option_id: 'p2|p3',
+    freeform: null
+  });
+
+  assert.ok(result);
+  assert.equal(result?.emitted_events[0]?.payload.note, 'fortune_teller_info:p1:pair=p2,p3;yes=true');
+});
+
+test('fortune teller can resolve yes from query-scoped demon registration', () => {
+  const state = create_initial_state('g1');
+  state.day_number = 1;
+  state.night_number = 2;
+  state.players_by_id.p1 = make_player('p1', 'FT', 'fortune_teller', 'good');
+  state.players_by_id.p2 = make_player('p2', 'Spy', 'spy', 'evil');
+  state.players_by_id.p3 = make_player('p3', 'Chef', 'chef', 'good');
+
+  const query_id = build_registration_query_id({
+    consumer_role_id: 'fortune_teller',
+    query_kind: 'demon_check',
+    day_number: 1,
+    night_number: 2,
+    subject_player_id: 'p2',
+    query_slot: 'pair_left',
+    context_player_ids: ['p3']
+  });
+
+  state.registration_queries_by_id[query_id] = {
+    query_id,
+    consumer_role_id: 'fortune_teller',
+    query_kind: 'demon_check',
+    subject_player_id: 'p2',
+    subject_context_player_ids: ['p3'],
+    phase: 'night',
+    day_number: 1,
+    night_number: 2,
+    status: 'resolved',
+    resolved_character_id: null,
+    resolved_character_type: 'demon',
+    resolved_alignment: null,
+    decision_source: 'storyteller_prompt',
+    created_at_event_id: 'q3',
+    resolved_at_event_id: 'q3r',
+    note: 'spy registers as demon for this check'
+  };
 
   const result = fortune_teller_plugin.hooks.on_prompt_resolved?.({
     state,

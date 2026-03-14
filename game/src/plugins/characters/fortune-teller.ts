@@ -1,9 +1,11 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
 import {
+  build_registration_query_id,
   build_info_role_misinformation_hooks,
   build_misinformation_prompt,
   get_player_information_mode,
-  is_misinformation_prompt_id
+  is_misinformation_prompt_id,
+  resolves_as_demon
 } from './tb-info-utils.js';
 
 const FORTUNE_TELLER_PROMPT_PREFIX = 'plugin:fortune_teller:night_check';
@@ -192,18 +194,42 @@ function is_demon_check_positive(
   left_player_id: string,
   right_player_id: string
 ): boolean {
-  const left_player = state.players_by_id[left_player_id];
-  const right_player = state.players_by_id[right_player_id];
   const selected_ids = new Set([left_player_id, right_player_id]);
 
   const has_real_demon =
-    Boolean(left_player && left_player.is_demon) || Boolean(right_player && right_player.is_demon);
+    resolves_as_demon(state, {
+      query_id: build_registration_query_id({
+        consumer_role_id: 'fortune_teller',
+        query_kind: 'demon_check',
+        day_number: state.day_number,
+        night_number: state.night_number,
+        subject_player_id: left_player_id,
+        query_slot: 'pair_left',
+        context_player_ids: [right_player_id]
+      }),
+      consumer_role_id: 'fortune_teller',
+      query_kind: 'demon_check',
+      subject_player_id: left_player_id,
+      subject_context_player_ids: [right_player_id]
+    }) ||
+    resolves_as_demon(state, {
+      query_id: build_registration_query_id({
+        consumer_role_id: 'fortune_teller',
+        query_kind: 'demon_check',
+        day_number: state.day_number,
+        night_number: state.night_number,
+        subject_player_id: right_player_id,
+        query_slot: 'pair_right',
+        context_player_ids: [left_player_id]
+      }),
+      consumer_role_id: 'fortune_teller',
+      query_kind: 'demon_check',
+      subject_player_id: right_player_id,
+      subject_context_player_ids: [left_player_id]
+    });
   if (has_real_demon) {
     return true;
   }
-
-  // TODO(tb-registration): include registered-as-demon checks (e.g. Recluse/Spy) once
-  // registration query helpers are implemented in the engine.
 
   return state.active_reminder_marker_ids.some((marker_id) => {
     const marker = state.reminder_markers_by_id[marker_id];

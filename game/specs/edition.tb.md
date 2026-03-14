@@ -101,8 +101,24 @@ Ability text can override fixed order via interrupt queue.
 ### Registration and misinformation
 
 - `recluse` and `spy` can register as different alignment/type for checks.
+- registration is query-based and per-check, not globally sticky per player.
+- the same `spy`/`recluse` may register differently across separate checks in one night/day.
 - Poison/drunk can produce false info for affected players.
 - Registered state is internal unless explicitly revealed by rules.
+
+### Registration query contract
+
+Registration-sensitive checks must create deterministic query records:
+- `query_id` (stable per check instance)
+- `consumer_role_id` (role doing the check)
+- `query_kind` (`alignment_check` | `character_type_check` | `character_check` | `demon_check`)
+- `subject_player_id` (+ optional context players for pair/group checks)
+- phase/day/night context
+
+Resolution rules:
+- each query resolves once and is replay-stable;
+- resolution can differ across different query ids for the same subject;
+- resolution is Storyteller-auditable (prompt + decision record), with no player/public leak by default.
 
 ## Reminder Marker Model for TB
 
@@ -304,7 +320,8 @@ Each entry lists:
     `undertaker`, `ravenkeeper`.
 - Implementation:
   - `timing_category`: `passive`
-  - registration hook: dynamic registered alignment/character for relevant checks
+  - registration provider: answers registration queries for relevant checks
+  - query behavior: per-check adjudication, no persistent global registration lock
   - adjudication: Storyteller decides when/where alternate registration applies.
 
 #### `saint`
@@ -361,7 +378,8 @@ Each entry lists:
 - Implementation:
   - `timing_category`: `each_night` + `passive` registration
   - prompt: ST shows full hidden state to Spy player
-  - registration hook: dynamic registered alignment/character
+  - registration provider: answers registration queries for relevant checks
+  - query behavior: can register differently across separate checks in the same window
   - visibility: this reveal is private to Spy only, never public.
 
 ### Demon
@@ -397,6 +415,12 @@ Primary registration providers in TB:
 - `recluse`
 - `spy`
 
+Query semantics:
+- checks are evaluated per query id, not by reading a single player-level `registered_*` value;
+- pair/group checks may produce different registration outcomes for the same subject in different comparisons
+  (for example, `chef` adjacent pair A vs pair B);
+- if unresolved, engine prompts Storyteller; once resolved, result is reused only for that query id.
+
 ### Poison/drunk-sensitive abilities
 
 Critical abilities that fail or misinform while malfunctioning:
@@ -420,7 +444,7 @@ Typical nightly death attempt order:
 
 Storyteller view only:
 - true characters/alignments
-- registered state
+- registration queries and resolved registration decisions
 - reminder markers and source links
 - red herring target
 - poison/drunk truth
@@ -439,6 +463,7 @@ Public view:
 
 - choosing false information under poison/drunk.
 - deciding when "might" registration/replacement effects apply (`recluse`, `spy`, `mayor`).
+- resolving registration per query (not as global once/night lock).
 - tie/edge handling when multiple continuity effects could matter in unusual custom interactions.
 - unusual ordering conflicts: use interrupt queue + recorded Storyteller ruling.
 
@@ -455,7 +480,9 @@ Public view:
 5. Implement day/reactive roles:
    - `virgin`, `slayer`, `saint`, `mayor`, `ravenkeeper`.
 6. Implement registration system for TB:
-   - `recluse`, `spy` registration hooks + projection-safe internal storage.
+   - query engine (`query_id`, creation, prompt, resolution record, replay-safe lookup).
+   - `recluse`/`spy` providers integrated into registration queries.
+   - migrate all registration-sensitive checks to query API.
 7. Implement Demon continuity:
    - `imp` self-kill transfer, `scarlet_woman` takeover, and win-check integration.
 8. Add TB scenario matrix tests:
@@ -477,4 +504,6 @@ Public view:
 - all TB role abilities resolvable through command/event pipeline with reducer-only mutation;
 - no hidden-state leakage in player/public projections;
 - deterministic replay for role markers, prompts, and continuity outcomes;
+- registration query ids and decisions are deterministic and auditable;
+- per-check registration variance is supported for the same player in the same night/day;
 - Storyteller discretion points are prompt-driven and auditable.

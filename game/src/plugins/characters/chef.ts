@@ -1,7 +1,9 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
 import type { GameState } from '../../domain/types.js';
 import {
-  build_info_role_misinformation_hooks
+  build_info_role_misinformation_hooks,
+  build_registration_query_id,
+  resolves_as_evil
 } from './tb-info-utils.js';
 
 const chef_info_hooks = build_info_role_misinformation_hooks({
@@ -84,7 +86,38 @@ function count_adjacent_evil_pairs(state: Readonly<GameState>): number {
       continue;
     }
 
-    if (current.true_alignment === 'evil' && next.true_alignment === 'evil') {
+    const left_is_evil = resolves_as_evil(state, {
+      query_id: build_registration_query_id({
+        consumer_role_id: 'chef',
+        query_kind: 'alignment_check',
+        day_number: state.day_number,
+        night_number: state.night_number,
+        subject_player_id: current_id,
+        query_slot: `pair_${i}_left`,
+        context_player_ids: [next_id]
+      }),
+      consumer_role_id: 'chef',
+      query_kind: 'alignment_check',
+      subject_player_id: current_id,
+      subject_context_player_ids: [next_id]
+    });
+    const right_is_evil = resolves_as_evil(state, {
+      query_id: build_registration_query_id({
+        consumer_role_id: 'chef',
+        query_kind: 'alignment_check',
+        day_number: state.day_number,
+        night_number: state.night_number,
+        subject_player_id: next_id,
+        query_slot: `pair_${i}_right`,
+        context_player_ids: [current_id]
+      }),
+      consumer_role_id: 'chef',
+      query_kind: 'alignment_check',
+      subject_player_id: next_id,
+      subject_context_player_ids: [current_id]
+    });
+
+    if (left_is_evil && right_is_evil) {
       count += 1;
     }
   }

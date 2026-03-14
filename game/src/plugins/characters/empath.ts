@@ -1,7 +1,9 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
 import {
+  build_registration_query_id,
   build_info_role_misinformation_hooks,
-  find_alive_neighbors
+  find_alive_neighbors,
+  resolves_as_evil
 } from './tb-info-utils.js';
 
 const empath_info_hooks = build_info_role_misinformation_hooks({
@@ -68,5 +70,21 @@ function count_evil_neighbors(
   state: Parameters<typeof find_alive_neighbors>[0],
   player_id: string
 ): number {
-  return find_alive_neighbors(state, player_id).filter((player) => player.true_alignment === 'evil').length;
+  return find_alive_neighbors(state, player_id).filter((player, index) => {
+    return resolves_as_evil(state, {
+      query_id: build_registration_query_id({
+        consumer_role_id: 'empath',
+        query_kind: 'alignment_check',
+        day_number: state.day_number,
+        night_number: state.night_number,
+        subject_player_id: player.player_id,
+        query_slot: `neighbor_${index}`,
+        context_player_ids: [player_id]
+      }),
+      consumer_role_id: 'empath',
+      query_kind: 'alignment_check',
+      subject_player_id: player.player_id,
+      subject_context_player_ids: [player_id]
+    });
+  }).length;
 }

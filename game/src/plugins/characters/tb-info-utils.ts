@@ -1,5 +1,7 @@
 import type {
+  Alignment,
   GameState,
+  PlayerCharacterType,
   PlayerState,
   PromptColumnSpec,
   PromptRangeSpec,
@@ -202,6 +204,109 @@ function parse_misinfo_prompt_subject_player_id(prompt_id: string): string | nul
 
 export function is_functional_player(state: Readonly<GameState>, player_id: string): boolean {
   return is_ability_active(state, player_id);
+}
+
+export interface RegistrationQueryRequest {
+  query_id: string;
+  consumer_role_id: string;
+  query_kind: 'alignment_check' | 'character_type_check' | 'character_check' | 'demon_check';
+  subject_player_id: string;
+  subject_context_player_ids?: string[];
+}
+
+export function build_registration_query_id(args: {
+  consumer_role_id: string;
+  query_kind: RegistrationQueryRequest['query_kind'];
+  day_number: number;
+  night_number: number;
+  subject_player_id: string;
+  query_slot: string;
+  context_player_ids?: string[];
+}): string {
+  const context = (args.context_player_ids ?? []).join(',');
+  return `reg:${args.consumer_role_id}:${args.query_kind}:d${args.day_number}:n${args.night_number}:${args.subject_player_id}:${args.query_slot}:${context}`;
+}
+
+export function resolve_registered_alignment(
+  state: Readonly<GameState>,
+  request: RegistrationQueryRequest
+): Alignment | null {
+  const query = state.registration_queries_by_id[request.query_id];
+  if (query && query.status === 'resolved' && query.resolved_alignment) {
+    return query.resolved_alignment;
+  }
+
+  const player = state.players_by_id[request.subject_player_id];
+  if (!player) {
+    return null;
+  }
+  return player.registered_alignment ?? player.true_alignment;
+}
+
+export function resolve_registered_character_id(
+  state: Readonly<GameState>,
+  request: RegistrationQueryRequest
+): string | null {
+  const query = state.registration_queries_by_id[request.query_id];
+  if (query && query.status === 'resolved' && query.resolved_character_id) {
+    return query.resolved_character_id;
+  }
+
+  const player = state.players_by_id[request.subject_player_id];
+  if (!player) {
+    return null;
+  }
+  return player.registered_character_id ?? player.true_character_id;
+}
+
+export function resolve_registered_character_type(
+  state: Readonly<GameState>,
+  request: RegistrationQueryRequest
+): PlayerCharacterType | null {
+  const query = state.registration_queries_by_id[request.query_id];
+  if (query && query.status === 'resolved' && query.resolved_character_type) {
+    return query.resolved_character_type;
+  }
+
+  const registered_character_id = resolve_registered_character_id(state, request);
+  if (registered_character_id) {
+    const classified = classify_tb_character_type(registered_character_id);
+    if (classified) {
+      return classified;
+    }
+  }
+
+  const player = state.players_by_id[request.subject_player_id];
+  if (!player) {
+    return null;
+  }
+
+  if (player.true_character_type) {
+    return player.true_character_type;
+  }
+
+  if (!player.true_character_id) {
+    return null;
+  }
+
+  const true_classified = classify_tb_character_type(player.true_character_id);
+  if (!true_classified) {
+    return null;
+  }
+  return true_classified;
+}
+
+export function resolves_as_evil(state: Readonly<GameState>, request: RegistrationQueryRequest): boolean {
+  return resolve_registered_alignment(state, request) === 'evil';
+}
+
+export function resolves_as_demon(state: Readonly<GameState>, request: RegistrationQueryRequest): boolean {
+  if (resolve_registered_character_type(state, request) === 'demon') {
+    return true;
+  }
+
+  const player = state.players_by_id[request.subject_player_id];
+  return Boolean(player && player.is_demon);
 }
 
 export function find_alive_neighbors(state: Readonly<GameState>, player_id: string): PlayerState[] {
