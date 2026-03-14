@@ -163,6 +163,28 @@ test('chef can use different registration outcomes for the same player across pa
   assert.equal(result?.emitted_events[0]?.payload.note, 'chef_info:p4:adjacent_evil_pairs=1');
 });
 
+test('chef skips spy registration prompt when both adjacent pairs are guaranteed non-evil', () => {
+  const state = create_initial_state('g1');
+  state.day_number = 1;
+  state.night_number = 1;
+  state.seat_order = ['p1', 'p2', 'p3', 'p4'];
+  state.players_by_id.p1 = make_player('p1', 'GoodA', 'chef', 'good');
+  state.players_by_id.p2 = make_player('p2', 'Spy', 'spy', 'evil');
+  state.players_by_id.p3 = make_player('p3', 'GoodB', 'washerwoman', 'good');
+  state.players_by_id.p4 = make_player('p4', 'Chef', 'chef', 'good');
+
+  const result = chef_plugin.hooks.on_night_wake?.({
+    state,
+    player_id: 'p4',
+    wake_step_id: 'wake:1:0:p4:chef'
+  });
+
+  assert.ok(result);
+  assert.equal(result?.queued_prompts.length, 0);
+  assert.equal(result?.emitted_events.length, 1);
+  assert.equal(result?.emitted_events[0]?.payload.note, 'chef_info:p4:adjacent_evil_pairs=0');
+});
+
 test('empath counts alive evil neighbors and skips dead players', () => {
   const state = create_initial_state('g1');
   state.seat_order = ['p1', 'p2', 'p3', 'p4', 'p5'];
@@ -310,6 +332,82 @@ test('fortune teller can resolve yes from query-scoped demon registration', () =
   });
 
   assert.ok(result);
+  assert.equal(result?.emitted_events[0]?.payload.note, 'fortune_teller_info:p1:pair=p2,p3;yes=true');
+});
+
+test('fortune teller queues storyteller registration prompt for unresolved recluse query', () => {
+  const state = create_initial_state('g1');
+  state.day_number = 1;
+  state.night_number = 2;
+  state.players_by_id.p1 = make_player('p1', 'FT', 'fortune_teller', 'good');
+  state.players_by_id.p2 = make_player('p2', 'Recluse', 'recluse', 'good');
+  state.players_by_id.p3 = make_player('p3', 'Chef', 'chef', 'good');
+
+  const first = fortune_teller_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_id: 'plugin:fortune_teller:night_check:2:p1',
+    selected_option_id: 'p2|p3',
+    freeform: null
+  });
+
+  assert.ok(first);
+  assert.equal(first?.emitted_events[0]?.event_type, 'RegistrationQueryCreated');
+  assert.equal(first?.queued_prompts.length, 1);
+  const registration_prompt_id = first?.queued_prompts[0]?.prompt_id ?? '';
+  assert.equal(registration_prompt_id.startsWith('plugin:fortune_teller:registration:'), true);
+
+  const after_create = create_initial_state('g1');
+  Object.assign(after_create, state);
+  const query_id = String(first?.emitted_events[0]?.payload.query_id ?? '');
+  after_create.registration_queries_by_id[query_id] = {
+    query_id,
+    consumer_role_id: 'fortune_teller',
+    query_kind: 'demon_check',
+    subject_player_id: 'p2',
+    subject_context_player_ids: ['p3'],
+    phase: 'night',
+    day_number: 1,
+    night_number: 2,
+    status: 'pending',
+    resolved_character_id: null,
+    resolved_character_type: null,
+    resolved_alignment: null,
+    decision_source: 'storyteller_prompt',
+    created_at_event_id: 'q1',
+    resolved_at_event_id: null,
+    note: null
+  };
+
+  const resolved = fortune_teller_plugin.hooks.on_prompt_resolved?.({
+    state: after_create,
+    prompt_id: registration_prompt_id,
+    selected_option_id: 'character_type:demon',
+    freeform: null
+  });
+
+  assert.ok(resolved);
+  assert.equal(resolved?.emitted_events[0]?.event_type, 'RegistrationDecisionRecorded');
+  assert.equal(resolved?.emitted_events[1]?.payload.note, 'fortune_teller_info:p1:pair=p2,p3;yes=true');
+});
+
+test('fortune teller skips recluse registration query when pair already has real demon', () => {
+  const state = create_initial_state('g1');
+  state.day_number = 1;
+  state.night_number = 2;
+  state.players_by_id.p1 = make_player('p1', 'FT', 'fortune_teller', 'good');
+  state.players_by_id.p2 = make_player('p2', 'Imp', 'imp', 'evil', { is_demon: true });
+  state.players_by_id.p3 = make_player('p3', 'Recluse', 'recluse', 'good');
+
+  const result = fortune_teller_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_id: 'plugin:fortune_teller:night_check:2:p1',
+    selected_option_id: 'p2|p3',
+    freeform: null
+  });
+
+  assert.ok(result);
+  assert.equal(result?.queued_prompts.length, 0);
+  assert.equal(result?.emitted_events.length, 1);
   assert.equal(result?.emitted_events[0]?.payload.note, 'fortune_teller_info:p1:pair=p2,p3;yes=true');
 });
 

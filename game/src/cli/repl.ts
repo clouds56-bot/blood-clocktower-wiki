@@ -17,6 +17,7 @@ import { mayor_plugin } from '../plugins/characters/mayor.js';
 import { monk_plugin } from '../plugins/characters/monk.js';
 import { poisoner_plugin } from '../plugins/characters/poisoner.js';
 import { ravenkeeper_plugin } from '../plugins/characters/ravenkeeper.js';
+import { recluse_plugin } from '../plugins/characters/recluse.js';
 import { scarlet_woman_plugin } from '../plugins/characters/scarlet-woman.js';
 import { saint_plugin } from '../plugins/characters/saint.js';
 import { slayer_plugin } from '../plugins/characters/slayer.js';
@@ -646,6 +647,7 @@ export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void
       monk_plugin,
       poisoner_plugin,
       ravenkeeper_plugin,
+      recluse_plugin,
       scarlet_woman_plugin,
       saint_plugin,
       slayer_plugin,

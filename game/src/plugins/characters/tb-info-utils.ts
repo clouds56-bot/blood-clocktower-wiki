@@ -8,11 +8,17 @@ import type {
   PromptSelectionMode
 } from '../../domain/types.js';
 import type {
+  CharacterPlugin,
   NightWakeHookContext,
+  PluginEventSpec,
   PluginPromptSpec,
   PluginResult,
-  PromptResolvedHookContext
+  PromptResolvedHookContext,
+  RegistrationQueryHookContext,
+  RegistrationQueryHookResult
 } from '../contracts.js';
+import { recluse_plugin } from './recluse.js';
+import { spy_plugin } from './spy.js';
 
 export type PlayerInformationMode = 'inactive' | 'truthful' | 'misinformation';
 
@@ -214,6 +220,11 @@ export interface RegistrationQueryRequest {
   subject_context_player_ids?: string[];
 }
 
+export interface RegistrationPromptPlan {
+  emitted_events: PluginEventSpec[];
+  queued_prompts: PluginPromptSpec[];
+}
+
 export function build_registration_query_id(args: {
   consumer_role_id: string;
   query_kind: RegistrationQueryRequest['query_kind'];
@@ -240,7 +251,221 @@ export function resolve_registered_alignment(
   if (!player) {
     return null;
   }
+
+  const provider_alignment = resolve_provider_registration(state, request)?.resolved_alignment ?? null;
+  if (provider_alignment !== null) {
+    return provider_alignment;
+  }
+
   return player.registered_alignment ?? player.true_alignment;
+}
+
+export function plan_registration_query_prompt(args: {
+  state: Readonly<GameState>;
+  role_id: string;
+  owner_player_id: string;
+  context_tag: string;
+  requests: RegistrationQueryRequest[];
+}): RegistrationPromptPlan {
+  for (const request of args.requests) {
+    const existing = args.state.registration_queries_by_id[request.query_id];
+    if (existing && existing.status === 'resolved') {
+      continue;
+    }
+
+    const provider_result = resolve_provider_registration(args.state, request);
+    if (!provider_result || provider_result.status !== 'needs_storyteller') {
+      continue;
+    }
+
+    const prompt_options = provider_result.prompt_options ?? [];
+    if (prompt_options.length === 0) {
+      continue;
+    }
+
+    const emitted_events: PluginEventSpec[] = [];
+    if (!existing) {
+      emitted_events.push({
+        event_type: 'RegistrationQueryCreated',
+        payload: {
+          query_id: request.query_id,
+          consumer_role_id: request.consumer_role_id,
+          query_kind: request.query_kind,
+          subject_player_id: request.subject_player_id,
+          subject_context_player_ids: [...(request.subject_context_player_ids ?? [])],
+          phase: args.state.phase,
+          day_number: args.state.day_number,
+          night_number: args.state.night_number
+        }
+      });
+    }
+
+    return {
+      emitted_events,
+      queued_prompts: [
+        {
+          prompt_id: build_registration_prompt_id({
+            role_id: args.role_id,
+            owner_player_id: args.owner_player_id,
+            context_tag: args.context_tag,
+            query_id: request.query_id
+          }),
+          kind: 'choice',
+          reason: `plugin:${args.role_id}:registration adjudication`,
+          visibility: 'storyteller',
+          options: prompt_options.map((option) => ({
+            option_id: option.option_id,
+            label: option.label
+          })),
+          storyteller_hint: provider_result.prompt_hint ?? null
+        }
+      ]
+    };
+  }
+
+  return {
+    emitted_events: [],
+    queued_prompts: []
+  };
+}
+
+export function resolve_registration_query_prompt(args: {
+  state: Readonly<GameState>;
+  role_id: string;
+  prompt_id: string;
+  selected_option_id: string | null;
+}): {
+  ok: true;
+  event: PluginEventSpec;
+  parsed: {
+    owner_player_id: string;
+    context_tag: string;
+    query_id: string;
+  };
+} | {
+  ok: false;
+} {
+  const parsed = parse_registration_prompt_id(args.prompt_id, args.role_id);
+  if (!parsed) {
+    return { ok: false };
+  }
+
+  const selected = args.selected_option_id ?? 'default';
+  if (selected === 'default') {
+    return {
+      ok: true,
+      parsed,
+      event: {
+        event_type: 'RegistrationDecisionRecorded',
+        payload: {
+          query_id: parsed.query_id,
+          resolved_character_id: null,
+          resolved_character_type: null,
+          resolved_alignment: null,
+          decision_source: 'storyteller_prompt',
+          note: 'registration_not_triggered'
+        }
+      }
+    };
+  }
+
+  if (selected.startsWith('alignment:')) {
+    const value = selected.split(':')[1] as Alignment | undefined;
+    return {
+      ok: true,
+      parsed,
+      event: {
+        event_type: 'RegistrationDecisionRecorded',
+        payload: {
+          query_id: parsed.query_id,
+          resolved_character_id: null,
+          resolved_character_type: null,
+          resolved_alignment: value ?? null,
+          decision_source: 'storyteller_prompt',
+          note: `registration_alignment:${value ?? 'null'}`
+        }
+      }
+    };
+  }
+
+  if (selected.startsWith('character_type:')) {
+    const value = selected.split(':')[1] as PlayerCharacterType | undefined;
+    return {
+      ok: true,
+      parsed,
+      event: {
+        event_type: 'RegistrationDecisionRecorded',
+        payload: {
+          query_id: parsed.query_id,
+          resolved_character_id: null,
+          resolved_character_type: value ?? null,
+          resolved_alignment: null,
+          decision_source: 'storyteller_prompt',
+          note: `registration_character_type:${value ?? 'null'}`
+        }
+      }
+    };
+  }
+
+  if (selected.startsWith('character_id:')) {
+    const value = selected.slice('character_id:'.length);
+    return {
+      ok: true,
+      parsed,
+      event: {
+        event_type: 'RegistrationDecisionRecorded',
+        payload: {
+          query_id: parsed.query_id,
+          resolved_character_id: value || null,
+          resolved_character_type: null,
+          resolved_alignment: null,
+          decision_source: 'storyteller_prompt',
+          note: `registration_character_id:${value || 'null'}`
+        }
+      }
+    };
+  }
+
+  return { ok: false };
+}
+
+export function is_registration_query_prompt_id(prompt_id: string, role_id: string): boolean {
+  return prompt_id.startsWith(`plugin:${role_id}:registration:`);
+}
+
+function build_registration_prompt_id(args: {
+  role_id: string;
+  owner_player_id: string;
+  context_tag: string;
+  query_id: string;
+}): string {
+  return `plugin:${args.role_id}:registration:${encodeURIComponent(args.owner_player_id)}:${encodeURIComponent(args.context_tag)}:${encodeURIComponent(args.query_id)}`;
+}
+
+function parse_registration_prompt_id(
+  prompt_id: string,
+  role_id: string
+): { owner_player_id: string; context_tag: string; query_id: string } | null {
+  const parts = prompt_id.split(':');
+  if (parts.length < 6) {
+    return null;
+  }
+  if (parts[0] !== 'plugin' || parts[1] !== role_id || parts[2] !== 'registration') {
+    return null;
+  }
+
+  const owner_player_id = decodeURIComponent(parts[3] ?? '');
+  const context_tag = decodeURIComponent(parts[4] ?? '');
+  const query_id = decodeURIComponent(parts.slice(5).join(':'));
+  if (!owner_player_id || !context_tag || !query_id) {
+    return null;
+  }
+
+  return {
+    owner_player_id,
+    context_tag,
+    query_id
+  };
 }
 
 export function resolve_registered_character_id(
@@ -256,6 +481,12 @@ export function resolve_registered_character_id(
   if (!player) {
     return null;
   }
+
+  const provider_character_id = resolve_provider_registration(state, request)?.resolved_character_id ?? null;
+  if (provider_character_id !== null) {
+    return provider_character_id;
+  }
+
   return player.registered_character_id ?? player.true_character_id;
 }
 
@@ -268,6 +499,11 @@ export function resolve_registered_character_type(
     return query.resolved_character_type;
   }
 
+  const provider_type = resolve_provider_registration(state, request)?.resolved_character_type ?? null;
+  if (provider_type !== null) {
+    return provider_type;
+  }
+
   const registered_character_id = resolve_registered_character_id(state, request);
   if (registered_character_id) {
     const classified = classify_tb_character_type(registered_character_id);
@@ -276,20 +512,20 @@ export function resolve_registered_character_type(
     }
   }
 
-  const player = state.players_by_id[request.subject_player_id];
-  if (!player) {
+  const player_after_registered = state.players_by_id[request.subject_player_id];
+  if (!player_after_registered) {
     return null;
   }
 
-  if (player.true_character_type) {
-    return player.true_character_type;
+  if (player_after_registered.true_character_type) {
+    return player_after_registered.true_character_type;
   }
 
-  if (!player.true_character_id) {
+  if (!player_after_registered.true_character_id) {
     return null;
   }
 
-  const true_classified = classify_tb_character_type(player.true_character_id);
+  const true_classified = classify_tb_character_type(player_after_registered.true_character_id);
   if (!true_classified) {
     return null;
   }
@@ -300,6 +536,22 @@ export function resolves_as_evil(state: Readonly<GameState>, request: Registrati
   return resolve_registered_alignment(state, request) === 'evil';
 }
 
+export function could_resolve_as_evil(
+  state: Readonly<GameState>,
+  request: RegistrationQueryRequest
+): boolean {
+  const outcomes = collect_possible_registered_alignments(state, request);
+  return outcomes.has('evil');
+}
+
+export function has_variable_alignment_registration(
+  state: Readonly<GameState>,
+  request: RegistrationQueryRequest
+): boolean {
+  const outcomes = collect_possible_registered_alignments(state, request);
+  return outcomes.has('good') && outcomes.has('evil');
+}
+
 export function resolves_as_demon(state: Readonly<GameState>, request: RegistrationQueryRequest): boolean {
   if (resolve_registered_character_type(state, request) === 'demon') {
     return true;
@@ -307,6 +559,56 @@ export function resolves_as_demon(state: Readonly<GameState>, request: Registrat
 
   const player = state.players_by_id[request.subject_player_id];
   return Boolean(player && player.is_demon);
+}
+
+export function could_resolve_as_demon(
+  state: Readonly<GameState>,
+  request: RegistrationQueryRequest
+): boolean {
+  const player = state.players_by_id[request.subject_player_id];
+  if (player && player.is_demon) {
+    return true;
+  }
+
+  const outcomes = collect_possible_registered_character_types(state, request);
+  return outcomes.has('demon');
+}
+
+export function has_variable_demon_registration(
+  state: Readonly<GameState>,
+  request: RegistrationQueryRequest
+): boolean {
+  const player = state.players_by_id[request.subject_player_id];
+  if (player && player.is_demon) {
+    return false;
+  }
+
+  const outcomes = collect_possible_registered_character_types(state, request);
+  if (!outcomes.has('demon')) {
+    return false;
+  }
+  for (const character_type of outcomes) {
+    if (character_type !== 'demon') {
+      return true;
+    }
+  }
+  return false;
+}
+
+export function has_active_fortune_teller_red_herring(
+  state: Readonly<GameState>,
+  player_id: string
+): boolean {
+  return state.active_reminder_marker_ids.some((marker_id) => {
+    const marker = state.reminder_markers_by_id[marker_id];
+    if (!marker || marker.status !== 'active') {
+      return false;
+    }
+    if (marker.kind !== 'fortune_teller:red_herring') {
+      return false;
+    }
+    return marker.target_player_id === player_id;
+  });
 }
 
 export function find_alive_neighbors(state: Readonly<GameState>, player_id: string): PlayerState[] {
@@ -414,3 +716,187 @@ const TB_OUTSIDERS: ReadonlySet<string> = new Set(['butler', 'drunk', 'recluse',
 const TB_MINIONS: ReadonlySet<string> = new Set(['baron', 'poisoner', 'scarlet_woman', 'spy']);
 
 const TB_DEMONS: ReadonlySet<string> = new Set(['imp']);
+
+function resolve_provider_registration(
+  state: Readonly<GameState>,
+  request: RegistrationQueryRequest
+): RegistrationQueryHookResult | null {
+  const subject = state.players_by_id[request.subject_player_id];
+  if (!subject || !subject.true_character_id) {
+    return null;
+  }
+
+  const provider = REGISTRATION_PROVIDERS_BY_CHARACTER_ID[subject.true_character_id] ?? null;
+  if (!provider || !provider.hooks.on_registration_query) {
+    return null;
+  }
+
+  const context: RegistrationQueryHookContext = {
+    state,
+    query_id: request.query_id,
+    consumer_role_id: request.consumer_role_id,
+    query_kind: request.query_kind,
+    subject_player_id: request.subject_player_id,
+    subject_context_player_ids: [...(request.subject_context_player_ids ?? [])],
+    requested_fields: infer_requested_fields(request.query_kind)
+  };
+
+  return provider.hooks.on_registration_query(context);
+}
+
+function collect_possible_registered_alignments(
+  state: Readonly<GameState>,
+  request: RegistrationQueryRequest
+): Set<Alignment> {
+  const outcomes = new Set<Alignment>();
+  const subject = state.players_by_id[request.subject_player_id];
+  if (!subject) {
+    return outcomes;
+  }
+
+  const baseline_alignment = subject.registered_alignment ?? subject.true_alignment;
+  if (baseline_alignment) {
+    outcomes.add(baseline_alignment);
+  }
+
+  const query = state.registration_queries_by_id[request.query_id];
+  if (query && query.status === 'resolved') {
+    if (query.resolved_alignment) {
+      return new Set([query.resolved_alignment]);
+    }
+    return outcomes;
+  }
+
+  const provider_result = resolve_provider_registration(state, request);
+  if (!provider_result) {
+    return outcomes;
+  }
+
+  if (provider_result.status === 'resolved') {
+    if (provider_result.resolved_alignment) {
+      outcomes.add(provider_result.resolved_alignment);
+    }
+    return outcomes;
+  }
+
+  for (const option of provider_result.prompt_options ?? []) {
+    if (option.resolved_alignment) {
+      outcomes.add(option.resolved_alignment);
+    }
+  }
+  return outcomes;
+}
+
+function collect_possible_registered_character_types(
+  state: Readonly<GameState>,
+  request: RegistrationQueryRequest
+): Set<PlayerCharacterType> {
+  const outcomes = new Set<PlayerCharacterType>();
+  const subject = state.players_by_id[request.subject_player_id];
+  if (!subject) {
+    return outcomes;
+  }
+
+  const baseline_type = infer_baseline_character_type(state, request.subject_player_id);
+  if (baseline_type) {
+    outcomes.add(baseline_type);
+  }
+
+  const query = state.registration_queries_by_id[request.query_id];
+  if (query && query.status === 'resolved') {
+    if (query.resolved_character_type) {
+      return new Set([query.resolved_character_type]);
+    }
+    if (query.resolved_character_id) {
+      const classified = classify_tb_character_type(query.resolved_character_id);
+      if (classified) {
+        return new Set([classified]);
+      }
+    }
+    return outcomes;
+  }
+
+  const provider_result = resolve_provider_registration(state, request);
+  if (!provider_result) {
+    return outcomes;
+  }
+
+  if (provider_result.status === 'resolved') {
+    if (provider_result.resolved_character_type) {
+      outcomes.add(provider_result.resolved_character_type);
+      return outcomes;
+    }
+    if (provider_result.resolved_character_id) {
+      const classified = classify_tb_character_type(provider_result.resolved_character_id);
+      if (classified) {
+        outcomes.add(classified);
+      }
+    }
+    return outcomes;
+  }
+
+  for (const option of provider_result.prompt_options ?? []) {
+    if (option.resolved_character_type) {
+      outcomes.add(option.resolved_character_type);
+      continue;
+    }
+    if (option.resolved_character_id) {
+      const classified = classify_tb_character_type(option.resolved_character_id);
+      if (classified) {
+        outcomes.add(classified);
+      }
+    }
+  }
+
+  return outcomes;
+}
+
+function infer_baseline_character_type(
+  state: Readonly<GameState>,
+  subject_player_id: string
+): PlayerCharacterType | null {
+  const subject = state.players_by_id[subject_player_id];
+  if (!subject) {
+    return null;
+  }
+
+  if (subject.true_character_type) {
+    return subject.true_character_type;
+  }
+
+  if (subject.registered_character_id) {
+    const classified = classify_tb_character_type(subject.registered_character_id);
+    if (classified) {
+      return classified;
+    }
+  }
+
+  if (!subject.true_character_id) {
+    return null;
+  }
+
+  return classify_tb_character_type(subject.true_character_id);
+}
+
+function infer_requested_fields(
+  query_kind: RegistrationQueryRequest['query_kind']
+): Array<'alignment' | 'character_id' | 'character_type'> {
+  if (query_kind === 'alignment_check') {
+    return ['alignment'];
+  }
+  if (query_kind === 'character_check') {
+    return ['character_id'];
+  }
+  if (query_kind === 'character_type_check') {
+    return ['character_type'];
+  }
+  if (query_kind === 'demon_check') {
+    return ['character_type'];
+  }
+  return ['alignment', 'character_id', 'character_type'];
+}
+
+const REGISTRATION_PROVIDERS_BY_CHARACTER_ID: Record<string, CharacterPlugin> = {
+  spy: spy_plugin,
+  recluse: recluse_plugin
+};
