@@ -22,6 +22,15 @@ function has_dead_demon(state: GameState): boolean {
   return false;
 }
 
+function has_alive_demon(state: GameState): boolean {
+  for (const player of Object.values(state.players_by_id)) {
+    if (player.alive && player.is_demon) {
+      return true;
+    }
+  }
+  return false;
+}
+
 function count_alive_non_travellers(state: GameState): number {
   return Object.values(state.players_by_id).filter((player) => player.alive && !player.is_traveller).length;
 }
@@ -86,7 +95,7 @@ export function handle_check_win_conditions(
   const events: DomainEvent[] = [];
 
   const saint_executed = has_executed_saint_death(state);
-  const good_wins = has_dead_demon(state) || mayor_no_execution_win(state);
+  const good_wins = (!has_alive_demon(state) && has_dead_demon(state)) || mayor_no_execution_win(state);
   const evil_wins = saint_executed || count_alive_non_travellers(state) <= 2;
 
   events.push({

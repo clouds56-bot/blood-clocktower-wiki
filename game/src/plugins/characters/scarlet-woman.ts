@@ -85,8 +85,8 @@ export const scarlet_woman_plugin: CharacterPlugin = {
             event_type: 'CharacterAssigned',
             payload: {
               player_id: dead_player.player_id,
-              true_character_id: dead_player.true_character_id ?? 'imp',
-              true_character_type: dead_player.true_character_type ?? 'demon',
+              true_character_id: dead_player.true_character_id,
+              true_character_type: dead_player.true_character_type,
               is_demon: false
             }
           },
@@ -94,8 +94,8 @@ export const scarlet_woman_plugin: CharacterPlugin = {
             event_type: 'CharacterAssigned',
             payload: {
               player_id: scarlet_woman.player_id,
-              true_character_id: 'imp',
-              true_character_type: 'demon',
+              true_character_id: dead_player.true_character_id,
+              true_character_type: dead_player.true_character_type,
               is_demon: true
             }
           },

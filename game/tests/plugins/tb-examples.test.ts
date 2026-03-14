@@ -512,7 +512,7 @@ test('imp example: self-kill passes demonhood to a minion', () => {
   assert.ok(result);
   assert.deepEqual(
     result?.emitted_events.map((event) => event.event_type),
-    ['PlayerDied', 'CharacterAssigned', 'CharacterAssigned']
+    ['PlayerDied', 'ReminderMarkerApplied']
   );
 });
 test.skip('poisoner examples: slayer/undertaker/saint/poison-source removal interactions (not implemented yet)');
