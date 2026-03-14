@@ -5,6 +5,8 @@ import type { GameState } from '../../domain/types.js';
 import {
   build_info_role_misinformation_hooks,
   build_registration_query_id,
+  could_resolve_as_evil,
+  has_variable_alignment_registration,
   is_registration_query_prompt_id,
   plan_registration_query_prompt,
   resolve_registration_query_prompt,
@@ -149,21 +151,9 @@ export const chef_plugin: CharacterPlugin = {
 
 function build_chef_registration_requests(
   state: Readonly<GameState>
-): Array<{
-  query_id: string;
-  consumer_role_id: string;
-  query_kind: 'alignment_check';
-  subject_player_id: string;
-  subject_context_player_ids: string[];
-}> {
+): ChefRegistrationRequest[] {
   const seats = state.seat_order;
-  const requests: Array<{
-    query_id: string;
-    consumer_role_id: string;
-    query_kind: 'alignment_check';
-    subject_player_id: string;
-    subject_context_player_ids: string[];
-  }> = [];
+  const requests: ChefRegistrationRequest[] = [];
 
   for (let i = 0; i < seats.length; i += 1) {
     const current_id = seats[i];
@@ -172,7 +162,7 @@ function build_chef_registration_requests(
       continue;
     }
 
-    requests.push({
+    const left_request: ChefRegistrationRequest = {
       query_id: build_registration_query_id({
         consumer_role_id: 'chef',
         query_kind: 'alignment_check',
@@ -186,8 +176,8 @@ function build_chef_registration_requests(
       query_kind: 'alignment_check',
       subject_player_id: current_id,
       subject_context_player_ids: [next_id]
-    });
-    requests.push({
+    };
+    const right_request: ChefRegistrationRequest = {
       query_id: build_registration_query_id({
         consumer_role_id: 'chef',
         query_kind: 'alignment_check',
@@ -201,10 +191,41 @@ function build_chef_registration_requests(
       query_kind: 'alignment_check',
       subject_player_id: next_id,
       subject_context_player_ids: [current_id]
-    });
+    };
+
+    if (should_query_chef_registration(state, left_request, right_request)) {
+      requests.push(left_request);
+    }
+    if (should_query_chef_registration(state, right_request, left_request)) {
+      requests.push(right_request);
+    }
   }
 
   return requests;
+}
+
+type ChefRegistrationRequest = {
+  query_id: string;
+  consumer_role_id: string;
+  query_kind: 'alignment_check';
+  subject_player_id: string;
+  subject_context_player_ids: string[];
+};
+
+function should_query_chef_registration(
+  state: Readonly<GameState>,
+  subject_request: ChefRegistrationRequest,
+  counterpart_request: ChefRegistrationRequest
+): boolean {
+  if (!has_variable_alignment_registration(state, subject_request)) {
+    return false;
+  }
+
+  if (!could_resolve_as_evil(state, counterpart_request)) {
+    return false;
+  }
+
+  return true;
 }
 
 function count_adjacent_evil_pairs(state: Readonly<GameState>): number {

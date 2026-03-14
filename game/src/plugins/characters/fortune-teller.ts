@@ -5,6 +5,8 @@ import {
   build_registration_query_id,
   build_info_role_misinformation_hooks,
   build_misinformation_prompt,
+  has_active_fortune_teller_red_herring,
+  has_variable_demon_registration,
   get_player_information_mode,
   is_registration_query_prompt_id,
   is_misinformation_prompt_id,
@@ -268,45 +270,74 @@ function build_fortune_teller_registration_requests(
   state: Parameters<typeof get_player_information_mode>[0],
   left_player_id: string,
   right_player_id: string
-): Array<{
+): FortuneTellerRegistrationRequest[] {
+  const left_request: FortuneTellerRegistrationRequest = {
+    query_id: build_registration_query_id({
+      consumer_role_id: 'fortune_teller',
+      query_kind: 'demon_check',
+      day_number: state.day_number,
+      night_number: state.night_number,
+      subject_player_id: left_player_id,
+      query_slot: 'pair_left',
+      context_player_ids: [right_player_id]
+    }),
+    consumer_role_id: 'fortune_teller',
+    query_kind: 'demon_check',
+    subject_player_id: left_player_id,
+    subject_context_player_ids: [right_player_id]
+  };
+  const right_request: FortuneTellerRegistrationRequest = {
+    query_id: build_registration_query_id({
+      consumer_role_id: 'fortune_teller',
+      query_kind: 'demon_check',
+      day_number: state.day_number,
+      night_number: state.night_number,
+      subject_player_id: right_player_id,
+      query_slot: 'pair_right',
+      context_player_ids: [left_player_id]
+    }),
+    consumer_role_id: 'fortune_teller',
+    query_kind: 'demon_check',
+    subject_player_id: right_player_id,
+    subject_context_player_ids: [left_player_id]
+  };
+
+  if (is_fortune_teller_yes_guaranteed(state, left_request, right_request)) {
+    return [];
+  }
+
+  const requests: FortuneTellerRegistrationRequest[] = [];
+  if (has_variable_demon_registration(state, left_request)) {
+    requests.push(left_request);
+  }
+  if (has_variable_demon_registration(state, right_request)) {
+    requests.push(right_request);
+  }
+
+  return requests;
+}
+
+type FortuneTellerRegistrationRequest = {
   query_id: string;
   consumer_role_id: string;
   query_kind: 'demon_check';
   subject_player_id: string;
   subject_context_player_ids: string[];
-}> {
-  return [
-    {
-      query_id: build_registration_query_id({
-        consumer_role_id: 'fortune_teller',
-        query_kind: 'demon_check',
-        day_number: state.day_number,
-        night_number: state.night_number,
-        subject_player_id: left_player_id,
-        query_slot: 'pair_left',
-        context_player_ids: [right_player_id]
-      }),
-      consumer_role_id: 'fortune_teller',
-      query_kind: 'demon_check',
-      subject_player_id: left_player_id,
-      subject_context_player_ids: [right_player_id]
-    },
-    {
-      query_id: build_registration_query_id({
-        consumer_role_id: 'fortune_teller',
-        query_kind: 'demon_check',
-        day_number: state.day_number,
-        night_number: state.night_number,
-        subject_player_id: right_player_id,
-        query_slot: 'pair_right',
-        context_player_ids: [left_player_id]
-      }),
-      consumer_role_id: 'fortune_teller',
-      query_kind: 'demon_check',
-      subject_player_id: right_player_id,
-      subject_context_player_ids: [left_player_id]
-    }
-  ];
+};
+
+function is_fortune_teller_yes_guaranteed(
+  state: Parameters<typeof get_player_information_mode>[0],
+  left_request: FortuneTellerRegistrationRequest,
+  right_request: FortuneTellerRegistrationRequest
+): boolean {
+  if (resolves_as_demon(state, left_request) || resolves_as_demon(state, right_request)) {
+    return true;
+  }
+
+  return (
+    has_active_fortune_teller_red_herring(state, left_request.subject_player_id) ||
+    has_active_fortune_teller_red_herring(state, right_request.subject_player_id)
+  );
 }
 
 function parse_pair_context(context_tag: string): [string, string] | null {

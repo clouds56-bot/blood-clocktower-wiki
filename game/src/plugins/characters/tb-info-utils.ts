@@ -536,6 +536,22 @@ export function resolves_as_evil(state: Readonly<GameState>, request: Registrati
   return resolve_registered_alignment(state, request) === 'evil';
 }
 
+export function could_resolve_as_evil(
+  state: Readonly<GameState>,
+  request: RegistrationQueryRequest
+): boolean {
+  const outcomes = collect_possible_registered_alignments(state, request);
+  return outcomes.has('evil');
+}
+
+export function has_variable_alignment_registration(
+  state: Readonly<GameState>,
+  request: RegistrationQueryRequest
+): boolean {
+  const outcomes = collect_possible_registered_alignments(state, request);
+  return outcomes.has('good') && outcomes.has('evil');
+}
+
 export function resolves_as_demon(state: Readonly<GameState>, request: RegistrationQueryRequest): boolean {
   if (resolve_registered_character_type(state, request) === 'demon') {
     return true;
@@ -543,6 +559,56 @@ export function resolves_as_demon(state: Readonly<GameState>, request: Registrat
 
   const player = state.players_by_id[request.subject_player_id];
   return Boolean(player && player.is_demon);
+}
+
+export function could_resolve_as_demon(
+  state: Readonly<GameState>,
+  request: RegistrationQueryRequest
+): boolean {
+  const player = state.players_by_id[request.subject_player_id];
+  if (player && player.is_demon) {
+    return true;
+  }
+
+  const outcomes = collect_possible_registered_character_types(state, request);
+  return outcomes.has('demon');
+}
+
+export function has_variable_demon_registration(
+  state: Readonly<GameState>,
+  request: RegistrationQueryRequest
+): boolean {
+  const player = state.players_by_id[request.subject_player_id];
+  if (player && player.is_demon) {
+    return false;
+  }
+
+  const outcomes = collect_possible_registered_character_types(state, request);
+  if (!outcomes.has('demon')) {
+    return false;
+  }
+  for (const character_type of outcomes) {
+    if (character_type !== 'demon') {
+      return true;
+    }
+  }
+  return false;
+}
+
+export function has_active_fortune_teller_red_herring(
+  state: Readonly<GameState>,
+  player_id: string
+): boolean {
+  return state.active_reminder_marker_ids.some((marker_id) => {
+    const marker = state.reminder_markers_by_id[marker_id];
+    if (!marker || marker.status !== 'active') {
+      return false;
+    }
+    if (marker.kind !== 'fortune_teller:red_herring') {
+      return false;
+    }
+    return marker.target_player_id === player_id;
+  });
 }
 
 export function find_alive_neighbors(state: Readonly<GameState>, player_id: string): PlayerState[] {
@@ -676,6 +742,140 @@ function resolve_provider_registration(
   };
 
   return provider.hooks.on_registration_query(context);
+}
+
+function collect_possible_registered_alignments(
+  state: Readonly<GameState>,
+  request: RegistrationQueryRequest
+): Set<Alignment> {
+  const outcomes = new Set<Alignment>();
+  const subject = state.players_by_id[request.subject_player_id];
+  if (!subject) {
+    return outcomes;
+  }
+
+  const baseline_alignment = subject.registered_alignment ?? subject.true_alignment;
+  if (baseline_alignment) {
+    outcomes.add(baseline_alignment);
+  }
+
+  const query = state.registration_queries_by_id[request.query_id];
+  if (query && query.status === 'resolved') {
+    if (query.resolved_alignment) {
+      return new Set([query.resolved_alignment]);
+    }
+    return outcomes;
+  }
+
+  const provider_result = resolve_provider_registration(state, request);
+  if (!provider_result) {
+    return outcomes;
+  }
+
+  if (provider_result.status === 'resolved') {
+    if (provider_result.resolved_alignment) {
+      outcomes.add(provider_result.resolved_alignment);
+    }
+    return outcomes;
+  }
+
+  for (const option of provider_result.prompt_options ?? []) {
+    if (option.resolved_alignment) {
+      outcomes.add(option.resolved_alignment);
+    }
+  }
+  return outcomes;
+}
+
+function collect_possible_registered_character_types(
+  state: Readonly<GameState>,
+  request: RegistrationQueryRequest
+): Set<PlayerCharacterType> {
+  const outcomes = new Set<PlayerCharacterType>();
+  const subject = state.players_by_id[request.subject_player_id];
+  if (!subject) {
+    return outcomes;
+  }
+
+  const baseline_type = infer_baseline_character_type(state, request.subject_player_id);
+  if (baseline_type) {
+    outcomes.add(baseline_type);
+  }
+
+  const query = state.registration_queries_by_id[request.query_id];
+  if (query && query.status === 'resolved') {
+    if (query.resolved_character_type) {
+      return new Set([query.resolved_character_type]);
+    }
+    if (query.resolved_character_id) {
+      const classified = classify_tb_character_type(query.resolved_character_id);
+      if (classified) {
+        return new Set([classified]);
+      }
+    }
+    return outcomes;
+  }
+
+  const provider_result = resolve_provider_registration(state, request);
+  if (!provider_result) {
+    return outcomes;
+  }
+
+  if (provider_result.status === 'resolved') {
+    if (provider_result.resolved_character_type) {
+      outcomes.add(provider_result.resolved_character_type);
+      return outcomes;
+    }
+    if (provider_result.resolved_character_id) {
+      const classified = classify_tb_character_type(provider_result.resolved_character_id);
+      if (classified) {
+        outcomes.add(classified);
+      }
+    }
+    return outcomes;
+  }
+
+  for (const option of provider_result.prompt_options ?? []) {
+    if (option.resolved_character_type) {
+      outcomes.add(option.resolved_character_type);
+      continue;
+    }
+    if (option.resolved_character_id) {
+      const classified = classify_tb_character_type(option.resolved_character_id);
+      if (classified) {
+        outcomes.add(classified);
+      }
+    }
+  }
+
+  return outcomes;
+}
+
+function infer_baseline_character_type(
+  state: Readonly<GameState>,
+  subject_player_id: string
+): PlayerCharacterType | null {
+  const subject = state.players_by_id[subject_player_id];
+  if (!subject) {
+    return null;
+  }
+
+  if (subject.true_character_type) {
+    return subject.true_character_type;
+  }
+
+  if (subject.registered_character_id) {
+    const classified = classify_tb_character_type(subject.registered_character_id);
+    if (classified) {
+      return classified;
+    }
+  }
+
+  if (!subject.true_character_id) {
+    return null;
+  }
+
+  return classify_tb_character_type(subject.true_character_id);
 }
 
 function infer_requested_fields(
