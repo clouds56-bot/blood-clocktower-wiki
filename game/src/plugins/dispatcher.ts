@@ -3,6 +3,7 @@ import type {
   EventAppliedHookContext,
   NominationMadeHookContext,
   NightWakeHookContext,
+  PlayerDiedHookContext,
   PluginEventSpec,
   PluginInterruptSpec,
   PluginPromptSpec,
@@ -17,13 +18,15 @@ export type DispatchHookName =
   | 'on_night_wake'
   | 'on_prompt_resolved'
   | 'on_event_applied'
-  | 'on_nomination_made';
+  | 'on_nomination_made'
+  | 'on_player_died';
 
 type DispatchContextByHook = {
   on_night_wake: NightWakeHookContext;
   on_prompt_resolved: PromptResolvedHookContext;
   on_event_applied: EventAppliedHookContext;
   on_nomination_made: NominationMadeHookContext;
+  on_player_died: PlayerDiedHookContext;
 };
 
 export interface HookDispatchIssue {

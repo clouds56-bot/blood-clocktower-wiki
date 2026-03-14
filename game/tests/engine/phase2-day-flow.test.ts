@@ -583,7 +583,10 @@ test('butler yes vote requires master yes vote first', () => {
         in_favor: true
       }
     },
-    '2026-03-12T02:00:00.000Z'
+    '2026-03-12T02:00:00.000Z',
+    {
+      plugin_registry: DAY_HOOK_REGISTRY
+    }
   );
 
   assert.equal(blocked.ok, false);
@@ -612,7 +615,10 @@ test('butler yes vote requires master yes vote first', () => {
         in_favor: true
       }
     },
-    '2026-03-12T02:00:01.000Z'
+    '2026-03-12T02:00:01.000Z',
+    {
+      plugin_registry: DAY_HOOK_REGISTRY
+    }
   );
   assert.equal(allowed.ok, true);
 });

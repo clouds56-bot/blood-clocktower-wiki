@@ -10,7 +10,6 @@ import type {
 } from '../domain/commands.js';
 import type { DomainEvent } from '../domain/events.js';
 import type { GameState } from '../domain/types.js';
-import { validate_butler_vote_cast } from '../plugins/characters/butler.js';
 import type { EngineResult } from './phase-machine.js';
 
 function error(code: string, message: string): EngineResult<never> {
@@ -301,15 +300,6 @@ export function handle_cast_vote(
   }
   if (!voter.alive && command.payload.in_favor && !voter.dead_vote_available) {
     return error('dead_vote_not_available', 'dead player has no remaining dead vote');
-  }
-
-  const butler_vote_validation = validate_butler_vote_cast(state, {
-    nomination_id: command.payload.nomination_id,
-    voter_player_id: voter.player_id,
-    in_favor: command.payload.in_favor
-  });
-  if (!butler_vote_validation.ok) {
-    return error(butler_vote_validation.error.code, butler_vote_validation.error.message);
   }
 
   const events: DomainEvent[] = [

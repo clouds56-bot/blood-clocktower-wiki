@@ -118,6 +118,14 @@ export interface VoteCastValidateHookContext {
   in_favor: boolean;
 }
 
+export interface PlayerDiedHookContext {
+  state: Readonly<GameState>;
+  player_id: PlayerId;
+  day_number: number;
+  night_number: number;
+  reason: string;
+}
+
 export type VoteCastValidateHookResult =
   | {
       ok: true;
@@ -136,6 +144,7 @@ export interface CharacterPluginHooks {
   on_event_applied?: (context: EventAppliedHookContext) => PluginResult;
   on_nomination_made?: (context: NominationMadeHookContext) => PluginResult;
   on_vote_cast_validate?: (context: VoteCastValidateHookContext) => VoteCastValidateHookResult;
+  on_player_died?: (context: PlayerDiedHookContext) => PluginResult;
 }
 
 export interface CharacterPlugin {
