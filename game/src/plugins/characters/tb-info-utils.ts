@@ -240,6 +240,12 @@ export function resolve_registered_alignment(
   if (!player) {
     return null;
   }
+
+  const provider_alignment = resolve_provider_alignment(player, request);
+  if (provider_alignment !== null) {
+    return provider_alignment;
+  }
+
   return player.registered_alignment ?? player.true_alignment;
 }
 
@@ -256,6 +262,12 @@ export function resolve_registered_character_id(
   if (!player) {
     return null;
   }
+
+  const provider_character_id = resolve_provider_character_id(player, request);
+  if (provider_character_id !== null) {
+    return provider_character_id;
+  }
+
   return player.registered_character_id ?? player.true_character_id;
 }
 
@@ -268,6 +280,14 @@ export function resolve_registered_character_type(
     return query.resolved_character_type;
   }
 
+  const player = state.players_by_id[request.subject_player_id];
+  if (player) {
+    const provider_type = resolve_provider_character_type(player, request);
+    if (provider_type !== null) {
+      return provider_type;
+    }
+  }
+
   const registered_character_id = resolve_registered_character_id(state, request);
   if (registered_character_id) {
     const classified = classify_tb_character_type(registered_character_id);
@@ -276,20 +296,20 @@ export function resolve_registered_character_type(
     }
   }
 
-  const player = state.players_by_id[request.subject_player_id];
-  if (!player) {
+  const player_after_registered = state.players_by_id[request.subject_player_id];
+  if (!player_after_registered) {
     return null;
   }
 
-  if (player.true_character_type) {
-    return player.true_character_type;
+  if (player_after_registered.true_character_type) {
+    return player_after_registered.true_character_type;
   }
 
-  if (!player.true_character_id) {
+  if (!player_after_registered.true_character_id) {
     return null;
   }
 
-  const true_classified = classify_tb_character_type(player.true_character_id);
+  const true_classified = classify_tb_character_type(player_after_registered.true_character_id);
   if (!true_classified) {
     return null;
   }
@@ -414,3 +434,101 @@ const TB_OUTSIDERS: ReadonlySet<string> = new Set(['butler', 'drunk', 'recluse',
 const TB_MINIONS: ReadonlySet<string> = new Set(['baron', 'poisoner', 'scarlet_woman', 'spy']);
 
 const TB_DEMONS: ReadonlySet<string> = new Set(['imp']);
+
+const SPY_REGISTER_CHARACTER_IDS: ReadonlyArray<string> = [...TB_TOWNSFOLK, ...TB_OUTSIDERS];
+
+const RECLUSE_REGISTER_CHARACTER_IDS: ReadonlyArray<string> = [...TB_MINIONS, ...TB_DEMONS];
+
+function resolve_provider_alignment(
+  player: Readonly<PlayerState>,
+  request: RegistrationQueryRequest
+): Alignment | null {
+  if (!can_apply_registration_provider(player)) {
+    return null;
+  }
+
+  const should_alternate = should_use_alternate_registration(request.query_id);
+  if (!should_alternate) {
+    return null;
+  }
+
+  if (player.true_character_id === 'spy') {
+    return 'good';
+  }
+  if (player.true_character_id === 'recluse') {
+    return 'evil';
+  }
+
+  return null;
+}
+
+function resolve_provider_character_type(
+  player: Readonly<PlayerState>,
+  request: RegistrationQueryRequest
+): PlayerCharacterType | null {
+  if (!can_apply_registration_provider(player)) {
+    return null;
+  }
+  if (!should_use_alternate_registration(request.query_id)) {
+    return null;
+  }
+
+  const hash = stable_hash(`${request.query_id}:type`);
+  if (player.true_character_id === 'spy') {
+    return hash % 2 === 0 ? 'townsfolk' : 'outsider';
+  }
+  if (player.true_character_id === 'recluse') {
+    return hash % 2 === 0 ? 'minion' : 'demon';
+  }
+
+  return null;
+}
+
+function resolve_provider_character_id(
+  player: Readonly<PlayerState>,
+  request: RegistrationQueryRequest
+): string | null {
+  if (!can_apply_registration_provider(player)) {
+    return null;
+  }
+  if (!should_use_alternate_registration(request.query_id)) {
+    return null;
+  }
+
+  if (player.true_character_id === 'spy') {
+    const index = stable_hash(`${request.query_id}:spy`) % SPY_REGISTER_CHARACTER_IDS.length;
+    return SPY_REGISTER_CHARACTER_IDS[index] ?? null;
+  }
+
+  if (player.true_character_id === 'recluse') {
+    const index = stable_hash(`${request.query_id}:recluse`) % RECLUSE_REGISTER_CHARACTER_IDS.length;
+    return RECLUSE_REGISTER_CHARACTER_IDS[index] ?? null;
+  }
+
+  return null;
+}
+
+function can_apply_registration_provider(player: Readonly<PlayerState>): boolean {
+  if (player.true_character_id !== 'spy' && player.true_character_id !== 'recluse') {
+    return false;
+  }
+
+  if (!player.alive) {
+    return true;
+  }
+
+  return !player.drunk && !player.poisoned;
+}
+
+function should_use_alternate_registration(query_id: string): boolean {
+  return stable_hash(query_id) % 2 === 0;
+}
+
+function stable_hash(input: string): number {
+  let hash = 0;
+  for (let i = 0; i < input.length; i += 1) {
+    const code = input.charCodeAt(i) ?? 0;
+    hash = (hash * 31 + code) >>> 0;
+  }
+  return hash;
+}
