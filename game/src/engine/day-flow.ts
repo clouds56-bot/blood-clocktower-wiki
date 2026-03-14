@@ -125,69 +125,6 @@ export function handle_nominate_player(
     }
   ];
 
-  const virgin_is_functional =
-    nominee.true_character_id === 'virgin' && nominee.alive && !nominee.drunk && !nominee.poisoned;
-  const virgin_spent = state.active_reminder_marker_ids.some((marker_id) => {
-    const marker = state.reminder_markers_by_id[marker_id];
-    return Boolean(
-      marker &&
-        marker.status === 'active' &&
-        marker.kind === 'virgin:spent' &&
-        marker.source_player_id === nominee.player_id
-    );
-  });
-
-  if (virgin_is_functional && !virgin_spent && is_townsfolk_id(nominator.true_character_id)) {
-    events.push({
-      event_id: `${command.command_id}:VirginSpentMarker`,
-      event_type: 'ReminderMarkerApplied',
-      created_at,
-      actor_id: command.actor_id,
-      payload: {
-        marker_id: `plugin:virgin:spent:${command.payload.day_number}:${nominee.player_id}`,
-        kind: 'virgin:spent',
-        effect: 'virgin_spent',
-        note: 'Virgin ability spent',
-        source_player_id: nominee.player_id,
-        source_character_id: 'virgin',
-        target_player_id: nominee.player_id,
-        target_scope: 'player',
-        authoritative: true,
-        expires_policy: 'manual',
-        expires_at_day_number: null,
-        expires_at_night_number: null,
-        source_event_id: null,
-        metadata: {
-          trigger: 'nomination'
-        }
-      }
-    });
-    events.push({
-      event_id: `${command.command_id}:VirginNominatorExecuted`,
-      event_type: 'PlayerExecuted',
-      created_at,
-      actor_id: command.actor_id,
-      payload: {
-        day_number: command.payload.day_number,
-        player_id: nominator.player_id
-      }
-    });
-    if (nominator.alive) {
-      events.push({
-        event_id: `${command.command_id}:VirginNominatorDied`,
-        event_type: 'PlayerDied',
-        created_at,
-        actor_id: command.actor_id,
-        payload: {
-          player_id: nominator.player_id,
-          day_number: state.day_number,
-          night_number: state.night_number,
-          reason: 'execution'
-        }
-      });
-    }
-  }
-
   return {
     ok: true,
     value: events
@@ -290,29 +227,6 @@ export function handle_use_slayer_shot(
   };
 }
 
-function is_townsfolk_id(character_id: string | null): boolean {
-  if (!character_id) {
-    return false;
-  }
-  return TOWNSFOLK_IDS.has(character_id);
-}
-
-const TOWNSFOLK_IDS: ReadonlySet<string> = new Set([
-  'chef',
-  'empath',
-  'fortune_teller',
-  'investigator',
-  'librarian',
-  'mayor',
-  'monk',
-  'ravenkeeper',
-  'slayer',
-  'soldier',
-  'undertaker',
-  'virgin',
-  'washerwoman'
-]);
-
 export function handle_open_vote(
   state: GameState,
   command: OpenVoteCommand,
@@ -386,27 +300,6 @@ export function handle_cast_vote(
   }
   if (!voter.alive && command.payload.in_favor && !voter.dead_vote_available) {
     return error('dead_vote_not_available', 'dead player has no remaining dead vote');
-  }
-
-  if (command.payload.in_favor && voter.alive && voter.true_character_id === 'butler' && !voter.drunk && !voter.poisoned) {
-    const master_marker = state.active_reminder_marker_ids
-      .map((marker_id) => state.reminder_markers_by_id[marker_id])
-      .find((marker) => {
-        return Boolean(
-          marker &&
-            marker.status === 'active' &&
-            marker.kind === 'butler:master' &&
-            marker.authoritative &&
-            marker.source_player_id === voter.player_id
-        );
-      });
-
-    if (master_marker && master_marker.target_player_id) {
-      const master_voted_in_favor = active_vote.votes_by_player_id[master_marker.target_player_id] === true;
-      if (!master_voted_in_favor) {
-        return error('butler_vote_restricted', 'butler can only vote if their master votes');
-      }
-    }
   }
 
   const events: DomainEvent[] = [

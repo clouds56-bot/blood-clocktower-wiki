@@ -1,7 +1,9 @@
 import type { Command } from '../domain/commands.js';
 import type { DomainEvent } from '../domain/events.js';
 import type { GameState, PlayerCharacterType } from '../domain/types.js';
+import { infer_character_type_from_id } from '../domain/character-types.js';
 import { apply_events } from '../domain/reducer.js';
+import { dispatch_vote_cast_validate } from '../plugins/dispatcher.js';
 import type { PluginRegistry } from '../plugins/registry.js';
 import { handle_advance_phase, type EngineResult } from './phase-machine.js';
 import {
@@ -102,6 +104,31 @@ export function handle_command(
       base_result = handle_open_vote(state, command, created_at);
       break;
     case 'CastVote':
+      if (runtime_options.plugin_registry) {
+        const voter = state.players_by_id[command.payload.voter_player_id];
+        const voter_plugin_ids = voter?.true_character_id ? [voter.true_character_id] : [];
+        if (voter_plugin_ids.length > 0) {
+          const vote_validation = dispatch_vote_cast_validate(
+            runtime_options.plugin_registry,
+            voter_plugin_ids,
+            {
+              state,
+              nomination_id: command.payload.nomination_id,
+              voter_player_id: command.payload.voter_player_id,
+              in_favor: command.payload.in_favor
+            }
+          );
+          if (!vote_validation.ok) {
+            return {
+              ok: false,
+              error: {
+                code: vote_validation.error.code,
+                message: vote_validation.error.message
+              }
+            };
+          }
+        }
+      }
       base_result = handle_cast_vote(state, command, created_at);
       break;
     case 'CloseVote':
@@ -255,6 +282,11 @@ export function handle_command(
 
       if (command.payload.true_character_type !== undefined) {
         payload.true_character_type = command.payload.true_character_type;
+      } else {
+        const inferred_type = infer_character_type_from_id(command.payload.true_character_id);
+        if (inferred_type !== null) {
+          payload.true_character_type = inferred_type;
+        }
       }
       if (command.payload.is_demon !== undefined) {
         payload.is_demon = command.payload.is_demon;

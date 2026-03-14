@@ -320,6 +320,12 @@ Rules:
 - immediate triggers can enqueue interrupt resolution.
 - plugin applies/removes effects through reminder marker events, not direct bool mutation.
 - registration providers (for example `recluse`, `spy`) do not mutate persistent player fields to answer checks; they request/emit query-scoped registration decisions.
+- engine remains authoritative for phase transitions, command validation, queue orchestration, and final win declaration.
+
+Plugin-first split (target):
+- character-specific rule logic should live in plugins whenever possible;
+- engine should provide deterministic hook boundaries and execute plugin outputs in canonical order;
+- non-character global rules remain engine-owned.
 
 Compatibility bridge:
 - keep `ApplyPoison` / `ApplyDrunk` commands and `PoisonApplied` / `DrunkApplied` / restore events for existing plugin callers.
@@ -341,6 +347,23 @@ Compatibility bridge:
 3. plugin returns declarative outputs (`events`, `prompts`, `interrupts`).
 4. engine applies outputs through normal command/event pipeline.
 5. reducer is the only state mutation path.
+
+### Extended Hook Surface (planned)
+
+- `on_night_wake`: role wake actions.
+- `on_prompt_resolved`: role-owned prompt follow-up.
+- `on_event_applied`: optional passive reactions (already available).
+- `on_nomination_made`: day-reactive nomination hooks (for example `virgin`).
+- `on_vote_cast_validate`: vote-constraint hooks before vote acceptance (for example `butler`).
+- `on_execution_resolving`: execution replacement/redirection hooks (for example `mayor` redirection path).
+- `on_player_died`: death-trigger hooks and continuity triggers.
+- `on_pre_win_check`: final continuity/override effects before winner resolution (for example `scarlet_woman`).
+- `on_registration_query`: registration provider adjudication for query-scoped checks (`recluse`, `spy`).
+
+Determinism rules for extended hooks:
+- dispatch order must be stable (seat-order and/or explicit plugin precedence);
+- each boundary defines a strict phase order: base command events -> plugin boundary hooks -> compatibility/status events -> win check;
+- hook outputs must be replay-safe and idempotent by event identity rules.
 
 ### Sample Behavior Contract (Imp)
 
@@ -364,6 +387,13 @@ Compatibility bridge:
 - when a night wake step begins.
 - when a plugin-owned prompt is resolved.
 - optional post-event follow-up boundary for scheduling additional wake/interrupt work.
+
+### Next Hook Milestones
+
+- M1: nomination and vote validation hooks (`on_nomination_made`, `on_vote_cast_validate`).
+- M2: death and continuity hooks (`on_player_died`, `on_pre_win_check`).
+- M3: registration provider hook (`on_registration_query`) with query lifecycle prompts.
+- M4: migrate remaining engine-embedded character branches to plugin hooks and keep engine as orchestrator.
 
 ### Phase 6 Test Targets
 

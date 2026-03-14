@@ -1,5 +1,6 @@
 import type { DomainEvent } from './events.js';
 import { create_empty_day_state, type ActiveVote, type GameState, type PlayerState } from './types.js';
+import { infer_character_type_from_id } from './character-types.js';
 
 function clone_payload(payload: Record<string, unknown>): Record<string, unknown> {
   return structuredClone(payload);
@@ -176,6 +177,8 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
       player.true_character_id = event.payload.true_character_id;
       if (event.payload.true_character_type !== undefined) {
         player.true_character_type = event.payload.true_character_type;
+      } else {
+        player.true_character_type = infer_character_type_from_id(event.payload.true_character_id);
       }
       if (event.payload.is_demon !== undefined) {
         player.is_demon = event.payload.is_demon;

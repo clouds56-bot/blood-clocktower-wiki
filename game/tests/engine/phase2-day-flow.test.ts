@@ -6,6 +6,11 @@ import { apply_events } from '../../src/domain/reducer.js';
 import { create_initial_state } from '../../src/domain/state.js';
 import type { GameState } from '../../src/domain/types.js';
 import { handle_command } from '../../src/engine/command-handler.js';
+import { butler_plugin } from '../../src/plugins/characters/butler.js';
+import { virgin_plugin } from '../../src/plugins/characters/virgin.js';
+import { PluginRegistry } from '../../src/plugins/registry.js';
+
+const DAY_HOOK_REGISTRY = new PluginRegistry([butler_plugin, virgin_plugin]);
 
 function bootstrap_day_state(): GameState {
   const seed = create_initial_state('g1');
@@ -38,7 +43,9 @@ function bootstrap_day_state(): GameState {
 }
 
 function run_command(state: GameState, command: Command, created_at = '2026-03-12T01:00:00.000Z'): GameState {
-  const result = handle_command(state, command, created_at);
+  const result = handle_command(state, command, created_at, {
+    plugin_registry: DAY_HOOK_REGISTRY
+  });
   if (!result.ok) {
     throw new Error(`${result.error.code}:${result.error.message}`);
   }
@@ -576,7 +583,10 @@ test('butler yes vote requires master yes vote first', () => {
         in_favor: true
       }
     },
-    '2026-03-12T02:00:00.000Z'
+    '2026-03-12T02:00:00.000Z',
+    {
+      plugin_registry: DAY_HOOK_REGISTRY
+    }
   );
 
   assert.equal(blocked.ok, false);
@@ -605,7 +615,10 @@ test('butler yes vote requires master yes vote first', () => {
         in_favor: true
       }
     },
-    '2026-03-12T02:00:01.000Z'
+    '2026-03-12T02:00:01.000Z',
+    {
+      plugin_registry: DAY_HOOK_REGISTRY
+    }
   );
   assert.equal(allowed.ok, true);
 });

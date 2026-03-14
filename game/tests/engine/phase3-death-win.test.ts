@@ -6,6 +6,16 @@ import { apply_events } from '../../src/domain/reducer.js';
 import { create_initial_state } from '../../src/domain/state.js';
 import type { GameState } from '../../src/domain/types.js';
 import { handle_command } from '../../src/engine/command-handler.js';
+import { butler_plugin } from '../../src/plugins/characters/butler.js';
+import { scarlet_woman_plugin } from '../../src/plugins/characters/scarlet-woman.js';
+import { virgin_plugin } from '../../src/plugins/characters/virgin.js';
+import { PluginRegistry } from '../../src/plugins/registry.js';
+
+const TEST_PLUGIN_REGISTRY = new PluginRegistry([
+  butler_plugin,
+  scarlet_woman_plugin,
+  virgin_plugin
+]);
 
 function bootstrap_day_state(): GameState {
   const seed = create_initial_state('g1');
@@ -38,7 +48,9 @@ function bootstrap_day_state(): GameState {
 }
 
 function run_command(state: GameState, command: Command, created_at = '2026-03-12T01:00:00.000Z'): GameState {
-  const result = handle_command(state, command, created_at);
+  const result = handle_command(state, command, created_at, {
+    plugin_registry: TEST_PLUGIN_REGISTRY
+  });
   if (!result.ok) {
     throw new Error(`${result.error.code}:${result.error.message}`);
   }
@@ -50,7 +62,9 @@ function run_command_result(
   command: Command,
   created_at = '2026-03-12T01:00:00.000Z'
 ) {
-  return handle_command(state, command, created_at);
+  return handle_command(state, command, created_at, {
+    plugin_registry: TEST_PLUGIN_REGISTRY
+  });
 }
 
 function create_execution_state(): GameState {

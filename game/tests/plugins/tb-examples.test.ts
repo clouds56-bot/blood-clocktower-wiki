@@ -7,6 +7,7 @@ import { create_initial_state } from '../../src/domain/state.js';
 import type { GameState } from '../../src/domain/types.js';
 import { handle_command } from '../../src/engine/command-handler.js';
 import { chef_plugin } from '../../src/plugins/characters/chef.js';
+import { butler_plugin } from '../../src/plugins/characters/butler.js';
 import { empath_plugin } from '../../src/plugins/characters/empath.js';
 import { fortune_teller_plugin } from '../../src/plugins/characters/fortune-teller.js';
 import { imp_plugin } from '../../src/plugins/characters/imp.js';
@@ -15,8 +16,12 @@ import { librarian_plugin } from '../../src/plugins/characters/librarian.js';
 import { monk_plugin } from '../../src/plugins/characters/monk.js';
 import { ravenkeeper_plugin } from '../../src/plugins/characters/ravenkeeper.js';
 import { undertaker_plugin } from '../../src/plugins/characters/undertaker.js';
+import { virgin_plugin } from '../../src/plugins/characters/virgin.js';
 import { washerwoman_plugin } from '../../src/plugins/characters/washerwoman.js';
+import { PluginRegistry } from '../../src/plugins/registry.js';
 import { make_player } from './tb-test-utils.js';
+
+const DAY_HOOK_REGISTRY = new PluginRegistry([butler_plugin, virgin_plugin]);
 
 test('chef example: no adjacent evil players -> learns 0', () => {
   const state = create_initial_state('g1');
@@ -507,7 +512,7 @@ test('imp example: self-kill passes demonhood to a minion', () => {
   assert.ok(result);
   assert.deepEqual(
     result?.emitted_events.map((event) => event.event_type),
-    ['PlayerDied', 'CharacterAssigned', 'CharacterAssigned']
+    ['PlayerDied', 'ReminderMarkerApplied']
   );
 });
 test.skip('poisoner examples: slayer/undertaker/saint/poison-source removal interactions (not implemented yet)');
@@ -600,7 +605,7 @@ test('virgin example: washerwoman nominates virgin and is executed immediately',
   assert.equal(state.players_by_id.p1?.alive, false);
 });
 
-test.skip('virgin example: Drunk nominates Virgin and Virgin still loses ability (not implemented yet)', () => {
+test('virgin example: Drunk nominates Virgin and Virgin still loses ability', () => {
   let state = bootstrap_day_state();
   state = run_command(state, {
     command_id: 'c-assign-virgin',
@@ -611,6 +616,56 @@ test.skip('virgin example: Drunk nominates Virgin and Virgin still loses ability
     command_id: 'c-assign-drunk',
     command_type: 'AssignCharacter',
     payload: { player_id: 'p1', true_character_id: 'drunk' }
+  });
+  state = run_command(state, {
+    command_id: 'c-open',
+    command_type: 'OpenNominationWindow',
+    payload: { day_number: 1 }
+  });
+  state = run_command(state, {
+    command_id: 'c-nom',
+    command_type: 'NominatePlayer',
+    payload: {
+      nomination_id: 'n1',
+      day_number: 1,
+      nominator_player_id: 'p1',
+      nominee_player_id: 'p2'
+    }
+  });
+
+  const virgin_spent = state.active_reminder_marker_ids.some((marker_id) => {
+    const marker = state.reminder_markers_by_id[marker_id];
+    return Boolean(marker && marker.kind === 'virgin:spent' && marker.source_player_id === 'p2');
+  });
+
+  assert.equal(state.players_by_id.p1?.alive, true);
+  assert.equal(virgin_spent, true);
+});
+
+test('virgin example: poisoned Virgin nomination spends ability but does not execute nominator', () => {
+  let state = bootstrap_day_state();
+  state = run_command(state, {
+    command_id: 'c-assign-virgin',
+    command_type: 'AssignCharacter',
+    payload: { player_id: 'p2', true_character_id: 'virgin' }
+  });
+  state = run_command(state, {
+    command_id: 'c-assign-chef',
+    command_type: 'AssignCharacter',
+    payload: { player_id: 'p1', true_character_id: 'chef' }
+  });
+  state = run_command(state, {
+    command_id: 'c-poison-virgin',
+    command_type: 'ApplyPoison',
+    payload: {
+      marker_id: 'm-poison-virgin',
+      kind: 'test:poison',
+      source_player_id: null,
+      source_character_id: 'test',
+      target_player_id: 'p2',
+      day_number: 1,
+      night_number: 1
+    }
   });
   state = run_command(state, {
     command_id: 'c-open',
@@ -859,7 +914,9 @@ function bootstrap_day_state(): GameState {
 }
 
 function run_command(state: GameState, command: Command, created_at = '2026-03-12T01:00:00.000Z'): GameState {
-  const result = handle_command(state, command, created_at);
+  const result = handle_command(state, command, created_at, {
+    plugin_registry: DAY_HOOK_REGISTRY
+  });
   if (!result.ok) {
     throw new Error(`${result.error.code}:${result.error.message}`);
   }
