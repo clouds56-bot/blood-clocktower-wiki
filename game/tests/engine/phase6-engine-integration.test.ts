@@ -7,6 +7,7 @@ import { create_initial_state } from '../../src/domain/state.js';
 import type { GameState } from '../../src/domain/types.js';
 import type { CharacterPlugin, CharacterPluginMetadata } from '../../src/plugins/contracts.js';
 import { empty_plugin_result } from '../../src/plugins/contracts.js';
+import { butler_plugin } from '../../src/plugins/characters/butler.js';
 import { imp_plugin } from '../../src/plugins/characters/imp.js';
 import { poisoner_plugin } from '../../src/plugins/characters/poisoner.js';
 import { PluginRegistry } from '../../src/plugins/registry.js';
@@ -71,6 +72,73 @@ function bootstrap_night_state(): GameState {
       event_type: 'CharacterAssigned',
       created_at: '2026-03-14T00:00:04.000Z',
       payload: { player_id: 'p2', true_character_id: 'poisoner' }
+    }
+  ]);
+}
+
+function bootstrap_day_vote_state(): GameState {
+  const seed = create_initial_state('g1');
+  return apply_events(seed, [
+    {
+      event_id: 'v1',
+      event_type: 'PlayerAdded',
+      created_at: '2026-03-14T00:00:00.000Z',
+      payload: { player_id: 'p1', display_name: 'Alice' }
+    },
+    {
+      event_id: 'v2',
+      event_type: 'PlayerAdded',
+      created_at: '2026-03-14T00:00:01.000Z',
+      payload: { player_id: 'p2', display_name: 'Bob' }
+    },
+    {
+      event_id: 'v3',
+      event_type: 'PlayerAdded',
+      created_at: '2026-03-14T00:00:02.000Z',
+      payload: { player_id: 'p3', display_name: 'Cara' }
+    },
+    {
+      event_id: 'v4',
+      event_type: 'CharacterAssigned',
+      created_at: '2026-03-14T00:00:03.000Z',
+      payload: { player_id: 'p1', true_character_id: 'butler' }
+    },
+    {
+      event_id: 'v5',
+      event_type: 'PhaseAdvanced',
+      created_at: '2026-03-14T00:00:04.000Z',
+      payload: { phase: 'day', subphase: 'vote_in_progress', day_number: 1, night_number: 1 }
+    },
+    {
+      event_id: 'v6',
+      event_type: 'VoteOpened',
+      created_at: '2026-03-14T00:00:05.000Z',
+      payload: {
+        nomination_id: 'n1',
+        nominee_player_id: 'p3',
+        opened_by_player_id: 'p2'
+      }
+    },
+    {
+      event_id: 'v7',
+      event_type: 'ReminderMarkerApplied',
+      created_at: '2026-03-14T00:00:06.000Z',
+      payload: {
+        marker_id: 'm1',
+        kind: 'butler:master',
+        effect: 'butler_master',
+        note: 'master',
+        source_player_id: 'p1',
+        source_character_id: 'butler',
+        target_player_id: 'p2',
+        target_scope: 'player',
+        authoritative: true,
+        expires_policy: 'end_of_day',
+        expires_at_day_number: null,
+        expires_at_night_number: null,
+        source_event_id: null,
+        metadata: {}
+      }
     }
   ]);
 }
@@ -222,6 +290,32 @@ test('resolve prompt boundary re-enters plugin runtime via prompt owner tag', ()
     events.map((event) => event.event_type),
     ['PromptResolved', 'StorytellerChoiceMade', 'StorytellerRulingRecorded']
   );
+});
+
+test('cast vote validation boundary can reject vote through plugin hook', () => {
+  const state = bootstrap_day_vote_state();
+  const registry = new PluginRegistry([butler_plugin]);
+
+  const result = handle_command(
+    state,
+    {
+      command_id: 'c_vote_block',
+      command_type: 'CastVote',
+      actor_id: 'storyteller',
+      payload: {
+        nomination_id: 'n1',
+        voter_player_id: 'p1',
+        in_favor: true
+      }
+    },
+    '2026-03-14T01:00:00.000Z',
+    { plugin_registry: registry }
+  );
+
+  assert.equal(result.ok, false);
+  if (!result.ok) {
+    assert.equal(result.error.code, 'butler_vote_restricted');
+  }
 });
 
 test('resolve prompt resumes suspended wake queue', () => {

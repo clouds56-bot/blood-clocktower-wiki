@@ -1,6 +1,6 @@
 # Trouble Brewing Implementation Plan
 
-This plan turns `specs/edition.tb.md` into executable implementation slices.
+This plan turns `game/specs/edition.tb.md` into executable implementation slices.
 
 ## TB-01 Setup + Composition
 
@@ -63,6 +63,7 @@ Scope:
 - Integrate day interrupt handling for Virgin and Slayer.
 - Implement Butler vote restriction checks.
 - Implement Mayor final-3 no-execution win and night redirection hook.
+- Migrate day-reactive logic to plugin boundaries where possible (`on_nomination_made`, `on_vote_cast_validate`, `on_execution_resolving`).
 
 Done when:
 - virgin trigger executes nominator exactly once;
@@ -70,6 +71,7 @@ Done when:
 - saint execution loss only on execution death;
 - undertaker and ravenkeeper read flows resolve in proper windows;
 - butler vote enforcement is deterministic.
+- engine day-flow keeps orchestration/validation, while role-specific checks are plugin-owned.
 
 Tests:
 - virgin with townsfolk nominator;
@@ -107,16 +109,39 @@ Scope:
 - Implement `scarlet_woman` takeover at demon death (>=5 alive non-travellers).
 - Implement `imp` self-kill demon transfer to alive minion.
 - Integrate with win-check ordering to avoid premature good victory.
+- Place continuity behavior behind plugin-oriented boundaries (`on_player_died` and/or `on_pre_win_check`) while preserving deterministic win ordering.
 
 Done when:
 - demon continuity applies before final win resolution;
 - takeover/self-transfer emit correct character-change and private role-reveal events.
+- continuity trigger logic is plugin-owned; engine win-check remains final arbiter.
 
 Tests:
 - scarlet woman takeover at 5+ alive;
 - no takeover below 5 alive;
 - imp self-kill transfer;
 - good win only after failed continuity.
+
+## TB-08 Plugin-First Hook Migration
+
+Scope:
+- Expand plugin contracts and runtime boundaries for character-owned logic:
+  - nomination reactions,
+  - vote validation,
+  - death reactions,
+  - pre-win continuity,
+  - registration adjudication queries.
+- Incrementally move remaining engine-embedded character rules to plugins.
+
+Done when:
+- engine modules primarily orchestrate phases/commands and apply deterministic ordering;
+- TB role-specific logic is implemented in character plugins;
+- replay determinism and projection safety are unchanged.
+
+Tests:
+- parity tests for migrated roles (before/after behavior snapshots);
+- boundary ordering tests (`base events -> hooks -> compatibility -> win check`);
+- deterministic replay for mixed migrated/non-migrated roles.
 
 ## TB-07 End-to-End TB Matrix
 
@@ -146,6 +171,7 @@ Tests:
 5. TB-05
 6. TB-06
 7. TB-07
+8. TB-08
 
 ## Deliverable Gates
 
@@ -153,3 +179,4 @@ Tests:
 - Gate B: core night/day mechanics complete (`TB-03`, `TB-04`)
 - Gate C: interaction-hard cases complete (`TB-05`, `TB-06`)
 - Gate D: end-to-end confidence complete (`TB-07`)
+- Gate E: plugin-first architecture migration complete (`TB-08`)

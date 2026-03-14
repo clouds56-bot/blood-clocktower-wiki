@@ -103,10 +103,39 @@ export interface EventAppliedHookContext {
   event_payload: Record<string, unknown>;
 }
 
+export interface NominationMadeHookContext {
+  state: Readonly<GameState>;
+  nomination_id: string;
+  day_number: number;
+  nominator_player_id: PlayerId;
+  nominee_player_id: PlayerId;
+}
+
+export interface VoteCastValidateHookContext {
+  state: Readonly<GameState>;
+  nomination_id: string;
+  voter_player_id: PlayerId;
+  in_favor: boolean;
+}
+
+export type VoteCastValidateHookResult =
+  | {
+      ok: true;
+    }
+  | {
+      ok: false;
+      error: {
+        code: string;
+        message: string;
+      };
+    };
+
 export interface CharacterPluginHooks {
   on_night_wake?: (context: NightWakeHookContext) => PluginResult;
   on_prompt_resolved?: (context: PromptResolvedHookContext) => PluginResult;
   on_event_applied?: (context: EventAppliedHookContext) => PluginResult;
+  on_nomination_made?: (context: NominationMadeHookContext) => PluginResult;
+  on_vote_cast_validate?: (context: VoteCastValidateHookContext) => VoteCastValidateHookResult;
 }
 
 export interface CharacterPlugin {

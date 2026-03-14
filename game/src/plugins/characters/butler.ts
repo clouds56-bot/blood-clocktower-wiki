@@ -1,4 +1,5 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
+import type { GameState } from '../../domain/types.js';
 import { is_functional_player } from './tb-info-utils.js';
 
 const BUTLER_PROMPT_PREFIX = 'plugin:butler:night_master';
@@ -129,9 +130,68 @@ export const butler_plugin: CharacterPlugin = {
         queued_prompts: [],
         queued_interrupts: []
       };
+    },
+    on_vote_cast_validate: (context) => {
+      return validate_butler_vote_cast(context.state, {
+        nomination_id: context.nomination_id,
+        voter_player_id: context.voter_player_id,
+        in_favor: context.in_favor
+      });
     }
   }
 };
+
+export function validate_butler_vote_cast(
+  state: Readonly<GameState>,
+  args: {
+    nomination_id: string;
+    voter_player_id: string;
+    in_favor: boolean;
+  }
+): { ok: true } | { ok: false; error: { code: string; message: string } } {
+  if (!args.in_favor) {
+    return { ok: true };
+  }
+
+  const voter = state.players_by_id[args.voter_player_id];
+  if (!voter || !voter.alive || voter.true_character_id !== 'butler' || voter.drunk || voter.poisoned) {
+    return { ok: true };
+  }
+
+  const active_vote = state.day_state.active_vote;
+  if (!active_vote || active_vote.nomination_id !== args.nomination_id) {
+    return { ok: true };
+  }
+
+  const master_marker = state.active_reminder_marker_ids
+    .map((marker_id) => state.reminder_markers_by_id[marker_id])
+    .find((marker) => {
+      return Boolean(
+        marker &&
+          marker.status === 'active' &&
+          marker.kind === 'butler:master' &&
+          marker.authoritative &&
+          marker.source_player_id === voter.player_id
+      );
+    });
+
+  if (!master_marker || !master_marker.target_player_id) {
+    return { ok: true };
+  }
+
+  const master_voted_in_favor = active_vote.votes_by_player_id[master_marker.target_player_id] === true;
+  if (master_voted_in_favor) {
+    return { ok: true };
+  }
+
+  return {
+    ok: false,
+    error: {
+      code: 'butler_vote_restricted',
+      message: 'butler can only vote if their master votes'
+    }
+  };
+}
 
 export function is_butler_prompt_id(prompt_id: string): boolean {
   return prompt_id.startsWith(BUTLER_PROMPT_PREFIX);

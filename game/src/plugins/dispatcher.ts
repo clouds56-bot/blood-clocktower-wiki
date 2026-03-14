@@ -1,6 +1,7 @@
 import type {
   CharacterPlugin,
   EventAppliedHookContext,
+  NominationMadeHookContext,
   NightWakeHookContext,
   PluginEventSpec,
   PluginInterruptSpec,
@@ -9,14 +10,20 @@ import type {
   PromptResolvedHookContext
 } from './contracts.js';
 import { empty_plugin_result } from './contracts.js';
+import type { VoteCastValidateHookContext } from './contracts.js';
 import type { PluginRegistry } from './registry.js';
 
-export type DispatchHookName = 'on_night_wake' | 'on_prompt_resolved' | 'on_event_applied';
+export type DispatchHookName =
+  | 'on_night_wake'
+  | 'on_prompt_resolved'
+  | 'on_event_applied'
+  | 'on_nomination_made';
 
 type DispatchContextByHook = {
   on_night_wake: NightWakeHookContext;
   on_prompt_resolved: PromptResolvedHookContext;
   on_event_applied: EventAppliedHookContext;
+  on_nomination_made: NominationMadeHookContext;
 };
 
 export interface HookDispatchIssue {
@@ -61,6 +68,26 @@ export type HookDispatchResult =
   | {
       ok: false;
       error: HookDispatchError;
+    };
+
+export interface VoteCastValidateTrace {
+  plugin_id: string;
+  status: 'executed' | 'skipped_missing_plugin' | 'skipped_missing_hook';
+}
+
+export type VoteCastValidateResult =
+  | {
+      ok: true;
+      trace: VoteCastValidateTrace[];
+    }
+  | {
+      ok: false;
+      error: {
+        code: string;
+        message: string;
+        plugin_id?: string;
+        trace: VoteCastValidateTrace[];
+      };
     };
 
 export function dispatch_hook<K extends DispatchHookName>(
@@ -152,6 +179,76 @@ export function dispatch_hook<K extends DispatchHookName>(
       output,
       trace
     }
+  };
+}
+
+export function dispatch_vote_cast_validate(
+  registry: PluginRegistry,
+  plugin_ids: string[],
+  context: VoteCastValidateHookContext
+): VoteCastValidateResult {
+  const trace: VoteCastValidateTrace[] = [];
+  const seen_plugin_ids = new Set<string>();
+
+  for (const plugin_id of plugin_ids) {
+    if (seen_plugin_ids.has(plugin_id)) {
+      continue;
+    }
+    seen_plugin_ids.add(plugin_id);
+
+    const plugin = registry.get(plugin_id);
+    if (!plugin) {
+      trace.push({
+        plugin_id,
+        status: 'skipped_missing_plugin'
+      });
+      continue;
+    }
+
+    const hook = plugin.hooks.on_vote_cast_validate;
+    if (!hook) {
+      trace.push({
+        plugin_id,
+        status: 'skipped_missing_hook'
+      });
+      continue;
+    }
+
+    trace.push({
+      plugin_id,
+      status: 'executed'
+    });
+
+    try {
+      const result = hook(context);
+      if (!result.ok) {
+        return {
+          ok: false,
+          error: {
+            code: result.error.code,
+            message: result.error.message,
+            plugin_id,
+            trace
+          }
+        };
+      }
+    } catch (cause) {
+      const message = cause instanceof Error ? cause.message : 'unknown plugin hook error';
+      return {
+        ok: false,
+        error: {
+          code: 'plugin_hook_threw',
+          message,
+          plugin_id,
+          trace
+        }
+      };
+    }
+  }
+
+  return {
+    ok: true,
+    trace
   };
 }
 
