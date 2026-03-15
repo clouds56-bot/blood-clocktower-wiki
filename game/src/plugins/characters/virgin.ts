@@ -1,13 +1,9 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
-import type { DomainEvent } from '../../domain/events.js';
-import { apply_events } from '../../domain/reducer.js';
 import type { GameState } from '../../domain/types.js';
 import {
   build_registration_query_id,
-  is_registration_query_prompt_id,
   plan_registration_query_prompt,
-  resolve_registered_character_type,
-  resolve_registration_query_prompt
+  resolve_registered_character_type
 } from './tb-info-utils.js';
 
 export const virgin_plugin: CharacterPlugin = {
@@ -44,51 +40,17 @@ export const virgin_plugin: CharacterPlugin = {
         nominee_player_id: context.nominee_player_id
       });
     },
-    on_prompt_resolved: (context): PluginResult => {
-      if (!is_registration_query_prompt_id(context.prompt_id, 'virgin')) {
-        return {
-          emitted_events: [],
-          queued_prompts: [],
-          queued_interrupts: []
-        };
-      }
-
-      const resolved = resolve_registration_query_prompt({
-        state: context.state,
-        role_id: 'virgin',
-        prompt_id: context.prompt_id,
-        selected_option_id: context.selected_option_id
-      });
-      if (!resolved.ok) {
-        return {
-          emitted_events: [],
-          queued_prompts: [],
-          queued_interrupts: []
-        };
-      }
-
-      const temp_state = apply_events(context.state, [
-        {
-          event_id: `virgin:registration:resolved:${resolved.parsed.query_id}`,
-          event_type: 'RegistrationDecisionRecorded',
-          created_at: '1970-01-01T00:00:00.000Z',
-          payload: resolved.event.payload as Extract<
-            DomainEvent,
-            { event_type: 'RegistrationDecisionRecorded' }
-          >['payload']
-        }
-      ]);
-
-      const query = temp_state.registration_queries_by_id[resolved.parsed.query_id];
+    on_registration_resolved: (context): PluginResult => {
+      const query = context.state.registration_queries_by_id[context.query_id];
       if (!query) {
         return {
-          emitted_events: [resolved.event],
+          emitted_events: [],
           queued_prompts: [],
           queued_interrupts: []
         };
       }
 
-      const registered_type = resolve_registered_character_type(temp_state, {
+      const registered_type = resolve_registered_character_type(context.state, {
         query_id: query.query_id,
         consumer_role_id: query.consumer_role_id,
         query_kind: query.query_kind,
@@ -98,7 +60,6 @@ export const virgin_plugin: CharacterPlugin = {
 
       return {
         emitted_events: [
-          resolved.event,
           ...(registered_type === 'townsfolk'
             ? [
                 {
@@ -106,15 +67,6 @@ export const virgin_plugin: CharacterPlugin = {
                   payload: {
                     day_number: query.day_number,
                     player_id: query.subject_player_id
-                  }
-                },
-                {
-                  event_type: 'PlayerDied' as const,
-                  payload: {
-                    player_id: query.subject_player_id,
-                    day_number: query.day_number,
-                    night_number: query.night_number,
-                    reason: 'execution' as const
                   }
                 }
               ]
@@ -205,6 +157,8 @@ function build_virgin_nomination_result(
   }
 
   if (nominator.true_character_type === 'townsfolk') {
+    // Virgin only emits PlayerExecuted.
+    // Engine runtime settles execution deaths into PlayerDied for consistency.
     return {
       emitted_events: [
         spent_event,

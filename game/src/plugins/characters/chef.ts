@@ -1,15 +1,11 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
-import type { DomainEvent } from '../../domain/events.js';
-import { apply_events } from '../../domain/reducer.js';
 import type { GameState } from '../../domain/types.js';
 import {
   build_info_role_misinformation_hooks,
   build_registration_query_id,
   could_resolve_as_evil,
   has_variable_alignment_registration,
-  is_registration_query_prompt_id,
   plan_registration_query_prompt,
-  resolve_registration_query_prompt,
   resolves_as_evil
 } from './tb-info-utils.js';
 
@@ -84,67 +80,37 @@ export const chef_plugin: CharacterPlugin = {
   },
   hooks: {
     on_night_wake: chef_info_hooks.on_night_wake,
-    on_prompt_resolved: (context): PluginResult => {
-      if (is_registration_query_prompt_id(context.prompt_id, 'chef')) {
-        const resolved = resolve_registration_query_prompt({
-          state: context.state,
-          role_id: 'chef',
-          prompt_id: context.prompt_id,
-          selected_option_id: context.selected_option_id
-        });
-        if (!resolved.ok) {
-          return {
-            emitted_events: [],
-            queued_prompts: [],
-            queued_interrupts: []
-          };
-        }
+    on_prompt_resolved: chef_info_hooks.on_prompt_resolved,
+    on_registration_resolved: (context): PluginResult => {
+      const prompt_plan = plan_registration_query_prompt({
+        state: context.state,
+        role_id: 'chef',
+        owner_player_id: context.owner_player_id,
+        context_tag: context.context_tag,
+        requests: build_chef_registration_requests(context.state)
+      });
 
-        const next_state = apply_events(context.state, [
-          {
-            event_id: 'chef:registration:resolved',
-            event_type: 'RegistrationDecisionRecorded',
-            created_at: '1970-01-01T00:00:00.000Z',
-            payload: resolved.event.payload as Extract<
-              DomainEvent,
-              { event_type: 'RegistrationDecisionRecorded' }
-            >['payload']
-          }
-        ]);
-
-        const prompt_plan = plan_registration_query_prompt({
-          state: next_state,
-          role_id: 'chef',
-          owner_player_id: resolved.parsed.owner_player_id,
-          context_tag: resolved.parsed.context_tag,
-          requests: build_chef_registration_requests(next_state)
-        });
-
-        if (prompt_plan.queued_prompts.length > 0) {
-          return {
-            emitted_events: [resolved.event, ...prompt_plan.emitted_events],
-            queued_prompts: prompt_plan.queued_prompts,
-            queued_interrupts: []
-          };
-        }
-
+      if (prompt_plan.queued_prompts.length > 0) {
         return {
-          emitted_events: [
-            resolved.event,
-            {
-              event_type: 'StorytellerRulingRecorded',
-              payload: {
-                prompt_id: context.prompt_id,
-                note: `chef_info:${resolved.parsed.owner_player_id}:adjacent_evil_pairs=${count_adjacent_evil_pairs(next_state)}`
-              }
-            }
-          ],
-          queued_prompts: [],
+          emitted_events: prompt_plan.emitted_events,
+          queued_prompts: prompt_plan.queued_prompts,
           queued_interrupts: []
         };
       }
 
-      return chef_info_hooks.on_prompt_resolved(context);
+      return {
+        emitted_events: [
+          {
+            event_type: 'StorytellerRulingRecorded',
+            payload: {
+              prompt_id: context.prompt_id,
+              note: `chef_info:${context.owner_player_id}:adjacent_evil_pairs=${count_adjacent_evil_pairs(context.state)}`
+            }
+          }
+        ],
+        queued_prompts: [],
+        queued_interrupts: []
+      };
     }
   }
 };

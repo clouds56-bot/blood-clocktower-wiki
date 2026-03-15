@@ -347,13 +347,7 @@ export function resolve_registration_query_prompt(args: {
 }): {
   ok: true;
   event: PluginEventSpec;
-  parsed: {
-    provider_role_id: string;
-    consumer_role_id: string;
-    owner_player_id: string;
-    context_tag: string;
-    query_id: string;
-  };
+  parsed: RegistrationPromptDescriptor;
 } | {
   ok: false;
 } {
@@ -448,6 +442,14 @@ export function is_registration_query_prompt_id(prompt_id: string, role_id: stri
   return prompt_id.startsWith('plugin:') && prompt_id.includes(`:registration:${role_id}:`);
 }
 
+export interface RegistrationPromptDescriptor {
+  provider_role_id: string;
+  consumer_role_id: string;
+  owner_player_id: string;
+  context_tag: string;
+  query_id: string;
+}
+
 function build_registration_prompt_id(args: {
   provider_role_id: string;
   consumer_role_id: string;
@@ -458,15 +460,9 @@ function build_registration_prompt_id(args: {
   return `plugin:${args.provider_role_id}:registration:${args.consumer_role_id}:${args.owner_player_id}:${args.context_tag}:${args.query_id}`;
 }
 
-function parse_registration_prompt_id(
+export function parse_registration_prompt_id(
   prompt_id: string
-): {
-  provider_role_id: string;
-  consumer_role_id: string;
-  owner_player_id: string;
-  context_tag: string;
-  query_id: string;
-} | null {
+): RegistrationPromptDescriptor | null {
   const parts = prompt_id.split(':');
   if (parts.length < 7) {
     return null;

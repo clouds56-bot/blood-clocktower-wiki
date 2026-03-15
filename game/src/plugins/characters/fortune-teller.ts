@@ -1,6 +1,4 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
-import type { DomainEvent } from '../../domain/events.js';
-import { apply_events } from '../../domain/reducer.js';
 import {
   build_registration_query_id,
   build_info_role_misinformation_hooks,
@@ -8,10 +6,8 @@ import {
   has_active_fortune_teller_red_herring,
   has_variable_demon_registration,
   get_player_information_mode,
-  is_registration_query_prompt_id,
   is_misinformation_prompt_id,
   plan_registration_query_prompt,
-  resolve_registration_query_prompt,
   resolves_as_demon
 } from './tb-info-utils.js';
 
@@ -90,76 +86,6 @@ export const fortune_teller_plugin: CharacterPlugin = {
       };
     },
     on_prompt_resolved: (context): PluginResult => {
-      if (is_registration_query_prompt_id(context.prompt_id, 'fortune_teller')) {
-        const resolved = resolve_registration_query_prompt({
-          state: context.state,
-          role_id: 'fortune_teller',
-          prompt_id: context.prompt_id,
-          selected_option_id: context.selected_option_id
-        });
-        if (!resolved.ok) {
-          return {
-            emitted_events: [],
-            queued_prompts: [],
-            queued_interrupts: []
-          };
-        }
-
-        const [left_id, right_id] = parse_pair_context(resolved.parsed.context_tag) ?? [];
-        if (!left_id || !right_id) {
-          return {
-            emitted_events: [resolved.event],
-            queued_prompts: [],
-            queued_interrupts: []
-          };
-        }
-
-        const temp_event_id = `fortune_teller:registration:resolved:${resolved.event.payload.query_id}`;
-        const next_state = apply_events(context.state, [
-          {
-            event_id: temp_event_id,
-            event_type: 'RegistrationDecisionRecorded',
-            created_at: '1970-01-01T00:00:00.000Z',
-            payload: resolved.event.payload as Extract<
-              DomainEvent,
-              { event_type: 'RegistrationDecisionRecorded' }
-            >['payload']
-          }
-        ]);
-
-        const registration_plan = plan_registration_query_prompt({
-          state: next_state,
-          role_id: 'fortune_teller',
-          owner_player_id: resolved.parsed.owner_player_id,
-          context_tag: resolved.parsed.context_tag,
-          requests: build_fortune_teller_registration_requests(next_state, left_id, right_id)
-        });
-
-        if (registration_plan.queued_prompts.length > 0) {
-          return {
-            emitted_events: [resolved.event, ...registration_plan.emitted_events],
-            queued_prompts: registration_plan.queued_prompts,
-            queued_interrupts: []
-          };
-        }
-
-        const yes = is_demon_check_positive(next_state, left_id, right_id);
-        return {
-          emitted_events: [
-            resolved.event,
-            {
-              event_type: 'StorytellerRulingRecorded',
-              payload: {
-                prompt_id: context.prompt_id,
-                note: `fortune_teller_info:${resolved.parsed.owner_player_id}:pair=${left_id},${right_id};yes=${yes}`
-              }
-            }
-          ],
-          queued_prompts: [],
-          queued_interrupts: []
-        };
-      }
-
       if (is_misinformation_prompt_id(context.prompt_id, 'fortune_teller')) {
         return fortune_teller_misinfo_hooks.on_prompt_resolved(context);
       }
@@ -252,6 +178,47 @@ export const fortune_teller_plugin: CharacterPlugin = {
             payload: {
               prompt_id: context.prompt_id,
               note: `fortune_teller_info:${owner_player_id}:pair=${left_id},${right_id};yes=${yes}`
+            }
+          }
+        ],
+        queued_prompts: [],
+        queued_interrupts: []
+      };
+    },
+    on_registration_resolved: (context): PluginResult => {
+      const [left_id, right_id] = parse_pair_context(context.context_tag) ?? [];
+      if (!left_id || !right_id) {
+        return {
+          emitted_events: [],
+          queued_prompts: [],
+          queued_interrupts: []
+        };
+      }
+
+      const registration_plan = plan_registration_query_prompt({
+        state: context.state,
+        role_id: 'fortune_teller',
+        owner_player_id: context.owner_player_id,
+        context_tag: context.context_tag,
+        requests: build_fortune_teller_registration_requests(context.state, left_id, right_id)
+      });
+
+      if (registration_plan.queued_prompts.length > 0) {
+        return {
+          emitted_events: registration_plan.emitted_events,
+          queued_prompts: registration_plan.queued_prompts,
+          queued_interrupts: []
+        };
+      }
+
+      const yes = is_demon_check_positive(context.state, left_id, right_id);
+      return {
+        emitted_events: [
+          {
+            event_type: 'StorytellerRulingRecorded',
+            payload: {
+              prompt_id: context.prompt_id,
+              note: `fortune_teller_info:${context.owner_player_id}:pair=${left_id},${right_id};yes=${yes}`
             }
           }
         ],

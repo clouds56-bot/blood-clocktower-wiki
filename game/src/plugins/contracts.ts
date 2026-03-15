@@ -152,6 +152,26 @@ export interface RegistrationQueryHookResult {
   prompt_hint?: string | null;
 }
 
+export interface RegistrationResolvedHookContext {
+  state: Readonly<GameState>;
+  prompt_id: string;
+  provider_role_id: string;
+  consumer_role_id: string;
+  owner_player_id: PlayerId;
+  context_tag: string;
+  query_id: string;
+  selected_option_id: string | null;
+  freeform: string | null;
+  decision: {
+    query_id: string;
+    resolved_character_id: string | null;
+    resolved_character_type: PlayerCharacterType | null;
+    resolved_alignment: Alignment | null;
+    decision_source: 'storyteller_prompt' | 'deterministic_rule';
+    note: string | null;
+  };
+}
+
 export type VoteCastValidateHookResult =
   | {
       ok: true;
@@ -167,6 +187,7 @@ export type VoteCastValidateHookResult =
 export interface CharacterPluginHooks {
   on_night_wake?: (context: NightWakeHookContext) => PluginResult;
   on_prompt_resolved?: (context: PromptResolvedHookContext) => PluginResult;
+  on_registration_resolved?: (context: RegistrationResolvedHookContext) => PluginResult;
   on_event_applied?: (context: EventAppliedHookContext) => PluginResult;
   on_nomination_made?: (context: NominationMadeHookContext) => PluginResult;
   on_vote_cast_validate?: (context: VoteCastValidateHookContext) => VoteCastValidateHookResult;

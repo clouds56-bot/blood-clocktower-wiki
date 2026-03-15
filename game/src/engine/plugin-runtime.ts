@@ -2,6 +2,10 @@ import type { Command, ResolvePromptCommand } from '../domain/commands.js';
 import type { DomainEvent } from '../domain/events.js';
 import { apply_events } from '../domain/reducer.js';
 import type { GameState } from '../domain/types.js';
+import {
+  parse_registration_prompt_id,
+  resolve_registration_query_prompt
+} from '../plugins/characters/tb-info-utils.js';
 import { dispatch_hook, type NormalizedHookOutput } from '../plugins/dispatcher.js';
 import type { PluginRegistry } from '../plugins/registry.js';
 import type { EngineResult } from './phase-machine.js';
@@ -70,11 +74,108 @@ export function integrate_plugin_runtime(
   }
 
   if (command.command_type === 'ResolvePrompt') {
-    const prompt_owner_plugin_id = resolve_prompt_owner_plugin_id(state, command);
-    if (prompt_owner_plugin_id !== null) {
+    const registration_prompt = parse_registration_prompt_id(command.payload.prompt_id);
+    if (registration_prompt) {
+      const resolved = resolve_registration_query_prompt({
+        state: runtime_state,
+        role_id: registration_prompt.consumer_role_id,
+        prompt_id: command.payload.prompt_id,
+        selected_option_id: command.payload.selected_option_id
+      });
+      if (!resolved.ok) {
+        return as_dispatch_error('invalid_registration_prompt_resolution', 'invalid registration prompt resolution');
+      }
+
+      const registration_decision_event: DomainEvent = {
+        event_id: `${command.command_id}:RegistrationResolved:Decision`,
+        event_type: resolved.event.event_type,
+        created_at,
+        ...(command.actor_id === undefined ? {} : { actor_id: command.actor_id }),
+        payload: structuredClone(resolved.event.payload)
+      } as DomainEvent;
+      const decision_payload = resolved.event.payload as Extract<
+        DomainEvent,
+        { event_type: 'RegistrationDecisionRecorded' }
+      >['payload'];
+
+      runtime_events.push(registration_decision_event);
+      runtime_state = apply_events(runtime_state, [registration_decision_event]);
+
       const dispatch = dispatch_hook(
         plugin_registry,
-        'on_prompt_resolved',
+        'on_registration_resolved',
+        [registration_prompt.consumer_role_id],
+        {
+          state: runtime_state,
+          prompt_id: command.payload.prompt_id,
+          provider_role_id: resolved.parsed.provider_role_id,
+          consumer_role_id: resolved.parsed.consumer_role_id,
+          owner_player_id: resolved.parsed.owner_player_id,
+          context_tag: resolved.parsed.context_tag,
+          query_id: resolved.parsed.query_id,
+          selected_option_id: command.payload.selected_option_id,
+          freeform: command.payload.freeform,
+          decision: {
+            query_id: decision_payload.query_id,
+            resolved_character_id: decision_payload.resolved_character_id,
+            resolved_character_type: decision_payload.resolved_character_type,
+            resolved_alignment: decision_payload.resolved_alignment,
+            decision_source: decision_payload.decision_source,
+            note: decision_payload.note
+          }
+        }
+      );
+
+      if (!dispatch.ok) {
+        return as_dispatch_error(dispatch.error.code, dispatch.error.message);
+      }
+
+      const normalized = normalize_dispatch_output(
+        dispatch.value.output,
+        `${command.command_id}:RegistrationResolved`,
+        created_at,
+        command.actor_id
+      );
+
+      const settled_execution_deaths = build_execution_death_events(
+        runtime_state,
+        normalized,
+        `${command.command_id}:RegistrationResolved:ExecutionSettled`,
+        created_at,
+        command.actor_id
+      );
+
+      const combined = [...normalized, ...settled_execution_deaths];
+      const prompt_id_check = validate_queued_prompt_ids(runtime_state, combined);
+      if (!prompt_id_check.ok) {
+        return prompt_id_check;
+      }
+
+      runtime_events.push(...combined);
+      const state_before_compat = runtime_state;
+      runtime_state = apply_events(runtime_state, combined);
+
+      const compatibility_events = build_marker_compatibility_events(
+        state_before_compat,
+        runtime_state,
+        combined,
+        `${command.command_id}:RegistrationResolvedCompat`,
+        created_at,
+        command.actor_id
+      );
+      if (compatibility_events.length > 0) {
+        runtime_events.push(...compatibility_events);
+        runtime_state = apply_events(runtime_state, compatibility_events);
+      }
+
+      const drained = drain_interrupt_queue(runtime_state, context, runtime_events);
+      runtime_state = drained.state;
+    } else {
+      const prompt_owner_plugin_id = resolve_prompt_owner_plugin_id(state, command);
+      if (prompt_owner_plugin_id !== null) {
+        const dispatch = dispatch_hook(
+          plugin_registry,
+          'on_prompt_resolved',
         [prompt_owner_plugin_id],
         {
           state: runtime_state,
@@ -95,19 +196,29 @@ export function integrate_plugin_runtime(
         command.actor_id
       );
 
-      const prompt_id_check = validate_queued_prompt_ids(runtime_state, normalized);
+      const settled_execution_deaths = build_execution_death_events(
+        runtime_state,
+        normalized,
+        `${command.command_id}:PromptResolved:ExecutionSettled`,
+        created_at,
+        command.actor_id
+      );
+
+      const combined = [...normalized, ...settled_execution_deaths];
+
+      const prompt_id_check = validate_queued_prompt_ids(runtime_state, combined);
       if (!prompt_id_check.ok) {
         return prompt_id_check;
       }
 
-      runtime_events.push(...normalized);
+      runtime_events.push(...combined);
       const state_before_compat = runtime_state;
-      runtime_state = apply_events(runtime_state, normalized);
+      runtime_state = apply_events(runtime_state, combined);
 
       const compatibility_events = build_marker_compatibility_events(
         state_before_compat,
         runtime_state,
-        normalized,
+        combined,
         `${command.command_id}:PromptResolvedCompat`,
         created_at,
         command.actor_id
@@ -133,6 +244,7 @@ export function integrate_plugin_runtime(
         }
         runtime_state = wake_processing.value;
       }
+    }
     }
   }
 

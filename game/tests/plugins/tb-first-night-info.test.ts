@@ -401,16 +401,36 @@ test('fortune teller queues storyteller registration prompt for unresolved reclu
     note: null
   };
 
-  const resolved = fortune_teller_plugin.hooks.on_prompt_resolved?.({
+  after_create.registration_queries_by_id[query_id] = {
+    ...after_create.registration_queries_by_id[query_id],
+    status: 'resolved',
+    resolved_character_type: 'demon',
+    resolved_at_event_id: 'q1r',
+    note: 'recluse registers as demon for this query'
+  };
+
+  const resolved = fortune_teller_plugin.hooks.on_registration_resolved?.({
     state: after_create,
     prompt_id: registration_prompt_id,
+    provider_role_id: 'recluse',
+    consumer_role_id: 'fortune_teller',
+    owner_player_id: 'p1',
+    context_tag: 'p2,p3',
+    query_id,
     selected_option_id: 'character_type:demon',
-    freeform: null
+    freeform: null,
+    decision: {
+      query_id,
+      resolved_character_id: null,
+      resolved_character_type: 'demon',
+      resolved_alignment: null,
+      decision_source: 'storyteller_prompt',
+      note: 'registration_character_type:demon'
+    }
   });
 
   assert.ok(resolved);
-  assert.equal(resolved?.emitted_events[0]?.event_type, 'RegistrationDecisionRecorded');
-  assert.equal(resolved?.emitted_events[1]?.payload.note, 'fortune_teller_info:p1:pair=p2,p3;yes=true');
+  assert.equal(resolved?.emitted_events[0]?.payload.note, 'fortune_teller_info:p1:pair=p2,p3;yes=true');
 });
 
 test('fortune teller skips recluse registration query when pair already has real demon', () => {
