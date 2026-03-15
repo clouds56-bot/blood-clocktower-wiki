@@ -16,7 +16,7 @@ export const spy_plugin: CharacterPlugin = {
       allow_travellers: true
     },
     flags: {
-      can_function_while_dead: false,
+      can_function_while_dead: true,
       can_trigger_on_death: false,
       may_cause_drunkenness: false,
       may_cause_poisoning: false,

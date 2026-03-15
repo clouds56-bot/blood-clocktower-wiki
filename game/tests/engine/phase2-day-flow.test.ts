@@ -665,6 +665,110 @@ test('virgin executes townsfolk nominator immediately on first nomination', () =
   assert.equal(virgin_spent, true);
 });
 
+test('virgin can execute spy nominator when storyteller resolves spy as townsfolk', () => {
+  let state = bootstrap_day_state();
+  state = run_command(state, {
+    command_id: 'c-assign-virgin',
+    command_type: 'AssignCharacter',
+    payload: {
+      player_id: 'p2',
+      true_character_id: 'virgin'
+    }
+  });
+  state = run_command(state, {
+    command_id: 'c-assign-spy',
+    command_type: 'AssignCharacter',
+    payload: {
+      player_id: 'p1',
+      true_character_id: 'spy'
+    }
+  });
+  state = run_command(state, {
+    command_id: 'c-open',
+    command_type: 'OpenNominationWindow',
+    payload: { day_number: 1 }
+  });
+  state = run_command(state, {
+    command_id: 'c-nom',
+    command_type: 'NominatePlayer',
+    payload: {
+      nomination_id: 'n1',
+      day_number: 1,
+      nominator_player_id: 'p1',
+      nominee_player_id: 'p2'
+    }
+  });
+
+  assert.equal(state.players_by_id.p1?.alive, true);
+  assert.equal(state.pending_prompts.length, 1);
+  const prompt_id = state.pending_prompts[0] ?? '';
+  assert.equal(prompt_id.startsWith('plugin:spy:registration:virgin:'), true);
+
+  state = run_command(state, {
+    command_id: 'c-resolve-virgin-spy-yes',
+    command_type: 'ResolvePrompt',
+    payload: {
+      prompt_id,
+      selected_option_id: 'character_type:townsfolk',
+      freeform: null,
+      notes: null
+    }
+  });
+
+  assert.equal(state.players_by_id.p1?.alive, false);
+});
+
+test('virgin can leave spy nominator alive when registration is not triggered', () => {
+  let state = bootstrap_day_state();
+  state = run_command(state, {
+    command_id: 'c-assign-virgin',
+    command_type: 'AssignCharacter',
+    payload: {
+      player_id: 'p2',
+      true_character_id: 'virgin'
+    }
+  });
+  state = run_command(state, {
+    command_id: 'c-assign-spy',
+    command_type: 'AssignCharacter',
+    payload: {
+      player_id: 'p1',
+      true_character_id: 'spy'
+    }
+  });
+  state = run_command(state, {
+    command_id: 'c-open',
+    command_type: 'OpenNominationWindow',
+    payload: { day_number: 1 }
+  });
+  state = run_command(state, {
+    command_id: 'c-nom',
+    command_type: 'NominatePlayer',
+    payload: {
+      nomination_id: 'n1',
+      day_number: 1,
+      nominator_player_id: 'p1',
+      nominee_player_id: 'p2'
+    }
+  });
+
+  assert.equal(state.pending_prompts.length, 1);
+  const prompt_id = state.pending_prompts[0] ?? '';
+
+  state = run_command(state, {
+    command_id: 'c-resolve-virgin-spy-no',
+    command_type: 'ResolvePrompt',
+    payload: {
+      prompt_id,
+      selected_option_id: 'default',
+      freeform: null,
+      notes: null
+    }
+  });
+
+  assert.equal(state.players_by_id.p1?.alive, true);
+});
+
 test('slayer shot kills demon and is once per game', () => {
   let state = bootstrap_day_state();
   state = run_command(state, {

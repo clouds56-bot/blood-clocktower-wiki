@@ -273,12 +273,12 @@ export function plan_registration_query_prompt(args: {
       continue;
     }
 
-    const provider_result = resolve_provider_registration(args.state, request);
-    if (!provider_result || provider_result.status !== 'needs_storyteller') {
+    const provider_registration = resolve_provider_registration_with_source(args.state, request);
+    if (!provider_registration || provider_registration.result.status !== 'needs_storyteller') {
       continue;
     }
 
-    const prompt_options = provider_result.prompt_options ?? [];
+    const prompt_options = provider_registration.result.prompt_options ?? [];
     if (prompt_options.length === 0) {
       continue;
     }
@@ -299,13 +299,23 @@ export function plan_registration_query_prompt(args: {
         }
       });
     }
+    emitted_events.push({
+      event_type: 'StorytellerRulingRecorded',
+      payload: {
+        prompt_id: null,
+        note:
+          `registration_query:${request.query_id};provider=${provider_registration.provider_character_id};` +
+          `consumer=${args.role_id};subject=${request.subject_player_id};context=${args.context_tag}`
+      }
+    });
 
     return {
       emitted_events,
       queued_prompts: [
         {
           prompt_id: build_registration_prompt_id({
-            role_id: args.role_id,
+            provider_role_id: provider_registration.provider_character_id,
+            consumer_role_id: args.role_id,
             owner_player_id: args.owner_player_id,
             context_tag: args.context_tag,
             query_id: request.query_id
@@ -317,7 +327,7 @@ export function plan_registration_query_prompt(args: {
             option_id: option.option_id,
             label: option.label
           })),
-          storyteller_hint: provider_result.prompt_hint ?? null
+          storyteller_hint: provider_registration.result.prompt_hint ?? null
         }
       ]
     };
@@ -338,6 +348,8 @@ export function resolve_registration_query_prompt(args: {
   ok: true;
   event: PluginEventSpec;
   parsed: {
+    provider_role_id: string;
+    consumer_role_id: string;
     owner_player_id: string;
     context_tag: string;
     query_id: string;
@@ -345,8 +357,11 @@ export function resolve_registration_query_prompt(args: {
 } | {
   ok: false;
 } {
-  const parsed = parse_registration_prompt_id(args.prompt_id, args.role_id);
+  const parsed = parse_registration_prompt_id(args.prompt_id);
   if (!parsed) {
+    return { ok: false };
+  }
+  if (parsed.consumer_role_id !== args.role_id) {
     return { ok: false };
   }
 
@@ -430,38 +445,48 @@ export function resolve_registration_query_prompt(args: {
 }
 
 export function is_registration_query_prompt_id(prompt_id: string, role_id: string): boolean {
-  return prompt_id.startsWith(`plugin:${role_id}:registration:`);
+  return prompt_id.startsWith('plugin:') && prompt_id.includes(`:registration:${role_id}:`);
 }
 
 function build_registration_prompt_id(args: {
-  role_id: string;
+  provider_role_id: string;
+  consumer_role_id: string;
   owner_player_id: string;
   context_tag: string;
   query_id: string;
 }): string {
-  return `plugin:${args.role_id}:registration:${encodeURIComponent(args.owner_player_id)}:${encodeURIComponent(args.context_tag)}:${encodeURIComponent(args.query_id)}`;
+  return `plugin:${args.provider_role_id}:registration:${args.consumer_role_id}:${args.owner_player_id}:${args.context_tag}:${args.query_id}`;
 }
 
 function parse_registration_prompt_id(
-  prompt_id: string,
-  role_id: string
-): { owner_player_id: string; context_tag: string; query_id: string } | null {
+  prompt_id: string
+): {
+  provider_role_id: string;
+  consumer_role_id: string;
+  owner_player_id: string;
+  context_tag: string;
+  query_id: string;
+} | null {
   const parts = prompt_id.split(':');
-  if (parts.length < 6) {
+  if (parts.length < 7) {
     return null;
   }
-  if (parts[0] !== 'plugin' || parts[1] !== role_id || parts[2] !== 'registration') {
+  if (parts[0] !== 'plugin' || parts[2] !== 'registration') {
     return null;
   }
 
-  const owner_player_id = decodeURIComponent(parts[3] ?? '');
-  const context_tag = decodeURIComponent(parts[4] ?? '');
-  const query_id = decodeURIComponent(parts.slice(5).join(':'));
-  if (!owner_player_id || !context_tag || !query_id) {
+  const provider_role_id = parts[1] ?? '';
+  const consumer_role_id = parts[3] ?? '';
+  const owner_player_id = parts[4] ?? '';
+  const context_tag = parts[5] ?? '';
+  const query_id = parts.slice(6).join(':');
+  if (!provider_role_id || !consumer_role_id || !owner_player_id || !context_tag || !query_id) {
     return null;
   }
 
   return {
+    provider_role_id,
+    consumer_role_id,
     owner_player_id,
     context_tag,
     query_id
@@ -717,10 +742,23 @@ const TB_MINIONS: ReadonlySet<string> = new Set(['baron', 'poisoner', 'scarlet_w
 
 const TB_DEMONS: ReadonlySet<string> = new Set(['imp']);
 
+type ProviderRegistrationResolution = {
+  provider_character_id: string;
+  result: RegistrationQueryHookResult;
+};
+
 function resolve_provider_registration(
   state: Readonly<GameState>,
   request: RegistrationQueryRequest
 ): RegistrationQueryHookResult | null {
+  const resolved = resolve_provider_registration_with_source(state, request);
+  return resolved?.result ?? null;
+}
+
+function resolve_provider_registration_with_source(
+  state: Readonly<GameState>,
+  request: RegistrationQueryRequest
+): ProviderRegistrationResolution | null {
   const subject = state.players_by_id[request.subject_player_id];
   if (!subject || !subject.true_character_id) {
     return null;
@@ -741,7 +779,14 @@ function resolve_provider_registration(
     requested_fields: infer_requested_fields(request.query_kind)
   };
 
-  return provider.hooks.on_registration_query(context);
+  const result = provider.hooks.on_registration_query(context);
+  if (!result) {
+    return null;
+  }
+  return {
+    provider_character_id: subject.true_character_id,
+    result
+  };
 }
 
 function collect_possible_registered_alignments(

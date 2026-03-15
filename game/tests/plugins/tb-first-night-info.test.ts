@@ -185,6 +185,29 @@ test('chef skips spy registration prompt when both adjacent pairs are guaranteed
   assert.equal(result?.emitted_events[0]?.payload.note, 'chef_info:p4:adjacent_evil_pairs=0');
 });
 
+test('chef unresolved spy registration prompt id is provider-owned and readable', () => {
+  const state = create_initial_state('g1');
+  state.day_number = 1;
+  state.night_number = 1;
+  state.seat_order = ['p1', 'p2', 'p3', 'p4'];
+  state.players_by_id.p1 = make_player('p1', 'EvilA', 'poisoner', 'evil');
+  state.players_by_id.p2 = make_player('p2', 'Spy', 'spy', 'evil');
+  state.players_by_id.p3 = make_player('p3', 'GoodA', 'washerwoman', 'good');
+  state.players_by_id.p4 = make_player('p4', 'Chef', 'chef', 'good');
+
+  const result = chef_plugin.hooks.on_night_wake?.({
+    state,
+    player_id: 'p4',
+    wake_step_id: 'wake:1:0:p4:chef'
+  });
+
+  assert.ok(result);
+  assert.equal(result?.queued_prompts.length, 1);
+  const prompt_id = result?.queued_prompts[0]?.prompt_id ?? '';
+  assert.equal(prompt_id.startsWith('plugin:spy:registration:chef:'), true);
+  assert.equal(prompt_id.includes('%3A'), false);
+});
+
 test('empath counts alive evil neighbors and skips dead players', () => {
   const state = create_initial_state('g1');
   state.seat_order = ['p1', 'p2', 'p3', 'p4', 'p5'];
@@ -354,7 +377,7 @@ test('fortune teller queues storyteller registration prompt for unresolved reclu
   assert.equal(first?.emitted_events[0]?.event_type, 'RegistrationQueryCreated');
   assert.equal(first?.queued_prompts.length, 1);
   const registration_prompt_id = first?.queued_prompts[0]?.prompt_id ?? '';
-  assert.equal(registration_prompt_id.startsWith('plugin:fortune_teller:registration:'), true);
+  assert.equal(registration_prompt_id.startsWith('plugin:recluse:registration:fortune_teller:'), true);
 
   const after_create = create_initial_state('g1');
   Object.assign(after_create, state);
