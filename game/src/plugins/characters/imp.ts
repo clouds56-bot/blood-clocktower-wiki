@@ -1,7 +1,12 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
 import type { PlayerState } from '../../domain/types.js';
 import { build_ravenkeeper_reveal_prompt } from './ravenkeeper.js';
-import { build_night_prompt_key, night_time_key, parse_night_prompt_owner_player_id } from './prompt-key-utils.js';
+import {
+  build_night_prompt_key,
+  is_night_prompt_key,
+  night_time_key,
+  parse_night_prompt_owner_player_id
+} from './prompt-key-utils.js';
 
 const IMP_PROMPT_PREFIX = 'plugin:imp:night_kill';
 const IMP_TRANSFER_PROMPT_PREFIX = 'plugin:imp:transfer_target';
@@ -274,7 +279,7 @@ export const imp_plugin: CharacterPlugin = {
 };
 
 export function is_imp_prompt_id(prompt_key: string): boolean {
-  return prompt_key.startsWith(IMP_PROMPT_PREFIX);
+  return is_night_prompt_key(prompt_key, 'imp', 'night_kill');
 }
 
 function parse_imp_prompt_owner_player_id(prompt_key: string): string | null {

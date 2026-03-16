@@ -1,15 +1,12 @@
 import type { PluginPromptSpec } from '../contracts.js';
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
 import type { GameState } from '../../domain/types.js';
+import { build_night_prompt_key, parse_night_prompt_owner_player_id } from './prompt-key-utils.js';
 
 const RAVENKEEPER_PROMPT_PREFIX = 'plugin:ravenkeeper:night_reveal';
 
-function night_time_key(night_number: number): string {
-  return `n${night_number}`;
-}
-
 function build_ravenkeeper_prompt_key(night_number: number, player_id: string): string {
-  return `plugin:ravenkeeper:night_reveal:${night_time_key(night_number)}:${player_id}`;
+  return build_night_prompt_key('ravenkeeper', 'night_reveal', night_number, player_id);
 }
 
 export const ravenkeeper_plugin: CharacterPlugin = {
@@ -84,16 +81,12 @@ export function build_ravenkeeper_reveal_prompt(
   return {
     prompt_key: build_ravenkeeper_prompt_key(state.night_number, ravenkeeper_player_id),
     kind: 'choice',
-    reason: `plugin:ravenkeeper:choose_player:${night_time_key(state.night_number)}:${ravenkeeper_player_id}`,
+    reason: `plugin:ravenkeeper:choose_player:n${state.night_number}:${ravenkeeper_player_id}`,
     visibility: 'player',
     options
   };
 }
 
 function parse_ravenkeeper_prompt_owner_player_id(prompt_key: string): string | null {
-  const parts = prompt_key.split(':');
-  if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'ravenkeeper' && parts[2] === 'night_reveal' && /^n\d+$/.test(parts[3] ?? '')) {
-    return parts[4] ?? null;
-  }
-  return null;
+  return parse_night_prompt_owner_player_id(prompt_key, 'ravenkeeper', 'night_reveal');
 }

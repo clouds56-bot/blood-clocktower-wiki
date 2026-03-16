@@ -1,15 +1,17 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
 import type { GameState } from '../../domain/types.js';
+import {
+  build_night_prompt_key,
+  is_night_prompt_key,
+  night_time_key,
+  parse_night_prompt_owner_player_id
+} from './prompt-key-utils.js';
 import { is_functional_player } from './tb-info-utils.js';
 
 const BUTLER_PROMPT_PREFIX = 'plugin:butler:night_master';
 
-function night_time_key(night_number: number): string {
-  return `n${night_number}`;
-}
-
 function build_butler_prompt_key(night_number: number, player_id: string): string {
-  return `plugin:butler:night_master:${night_time_key(night_number)}:${player_id}`;
+  return build_night_prompt_key('butler', 'night_master', night_number, player_id);
 }
 
 function resolve_prompt_token(context: Parameters<NonNullable<CharacterPlugin['hooks']['on_prompt_resolved']>>[0]): string {
@@ -133,7 +135,6 @@ export const butler_plugin: CharacterPlugin = {
           expires_at_night_number: null,
             source_event_id: null,
             metadata: {
-              from_prompt_id: context.prompt_key,
               from_prompt_key: resolve_prompt_token(context)
             }
           }
@@ -208,13 +209,9 @@ export function validate_butler_vote_cast(
 }
 
 export function is_butler_prompt_id(prompt_key: string): boolean {
-  return /^plugin:butler:night_master:n\d+:[a-z0-9_-]+$/.test(prompt_key);
+  return is_night_prompt_key(prompt_key, 'butler', 'night_master');
 }
 
 function parse_butler_prompt_owner_player_id(prompt_key: string): string | null {
-  const parts = prompt_key.split(':');
-  if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'butler' && parts[2] === 'night_master' && /^n\d+$/.test(parts[3] ?? '')) {
-    return parts[4] ?? null;
-  }
-  return null;
+  return parse_night_prompt_owner_player_id(prompt_key, 'butler', 'night_master');
 }

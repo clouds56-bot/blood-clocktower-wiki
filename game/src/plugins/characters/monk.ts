@@ -1,14 +1,16 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
+import {
+  build_night_prompt_key,
+  is_night_prompt_key,
+  night_time_key,
+  parse_night_prompt_owner_player_id
+} from './prompt-key-utils.js';
 import { is_functional_player } from './tb-info-utils.js';
 
 const MONK_PROMPT_PREFIX = 'plugin:monk:night_protect';
 
-function night_time_key(night_number: number): string {
-  return `n${night_number}`;
-}
-
 function build_monk_prompt_key(night_number: number, player_id: string): string {
-  return `plugin:monk:night_protect:${night_time_key(night_number)}:${player_id}`;
+  return build_night_prompt_key('monk', 'night_protect', night_number, player_id);
 }
 
 function resolve_prompt_token(context: Parameters<NonNullable<CharacterPlugin['hooks']['on_prompt_resolved']>>[0]): string {
@@ -134,7 +136,6 @@ export const monk_plugin: CharacterPlugin = {
           expires_at_night_number: null,
             source_event_id: null,
             metadata: {
-              from_prompt_id: context.prompt_key,
               from_prompt_key: context.prompt_key
             }
           }
@@ -150,13 +151,9 @@ export const monk_plugin: CharacterPlugin = {
 };
 
 export function is_monk_prompt_id(prompt_key: string): boolean {
-  return /^plugin:monk:night_protect:n\d+:[a-z0-9_-]+$/.test(prompt_key);
+  return is_night_prompt_key(prompt_key, 'monk', 'night_protect');
 }
 
 function parse_monk_prompt_owner_player_id(prompt_key: string): string | null {
-  const parts = prompt_key.split(':');
-  if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'monk' && parts[2] === 'night_protect' && /^n\d+$/.test(parts[3] ?? '')) {
-    return parts[4] ?? null;
-  }
-  return null;
+  return parse_night_prompt_owner_player_id(prompt_key, 'monk', 'night_protect');
 }

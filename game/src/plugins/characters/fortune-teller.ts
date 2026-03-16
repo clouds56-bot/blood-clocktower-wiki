@@ -1,4 +1,5 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
+import { build_night_prompt_key, is_night_prompt_key, night_time_key, parse_night_prompt_owner_player_id } from './prompt-key-utils.js';
 import {
   build_registration_query_id,
   build_info_role_misinformation_hooks,
@@ -13,12 +14,8 @@ import {
 
 const FORTUNE_TELLER_PROMPT_PREFIX = 'plugin:fortune_teller:night_check';
 
-function night_time_key(night_number: number): string {
-  return `n${night_number}`;
-}
-
 function build_fortune_teller_prompt_key(night_number: number, player_id: string): string {
-  return `plugin:fortune_teller:night_check:${night_time_key(night_number)}:${player_id}`;
+  return build_night_prompt_key('fortune_teller', 'night_check', night_number, player_id);
 }
 
 function build_fortune_teller_pair_misinfo_prompt_key(
@@ -276,7 +273,7 @@ export const fortune_teller_plugin: CharacterPlugin = {
 };
 
 export function is_fortune_teller_prompt_id(prompt_key: string): boolean {
-  return /^plugin:fortune_teller:night_check:n\d+:[a-z0-9_-]+$/.test(prompt_key);
+  return is_night_prompt_key(prompt_key, 'fortune_teller', 'night_check');
 }
 
 function build_fortune_teller_registration_requests(
@@ -434,11 +431,7 @@ function is_demon_check_positive(
 }
 
 function parse_fortune_teller_prompt_owner_player_id(prompt_key: string): string | null {
-  const parts = prompt_key.split(':');
-  if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'fortune_teller' && parts[2] === 'night_check' && /^n\d+$/.test(parts[3] ?? '')) {
-    return parts[4] ?? null;
-  }
-  return null;
+  return parse_night_prompt_owner_player_id(prompt_key, 'fortune_teller', 'night_check');
 }
 
 function parse_fortune_teller_misinfo_prompt(

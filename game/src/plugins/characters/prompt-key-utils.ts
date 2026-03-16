@@ -28,3 +28,7 @@ export function parse_night_prompt_owner_player_id(
   }
   return null;
 }
+
+export function is_night_prompt_key(prompt_key: string, role_id: string, verb: string): boolean {
+  return parse_night_prompt_owner_player_id(prompt_key, role_id, verb) !== null;
+}
