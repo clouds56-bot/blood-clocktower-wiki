@@ -95,6 +95,7 @@ test('fortune teller example: Monk + Undertaker -> no', () => {
 
   const result = fortune_teller_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:fortune_teller:night_check:n1:p1',
     prompt_id: 'plugin:fortune_teller:night_check:n1:p1',
     selected_option_id: 'p2|p3',
     freeform: null
@@ -110,6 +111,7 @@ test('fortune teller example: Imp + Empath -> yes', () => {
 
   const result = fortune_teller_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:fortune_teller:night_check:n1:p1',
     prompt_id: 'plugin:fortune_teller:night_check:n1:p1',
     selected_option_id: 'p2|p3',
     freeform: null
@@ -128,6 +130,7 @@ test('fortune teller example: alive Butler + dead Imp selection -> yes', () => {
 
   const result = fortune_teller_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:fortune_teller:night_check:n2:p1',
     prompt_id: 'plugin:fortune_teller:night_check:n2:p1',
     selected_option_id: 'p2|p3',
     freeform: null
@@ -162,6 +165,7 @@ test('fortune teller example: self + red herring Saint -> yes', () => {
 
   const result = fortune_teller_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:fortune_teller:night_check:n1:p1',
     prompt_id: 'plugin:fortune_teller:night_check:n1:p1',
     selected_option_id: 'p1|p2',
     freeform: null
@@ -273,6 +277,7 @@ test('monk example: protects Fortune Teller from Imp attack', () => {
 
   const monk_result = monk_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:monk:night_protect:n2:p1',
     prompt_id: 'plugin:monk:night_protect:n2:p1',
     selected_option_id: 'p2',
     freeform: null
@@ -318,6 +323,7 @@ test('monk example: protects Fortune Teller from Imp attack', () => {
 
   const imp_result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:imp:night_kill:n2:p3',
     prompt_id: 'plugin:imp:night_kill:n2:p3',
     selected_option_id: 'p2',
     freeform: null
@@ -334,6 +340,7 @@ test('monk example: protects Mayor from Imp attack (no death)', () => {
 
   const monk_result = monk_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:monk:night_protect:n2:p1',
     prompt_id: 'plugin:monk:night_protect:n2:p1',
     selected_option_id: 'p2',
     freeform: null
@@ -379,6 +386,7 @@ test('monk example: protects Mayor from Imp attack (no death)', () => {
 
   const imp_result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:imp:night_kill:n2:p3',
     prompt_id: 'plugin:imp:night_kill:n2:p3',
     selected_option_id: 'p2',
     freeform: null
@@ -396,6 +404,7 @@ test('monk example: monk protects Imp self-kill transfer case', () => {
 
   const monk_result = monk_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:monk:night_protect:n2:p1',
     prompt_id: 'plugin:monk:night_protect:n2:p1',
     selected_option_id: 'p2',
     freeform: null
@@ -441,6 +450,7 @@ test('monk example: monk protects Imp self-kill transfer case', () => {
 
   const imp_result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:imp:night_kill:n2:p2',
     prompt_id: 'plugin:imp:night_kill:n2:p2',
     selected_option_id: 'p2',
     freeform: null
@@ -456,6 +466,7 @@ test('soldier example: Imp attacks Soldier -> no death', () => {
 
   const result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:imp:night_kill:n2:p1',
     prompt_id: 'plugin:imp:night_kill:n2:p1',
     selected_option_id: 'p2',
     freeform: null
@@ -471,6 +482,7 @@ test('soldier example: poisoned Soldier is killed by Imp', () => {
 
   const result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:imp:night_kill:n2:p1',
     prompt_id: 'plugin:imp:night_kill:n2:p1',
     selected_option_id: 'p2',
     freeform: null
@@ -487,6 +499,7 @@ test('soldier example: drunk Soldier is killed by Imp', () => {
 
   const result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:imp:night_kill:n2:p1',
     prompt_id: 'plugin:imp:night_kill:n2:p1',
     selected_option_id: 'p2',
     freeform: null
@@ -505,6 +518,7 @@ test('imp example: self-kill passes demonhood to a minion', () => {
 
   const result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:imp:night_kill:n2:p1',
     prompt_id: 'plugin:imp:night_kill:n2:p1',
     selected_option_id: 'p1',
     freeform: null
@@ -755,6 +769,7 @@ test('ravenkeeper example: killed by Imp and learns chosen player character', ()
 
   const imp_result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:imp:night_kill:n2:p1',
     prompt_id: 'plugin:imp:night_kill:n2:p1',
     selected_option_id: 'p2',
     freeform: null
@@ -763,6 +778,7 @@ test('ravenkeeper example: killed by Imp and learns chosen player character', ()
 
   const rk_result = ravenkeeper_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:ravenkeeper:night_reveal:n2:p2',
     prompt_id: 'plugin:ravenkeeper:night_reveal:n2:p2',
     selected_option_id: 'p3',
     freeform: null

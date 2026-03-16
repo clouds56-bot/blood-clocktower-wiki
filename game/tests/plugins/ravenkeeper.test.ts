@@ -26,6 +26,7 @@ test('ravenkeeper prompt resolution records revealed character note', () => {
 
   const result = ravenkeeper_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:ravenkeeper:night_reveal:n2:p1',
     prompt_id: 'plugin:ravenkeeper:night_reveal:n2:p1',
     selected_option_id: 'p2',
     freeform: null

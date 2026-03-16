@@ -54,6 +54,7 @@ test('chef queues misinformation prompt when poisoned', () => {
 
   const resolved = chef_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:chef:misinfo:n1:p1',
     prompt_id: 'plugin:chef:misinfo:n1:p1',
     selected_option_id: selected_for_chef,
     freeform: null
@@ -250,6 +251,7 @@ test('empath queues misinformation prompt when drunk', () => {
 
   const resolved = empath_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:empath:misinfo:n2:p1',
     prompt_id: 'plugin:empath:misinfo:n2:p1',
     selected_option_id: selected_for_empath,
     freeform: null
@@ -361,6 +363,7 @@ test('empath on_registration_resolved waits for remaining pending registration q
 
   const blocked = empath_plugin.hooks.on_registration_resolved?.({
     state,
+    prompt_key: `plugin:recluse:registration:empath:p1:alive_neighbors:${qLeft}`,
     prompt_id: `plugin:recluse:registration:empath:p1:alive_neighbors:${qLeft}`,
     provider_role_id: 'recluse',
     consumer_role_id: 'empath',
@@ -393,6 +396,7 @@ test('empath on_registration_resolved waits for remaining pending registration q
 
   const done = empath_plugin.hooks.on_registration_resolved?.({
     state,
+    prompt_key: `plugin:spy:registration:empath:p1:alive_neighbors:${qRight}`,
     prompt_id: `plugin:spy:registration:empath:p1:alive_neighbors:${qRight}`,
     provider_role_id: 'spy',
     consumer_role_id: 'empath',
@@ -457,6 +461,7 @@ test('fortune teller resolves yes when pair includes dead demon', () => {
 
   const result = fortune_teller_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:fortune_teller:night_check:n2:p1',
     prompt_id: 'plugin:fortune_teller:night_check:n2:p1',
     selected_option_id: 'p2|p3',
     freeform: null
@@ -505,6 +510,7 @@ test('fortune teller can resolve yes from query-scoped demon registration', () =
 
   const result = fortune_teller_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:fortune_teller:night_check:n2:p1',
     prompt_id: 'plugin:fortune_teller:night_check:n2:p1',
     selected_option_id: 'p2|p3',
     freeform: null
@@ -524,6 +530,7 @@ test('fortune teller queues storyteller registration prompt for unresolved reclu
 
   const first = fortune_teller_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:fortune_teller:night_check:n2:p1',
     prompt_id: 'plugin:fortune_teller:night_check:n2:p1',
     selected_option_id: 'p2|p3',
     freeform: null
@@ -567,6 +574,7 @@ test('fortune teller queues storyteller registration prompt for unresolved reclu
 
   const resolved = fortune_teller_plugin.hooks.on_registration_resolved?.({
     state: after_create,
+    prompt_key: registration_prompt_id,
     prompt_id: registration_prompt_id,
     provider_role_id: 'recluse',
     consumer_role_id: 'fortune_teller',
@@ -599,6 +607,7 @@ test('fortune teller skips recluse registration query when pair already has real
 
   const result = fortune_teller_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:fortune_teller:night_check:n2:p1',
     prompt_id: 'plugin:fortune_teller:night_check:n2:p1',
     selected_option_id: 'p2|p3',
     freeform: null
@@ -641,6 +650,7 @@ test('fortune teller resolves yes when pair includes red herring', () => {
 
   const result = fortune_teller_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:fortune_teller:night_check:n1:p1',
     prompt_id: 'plugin:fortune_teller:night_check:n1:p1',
     selected_option_id: 'p2|p3',
     freeform: null
@@ -661,6 +671,7 @@ test('fortune teller queues misinformation prompt when poisoned', () => {
 
   const result = fortune_teller_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:fortune_teller:night_check:n2:p1',
     prompt_id: 'plugin:fortune_teller:night_check:n2:p1',
     selected_option_id: 'p2|p3',
     freeform: null
@@ -678,6 +689,7 @@ test('fortune teller queues misinformation prompt when poisoned', () => {
 
   const misinfoResolved = fortune_teller_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:fortune_teller:misinfo_pair:n2:p1:p2,p3',
     prompt_id: 'plugin:fortune_teller:misinfo_pair:n2:p1:p2,p3',
     selected_option_id: misinfo_choice,
     freeform: null

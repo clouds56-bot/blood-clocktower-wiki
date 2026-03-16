@@ -13,7 +13,7 @@ function build_butler_prompt_key(night_number: number, player_id: string): strin
 }
 
 function resolve_prompt_token(context: Parameters<NonNullable<CharacterPlugin['hooks']['on_prompt_resolved']>>[0]): string {
-  return context.prompt_key ?? context.prompt_id;
+  return context.prompt_key;
 }
 
 export const butler_plugin: CharacterPlugin = {

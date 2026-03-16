@@ -12,7 +12,7 @@ function build_monk_prompt_key(night_number: number, player_id: string): string 
 }
 
 function resolve_prompt_token(context: Parameters<NonNullable<CharacterPlugin['hooks']['on_prompt_resolved']>>[0]): string {
-  return context.prompt_key ?? context.prompt_id;
+  return context.prompt_key;
 }
 
 export const monk_plugin: CharacterPlugin = {
@@ -136,7 +136,7 @@ export const monk_plugin: CharacterPlugin = {
             source_event_id: null,
             metadata: {
               from_prompt_id: context.prompt_id,
-              from_prompt_key: context.prompt_key ?? context.prompt_id
+              from_prompt_key: context.prompt_key
             }
           }
         });

@@ -55,6 +55,7 @@ test('monk prompt resolution clears prior target and applies fresh protection ma
 
   const result = monk_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:monk:night_protect:n2:p1',
     prompt_id: 'plugin:monk:night_protect:n2:p1',
     selected_option_id: 'p3',
     freeform: null

@@ -39,7 +39,7 @@ export const ravenkeeper_plugin: CharacterPlugin = {
   },
   hooks: {
     on_prompt_resolved: (context): PluginResult => {
-      const prompt_token = context.prompt_key ?? context.prompt_id;
+      const prompt_token = context.prompt_key;
       const ravenkeeper_player_id = parse_ravenkeeper_prompt_owner_player_id(prompt_token);
       if (!ravenkeeper_player_id) {
         return {

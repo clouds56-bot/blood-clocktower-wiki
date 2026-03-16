@@ -409,6 +409,7 @@ function normalize_plugin_result(
     }
 
     return {
+      prompt_key: item.prompt_key,
       prompt_id: item.prompt_id,
       kind: item.kind,
       reason: item.reason,

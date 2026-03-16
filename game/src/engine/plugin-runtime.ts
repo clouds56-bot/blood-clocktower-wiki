@@ -611,7 +611,7 @@ function normalize_dispatch_output(
       created_at,
       ...(fallback_actor_id === undefined ? {} : { actor_id: fallback_actor_id }),
       payload: {
-        prompt_key: item.prompt_key ?? item.prompt_id,
+        prompt_key: item.prompt_key,
         prompt_id: item.prompt_id,
         kind: item.kind,
         reason: item.reason,
@@ -916,18 +916,18 @@ function validate_queued_prompt_ids(
       continue;
     }
 
-    const prompt_id = event.payload.prompt_key;
-    if (state.prompts_by_id[prompt_id] || seenPromptIds.has(prompt_id)) {
+    const prompt_key = event.payload.prompt_key;
+    if (state.prompts_by_id[prompt_key] || seenPromptIds.has(prompt_key)) {
       return {
         ok: false,
         error: {
           code: 'prompt_id_already_exists',
-          message: `prompt already exists: ${prompt_id}`
+          message: `prompt already exists: ${prompt_key}`
         }
       };
     }
 
-    seenPromptIds.add(prompt_id);
+    seenPromptIds.add(prompt_key);
   }
 
   return {

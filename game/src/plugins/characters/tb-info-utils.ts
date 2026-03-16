@@ -336,14 +336,17 @@ export function plan_registration_query_prompt(args: {
       }
     });
 
-    queued_prompts.push({
-      prompt_id: build_registration_prompt_id({
+    const registration_prompt_id = build_registration_prompt_id({
         provider_role_id: provider_registration.provider_character_id,
         consumer_role_id: args.role_id,
         owner_player_id: args.owner_player_id,
         context_tag: args.context_tag,
         query_id: request.query_id
-      }),
+      });
+
+    queued_prompts.push({
+      prompt_key: registration_prompt_id,
+      prompt_id: registration_prompt_id,
       kind: 'choice',
       reason: `plugin:${args.role_id}:registration adjudication`,
       visibility: 'storyteller',

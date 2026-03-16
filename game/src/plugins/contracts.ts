@@ -61,7 +61,7 @@ export interface PluginEventSpec {
 }
 
 export interface PluginPromptSpec {
-  prompt_key?: string;
+  prompt_key: string;
   prompt_id: string;
   kind: string;
   reason: string;
@@ -94,7 +94,7 @@ export interface NightWakeHookContext {
 
 export interface PromptResolvedHookContext {
   state: Readonly<GameState>;
-  prompt_key?: string;
+  prompt_key: string;
   prompt_id: string;
   selected_option_id: string | null;
   freeform: string | null;
@@ -162,7 +162,7 @@ export interface RegistrationQueryHookResult {
 
 export interface RegistrationResolvedHookContext {
   state: Readonly<GameState>;
-  prompt_key?: string;
+  prompt_key: string;
   prompt_id: string;
   provider_role_id: string;
   consumer_role_id: string;

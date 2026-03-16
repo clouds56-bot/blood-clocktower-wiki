@@ -56,6 +56,7 @@ test('poisoner prompt resolution emits reminder marker lifecycle events', () => 
 
   const result = poisoner_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:poisoner:night_poison:n2:p1',
     prompt_id: 'plugin:poisoner:night_poison:n2:p1',
     selected_option_id: 'p3',
     freeform: null

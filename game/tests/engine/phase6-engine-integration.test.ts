@@ -199,7 +199,8 @@ test('advance phase night wake boundary suspends further wakes when a prompt is 
         emitted_events: [],
         queued_prompts: [
           {
-            prompt_id: 'plugin:imp:night_kill',
+            prompt_key: 'plugin:imp:night_kill',
+              prompt_id: 'plugin:imp:night_kill',
             kind: 'choice',
             reason: 'plugin:imp:choose target',
             visibility: 'storyteller',
@@ -225,7 +226,8 @@ test('advance phase night wake boundary suspends further wakes when a prompt is 
         emitted_events: [],
         queued_prompts: [
           {
-            prompt_id: 'plugin:poisoner:night_poison',
+            prompt_key: 'plugin:poisoner:night_poison',
+              prompt_id: 'plugin:poisoner:night_poison',
             kind: 'choice',
             reason: 'plugin:poisoner:choose target',
             visibility: 'storyteller',
@@ -333,7 +335,7 @@ test('resolve prompt boundary re-enters plugin runtime via prompt owner tag', ()
       created_at: '2026-03-14T00:00:00.000Z',
       payload: {
         prompt_key: 'plugin:imp:night_kill',
-        prompt_id: 'plugin:imp:night_kill',
+              prompt_id: 'plugin:imp:night_kill',
         kind: 'choice',
         reason: 'plugin:imp:choose target',
         visibility: 'storyteller',
@@ -350,7 +352,7 @@ test('resolve prompt boundary re-enters plugin runtime via prompt owner tag', ()
       actor_id: 'storyteller',
       payload: {
         prompt_key: 'plugin:imp:night_kill',
-        prompt_id: 'plugin:imp:night_kill',
+              prompt_id: 'plugin:imp:night_kill',
         selected_option_id: 'p2',
         freeform: null,
         notes: null
@@ -467,7 +469,8 @@ test('resolve prompt resumes suspended wake queue', () => {
         emitted_events: [],
         queued_prompts: [
           {
-            prompt_id: 'plugin:imp:night_kill',
+            prompt_key: 'plugin:imp:night_kill',
+              prompt_id: 'plugin:imp:night_kill',
             kind: 'choice',
             reason: 'plugin:imp:choose target',
             visibility: 'player',
@@ -491,7 +494,8 @@ test('resolve prompt resumes suspended wake queue', () => {
         emitted_events: [],
         queued_prompts: [
           {
-            prompt_id: 'plugin:poisoner:night_poison',
+            prompt_key: 'plugin:poisoner:night_poison',
+              prompt_id: 'plugin:poisoner:night_poison',
             kind: 'choice',
             reason: 'plugin:poisoner:choose target',
             visibility: 'player',
@@ -534,7 +538,7 @@ test('resolve prompt resumes suspended wake queue', () => {
       actor_id: 'storyteller',
       payload: {
         prompt_key: 'plugin:poisoner:night_poison',
-        prompt_id: 'plugin:poisoner:night_poison',
+              prompt_id: 'plugin:poisoner:night_poison',
         selected_option_id: 'p1',
         freeform: null,
         notes: null
@@ -682,6 +686,7 @@ test('plugin runtime returns deterministic error on duplicate queued prompt id',
           emitted_events: [],
           queued_prompts: [
             {
+              prompt_key: 'plugin:imp:night_kill:n1:p1',
               prompt_id: 'plugin:imp:night_kill:n1:p1',
               kind: 'choice',
               reason: 'plugin:imp:choose night kill target',

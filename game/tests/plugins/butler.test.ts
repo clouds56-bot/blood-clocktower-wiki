@@ -58,6 +58,7 @@ test('butler prompt resolution emits master marker and clears previous marker', 
 
   const result = butler_plugin.hooks.on_prompt_resolved?.({
     state,
+    prompt_key: 'plugin:butler:night_master:n2:p1',
     prompt_id: 'plugin:butler:night_master:n2:p1',
     selected_option_id: 'p3',
     freeform: null

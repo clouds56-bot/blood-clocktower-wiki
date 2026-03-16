@@ -31,7 +31,7 @@ function build_fortune_teller_pair_misinfo_prompt_key(
 }
 
 function resolve_prompt_token(context: Parameters<NonNullable<CharacterPlugin['hooks']['on_prompt_resolved']>>[0]): string {
-  return context.prompt_key ?? context.prompt_id;
+  return context.prompt_key;
 }
 
 function is_fortune_teller_pair_prompt_token(prompt_token: string): boolean {

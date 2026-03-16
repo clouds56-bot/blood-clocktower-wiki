@@ -52,6 +52,7 @@ function make_night_context(): NightWakeHookContext {
 function make_prompt_context(): PromptResolvedHookContext {
   return {
     state: create_initial_state('g1'),
+    prompt_key: 'pr1',
     prompt_id: 'pr1',
     selected_option_id: 'a',
     freeform: null
@@ -104,6 +105,7 @@ test('dispatch_hook executes plugins in deterministic order and merges outputs',
       ],
       queued_prompts: [
         {
+          prompt_key: 'pr_imp',
           prompt_id: 'pr_imp',
           kind: 'choice',
           reason: 'imp pick target',
@@ -207,6 +209,7 @@ test('dispatch_hook fails when plugin returns invalid output', () => {
         ],
         queued_prompts: [
           {
+            prompt_key: '',
             prompt_id: '',
             kind: 'choice',
             reason: 'ok',
