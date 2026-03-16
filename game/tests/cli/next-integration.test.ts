@@ -27,7 +27,7 @@ test('resolve_all_pending_prompts drains single pending prompt', () => {
       { option_id: 'opt_b', label: 'B' }
     ],
     status: 'pending',
-    created_at_event_id: null,
+    created_at_event_id: 'e1',
     resolved_at_event_id: null,
     resolution_payload: null,
     notes: null
@@ -50,7 +50,7 @@ test('resolve_all_pending_prompts respects guard limit', () => {
     visibility: 'storyteller',
     options: [{ option_id: 'opt_a', label: 'A' }],
     status: 'pending',
-    created_at_event_id: null,
+    created_at_event_id: 'e1',
     resolved_at_event_id: null,
     resolution_payload: null,
     notes: null
@@ -74,7 +74,7 @@ test('run_next_phase blocks on pending prompt when auto_prompt is false', () => 
     visibility: 'storyteller',
     options: [{ option_id: 'opt_a', label: 'A' }],
     status: 'pending',
-    created_at_event_id: null,
+    created_at_event_id: 'e1',
     resolved_at_event_id: null,
     resolution_payload: null,
     notes: null
@@ -98,7 +98,7 @@ test('run_next_phase with auto_prompt resolves prompts then advances one step', 
     visibility: 'storyteller',
     options: [{ option_id: 'opt_a', label: 'A' }],
     status: 'pending',
-    created_at_event_id: null,
+    created_at_event_id: 'e1',
     resolved_at_event_id: null,
     resolution_payload: null,
     notes: null
