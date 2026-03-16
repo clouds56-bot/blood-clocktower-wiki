@@ -89,18 +89,70 @@ test('parse local commands', () => {
   assert.equal(nextPhase.ok, true);
   if (nextPhase.ok && nextPhase.kind === 'local') {
     assert.equal(nextPhase.action.type, 'next_phase');
+    if (nextPhase.action.type === 'next_phase') {
+      assert.equal(nextPhase.action.scope, 'subphase');
+      assert.equal(nextPhase.action.auto_prompt, false);
+    }
   }
 
   const nextAlias = parse_cli_line('next');
   assert.equal(nextAlias.ok, true);
   if (nextAlias.ok && nextAlias.kind === 'local') {
     assert.equal(nextAlias.action.type, 'next_phase');
+    if (nextAlias.action.type === 'next_phase') {
+      assert.equal(nextAlias.action.scope, 'subphase');
+      assert.equal(nextAlias.action.auto_prompt, false);
+    }
   }
 
   const nAlias = parse_cli_line('n');
   assert.equal(nAlias.ok, true);
   if (nAlias.ok && nAlias.kind === 'local') {
     assert.equal(nAlias.action.type, 'next_phase');
+    if (nAlias.action.type === 'next_phase') {
+      assert.equal(nAlias.action.scope, 'subphase');
+      assert.equal(nAlias.action.auto_prompt, false);
+    }
+  }
+
+  const nextAutoPrompt = parse_cli_line('next --auto');
+  assert.equal(nextAutoPrompt.ok, true);
+  if (nextAutoPrompt.ok && nextAutoPrompt.kind === 'local') {
+    assert.equal(nextAutoPrompt.action.type, 'next_phase');
+    if (nextAutoPrompt.action.type === 'next_phase') {
+      assert.equal(nextAutoPrompt.action.scope, 'subphase');
+      assert.equal(nextAutoPrompt.action.auto_prompt, true);
+    }
+  }
+
+  const nextPhaseScope = parse_cli_line('next phase');
+  assert.equal(nextPhaseScope.ok, true);
+  if (nextPhaseScope.ok && nextPhaseScope.kind === 'local') {
+    assert.equal(nextPhaseScope.action.type, 'next_phase');
+    if (nextPhaseScope.action.type === 'next_phase') {
+      assert.equal(nextPhaseScope.action.scope, 'phase');
+      assert.equal(nextPhaseScope.action.auto_prompt, false);
+    }
+  }
+
+  const nextDayAutoPrompt = parse_cli_line('next day --auto-prompt');
+  assert.equal(nextDayAutoPrompt.ok, true);
+  if (nextDayAutoPrompt.ok && nextDayAutoPrompt.kind === 'local') {
+    assert.equal(nextDayAutoPrompt.action.type, 'next_phase');
+    if (nextDayAutoPrompt.action.type === 'next_phase') {
+      assert.equal(nextDayAutoPrompt.action.scope, 'day');
+      assert.equal(nextDayAutoPrompt.action.auto_prompt, true);
+    }
+  }
+
+  const nextSubphase = parse_cli_line('next subphase');
+  assert.equal(nextSubphase.ok, true);
+  if (nextSubphase.ok && nextSubphase.kind === 'local') {
+    assert.equal(nextSubphase.action.type, 'next_phase');
+    if (nextSubphase.action.type === 'next_phase') {
+      assert.equal(nextSubphase.action.scope, 'subphase');
+      assert.equal(nextSubphase.action.auto_prompt, false);
+    }
   }
 
   const events = parse_cli_line('events 5');
@@ -271,6 +323,21 @@ test('invalid command gives usage', () => {
   assert.equal(setupPlayerInvalid.ok, false);
   if (!setupPlayerInvalid.ok) {
     assert.match(setupPlayerInvalid.message, /usage: setup-player/);
+  }
+
+  const nextInvalid = parse_cli_line('next later');
+  assert.equal(nextInvalid.ok, false);
+  if (!nextInvalid.ok) {
+    assert.match(nextInvalid.message, /usage: next/);
+  }
+});
+
+test('unknown command returns global help hint', () => {
+  const unknown = parse_cli_line('mystery-command');
+  assert.equal(unknown.ok, false);
+  if (!unknown.ok) {
+    assert.match(unknown.message, /unknown command: mystery-command/);
+    assert.match(unknown.message, /run "help \[all\|phase\]" for available commands/);
   }
 });
 

@@ -1,5 +1,6 @@
 import Table from 'cli-table3';
 import type { DomainEvent } from '../domain/events.js';
+import { help_sections_for_topic } from './command-registry.js';
 import type {
   GameState,
   PlayerCharacterType,
@@ -470,73 +471,12 @@ export function format_marker(marker: ReminderMarkerState): string {
 }
 
 export function format_help(topic: 'phase' | 'all'): string {
-  if (topic === 'phase') {
-    return [
-      paint('phase flow (phase 5):', 'cyan'),
-      '  next-phase   (auto-resolves one random pending prompt, then open-noms/open-vote/close-vote/resolve-exec/resolve-conseq when applicable)',
-      '  open-noms',
-      '  nominate p1 p2',
-      '  open-vote',
-      '  vote p1 yes  | vote p1 p2 (defaults to yes)',
-      '  close-vote',
-      '  resolve-exec',
-      '  resolve-conseq   (or survive-exec)',
-      '  check-win',
-      '  end-day'
-    ].join('\n');
-  }
-
-  return [
-    paint('local commands:', 'cyan'),
-    '  help [all|phase]',
-    '  next-phase | next | n',
-    '  new <game_id>',
-    '  quick-setup | quick-start | start <script> <player_num> [game_id]',
-    '  state [brief|json]',
-    '  events [count]',
-    '  players',
-    '  player <player_id>',
-    '  view storyteller|st [--json]',
-    '  view public [--json]',
-    '  view player <player_id> [--json] | view <player_id> [--json]',
-     '  prompts',
-     '  prompt <prompt_id>',
-     '  markers | reminders',
-     '  marker | reminder <marker_id>',
-     '  quit | exit',
-    '',
-    paint('engine setup commands:', 'cyan'),
-    '  select-script <script_id>',
-    '  select-edition <edition_id>',
-    '  add-player <player_id> <display_name>',
-    '  set-seat-order <player_id...>',
-    '  assign-character <player_id> <character_id> [--demon] [--traveller]',
-    '  assign-perceived <player_id> <character_id>',
-    '  assign-alignment <player_id> <good|evil>',
-    '  setup-player <player_id> <true_character_id> [perceived_character_id] <townsfolk|outsider|minion|demon|traveller> [good|evil]',
-    '  phase <phase> <subphase> <day_number> <night_number>',
-    '',
-    paint('engine day/death/win commands:', 'cyan'),
-    '  open-noms [day_number]',
-    '  nominate | nom <nominator_id> <nominee_id>',
-    '  nominate | nom <nomination_id> <nominator_id> <nominee_id>',
-    '  nominate | nom <nomination_id> <day_number> <nominator_id> <nominee_id>',
-    '  open-vote [nomination_id] [opened_by_id]',
-    '  vote <voter_id> <yes|no> | vote <voter_id...> [yes|no] | vote <nomination_id> <voter_id> <yes|no>',
-    '  slay | slayer-shot <slayer_player_id> <target_player_id>',
-    '  close-vote [nomination_id] [day_number]',
-    '  resolve-exec [day_number]',
-    '  resolve-conseq [day_number]',
-    '  apply-death <player_id> <execution|night_death|ability|storyteller> [day_number] [night_number]',
-    '  survive-exec [player_id] [day_number]',
-    '  check-win [day_number] [night_number]',
-    '  force-win <good|evil> [rationale...]',
-     '  create-prompt <prompt_id> <kind> <storyteller|player|public> <reason...>',
-      '  resolve-prompt | choose | ch [prompt_id] [selected_option_id|-] [notes...] (choose/ch with no args picks random option)',
-     '  cancel-prompt <prompt_id> <reason...>',
-     '  apply-marker | apply-reminder <marker_id> <kind> <effect> [target_player_id] [source_character_id] [note...]',
-     '  clear-marker | clear-reminder <marker_id> [reason...]',
-     '  sweep-markers | sweep-reminders',
-     '  end-day [day_number]'
-   ].join('\n');
+  return help_sections_for_topic(topic)
+    .map((section) => {
+      if (topic === 'phase') {
+        return [paint(section.title, 'cyan'), ...section.lines].join('\n');
+      }
+      return [paint(section.title, 'cyan'), ...section.lines.map((line) => `  ${line}`)].join('\n');
+    })
+    .join('\n\n');
 }

@@ -1,3 +1,4 @@
+import { readFile } from 'node:fs/promises';
 import readline from 'node:readline';
 
 import type { Command } from '../domain/commands.js';
@@ -30,6 +31,8 @@ import { PluginRegistry } from '../plugins/registry.js';
 import { project_for_player } from '../projections/player.js';
 import { project_for_public } from '../projections/public.js';
 import { project_for_storyteller } from '../projections/storyteller.js';
+import { create_next_scope_anchor, has_reached_next_scope_target } from './next-utils.js';
+import { random_option_id_for_prompt } from './parser-common.js';
 import {
   build_quick_setup_seed_commands,
   infer_alignment_from_type,
@@ -58,6 +61,10 @@ interface CliContext {
   event_log: DomainEvent[];
   next_command_index: number;
   plugin_registry: PluginRegistry;
+}
+
+interface ProcessLineOptions {
+  script_mode?: boolean;
 }
 
 const ANSI = {
@@ -89,6 +96,36 @@ function make_command_id(context: CliContext): string {
   const id = `cli-${String(context.next_command_index).padStart(6, '0')}`;
   context.next_command_index += 1;
   return id;
+}
+
+function create_cli_context(initial_game_id: string): CliContext {
+  return {
+    state: create_initial_state(initial_game_id),
+    event_log: [],
+    next_command_index: 1,
+    plugin_registry: new PluginRegistry([
+      chef_plugin,
+      butler_plugin,
+      empath_plugin,
+      fortune_teller_plugin,
+      imp_plugin,
+      investigator_plugin,
+      librarian_plugin,
+      mayor_plugin,
+      monk_plugin,
+      poisoner_plugin,
+      ravenkeeper_plugin,
+      recluse_plugin,
+      scarlet_woman_plugin,
+      saint_plugin,
+      slayer_plugin,
+      soldier_plugin,
+      spy_plugin,
+      undertaker_plugin,
+      virgin_plugin,
+      washerwoman_plugin
+    ])
+  };
 }
 
 function run_quick_setup(context: CliContext, script_input: string, player_num: number, game_id?: string): void {
@@ -265,39 +302,72 @@ function run_setup_player(
   });
 }
 
-function choose_random<T>(items: T[]): T | null {
-  if (items.length === 0) {
-    return null;
-  }
-  const index = Math.floor(Math.random() * items.length);
-  return items[index] ?? null;
+type NextStopReason =
+  | 'advanced'
+  | 'target_reached'
+  | 'blocked_by_prompt'
+  | 'blocked_missing_active_vote'
+  | 'auto_prompt_guard_hit'
+  | 'game_ended'
+  | 'failed';
+
+interface NextRunOutcome {
+  stop_reason: NextStopReason;
+  steps_advanced: number;
+  prompts_resolved: number;
 }
 
-function resolve_random_pending_prompt(context: CliContext): boolean {
-  const pending_prompt_ids = context.state.pending_prompts.filter((prompt_id) => {
-    const prompt = context.state.prompts_by_id[prompt_id];
+function pending_prompt_ids(state: GameState): string[] {
+  return state.pending_prompts.filter((prompt_id) => {
+    const prompt = state.prompts_by_id[prompt_id];
     return Boolean(prompt && prompt.status === 'pending');
   });
-  const prompt_id = choose_random(pending_prompt_ids);
+}
+
+function resolve_next_pending_prompt(context: CliContext): boolean {
+  const prompt_id = pending_prompt_ids(context.state)[0];
   if (!prompt_id) {
     return true;
   }
 
-  const prompt = context.state.prompts_by_id[prompt_id];
-  if (!prompt || prompt.status !== 'pending') {
-    return true;
-  }
-
-  const random_option = choose_random(prompt.options);
   return run_engine_command(context, {
     command_type: 'ResolvePrompt',
     payload: {
       prompt_id,
-      selected_option_id: random_option?.option_id ?? null,
+      selected_option_id: random_option_id_for_prompt(context.state, prompt_id),
       freeform: null,
-      notes: 'auto_random_next'
+      notes: 'auto_next_prompt'
     }
   });
+}
+
+export function resolve_all_pending_prompts(context: CliContext, guard_limit = 100): NextRunOutcome {
+  let prompts_resolved = 0;
+  while (pending_prompt_ids(context.state).length > 0) {
+    if (prompts_resolved >= guard_limit) {
+      return {
+        stop_reason: 'auto_prompt_guard_hit',
+        steps_advanced: 0,
+        prompts_resolved
+      };
+    }
+
+    const resolved = resolve_next_pending_prompt(context);
+    if (!resolved) {
+      return {
+        stop_reason: 'failed',
+        steps_advanced: 0,
+        prompts_resolved
+      };
+    }
+    prompts_resolved += 1;
+  }
+
+  return {
+    stop_reason: 'target_reached',
+    steps_advanced: 0,
+    prompts_resolved
+  };
 }
 
 function make_repl_prompt(state: GameState): string {
@@ -307,12 +377,9 @@ function make_repl_prompt(state: GameState): string {
   return 'clocktower> ';
 }
 
-function run_next_phase(context: CliContext): void {
-  if (context.state.pending_prompts.length > 0) {
-    const resolved = resolve_random_pending_prompt(context);
-    if (!resolved) {
-      return;
-    }
+function advance_one_step(context: CliContext): NextStopReason {
+  if (pending_prompt_ids(context.state).length > 0) {
+    return 'blocked_by_prompt';
   }
 
   const { phase, subphase, day_number, night_number } = context.state;
@@ -364,13 +431,12 @@ function run_next_phase(context: CliContext): void {
   }
 
   if (phase === 'ended') {
-    process.stdout.write('next-phase not allowed: game already ended\n');
-    return;
+    return 'game_ended';
   }
 
   if (phase === 'setup') {
     advance_to_phase('first_night', 'dusk', day_number, Math.max(1, night_number));
-    return;
+    return 'advanced';
   }
 
   if (phase === 'first_night') {
@@ -383,7 +449,7 @@ function run_next_phase(context: CliContext): void {
     if (!ok) {
       advance_to_phase('day', 'open_discussion', day_number + 1, night_number);
     }
-    return;
+    return 'advanced';
   }
 
   if (phase === 'day') {
@@ -394,7 +460,7 @@ function run_next_phase(context: CliContext): void {
           day_number
         }
       });
-      return;
+      return 'advanced';
     }
 
     if (subphase === 'nomination_window') {
@@ -411,7 +477,7 @@ function run_next_phase(context: CliContext): void {
             opened_by_player_id: candidate.nominator_player_id
           }
         });
-        return;
+        return 'advanced';
       }
 
       run_engine_command(context, {
@@ -420,14 +486,13 @@ function run_next_phase(context: CliContext): void {
           day_number: context.state.day_number
         }
       });
-      return;
+      return 'advanced';
     }
 
     if (subphase === 'vote_in_progress') {
       const active_vote = context.state.day_state.active_vote;
       if (!active_vote) {
-        process.stdout.write('next-phase failed: active vote not found\n');
-        return;
+        return 'blocked_missing_active_vote';
       }
 
       const all_voters = all_player_ids_for_vote(context.state);
@@ -446,7 +511,7 @@ function run_next_phase(context: CliContext): void {
           day_number: context.state.day_number
         }
       });
-      return;
+      return 'advanced';
     }
 
     if (subphase === 'execution_resolution') {
@@ -460,7 +525,7 @@ function run_next_phase(context: CliContext): void {
             day_number: context.state.day_number
           }
         });
-        return;
+        return 'advanced';
       }
     }
 
@@ -473,7 +538,7 @@ function run_next_phase(context: CliContext): void {
     if (!ok) {
       advance_to_phase('night', 'dusk', day_number, night_number + 1);
     }
-    return;
+    return 'advanced';
   }
 
   const ok = step_subphase([
@@ -485,6 +550,132 @@ function run_next_phase(context: CliContext): void {
   if (!ok) {
     advance_to_phase('day', 'open_discussion', day_number + 1, night_number);
   }
+  return 'advanced';
+}
+
+export function run_next_phase(
+  context: CliContext,
+  action: Extract<CliLocalAction, { type: 'next_phase' }>
+): NextRunOutcome {
+  let prompts_resolved = 0;
+  let steps_advanced = 0;
+
+  if (action.auto_prompt) {
+    const resolved = resolve_all_pending_prompts(context);
+    prompts_resolved += resolved.prompts_resolved;
+    if (resolved.stop_reason !== 'target_reached') {
+      return {
+        stop_reason: resolved.stop_reason,
+        steps_advanced,
+        prompts_resolved
+      };
+    }
+  }
+
+  if (action.scope === 'phase') {
+    const phase_anchor = context.state.phase;
+    for (let i = 0; i < 200; i += 1) {
+      if (pending_prompt_ids(context.state).length > 0) {
+        if (!action.auto_prompt) {
+          return {
+            stop_reason: 'blocked_by_prompt',
+            steps_advanced,
+            prompts_resolved
+          };
+        }
+        const resolved = resolve_all_pending_prompts(context);
+        prompts_resolved += resolved.prompts_resolved;
+        if (resolved.stop_reason !== 'target_reached') {
+          return {
+            stop_reason: resolved.stop_reason,
+            steps_advanced,
+            prompts_resolved
+          };
+        }
+      }
+
+      const stop_reason = advance_one_step(context);
+      if (stop_reason !== 'advanced') {
+        return {
+          stop_reason,
+          steps_advanced,
+          prompts_resolved
+        };
+      }
+      steps_advanced += 1;
+      if (context.state.phase !== phase_anchor) {
+        return {
+          stop_reason: 'target_reached',
+          steps_advanced,
+          prompts_resolved
+        };
+      }
+    }
+    return {
+      stop_reason: 'failed',
+      steps_advanced,
+      prompts_resolved
+    };
+  }
+
+  if (action.scope === 'subphase') {
+    const stop_reason = advance_one_step(context);
+    if (stop_reason === 'advanced') {
+      steps_advanced += 1;
+    }
+    return {
+      stop_reason,
+      steps_advanced,
+      prompts_resolved
+    };
+  }
+
+  const scope_anchor = create_next_scope_anchor(context.state);
+
+  for (let i = 0; i < 200; i += 1) {
+    if (pending_prompt_ids(context.state).length > 0) {
+      if (!action.auto_prompt) {
+        return {
+          stop_reason: 'blocked_by_prompt',
+          steps_advanced,
+          prompts_resolved
+        };
+      }
+      const resolved = resolve_all_pending_prompts(context);
+      prompts_resolved += resolved.prompts_resolved;
+      if (resolved.stop_reason !== 'target_reached') {
+        return {
+          stop_reason: resolved.stop_reason,
+          steps_advanced,
+          prompts_resolved
+        };
+      }
+    }
+
+    const stop_reason = advance_one_step(context);
+    if (stop_reason !== 'advanced') {
+      return {
+        stop_reason,
+        steps_advanced,
+        prompts_resolved
+      };
+    }
+    steps_advanced += 1;
+
+    if (has_reached_next_scope_target(context.state, action.scope, scope_anchor)) {
+      return {
+        stop_reason: 'target_reached',
+        steps_advanced,
+        prompts_resolved
+      };
+    }
+  }
+
+  return {
+    stop_reason: 'failed',
+    steps_advanced,
+    prompts_resolved
+  };
 }
 
 function handle_local_action(context: CliContext, action: CliLocalAction): boolean {
@@ -499,7 +690,10 @@ function handle_local_action(context: CliContext, action: CliLocalAction): boole
   }
 
   if (action.type === 'next_phase') {
-    run_next_phase(context);
+    const outcome = run_next_phase(context, action);
+    process.stdout.write(
+      `next stop=${outcome.stop_reason} steps=${outcome.steps_advanced} prompts_resolved=${outcome.prompts_resolved}\n`
+    );
     return true;
   }
 
@@ -630,34 +824,53 @@ function handle_local_action(context: CliContext, action: CliLocalAction): boole
   return true;
 }
 
+function process_cli_line(context: CliContext, line: string, options?: ProcessLineOptions): boolean {
+  const parse_options = options?.script_mode ? { script_mode: true } : undefined;
+  const parsed = parse_cli_line(line, context.state, parse_options);
+  if (!parsed.ok) {
+    process.stdout.write(`${parsed.message}\n`);
+    return false;
+  }
+
+  if (parsed.kind === 'empty') {
+    return true;
+  }
+
+  if (parsed.kind === 'local') {
+    return handle_local_action(context, parsed.action);
+  }
+
+  return run_engine_command(context, parsed.command);
+}
+
+export async function run_cli_script_file(script_path: string, initial_game_id = 'cli_game'): Promise<void> {
+  const context = create_cli_context(initial_game_id);
+  const raw = await readFile(script_path, 'utf8');
+  const lines = raw.split(/\r?\n/);
+
+  process.stdout.write(`running script: ${script_path}\n`);
+  process.stdout.write(`${format_state_brief(context.state)}\n`);
+
+  for (let index = 0; index < lines.length; index += 1) {
+    const original = lines[index] ?? '';
+    const line = original.trim();
+    if (line.length === 0 || line.startsWith('#')) {
+      continue;
+    }
+
+    process.stdout.write(`> ${line}\n`);
+    const ok = process_cli_line(context, line, { script_mode: true });
+    if (!ok) {
+      throw new Error(`script failed at line ${index + 1}: ${line}`);
+    }
+  }
+
+  process.stdout.write('script complete\n');
+  process.stdout.write(`${format_state_brief(context.state)}\n`);
+}
+
 export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void> {
-  const context: CliContext = {
-    state: create_initial_state(initial_game_id),
-    event_log: [],
-    next_command_index: 1,
-    plugin_registry: new PluginRegistry([
-      chef_plugin,
-      butler_plugin,
-      empath_plugin,
-      fortune_teller_plugin,
-      imp_plugin,
-      investigator_plugin,
-      librarian_plugin,
-      mayor_plugin,
-      monk_plugin,
-      poisoner_plugin,
-      ravenkeeper_plugin,
-      recluse_plugin,
-      scarlet_woman_plugin,
-      saint_plugin,
-      slayer_plugin,
-      soldier_plugin,
-      spy_plugin,
-      undertaker_plugin,
-      virgin_plugin,
-      washerwoman_plugin
-    ])
-  };
+  const context = create_cli_context(initial_game_id);
 
   process.stdout.write('Clocktower Engine CLI (Phase 5)\n');
   process.stdout.write(`${paint('type "help" for commands', 'yellow')}\n`);
@@ -677,29 +890,11 @@ export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void
   prompt_again();
 
   rl.on('line', (line) => {
-    const parsed = parse_cli_line(line, context.state);
-    if (!parsed.ok) {
-      process.stdout.write(`${parsed.message}\n`);
-      prompt_again();
+    const keep_running = process_cli_line(context, line);
+    if (!keep_running) {
+      rl.close();
       return;
     }
-
-    if (parsed.kind === 'empty') {
-      prompt_again();
-      return;
-    }
-
-    if (parsed.kind === 'local') {
-      const keep_running = handle_local_action(context, parsed.action);
-      if (!keep_running) {
-        rl.close();
-        return;
-      }
-      prompt_again();
-      return;
-    }
-
-    run_engine_command(context, parsed.command);
     prompt_again();
   });
 
@@ -711,8 +906,24 @@ export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  const game_id = process.argv[2] ?? 'cli_game';
-  start_cli_repl(game_id).catch((error: unknown) => {
+  const args = process.argv.slice(2);
+  const script_flag_index = args.findIndex((arg) => arg === '--script' || arg === '-s');
+
+  const run = script_flag_index >= 0
+    ? async () => {
+        const script_path = args[script_flag_index + 1];
+        if (!script_path) {
+          throw new Error('usage: cli --script <path> [game_id]');
+        }
+        const game_id = args[script_flag_index + 2] ?? 'cli_game';
+        await run_cli_script_file(script_path, game_id);
+      }
+    : async () => {
+        const game_id = args[0] ?? 'cli_game';
+        await start_cli_repl(game_id);
+      };
+
+  run().catch((error: unknown) => {
     const message = error instanceof Error ? error.message : String(error);
     process.stderr.write(`fatal: ${message}\n`);
     process.exitCode = 1;
