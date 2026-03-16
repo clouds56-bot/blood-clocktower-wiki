@@ -133,13 +133,18 @@ State rules:
 Prompt key conventions (normative)
 ---------------------------------
 - Plugin-authored prompt keys should use:
-  - `plugin:<character_id>:<time_key>:<player_id>:<action>[:detail...]`
+  - `plugin:<character_id>:<verb>:<time_key>:<player_id>[:detail...]`
 - `time_key` format:
   - `d<day_number>` for day scope
   - `n<night_number>` for night scope
 - Examples:
-  - `plugin:poisoner:n1:p5:night_poison`
-  - `plugin:imp:n2:p2:night_kill`
+  - `plugin:poisoner:night_poison:n1:p5`
+  - `plugin:imp:night_kill:n2:p2`
+
+Payload conventions (normative)
+-------------------------------
+- `prompt_id` alias is removed from command/event payloads.
+- prompt lifecycle commands/events use `prompt_key` only.
 
 ## Definition of Done
 

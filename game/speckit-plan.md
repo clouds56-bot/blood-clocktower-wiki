@@ -22,10 +22,12 @@
   - `d<day_number>` for day scope (for example `d1`)
   - `n<night_number>` for night scope (for example `n1`, `n2`)
 - Plugin key prefix shape:
-  - `plugin:<character_id>:<time_key>:<player_id>:...`
+  - `plugin:<character_id>:<verb>:<time_key>:<player_id>[:detail...]`
 - Wake key shape:
   - `wake:<time_key>:<global_order>:<player_id>:<character_id>`
   - `global_order` is per-time-slot sequence (resets each `time_key`).
+- Legacy alias cleanup:
+  - `prompt_id` and `wake_id` are removed from runtime contracts; key-only fields are canonical.
 
 ## Milestones
 

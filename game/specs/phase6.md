@@ -64,9 +64,14 @@ Wake key conventions (normative)
 Plugin prompt/reason key conventions (normative)
 ------------------------------------------------
 - Plugin-authored prompt keys and plugin reason prefixes should start with:
-  - `plugin:<character_id>:<time_key>:<player_id>:...`
+  - `plugin:<character_id>:<verb>:<time_key>:<player_id>[:detail...]`
 - Example prompt key:
-  - `plugin:poisoner:n1:p5:night_poison`
+  - `plugin:poisoner:night_poison:n1:p5`
+
+Payload conventions (normative)
+-------------------------------
+- `prompt_id` and `wake_id` aliases are removed from Phase 6 runtime payloads.
+- plugin runtime, queue processing, and hook contexts use `prompt_key`/`wake_key` only.
 
 ### 5) Imp and Poisoner prove architecture
 

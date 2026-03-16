@@ -62,11 +62,12 @@ Aliases:
 
 Prompt/wake key conventions:
 
-- prompt keys: `plugin:<character_id>:<time_key>:<player_id>:<action>[:detail...]`
-  - example: `plugin:poisoner:n1:p5:night_poison`
+- prompt keys: `plugin:<character_id>:<verb>:<time_key>:<player_id>[:detail...]`
+  - example: `plugin:poisoner:night_poison:n1:p5`
 - wake keys: `wake:<time_key>:<global_order>:<player_id>:<character_id>`
   - example: `wake:n1:1:p5:poisoner`
 - `time_key`: `d<day_number>` or `n<night_number>`
+- compatibility note: legacy `prompt_id` / `wake_id` fields are removed; use key-only names in commands/events/debug output.
 
 ## Reminder Marker Commands
 

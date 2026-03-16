@@ -35,7 +35,10 @@ This convention is required for easy persistence and de/serialization consistenc
   - `d<day_number>` for day scope (for example `d1`)
   - `n<night_number>` for night scope (for example `n1`, `n2`)
 - Plugin prompt/reason keys should begin with:
-  - `plugin:<character_id>:<time_key>:<player_id>:...`
+  - `plugin:<character_id>:<verb>:<time_key>:<player_id>[:detail...]`
+- Prompt/wake aliases:
+  - `prompt_id` and `wake_id` are removed from domain/engine/plugin contracts.
+  - use `prompt_key` and `wake_key` only.
 - Wake key format:
   - `wake:<time_key>:<global_order>:<player_id>:<character_id>`
   - `global_order` is deterministic per-time-slot sequence (resets for each `time_key`).
