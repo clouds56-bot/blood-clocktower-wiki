@@ -1,17 +1,10 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
+import { build_night_prompt_key, night_time_key, parse_night_prompt_owner_player_id } from './prompt-key-utils.js';
 
 const POISONER_PROMPT_PREFIX = 'plugin:poisoner:night_poison';
 
-function night_time_key(night_number: number): string {
-  return `n${night_number}`;
-}
-
 function build_poisoner_prompt_key(night_number: number, player_id: string): string {
-  return `plugin:poisoner:night_poison:${night_time_key(night_number)}:${player_id}`;
-}
-
-function build_poisoner_prompt_id(night_number: number, player_id: string): string {
-  return `plugin:poisoner:night_poison:${night_time_key(night_number)}:${player_id}`;
+  return build_night_prompt_key('poisoner', 'night_poison', night_number, player_id);
 }
 
 export const poisoner_plugin: CharacterPlugin = {
@@ -52,7 +45,7 @@ export const poisoner_plugin: CharacterPlugin = {
         emitted_events: [],
         queued_prompts: [
           {
-            prompt_key: build_poisoner_prompt_id(context.state.night_number, context.player_id),
+            prompt_key: build_poisoner_prompt_key(context.state.night_number, context.player_id),
             kind: 'choice',
             reason: `plugin:poisoner:choose_poison_target:${night_time_key(context.state.night_number)}:${context.player_id}`,
             visibility: 'player',
@@ -149,9 +142,5 @@ export function is_poisoner_prompt_id(prompt_key: string): boolean {
 }
 
 function parse_poisoner_prompt_owner_player_id(prompt_key: string): string | null {
-  const parts = prompt_key.split(':');
-  if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'poisoner' && parts[2] === 'night_poison' && /^n\d+$/.test(parts[3] ?? '')) {
-    return parts[4] ?? null;
-  }
-  return null;
+  return parse_night_prompt_owner_player_id(prompt_key, 'poisoner', 'night_poison');
 }

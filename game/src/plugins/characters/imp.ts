@@ -1,17 +1,14 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
 import type { PlayerState } from '../../domain/types.js';
 import { build_ravenkeeper_reveal_prompt } from './ravenkeeper.js';
+import { build_night_prompt_key, night_time_key, parse_night_prompt_owner_player_id } from './prompt-key-utils.js';
 
 const IMP_PROMPT_PREFIX = 'plugin:imp:night_kill';
 const IMP_TRANSFER_PROMPT_PREFIX = 'plugin:imp:transfer_target';
 const IMP_TRANSFER_MARKER_KIND = 'imp:self_kill_transfer_pending';
 
-function night_time_key(night_number: number): string {
-  return `n${night_number}`;
-}
-
 function build_imp_prompt_key(night_number: number, player_id: string): string {
-  return `${IMP_PROMPT_PREFIX}:${night_time_key(night_number)}:${player_id}`;
+  return build_night_prompt_key('imp', 'night_kill', night_number, player_id);
 }
 
 function build_imp_transfer_prompt_key(state: Parameters<typeof build_ravenkeeper_reveal_prompt>[0], dead_imp_id: string): string {
@@ -55,7 +52,7 @@ export const imp_plugin: CharacterPlugin = {
         emitted_events: [],
         queued_prompts: [
           {
-            prompt_key: build_imp_prompt_id(context.state.night_number, context.player_id),
+            prompt_key: build_imp_prompt_key(context.state.night_number, context.player_id),
             kind: 'choice',
             reason: `plugin:imp:choose_night_kill_target:${night_time_key(context.state.night_number)}:${context.player_id}`,
             visibility: 'player',
@@ -260,7 +257,7 @@ export const imp_plugin: CharacterPlugin = {
         emitted_events: [],
         queued_prompts: [
           {
-            prompt_key: build_imp_transfer_prompt_id(context.state, dead_player.player_id),
+            prompt_key: build_imp_transfer_prompt_key(context.state, dead_player.player_id),
             kind: 'choice',
             reason: `plugin:imp:choose_transfer_target:${night_time_key(context.state.night_number)}:${dead_player.player_id}`,
             visibility: 'storyteller',
@@ -281,11 +278,7 @@ export function is_imp_prompt_id(prompt_key: string): boolean {
 }
 
 function parse_imp_prompt_owner_player_id(prompt_key: string): string | null {
-  const parts = prompt_key.split(':');
-  if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'imp' && parts[2] === 'night_kill' && /^n\d+$/.test(parts[3] ?? '')) {
-    return parts[4] ?? null;
-  }
-  return null;
+  return parse_night_prompt_owner_player_id(prompt_key, 'imp', 'night_kill');
 }
 
 function resolve_imp_transfer_prompt(
@@ -388,13 +381,6 @@ function parse_imp_transfer_prompt_dead_player_id(prompt_key: string): string | 
     return parts[4] ?? null;
   }
   return null;
-}
-
-function build_imp_transfer_prompt_id(
-  state: Parameters<typeof build_ravenkeeper_reveal_prompt>[0],
-  dead_imp_id: string
-): string {
-  return build_imp_transfer_prompt_key(state, dead_imp_id);
 }
 
 function build_imp_transfer_marker_id(

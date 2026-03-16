@@ -725,7 +725,7 @@ test('plugin runtime returns deterministic error on duplicate queued prompt id',
 
   assert.equal(result.ok, false);
   if (!result.ok) {
-    assert.equal(result.error.code, 'prompt_id_already_exists');
+    assert.equal(result.error.code, 'prompt_already_exists');
   }
 });
 
