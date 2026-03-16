@@ -31,6 +31,7 @@ export * from './plugins/characters/mayor.js';
 export * from './plugins/characters/monk.js';
 export * from './plugins/characters/poisoner.js';
 export * from './plugins/characters/ravenkeeper.js';
+export * from './plugins/characters/recluse.js';
 export * from './plugins/characters/scarlet-woman.js';
 export * from './plugins/characters/saint.js';
 export * from './plugins/characters/slayer.js';

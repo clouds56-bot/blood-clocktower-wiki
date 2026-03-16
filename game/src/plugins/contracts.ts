@@ -3,6 +3,7 @@ import type {
   Alignment,
   CharacterType,
   GameState,
+  PlayerCharacterType,
   PlayerId,
   PromptColumnSpec,
   PromptOption,
@@ -126,6 +127,51 @@ export interface PlayerDiedHookContext {
   reason: string;
 }
 
+export interface RegistrationQueryHookContext {
+  state: Readonly<GameState>;
+  query_id: string;
+  consumer_role_id: string;
+  query_kind: 'alignment_check' | 'character_type_check' | 'character_check' | 'demon_check';
+  subject_player_id: PlayerId;
+  subject_context_player_ids: PlayerId[];
+  requested_fields: Array<'alignment' | 'character_id' | 'character_type'>;
+}
+
+export interface RegistrationQueryHookResult {
+  status: 'resolved' | 'needs_storyteller';
+  resolved_alignment?: Alignment | null;
+  resolved_character_id?: string | null;
+  resolved_character_type?: PlayerCharacterType | null;
+  prompt_options?: Array<{
+    option_id: string;
+    label: string;
+    resolved_alignment?: Alignment | null;
+    resolved_character_id?: string | null;
+    resolved_character_type?: PlayerCharacterType | null;
+  }>;
+  prompt_hint?: string | null;
+}
+
+export interface RegistrationResolvedHookContext {
+  state: Readonly<GameState>;
+  prompt_id: string;
+  provider_role_id: string;
+  consumer_role_id: string;
+  owner_player_id: PlayerId;
+  context_tag: string;
+  query_id: string;
+  selected_option_id: string | null;
+  freeform: string | null;
+  decision: {
+    query_id: string;
+    resolved_character_id: string | null;
+    resolved_character_type: PlayerCharacterType | null;
+    resolved_alignment: Alignment | null;
+    decision_source: 'storyteller_prompt' | 'deterministic_rule';
+    note: string | null;
+  };
+}
+
 export type VoteCastValidateHookResult =
   | {
       ok: true;
@@ -141,10 +187,14 @@ export type VoteCastValidateHookResult =
 export interface CharacterPluginHooks {
   on_night_wake?: (context: NightWakeHookContext) => PluginResult;
   on_prompt_resolved?: (context: PromptResolvedHookContext) => PluginResult;
+  on_registration_resolved?: (context: RegistrationResolvedHookContext) => PluginResult;
   on_event_applied?: (context: EventAppliedHookContext) => PluginResult;
   on_nomination_made?: (context: NominationMadeHookContext) => PluginResult;
   on_vote_cast_validate?: (context: VoteCastValidateHookContext) => VoteCastValidateHookResult;
   on_player_died?: (context: PlayerDiedHookContext) => PluginResult;
+  on_registration_query?: (
+    context: RegistrationQueryHookContext
+  ) => RegistrationQueryHookResult | null;
 }
 
 export interface CharacterPlugin {

@@ -1,5 +1,4 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
-import { get_player_information_mode } from './tb-info-utils.js';
 
 export const spy_plugin: CharacterPlugin = {
   metadata: {
@@ -17,7 +16,7 @@ export const spy_plugin: CharacterPlugin = {
       allow_travellers: true
     },
     flags: {
-      can_function_while_dead: false,
+      can_function_while_dead: true,
       can_trigger_on_death: false,
       may_cause_drunkenness: false,
       may_cause_poisoning: false,
@@ -72,6 +71,120 @@ export const spy_plugin: CharacterPlugin = {
         queued_prompts: [],
         queued_interrupts: []
       };
+    },
+    on_registration_query: (context) => {
+      const subject = context.state.players_by_id[context.subject_player_id];
+      if (!subject || subject.true_character_id !== 'spy') {
+        return null;
+      }
+
+      if (!can_apply_registration_provider(subject)) {
+        return null;
+      }
+
+      const requested = context.requested_fields[0];
+      if (!requested) {
+        return null;
+      }
+
+      if (requested === 'alignment') {
+        return {
+          status: 'needs_storyteller',
+          prompt_hint: 'Spy may register as good for this query, or not trigger.',
+          prompt_options: [
+            { option_id: 'default', label: 'Not triggered' },
+            {
+              option_id: 'alignment:good',
+              label: 'Register Good',
+              resolved_alignment: 'good'
+            }
+          ]
+        };
+      }
+
+      if (requested === 'character_type') {
+        return {
+          status: 'needs_storyteller',
+          prompt_hint: 'Spy may register as Townsfolk or Outsider for this query.',
+          prompt_options: [
+            { option_id: 'default', label: 'Not triggered' },
+            {
+              option_id: 'character_type:townsfolk',
+              label: 'Register Townsfolk',
+              resolved_character_type: 'townsfolk'
+            },
+            {
+              option_id: 'character_type:outsider',
+              label: 'Register Outsider',
+              resolved_character_type: 'outsider'
+            }
+          ]
+        };
+      }
+
+      return {
+        status: 'needs_storyteller',
+        prompt_hint: 'Spy may register as Townsfolk/Outsider character for this query.',
+        prompt_options: [
+          { option_id: 'default', label: 'Not triggered' },
+          ...SPY_REGISTER_CHARACTER_IDS.map((character_id) => ({
+            option_id: `character_id:${character_id}`,
+            label: `Register ${character_id}`,
+            resolved_character_id: character_id
+          }))
+        ]
+      };
     }
   }
 };
+
+type PlayerInformationMode = 'inactive' | 'truthful' | 'misinformation';
+
+function get_player_information_mode(
+  state: Parameters<NonNullable<CharacterPlugin['hooks']['on_night_wake']>>[0]['state'],
+  player_id: string
+): PlayerInformationMode {
+  const player = state.players_by_id[player_id];
+  if (!player || !player.alive) {
+    return 'inactive';
+  }
+  if (player.drunk || player.poisoned) {
+    return 'misinformation';
+  }
+  return 'truthful';
+}
+
+function can_apply_registration_provider(subject: {
+  true_character_id: string | null;
+  alive: boolean;
+  drunk: boolean;
+  poisoned: boolean;
+}): boolean {
+  if (subject.true_character_id !== 'spy') {
+    return false;
+  }
+  if (!subject.alive) {
+    return true;
+  }
+  return !subject.drunk && !subject.poisoned;
+}
+
+const SPY_REGISTER_CHARACTER_IDS: ReadonlyArray<string> = [
+  'chef',
+  'empath',
+  'fortune_teller',
+  'investigator',
+  'librarian',
+  'mayor',
+  'monk',
+  'ravenkeeper',
+  'slayer',
+  'soldier',
+  'undertaker',
+  'virgin',
+  'washerwoman',
+  'butler',
+  'drunk',
+  'recluse',
+  'saint'
+];

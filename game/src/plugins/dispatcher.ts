@@ -8,7 +8,8 @@ import type {
   PluginInterruptSpec,
   PluginPromptSpec,
   PluginResult,
-  PromptResolvedHookContext
+  PromptResolvedHookContext,
+  RegistrationResolvedHookContext
 } from './contracts.js';
 import { empty_plugin_result } from './contracts.js';
 import type { VoteCastValidateHookContext } from './contracts.js';
@@ -17,6 +18,7 @@ import type { PluginRegistry } from './registry.js';
 export type DispatchHookName =
   | 'on_night_wake'
   | 'on_prompt_resolved'
+  | 'on_registration_resolved'
   | 'on_event_applied'
   | 'on_nomination_made'
   | 'on_player_died';
@@ -24,6 +26,7 @@ export type DispatchHookName =
 type DispatchContextByHook = {
   on_night_wake: NightWakeHookContext;
   on_prompt_resolved: PromptResolvedHookContext;
+  on_registration_resolved: RegistrationResolvedHookContext;
   on_event_applied: EventAppliedHookContext;
   on_nomination_made: NominationMadeHookContext;
   on_player_died: PlayerDiedHookContext;
