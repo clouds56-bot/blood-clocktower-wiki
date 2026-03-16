@@ -473,7 +473,11 @@ export function format_help(topic: 'phase' | 'all'): string {
   if (topic === 'phase') {
     return [
       paint('phase flow (phase 5):', 'cyan'),
-      '  next-phase   (auto-resolves one random pending prompt, then open-noms/open-vote/close-vote/resolve-exec/resolve-conseq when applicable)',
+      '  next | next-phase | n [prompt|day|night] [--auto-prompt]',
+      '    - default: one deterministic step; blocked by pending prompts',
+      '    - --auto-prompt: resolve pending prompts repeatedly until empty',
+      '    - prompt: resolve prompts only (no phase advance)',
+      '    - day/night: advance until target phase is reached',
       '  open-noms',
       '  nominate p1 p2',
       '  open-vote',
@@ -489,7 +493,7 @@ export function format_help(topic: 'phase' | 'all'): string {
   return [
     paint('local commands:', 'cyan'),
     '  help [all|phase]',
-    '  next-phase | next | n',
+    '  next-phase | next | n [prompt|day|night] [--auto-prompt]',
     '  new <game_id>',
     '  quick-setup | quick-start | start <script> <player_num> [game_id]',
     '  state [brief|json]',

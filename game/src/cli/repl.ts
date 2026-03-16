@@ -30,6 +30,7 @@ import { PluginRegistry } from '../plugins/registry.js';
 import { project_for_player } from '../projections/player.js';
 import { project_for_public } from '../projections/public.js';
 import { project_for_storyteller } from '../projections/storyteller.js';
+import { create_next_scope_anchor, has_reached_next_scope_target } from './next-utils.js';
 import {
   build_quick_setup_seed_commands,
   infer_alignment_from_type,
@@ -265,39 +266,102 @@ function run_setup_player(
   });
 }
 
-function choose_random<T>(items: T[]): T | null {
-  if (items.length === 0) {
-    return null;
-  }
-  const index = Math.floor(Math.random() * items.length);
-  return items[index] ?? null;
+type NextStopReason =
+  | 'advanced'
+  | 'target_reached'
+  | 'blocked_by_prompt'
+  | 'blocked_missing_active_vote'
+  | 'auto_prompt_guard_hit'
+  | 'game_ended'
+  | 'failed';
+
+interface NextRunOutcome {
+  stop_reason: NextStopReason;
+  steps_advanced: number;
+  prompts_resolved: number;
 }
 
-function resolve_random_pending_prompt(context: CliContext): boolean {
-  const pending_prompt_ids = context.state.pending_prompts.filter((prompt_id) => {
-    const prompt = context.state.prompts_by_id[prompt_id];
+function pending_prompt_ids(state: GameState): string[] {
+  return state.pending_prompts.filter((prompt_id) => {
+    const prompt = state.prompts_by_id[prompt_id];
     return Boolean(prompt && prompt.status === 'pending');
   });
-  const prompt_id = choose_random(pending_prompt_ids);
+}
+
+function deterministic_option_for_prompt(state: GameState, prompt_id: string): string | null {
+  const prompt = state.prompts_by_id[prompt_id];
+  if (!prompt || prompt.status !== 'pending') {
+    return null;
+  }
+
+  if (prompt.selection_mode === 'number_range' && prompt.number_range) {
+    return String(Math.ceil(prompt.number_range.min));
+  }
+
+  if (prompt.selection_mode === 'multi_column' && prompt.multi_columns && prompt.multi_columns.length > 0) {
+    const picked: string[] = [];
+    for (const column of prompt.multi_columns) {
+      if (Array.isArray(column)) {
+        const first = column[0];
+        if (!first) {
+          return null;
+        }
+        picked.push(first);
+        continue;
+      }
+      picked.push(String(Math.ceil(column.min)));
+    }
+    return picked.join(',');
+  }
+
+  const first_option = prompt.options[0];
+  return first_option?.option_id ?? null;
+}
+
+function resolve_next_pending_prompt(context: CliContext): boolean {
+  const prompt_id = pending_prompt_ids(context.state)[0];
   if (!prompt_id) {
     return true;
   }
 
-  const prompt = context.state.prompts_by_id[prompt_id];
-  if (!prompt || prompt.status !== 'pending') {
-    return true;
-  }
-
-  const random_option = choose_random(prompt.options);
   return run_engine_command(context, {
     command_type: 'ResolvePrompt',
     payload: {
       prompt_id,
-      selected_option_id: random_option?.option_id ?? null,
+      selected_option_id: deterministic_option_for_prompt(context.state, prompt_id),
       freeform: null,
-      notes: 'auto_random_next'
+      notes: 'auto_next_prompt'
     }
   });
+}
+
+function resolve_all_pending_prompts(context: CliContext, guard_limit = 100): NextRunOutcome {
+  let prompts_resolved = 0;
+  while (pending_prompt_ids(context.state).length > 0) {
+    if (prompts_resolved >= guard_limit) {
+      return {
+        stop_reason: 'auto_prompt_guard_hit',
+        steps_advanced: 0,
+        prompts_resolved
+      };
+    }
+
+    const resolved = resolve_next_pending_prompt(context);
+    if (!resolved) {
+      return {
+        stop_reason: 'failed',
+        steps_advanced: 0,
+        prompts_resolved
+      };
+    }
+    prompts_resolved += 1;
+  }
+
+  return {
+    stop_reason: 'target_reached',
+    steps_advanced: 0,
+    prompts_resolved
+  };
 }
 
 function make_repl_prompt(state: GameState): string {
@@ -307,12 +371,9 @@ function make_repl_prompt(state: GameState): string {
   return 'clocktower> ';
 }
 
-function run_next_phase(context: CliContext): void {
-  if (context.state.pending_prompts.length > 0) {
-    const resolved = resolve_random_pending_prompt(context);
-    if (!resolved) {
-      return;
-    }
+function advance_one_step(context: CliContext): NextStopReason {
+  if (pending_prompt_ids(context.state).length > 0) {
+    return 'blocked_by_prompt';
   }
 
   const { phase, subphase, day_number, night_number } = context.state;
@@ -364,13 +425,12 @@ function run_next_phase(context: CliContext): void {
   }
 
   if (phase === 'ended') {
-    process.stdout.write('next-phase not allowed: game already ended\n');
-    return;
+    return 'game_ended';
   }
 
   if (phase === 'setup') {
     advance_to_phase('first_night', 'dusk', day_number, Math.max(1, night_number));
-    return;
+    return 'advanced';
   }
 
   if (phase === 'first_night') {
@@ -383,7 +443,7 @@ function run_next_phase(context: CliContext): void {
     if (!ok) {
       advance_to_phase('day', 'open_discussion', day_number + 1, night_number);
     }
-    return;
+    return 'advanced';
   }
 
   if (phase === 'day') {
@@ -394,7 +454,7 @@ function run_next_phase(context: CliContext): void {
           day_number
         }
       });
-      return;
+      return 'advanced';
     }
 
     if (subphase === 'nomination_window') {
@@ -411,7 +471,7 @@ function run_next_phase(context: CliContext): void {
             opened_by_player_id: candidate.nominator_player_id
           }
         });
-        return;
+        return 'advanced';
       }
 
       run_engine_command(context, {
@@ -420,14 +480,13 @@ function run_next_phase(context: CliContext): void {
           day_number: context.state.day_number
         }
       });
-      return;
+      return 'advanced';
     }
 
     if (subphase === 'vote_in_progress') {
       const active_vote = context.state.day_state.active_vote;
       if (!active_vote) {
-        process.stdout.write('next-phase failed: active vote not found\n');
-        return;
+        return 'blocked_missing_active_vote';
       }
 
       const all_voters = all_player_ids_for_vote(context.state);
@@ -446,7 +505,7 @@ function run_next_phase(context: CliContext): void {
           day_number: context.state.day_number
         }
       });
-      return;
+      return 'advanced';
     }
 
     if (subphase === 'execution_resolution') {
@@ -460,7 +519,7 @@ function run_next_phase(context: CliContext): void {
             day_number: context.state.day_number
           }
         });
-        return;
+        return 'advanced';
       }
     }
 
@@ -473,7 +532,7 @@ function run_next_phase(context: CliContext): void {
     if (!ok) {
       advance_to_phase('night', 'dusk', day_number, night_number + 1);
     }
-    return;
+    return 'advanced';
   }
 
   const ok = step_subphase([
@@ -485,6 +544,94 @@ function run_next_phase(context: CliContext): void {
   if (!ok) {
     advance_to_phase('day', 'open_discussion', day_number + 1, night_number);
   }
+  return 'advanced';
+}
+
+function run_next_phase(
+  context: CliContext,
+  action: Extract<CliLocalAction, { type: 'next_phase' }>
+): NextRunOutcome {
+  let prompts_resolved = 0;
+  let steps_advanced = 0;
+
+  if (action.auto_prompt || action.scope === 'prompt') {
+    const resolved = resolve_all_pending_prompts(context);
+    prompts_resolved += resolved.prompts_resolved;
+    if (resolved.stop_reason !== 'target_reached') {
+      return {
+        stop_reason: resolved.stop_reason,
+        steps_advanced,
+        prompts_resolved
+      };
+    }
+  }
+
+  if (action.scope === 'prompt') {
+    return {
+      stop_reason: 'target_reached',
+      steps_advanced,
+      prompts_resolved
+    };
+  }
+
+  if (action.scope === 'step') {
+    const stop_reason = advance_one_step(context);
+    if (stop_reason === 'advanced') {
+      steps_advanced += 1;
+    }
+    return {
+      stop_reason,
+      steps_advanced,
+      prompts_resolved
+    };
+  }
+
+  const scope_anchor = create_next_scope_anchor(context.state);
+
+  for (let i = 0; i < 200; i += 1) {
+    if (pending_prompt_ids(context.state).length > 0) {
+      if (!action.auto_prompt) {
+        return {
+          stop_reason: 'blocked_by_prompt',
+          steps_advanced,
+          prompts_resolved
+        };
+      }
+      const resolved = resolve_all_pending_prompts(context);
+      prompts_resolved += resolved.prompts_resolved;
+      if (resolved.stop_reason !== 'target_reached') {
+        return {
+          stop_reason: resolved.stop_reason,
+          steps_advanced,
+          prompts_resolved
+        };
+      }
+    }
+
+    const stop_reason = advance_one_step(context);
+    if (stop_reason !== 'advanced') {
+      return {
+        stop_reason,
+        steps_advanced,
+        prompts_resolved
+      };
+    }
+    steps_advanced += 1;
+
+    if (has_reached_next_scope_target(context.state, action.scope, scope_anchor)) {
+      return {
+        stop_reason: 'target_reached',
+        steps_advanced,
+        prompts_resolved
+      };
+    }
+  }
+
+  return {
+    stop_reason: 'failed',
+    steps_advanced,
+    prompts_resolved
+  };
 }
 
 function handle_local_action(context: CliContext, action: CliLocalAction): boolean {
@@ -499,7 +646,10 @@ function handle_local_action(context: CliContext, action: CliLocalAction): boole
   }
 
   if (action.type === 'next_phase') {
-    run_next_phase(context);
+    const outcome = run_next_phase(context, action);
+    process.stdout.write(
+      `next stop=${outcome.stop_reason} steps=${outcome.steps_advanced} prompts_resolved=${outcome.prompts_resolved}\n`
+    );
     return true;
   }
 

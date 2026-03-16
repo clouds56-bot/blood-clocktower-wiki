@@ -81,20 +81,30 @@ Notes:
 - `assign-perceived <player_id> <character_id>`
 - `assign-alignment <player_id> <good|evil>`
 
-## Phase Step Command
+## Phase Step Commands
 
 - `next-phase` (aliases: `next`, `n`)
+- Signature: `next [prompt|day|night] [--auto-prompt]`
 
 Behavior:
 
-1. Move to next subphase when available.
-2. If no next subphase, move to next phase entry subphase.
-3. Day flow automations:
+1. Default `next` advances one deterministic workflow step.
+2. Default `next` does not auto-resolve prompts; when pending prompts exist it stops with `blocked_by_prompt`.
+3. `--auto-prompt` resolves pending prompts repeatedly until queue is empty (guarded), then continues requested `next` scope.
+4. `next prompt` resolves prompts only and then stops (no phase advance).
+5. `next day` / `next night` advances until the next future day/night boundary is reached.
+   - from night, `next day` lands on the next day number.
+   - from day, `next day` continues through night and lands on the following day.
+6. Day flow automations remain:
    - `open_discussion` -> auto `OpenNominationWindow`
    - `nomination_window` -> auto `OpenVote` for latest unresolved nomination; if none, auto `ResolveExecution`
    - `vote_in_progress` -> auto-cast `no` for missing voters, then auto `CloseVote`
    - `execution_resolution` -> auto `ResolveExecutionConsequences` when execution happened and consequences are unresolved
-4. Reminder marker expiry is auto-swept on `AdvancePhase`; expired markers emit `ReminderMarkerExpired`.
+7. Reminder marker expiry is auto-swept on `AdvancePhase`; expired markers emit `ReminderMarkerExpired`.
+
+`next` output includes a stop reason and counters:
+
+- `stop=<reason> steps=<n> prompts_resolved=<n>`
 
 ## Short Command Examples
 
@@ -103,7 +113,7 @@ Typical happy path after quick setup:
 ```text
 start bmr 7
 n
-n
+next --auto-prompt
 nom p1 p2
 n
 vote p1 p2

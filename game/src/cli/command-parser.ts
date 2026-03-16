@@ -10,7 +10,7 @@ import type {
 
 export type CliLocalAction =
   | { type: 'help'; topic?: 'phase' | 'all' }
-  | { type: 'next_phase' }
+  | { type: 'next_phase'; scope: 'step' | 'prompt' | 'day' | 'night'; auto_prompt: boolean }
   | { type: 'bulk_vote'; nomination_id: string; voter_player_ids: string[]; in_favor: boolean }
   | { type: 'state'; format: 'brief' | 'json' }
   | { type: 'events'; count: number }
@@ -139,6 +139,13 @@ function invalid(message: string): ParsedCliLine {
     ok: false,
     message
   };
+}
+
+function parse_next_scope(value: string): 'prompt' | 'day' | 'night' | null {
+  if (value === 'prompt' || value === 'day' || value === 'night') {
+    return value;
+  }
+  return null;
 }
 
 function current_day_number(state?: GameState): number | null {
@@ -290,7 +297,31 @@ export function parse_cli_line(input: string, state?: GameState): ParsedCliLine 
     return invalid('usage: help [all|phase]');
   }
   if (command === 'next-phase' || command === 'next' || command === 'n') {
-    return { ok: true, kind: 'local', action: { type: 'next_phase' } };
+    let scope: 'step' | 'prompt' | 'day' | 'night' = 'step';
+    let auto_prompt = false;
+
+    for (const token of args) {
+      if (token === '--auto-prompt') {
+        auto_prompt = true;
+        continue;
+      }
+      const parsed_scope = parse_next_scope(token);
+      if (parsed_scope && scope === 'step') {
+        scope = parsed_scope;
+        continue;
+      }
+      return invalid('usage: next [prompt|day|night] [--auto-prompt]');
+    }
+
+    return {
+      ok: true,
+      kind: 'local',
+      action: {
+        type: 'next_phase',
+        scope,
+        auto_prompt
+      }
+    };
   }
   if (command === 'state') {
     const format = args[0] === 'json' ? 'json' : 'brief';

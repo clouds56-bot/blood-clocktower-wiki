@@ -89,18 +89,60 @@ test('parse local commands', () => {
   assert.equal(nextPhase.ok, true);
   if (nextPhase.ok && nextPhase.kind === 'local') {
     assert.equal(nextPhase.action.type, 'next_phase');
+    if (nextPhase.action.type === 'next_phase') {
+      assert.equal(nextPhase.action.scope, 'step');
+      assert.equal(nextPhase.action.auto_prompt, false);
+    }
   }
 
   const nextAlias = parse_cli_line('next');
   assert.equal(nextAlias.ok, true);
   if (nextAlias.ok && nextAlias.kind === 'local') {
     assert.equal(nextAlias.action.type, 'next_phase');
+    if (nextAlias.action.type === 'next_phase') {
+      assert.equal(nextAlias.action.scope, 'step');
+      assert.equal(nextAlias.action.auto_prompt, false);
+    }
   }
 
   const nAlias = parse_cli_line('n');
   assert.equal(nAlias.ok, true);
   if (nAlias.ok && nAlias.kind === 'local') {
     assert.equal(nAlias.action.type, 'next_phase');
+    if (nAlias.action.type === 'next_phase') {
+      assert.equal(nAlias.action.scope, 'step');
+      assert.equal(nAlias.action.auto_prompt, false);
+    }
+  }
+
+  const nextAutoPrompt = parse_cli_line('next --auto-prompt');
+  assert.equal(nextAutoPrompt.ok, true);
+  if (nextAutoPrompt.ok && nextAutoPrompt.kind === 'local') {
+    assert.equal(nextAutoPrompt.action.type, 'next_phase');
+    if (nextAutoPrompt.action.type === 'next_phase') {
+      assert.equal(nextAutoPrompt.action.scope, 'step');
+      assert.equal(nextAutoPrompt.action.auto_prompt, true);
+    }
+  }
+
+  const nextPrompt = parse_cli_line('next prompt');
+  assert.equal(nextPrompt.ok, true);
+  if (nextPrompt.ok && nextPrompt.kind === 'local') {
+    assert.equal(nextPrompt.action.type, 'next_phase');
+    if (nextPrompt.action.type === 'next_phase') {
+      assert.equal(nextPrompt.action.scope, 'prompt');
+      assert.equal(nextPrompt.action.auto_prompt, false);
+    }
+  }
+
+  const nextDayAutoPrompt = parse_cli_line('next day --auto-prompt');
+  assert.equal(nextDayAutoPrompt.ok, true);
+  if (nextDayAutoPrompt.ok && nextDayAutoPrompt.kind === 'local') {
+    assert.equal(nextDayAutoPrompt.action.type, 'next_phase');
+    if (nextDayAutoPrompt.action.type === 'next_phase') {
+      assert.equal(nextDayAutoPrompt.action.scope, 'day');
+      assert.equal(nextDayAutoPrompt.action.auto_prompt, true);
+    }
   }
 
   const events = parse_cli_line('events 5');
@@ -271,6 +313,12 @@ test('invalid command gives usage', () => {
   assert.equal(setupPlayerInvalid.ok, false);
   if (!setupPlayerInvalid.ok) {
     assert.match(setupPlayerInvalid.message, /usage: setup-player/);
+  }
+
+  const nextInvalid = parse_cli_line('next later');
+  assert.equal(nextInvalid.ok, false);
+  if (!nextInvalid.ok) {
+    assert.match(nextInvalid.message, /usage: next/);
   }
 });
 
