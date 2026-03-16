@@ -17,6 +17,11 @@ interface RuntimeContext {
   created_at: string;
 }
 
+interface ParsedClaimedAbilityPrompt {
+  claimed_character_id: string;
+  claimant_player_id: string;
+}
+
 export function integrate_plugin_runtime(
   state: GameState,
   command: Command,
@@ -39,6 +44,52 @@ export function integrate_plugin_runtime(
     command,
     created_at
   };
+
+  if (command.command_type === 'UseClaimedAbility') {
+    const dispatch = dispatch_hook(
+      plugin_registry,
+      'on_claimed_ability_use',
+      [command.payload.claimed_character_id],
+      {
+        state: runtime_state,
+        claimant_player_id: command.payload.claimant_player_id,
+        claimed_character_id: command.payload.claimed_character_id
+      }
+    );
+
+    if (!dispatch.ok) {
+      return as_dispatch_error(dispatch.error.code, dispatch.error.message);
+    }
+
+    const normalized = normalize_dispatch_output(
+      dispatch.value.output,
+      `${command.command_id}:ClaimedAbilityUse`,
+      created_at,
+      command.actor_id
+    );
+
+    const prompt_id_check = validate_queued_prompt_ids(runtime_state, normalized);
+    if (!prompt_id_check.ok) {
+      return prompt_id_check;
+    }
+
+    runtime_events.push(...normalized);
+    const state_before_compat = runtime_state;
+    runtime_state = apply_events(runtime_state, normalized);
+
+    const compatibility_events = build_marker_compatibility_events(
+      state_before_compat,
+      runtime_state,
+      normalized,
+      `${command.command_id}:ClaimedAbilityUseCompat`,
+      created_at,
+      command.actor_id
+    );
+    if (compatibility_events.length > 0) {
+      runtime_events.push(...compatibility_events);
+      runtime_state = apply_events(runtime_state, compatibility_events);
+    }
+  }
 
   if (command.command_type === 'AdvancePhase' && is_night_wake_boundary(runtime_state)) {
     if (runtime_state.wake_queue.length === 0) {
@@ -74,6 +125,102 @@ export function integrate_plugin_runtime(
   }
 
   if (command.command_type === 'ResolvePrompt') {
+    const claimed_ability_prompt = parse_claimed_ability_prompt(runtime_state, command);
+    if (claimed_ability_prompt) {
+      const selected_target_id = command.payload.selected_option_id;
+      if (selected_target_id === null) {
+        return as_dispatch_error(
+          'claimed_ability_target_required',
+          'claimed ability prompt requires target selection'
+        );
+      }
+
+      const attempt_event: DomainEvent = {
+        event_id: `${command.command_id}:ClaimedAbilityAttempted`,
+        event_type: 'ClaimedAbilityAttempted',
+        created_at,
+        ...(command.actor_id === undefined ? {} : { actor_id: command.actor_id }),
+        payload: {
+          claimant_player_id: claimed_ability_prompt.claimant_player_id,
+          claimed_character_id: claimed_ability_prompt.claimed_character_id,
+          target_player_ids: [selected_target_id]
+        }
+      };
+
+      runtime_events.push(attempt_event);
+      runtime_state = apply_events(runtime_state, [attempt_event]);
+
+      const dispatch = dispatch_hook(
+        plugin_registry,
+        'on_prompt_resolved',
+        [claimed_ability_prompt.claimed_character_id],
+        {
+          state: runtime_state,
+          prompt_id: command.payload.prompt_id,
+          selected_option_id: command.payload.selected_option_id,
+          freeform: command.payload.freeform
+        }
+      );
+
+      if (!dispatch.ok) {
+        return as_dispatch_error(dispatch.error.code, dispatch.error.message);
+      }
+
+      const normalized = normalize_dispatch_output(
+        dispatch.value.output,
+        `${command.command_id}:ClaimedAbilityPromptResolved`,
+        created_at,
+        command.actor_id
+      );
+
+      const settled_execution_deaths = build_execution_death_events(
+        runtime_state,
+        normalized,
+        `${command.command_id}:ClaimedAbilityPromptResolved:ExecutionSettled`,
+        created_at,
+        command.actor_id
+      );
+
+      const combined = [...normalized, ...settled_execution_deaths];
+      const prompt_id_check = validate_queued_prompt_ids(runtime_state, combined);
+      if (!prompt_id_check.ok) {
+        return prompt_id_check;
+      }
+
+      runtime_events.push(...combined);
+      const state_before_compat = runtime_state;
+      runtime_state = apply_events(runtime_state, combined);
+
+      const compatibility_events = build_marker_compatibility_events(
+        state_before_compat,
+        runtime_state,
+        combined,
+        `${command.command_id}:ClaimedAbilityPromptResolvedCompat`,
+        created_at,
+        command.actor_id
+      );
+      if (compatibility_events.length > 0) {
+        runtime_events.push(...compatibility_events);
+        runtime_state = apply_events(runtime_state, compatibility_events);
+      }
+
+      const drained = drain_interrupt_queue(runtime_state, context, runtime_events);
+      runtime_state = drained.state;
+
+      if (is_night_wake_boundary(runtime_state) && runtime_state.pending_prompts.length === 0) {
+        const wake_processing = process_wake_queue(
+          runtime_state,
+          plugin_registry,
+          context,
+          runtime_events,
+          `${command.command_id}:ResumeNightWake`
+        );
+        if (!wake_processing.ok) {
+          return wake_processing;
+        }
+        runtime_state = wake_processing.value;
+      }
+    } else {
     const registration_prompt = parse_registration_prompt_id(command.payload.prompt_id);
     if (registration_prompt) {
       const resolved = resolve_registration_query_prompt({
@@ -247,6 +394,7 @@ export function integrate_plugin_runtime(
     }
     }
   }
+  }
 
   if (command.command_type === 'NominatePlayer') {
     const nominee = runtime_state.players_by_id[command.payload.nominee_player_id];
@@ -392,6 +540,26 @@ export function integrate_plugin_runtime(
   return {
     ok: true,
     value: [...base_events, ...runtime_events]
+  };
+}
+
+function parse_claimed_ability_prompt(
+  state: GameState,
+  command: ResolvePromptCommand
+): ParsedClaimedAbilityPrompt | null {
+  const prompt = state.prompts_by_id[command.payload.prompt_id];
+  if (!prompt) {
+    return null;
+  }
+
+  const match = /^plugin:([a-z0-9_-]+):claimed_ability:([a-z0-9_-]+)$/.exec(prompt.reason);
+  if (!match) {
+    return null;
+  }
+
+  return {
+    claimed_character_id: match[1] ?? '',
+    claimant_player_id: match[2] ?? ''
   };
 }
 

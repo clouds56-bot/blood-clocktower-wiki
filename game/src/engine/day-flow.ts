@@ -2,7 +2,7 @@ import type {
   CastVoteCommand,
   CloseVoteCommand,
   EndDayCommand,
-  UseSlayerShotCommand,
+  UseClaimedAbilityCommand,
   NominatePlayerCommand,
   OpenNominationWindowCommand,
   OpenVoteCommand,
@@ -10,6 +10,7 @@ import type {
 } from '../domain/commands.js';
 import type { DomainEvent } from '../domain/events.js';
 import type { GameState } from '../domain/types.js';
+import type { PluginRegistry } from '../plugins/registry.js';
 import type { EngineResult } from './phase-machine.js';
 
 function error(code: string, message: string): EngineResult<never> {
@@ -131,99 +132,96 @@ export function handle_nominate_player(
   };
 }
 
-export function handle_use_slayer_shot(
+export function handle_use_claimed_ability(
   state: GameState,
-  command: UseSlayerShotCommand,
-  created_at: string
+  command: UseClaimedAbilityCommand,
+  created_at: string,
+  plugin_registry?: PluginRegistry
 ): EngineResult<DomainEvent[]> {
-  const day_context = ensure_day_context(state, command.payload.day_number);
-  if (!day_context.ok) {
-    return day_context;
-  }
-
-  const slayer = state.players_by_id[command.payload.slayer_player_id];
-  const target = state.players_by_id[command.payload.target_player_id];
-  if (!slayer || !target) {
-    return error('player_not_found', 'slayer or target not found');
-  }
-  if (!slayer.alive) {
-    return error('dead_player_cannot_use_slayer', 'dead slayer cannot shoot');
-  }
-  if (slayer.true_character_id !== 'slayer') {
-    return error('slayer_role_required', 'only slayer can use slayer shot');
-  }
-
-  const slayer_already_spent = state.active_reminder_marker_ids.some((marker_id) => {
-    const marker = state.reminder_markers_by_id[marker_id];
-    return Boolean(
-      marker &&
-        marker.status === 'active' &&
-        marker.kind === 'slayer:spent' &&
-        marker.source_player_id === slayer.player_id
+  if (state.phase !== 'day') {
+    return error(
+      'invalid_phase_for_claimed_ability',
+      `claimed ability requires phase=day but got ${state.phase}`
     );
-  });
-  if (slayer_already_spent) {
-    return error('slayer_shot_already_used', 'slayer shot already used');
   }
 
-  const can_kill = !slayer.poisoned && !slayer.drunk && target.alive && target.is_demon;
-  const events: DomainEvent[] = [
-    {
-      event_id: `${command.command_id}:SlayerShotUsed`,
-      event_type: 'SlayerShotUsed',
-      created_at,
-      actor_id: command.actor_id,
-      payload: {
-        day_number: command.payload.day_number,
-        slayer_player_id: slayer.player_id,
-        target_player_id: target.player_id,
-        success: can_kill
-      }
-    },
-    {
-      event_id: `${command.command_id}:SlayerSpentMarker`,
-      event_type: 'ReminderMarkerApplied',
-      created_at,
-      actor_id: command.actor_id,
-      payload: {
-        marker_id: `plugin:slayer:spent:${command.payload.day_number}:${slayer.player_id}`,
-        kind: 'slayer:spent',
-        effect: 'slayer_spent',
-        note: 'Slayer shot spent',
-        source_player_id: slayer.player_id,
-        source_character_id: 'slayer',
-        target_player_id: slayer.player_id,
-        target_scope: 'player',
-        authoritative: true,
-        expires_policy: 'manual',
-        expires_at_day_number: null,
-        expires_at_night_number: null,
-        source_event_id: null,
-        metadata: {
-          target_player_id: target.player_id
-        }
-      }
-    }
-  ];
+  if (!plugin_registry) {
+    return error('plugin_registry_required', 'claimed ability handling requires plugin registry');
+  }
 
-  if (can_kill) {
-    events.push({
-      event_id: `${command.command_id}:SlayerTargetDied`,
-      event_type: 'PlayerDied',
-      created_at,
-      actor_id: command.actor_id,
-      payload: {
-        player_id: target.player_id,
-        day_number: command.payload.day_number,
-        night_number: command.payload.night_number,
-        reason: 'ability'
+  const claimant = state.players_by_id[command.payload.claimant_player_id];
+  if (!claimant) {
+    return error('player_not_found', 'claimant not found');
+  }
+  if (!claimant.alive) {
+    return error('dead_player_cannot_claim_ability', 'dead player cannot make claimed ability attempt');
+  }
+
+  const claimed_plugin = plugin_registry.get(command.payload.claimed_character_id);
+  if (!claimed_plugin) {
+    return error(
+      'claimed_character_plugin_not_found',
+      `claimed character plugin not found: ${command.payload.claimed_character_id}`
+    );
+  }
+  if (claimed_plugin.metadata.timing_category !== 'day') {
+    return error(
+      'invalid_claimed_ability_timing',
+      `claimed ability timing must be day but got ${claimed_plugin.metadata.timing_category}`
+    );
+  }
+
+  const constraints = claimed_plugin.metadata.target_constraints;
+  if (constraints.min_targets !== 1 || constraints.max_targets !== 1) {
+    return error(
+      'unsupported_claimed_ability_target_constraints',
+      'claimed ability currently supports exactly one target'
+    );
+  }
+
+  const options = Object.values(state.players_by_id)
+    .filter((player) => {
+      if (!constraints.allow_self && player.player_id === claimant.player_id) {
+        return false;
       }
-    });
+      if (constraints.require_alive && !player.alive) {
+        return false;
+      }
+      if (!constraints.allow_travellers && player.is_traveller) {
+        return false;
+      }
+      return true;
+    })
+    .map((player) => ({
+      option_id: player.player_id,
+      label: player.display_name
+    }));
+
+  if (options.length === 0) {
+    return error('no_valid_claimed_ability_targets', 'no valid targets for claimed ability');
   }
 
   return {
     ok: true,
-    value: events
+    value: [
+      {
+        event_id: `${command.command_id}:ClaimedAbilityPromptQueued`,
+        event_type: 'PromptQueued',
+        created_at,
+        actor_id: command.actor_id,
+        payload: {
+          prompt_id: `plugin:${command.payload.claimed_character_id}:claimed_ability:${state.day_number}:${claimant.player_id}:${command.command_id}`,
+          kind: 'claimed_ability_target',
+          reason: `plugin:${command.payload.claimed_character_id}:claimed_ability:${claimant.player_id}`,
+          visibility: 'public',
+          options,
+          selection_mode: 'single_choice',
+          number_range: null,
+          multi_columns: null,
+          storyteller_hint: `claimant=${claimant.player_id};claimed=${command.payload.claimed_character_id}`
+        }
+      }
+    ]
   };
 }
 

@@ -32,7 +32,7 @@ export const CLI_USAGE = {
   open_vote: 'open-vote [nomination_id] [opened_by_id]',
   vote:
     'vote <voter_id> <yes|no> | vote <voter_id...> [yes|no] | vote <nomination_id> <voter_id> <yes|no>',
-  slay: 'slay | slayer-shot <slayer_player_id> <target_player_id>',
+  claim_ability: 'claim | claim-ability | cliam-ability <claimant_player_id> <claimed_character_id>',
   close_vote: 'close-vote [nomination_id] [day_number]',
   resolve_exec: 'resolve-exec [day_number]',
   resolve_conseq: 'resolve-conseq [day_number]',
@@ -136,7 +136,7 @@ export function help_sections_for_topic(topic: 'phase' | 'all'): HelpSection[] {
         CLI_USAGE.nominate_full,
         CLI_USAGE.open_vote,
         CLI_USAGE.vote,
-        CLI_USAGE.slay,
+        CLI_USAGE.claim_ability,
         CLI_USAGE.close_vote,
         CLI_USAGE.resolve_exec,
         CLI_USAGE.resolve_conseq,

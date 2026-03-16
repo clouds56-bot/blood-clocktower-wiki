@@ -242,9 +242,11 @@ Each entry lists:
 - Implementation:
   - `timing_category`: `day`
   - `is_once_per_game`: true
-  - prompt: public choose 1 target
+  - command path: `UseClaimedAbility` (no target payload) queues public target prompt
+  - prompt: choose 1 target
+  - visibility: public
   - marker: `slayer:spent`
-  - events: public action event + optional `PlayerDied`.
+  - events: `ClaimedAbilityAttempted` + optional `PlayerDied`.
 
 #### `soldier`
 - Ability: safe from Demon.

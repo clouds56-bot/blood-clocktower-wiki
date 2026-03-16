@@ -60,7 +60,7 @@ Tests:
 
 Scope:
 - Implement `virgin`, `slayer`, `saint`, `mayor`, `ravenkeeper`, `undertaker`, `butler`.
-- Integrate day interrupt handling for Virgin and Slayer.
+- Integrate day interrupt handling for Virgin and Slayer via generic claimed ability activation flow.
 - Implement Butler vote restriction checks.
 - Implement Mayor final-3 no-execution win and night redirection hook.
 - Migrate day-reactive logic to plugin boundaries where possible (`on_nomination_made`, `on_vote_cast_validate`, `on_execution_resolving`).
@@ -68,6 +68,7 @@ Scope:
 Done when:
 - virgin trigger executes nominator exactly once;
 - slayer shot is once-per-game and spends while drunk/poisoned;
+- slayer shot is invoked through `UseClaimedAbility` prompt flow (no role-specific shot command);
 - saint execution loss only on execution death;
 - undertaker and ravenkeeper read flows resolve in proper windows;
 - butler vote enforcement is deterministic.
@@ -75,7 +76,7 @@ Done when:
 
 Tests:
 - virgin with townsfolk nominator;
-- slayer hit/miss and spent state;
+- slayer hit/miss and spent state through claimed ability attempt prompt lifecycle;
 - saint execution loss condition;
 - mayor final-3 no-execution win;
 - ravenkeeper night-death trigger;

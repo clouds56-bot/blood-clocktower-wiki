@@ -313,6 +313,32 @@ Stabilize API and improve developer workflow.
 - all milestones green;
 - clear extension path documented.
 
+---
+
+### SPEC-09 Claimed Ability Activation (Plugin-Driven)
+
+**Goal**
+Unify public ability declarations behind one command and prompt flow.
+
+**Tasks**
+- Add `UseClaimedAbility` command for public claimed ability activation.
+- Keep `UseClaimedAbility` payload target-free; collect targets through queued prompts.
+- Emit `ClaimedAbilityAttempted` only after prompt resolution.
+- Route prompt resolution consequences through character plugin hooks.
+- Remove role-specific day claim commands (for example dedicated Slayer shot command path).
+
+**Deliverables**
+- command/event schema updates
+- command handling + plugin runtime integration
+- CLI parser/help updates for generic claimed ability command
+- migrated role specs and tests
+
+**Definition of Done**
+- claimed ability attempt flow is replay-safe and deterministic;
+- prompt lifecycle is explicit: command -> prompt queued -> prompt resolved -> attempt event;
+- role-specific effects remain plugin-owned;
+- no dedicated Slayer-only command remains.
+
 ## Dependency Order
 
 1. SPEC-01
@@ -324,6 +350,7 @@ Stabilize API and improve developer workflow.
 7. SPEC-06.1 -> SPEC-06.8
 8. SPEC-07
 9. SPEC-08
+10. SPEC-09
 
 ## Test Matrix (minimum)
 
@@ -349,6 +376,7 @@ Stabilize API and improve developer workflow.
 - compatibility bridge emits `PoisonApplied` / `HealthRestored` and `DrunkApplied` / `SobrietyRestored` only on effective status transitions
 - plugin interrupt behavior
 - social claims lifecycle and querying
+- claimed ability activation flow (`UseClaimedAbility` -> prompt -> `ClaimedAbilityAttempted`)
 
 ## Risks and Mitigations
 

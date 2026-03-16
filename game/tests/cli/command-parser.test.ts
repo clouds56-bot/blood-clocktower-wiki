@@ -485,14 +485,34 @@ test('auto-fills command params from state', () => {
     });
   }
 
-  const slay = parse_cli_line('slay p1 p2', state);
-  assert.equal(slay.ok, true);
-  if (slay.ok && slay.kind === 'engine' && slay.command.command_type === 'UseSlayerShot') {
-    assert.deepEqual(slay.command.payload, {
-      slayer_player_id: 'p1',
-      target_player_id: 'p2',
-      day_number: 1,
-      night_number: 1
+  const claimedAbility = parse_cli_line('claim-ability p1 slayer', state);
+  assert.equal(claimedAbility.ok, true);
+  if (
+    claimedAbility.ok &&
+    claimedAbility.kind === 'engine' &&
+    claimedAbility.command.command_type === 'UseClaimedAbility'
+  ) {
+    assert.deepEqual(claimedAbility.command.payload, {
+      claimant_player_id: 'p1',
+      claimed_character_id: 'slayer'
+    });
+  }
+
+  const claimAlias = parse_cli_line('claim p1 slayer', state);
+  assert.equal(claimAlias.ok, true);
+  if (claimAlias.ok && claimAlias.kind === 'engine' && claimAlias.command.command_type === 'UseClaimedAbility') {
+    assert.deepEqual(claimAlias.command.payload, {
+      claimant_player_id: 'p1',
+      claimed_character_id: 'slayer'
+    });
+  }
+
+  const cliamAlias = parse_cli_line('cliam-ability p1 slayer', state);
+  assert.equal(cliamAlias.ok, true);
+  if (cliamAlias.ok && cliamAlias.kind === 'engine' && cliamAlias.command.command_type === 'UseClaimedAbility') {
+    assert.deepEqual(cliamAlias.command.payload, {
+      claimant_player_id: 'p1',
+      claimed_character_id: 'slayer'
     });
   }
 

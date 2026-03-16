@@ -44,7 +44,7 @@ export type DomainEventType =
   | 'ExecutionOccurred'
   | 'PlayerExecuted'
   | 'PlayerSurvivedExecution'
-  | 'SlayerShotUsed'
+  | 'ClaimedAbilityAttempted'
   | 'ExecutionConsequencesResolved'
   | 'PlayerDied'
   | 'ReminderMarkerApplied'
@@ -224,13 +224,12 @@ export interface PlayerSurvivedExecutionEvent extends BaseDomainEvent {
   };
 }
 
-export interface SlayerShotUsedEvent extends BaseDomainEvent {
-  event_type: 'SlayerShotUsed';
+export interface ClaimedAbilityAttemptedEvent extends BaseDomainEvent {
+  event_type: 'ClaimedAbilityAttempted';
   payload: {
-    day_number: number;
-    slayer_player_id: PlayerId;
-    target_player_id: PlayerId;
-    success: boolean;
+    claimant_player_id: PlayerId;
+    claimed_character_id: string;
+    target_player_ids: PlayerId[];
   };
 }
 
@@ -514,7 +513,7 @@ export type DomainEvent =
   | ExecutionOccurredEvent
   | PlayerExecutedEvent
   | PlayerSurvivedExecutionEvent
-  | SlayerShotUsedEvent
+  | ClaimedAbilityAttemptedEvent
   | ExecutionConsequencesResolvedEvent
   | PlayerDiedEvent
   | ReminderMarkerAppliedEvent

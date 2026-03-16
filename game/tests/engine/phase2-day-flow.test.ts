@@ -7,10 +7,11 @@ import { create_initial_state } from '../../src/domain/state.js';
 import type { GameState } from '../../src/domain/types.js';
 import { handle_command } from '../../src/engine/command-handler.js';
 import { butler_plugin } from '../../src/plugins/characters/butler.js';
+import { slayer_plugin } from '../../src/plugins/characters/slayer.js';
 import { virgin_plugin } from '../../src/plugins/characters/virgin.js';
 import { PluginRegistry } from '../../src/plugins/registry.js';
 
-const DAY_HOOK_REGISTRY = new PluginRegistry([butler_plugin, virgin_plugin]);
+const DAY_HOOK_REGISTRY = new PluginRegistry([butler_plugin, slayer_plugin, virgin_plugin]);
 
 function bootstrap_day_state(): GameState {
   const seed = create_initial_state('g1');
@@ -791,33 +792,68 @@ test('slayer shot kills demon and is once per game', () => {
 
   state = run_command(state, {
     command_id: 'c-slay',
-    command_type: 'UseSlayerShot',
+    command_type: 'UseClaimedAbility',
     payload: {
-      slayer_player_id: 'p1',
-      target_player_id: 'p2',
-      day_number: 1,
-      night_number: 1
+      claimant_player_id: 'p1',
+      claimed_character_id: 'slayer'
+    }
+  });
+  const firstPromptId = state.pending_prompts[0] ?? '';
+  state = run_command(state, {
+    command_id: 'c-slay-resolve',
+    command_type: 'ResolvePrompt',
+    payload: {
+      prompt_id: firstPromptId,
+      selected_option_id: 'p2',
+      freeform: null,
+      notes: null
     }
   });
 
   assert.equal(state.players_by_id.p2?.alive, false);
+  const attempted = state.domain_events.find((event) => event.event_type === 'ClaimedAbilityAttempted');
+  assert.ok(attempted);
 
   const second = handle_command(
     state,
     {
       command_id: 'c-slay-2',
-      command_type: 'UseSlayerShot',
+      command_type: 'UseClaimedAbility',
       payload: {
-        slayer_player_id: 'p1',
-        target_player_id: 'p3',
-        day_number: 1,
-        night_number: 1
+        claimant_player_id: 'p1',
+        claimed_character_id: 'slayer'
       }
     },
-    '2026-03-12T02:00:00.000Z'
+    '2026-03-12T02:00:00.000Z',
+    {
+      plugin_registry: DAY_HOOK_REGISTRY
+    }
   );
-  assert.equal(second.ok, false);
-  if (!second.ok) {
-    assert.equal(second.error.code, 'slayer_shot_already_used');
+  assert.equal(second.ok, true);
+  if (second.ok) {
+    const after_second = apply_events(state, second.value);
+    const secondPromptId = after_second.pending_prompts[0] ?? '';
+    const resolved_second = handle_command(
+      after_second,
+      {
+        command_id: 'c-slay-resolve-2',
+        command_type: 'ResolvePrompt',
+        payload: {
+          prompt_id: secondPromptId,
+          selected_option_id: 'p3',
+          freeform: null,
+          notes: null
+        }
+      },
+      '2026-03-12T02:00:01.000Z',
+      {
+        plugin_registry: DAY_HOOK_REGISTRY
+      }
+    );
+    assert.equal(resolved_second.ok, true);
+    if (resolved_second.ok) {
+      const final_state = apply_events(after_second, resolved_second.value);
+      assert.equal(final_state.players_by_id.p3?.alive, true);
+    }
   }
 });
