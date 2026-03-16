@@ -23,6 +23,23 @@ Goals:
 
 This convention is required for easy persistence and de/serialization consistency.
 
+## Identity Conventions
+
+- Event identity is dual:
+  - `event_id`: global 1-based numeric ordinal assigned by reducer append order.
+  - `event_key`: deterministic string key produced by command/plugin emitters and used for dedup/correlation.
+- Internal event references keep `*_event_id` field names and store numeric `event_id` values.
+- Prompt identity uses `prompt_key`.
+- Wake-step identity uses `wake_key`.
+- Time key format:
+  - `d<day_number>` for day scope (for example `d1`)
+  - `n<night_number>` for night scope (for example `n1`, `n2`)
+- Plugin prompt/reason keys should begin with:
+  - `plugin:<character_id>:<time_key>:<player_id>:...`
+- Wake key format:
+  - `wake:<time_key>:<global_order>:<player_id>:<character_id>`
+  - `global_order` is deterministic per-time-slot sequence (resets for each `time_key`).
+
 ## Non-goals (initial phase)
 
 - Full almanac-perfect automation for every character.
@@ -206,6 +223,10 @@ Rules:
 - rule checks use active authoritative markers; reminder UI is a projection of marker state.
 - engine performs an automatic expiry sweep on `AdvancePhase` and appends `ReminderMarkerExpired` events when policies match.
 
+Identity notes for reminder markers:
+- event-linked references (`created_at_event_id`, `cleared_at_event_id`, `source_event_id`) store numeric `event_id` values.
+- deterministic `marker_id` should be derived from stable producer identity (typically `event_key` lineage), not reducer ordinal.
+
 ### Social Claims Model
 
 Claims are **not engine truth**. They are review artifacts.
@@ -374,7 +395,7 @@ Compatibility bridge:
 Determinism rules for extended hooks:
 - dispatch order must be stable (seat-order and/or explicit plugin precedence);
 - each boundary defines a strict phase order: base command events -> plugin boundary hooks -> compatibility/status events -> win check;
-- hook outputs must be replay-safe and idempotent by event identity rules.
+- hook outputs must be replay-safe and idempotent by event identity rules (`event_key` dedup + reducer-assigned ordinal `event_id`).
 
 ### Sample Behavior Contract (Imp)
 

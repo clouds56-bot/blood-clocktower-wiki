@@ -24,7 +24,7 @@ By end of Phase 4, discretionary rulings are represented as explicit engine stat
 
 - Add a serializable prompt schema with `snake_case` keys.
 - Minimum fields:
-  - `prompt_id`
+  - `prompt_key`
   - `kind`
   - `reason`
   - `visibility`
@@ -113,22 +113,33 @@ Optional but recommended for explicit lifecycle tracing:
 Phase 4 should include these state capabilities (snake_case):
 
 - `pending_prompts` runtime queue with stable ordering.
-- prompt registry/history keyed by `prompt_id`.
+- prompt registry/history keyed by `prompt_key`.
 - per-prompt status and resolution metadata.
 - linkage to adjudication notes and event ids.
 
 State rules:
 - prompt resolution is monotonic (`pending` -> `resolved`/`cancelled`, no reopen).
-- prompt ids are unique within a game.
+- prompt keys are unique within a game.
 - prompt resolution does not bypass existing day/death/win invariants.
 
 ## Validation and Invariants to Add
 
-- pending prompt ids must be unique.
-- every id in `pending_prompts` must reference an existing prompt record.
+- pending prompt keys must be unique.
+- every key in `pending_prompts` must reference an existing prompt record.
 - only `pending` prompts may appear in `pending_prompts`.
 - `resolved`/`cancelled` prompts must have `resolved_at_event_id`.
 - `ResolvePrompt` against unknown/non-pending prompt is rejected deterministically.
+
+Prompt key conventions (normative)
+---------------------------------
+- Plugin-authored prompt keys should use:
+  - `plugin:<character_id>:<time_key>:<player_id>:<action>[:detail...]`
+- `time_key` format:
+  - `d<day_number>` for day scope
+  - `n<night_number>` for night scope
+- Examples:
+  - `plugin:poisoner:n1:p5:night_poison`
+  - `plugin:imp:n2:p2:night_kill`
 
 ## Definition of Done
 
