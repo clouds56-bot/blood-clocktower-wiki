@@ -2,6 +2,7 @@ import type {
   Alignment,
   PlayerCharacterType,
   CommandId,
+  EventId,
   GamePhase,
   GameSubphase,
   PlayerId,
@@ -261,7 +262,7 @@ export interface ApplyReminderMarkerCommand extends BaseCommand {
     expires_policy: ReminderExpiryPolicy;
     expires_at_day_number: number | null;
     expires_at_night_number: number | null;
-    source_event_id: string | null;
+    source_event_id: EventId | null;
     metadata: Record<string, unknown>;
   };
 }
@@ -299,6 +300,7 @@ export interface SweepReminderExpiryCommand extends BaseCommand {
 export interface CreatePromptCommand extends BaseCommand {
   command_type: 'CreatePrompt';
   payload: {
+    prompt_key?: string;
     prompt_id: string;
     kind: string;
     reason: string;
@@ -314,6 +316,7 @@ export interface CreatePromptCommand extends BaseCommand {
 export interface ResolvePromptCommand extends BaseCommand {
   command_type: 'ResolvePrompt';
   payload: {
+    prompt_key?: string;
     prompt_id: string;
     selected_option_id: string | null;
     freeform: string | null;
@@ -324,6 +327,7 @@ export interface ResolvePromptCommand extends BaseCommand {
 export interface CancelPromptCommand extends BaseCommand {
   command_type: 'CancelPrompt';
   payload: {
+    prompt_key?: string;
     prompt_id: string;
     reason: string;
   };

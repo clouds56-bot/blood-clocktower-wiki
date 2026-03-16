@@ -27,8 +27,9 @@ export function handle_create_prompt(
   command: CreatePromptCommand,
   created_at: string
 ): EngineResult<DomainEvent[]> {
-  if (state.prompts_by_id[command.payload.prompt_id]) {
-    return error('prompt_id_already_exists', `prompt already exists: ${command.payload.prompt_id}`);
+  const prompt_key = command.payload.prompt_key ?? command.payload.prompt_id;
+  if (state.prompts_by_id[prompt_key]) {
+    return error('prompt_id_already_exists', `prompt already exists: ${prompt_key}`);
   }
 
   const normalized_prompt = normalize_prompt_shape(command.payload);
@@ -40,11 +41,13 @@ export function handle_create_prompt(
     ok: true,
     value: [
       {
-        event_id: `${command.command_id}:PromptQueued`,
+        event_key: `${command.command_id}:PromptQueued`,
+        event_id: 1,
         event_type: 'PromptQueued',
         created_at,
         actor_id: command.actor_id,
         payload: {
+          prompt_key,
           prompt_id: command.payload.prompt_id,
           kind: command.payload.kind,
           reason: command.payload.reason,
@@ -65,12 +68,13 @@ export function handle_resolve_prompt(
   command: ResolvePromptCommand,
   created_at: string
 ): EngineResult<DomainEvent[]> {
-  const prompt = state.prompts_by_id[command.payload.prompt_id];
+  const prompt_key = command.payload.prompt_key ?? command.payload.prompt_id;
+  const prompt = state.prompts_by_id[prompt_key];
   if (!prompt) {
-    return error('prompt_not_found', `prompt not found: ${command.payload.prompt_id}`);
+    return error('prompt_not_found', `prompt not found: ${prompt_key}`);
   }
   if (prompt.status !== 'pending') {
-    return error('prompt_not_pending', `prompt is not pending: ${command.payload.prompt_id}`);
+    return error('prompt_not_pending', `prompt is not pending: ${prompt_key}`);
   }
 
   const selection_mode = prompt.selection_mode ?? 'single_choice';
@@ -98,11 +102,13 @@ export function handle_resolve_prompt(
 
   const events: DomainEvent[] = [
     {
-      event_id: `${command.command_id}:PromptResolved`,
+      event_key: `${command.command_id}:PromptResolved`,
+      event_id: 1,
       event_type: 'PromptResolved',
       created_at,
       actor_id: command.actor_id,
       payload: {
+        prompt_key,
         prompt_id: command.payload.prompt_id,
         selected_option_id: command.payload.selected_option_id,
         freeform: command.payload.freeform,
@@ -110,11 +116,13 @@ export function handle_resolve_prompt(
       }
     },
     {
-      event_id: `${command.command_id}:StorytellerChoiceMade`,
+      event_key: `${command.command_id}:StorytellerChoiceMade`,
+      event_id: 1,
       event_type: 'StorytellerChoiceMade',
       created_at,
       actor_id: command.actor_id,
       payload: {
+        prompt_key,
         prompt_id: command.payload.prompt_id,
         selected_option_id: command.payload.selected_option_id,
         freeform: command.payload.freeform
@@ -124,11 +132,13 @@ export function handle_resolve_prompt(
 
   if (command.payload.notes !== null) {
     events.push({
-      event_id: `${command.command_id}:StorytellerRulingRecorded`,
+      event_key: `${command.command_id}:StorytellerRulingRecorded`,
+      event_id: 1,
       event_type: 'StorytellerRulingRecorded',
       created_at,
       actor_id: command.actor_id,
       payload: {
+        prompt_key,
         prompt_id: command.payload.prompt_id,
         note: command.payload.notes
       }
@@ -359,33 +369,38 @@ export function handle_cancel_prompt(
   command: CancelPromptCommand,
   created_at: string
 ): EngineResult<DomainEvent[]> {
-  const prompt = state.prompts_by_id[command.payload.prompt_id];
+  const prompt_key = command.payload.prompt_key ?? command.payload.prompt_id;
+  const prompt = state.prompts_by_id[prompt_key];
   if (!prompt) {
-    return error('prompt_not_found', `prompt not found: ${command.payload.prompt_id}`);
+    return error('prompt_not_found', `prompt not found: ${prompt_key}`);
   }
   if (prompt.status !== 'pending') {
-    return error('prompt_not_pending', `prompt is not pending: ${command.payload.prompt_id}`);
+    return error('prompt_not_pending', `prompt is not pending: ${prompt_key}`);
   }
 
   return {
     ok: true,
     value: [
       {
-        event_id: `${command.command_id}:PromptCancelled`,
+        event_key: `${command.command_id}:PromptCancelled`,
+        event_id: 1,
         event_type: 'PromptCancelled',
         created_at,
         actor_id: command.actor_id,
         payload: {
+          prompt_key,
           prompt_id: command.payload.prompt_id,
           reason: command.payload.reason
         }
       },
       {
-        event_id: `${command.command_id}:StorytellerRulingRecorded`,
+        event_key: `${command.command_id}:StorytellerRulingRecorded`,
+        event_id: 1,
         event_type: 'StorytellerRulingRecorded',
         created_at,
         actor_id: command.actor_id,
         payload: {
+          prompt_key,
           prompt_id: command.payload.prompt_id,
           note: command.payload.reason
         }

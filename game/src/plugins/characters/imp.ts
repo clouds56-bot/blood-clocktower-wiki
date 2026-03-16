@@ -2,9 +2,21 @@ import type { CharacterPlugin, PluginResult } from '../contracts.js';
 import type { PlayerState } from '../../domain/types.js';
 import { build_ravenkeeper_reveal_prompt } from './ravenkeeper.js';
 
-const IMP_PROMPT_PREFIX = 'plugin:imp:night_kill';
+const IMP_PROMPT_PREFIX = 'plugin:imp';
 const IMP_TRANSFER_PROMPT_PREFIX = 'plugin:imp:transfer_target';
 const IMP_TRANSFER_MARKER_KIND = 'imp:self_kill_transfer_pending';
+
+function night_time_key(night_number: number): string {
+  return `n${night_number}`;
+}
+
+function build_imp_prompt_key(night_number: number, player_id: string): string {
+  return `plugin:imp:${night_time_key(night_number)}:${player_id}:night_kill`;
+}
+
+function build_imp_prompt_id(night_number: number, player_id: string): string {
+  return `plugin:imp:night_kill:${night_number}:${player_id}`;
+}
 
 export const imp_plugin: CharacterPlugin = {
   metadata: {
@@ -43,9 +55,10 @@ export const imp_plugin: CharacterPlugin = {
         emitted_events: [],
         queued_prompts: [
           {
-            prompt_id: `${IMP_PROMPT_PREFIX}:${context.state.night_number}:${context.player_id}`,
+            prompt_id: build_imp_prompt_id(context.state.night_number, context.player_id),
+            prompt_key: build_imp_prompt_key(context.state.night_number, context.player_id),
             kind: 'choice',
-            reason: 'plugin:imp:choose night kill target',
+            reason: `plugin:imp:${night_time_key(context.state.night_number)}:${context.player_id}:choose_night_kill_target`,
             visibility: 'player',
             options
           }
@@ -265,18 +278,22 @@ export const imp_plugin: CharacterPlugin = {
 };
 
 export function is_imp_prompt_id(prompt_id: string): boolean {
-  return prompt_id.startsWith(IMP_PROMPT_PREFIX);
+  return prompt_id.startsWith(`${IMP_PROMPT_PREFIX}:night_kill:`) ||
+    prompt_id.startsWith(`${IMP_PROMPT_PREFIX}:n`);
 }
 
 function parse_imp_prompt_owner_player_id(prompt_id: string): string | null {
   const parts = prompt_id.split(':');
+  if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'imp' && parts[2] === 'night_kill') {
+    return parts[4] ?? null;
+  }
+  if (parts.length >= 6 && parts[0] === 'plugin' && parts[1] === 'imp' && /^n\d+$/.test(parts[2] ?? '') && parts[4] === 'night_kill') {
+    return parts[3] ?? null;
+  }
   if (parts.length < 5) {
     return null;
   }
-  if (parts[0] !== 'plugin' || parts[1] !== 'imp' || parts[2] !== 'night_kill') {
-    return null;
-  }
-  return parts[4] ?? null;
+  return null;
 }
 
 function resolve_imp_transfer_prompt(

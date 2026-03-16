@@ -13,6 +13,14 @@ import type { GameState } from '../domain/types.js';
 import type { PluginRegistry } from '../plugins/registry.js';
 import type { EngineResult } from './phase-machine.js';
 
+function time_key_for_day(day_number: number): string {
+  return `d${day_number}`;
+}
+
+function build_plugin_prompt_key(character_id: string, time_key: string, player_id: string, action: string): string {
+  return `plugin:${character_id}:${time_key}:${player_id}:${action}`;
+}
+
 function error(code: string, message: string): EngineResult<never> {
   return {
     ok: false,
@@ -54,7 +62,8 @@ export function handle_open_nomination_window(
     ok: true,
     value: [
       {
-        event_id: `${command.command_id}:PhaseAdvanced`,
+        event_key: `${command.command_id}:PhaseAdvanced`,
+        event_id: 1,
         event_type: 'PhaseAdvanced',
         created_at,
         actor_id: command.actor_id,
@@ -66,7 +75,8 @@ export function handle_open_nomination_window(
         }
       },
       {
-        event_id: `${command.command_id}:NominationWindowOpened`,
+        event_key: `${command.command_id}:NominationWindowOpened`,
+        event_id: 1,
         event_type: 'NominationWindowOpened',
         created_at,
         actor_id: command.actor_id,
@@ -113,7 +123,8 @@ export function handle_nominate_player(
 
   const events: DomainEvent[] = [
     {
-      event_id: `${command.command_id}:NominationMade`,
+      event_key: `${command.command_id}:NominationMade`,
+      event_id: 1,
       event_type: 'NominationMade',
       created_at,
       actor_id: command.actor_id,
@@ -205,14 +216,26 @@ export function handle_use_claimed_ability(
     ok: true,
     value: [
       {
-        event_id: `${command.command_id}:ClaimedAbilityPromptQueued`,
+        event_key: `${command.command_id}:ClaimedAbilityPromptQueued`,
+        event_id: 1,
         event_type: 'PromptQueued',
         created_at,
         actor_id: command.actor_id,
         payload: {
           prompt_id: `plugin:${command.payload.claimed_character_id}:claimed_ability:${state.day_number}:${claimant.player_id}:${command.command_id}`,
+          prompt_key: build_plugin_prompt_key(
+            command.payload.claimed_character_id,
+            time_key_for_day(state.day_number),
+            claimant.player_id,
+            `claimed_ability:${command.command_id}`
+          ),
           kind: 'claimed_ability_target',
-          reason: `plugin:${command.payload.claimed_character_id}:claimed_ability:${claimant.player_id}`,
+          reason: build_plugin_prompt_key(
+            command.payload.claimed_character_id,
+            time_key_for_day(state.day_number),
+            claimant.player_id,
+            'claimed_ability'
+          ),
           visibility: 'public',
           options,
           selection_mode: 'single_choice',
@@ -248,7 +271,8 @@ export function handle_open_vote(
     ok: true,
     value: [
       {
-        event_id: `${command.command_id}:PhaseAdvanced`,
+        event_key: `${command.command_id}:PhaseAdvanced`,
+        event_id: 1,
         event_type: 'PhaseAdvanced',
         created_at,
         actor_id: command.actor_id,
@@ -260,7 +284,8 @@ export function handle_open_vote(
         }
       },
       {
-        event_id: `${command.command_id}:VoteOpened`,
+        event_key: `${command.command_id}:VoteOpened`,
+        event_id: 1,
         event_type: 'VoteOpened',
         created_at,
         actor_id: command.actor_id,
@@ -302,7 +327,8 @@ export function handle_cast_vote(
 
   const events: DomainEvent[] = [
     {
-      event_id: `${command.command_id}:VoteCast`,
+      event_key: `${command.command_id}:VoteCast`,
+      event_id: 1,
       event_type: 'VoteCast',
       created_at,
       actor_id: command.actor_id,
@@ -316,7 +342,8 @@ export function handle_cast_vote(
 
   if (!voter.alive && command.payload.in_favor) {
     events.push({
-      event_id: `${command.command_id}:DeadVoteConsumed`,
+      event_key: `${command.command_id}:DeadVoteConsumed`,
+      event_id: 1,
       event_type: 'DeadVoteConsumed',
       created_at,
       actor_id: command.actor_id,
@@ -359,7 +386,8 @@ export function handle_close_vote(
     ok: true,
     value: [
       {
-        event_id: `${command.command_id}:VoteClosed`,
+        event_key: `${command.command_id}:VoteClosed`,
+        event_id: 1,
         event_type: 'VoteClosed',
         created_at,
         actor_id: command.actor_id,
@@ -371,7 +399,8 @@ export function handle_close_vote(
         }
       },
       {
-        event_id: `${command.command_id}:PhaseAdvanced`,
+        event_key: `${command.command_id}:PhaseAdvanced`,
+        event_id: 1,
         event_type: 'PhaseAdvanced',
         created_at,
         actor_id: command.actor_id,
@@ -420,7 +449,8 @@ export function handle_resolve_execution(
       ok: true,
       value: [
         {
-          event_id: `${command.command_id}:PhaseAdvanced`,
+          event_key: `${command.command_id}:PhaseAdvanced`,
+          event_id: 1,
           event_type: 'PhaseAdvanced',
           created_at,
           actor_id: command.actor_id,
@@ -432,7 +462,8 @@ export function handle_resolve_execution(
           }
         },
         {
-          event_id: `${command.command_id}:ExecutionResolutionCompleted`,
+          event_key: `${command.command_id}:ExecutionResolutionCompleted`,
+          event_id: 1,
           event_type: 'ExecutionResolutionCompleted',
           created_at,
           actor_id: command.actor_id,
@@ -453,7 +484,8 @@ export function handle_resolve_execution(
       ok: true,
       value: [
         {
-          event_id: `${command.command_id}:PhaseAdvanced`,
+          event_key: `${command.command_id}:PhaseAdvanced`,
+          event_id: 1,
           event_type: 'PhaseAdvanced',
           created_at,
           actor_id: command.actor_id,
@@ -465,7 +497,8 @@ export function handle_resolve_execution(
           }
         },
         {
-          event_id: `${command.command_id}:ExecutionResolutionCompleted`,
+          event_key: `${command.command_id}:ExecutionResolutionCompleted`,
+          event_id: 1,
           event_type: 'ExecutionResolutionCompleted',
           created_at,
           actor_id: command.actor_id,
@@ -487,7 +520,8 @@ export function handle_resolve_execution(
     ok: true,
     value: [
       {
-        event_id: `${command.command_id}:PhaseAdvanced`,
+        event_key: `${command.command_id}:PhaseAdvanced`,
+        event_id: 1,
         event_type: 'PhaseAdvanced',
         created_at,
         actor_id: command.actor_id,
@@ -499,7 +533,8 @@ export function handle_resolve_execution(
         }
       },
       {
-        event_id: `${command.command_id}:ExecutionOccurred`,
+        event_key: `${command.command_id}:ExecutionOccurred`,
+        event_id: 1,
         event_type: 'ExecutionOccurred',
         created_at,
         actor_id: command.actor_id,
@@ -510,7 +545,8 @@ export function handle_resolve_execution(
         }
       },
       {
-        event_id: `${command.command_id}:PlayerExecuted`,
+        event_key: `${command.command_id}:PlayerExecuted`,
+        event_id: 1,
         event_type: 'PlayerExecuted',
         created_at,
         actor_id: command.actor_id,
@@ -520,7 +556,8 @@ export function handle_resolve_execution(
         }
       },
       {
-        event_id: `${command.command_id}:ExecutionResolutionCompleted`,
+        event_key: `${command.command_id}:ExecutionResolutionCompleted`,
+        event_id: 1,
         event_type: 'ExecutionResolutionCompleted',
         created_at,
         actor_id: command.actor_id,
@@ -559,7 +596,8 @@ export function handle_end_day(
     ok: true,
     value: [
       {
-        event_id: `${command.command_id}:PhaseAdvanced`,
+        event_key: `${command.command_id}:PhaseAdvanced`,
+        event_id: 1,
         event_type: 'PhaseAdvanced',
         created_at,
         actor_id: command.actor_id,

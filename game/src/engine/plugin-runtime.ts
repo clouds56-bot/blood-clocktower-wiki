@@ -22,6 +22,10 @@ interface ParsedClaimedAbilityPrompt {
   claimant_player_id: string;
 }
 
+function resolve_prompt_key(state: GameState, command: ResolvePromptCommand): string {
+  return command.payload.prompt_key ?? command.payload.prompt_id;
+}
+
 export function integrate_plugin_runtime(
   state: GameState,
   command: Command,
@@ -96,11 +100,13 @@ export function integrate_plugin_runtime(
       const wake_steps = collect_night_wake_steps(runtime_state, plugin_registry);
       for (const [wake_index, wake_step] of wake_steps.entries()) {
         const wake_scheduled: DomainEvent = {
-          event_id: `${command.command_id}:WakeScheduled:${wake_index}`,
+          event_key: `${command.command_id}:WakeScheduled:${wake_index}`,
+          event_id: 1,
           event_type: 'WakeScheduled',
           created_at,
           actor_id: command.actor_id,
           payload: {
+            wake_key: wake_step.wake_key ?? wake_step.wake_id,
             wake_id: wake_step.wake_id,
             character_id: wake_step.character_id,
             player_id: wake_step.player_id
@@ -136,7 +142,8 @@ export function integrate_plugin_runtime(
       }
 
       const attempt_event: DomainEvent = {
-        event_id: `${command.command_id}:ClaimedAbilityAttempted`,
+        event_key: `${command.command_id}:ClaimedAbilityAttempted`,
+        event_id: 1,
         event_type: 'ClaimedAbilityAttempted',
         created_at,
         ...(command.actor_id === undefined ? {} : { actor_id: command.actor_id }),
@@ -156,7 +163,8 @@ export function integrate_plugin_runtime(
         [claimed_ability_prompt.claimed_character_id],
         {
           state: runtime_state,
-          prompt_id: command.payload.prompt_id,
+          prompt_key: resolve_prompt_key(runtime_state, command),
+          prompt_id: resolve_prompt_key(runtime_state, command),
           selected_option_id: command.payload.selected_option_id,
           freeform: command.payload.freeform
         }
@@ -221,12 +229,13 @@ export function integrate_plugin_runtime(
         runtime_state = wake_processing.value;
       }
     } else {
-    const registration_prompt = parse_registration_prompt_id(command.payload.prompt_id);
+    const resolved_prompt_key = resolve_prompt_key(runtime_state, command);
+    const registration_prompt = parse_registration_prompt_id(resolved_prompt_key);
     if (registration_prompt) {
       const resolved = resolve_registration_query_prompt({
         state: runtime_state,
         role_id: registration_prompt.consumer_role_id,
-        prompt_id: command.payload.prompt_id,
+        prompt_id: resolve_prompt_key(runtime_state, command),
         selected_option_id: command.payload.selected_option_id
       });
       if (!resolved.ok) {
@@ -234,7 +243,8 @@ export function integrate_plugin_runtime(
       }
 
       const registration_decision_event: DomainEvent = {
-        event_id: `${command.command_id}:RegistrationResolved:Decision`,
+        event_key: `${command.command_id}:RegistrationResolved:Decision`,
+        event_id: 1,
         event_type: resolved.event.event_type,
         created_at,
         ...(command.actor_id === undefined ? {} : { actor_id: command.actor_id }),
@@ -254,7 +264,8 @@ export function integrate_plugin_runtime(
         [registration_prompt.consumer_role_id],
         {
           state: runtime_state,
-          prompt_id: command.payload.prompt_id,
+          prompt_key: resolved_prompt_key,
+          prompt_id: resolve_prompt_key(runtime_state, command),
           provider_role_id: resolved.parsed.provider_role_id,
           consumer_role_id: resolved.parsed.consumer_role_id,
           owner_player_id: resolved.parsed.owner_player_id,
@@ -326,7 +337,8 @@ export function integrate_plugin_runtime(
         [prompt_owner_plugin_id],
         {
           state: runtime_state,
-          prompt_id: command.payload.prompt_id,
+          prompt_key: resolve_prompt_key(runtime_state, command),
+          prompt_id: resolve_prompt_key(runtime_state, command),
           selected_option_id: command.payload.selected_option_id,
           freeform: command.payload.freeform
         }
@@ -547,19 +559,19 @@ function parse_claimed_ability_prompt(
   state: GameState,
   command: ResolvePromptCommand
 ): ParsedClaimedAbilityPrompt | null {
-  const prompt = state.prompts_by_id[command.payload.prompt_id];
+  const prompt = state.prompts_by_id[resolve_prompt_key(state, command)];
   if (!prompt) {
     return null;
   }
 
-  const match = /^plugin:([a-z0-9_-]+):claimed_ability:([a-z0-9_-]+)$/.exec(prompt.reason);
+  const match = /^plugin:([a-z0-9_-]+):(d\\d+|n\\d+):([a-z0-9_-]+):claimed_ability$/.exec(prompt.reason);
   if (!match) {
     return null;
   }
 
   return {
     claimed_character_id: match[1] ?? '',
-    claimant_player_id: match[2] ?? ''
+    claimant_player_id: match[3] ?? ''
   };
 }
 
@@ -578,7 +590,8 @@ function normalize_dispatch_output(
 
   for (const [index, item] of output.emitted_events.entries()) {
     normalized.push({
-      event_id: `${event_id_prefix}:EmittedEvent:${index}`,
+      event_key: `${event_id_prefix}:EmittedEvent:${index}`,
+      event_id: 1,
       event_type: item.event_type,
       created_at,
       ...(item.actor_id === undefined
@@ -592,11 +605,13 @@ function normalize_dispatch_output(
 
   for (const [index, item] of output.queued_prompts.entries()) {
     normalized.push({
-      event_id: `${event_id_prefix}:PromptQueued:${index}`,
+      event_key: `${event_id_prefix}:PromptQueued:${index}`,
+      event_id: 1,
       event_type: 'PromptQueued',
       created_at,
       ...(fallback_actor_id === undefined ? {} : { actor_id: fallback_actor_id }),
       payload: {
+        prompt_key: item.prompt_id,
         prompt_id: item.prompt_id,
         kind: item.kind,
         reason: item.reason,
@@ -614,7 +629,8 @@ function normalize_dispatch_output(
 
   for (const [index, item] of output.queued_interrupts.entries()) {
     normalized.push({
-      event_id: `${event_id_prefix}:InterruptScheduled:${index}`,
+      event_key: `${event_id_prefix}:InterruptScheduled:${index}`,
+      event_id: 1,
       event_type: 'InterruptScheduled',
       created_at,
       ...(fallback_actor_id === undefined ? {} : { actor_id: fallback_actor_id }),
@@ -666,7 +682,8 @@ function build_execution_death_events(
     }
 
     settled.push({
-      event_id: `${event_id_prefix}:${index}`,
+      event_key: `${event_id_prefix}:${index}`,
+      event_id: 1,
       event_type: 'PlayerDied',
       created_at,
       ...(fallback_actor_id === undefined ? {} : { actor_id: fallback_actor_id }),
@@ -752,7 +769,8 @@ function build_marker_compatibility_events(
       if (!before_active && after_active) {
         if (effect === 'poisoned') {
           events.push({
-            event_id: `${event_id_prefix}:PoisonApplied:${index}`,
+            event_key: `${event_id_prefix}:PoisonApplied:${index}`,
+            event_id: 1,
             event_type: 'PoisonApplied',
             created_at,
             ...(fallback_actor_id === undefined ? {} : { actor_id: fallback_actor_id }),
@@ -765,7 +783,8 @@ function build_marker_compatibility_events(
           });
         } else {
           events.push({
-            event_id: `${event_id_prefix}:DrunkApplied:${index}`,
+            event_key: `${event_id_prefix}:DrunkApplied:${index}`,
+            event_id: 1,
             event_type: 'DrunkApplied',
             created_at,
             ...(fallback_actor_id === undefined ? {} : { actor_id: fallback_actor_id }),
@@ -784,7 +803,8 @@ function build_marker_compatibility_events(
       if (before_active && !after_active) {
         if (effect === 'poisoned') {
           events.push({
-            event_id: `${event_id_prefix}:HealthRestored:${index}`,
+            event_key: `${event_id_prefix}:HealthRestored:${index}`,
+            event_id: 1,
             event_type: 'HealthRestored',
             created_at,
             ...(fallback_actor_id === undefined ? {} : { actor_id: fallback_actor_id }),
@@ -797,7 +817,8 @@ function build_marker_compatibility_events(
           });
         } else {
           events.push({
-            event_id: `${event_id_prefix}:SobrietyRestored:${index}`,
+            event_key: `${event_id_prefix}:SobrietyRestored:${index}`,
+            event_id: 1,
             event_type: 'SobrietyRestored',
             created_at,
             ...(fallback_actor_id === undefined ? {} : { actor_id: fallback_actor_id }),
@@ -821,7 +842,7 @@ function resolve_prompt_owner_plugin_id(
   state: GameState,
   command: ResolvePromptCommand
 ): string | null {
-  const prompt = state.prompts_by_id[command.payload.prompt_id];
+  const prompt = state.prompts_by_id[resolve_prompt_key(state, command)];
   if (!prompt) {
     return null;
   }
@@ -855,7 +876,8 @@ function drain_interrupt_queue(
     }
 
     const interrupt_consumed: DomainEvent = {
-      event_id: `${context.command.command_id}:InterruptConsumed:${sink.length}`,
+      event_key: `${context.command.command_id}:InterruptConsumed:${sink.length}`,
+      event_id: 1,
       event_type: 'InterruptConsumed',
       created_at: context.created_at,
       ...(context.command.actor_id === undefined ? {} : { actor_id: context.command.actor_id }),
@@ -894,7 +916,7 @@ function validate_queued_prompt_ids(
       continue;
     }
 
-    const prompt_id = event.payload.prompt_id;
+    const prompt_id = event.payload.prompt_key ?? event.payload.prompt_id;
     if (state.prompts_by_id[prompt_id] || seenPromptIds.has(prompt_id)) {
       return {
         ok: false,
@@ -943,11 +965,13 @@ function process_wake_queue(
 
     if (ability_blocked) {
       const wake_consumed: DomainEvent = {
-        event_id: `${event_id_prefix}:WakeConsumed:${wake_index}`,
+        event_key: `${event_id_prefix}:WakeConsumed:${wake_index}`,
+        event_id: 1,
         event_type: 'WakeConsumed',
         created_at: context.created_at,
         ...(context.command.actor_id === undefined ? {} : { actor_id: context.command.actor_id }),
         payload: {
+          wake_key: wake_step.wake_key ?? wake_step.wake_id,
           wake_id: wake_step.wake_id
         }
       };
@@ -960,7 +984,7 @@ function process_wake_queue(
     const dispatch = dispatch_hook(plugin_registry, 'on_night_wake', [wake_step.character_id], {
       state: runtime_state,
       player_id: wake_step.player_id,
-      wake_step_id: wake_step.wake_id
+      wake_step_id: wake_step.wake_key ?? wake_step.wake_id
     });
 
     if (!dispatch.ok) {
@@ -997,7 +1021,8 @@ function process_wake_queue(
     }
 
     const wake_consumed: DomainEvent = {
-      event_id: `${event_id_prefix}:WakeConsumed:${wake_index}`,
+      event_key: `${event_id_prefix}:WakeConsumed:${wake_index}`,
+      event_id: 1,
       event_type: 'WakeConsumed',
       created_at: context.created_at,
       ...(context.command.actor_id === undefined ? {} : { actor_id: context.command.actor_id }),

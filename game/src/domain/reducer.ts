@@ -98,7 +98,7 @@ function sync_derived_effect_flags(state: GameState, player_id: string): void {
   player.drunk = active_markers_for_player_effect(state, player_id, 'drunk') > 0;
 }
 
-function clear_marker(state: GameState, marker_id: string, event_id: string, status: 'cleared' | 'expired'): void {
+function clear_marker(state: GameState, marker_id: string, event_id: number, status: 'cleared' | 'expired'): void {
   const marker = state.reminder_markers_by_id[marker_id];
   if (!marker || marker.status !== 'active') {
     return;
@@ -131,7 +131,12 @@ function ensure_active_vote(state: GameState): ActiveVote {
 export function apply_event(state: GameState, event: DomainEvent): GameState {
   const next = clone_state(state);
 
-  if (next.domain_events.some((existing) => existing.event_id === event.event_id)) {
+  const event_key =
+    event.event_key ??
+    (typeof event.event_id === 'string' ? event.event_id : `${event.event_type}:${event.created_at}`);
+  const assigned_event_id = next.domain_events.length + 1;
+
+  if (next.domain_events.some((existing) => existing.event_key === event_key)) {
     return next;
   }
 
@@ -326,7 +331,7 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
         expires_policy: event.payload.expires_policy,
         expires_at_day_number: event.payload.expires_at_day_number,
         expires_at_night_number: event.payload.expires_at_night_number,
-        created_at_event_id: event.event_id,
+        created_at_event_id: assigned_event_id,
         cleared_at_event_id: null,
         source_event_id: event.payload.source_event_id,
         metadata: clone_payload(event.payload.metadata)
@@ -340,11 +345,11 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
       break;
     }
     case 'ReminderMarkerCleared': {
-      clear_marker(next, event.payload.marker_id, event.event_id, 'cleared');
+      clear_marker(next, event.payload.marker_id, assigned_event_id, 'cleared');
       break;
     }
     case 'ReminderMarkerExpired': {
-      clear_marker(next, event.payload.marker_id, event.event_id, 'expired');
+      clear_marker(next, event.payload.marker_id, assigned_event_id, 'expired');
       break;
     }
     case 'DrunkApplied': {
@@ -381,8 +386,10 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
     }
     case 'WakeScheduled': {
       ensure_player(next, event.payload.player_id);
-      if (!next.wake_queue.some((item) => item.wake_id === event.payload.wake_id)) {
+      const wake_key = event.payload.wake_key ?? event.payload.wake_id;
+      if (!next.wake_queue.some((item) => (item.wake_key ?? item.wake_id) === wake_key)) {
         next.wake_queue.push({
+          ...(event.payload.wake_key === undefined ? {} : { wake_key }),
           wake_id: event.payload.wake_id,
           character_id: event.payload.character_id,
           player_id: event.payload.player_id
@@ -391,7 +398,8 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
       break;
     }
     case 'WakeConsumed': {
-      next.wake_queue = next.wake_queue.filter((item) => item.wake_id !== event.payload.wake_id);
+      const wake_key = event.payload.wake_key ?? event.payload.wake_id;
+      next.wake_queue = next.wake_queue.filter((item) => (item.wake_key ?? item.wake_id) !== wake_key);
       break;
     }
     case 'InterruptScheduled': {
@@ -412,10 +420,12 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
       break;
     }
     case 'PromptQueued': {
-      if (next.prompts_by_id[event.payload.prompt_id]) {
-        throw new Error(`prompt_id_already_exists:${event.payload.prompt_id}`);
+      const prompt_key = event.payload.prompt_key ?? event.payload.prompt_id;
+      if (next.prompts_by_id[prompt_key]) {
+        throw new Error(`prompt_id_already_exists:${prompt_key}`);
       }
-      next.prompts_by_id[event.payload.prompt_id] = {
+      next.prompts_by_id[prompt_key] = {
+        prompt_key,
         prompt_id: event.payload.prompt_id,
         kind: event.payload.kind,
         reason: event.payload.reason,
@@ -430,40 +440,42 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
           : null,
         storyteller_hint: event.payload.storyteller_hint ?? null,
         status: 'pending',
-        created_at_event_id: event.event_id,
+        created_at_event_id: assigned_event_id,
         resolved_at_event_id: null,
         resolution_payload: null,
         notes: null
       };
-      if (!next.pending_prompts.includes(event.payload.prompt_id)) {
-        next.pending_prompts.push(event.payload.prompt_id);
+      if (!next.pending_prompts.includes(prompt_key)) {
+        next.pending_prompts.push(prompt_key);
       }
       break;
     }
     case 'PromptResolved': {
-      const prompt = next.prompts_by_id[event.payload.prompt_id];
+      const prompt_key = event.payload.prompt_key ?? event.payload.prompt_id;
+      const prompt = next.prompts_by_id[prompt_key];
       if (!prompt) {
-        throw new Error(`prompt_not_found:${event.payload.prompt_id}`);
+        throw new Error(`prompt_not_found:${prompt_key}`);
       }
       prompt.status = 'resolved';
-      prompt.resolved_at_event_id = event.event_id;
+      prompt.resolved_at_event_id = assigned_event_id;
       prompt.resolution_payload = {
         selected_option_id: event.payload.selected_option_id,
         freeform: event.payload.freeform
       };
       prompt.notes = event.payload.notes;
-      next.pending_prompts = next.pending_prompts.filter((prompt_id) => prompt_id !== event.payload.prompt_id);
+      next.pending_prompts = next.pending_prompts.filter((item) => item !== prompt_key);
       break;
     }
     case 'PromptCancelled': {
-      const prompt = next.prompts_by_id[event.payload.prompt_id];
+      const prompt_key = event.payload.prompt_key ?? event.payload.prompt_id;
+      const prompt = next.prompts_by_id[prompt_key];
       if (!prompt) {
-        throw new Error(`prompt_not_found:${event.payload.prompt_id}`);
+        throw new Error(`prompt_not_found:${prompt_key}`);
       }
       prompt.status = 'cancelled';
-      prompt.resolved_at_event_id = event.event_id;
+      prompt.resolved_at_event_id = assigned_event_id;
       prompt.notes = event.payload.reason;
-      next.pending_prompts = next.pending_prompts.filter((prompt_id) => prompt_id !== event.payload.prompt_id);
+      next.pending_prompts = next.pending_prompts.filter((item) => item !== prompt_key);
       break;
     }
     case 'RegistrationQueryCreated': {
@@ -485,7 +497,7 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
         resolved_character_type: null,
         resolved_alignment: null,
         decision_source: 'deterministic_rule',
-        created_at_event_id: event.event_id,
+        created_at_event_id: assigned_event_id,
         resolved_at_event_id: null,
         note: null
       };
@@ -506,7 +518,7 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
       query.resolved_character_type = event.payload.resolved_character_type;
       query.resolved_alignment = event.payload.resolved_alignment;
       query.decision_source = event.payload.decision_source;
-      query.resolved_at_event_id = event.event_id;
+      query.resolved_at_event_id = assigned_event_id;
       query.note = event.payload.note;
 
       next.pending_registration_query_ids = next.pending_registration_query_ids.filter(
@@ -519,10 +531,11 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
     }
     case 'StorytellerRulingRecorded': {
       next.storyteller_notes.push({
-        note_id: event.event_id,
+        note_id: assigned_event_id,
+        prompt_key: event.payload.prompt_key ?? event.payload.prompt_id,
         prompt_id: event.payload.prompt_id,
         text: event.payload.note,
-        created_at_event_id: event.event_id
+        created_at_event_id: assigned_event_id
       });
       break;
     }
@@ -541,7 +554,7 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
       next.subphase = 'complete';
       next.winning_team = event.payload.winning_team;
       next.end_reason = event.payload.reason;
-      next.ended_at_event_id = event.event_id;
+      next.ended_at_event_id = assigned_event_id;
       break;
     }
     default: {
@@ -551,7 +564,8 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
   }
 
   const envelope = {
-    event_id: event.event_id,
+    event_id: assigned_event_id,
+    event_key,
     event_type: event.event_type,
     created_at: event.created_at
   } as const;

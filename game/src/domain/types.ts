@@ -2,7 +2,8 @@ export type GameId = string;
 export type PlayerId = string;
 export type ScriptId = string;
 export type EditionId = string;
-export type EventId = string;
+export type EventId = number | string;
+export type EventKey = string;
 export type CommandId = string;
 export type IsoTimestamp = string;
 
@@ -59,6 +60,7 @@ export interface PromptResolutionPayload {
 }
 
 export interface PromptState {
+  prompt_key?: string;
   prompt_id: string;
   kind: string;
   reason: string;
@@ -76,7 +78,8 @@ export interface PromptState {
 }
 
 export interface StorytellerNoteRecord {
-  note_id: string;
+  note_id: EventId;
+  prompt_key?: string | null;
   prompt_id: string | null;
   text: string;
   created_at_event_id: EventId;
@@ -125,6 +128,7 @@ export interface DeathRecord {
 }
 
 export interface WakeQueueEntry {
+  wake_key?: string;
   wake_id: string;
   character_id: string;
   player_id: PlayerId;
@@ -249,6 +253,7 @@ export interface GameState {
 
 export interface DomainEventEnvelope {
   event_id: EventId;
+  event_key?: EventKey;
   event_type: string;
   created_at: IsoTimestamp;
   actor_id?: string | undefined;

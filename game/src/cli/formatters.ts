@@ -340,7 +340,7 @@ export function format_storyteller_projection(projection: StorytellerProjection)
         'notes:',
         render_table(
           ['id', 'prompt_id', 'text'],
-          projection.storyteller_notes.map((note) => [note.note_id, note.prompt_id ?? '-', note.text])
+          projection.storyteller_notes.map((note) => [String(note.note_id), note.prompt_id ?? '-', note.text])
         )
       ].join('\n');
 

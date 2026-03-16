@@ -190,7 +190,8 @@ export function handle_command(
         ok: true,
         value: [
           {
-            event_id: `${command.command_id}:GameCreated`,
+            event_key: `${command.command_id}:GameCreated`,
+            event_id: 1,
             event_type: 'GameCreated',
             created_at,
             actor_id: command.actor_id,
@@ -207,7 +208,8 @@ export function handle_command(
         ok: true,
         value: [
           {
-            event_id: `${command.command_id}:ScriptSelected`,
+            event_key: `${command.command_id}:ScriptSelected`,
+            event_id: 1,
             event_type: 'ScriptSelected',
             created_at,
             actor_id: command.actor_id,
@@ -223,7 +225,8 @@ export function handle_command(
         ok: true,
         value: [
           {
-            event_id: `${command.command_id}:EditionSelected`,
+            event_key: `${command.command_id}:EditionSelected`,
+            event_id: 1,
             event_type: 'EditionSelected',
             created_at,
             actor_id: command.actor_id,
@@ -239,7 +242,8 @@ export function handle_command(
         ok: true,
         value: [
           {
-            event_id: `${command.command_id}:PlayerAdded`,
+            event_key: `${command.command_id}:PlayerAdded`,
+            event_id: 1,
             event_type: 'PlayerAdded',
             created_at,
             actor_id: command.actor_id,
@@ -256,7 +260,8 @@ export function handle_command(
         ok: true,
         value: [
           {
-            event_id: `${command.command_id}:SeatOrderSet`,
+            event_key: `${command.command_id}:SeatOrderSet`,
+            event_id: 1,
             event_type: 'SeatOrderSet',
             created_at,
             actor_id: command.actor_id,
@@ -299,7 +304,8 @@ export function handle_command(
         ok: true,
         value: [
           {
-            event_id: `${command.command_id}:CharacterAssigned`,
+            event_key: `${command.command_id}:CharacterAssigned`,
+            event_id: 1,
             event_type: 'CharacterAssigned',
             created_at,
             actor_id: command.actor_id,
@@ -314,7 +320,8 @@ export function handle_command(
         ok: true,
         value: [
           {
-            event_id: `${command.command_id}:PerceivedCharacterAssigned`,
+            event_key: `${command.command_id}:PerceivedCharacterAssigned`,
+            event_id: 1,
             event_type: 'PerceivedCharacterAssigned',
             created_at,
             actor_id: command.actor_id,
@@ -331,7 +338,8 @@ export function handle_command(
         ok: true,
         value: [
           {
-            event_id: `${command.command_id}:AlignmentAssigned`,
+            event_key: `${command.command_id}:AlignmentAssigned`,
+            event_id: 1,
             event_type: 'AlignmentAssigned',
             created_at,
             actor_id: command.actor_id,
