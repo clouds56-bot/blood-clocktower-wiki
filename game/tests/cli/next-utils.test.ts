@@ -87,3 +87,31 @@ test('next night target is a future night boundary', () => {
   };
   assert.equal(has_reached_next_scope_target(nextNightState, 'night', anchor), true);
 });
+
+test('next phase target is any phase change', () => {
+  const state = create_initial_state('g4');
+  state.phase = 'day';
+  state.subphase = 'open_discussion';
+  state.day_number = 2;
+  state.night_number = 2;
+
+  const anchor = create_next_scope_anchor(state);
+
+  const samePhase = {
+    ...state,
+    phase: 'day' as const,
+    subphase: 'vote_in_progress' as const,
+    day_number: 2,
+    night_number: 2
+  };
+  assert.equal(has_reached_next_scope_target(samePhase, 'phase', anchor), false);
+
+  const changedPhase = {
+    ...state,
+    phase: 'night' as const,
+    subphase: 'dusk' as const,
+    day_number: 2,
+    night_number: 3
+  };
+  assert.equal(has_reached_next_scope_target(changedPhase, 'phase', anchor), true);
+});

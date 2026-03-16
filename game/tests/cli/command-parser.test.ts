@@ -90,7 +90,7 @@ test('parse local commands', () => {
   if (nextPhase.ok && nextPhase.kind === 'local') {
     assert.equal(nextPhase.action.type, 'next_phase');
     if (nextPhase.action.type === 'next_phase') {
-      assert.equal(nextPhase.action.scope, 'step');
+      assert.equal(nextPhase.action.scope, 'subphase');
       assert.equal(nextPhase.action.auto_prompt, false);
     }
   }
@@ -100,7 +100,7 @@ test('parse local commands', () => {
   if (nextAlias.ok && nextAlias.kind === 'local') {
     assert.equal(nextAlias.action.type, 'next_phase');
     if (nextAlias.action.type === 'next_phase') {
-      assert.equal(nextAlias.action.scope, 'step');
+      assert.equal(nextAlias.action.scope, 'subphase');
       assert.equal(nextAlias.action.auto_prompt, false);
     }
   }
@@ -110,28 +110,28 @@ test('parse local commands', () => {
   if (nAlias.ok && nAlias.kind === 'local') {
     assert.equal(nAlias.action.type, 'next_phase');
     if (nAlias.action.type === 'next_phase') {
-      assert.equal(nAlias.action.scope, 'step');
+      assert.equal(nAlias.action.scope, 'subphase');
       assert.equal(nAlias.action.auto_prompt, false);
     }
   }
 
-  const nextAutoPrompt = parse_cli_line('next --auto-prompt');
+  const nextAutoPrompt = parse_cli_line('next --auto');
   assert.equal(nextAutoPrompt.ok, true);
   if (nextAutoPrompt.ok && nextAutoPrompt.kind === 'local') {
     assert.equal(nextAutoPrompt.action.type, 'next_phase');
     if (nextAutoPrompt.action.type === 'next_phase') {
-      assert.equal(nextAutoPrompt.action.scope, 'step');
+      assert.equal(nextAutoPrompt.action.scope, 'subphase');
       assert.equal(nextAutoPrompt.action.auto_prompt, true);
     }
   }
 
-  const nextPrompt = parse_cli_line('next prompt');
-  assert.equal(nextPrompt.ok, true);
-  if (nextPrompt.ok && nextPrompt.kind === 'local') {
-    assert.equal(nextPrompt.action.type, 'next_phase');
-    if (nextPrompt.action.type === 'next_phase') {
-      assert.equal(nextPrompt.action.scope, 'prompt');
-      assert.equal(nextPrompt.action.auto_prompt, false);
+  const nextPhaseScope = parse_cli_line('next phase');
+  assert.equal(nextPhaseScope.ok, true);
+  if (nextPhaseScope.ok && nextPhaseScope.kind === 'local') {
+    assert.equal(nextPhaseScope.action.type, 'next_phase');
+    if (nextPhaseScope.action.type === 'next_phase') {
+      assert.equal(nextPhaseScope.action.scope, 'phase');
+      assert.equal(nextPhaseScope.action.auto_prompt, false);
     }
   }
 
@@ -142,6 +142,16 @@ test('parse local commands', () => {
     if (nextDayAutoPrompt.action.type === 'next_phase') {
       assert.equal(nextDayAutoPrompt.action.scope, 'day');
       assert.equal(nextDayAutoPrompt.action.auto_prompt, true);
+    }
+  }
+
+  const nextSubphase = parse_cli_line('next subphase');
+  assert.equal(nextSubphase.ok, true);
+  if (nextSubphase.ok && nextSubphase.kind === 'local') {
+    assert.equal(nextSubphase.action.type, 'next_phase');
+    if (nextSubphase.action.type === 'next_phase') {
+      assert.equal(nextSubphase.action.scope, 'subphase');
+      assert.equal(nextSubphase.action.auto_prompt, false);
     }
   }
 

@@ -31,6 +31,7 @@ import { project_for_player } from '../projections/player.js';
 import { project_for_public } from '../projections/public.js';
 import { project_for_storyteller } from '../projections/storyteller.js';
 import { create_next_scope_anchor, has_reached_next_scope_target } from './next-utils.js';
+import { random_option_id_for_prompt } from './parser-common.js';
 import {
   build_quick_setup_seed_commands,
   infer_alignment_from_type,
@@ -288,36 +289,6 @@ function pending_prompt_ids(state: GameState): string[] {
   });
 }
 
-function deterministic_option_for_prompt(state: GameState, prompt_id: string): string | null {
-  const prompt = state.prompts_by_id[prompt_id];
-  if (!prompt || prompt.status !== 'pending') {
-    return null;
-  }
-
-  if (prompt.selection_mode === 'number_range' && prompt.number_range) {
-    return String(Math.ceil(prompt.number_range.min));
-  }
-
-  if (prompt.selection_mode === 'multi_column' && prompt.multi_columns && prompt.multi_columns.length > 0) {
-    const picked: string[] = [];
-    for (const column of prompt.multi_columns) {
-      if (Array.isArray(column)) {
-        const first = column[0];
-        if (!first) {
-          return null;
-        }
-        picked.push(first);
-        continue;
-      }
-      picked.push(String(Math.ceil(column.min)));
-    }
-    return picked.join(',');
-  }
-
-  const first_option = prompt.options[0];
-  return first_option?.option_id ?? null;
-}
-
 function resolve_next_pending_prompt(context: CliContext): boolean {
   const prompt_id = pending_prompt_ids(context.state)[0];
   if (!prompt_id) {
@@ -328,7 +299,7 @@ function resolve_next_pending_prompt(context: CliContext): boolean {
     command_type: 'ResolvePrompt',
     payload: {
       prompt_id,
-      selected_option_id: deterministic_option_for_prompt(context.state, prompt_id),
+      selected_option_id: random_option_id_for_prompt(context.state, prompt_id),
       freeform: null,
       notes: 'auto_next_prompt'
     }
@@ -554,7 +525,7 @@ function run_next_phase(
   let prompts_resolved = 0;
   let steps_advanced = 0;
 
-  if (action.auto_prompt || action.scope === 'prompt') {
+  if (action.auto_prompt) {
     const resolved = resolve_all_pending_prompts(context);
     prompts_resolved += resolved.prompts_resolved;
     if (resolved.stop_reason !== 'target_reached') {
@@ -566,15 +537,53 @@ function run_next_phase(
     }
   }
 
-  if (action.scope === 'prompt') {
+  if (action.scope === 'phase') {
+    const phase_anchor = context.state.phase;
+    for (let i = 0; i < 200; i += 1) {
+      if (pending_prompt_ids(context.state).length > 0) {
+        if (!action.auto_prompt) {
+          return {
+            stop_reason: 'blocked_by_prompt',
+            steps_advanced,
+            prompts_resolved
+          };
+        }
+        const resolved = resolve_all_pending_prompts(context);
+        prompts_resolved += resolved.prompts_resolved;
+        if (resolved.stop_reason !== 'target_reached') {
+          return {
+            stop_reason: resolved.stop_reason,
+            steps_advanced,
+            prompts_resolved
+          };
+        }
+      }
+
+      const stop_reason = advance_one_step(context);
+      if (stop_reason !== 'advanced') {
+        return {
+          stop_reason,
+          steps_advanced,
+          prompts_resolved
+        };
+      }
+      steps_advanced += 1;
+      if (context.state.phase !== phase_anchor) {
+        return {
+          stop_reason: 'target_reached',
+          steps_advanced,
+          prompts_resolved
+        };
+      }
+    }
     return {
-      stop_reason: 'target_reached',
+      stop_reason: 'failed',
       steps_advanced,
       prompts_resolved
     };
   }
 
-  if (action.scope === 'step') {
+  if (action.scope === 'subphase') {
     const stop_reason = advance_one_step(context);
     if (stop_reason === 'advanced') {
       steps_advanced += 1;

@@ -1,6 +1,6 @@
 export const CLI_USAGE = {
   help: 'help [all|phase]',
-  next: 'next [prompt|day|night] [--auto-prompt]',
+  next: 'next [subphase|phase|day|night] [--auto|--auto-prompt]',
   state: 'state [brief|json]',
   events: 'events [count]',
   players: 'players',
@@ -73,8 +73,9 @@ export function help_sections_for_topic(topic: 'phase' | 'all'): HelpSection[] {
         lines: [
           CLI_USAGE.next,
           '  - default: one deterministic step; blocked by pending prompts',
-          '  - --auto-prompt: resolve pending prompts repeatedly until empty',
-          '  - prompt: resolve prompts only (no phase advance)',
+          '  - --auto / --auto-prompt: resolve pending prompts repeatedly until empty',
+          '  - subphase: one subphase progression step (default)',
+          '  - phase: advance until phase changes',
           '  - day/night: advance until next future boundary',
           CLI_USAGE.open_noms,
           'nominate p1 p2',

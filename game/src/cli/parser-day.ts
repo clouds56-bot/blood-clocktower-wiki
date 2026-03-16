@@ -16,8 +16,8 @@ import {
 } from './parser-common.js';
 import { CLI_USAGE } from './command-registry.js';
 
-function parse_next_scope(value: string): 'prompt' | 'day' | 'night' | null {
-  if (value === 'prompt' || value === 'day' || value === 'night') {
+function parse_next_scope(value: string): 'subphase' | 'phase' | 'day' | 'night' | null {
+  if (value === 'subphase' || value === 'phase' || value === 'day' || value === 'night') {
     return value;
   }
   return null;
@@ -44,16 +44,16 @@ export function parse_day_domain_command(
   }
 
   if (command === 'next-phase' || command === 'next' || command === 'n') {
-    let scope: 'step' | 'prompt' | 'day' | 'night' = 'step';
+    let scope: 'subphase' | 'phase' | 'day' | 'night' = 'subphase';
     let auto_prompt = false;
 
     for (const token of args) {
-      if (token === '--auto-prompt') {
+      if (token === '--auto-prompt' || token === '--auto') {
         auto_prompt = true;
         continue;
       }
       const parsed_scope = parse_next_scope(token);
-      if (parsed_scope && scope === 'step') {
+      if (parsed_scope && scope === 'subphase') {
         scope = parsed_scope;
         continue;
       }

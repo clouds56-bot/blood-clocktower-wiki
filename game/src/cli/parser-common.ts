@@ -10,7 +10,7 @@ import type {
 
 export type CliLocalAction =
   | { type: 'help'; topic?: 'phase' | 'all' }
-  | { type: 'next_phase'; scope: 'step' | 'prompt' | 'day' | 'night'; auto_prompt: boolean }
+  | { type: 'next_phase'; scope: 'subphase' | 'phase' | 'day' | 'night'; auto_prompt: boolean }
   | { type: 'bulk_vote'; nomination_id: string; voter_player_ids: string[]; in_favor: boolean }
   | { type: 'state'; format: 'brief' | 'json' }
   | { type: 'events'; count: number }

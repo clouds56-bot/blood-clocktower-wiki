@@ -472,6 +472,11 @@ export function format_marker(marker: ReminderMarkerState): string {
 
 export function format_help(topic: 'phase' | 'all'): string {
   return help_sections_for_topic(topic)
-    .map((section) => [paint(section.title, 'cyan'), ...section.lines.map((line) => `  ${line}`)].join('\n'))
+    .map((section) => {
+      if (topic === 'phase') {
+        return [paint(section.title, 'cyan'), ...section.lines].join('\n');
+      }
+      return [paint(section.title, 'cyan'), ...section.lines.map((line) => `  ${line}`)].join('\n');
+    })
     .join('\n\n');
 }

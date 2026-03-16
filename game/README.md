@@ -84,23 +84,25 @@ Notes:
 ## Phase Step Commands
 
 - `next-phase` (aliases: `next`, `n`)
-- Signature: `next [prompt|day|night] [--auto-prompt]`
+- Signature: `next [subphase|phase|day|night] [--auto|--auto-prompt]`
 
 Behavior:
 
 1. Default `next` advances one deterministic workflow step.
 2. Default `next` does not auto-resolve prompts; when pending prompts exist it stops with `blocked_by_prompt`.
-3. `--auto-prompt` resolves pending prompts repeatedly until queue is empty (guarded), then continues requested `next` scope.
-4. `next prompt` resolves prompts only and then stops (no phase advance).
-5. `next day` / `next night` advances until the next future day/night boundary is reached.
+3. `--auto` (`--auto-prompt`) resolves pending prompts repeatedly until queue is empty (guarded), then continues requested `next` scope.
+4. Auto prompt resolution by `next` remains random (random valid option/range/tuple).
+5. `next subphase` advances one subphase (same as default `next`).
+6. `next phase` advances until phase changes.
+7. `next day` / `next night` advances until the next future day/night boundary is reached.
    - from night, `next day` lands on the next day number.
    - from day, `next day` continues through night and lands on the following day.
-6. Day flow automations remain:
+8. Day flow automations remain:
    - `open_discussion` -> auto `OpenNominationWindow`
    - `nomination_window` -> auto `OpenVote` for latest unresolved nomination; if none, auto `ResolveExecution`
    - `vote_in_progress` -> auto-cast `no` for missing voters, then auto `CloseVote`
    - `execution_resolution` -> auto `ResolveExecutionConsequences` when execution happened and consequences are unresolved
-7. Reminder marker expiry is auto-swept on `AdvancePhase`; expired markers emit `ReminderMarkerExpired`.
+9. Reminder marker expiry is auto-swept on `AdvancePhase`; expired markers emit `ReminderMarkerExpired`.
 
 `next` output includes a stop reason and counters:
 
@@ -113,7 +115,7 @@ Typical happy path after quick setup:
 ```text
 start bmr 7
 n
-next --auto-prompt
+next --auto
 nom p1 p2
 n
 vote p1 p2
