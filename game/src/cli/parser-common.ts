@@ -218,7 +218,7 @@ export function random_option_id_for_prompt(state: GameState | undefined, prompt
 
   if (prompt.selection_mode === 'number_range' && prompt.number_range) {
     const min = Math.ceil(prompt.number_range.min);
-    const raw_max = prompt.number_range.max_inclusive ?? true
+    const raw_max = (prompt.number_range.max_inclusive ?? true)
       ? Math.floor(prompt.number_range.max)
       : Math.ceil(prompt.number_range.max) - 1;
     if (raw_max < min) {
@@ -244,7 +244,7 @@ export function random_option_id_for_prompt(state: GameState | undefined, prompt
       }
 
       const min = Math.ceil(column.min);
-      const raw_max = column.max_inclusive ?? true ? Math.floor(column.max) : Math.ceil(column.max) - 1;
+      const raw_max = (column.max_inclusive ?? true) ? Math.floor(column.max) : Math.ceil(column.max) - 1;
       if (raw_max < min) {
         return null;
       }
