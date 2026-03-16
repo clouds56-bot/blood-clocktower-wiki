@@ -27,7 +27,7 @@ export function handle_create_prompt(
   command: CreatePromptCommand,
   created_at: string
 ): EngineResult<DomainEvent[]> {
-  const prompt_key = command.payload.prompt_key ?? command.payload.prompt_id;
+  const prompt_key = command.payload.prompt_key;
   if (state.prompts_by_id[prompt_key]) {
     return error('prompt_id_already_exists', `prompt already exists: ${prompt_key}`);
   }
@@ -68,7 +68,7 @@ export function handle_resolve_prompt(
   command: ResolvePromptCommand,
   created_at: string
 ): EngineResult<DomainEvent[]> {
-  const prompt_key = command.payload.prompt_key ?? command.payload.prompt_id;
+  const prompt_key = command.payload.prompt_key;
   const prompt = state.prompts_by_id[prompt_key];
   if (!prompt) {
     return error('prompt_not_found', `prompt not found: ${prompt_key}`);
@@ -369,7 +369,7 @@ export function handle_cancel_prompt(
   command: CancelPromptCommand,
   created_at: string
 ): EngineResult<DomainEvent[]> {
-  const prompt_key = command.payload.prompt_key ?? command.payload.prompt_id;
+  const prompt_key = command.payload.prompt_key;
   const prompt = state.prompts_by_id[prompt_key];
   if (!prompt) {
     return error('prompt_not_found', `prompt not found: ${prompt_key}`);

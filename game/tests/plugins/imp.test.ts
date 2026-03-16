@@ -320,6 +320,7 @@ test('imp transfer target prompt resolves into new demon and transferred imp can
       event_type: 'PromptQueued' as const,
       created_at: '2026-03-15T00:00:00.000Z',
       payload: {
+        prompt_key: prompt.prompt_id,
         prompt_id: prompt.prompt_id,
         kind: prompt.kind,
         reason: prompt.reason,

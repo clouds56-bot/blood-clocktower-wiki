@@ -191,6 +191,7 @@ test('projection of replayed state matches directly applied state', () => {
       event_type: 'PromptQueued',
       created_at: '2026-03-13T00:00:04.000Z',
       payload: {
+        prompt_key: 'pr1',
         prompt_id: 'pr1',
         kind: 'false_info',
         reason: 'choose false info',

@@ -313,6 +313,7 @@ test('resolve prompt boundary re-enters plugin runtime via prompt owner tag', ()
           {
             event_type: 'StorytellerRulingRecorded',
             payload: {
+        prompt_key: context.prompt_id,
               prompt_id: context.prompt_id,
               note: `plugin handled ${context.selected_option_id}`
             }
@@ -331,6 +332,7 @@ test('resolve prompt boundary re-enters plugin runtime via prompt owner tag', ()
       event_type: 'PromptQueued',
       created_at: '2026-03-14T00:00:00.000Z',
       payload: {
+        prompt_key: 'plugin:imp:night_kill',
         prompt_id: 'plugin:imp:night_kill',
         kind: 'choice',
         reason: 'plugin:imp:choose target',
@@ -347,6 +349,7 @@ test('resolve prompt boundary re-enters plugin runtime via prompt owner tag', ()
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
+        prompt_key: 'plugin:imp:night_kill',
         prompt_id: 'plugin:imp:night_kill',
         selected_option_id: 'p2',
         freeform: null,
@@ -394,6 +397,7 @@ test('nomination boundary dispatches on_nomination_made for nominee plugin', () 
           {
             event_type: 'StorytellerRulingRecorded',
             payload: {
+              prompt_key: null,
               prompt_id: null,
               note: `nomination_hook:${context.nomination_id}:${context.nominator_player_id}->${context.nominee_player_id}`
             }
@@ -529,6 +533,7 @@ test('resolve prompt resumes suspended wake queue', () => {
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
+        prompt_key: 'plugin:poisoner:night_poison',
         prompt_id: 'plugin:poisoner:night_poison',
         selected_option_id: 'p1',
         freeform: null,
@@ -650,6 +655,7 @@ test('imp plugin prompt resolves into death through engine flow', () => {
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
+        prompt_key: imp_prompt_id!,
         prompt_id: imp_prompt_id!,
         selected_option_id: 'p2',
         freeform: null,
@@ -695,6 +701,7 @@ test('plugin runtime returns deterministic error on duplicate queued prompt id',
       event_type: 'PromptQueued',
       created_at: '2026-03-14T00:00:00.000Z',
       payload: {
+        prompt_key: 'plugin:imp:night_kill:n1:p1',
         prompt_id: 'plugin:imp:night_kill:n1:p1',
         kind: 'choice',
         reason: 'plugin:imp:choose night kill target',
@@ -711,6 +718,7 @@ test('plugin runtime returns deterministic error on duplicate queued prompt id',
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
+        prompt_key: 'plugin:imp:night_kill:n1:p1',
         prompt_id: 'plugin:imp:night_kill:n1:p1',
         selected_option_id: null,
         freeform: null,
@@ -769,6 +777,7 @@ test('poisoner prompt resolves into reminder marker apply and clear flow', () =>
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
+        prompt_key: poisoner_prompt_n1.payload.prompt_id,
         prompt_id: poisoner_prompt_n1.payload.prompt_id,
         selected_option_id: 'p1',
         freeform: null,
@@ -816,6 +825,7 @@ test('poisoner prompt resolves into reminder marker apply and clear flow', () =>
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
+        prompt_key: poisoner_prompt_n2.payload.prompt_id,
         prompt_id: poisoner_prompt_n2.payload.prompt_id,
         selected_option_id: 'p2',
         freeform: null,
@@ -913,6 +923,7 @@ test('poisoned imp still wakes and chooses but kill effect is suppressed', () =>
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
+        prompt_key: poison_prompt.payload.prompt_id,
         prompt_id: poison_prompt.payload.prompt_id,
         selected_option_id: 'p2',
         freeform: null,
@@ -948,6 +959,7 @@ test('poisoned imp still wakes and chooses but kill effect is suppressed', () =>
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
+        prompt_key: imp_prompt.payload.prompt_id,
         prompt_id: imp_prompt.payload.prompt_id,
         selected_option_id: 'p3',
         freeform: null,

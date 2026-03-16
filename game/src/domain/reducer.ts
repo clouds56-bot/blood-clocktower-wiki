@@ -384,7 +384,7 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
     }
     case 'WakeScheduled': {
       ensure_player(next, event.payload.player_id);
-      const wake_key = event.payload.wake_key ?? event.payload.wake_id;
+      const wake_key = event.payload.wake_key;
       if (!next.wake_queue.some((item) => item.wake_key === wake_key)) {
         next.wake_queue.push({
           wake_key,
@@ -396,7 +396,7 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
       break;
     }
     case 'WakeConsumed': {
-      const wake_key = event.payload.wake_key ?? event.payload.wake_id;
+      const wake_key = event.payload.wake_key;
       next.wake_queue = next.wake_queue.filter((item) => item.wake_key !== wake_key);
       break;
     }
@@ -418,7 +418,7 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
       break;
     }
     case 'PromptQueued': {
-      const prompt_key = event.payload.prompt_key ?? event.payload.prompt_id;
+      const prompt_key = event.payload.prompt_key;
       if (next.prompts_by_id[prompt_key]) {
         throw new Error(`prompt_id_already_exists:${prompt_key}`);
       }
@@ -449,7 +449,7 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
       break;
     }
     case 'PromptResolved': {
-      const prompt_key = event.payload.prompt_key ?? event.payload.prompt_id;
+      const prompt_key = event.payload.prompt_key;
       const prompt = next.prompts_by_id[prompt_key];
       if (!prompt) {
         throw new Error(`prompt_not_found:${prompt_key}`);
@@ -465,7 +465,7 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
       break;
     }
     case 'PromptCancelled': {
-      const prompt_key = event.payload.prompt_key ?? event.payload.prompt_id;
+      const prompt_key = event.payload.prompt_key;
       const prompt = next.prompts_by_id[prompt_key];
       if (!prompt) {
         throw new Error(`prompt_not_found:${prompt_key}`);
@@ -530,7 +530,7 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
     case 'StorytellerRulingRecorded': {
       next.storyteller_notes.push({
         note_id: assigned_event_id,
-        prompt_key: event.payload.prompt_key ?? event.payload.prompt_id,
+        prompt_key: event.payload.prompt_key,
         prompt_id: event.payload.prompt_id,
         text: event.payload.note,
         created_at_event_id: assigned_event_id

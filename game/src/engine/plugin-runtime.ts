@@ -23,7 +23,7 @@ interface ParsedClaimedAbilityPrompt {
 }
 
 function resolve_prompt_key(command: ResolvePromptCommand): string {
-  return command.payload.prompt_key ?? command.payload.prompt_id;
+  return command.payload.prompt_key;
 }
 
 export function integrate_plugin_runtime(
@@ -564,7 +564,7 @@ function parse_claimed_ability_prompt(
     return null;
   }
 
-  const match = /^plugin:([a-z0-9_-]+):claimed_ability:(d\d+|n\d+):([a-z0-9_-]+)$/.exec(prompt.reason);
+  const match = /^plugin:([a-z0-9_-]+):claimed_ability:(d\d+|n\d+):([a-z0-9_-]+)(?::[a-z0-9_-]+)?$/.exec(prompt.reason);
   if (!match) {
     return null;
   }
@@ -916,7 +916,7 @@ function validate_queued_prompt_ids(
       continue;
     }
 
-    const prompt_id = event.payload.prompt_key ?? event.payload.prompt_id;
+    const prompt_id = event.payload.prompt_key;
     if (state.prompts_by_id[prompt_id] || seenPromptIds.has(prompt_id)) {
       return {
         ok: false,
@@ -1027,6 +1027,7 @@ function process_wake_queue(
       created_at: context.created_at,
       ...(context.command.actor_id === undefined ? {} : { actor_id: context.command.actor_id }),
       payload: {
+        wake_key: wake_step.wake_key,
         wake_id: wake_step.wake_id
       }
     };

@@ -135,6 +135,7 @@ test('reducer tracks prompt lifecycle and storyteller notes', () => {
         event_type: 'PromptQueued',
         created_at: '2026-03-13T00:00:00.000Z',
         payload: {
+        prompt_key: 'pr1',
           prompt_id: 'pr1',
           kind: 'false_info',
           reason: 'pick false data',
@@ -150,6 +151,7 @@ test('reducer tracks prompt lifecycle and storyteller notes', () => {
         event_type: 'PromptResolved',
         created_at: '2026-03-13T00:00:01.000Z',
         payload: {
+        prompt_key: 'pr1',
           prompt_id: 'pr1',
           selected_option_id: 'b',
           freeform: null,
@@ -161,6 +163,7 @@ test('reducer tracks prompt lifecycle and storyteller notes', () => {
         event_type: 'StorytellerRulingRecorded',
         created_at: '2026-03-13T00:00:02.000Z',
         payload: {
+        prompt_key: 'pr1',
           prompt_id: 'pr1',
           note: 'resolved for balance'
         }
@@ -191,6 +194,7 @@ test('reducer tracks wake and interrupt queues', () => {
       event_type: 'WakeScheduled',
       created_at: '2026-03-13T00:00:01.000Z',
       payload: {
+        wake_key: 'w1',
         wake_id: 'w1',
         character_id: 'imp',
         player_id: 'p1'
@@ -214,6 +218,7 @@ test('reducer tracks wake and interrupt queues', () => {
       event_type: 'WakeConsumed',
       created_at: '2026-03-13T00:00:03.000Z',
       payload: {
+        wake_key: 'w1',
         wake_id: 'w1'
       }
     },
@@ -260,6 +265,7 @@ test('WakeScheduled fails fast for unknown player', () => {
       event_type: 'WakeScheduled',
       created_at: '2026-03-13T00:00:00.000Z',
       payload: {
+        wake_key: 'w1',
         wake_id: 'w1',
         character_id: 'imp',
         player_id: 'missing'
@@ -276,6 +282,7 @@ test('PromptQueued rejects duplicate prompt ids', () => {
         event_type: 'PromptQueued',
         created_at: '2026-03-13T00:00:00.000Z',
         payload: {
+        prompt_key: 'dup_prompt',
           prompt_id: 'dup_prompt',
           kind: 'choice',
           reason: 'first',
@@ -293,6 +300,7 @@ test('PromptQueued rejects duplicate prompt ids', () => {
       event_type: 'PromptQueued',
       created_at: '2026-03-13T00:00:01.000Z',
       payload: {
+        prompt_key: 'dup_prompt',
         prompt_id: 'dup_prompt',
         kind: 'choice',
         reason: 'second',

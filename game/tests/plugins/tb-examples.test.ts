@@ -543,6 +543,7 @@ test('slayer example: chooses Imp, Imp dies, then good wins', () => {
     command_id: 'c-slay-resolve',
     command_type: 'ResolvePrompt',
     payload: {
+      prompt_key: prompt_id,
       prompt_id,
       selected_option_id: 'p2',
       freeform: null,
@@ -576,6 +577,7 @@ test('slayer example: Imp bluffing as Slayer creates attempt but no kill', () =>
     command_id: 'c-fake-slay-resolve',
     command_type: 'ResolvePrompt',
     payload: {
+      prompt_key: prompt_id,
       prompt_id,
       selected_option_id: 'p3',
       freeform: null,

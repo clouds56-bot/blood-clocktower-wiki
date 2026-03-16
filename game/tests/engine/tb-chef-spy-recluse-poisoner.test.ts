@@ -241,6 +241,7 @@ function resolve_poisoner_and_get_events(
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
+        prompt_key: 'plugin:poisoner:night_poison:n1:p3',
         prompt_id: 'plugin:poisoner:night_poison:n1:p3',
         selected_option_id: target_player_id,
         freeform: null,
@@ -347,6 +348,7 @@ test('chef can emit final info after one registration resolution when remaining 
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
+        prompt_key: 'plugin:poisoner:night_poison:n1:p5',
         prompt_id: 'plugin:poisoner:night_poison:n1:p5',
         selected_option_id: 'p5',
         freeform: null,
@@ -377,6 +379,7 @@ test('chef can emit final info after one registration resolution when remaining 
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
+        prompt_key: spy_prompt_id,
         prompt_id: spy_prompt_id,
         selected_option_id: 'alignment:good',
         freeform: null,

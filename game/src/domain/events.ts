@@ -356,7 +356,7 @@ export interface DeadVoteConsumedEvent extends BaseDomainEvent {
 export interface WakeScheduledEvent extends BaseDomainEvent {
   event_type: 'WakeScheduled';
   payload: {
-    wake_key?: string;
+    wake_key: string;
     wake_id: string;
     character_id: string;
     player_id: PlayerId;
@@ -366,7 +366,7 @@ export interface WakeScheduledEvent extends BaseDomainEvent {
 export interface WakeConsumedEvent extends BaseDomainEvent {
   event_type: 'WakeConsumed';
   payload: {
-    wake_key?: string;
+    wake_key: string;
     wake_id: string;
   };
 }
@@ -391,7 +391,7 @@ export interface InterruptConsumedEvent extends BaseDomainEvent {
 export interface PromptQueuedEvent extends BaseDomainEvent {
   event_type: 'PromptQueued';
   payload: {
-    prompt_key?: string;
+    prompt_key: string;
     prompt_id: string;
     kind: string;
     reason: string;
@@ -407,7 +407,7 @@ export interface PromptQueuedEvent extends BaseDomainEvent {
 export interface PromptResolvedEvent extends BaseDomainEvent {
   event_type: 'PromptResolved';
   payload: {
-    prompt_key?: string;
+    prompt_key: string;
     prompt_id: string;
     selected_option_id: string | null;
     freeform: string | null;
@@ -418,7 +418,7 @@ export interface PromptResolvedEvent extends BaseDomainEvent {
 export interface PromptCancelledEvent extends BaseDomainEvent {
   event_type: 'PromptCancelled';
   payload: {
-    prompt_key?: string;
+    prompt_key: string;
     prompt_id: string;
     reason: string;
   };
@@ -453,7 +453,7 @@ export interface RegistrationDecisionRecordedEvent extends BaseDomainEvent {
 export interface StorytellerChoiceMadeEvent extends BaseDomainEvent {
   event_type: 'StorytellerChoiceMade';
   payload: {
-    prompt_key?: string;
+    prompt_key: string;
     prompt_id: string;
     selected_option_id: string | null;
     freeform: string | null;
@@ -463,7 +463,7 @@ export interface StorytellerChoiceMadeEvent extends BaseDomainEvent {
 export interface StorytellerRulingRecordedEvent extends BaseDomainEvent {
   event_type: 'StorytellerRulingRecorded';
   payload: {
-    prompt_key?: string | null;
+    prompt_key: string | null;
     prompt_id: string | null;
     note: string;
   };

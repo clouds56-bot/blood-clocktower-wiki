@@ -709,6 +709,7 @@ test('virgin can execute spy nominator when storyteller resolves spy as townsfol
     command_id: 'c-resolve-virgin-spy-yes',
     command_type: 'ResolvePrompt',
     payload: {
+      prompt_key: prompt_id,
       prompt_id,
       selected_option_id: 'character_type:townsfolk',
       freeform: null,
@@ -760,6 +761,7 @@ test('virgin can leave spy nominator alive when registration is not triggered', 
     command_id: 'c-resolve-virgin-spy-no',
     command_type: 'ResolvePrompt',
     payload: {
+      prompt_key: prompt_id,
       prompt_id,
       selected_option_id: 'default',
       freeform: null,
@@ -803,6 +805,7 @@ test('slayer shot kills demon and is once per game', () => {
     command_id: 'c-slay-resolve',
     command_type: 'ResolvePrompt',
     payload: {
+    prompt_key: firstPromptId,
       prompt_id: firstPromptId,
       selected_option_id: 'p2',
       freeform: null,
@@ -839,6 +842,7 @@ test('slayer shot kills demon and is once per game', () => {
         command_id: 'c-slay-resolve-2',
         command_type: 'ResolvePrompt',
         payload: {
+    prompt_key: secondPromptId,
           prompt_id: secondPromptId,
           selected_option_id: 'p3',
           freeform: null,
