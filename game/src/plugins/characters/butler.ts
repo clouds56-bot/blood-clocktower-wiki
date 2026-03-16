@@ -209,14 +209,11 @@ export function validate_butler_vote_cast(
 }
 
 export function is_butler_prompt_id(prompt_id: string): boolean {
-  return prompt_id.startsWith(BUTLER_PROMPT_PREFIX) || /^plugin:butler:night_master:n\d+:[a-z0-9_-]+$/.test(prompt_id);
+  return /^plugin:butler:night_master:n\d+:[a-z0-9_-]+$/.test(prompt_id);
 }
 
 function parse_butler_prompt_owner_player_id(prompt_id: string): string | null {
   const parts = prompt_id.split(':');
-  if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'butler' && parts[2] === 'night_master') {
-    return parts[4] ?? null;
-  }
   if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'butler' && parts[2] === 'night_master' && /^n\d+$/.test(parts[3] ?? '')) {
     return parts[4] ?? null;
   }

@@ -283,20 +283,13 @@ export const imp_plugin: CharacterPlugin = {
 };
 
 export function is_imp_prompt_id(prompt_id: string): boolean {
-  return prompt_id.startsWith(`${IMP_PROMPT_PREFIX}:night_kill:`) ||
-    /^plugin:imp:night_kill:n\d+:[a-z0-9_-]+$/.test(prompt_id);
+  return /^plugin:imp:night_kill:n\d+:[a-z0-9_-]+$/.test(prompt_id);
 }
 
 function parse_imp_prompt_owner_player_id(prompt_id: string): string | null {
   const parts = prompt_id.split(':');
-  if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'imp' && parts[2] === 'night_kill') {
-    return parts[4] ?? null;
-  }
   if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'imp' && parts[2] === 'night_kill' && /^n\d+$/.test(parts[3] ?? '')) {
     return parts[4] ?? null;
-  }
-  if (parts.length < 5) {
-    return null;
   }
   return null;
 }
@@ -386,7 +379,7 @@ function build_imp_transfer_events(
 }
 
 function is_imp_transfer_prompt_id(prompt_id: string): boolean {
-  return prompt_id.startsWith(IMP_TRANSFER_PROMPT_PREFIX);
+  return /^plugin:imp:transfer_target:n\d+:[a-z0-9_-]+$/.test(prompt_id);
 }
 
 function parse_imp_transfer_prompt_dead_player_id(prompt_id: string): string | null {

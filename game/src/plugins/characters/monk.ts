@@ -151,14 +151,11 @@ export const monk_plugin: CharacterPlugin = {
 };
 
 export function is_monk_prompt_id(prompt_id: string): boolean {
-  return prompt_id.startsWith(MONK_PROMPT_PREFIX) || /^plugin:monk:night_protect:n\d+:[a-z0-9_-]+$/.test(prompt_id);
+  return /^plugin:monk:night_protect:n\d+:[a-z0-9_-]+$/.test(prompt_id);
 }
 
 function parse_monk_prompt_owner_player_id(prompt_id: string): string | null {
   const parts = prompt_id.split(':');
-  if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'monk' && parts[2] === 'night_protect') {
-    return parts[4] ?? null;
-  }
   if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'monk' && parts[2] === 'night_protect' && /^n\d+$/.test(parts[3] ?? '')) {
     return parts[4] ?? null;
   }

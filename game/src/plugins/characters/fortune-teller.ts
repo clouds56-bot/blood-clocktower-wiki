@@ -283,7 +283,7 @@ export const fortune_teller_plugin: CharacterPlugin = {
 };
 
 export function is_fortune_teller_prompt_id(prompt_id: string): boolean {
-  return prompt_id.startsWith(FORTUNE_TELLER_PROMPT_PREFIX);
+  return /^plugin:fortune_teller:night_check:n\d+:[a-z0-9_-]+$/.test(prompt_id);
 }
 
 function build_fortune_teller_registration_requests(
@@ -442,9 +442,6 @@ function is_demon_check_positive(
 
 function parse_fortune_teller_prompt_owner_player_id(prompt_id: string): string | null {
   const parts = prompt_id.split(':');
-  if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'fortune_teller' && parts[2] === 'night_check') {
-    return parts[4] ?? null;
-  }
   if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'fortune_teller' && parts[2] === 'night_check' && /^n\d+$/.test(parts[3] ?? '')) {
     return parts[4] ?? null;
   }

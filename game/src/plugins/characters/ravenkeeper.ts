@@ -93,9 +93,6 @@ export function build_ravenkeeper_reveal_prompt(
 
 function parse_ravenkeeper_prompt_owner_player_id(prompt_id: string): string | null {
   const parts = prompt_id.split(':');
-  if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'ravenkeeper' && parts[2] === 'night_reveal') {
-    return parts[4] ?? null;
-  }
   if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'ravenkeeper' && parts[2] === 'night_reveal' && /^n\d+$/.test(parts[3] ?? '')) {
     return parts[4] ?? null;
   }

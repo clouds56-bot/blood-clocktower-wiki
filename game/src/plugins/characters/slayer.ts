@@ -123,9 +123,6 @@ export const slayer_plugin: CharacterPlugin = {
 
 function parse_claimed_slayer_prompt_owner_player_id(prompt_id: string): string | null {
   const parts = prompt_id.split(':');
-  if (parts.length >= 6 && prompt_id.startsWith(`${SLAYER_CLAIMED_PROMPT_PREFIX}:`)) {
-    return parts[4] ?? null;
-  }
   if (
     parts.length >= 5 &&
     parts[0] === 'plugin' &&

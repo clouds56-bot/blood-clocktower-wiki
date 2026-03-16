@@ -146,20 +146,13 @@ export const poisoner_plugin: CharacterPlugin = {
 };
 
 export function is_poisoner_prompt_id(prompt_id: string): boolean {
-  return prompt_id.startsWith(`${POISONER_PROMPT_PREFIX}:night_poison:`) ||
-    /^plugin:poisoner:night_poison:n\d+:[a-z0-9_-]+$/.test(prompt_id);
+  return /^plugin:poisoner:night_poison:n\d+:[a-z0-9_-]+$/.test(prompt_id);
 }
 
 function parse_poisoner_prompt_owner_player_id(prompt_id: string): string | null {
   const parts = prompt_id.split(':');
-  if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'poisoner' && parts[2] === 'night_poison') {
-    return parts[4] ?? null;
-  }
   if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'poisoner' && parts[2] === 'night_poison' && /^n\d+$/.test(parts[3] ?? '')) {
     return parts[4] ?? null;
-  }
-  if (parts.length < 5) {
-    return null;
   }
   return null;
 }
