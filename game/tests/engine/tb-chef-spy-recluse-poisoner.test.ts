@@ -241,7 +241,7 @@ function resolve_poisoner_and_get_events(
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
-        prompt_id: 'plugin:poisoner:night_poison:1:p3',
+        prompt_id: 'plugin:poisoner:night_poison:n1:p3',
         selected_option_id: target_player_id,
         freeform: null,
         notes: null
@@ -322,7 +322,7 @@ test('poisoned chef suppresses registration prompts and receives misinformation 
     .filter((event) => event.event_type === 'PromptQueued')
     .map((event) => String(event.payload.prompt_id));
 
-  assert.equal(queued_prompt_ids.some((prompt_id) => prompt_id.startsWith('plugin:chef:misinfo:1:p1')), true);
+  assert.equal(queued_prompt_ids.some((prompt_id) => prompt_id.startsWith('plugin:chef:misinfo:n1:p1')), true);
   assert.equal(
     queued_prompt_ids.some((prompt_id) => prompt_id.includes(':registration:chef:p1:adjacent_pairs:')),
     false
@@ -347,7 +347,7 @@ test('chef can emit final info after one registration resolution when remaining 
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
-        prompt_id: 'plugin:poisoner:night_poison:1:p5',
+        prompt_id: 'plugin:poisoner:night_poison:n1:p5',
         selected_option_id: 'p5',
         freeform: null,
         notes: null

@@ -68,7 +68,7 @@ export function build_misinformation_prompt(
   const time_key = `n${night_number}`;
 
   return {
-    prompt_id: `plugin:${role_id}:misinfo:${night_number}:${subject_player_id}`,
+    prompt_id: `plugin:${role_id}:misinfo:${time_key}:${subject_player_id}`,
     prompt_key: `plugin:${role_id}:misinfo:${time_key}:${subject_player_id}`,
     kind: 'choice',
     reason: `plugin:${role_id}:choose_misinformation:${time_key}:${subject_player_id}`,
@@ -82,6 +82,9 @@ export function build_misinformation_prompt(
 
 export function is_misinformation_prompt_id(prompt_id: string, role_id: string): boolean {
   if (prompt_id.startsWith(`plugin:${role_id}:misinfo:`)) {
+    return true;
+  }
+  if (prompt_id.startsWith(`plugin:${role_id}:misinfo_pair:`)) {
     return true;
   }
   return /^plugin:[a-z0-9_-]+:misinfo:n\d+:[a-z0-9_-]+(?:$|:)/.test(prompt_id) &&
@@ -213,6 +216,9 @@ export function build_info_role_misinformation_hooks(config: InfoRoleMisinformat
 function parse_misinfo_prompt_subject_player_id(prompt_id: string): string | null {
   const parts = prompt_id.split(':');
   if (parts.length >= 5 && parts[2] === 'misinfo') {
+    return parts[4] ?? null;
+  }
+  if (parts.length >= 5 && parts[2] === 'misinfo_pair' && /^n\d+$/.test(parts[3] ?? '')) {
     return parts[4] ?? null;
   }
   if (parts.length >= 5 && parts[2] === 'misinfo' && /^n\d+$/.test(parts[3] ?? '')) {

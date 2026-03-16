@@ -15,7 +15,11 @@ function build_imp_prompt_key(night_number: number, player_id: string): string {
 }
 
 function build_imp_prompt_id(night_number: number, player_id: string): string {
-  return `plugin:imp:night_kill:${night_number}:${player_id}`;
+  return `plugin:imp:night_kill:${night_time_key(night_number)}:${player_id}`;
+}
+
+function build_imp_transfer_prompt_key(state: Parameters<typeof build_ravenkeeper_reveal_prompt>[0], dead_imp_id: string): string {
+  return `plugin:imp:transfer_target:${night_time_key(state.night_number)}:${dead_imp_id}`;
 }
 
 export const imp_plugin: CharacterPlugin = {
@@ -262,8 +266,9 @@ export const imp_plugin: CharacterPlugin = {
         queued_prompts: [
           {
             prompt_id: build_imp_transfer_prompt_id(context.state, dead_player.player_id),
+            prompt_key: build_imp_transfer_prompt_key(context.state, dead_player.player_id),
             kind: 'choice',
-            reason: 'plugin:imp:choose transfer target',
+            reason: `plugin:imp:choose_transfer_target:${night_time_key(context.state.night_number)}:${dead_player.player_id}`,
             visibility: 'storyteller',
             options: alive_evil_minions.map((player) => ({
               option_id: player.player_id,
@@ -386,20 +391,23 @@ function is_imp_transfer_prompt_id(prompt_id: string): boolean {
 
 function parse_imp_transfer_prompt_dead_player_id(prompt_id: string): string | null {
   const parts = prompt_id.split(':');
-  if (parts.length < 6) {
+  if (parts.length < 5) {
     return null;
   }
   if (parts[0] !== 'plugin' || parts[1] !== 'imp' || parts[2] !== 'transfer_target') {
     return null;
   }
-  return parts[5] ?? null;
+  if (/^n\d+$/.test(parts[3] ?? '')) {
+    return parts[4] ?? null;
+  }
+  return null;
 }
 
 function build_imp_transfer_prompt_id(
   state: Parameters<typeof build_ravenkeeper_reveal_prompt>[0],
   dead_imp_id: string
 ): string {
-  return `${IMP_TRANSFER_PROMPT_PREFIX}:${state.night_number}:${state.day_number}:${dead_imp_id}`;
+  return build_imp_transfer_prompt_key(state, dead_imp_id);
 }
 
 function build_imp_transfer_marker_id(

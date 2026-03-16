@@ -54,7 +54,7 @@ export const butler_plugin: CharacterPlugin = {
         emitted_events: [],
         queued_prompts: [
           {
-            prompt_id: `${BUTLER_PROMPT_PREFIX}:${context.state.night_number}:${context.player_id}`,
+            prompt_id: build_butler_prompt_key(context.state.night_number, context.player_id),
             prompt_key: build_butler_prompt_key(context.state.night_number, context.player_id),
             kind: 'choice',
             reason: `plugin:butler:choose_master:${night_time_key(context.state.night_number)}:${context.player_id}`,

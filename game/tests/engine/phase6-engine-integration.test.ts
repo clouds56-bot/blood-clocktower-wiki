@@ -676,7 +676,7 @@ test('plugin runtime returns deterministic error on duplicate queued prompt id',
           emitted_events: [],
           queued_prompts: [
             {
-              prompt_id: 'plugin:imp:night_kill:1:p1',
+              prompt_id: 'plugin:imp:night_kill:n1:p1',
               kind: 'choice',
               reason: 'plugin:imp:choose night kill target',
               visibility: 'storyteller',
@@ -695,7 +695,7 @@ test('plugin runtime returns deterministic error on duplicate queued prompt id',
       event_type: 'PromptQueued',
       created_at: '2026-03-14T00:00:00.000Z',
       payload: {
-        prompt_id: 'plugin:imp:night_kill:1:p1',
+        prompt_id: 'plugin:imp:night_kill:n1:p1',
         kind: 'choice',
         reason: 'plugin:imp:choose night kill target',
         visibility: 'storyteller',
@@ -711,7 +711,7 @@ test('plugin runtime returns deterministic error on duplicate queued prompt id',
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
-        prompt_id: 'plugin:imp:night_kill:1:p1',
+        prompt_id: 'plugin:imp:night_kill:n1:p1',
         selected_option_id: null,
         freeform: null,
         notes: null
@@ -758,7 +758,7 @@ test('poisoner prompt resolves into reminder marker apply and clear flow', () =>
   const poisoner_prompt_n1 = wake_events.find(
     (event) =>
       event.event_type === 'PromptQueued' &&
-      event.payload.prompt_id.startsWith('plugin:poisoner:night_poison:1:')
+      event.payload.prompt_id.startsWith('plugin:poisoner:night_poison:n1:')
   );
   assert.ok(poisoner_prompt_n1 && poisoner_prompt_n1.event_type === 'PromptQueued');
 
@@ -805,7 +805,7 @@ test('poisoner prompt resolves into reminder marker apply and clear flow', () =>
   const poisoner_prompt_n2 = phase_to_n2.find(
     (event) =>
       event.event_type === 'PromptQueued' &&
-      event.payload.prompt_id.startsWith('plugin:poisoner:night_poison:2:')
+      event.payload.prompt_id.startsWith('plugin:poisoner:night_poison:n2:')
   );
   assert.ok(poisoner_prompt_n2 && poisoner_prompt_n2.event_type === 'PromptQueued');
 
@@ -902,7 +902,7 @@ test('poisoned imp still wakes and chooses but kill effect is suppressed', () =>
   const poison_prompt = phase_events.find(
     (event) =>
       event.event_type === 'PromptQueued' &&
-      event.payload.prompt_id.startsWith('plugin:poisoner:night_poison:1:p1')
+      event.payload.prompt_id.startsWith('plugin:poisoner:night_poison:n1:p1')
   );
   assert.ok(poison_prompt && poison_prompt.event_type === 'PromptQueued');
 
@@ -937,7 +937,7 @@ test('poisoned imp still wakes and chooses but kill effect is suppressed', () =>
   const imp_prompt = resolve_events.find(
     (event) =>
       event.event_type === 'PromptQueued' &&
-      event.payload.prompt_id.startsWith('plugin:imp:night_kill:1:p2')
+      event.payload.prompt_id.startsWith('plugin:imp:night_kill:n1:p2')
   );
   assert.ok(imp_prompt && imp_prompt.event_type === 'PromptQueued');
 

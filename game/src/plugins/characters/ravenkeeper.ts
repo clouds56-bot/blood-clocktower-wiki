@@ -82,7 +82,7 @@ export function build_ravenkeeper_reveal_prompt(
     .sort((left, right) => left.option_id.localeCompare(right.option_id));
 
   return {
-    prompt_id: `${RAVENKEEPER_PROMPT_PREFIX}:${state.night_number}:${ravenkeeper_player_id}`,
+    prompt_id: build_ravenkeeper_prompt_key(state.night_number, ravenkeeper_player_id),
     prompt_key: build_ravenkeeper_prompt_key(state.night_number, ravenkeeper_player_id),
     kind: 'choice',
     reason: `plugin:ravenkeeper:choose_player:${night_time_key(state.night_number)}:${ravenkeeper_player_id}`,

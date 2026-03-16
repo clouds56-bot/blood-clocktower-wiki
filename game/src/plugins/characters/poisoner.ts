@@ -11,7 +11,7 @@ function build_poisoner_prompt_key(night_number: number, player_id: string): str
 }
 
 function build_poisoner_prompt_id(night_number: number, player_id: string): string {
-  return `plugin:poisoner:night_poison:${night_number}:${player_id}`;
+  return `plugin:poisoner:night_poison:${night_time_key(night_number)}:${player_id}`;
 }
 
 export const poisoner_plugin: CharacterPlugin = {

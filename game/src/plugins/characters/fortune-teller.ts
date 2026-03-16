@@ -98,7 +98,7 @@ export const fortune_teller_plugin: CharacterPlugin = {
         emitted_events: [],
         queued_prompts: [
           {
-            prompt_id: `${FORTUNE_TELLER_PROMPT_PREFIX}:${context.state.night_number}:${context.player_id}`,
+            prompt_id: build_fortune_teller_prompt_key(context.state.night_number, context.player_id),
             prompt_key: build_fortune_teller_prompt_key(context.state.night_number, context.player_id),
             kind: 'choice',
             reason: `plugin:fortune_teller:choose_two_players:${night_time_key(context.state.night_number)}:${context.player_id}`,
@@ -183,7 +183,12 @@ export const fortune_teller_plugin: CharacterPlugin = {
             ]
           }
         );
-        misinfo_prompt.prompt_id = `plugin:fortune_teller:misinfo:${context.state.night_number}:${owner_player_id}:${left_id}:${right_id}`;
+        misinfo_prompt.prompt_id = build_fortune_teller_pair_misinfo_prompt_key(
+          context.state.night_number,
+          owner_player_id,
+          left_id,
+          right_id
+        );
         misinfo_prompt.prompt_key = build_fortune_teller_pair_misinfo_prompt_key(
           context.state.night_number,
           owner_player_id,

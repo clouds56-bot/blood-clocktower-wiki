@@ -53,7 +53,7 @@ export const monk_plugin: CharacterPlugin = {
         emitted_events: [],
         queued_prompts: [
           {
-            prompt_id: `${MONK_PROMPT_PREFIX}:${context.state.night_number}:${context.player_id}`,
+            prompt_id: build_monk_prompt_key(context.state.night_number, context.player_id),
             prompt_key: build_monk_prompt_key(context.state.night_number, context.player_id),
             kind: 'choice',
             reason: `plugin:monk:choose_protection_target:${night_time_key(context.state.night_number)}:${context.player_id}`,
