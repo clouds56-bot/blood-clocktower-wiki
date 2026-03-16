@@ -15,13 +15,14 @@ import { investigator_plugin } from '../../src/plugins/characters/investigator.j
 import { librarian_plugin } from '../../src/plugins/characters/librarian.js';
 import { monk_plugin } from '../../src/plugins/characters/monk.js';
 import { ravenkeeper_plugin } from '../../src/plugins/characters/ravenkeeper.js';
+import { slayer_plugin } from '../../src/plugins/characters/slayer.js';
 import { undertaker_plugin } from '../../src/plugins/characters/undertaker.js';
 import { virgin_plugin } from '../../src/plugins/characters/virgin.js';
 import { washerwoman_plugin } from '../../src/plugins/characters/washerwoman.js';
 import { PluginRegistry } from '../../src/plugins/registry.js';
 import { make_player } from './tb-test-utils.js';
 
-const DAY_HOOK_REGISTRY = new PluginRegistry([butler_plugin, virgin_plugin]);
+const DAY_HOOK_REGISTRY = new PluginRegistry([butler_plugin, slayer_plugin, virgin_plugin]);
 
 test('chef example: no adjacent evil players -> learns 0', () => {
   const state = create_initial_state('g1');
@@ -531,12 +532,21 @@ test('slayer example: chooses Imp, Imp dies, then good wins', () => {
   });
   state = run_command(state, {
     command_id: 'c-slay',
-    command_type: 'UseSlayerShot',
+    command_type: 'UseClaimedAbility',
     payload: {
-      slayer_player_id: 'p1',
-      target_player_id: 'p2',
-      day_number: 1,
-      night_number: 1
+      claimant_player_id: 'p1',
+      claimed_character_id: 'slayer'
+    }
+  });
+  const prompt_id = state.pending_prompts[0] ?? '';
+  state = run_command(state, {
+    command_id: 'c-slay-resolve',
+    command_type: 'ResolvePrompt',
+    payload: {
+      prompt_id,
+      selected_option_id: 'p2',
+      freeform: null,
+      notes: null
     }
   });
   state = run_command(state, {
@@ -551,27 +561,31 @@ test('slayer example: chooses Imp, Imp dies, then good wins', () => {
 
 test.skip('slayer example: chooses Recluse and recluse dies via demon registration (registration not implemented yet)');
 
-test('slayer example: Imp bluffing as Slayer cannot use real shot command', () => {
-  const state = bootstrap_day_state();
-  const result = handle_command(
-    state,
-    {
-      command_id: 'c-fake-slay',
-      command_type: 'UseSlayerShot',
-      payload: {
-        slayer_player_id: 'p2',
-        target_player_id: 'p3',
-        day_number: 1,
-        night_number: 1
-      }
-    },
-    '2026-03-12T02:00:00.000Z'
-  );
+test('slayer example: Imp bluffing as Slayer creates attempt but no kill', () => {
+  let state = bootstrap_day_state();
+  state = run_command(state, {
+    command_id: 'c-fake-slay',
+    command_type: 'UseClaimedAbility',
+    payload: {
+      claimant_player_id: 'p2',
+      claimed_character_id: 'slayer'
+    }
+  });
+  const prompt_id = state.pending_prompts[0] ?? '';
+  state = run_command(state, {
+    command_id: 'c-fake-slay-resolve',
+    command_type: 'ResolvePrompt',
+    payload: {
+      prompt_id,
+      selected_option_id: 'p3',
+      freeform: null,
+      notes: null
+    }
+  });
 
-  assert.equal(result.ok, false);
-  if (!result.ok) {
-    assert.equal(result.error.code, 'slayer_role_required');
-  }
+  assert.equal(state.players_by_id.p3?.alive, true);
+  const attempt_events = state.domain_events.filter((event) => event.event_type === 'ClaimedAbilityAttempted');
+  assert.equal(attempt_events.length, 1);
 });
 
 test('virgin example: washerwoman nominates virgin and is executed immediately', () => {

@@ -282,7 +282,7 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
       next.day_state.execution_consequences_resolved_today = true;
       break;
     }
-    case 'SlayerShotUsed': {
+    case 'ClaimedAbilityAttempted': {
       break;
     }
     case 'ExecutionConsequencesResolved': {

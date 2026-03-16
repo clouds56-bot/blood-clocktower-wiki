@@ -271,24 +271,20 @@ export function parse_day_domain_command(
     };
   }
 
-  if (command === 'slay' || command === 'slayer-shot') {
-    const slayer_player_id = args[0] ?? null;
-    const target_player_id = args[1] ?? null;
-    const day_number = current_day_number(state);
-    const night_number = current_night_number(state);
-    if (!slayer_player_id || !target_player_id || day_number === null || night_number === null) {
-      return invalid(`usage: ${CLI_USAGE.slay}`);
+  if (command === 'claim-ability') {
+    const claimant_player_id = args[0] ?? null;
+    const claimed_character_id = args[1] ?? null;
+    if (!claimant_player_id || !claimed_character_id) {
+      return invalid(`usage: ${CLI_USAGE.claim_ability}`);
     }
     return {
       ok: true,
       kind: 'engine',
       command: {
-        command_type: 'UseSlayerShot',
+        command_type: 'UseClaimedAbility',
         payload: {
-          slayer_player_id,
-          target_player_id,
-          day_number,
-          night_number
+          claimant_player_id,
+          claimed_character_id
         }
       }
     };

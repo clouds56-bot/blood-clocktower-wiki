@@ -98,6 +98,11 @@ export interface PromptResolvedHookContext {
   freeform: string | null;
 }
 
+export interface ClaimedAbilityUseHookContext {
+  state: Readonly<GameState>;
+  claimant_player_id: PlayerId;
+}
+
 export interface EventAppliedHookContext {
   state: Readonly<GameState>;
   event_type: DomainEventType;
@@ -185,6 +190,7 @@ export type VoteCastValidateHookResult =
     };
 
 export interface CharacterPluginHooks {
+  on_claimed_ability_use?: (context: ClaimedAbilityUseHookContext) => PluginResult;
   on_night_wake?: (context: NightWakeHookContext) => PluginResult;
   on_prompt_resolved?: (context: PromptResolvedHookContext) => PluginResult;
   on_registration_resolved?: (context: RegistrationResolvedHookContext) => PluginResult;

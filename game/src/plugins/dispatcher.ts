@@ -1,4 +1,5 @@
 import type {
+  ClaimedAbilityUseHookContext,
   CharacterPlugin,
   EventAppliedHookContext,
   NominationMadeHookContext,
@@ -16,6 +17,7 @@ import type { VoteCastValidateHookContext } from './contracts.js';
 import type { PluginRegistry } from './registry.js';
 
 export type DispatchHookName =
+  | 'on_claimed_ability_use'
   | 'on_night_wake'
   | 'on_prompt_resolved'
   | 'on_registration_resolved'
@@ -24,6 +26,7 @@ export type DispatchHookName =
   | 'on_player_died';
 
 type DispatchContextByHook = {
+  on_claimed_ability_use: ClaimedAbilityUseHookContext;
   on_night_wake: NightWakeHookContext;
   on_prompt_resolved: PromptResolvedHookContext;
   on_registration_resolved: RegistrationResolvedHookContext;

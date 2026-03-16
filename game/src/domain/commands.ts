@@ -40,7 +40,7 @@ export type CommandType =
   | 'ResolveExecutionConsequences'
   | 'ApplyDeath'
   | 'MarkPlayerSurvivedExecution'
-  | 'UseSlayerShot'
+  | 'UseClaimedAbility'
   | 'ApplyPoison'
   | 'ApplyDrunk'
   | 'ApplyReminderMarker'
@@ -210,13 +210,11 @@ export interface MarkPlayerSurvivedExecutionCommand extends BaseCommand {
   };
 }
 
-export interface UseSlayerShotCommand extends BaseCommand {
-  command_type: 'UseSlayerShot';
+export interface UseClaimedAbilityCommand extends BaseCommand {
+  command_type: 'UseClaimedAbility';
   payload: {
-    slayer_player_id: PlayerId;
-    target_player_id: PlayerId;
-    day_number: number;
-    night_number: number;
+    claimant_player_id: PlayerId;
+    claimed_character_id: string;
   };
 }
 
@@ -366,7 +364,7 @@ export type Command =
   | ResolveExecutionConsequencesCommand
   | ApplyDeathCommand
   | MarkPlayerSurvivedExecutionCommand
-  | UseSlayerShotCommand
+  | UseClaimedAbilityCommand
   | ApplyPoisonCommand
   | ApplyDrunkCommand
   | ApplyReminderMarkerCommand
