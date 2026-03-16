@@ -9,7 +9,7 @@ import { create_initial_state } from '../../src/domain/state.js';
 function make_base_events(): DomainEvent[] {
   return [
     {
-      event_id: 'e1',
+      event_id: 1,
       event_type: 'GameCreated',
       created_at: '2026-03-12T00:00:00.000Z',
       payload: {
@@ -18,7 +18,7 @@ function make_base_events(): DomainEvent[] {
       }
     },
     {
-      event_id: 'e2',
+      event_id: 2,
       event_type: 'PlayerAdded',
       created_at: '2026-03-12T00:00:01.000Z',
       payload: {
@@ -27,7 +27,7 @@ function make_base_events(): DomainEvent[] {
       }
     },
     {
-      event_id: 'e3',
+      event_id: 3,
       event_type: 'PlayerAdded',
       created_at: '2026-03-12T00:00:02.000Z',
       payload: {
@@ -36,7 +36,7 @@ function make_base_events(): DomainEvent[] {
       }
     },
     {
-      event_id: 'e4',
+      event_id: 4,
       event_type: 'SeatOrderSet',
       created_at: '2026-03-12T00:00:03.000Z',
       payload: {
@@ -44,7 +44,7 @@ function make_base_events(): DomainEvent[] {
       }
     },
     {
-      event_id: 'e5',
+      event_id: 5,
       event_type: 'PhaseAdvanced',
       created_at: '2026-03-12T00:00:04.000Z',
       payload: {
@@ -68,7 +68,7 @@ test('replay_events is deterministic', () => {
 test('apply_event ignores duplicate event_id', () => {
   const state = replay_events(make_base_events(), create_initial_state('seed_game'));
   const duplicate = {
-    event_id: 'e5',
+    event_id: 6,
     event_type: 'PhaseAdvanced',
     created_at: '2026-03-12T00:00:04.000Z',
     payload: {
@@ -90,7 +90,7 @@ test('reducer applies assignments to existing player', () => {
     [
       ...make_base_events(),
       {
-        event_id: 'e6',
+        event_id: 7,
         event_type: 'CharacterAssigned',
         created_at: '2026-03-12T00:00:05.000Z',
         payload: {
@@ -99,7 +99,7 @@ test('reducer applies assignments to existing player', () => {
         }
       },
       {
-        event_id: 'e7',
+        event_id: 8,
         event_type: 'PerceivedCharacterAssigned',
         created_at: '2026-03-12T00:00:06.000Z',
         payload: {
@@ -108,7 +108,7 @@ test('reducer applies assignments to existing player', () => {
         }
       },
       {
-        event_id: 'e8',
+        event_id: 9,
         event_type: 'AlignmentAssigned',
         created_at: '2026-03-12T00:00:07.000Z',
         payload: {
@@ -131,7 +131,7 @@ test('reducer tracks prompt lifecycle and storyteller notes', () => {
   const state = replay_events(
     [
       {
-        event_id: 'p1',
+        event_id: 10,
         event_type: 'PromptQueued',
         created_at: '2026-03-13T00:00:00.000Z',
         payload: {
@@ -146,7 +146,7 @@ test('reducer tracks prompt lifecycle and storyteller notes', () => {
         }
       },
       {
-        event_id: 'p2',
+        event_id: 11,
         event_type: 'PromptResolved',
         created_at: '2026-03-13T00:00:01.000Z',
         payload: {
@@ -157,7 +157,7 @@ test('reducer tracks prompt lifecycle and storyteller notes', () => {
         }
       },
       {
-        event_id: 'p3',
+        event_id: 12,
         event_type: 'StorytellerRulingRecorded',
         created_at: '2026-03-13T00:00:02.000Z',
         payload: {
@@ -178,7 +178,7 @@ test('reducer tracks prompt lifecycle and storyteller notes', () => {
 test('reducer tracks wake and interrupt queues', () => {
   const events: DomainEvent[] = [
     {
-      event_id: 'q1',
+      event_id: 13,
       event_type: 'PlayerAdded',
       created_at: '2026-03-13T00:00:00.000Z',
       payload: {
@@ -187,7 +187,7 @@ test('reducer tracks wake and interrupt queues', () => {
       }
     },
     {
-      event_id: 'q2',
+      event_id: 14,
       event_type: 'WakeScheduled',
       created_at: '2026-03-13T00:00:01.000Z',
       payload: {
@@ -197,7 +197,7 @@ test('reducer tracks wake and interrupt queues', () => {
       }
     },
     {
-      event_id: 'q3',
+      event_id: 15,
       event_type: 'InterruptScheduled',
       created_at: '2026-03-13T00:00:02.000Z',
       payload: {
@@ -210,7 +210,7 @@ test('reducer tracks wake and interrupt queues', () => {
       }
     },
     {
-      event_id: 'q4',
+      event_id: 16,
       event_type: 'WakeConsumed',
       created_at: '2026-03-13T00:00:03.000Z',
       payload: {
@@ -218,7 +218,7 @@ test('reducer tracks wake and interrupt queues', () => {
       }
     },
     {
-      event_id: 'q5',
+      event_id: 17,
       event_type: 'InterruptConsumed',
       created_at: '2026-03-13T00:00:04.000Z',
       payload: {
@@ -255,7 +255,7 @@ test('WakeScheduled fails fast for unknown player', () => {
 
   assert.throws(() =>
     apply_event(state, {
-      event_id: 'wake_missing_player',
+      event_id: 18,
       event_type: 'WakeScheduled',
       created_at: '2026-03-13T00:00:00.000Z',
       payload: {
@@ -271,7 +271,7 @@ test('PromptQueued rejects duplicate prompt ids', () => {
   const state = replay_events(
     [
       {
-        event_id: 'p1',
+        event_id: 19,
         event_type: 'PromptQueued',
         created_at: '2026-03-13T00:00:00.000Z',
         payload: {
@@ -288,7 +288,7 @@ test('PromptQueued rejects duplicate prompt ids', () => {
 
   assert.throws(() =>
     apply_event(state, {
-      event_id: 'p2',
+      event_id: 20,
       event_type: 'PromptQueued',
       created_at: '2026-03-13T00:00:01.000Z',
       payload: {
@@ -306,7 +306,7 @@ test('reducer applies poison lifecycle events', () => {
   const state = replay_events(
     [
       {
-        event_id: 'ps1',
+        event_id: 21,
         event_type: 'PlayerAdded',
         created_at: '2026-03-13T00:00:00.000Z',
         payload: {
@@ -315,7 +315,7 @@ test('reducer applies poison lifecycle events', () => {
         }
       },
       {
-        event_id: 'ps2',
+        event_id: 22,
         event_type: 'PoisonApplied',
         created_at: '2026-03-13T00:00:01.000Z',
         payload: {
@@ -326,7 +326,7 @@ test('reducer applies poison lifecycle events', () => {
         }
       },
       {
-        event_id: 'ps3',
+        event_id: 23,
         event_type: 'PoisonCleared',
         created_at: '2026-03-13T00:00:02.000Z',
         payload: {
@@ -347,7 +347,7 @@ test('reducer applies reminder marker lifecycle and derives statuses', () => {
   const state = replay_events(
     [
       {
-        event_id: 'm1',
+        event_id: 24,
         event_type: 'PlayerAdded',
         created_at: '2026-03-13T00:00:00.000Z',
         payload: {
@@ -356,7 +356,7 @@ test('reducer applies reminder marker lifecycle and derives statuses', () => {
         }
       },
       {
-        event_id: 'm2',
+        event_id: 25,
         event_type: 'ReminderMarkerApplied',
         created_at: '2026-03-13T00:00:01.000Z',
         payload: {
@@ -377,7 +377,7 @@ test('reducer applies reminder marker lifecycle and derives statuses', () => {
         }
       },
       {
-        event_id: 'm3',
+        event_id: 26,
         event_type: 'ReminderMarkerCleared',
         created_at: '2026-03-13T00:00:02.000Z',
         payload: {
@@ -398,7 +398,7 @@ test('reducer keeps poisoned=true when one poison source clears but another rema
   const state = replay_events(
     [
       {
-        event_id: 's1',
+        event_id: 27,
         event_type: 'PlayerAdded',
         created_at: '2026-03-13T00:00:00.000Z',
         payload: {
@@ -407,7 +407,7 @@ test('reducer keeps poisoned=true when one poison source clears but another rema
         }
       },
       {
-        event_id: 's2',
+        event_id: 28,
         event_type: 'ReminderMarkerApplied',
         created_at: '2026-03-13T00:00:01.000Z',
         payload: {
@@ -428,7 +428,7 @@ test('reducer keeps poisoned=true when one poison source clears but another rema
         }
       },
       {
-        event_id: 's3',
+        event_id: 29,
         event_type: 'ReminderMarkerApplied',
         created_at: '2026-03-13T00:00:02.000Z',
         payload: {
@@ -449,7 +449,7 @@ test('reducer keeps poisoned=true when one poison source clears but another rema
         }
       },
       {
-        event_id: 's4',
+        event_id: 30,
         event_type: 'ReminderMarkerCleared',
         created_at: '2026-03-13T00:00:03.000Z',
         payload: {

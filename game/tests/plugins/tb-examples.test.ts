@@ -153,7 +153,7 @@ test('fortune teller example: self + red herring Saint -> yes', () => {
     expires_policy: 'manual',
     expires_at_day_number: null,
     expires_at_night_number: null,
-    created_at_event_id: 'e1',
+    created_at_event_id: 1,
     cleared_at_event_id: null,
     source_event_id: null,
     metadata: {}
@@ -303,14 +303,14 @@ test('monk example: protects Fortune Teller from Imp attack', () => {
         | 'at_night';
       expires_at_day_number: number | null;
       expires_at_night_number: number | null;
-      source_event_id: string | null;
+      source_event_id: number | null;
       metadata: Record<string, unknown>;
     };
 
     state.reminder_markers_by_id[payload.marker_id] = {
       ...payload,
       status: 'active',
-      created_at_event_id: 'm1',
+      created_at_event_id: 2,
       cleared_at_event_id: null
     };
     state.active_reminder_marker_ids = [payload.marker_id];
@@ -364,14 +364,14 @@ test('monk example: protects Mayor from Imp attack (no death)', () => {
         | 'at_night';
       expires_at_day_number: number | null;
       expires_at_night_number: number | null;
-      source_event_id: string | null;
+      source_event_id: number | null;
       metadata: Record<string, unknown>;
     };
 
     state.reminder_markers_by_id[payload.marker_id] = {
       ...payload,
       status: 'active',
-      created_at_event_id: 'm1',
+      created_at_event_id: 3,
       cleared_at_event_id: null
     };
     state.active_reminder_marker_ids = [payload.marker_id];
@@ -426,14 +426,14 @@ test('monk example: monk protects Imp self-kill transfer case', () => {
         | 'at_night';
       expires_at_day_number: number | null;
       expires_at_night_number: number | null;
-      source_event_id: string | null;
+      source_event_id: number | null;
       metadata: Record<string, unknown>;
     };
 
     state.reminder_markers_by_id[payload.marker_id] = {
       ...payload,
       status: 'active',
-      created_at_event_id: 'm1',
+      created_at_event_id: 4,
       cleared_at_event_id: null
     };
     state.active_reminder_marker_ids = [payload.marker_id];
@@ -895,31 +895,31 @@ function bootstrap_day_state(): GameState {
   const seed = create_initial_state('g1');
   return apply_events(seed, [
     {
-      event_id: 'e1',
+      event_id: 5,
       event_type: 'PlayerAdded',
       created_at: '2026-03-12T00:00:00.000Z',
       payload: { player_id: 'p1', display_name: 'Alice' }
     },
     {
-      event_id: 'e2',
+      event_id: 6,
       event_type: 'PlayerAdded',
       created_at: '2026-03-12T00:00:01.000Z',
       payload: { player_id: 'p2', display_name: 'Bob' }
     },
     {
-      event_id: 'e3',
+      event_id: 7,
       event_type: 'PlayerAdded',
       created_at: '2026-03-12T00:00:02.000Z',
       payload: { player_id: 'p3', display_name: 'Cara' }
     },
     {
-      event_id: 'e4',
+      event_id: 8,
       event_type: 'SeatOrderSet',
       created_at: '2026-03-12T00:00:03.000Z',
       payload: { seat_order: ['p1', 'p2', 'p3'] }
     },
     {
-      event_id: 'e5',
+      event_id: 9,
       event_type: 'PhaseAdvanced',
       created_at: '2026-03-12T00:00:04.000Z',
       payload: { phase: 'day', subphase: 'open_discussion', day_number: 1, night_number: 1 }

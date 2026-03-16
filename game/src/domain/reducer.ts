@@ -131,9 +131,7 @@ function ensure_active_vote(state: GameState): ActiveVote {
 export function apply_event(state: GameState, event: DomainEvent): GameState {
   const next = clone_state(state);
 
-  const event_key =
-    event.event_key ??
-    (typeof event.event_id === 'string' ? event.event_id : `${event.event_type}:${event.created_at}`);
+  const event_key = event.event_key ?? `${event.event_type}:${event.created_at}`;
   const assigned_event_id = next.domain_events.length + 1;
 
   if (next.domain_events.some((existing) => existing.event_key === event_key)) {

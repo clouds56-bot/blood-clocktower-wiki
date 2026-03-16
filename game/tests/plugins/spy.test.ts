@@ -86,8 +86,8 @@ test('dead spy uses storyteller-decided registration query outcome', () => {
     resolved_character_type: 'townsfolk',
     resolved_alignment: 'good',
     decision_source: 'storyteller_prompt',
-    created_at_event_id: 'q1',
-    resolved_at_event_id: 'q2',
+    created_at_event_id: 1,
+    resolved_at_event_id: 2,
     note: 'spy registers as townsfolk for this query'
   };
 

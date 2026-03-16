@@ -12,7 +12,8 @@ function to_domain_events(
   prefix: string
 ): DomainEvent[] {
   return emitted_events.map((event, index) => ({
-    event_id: `${prefix}:${index}`,
+    event_key: `${prefix}:${index}`,
+    event_id: 2,
     event_type: event.event_type,
     created_at: '2026-03-15T00:00:00.000Z',
     payload: event.payload
@@ -163,7 +164,7 @@ test('imp does not kill monk protected target', () => {
     expires_policy: 'end_of_night',
     expires_at_day_number: null,
     expires_at_night_number: null,
-    created_at_event_id: 'e1',
+    created_at_event_id: 1,
     cleared_at_event_id: null,
     source_event_id: null,
     metadata: {}
@@ -314,7 +315,8 @@ test('imp transfer target prompt resolves into new demon and transferred imp can
   state = apply_events(
     state,
     (on_death?.queued_prompts ?? []).map((prompt, index) => ({
-      event_id: `e-step2-prompt-${index}`,
+      event_key: `e-step2-prompt-${index}`,
+      event_id: 3,
       event_type: 'PromptQueued' as const,
       created_at: '2026-03-15T00:00:00.000Z',
       payload: {

@@ -46,31 +46,31 @@ function bootstrap_night_state(): GameState {
   const seed = create_initial_state('g1');
   return apply_events(seed, [
     {
-      event_id: 'e1',
+      event_id: 1,
       event_type: 'PlayerAdded',
       created_at: '2026-03-14T00:00:00.000Z',
       payload: { player_id: 'p1', display_name: 'Alice' }
     },
     {
-      event_id: 'e2',
+      event_id: 2,
       event_type: 'PlayerAdded',
       created_at: '2026-03-14T00:00:01.000Z',
       payload: { player_id: 'p2', display_name: 'Bob' }
     },
     {
-      event_id: 'e3',
+      event_id: 3,
       event_type: 'SeatOrderSet',
       created_at: '2026-03-14T00:00:02.000Z',
       payload: { seat_order: ['p1', 'p2'] }
     },
     {
-      event_id: 'e4',
+      event_id: 4,
       event_type: 'CharacterAssigned',
       created_at: '2026-03-14T00:00:03.000Z',
       payload: { player_id: 'p1', true_character_id: 'imp', is_demon: true }
     },
     {
-      event_id: 'e5',
+      event_id: 5,
       event_type: 'CharacterAssigned',
       created_at: '2026-03-14T00:00:04.000Z',
       payload: { player_id: 'p2', true_character_id: 'poisoner' }
@@ -82,37 +82,37 @@ function bootstrap_day_vote_state(): GameState {
   const seed = create_initial_state('g1');
   return apply_events(seed, [
     {
-      event_id: 'v1',
+      event_id: 6,
       event_type: 'PlayerAdded',
       created_at: '2026-03-14T00:00:00.000Z',
       payload: { player_id: 'p1', display_name: 'Alice' }
     },
     {
-      event_id: 'v2',
+      event_id: 7,
       event_type: 'PlayerAdded',
       created_at: '2026-03-14T00:00:01.000Z',
       payload: { player_id: 'p2', display_name: 'Bob' }
     },
     {
-      event_id: 'v3',
+      event_id: 8,
       event_type: 'PlayerAdded',
       created_at: '2026-03-14T00:00:02.000Z',
       payload: { player_id: 'p3', display_name: 'Cara' }
     },
     {
-      event_id: 'v4',
+      event_id: 9,
       event_type: 'CharacterAssigned',
       created_at: '2026-03-14T00:00:03.000Z',
       payload: { player_id: 'p1', true_character_id: 'butler' }
     },
     {
-      event_id: 'v5',
+      event_id: 10,
       event_type: 'PhaseAdvanced',
       created_at: '2026-03-14T00:00:04.000Z',
       payload: { phase: 'day', subphase: 'vote_in_progress', day_number: 1, night_number: 1 }
     },
     {
-      event_id: 'v6',
+      event_id: 11,
       event_type: 'VoteOpened',
       created_at: '2026-03-14T00:00:05.000Z',
       payload: {
@@ -122,7 +122,7 @@ function bootstrap_day_vote_state(): GameState {
       }
     },
     {
-      event_id: 'v7',
+      event_id: 12,
       event_type: 'ReminderMarkerApplied',
       created_at: '2026-03-14T00:00:06.000Z',
       payload: {
@@ -149,31 +149,31 @@ function bootstrap_day_nomination_state(): GameState {
   const seed = create_initial_state('g1');
   return apply_events(seed, [
     {
-      event_id: 'n1',
+      event_id: 13,
       event_type: 'PlayerAdded',
       created_at: '2026-03-14T00:00:00.000Z',
       payload: { player_id: 'p1', display_name: 'Alice' }
     },
     {
-      event_id: 'n2',
+      event_id: 14,
       event_type: 'PlayerAdded',
       created_at: '2026-03-14T00:00:01.000Z',
       payload: { player_id: 'p2', display_name: 'Bob' }
     },
     {
-      event_id: 'n3',
+      event_id: 15,
       event_type: 'CharacterAssigned',
       created_at: '2026-03-14T00:00:02.000Z',
       payload: { player_id: 'p2', true_character_id: 'custom_nominee' }
     },
     {
-      event_id: 'n4',
+      event_id: 16,
       event_type: 'PhaseAdvanced',
       created_at: '2026-03-14T00:00:03.000Z',
       payload: { phase: 'day', subphase: 'nomination_window', day_number: 1, night_number: 1 }
     },
     {
-      event_id: 'n5',
+      event_id: 17,
       event_type: 'NominationWindowOpened',
       created_at: '2026-03-14T00:00:04.000Z',
       payload: { day_number: 1 }
@@ -327,7 +327,7 @@ test('resolve prompt boundary re-enters plugin runtime via prompt owner tag', ()
   const registry = new PluginRegistry([imp]);
   const state = apply_events(create_initial_state('g1'), [
     {
-      event_id: 'e1',
+      event_id: 18,
       event_type: 'PromptQueued',
       created_at: '2026-03-14T00:00:00.000Z',
       payload: {
@@ -691,7 +691,7 @@ test('plugin runtime returns deterministic error on duplicate queued prompt id',
 
   const state = apply_events(create_initial_state('g1'), [
     {
-      event_id: 'e1',
+      event_id: 19,
       event_type: 'PromptQueued',
       created_at: '2026-03-14T00:00:00.000Z',
       payload: {
@@ -839,37 +839,37 @@ test('poisoned imp still wakes and chooses but kill effect is suppressed', () =>
   let state = create_initial_state('g1');
   state = apply_events(state, [
     {
-      event_id: 'e1',
+      event_id: 20,
       event_type: 'PlayerAdded',
       created_at: '2026-03-14T00:00:00.000Z',
       payload: { player_id: 'p1', display_name: 'Poisoner' }
     },
     {
-      event_id: 'e2',
+      event_id: 21,
       event_type: 'PlayerAdded',
       created_at: '2026-03-14T00:00:01.000Z',
       payload: { player_id: 'p2', display_name: 'Imp' }
     },
     {
-      event_id: 'e3',
+      event_id: 22,
       event_type: 'PlayerAdded',
       created_at: '2026-03-14T00:00:02.000Z',
       payload: { player_id: 'p3', display_name: 'Target' }
     },
     {
-      event_id: 'e4',
+      event_id: 23,
       event_type: 'SeatOrderSet',
       created_at: '2026-03-14T00:00:03.000Z',
       payload: { seat_order: ['p1', 'p2', 'p3'] }
     },
     {
-      event_id: 'e5',
+      event_id: 24,
       event_type: 'CharacterAssigned',
       created_at: '2026-03-14T00:00:04.000Z',
       payload: { player_id: 'p1', true_character_id: 'poisoner' }
     },
     {
-      event_id: 'e6',
+      event_id: 25,
       event_type: 'CharacterAssigned',
       created_at: '2026-03-14T00:00:05.000Z',
       payload: { player_id: 'p2', true_character_id: 'imp', is_demon: true }

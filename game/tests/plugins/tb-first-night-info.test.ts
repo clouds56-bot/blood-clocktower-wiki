@@ -129,8 +129,8 @@ test('chef can use different registration outcomes for the same player across pa
     resolved_character_type: null,
     resolved_alignment: 'good',
     decision_source: 'storyteller_prompt',
-    created_at_event_id: 'q1',
-    resolved_at_event_id: 'q1r',
+    created_at_event_id: 1,
+    resolved_at_event_id: 2,
     note: 'spy registers good for pair 0'
   };
   state.registration_queries_by_id[p2_as_evil_for_pair1] = {
@@ -147,8 +147,8 @@ test('chef can use different registration outcomes for the same player across pa
     resolved_character_type: null,
     resolved_alignment: 'evil',
     decision_source: 'storyteller_prompt',
-    created_at_event_id: 'q2',
-    resolved_at_event_id: 'q2r',
+    created_at_event_id: 3,
+    resolved_at_event_id: 4,
     note: 'spy registers evil for pair 1'
   };
 
@@ -336,8 +336,8 @@ test('empath on_registration_resolved waits for remaining pending registration q
     resolved_character_type: null,
     resolved_alignment: 'evil',
     decision_source: 'storyteller_prompt',
-    created_at_event_id: 'q1',
-    resolved_at_event_id: 'q1r',
+    created_at_event_id: 5,
+    resolved_at_event_id: 6,
     note: 'recluse registers evil for this check'
   };
   state.registration_queries_by_id[qRight] = {
@@ -354,7 +354,7 @@ test('empath on_registration_resolved waits for remaining pending registration q
     resolved_character_type: null,
     resolved_alignment: null,
     decision_source: 'storyteller_prompt',
-    created_at_event_id: 'q2',
+    created_at_event_id: 7,
     resolved_at_event_id: null,
     note: null
   };
@@ -387,7 +387,7 @@ test('empath on_registration_resolved waits for remaining pending registration q
     ...state.registration_queries_by_id[qRight],
     status: 'resolved',
     resolved_alignment: 'good',
-    resolved_at_event_id: 'q2r',
+    resolved_at_event_id: 8,
     note: 'spy registers good for this check'
   };
 
@@ -498,8 +498,8 @@ test('fortune teller can resolve yes from query-scoped demon registration', () =
     resolved_character_type: 'demon',
     resolved_alignment: null,
     decision_source: 'storyteller_prompt',
-    created_at_event_id: 'q3',
-    resolved_at_event_id: 'q3r',
+    created_at_event_id: 9,
+    resolved_at_event_id: 10,
     note: 'spy registers as demon for this check'
   };
 
@@ -552,7 +552,7 @@ test('fortune teller queues storyteller registration prompt for unresolved reclu
     resolved_character_type: null,
     resolved_alignment: null,
     decision_source: 'storyteller_prompt',
-    created_at_event_id: 'q1',
+    created_at_event_id: 11,
     resolved_at_event_id: null,
     note: null
   };
@@ -561,7 +561,7 @@ test('fortune teller queues storyteller registration prompt for unresolved reclu
     ...after_create.registration_queries_by_id[query_id],
     status: 'resolved',
     resolved_character_type: 'demon',
-    resolved_at_event_id: 'q1r',
+    resolved_at_event_id: 12,
     note: 'recluse registers as demon for this query'
   };
 
@@ -632,7 +632,7 @@ test('fortune teller resolves yes when pair includes red herring', () => {
     expires_policy: 'manual',
     expires_at_day_number: null,
     expires_at_night_number: null,
-    created_at_event_id: 'e1',
+    created_at_event_id: 13,
     cleared_at_event_id: null,
     source_event_id: null,
     metadata: {}

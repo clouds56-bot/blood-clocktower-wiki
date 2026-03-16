@@ -17,25 +17,25 @@ function bootstrap_day_state(): GameState {
   const seed = create_initial_state('g1');
   return apply_events(seed, [
     {
-      event_id: 'e1',
+      event_id: 1,
       event_type: 'PlayerAdded',
       created_at: '2026-03-12T00:00:00.000Z',
       payload: { player_id: 'p1', display_name: 'Alice' }
     },
     {
-      event_id: 'e2',
+      event_id: 2,
       event_type: 'PlayerAdded',
       created_at: '2026-03-12T00:00:01.000Z',
       payload: { player_id: 'p2', display_name: 'Bob' }
     },
     {
-      event_id: 'e3',
+      event_id: 3,
       event_type: 'PlayerAdded',
       created_at: '2026-03-12T00:00:02.000Z',
       payload: { player_id: 'p3', display_name: 'Cara' }
     },
     {
-      event_id: 'e4',
+      event_id: 4,
       event_type: 'PhaseAdvanced',
       created_at: '2026-03-12T00:00:03.000Z',
       payload: { phase: 'day', subphase: 'open_discussion', day_number: 1, night_number: 1 }
@@ -57,7 +57,7 @@ test('valid transition first_night -> day resets day tracking', () => {
   const seed = create_initial_state('g1');
   const firstNight = apply_events(seed, [
     {
-      event_id: 'e1',
+      event_id: 5,
       event_type: 'PhaseAdvanced',
       created_at: '2026-03-12T00:00:00.000Z',
       payload: { phase: 'first_night', subphase: 'night_wake_sequence', day_number: 0, night_number: 1 }
@@ -541,7 +541,7 @@ test('butler yes vote requires master yes vote first', () => {
     expires_policy: 'end_of_day',
     expires_at_day_number: null,
     expires_at_night_number: null,
-    created_at_event_id: 'e_master',
+    created_at_event_id: 6,
     cleared_at_event_id: null,
     source_event_id: null,
     metadata: {}

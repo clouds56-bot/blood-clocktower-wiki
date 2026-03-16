@@ -47,7 +47,7 @@ test('poisoner prompt resolution emits reminder marker lifecycle events', () => 
     expires_policy: 'manual',
     expires_at_day_number: null,
     expires_at_night_number: null,
-    created_at_event_id: 'e1',
+    created_at_event_id: 1,
     cleared_at_event_id: null,
     source_event_id: null,
     metadata: {}

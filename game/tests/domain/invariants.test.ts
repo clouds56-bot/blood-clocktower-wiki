@@ -96,8 +96,8 @@ test('validate_invariants detects duplicate/non-pending prompt queue entries', (
     visibility: 'storyteller',
     options: [],
     status: 'resolved',
-    created_at_event_id: 'e1',
-    resolved_at_event_id: 'e2',
+    created_at_event_id: 1,
+    resolved_at_event_id: 2,
     resolution_payload: {
       selected_option_id: null,
       freeform: null
@@ -267,7 +267,7 @@ test('validate_invariants checks active reminder marker integrity and derived st
     expires_policy: 'manual',
     expires_at_day_number: null,
     expires_at_night_number: null,
-    created_at_event_id: 'e1',
+    created_at_event_id: 3,
     cleared_at_event_id: null,
     source_event_id: null,
     metadata: {}

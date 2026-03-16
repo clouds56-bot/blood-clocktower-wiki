@@ -49,7 +49,7 @@ test('butler prompt resolution emits master marker and clears previous marker', 
     expires_policy: 'end_of_day',
     expires_at_day_number: null,
     expires_at_night_number: null,
-    created_at_event_id: 'e1',
+    created_at_event_id: 1,
     cleared_at_event_id: null,
     source_event_id: null,
     metadata: {}
@@ -95,7 +95,7 @@ test('butler vote validation blocks in-favor vote before master vote', () => {
     expires_policy: 'end_of_day',
     expires_at_day_number: null,
     expires_at_night_number: null,
-    created_at_event_id: 'e1',
+    created_at_event_id: 2,
     cleared_at_event_id: null,
     source_event_id: null,
     metadata: {}

@@ -65,17 +65,17 @@ function make_state() {
     visibility: 'storyteller',
     options: [{ option_id: 'a', label: 'A' }],
     status: 'pending',
-    created_at_event_id: 'e1',
+    created_at_event_id: 1,
     resolved_at_event_id: null,
     resolution_payload: null,
     notes: null
   };
   state.pending_prompts = ['pr1'];
   state.storyteller_notes.push({
-    note_id: 'note1',
+    note_id: 2,
     prompt_id: 'pr1',
     text: 'secret adjudication',
-    created_at_event_id: 'e2'
+    created_at_event_id: 2
   });
   state.reminder_markers_by_id.mk1 = {
     marker_id: 'mk1',
@@ -91,7 +91,7 @@ function make_state() {
     expires_policy: 'manual',
     expires_at_day_number: null,
     expires_at_night_number: null,
-    created_at_event_id: 'e3',
+    created_at_event_id: 2,
     cleared_at_event_id: null,
     source_event_id: null,
     metadata: {}
@@ -150,7 +150,7 @@ test('projection output is deterministic for identical input state', () => {
 test('projection of replayed state matches directly applied state', () => {
   const events: DomainEvent[] = [
     {
-      event_id: 'e1',
+      event_id: 3,
       event_type: 'GameCreated',
       created_at: '2026-03-13T00:00:00.000Z',
       payload: {
@@ -159,7 +159,7 @@ test('projection of replayed state matches directly applied state', () => {
       }
     },
     {
-      event_id: 'e2',
+      event_id: 4,
       event_type: 'PlayerAdded',
       created_at: '2026-03-13T00:00:01.000Z',
       payload: {
@@ -168,7 +168,7 @@ test('projection of replayed state matches directly applied state', () => {
       }
     },
     {
-      event_id: 'e3',
+      event_id: 5,
       event_type: 'PlayerAdded',
       created_at: '2026-03-13T00:00:02.000Z',
       payload: {
@@ -177,7 +177,7 @@ test('projection of replayed state matches directly applied state', () => {
       }
     },
     {
-      event_id: 'e4',
+      event_id: 6,
       event_type: 'SeatOrderSet',
       created_at: '2026-03-13T00:00:03.000Z',
       payload: {
@@ -185,7 +185,7 @@ test('projection of replayed state matches directly applied state', () => {
       }
     },
     {
-      event_id: 'e5',
+      event_id: 7,
       event_type: 'PromptQueued',
       created_at: '2026-03-13T00:00:04.000Z',
       payload: {

@@ -68,8 +68,8 @@ test('recluse uses storyteller-decided registration query outcome', () => {
     resolved_character_type: 'demon',
     resolved_alignment: 'evil',
     decision_source: 'storyteller_prompt',
-    created_at_event_id: 'q1',
-    resolved_at_event_id: 'q2',
+    created_at_event_id: 1,
+    resolved_at_event_id: 2,
     note: 'recluse registers as demon for this query'
   };
 
