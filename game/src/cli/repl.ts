@@ -825,11 +825,12 @@ function handle_local_action(context: CliContext, action: CliLocalAction): boole
 }
 
 function process_cli_line(context: CliContext, line: string, options?: ProcessLineOptions): boolean {
+  const script_mode = options?.script_mode ?? false;
   const parse_options = options?.script_mode ? { script_mode: true } : undefined;
   const parsed = parse_cli_line(line, context.state, parse_options);
   if (!parsed.ok) {
     process.stdout.write(`${parsed.message}\n`);
-    return false;
+    return !script_mode;
   }
 
   if (parsed.kind === 'empty') {
@@ -840,7 +841,11 @@ function process_cli_line(context: CliContext, line: string, options?: ProcessLi
     return handle_local_action(context, parsed.action);
   }
 
-  return run_engine_command(context, parsed.command);
+  const command_ok = run_engine_command(context, parsed.command);
+  if (!command_ok && !script_mode) {
+    return true;
+  }
+  return command_ok;
 }
 
 export async function run_cli_script_file(script_path: string, initial_game_id = 'cli_game'): Promise<void> {
