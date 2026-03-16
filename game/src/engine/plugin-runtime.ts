@@ -564,7 +564,7 @@ function parse_claimed_ability_prompt(
     return null;
   }
 
-  const match = /^plugin:([a-z0-9_-]+):(d\d+|n\d+):([a-z0-9_-]+):claimed_ability$/.exec(prompt.reason);
+  const match = /^plugin:([a-z0-9_-]+):claimed_ability:(d\d+|n\d+):([a-z0-9_-]+)$/.exec(prompt.reason);
   if (!match) {
     return null;
   }

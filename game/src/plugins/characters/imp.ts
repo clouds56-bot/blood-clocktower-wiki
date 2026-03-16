@@ -11,7 +11,7 @@ function night_time_key(night_number: number): string {
 }
 
 function build_imp_prompt_key(night_number: number, player_id: string): string {
-  return `plugin:imp:${night_time_key(night_number)}:${player_id}:night_kill`;
+  return `plugin:imp:night_kill:${night_time_key(night_number)}:${player_id}`;
 }
 
 function build_imp_prompt_id(night_number: number, player_id: string): string {
@@ -58,7 +58,7 @@ export const imp_plugin: CharacterPlugin = {
             prompt_id: build_imp_prompt_id(context.state.night_number, context.player_id),
             prompt_key: build_imp_prompt_key(context.state.night_number, context.player_id),
             kind: 'choice',
-            reason: `plugin:imp:${night_time_key(context.state.night_number)}:${context.player_id}:choose_night_kill_target`,
+            reason: `plugin:imp:choose_night_kill_target:${night_time_key(context.state.night_number)}:${context.player_id}`,
             visibility: 'player',
             options
           }
@@ -279,7 +279,7 @@ export const imp_plugin: CharacterPlugin = {
 
 export function is_imp_prompt_id(prompt_id: string): boolean {
   return prompt_id.startsWith(`${IMP_PROMPT_PREFIX}:night_kill:`) ||
-    prompt_id.startsWith(`${IMP_PROMPT_PREFIX}:n`);
+    /^plugin:imp:night_kill:n\d+:[a-z0-9_-]+$/.test(prompt_id);
 }
 
 function parse_imp_prompt_owner_player_id(prompt_id: string): string | null {
@@ -287,8 +287,8 @@ function parse_imp_prompt_owner_player_id(prompt_id: string): string | null {
   if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'imp' && parts[2] === 'night_kill') {
     return parts[4] ?? null;
   }
-  if (parts.length >= 6 && parts[0] === 'plugin' && parts[1] === 'imp' && /^n\d+$/.test(parts[2] ?? '') && parts[4] === 'night_kill') {
-    return parts[3] ?? null;
+  if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'imp' && parts[2] === 'night_kill' && /^n\d+$/.test(parts[3] ?? '')) {
+    return parts[4] ?? null;
   }
   if (parts.length < 5) {
     return null;

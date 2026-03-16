@@ -8,7 +8,7 @@ function night_time_key(night_number: number): string {
 }
 
 function build_monk_prompt_key(night_number: number, player_id: string): string {
-  return `plugin:monk:${night_time_key(night_number)}:${player_id}:night_protect`;
+  return `plugin:monk:night_protect:${night_time_key(night_number)}:${player_id}`;
 }
 
 function resolve_prompt_token(context: Parameters<NonNullable<CharacterPlugin['hooks']['on_prompt_resolved']>>[0]): string {
@@ -56,7 +56,7 @@ export const monk_plugin: CharacterPlugin = {
             prompt_id: `${MONK_PROMPT_PREFIX}:${context.state.night_number}:${context.player_id}`,
             prompt_key: build_monk_prompt_key(context.state.night_number, context.player_id),
             kind: 'choice',
-            reason: `plugin:monk:${night_time_key(context.state.night_number)}:${context.player_id}:choose_protection_target`,
+            reason: `plugin:monk:choose_protection_target:${night_time_key(context.state.night_number)}:${context.player_id}`,
             visibility: 'player',
             options
           }
@@ -151,7 +151,7 @@ export const monk_plugin: CharacterPlugin = {
 };
 
 export function is_monk_prompt_id(prompt_id: string): boolean {
-  return prompt_id.startsWith(MONK_PROMPT_PREFIX) || prompt_id.startsWith('plugin:monk:n');
+  return prompt_id.startsWith(MONK_PROMPT_PREFIX) || /^plugin:monk:night_protect:n\d+:[a-z0-9_-]+$/.test(prompt_id);
 }
 
 function parse_monk_prompt_owner_player_id(prompt_id: string): string | null {
@@ -159,8 +159,8 @@ function parse_monk_prompt_owner_player_id(prompt_id: string): string | null {
   if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'monk' && parts[2] === 'night_protect') {
     return parts[4] ?? null;
   }
-  if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'monk' && /^n\d+$/.test(parts[2] ?? '') && parts[4] === 'night_protect') {
-    return parts[3] ?? null;
+  if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'monk' && parts[2] === 'night_protect' && /^n\d+$/.test(parts[3] ?? '')) {
+    return parts[4] ?? null;
   }
   return null;
 }

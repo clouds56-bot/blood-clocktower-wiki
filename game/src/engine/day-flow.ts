@@ -17,8 +17,8 @@ function time_key_for_day(day_number: number): string {
   return `d${day_number}`;
 }
 
-function build_plugin_prompt_key(character_id: string, time_key: string, player_id: string, action: string): string {
-  return `plugin:${character_id}:${time_key}:${player_id}:${action}`;
+function build_plugin_prompt_key(character_id: string, action: string, time_key: string, player_id: string): string {
+  return `plugin:${character_id}:${action}:${time_key}:${player_id}`;
 }
 
 function error(code: string, message: string): EngineResult<never> {
@@ -225,16 +225,16 @@ export function handle_use_claimed_ability(
           prompt_id: `plugin:${command.payload.claimed_character_id}:claimed_ability:${state.day_number}:${claimant.player_id}:${command.command_id}`,
           prompt_key: build_plugin_prompt_key(
             command.payload.claimed_character_id,
+            'claimed_ability',
             time_key_for_day(state.day_number),
-            claimant.player_id,
-            `claimed_ability:${command.command_id}`
+            claimant.player_id
           ),
           kind: 'claimed_ability_target',
           reason: build_plugin_prompt_key(
             command.payload.claimed_character_id,
+            'claimed_ability',
             time_key_for_day(state.day_number),
-            claimant.player_id,
-            'claimed_ability'
+            claimant.player_id
           ),
           visibility: 'public',
           options,

@@ -9,7 +9,7 @@ function night_time_key(night_number: number): string {
 }
 
 function build_ravenkeeper_prompt_key(night_number: number, player_id: string): string {
-  return `plugin:ravenkeeper:${night_time_key(night_number)}:${player_id}:night_reveal`;
+  return `plugin:ravenkeeper:night_reveal:${night_time_key(night_number)}:${player_id}`;
 }
 
 export const ravenkeeper_plugin: CharacterPlugin = {
@@ -85,7 +85,7 @@ export function build_ravenkeeper_reveal_prompt(
     prompt_id: `${RAVENKEEPER_PROMPT_PREFIX}:${state.night_number}:${ravenkeeper_player_id}`,
     prompt_key: build_ravenkeeper_prompt_key(state.night_number, ravenkeeper_player_id),
     kind: 'choice',
-    reason: `plugin:ravenkeeper:${night_time_key(state.night_number)}:${ravenkeeper_player_id}:choose_player`,
+    reason: `plugin:ravenkeeper:choose_player:${night_time_key(state.night_number)}:${ravenkeeper_player_id}`,
     visibility: 'player',
     options
   };
@@ -96,8 +96,8 @@ function parse_ravenkeeper_prompt_owner_player_id(prompt_id: string): string | n
   if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'ravenkeeper' && parts[2] === 'night_reveal') {
     return parts[4] ?? null;
   }
-  if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'ravenkeeper' && /^n\d+$/.test(parts[2] ?? '') && parts[4] === 'night_reveal') {
-    return parts[3] ?? null;
+  if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'ravenkeeper' && parts[2] === 'night_reveal' && /^n\d+$/.test(parts[3] ?? '')) {
+    return parts[4] ?? null;
   }
   return null;
 }

@@ -69,9 +69,9 @@ export function build_misinformation_prompt(
 
   return {
     prompt_id: `plugin:${role_id}:misinfo:${night_number}:${subject_player_id}`,
-    prompt_key: `plugin:${role_id}:${time_key}:${subject_player_id}:misinfo`,
+    prompt_key: `plugin:${role_id}:misinfo:${time_key}:${subject_player_id}`,
     kind: 'choice',
-    reason: `plugin:${role_id}:${time_key}:${subject_player_id}:choose_misinformation`,
+    reason: `plugin:${role_id}:choose_misinformation:${time_key}:${subject_player_id}`,
     visibility: 'storyteller',
     options,
     selection_mode,
@@ -84,7 +84,7 @@ export function is_misinformation_prompt_id(prompt_id: string, role_id: string):
   if (prompt_id.startsWith(`plugin:${role_id}:misinfo:`)) {
     return true;
   }
-  return /^plugin:[a-z0-9_-]+:n\d+:[a-z0-9_-]+:misinfo(?:$|:)/.test(prompt_id) &&
+  return /^plugin:[a-z0-9_-]+:misinfo:n\d+:[a-z0-9_-]+(?:$|:)/.test(prompt_id) &&
     prompt_id.startsWith(`plugin:${role_id}:`);
 }
 
@@ -215,8 +215,8 @@ function parse_misinfo_prompt_subject_player_id(prompt_id: string): string | nul
   if (parts.length >= 5 && parts[2] === 'misinfo') {
     return parts[4] ?? null;
   }
-  if (parts.length >= 5 && /^n\d+$/.test(parts[2] ?? '') && parts[4] === 'misinfo') {
-    return parts[3] ?? null;
+  if (parts.length >= 5 && parts[2] === 'misinfo' && /^n\d+$/.test(parts[3] ?? '')) {
+    return parts[4] ?? null;
   }
   return null;
 }
