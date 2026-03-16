@@ -17,7 +17,7 @@ const empath_info_hooks = build_info_role_misinformation_hooks({
       context_tag: 'alive_neighbors',
       requests: build_empath_registration_requests(context.state, context.player_id)
     });
-    if (prompt_plan.queued_prompts.length > 0) {
+    if (prompt_plan.has_blocking_pending_queries || prompt_plan.queued_prompts.length > 0) {
       return {
         emitted_events: prompt_plan.emitted_events,
         queued_prompts: prompt_plan.queued_prompts,
@@ -88,7 +88,7 @@ export const empath_plugin: CharacterPlugin = {
         requests: build_empath_registration_requests(context.state, context.owner_player_id)
       });
 
-      if (prompt_plan.queued_prompts.length > 0) {
+      if (prompt_plan.has_blocking_pending_queries || prompt_plan.queued_prompts.length > 0) {
         return {
           emitted_events: prompt_plan.emitted_events,
           queued_prompts: prompt_plan.queued_prompts,

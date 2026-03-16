@@ -8,6 +8,8 @@ import type { GameState } from '../../src/domain/types.js';
 import type { CharacterPlugin, CharacterPluginMetadata } from '../../src/plugins/contracts.js';
 import { empty_plugin_result } from '../../src/plugins/contracts.js';
 import { butler_plugin } from '../../src/plugins/characters/butler.js';
+import { empath_plugin } from '../../src/plugins/characters/empath.js';
+import { fortune_teller_plugin } from '../../src/plugins/characters/fortune-teller.js';
 import { imp_plugin } from '../../src/plugins/characters/imp.js';
 import { poisoner_plugin } from '../../src/plugins/characters/poisoner.js';
 import { PluginRegistry } from '../../src/plugins/registry.js';
@@ -256,18 +258,50 @@ test('advance phase night wake boundary suspends further wakes when a prompt is 
 
   assert.deepEqual(
     events.map((event) => event.event_type),
-    [
-      'PhaseAdvanced',
-      'WakeScheduled',
-      'WakeScheduled',
-      'PromptQueued',
-      'InterruptScheduled',
-      'WakeConsumed',
-      'InterruptConsumed'
-    ]
+    ['PhaseAdvanced', 'WakeScheduled', 'WakeScheduled', 'PromptQueued', 'WakeConsumed']
   );
 
-  assert.equal(events.some((event) => event.event_type === 'PromptQueued' && event.payload.prompt_id === 'plugin:poisoner:night_poison'), false);
+  assert.equal(
+    events.some(
+      (event) => event.event_type === 'PromptQueued' && event.payload.prompt_id === 'plugin:poisoner:night_poison'
+    ),
+    true
+  );
+  assert.equal(
+    events.some((event) => event.event_type === 'PromptQueued' && event.payload.prompt_id === 'plugin:imp:night_kill'),
+    false
+  );
+});
+
+test('night wake scheduling uses night order before seat order', () => {
+  const state = bootstrap_night_state();
+  const p1 = state.players_by_id.p1;
+  const p2 = state.players_by_id.p2;
+  assert.ok(p1);
+  assert.ok(p2);
+  p1.true_character_id = 'fortune_teller';
+  p2.true_character_id = 'empath';
+
+  const events = run_with_registry(
+    state,
+    {
+      command_id: 'c_phase_night_order',
+      command_type: 'AdvancePhase',
+      actor_id: 'storyteller',
+      payload: {
+        phase: 'first_night',
+        subphase: 'night_wake_sequence',
+        day_number: 0,
+        night_number: 1
+      }
+    },
+    new PluginRegistry([fortune_teller_plugin, empath_plugin])
+  );
+
+  const wake_events = events.filter((event) => event.event_type === 'WakeScheduled');
+  assert.equal(wake_events.length, 2);
+  assert.equal(wake_events[0]?.payload.character_id, 'empath');
+  assert.equal(wake_events[1]?.payload.character_id, 'fortune_teller');
 });
 
 test('resolve prompt boundary re-enters plugin runtime via prompt owner tag', () => {
@@ -485,8 +519,8 @@ test('resolve prompt resumes suspended wake queue', () => {
   );
   state = apply_events(state, phase_events);
 
-  assert.equal(state.pending_prompts.includes('plugin:imp:night_kill'), true);
-  assert.equal(state.pending_prompts.includes('plugin:poisoner:night_poison'), false);
+  assert.equal(state.pending_prompts.includes('plugin:poisoner:night_poison'), true);
+  assert.equal(state.pending_prompts.includes('plugin:imp:night_kill'), false);
 
   const resolve_events = run_with_registry(
     state,
@@ -495,8 +529,8 @@ test('resolve prompt resumes suspended wake queue', () => {
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
-        prompt_id: 'plugin:imp:night_kill',
-        selected_option_id: 'p2',
+        prompt_id: 'plugin:poisoner:night_poison',
+        selected_option_id: 'p1',
         freeform: null,
         notes: null
       }
@@ -506,7 +540,7 @@ test('resolve prompt resumes suspended wake queue', () => {
 
   assert.equal(
     resolve_events.some(
-      (event) => event.event_type === 'PromptQueued' && event.payload.prompt_id === 'plugin:poisoner:night_poison'
+      (event) => event.event_type === 'PromptQueued' && event.payload.prompt_id === 'plugin:imp:night_kill'
     ),
     true
   );

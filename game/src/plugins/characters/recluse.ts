@@ -1,4 +1,5 @@
 import type { CharacterPlugin } from '../contracts.js';
+import { can_apply_registration_provider } from './registration-provider-utils.js';
 
 export const recluse_plugin: CharacterPlugin = {
   metadata: {
@@ -99,18 +100,3 @@ const RECLUSE_REGISTER_CHARACTER_IDS: ReadonlyArray<string> = [
   'spy',
   'imp'
 ];
-
-function can_apply_registration_provider(subject: {
-  true_character_id: string | null;
-  alive: boolean;
-  drunk: boolean;
-  poisoned: boolean;
-}): boolean {
-  if (subject.true_character_id !== 'recluse') {
-    return false;
-  }
-  if (!subject.alive) {
-    return true;
-  }
-  return !subject.drunk && !subject.poisoned;
-}

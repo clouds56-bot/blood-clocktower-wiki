@@ -1,4 +1,5 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
+import { can_apply_registration_provider } from './registration-provider-utils.js';
 
 export const spy_plugin: CharacterPlugin = {
   metadata: {
@@ -152,21 +153,6 @@ function get_player_information_mode(
     return 'misinformation';
   }
   return 'truthful';
-}
-
-function can_apply_registration_provider(subject: {
-  true_character_id: string | null;
-  alive: boolean;
-  drunk: boolean;
-  poisoned: boolean;
-}): boolean {
-  if (subject.true_character_id !== 'spy') {
-    return false;
-  }
-  if (!subject.alive) {
-    return true;
-  }
-  return !subject.drunk && !subject.poisoned;
 }
 
 const SPY_REGISTER_CHARACTER_IDS: ReadonlyArray<string> = [
