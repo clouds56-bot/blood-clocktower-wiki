@@ -306,7 +306,7 @@ function resolve_next_pending_prompt(context: CliContext): boolean {
   });
 }
 
-function resolve_all_pending_prompts(context: CliContext, guard_limit = 100): NextRunOutcome {
+export function resolve_all_pending_prompts(context: CliContext, guard_limit = 100): NextRunOutcome {
   let prompts_resolved = 0;
   while (pending_prompt_ids(context.state).length > 0) {
     if (prompts_resolved >= guard_limit) {
@@ -518,7 +518,7 @@ function advance_one_step(context: CliContext): NextStopReason {
   return 'advanced';
 }
 
-function run_next_phase(
+export function run_next_phase(
   context: CliContext,
   action: Extract<CliLocalAction, { type: 'next_phase' }>
 ): NextRunOutcome {
