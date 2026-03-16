@@ -916,7 +916,7 @@ function validate_queued_prompt_ids(
       return {
         ok: false,
         error: {
-          code: 'prompt_id_already_exists',
+          code: 'prompt_already_exists',
           message: `prompt already exists: ${prompt_key}`
         }
       };

@@ -188,12 +188,6 @@ export const fortune_teller_plugin: CharacterPlugin = {
           left_id,
           right_id
         );
-        misinfo_prompt.prompt_key = build_fortune_teller_pair_misinfo_prompt_key(
-          context.state.night_number,
-          owner_player_id,
-          left_id,
-          right_id
-        );
         return {
           emitted_events: [],
           queued_prompts: [misinfo_prompt],

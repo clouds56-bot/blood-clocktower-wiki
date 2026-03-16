@@ -29,7 +29,7 @@ export function handle_create_prompt(
 ): EngineResult<DomainEvent[]> {
   const prompt_key = command.payload.prompt_key;
   if (state.prompts_by_id[prompt_key]) {
-    return error('prompt_id_already_exists', `prompt already exists: ${prompt_key}`);
+    return error('prompt_key_already_exists', `prompt already exists: ${prompt_key}`);
   }
 
   const normalized_prompt = normalize_prompt_shape(command.payload);
