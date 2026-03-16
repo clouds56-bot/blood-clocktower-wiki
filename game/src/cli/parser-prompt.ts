@@ -7,12 +7,15 @@ import {
   type ParsedCliLine
 } from './parser-common.js';
 import { CLI_USAGE } from './command-registry.js';
+import type { ParseCliOptions } from './command-parser.js';
 
 export function parse_prompt_domain_command(
   command: string,
   args: string[],
-  state?: GameState
+  state?: GameState,
+  options?: ParseCliOptions
 ): ParsedCliLine | null {
+  const script_mode = options?.script_mode ?? false;
   if (command === 'prompts') {
     return { ok: true, kind: 'local', action: { type: 'prompts' } };
   }
@@ -51,6 +54,9 @@ export function parse_prompt_domain_command(
 
   if (command === 'resolve-prompt' || command === 'choose' || command === 'ch') {
     const is_choose_alias = command === 'choose' || command === 'ch';
+    if (script_mode && is_choose_alias) {
+      return invalid('script mode disallows random choose/ch shorthand');
+    }
     const default_prompt_id = default_pending_prompt_id(state);
 
     if (is_choose_alias && args.length === 0) {

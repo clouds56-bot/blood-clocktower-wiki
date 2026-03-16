@@ -108,6 +108,15 @@ Behavior:
 
 - `stop=<reason> steps=<n> prompts_resolved=<n>`
 
+## Scriptable CLI (Plain Text)
+
+- Run script mode: `pnpm --filter game run cli -- --script <path> [game_id]`
+- Format: one CLI command per line; blank lines and `#` comment lines are ignored.
+- Script mode is fail-fast: first parse/engine error aborts the run with non-zero exit.
+- Script mode forbids random commands and shorthands:
+  - `next --auto` / `next --auto-prompt` are rejected.
+  - `choose` / `ch` are rejected (use deterministic `resolve-prompt ...` instead).
+
 ## Short Command Examples
 
 Typical happy path after quick setup:

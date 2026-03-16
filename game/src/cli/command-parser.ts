@@ -9,7 +9,16 @@ import { parse_view_domain_command } from './parser-view.js';
 
 export type { CliLocalAction, ParsedCliLine } from './parser-common.js';
 
-type DomainParser = (command: string, args: string[], state?: GameState) => ParsedCliLine | null;
+export interface ParseCliOptions {
+  script_mode?: boolean;
+}
+
+type DomainParser = (
+  command: string,
+  args: string[],
+  state?: GameState,
+  options?: ParseCliOptions
+) => ParsedCliLine | null;
 
 const DOMAIN_PARSERS: DomainParser[] = [
   parse_setup_domain_command,
@@ -19,7 +28,7 @@ const DOMAIN_PARSERS: DomainParser[] = [
   parse_day_domain_command
 ];
 
-export function parse_cli_line(input: string, state?: GameState): ParsedCliLine {
+export function parse_cli_line(input: string, state?: GameState, options?: ParseCliOptions): ParsedCliLine {
   const line = input.trim();
   if (line.length === 0) {
     return { ok: true, kind: 'empty' };
@@ -34,7 +43,7 @@ export function parse_cli_line(input: string, state?: GameState): ParsedCliLine 
   }
 
   for (const parse_domain of DOMAIN_PARSERS) {
-    const parsed = parse_domain(command, args, state);
+    const parsed = parse_domain(command, args, state, options);
     if (parsed) {
       return parsed;
     }

@@ -159,6 +159,7 @@ Done when:
 - `next` stepping is deterministic by default and reports explicit stop reasons.
 - `next --auto` (`--auto-prompt`) resolves pending prompts in a loop until queue is empty (guarded).
 - auto prompt resolution for `next` uses random valid selections.
+- scriptable CLI mode forbids random next/prompt helpers (`next --auto*`, `choose/ch`) and requires explicit deterministic prompt resolution.
 - scoped stepping (`next day` / `next night`) targets the next future boundary, not the current phase.
 
 ### 6.8 Tests + Hardening

@@ -1,3 +1,4 @@
+import { readFile } from 'node:fs/promises';
 import readline from 'node:readline';
 
 import type { Command } from '../domain/commands.js';
@@ -62,6 +63,10 @@ interface CliContext {
   plugin_registry: PluginRegistry;
 }
 
+interface ProcessLineOptions {
+  script_mode?: boolean;
+}
+
 const ANSI = {
   reset: '\x1b[0m',
   red: '\x1b[31m',
@@ -91,6 +96,36 @@ function make_command_id(context: CliContext): string {
   const id = `cli-${String(context.next_command_index).padStart(6, '0')}`;
   context.next_command_index += 1;
   return id;
+}
+
+function create_cli_context(initial_game_id: string): CliContext {
+  return {
+    state: create_initial_state(initial_game_id),
+    event_log: [],
+    next_command_index: 1,
+    plugin_registry: new PluginRegistry([
+      chef_plugin,
+      butler_plugin,
+      empath_plugin,
+      fortune_teller_plugin,
+      imp_plugin,
+      investigator_plugin,
+      librarian_plugin,
+      mayor_plugin,
+      monk_plugin,
+      poisoner_plugin,
+      ravenkeeper_plugin,
+      recluse_plugin,
+      scarlet_woman_plugin,
+      saint_plugin,
+      slayer_plugin,
+      soldier_plugin,
+      spy_plugin,
+      undertaker_plugin,
+      virgin_plugin,
+      washerwoman_plugin
+    ])
+  };
 }
 
 function run_quick_setup(context: CliContext, script_input: string, player_num: number, game_id?: string): void {
@@ -789,34 +824,53 @@ function handle_local_action(context: CliContext, action: CliLocalAction): boole
   return true;
 }
 
+function process_cli_line(context: CliContext, line: string, options?: ProcessLineOptions): boolean {
+  const parse_options = options?.script_mode ? { script_mode: true } : undefined;
+  const parsed = parse_cli_line(line, context.state, parse_options);
+  if (!parsed.ok) {
+    process.stdout.write(`${parsed.message}\n`);
+    return false;
+  }
+
+  if (parsed.kind === 'empty') {
+    return true;
+  }
+
+  if (parsed.kind === 'local') {
+    return handle_local_action(context, parsed.action);
+  }
+
+  return run_engine_command(context, parsed.command);
+}
+
+export async function run_cli_script_file(script_path: string, initial_game_id = 'cli_game'): Promise<void> {
+  const context = create_cli_context(initial_game_id);
+  const raw = await readFile(script_path, 'utf8');
+  const lines = raw.split(/\r?\n/);
+
+  process.stdout.write(`running script: ${script_path}\n`);
+  process.stdout.write(`${format_state_brief(context.state)}\n`);
+
+  for (let index = 0; index < lines.length; index += 1) {
+    const original = lines[index] ?? '';
+    const line = original.trim();
+    if (line.length === 0 || line.startsWith('#')) {
+      continue;
+    }
+
+    process.stdout.write(`> ${line}\n`);
+    const ok = process_cli_line(context, line, { script_mode: true });
+    if (!ok) {
+      throw new Error(`script failed at line ${index + 1}: ${line}`);
+    }
+  }
+
+  process.stdout.write('script complete\n');
+  process.stdout.write(`${format_state_brief(context.state)}\n`);
+}
+
 export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void> {
-  const context: CliContext = {
-    state: create_initial_state(initial_game_id),
-    event_log: [],
-    next_command_index: 1,
-    plugin_registry: new PluginRegistry([
-      chef_plugin,
-      butler_plugin,
-      empath_plugin,
-      fortune_teller_plugin,
-      imp_plugin,
-      investigator_plugin,
-      librarian_plugin,
-      mayor_plugin,
-      monk_plugin,
-      poisoner_plugin,
-      ravenkeeper_plugin,
-      recluse_plugin,
-      scarlet_woman_plugin,
-      saint_plugin,
-      slayer_plugin,
-      soldier_plugin,
-      spy_plugin,
-      undertaker_plugin,
-      virgin_plugin,
-      washerwoman_plugin
-    ])
-  };
+  const context = create_cli_context(initial_game_id);
 
   process.stdout.write('Clocktower Engine CLI (Phase 5)\n');
   process.stdout.write(`${paint('type "help" for commands', 'yellow')}\n`);
@@ -836,29 +890,11 @@ export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void
   prompt_again();
 
   rl.on('line', (line) => {
-    const parsed = parse_cli_line(line, context.state);
-    if (!parsed.ok) {
-      process.stdout.write(`${parsed.message}\n`);
-      prompt_again();
+    const keep_running = process_cli_line(context, line);
+    if (!keep_running) {
+      rl.close();
       return;
     }
-
-    if (parsed.kind === 'empty') {
-      prompt_again();
-      return;
-    }
-
-    if (parsed.kind === 'local') {
-      const keep_running = handle_local_action(context, parsed.action);
-      if (!keep_running) {
-        rl.close();
-        return;
-      }
-      prompt_again();
-      return;
-    }
-
-    run_engine_command(context, parsed.command);
     prompt_again();
   });
 
@@ -870,8 +906,24 @@ export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  const game_id = process.argv[2] ?? 'cli_game';
-  start_cli_repl(game_id).catch((error: unknown) => {
+  const args = process.argv.slice(2);
+  const script_flag_index = args.findIndex((arg) => arg === '--script' || arg === '-s');
+
+  const run = script_flag_index >= 0
+    ? async () => {
+        const script_path = args[script_flag_index + 1];
+        if (!script_path) {
+          throw new Error('usage: cli --script <path> [game_id]');
+        }
+        const game_id = args[script_flag_index + 2] ?? 'cli_game';
+        await run_cli_script_file(script_path, game_id);
+      }
+    : async () => {
+        const game_id = args[0] ?? 'cli_game';
+        await start_cli_repl(game_id);
+      };
+
+  run().catch((error: unknown) => {
     const message = error instanceof Error ? error.message : String(error);
     process.stderr.write(`fatal: ${message}\n`);
     process.exitCode = 1;

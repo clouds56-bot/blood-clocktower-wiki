@@ -15,6 +15,7 @@ import {
   type ParsedCliLine
 } from './parser-common.js';
 import { CLI_USAGE } from './command-registry.js';
+import type { ParseCliOptions } from './command-parser.js';
 
 function parse_next_scope(value: string): 'subphase' | 'phase' | 'day' | 'night' | null {
   if (value === 'subphase' || value === 'phase' || value === 'day' || value === 'night') {
@@ -26,8 +27,10 @@ function parse_next_scope(value: string): 'subphase' | 'phase' | 'day' | 'night'
 export function parse_day_domain_command(
   command: string,
   args: string[],
-  state?: GameState
+  state?: GameState,
+  options?: ParseCliOptions
 ): ParsedCliLine | null {
+  const script_mode = options?.script_mode ?? false;
   if (command === 'quit' || command === 'exit') {
     return { ok: true, kind: 'local', action: { type: 'quit' } };
   }
@@ -49,6 +52,9 @@ export function parse_day_domain_command(
 
     for (const token of args) {
       if (token === '--auto-prompt' || token === '--auto') {
+        if (script_mode) {
+          return invalid('script mode disallows random auto prompt resolution in next');
+        }
         auto_prompt = true;
         continue;
       }
