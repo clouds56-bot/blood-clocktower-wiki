@@ -52,7 +52,8 @@ export function integrate_plugin_runtime(
       [command.payload.claimed_character_id],
       {
         state: runtime_state,
-        claimant_player_id: command.payload.claimant_player_id
+        claimant_player_id: command.payload.claimant_player_id,
+        claimed_character_id: command.payload.claimed_character_id
       }
     );
 

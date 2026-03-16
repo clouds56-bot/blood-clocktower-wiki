@@ -32,7 +32,7 @@ export const CLI_USAGE = {
   open_vote: 'open-vote [nomination_id] [opened_by_id]',
   vote:
     'vote <voter_id> <yes|no> | vote <voter_id...> [yes|no] | vote <nomination_id> <voter_id> <yes|no>',
-  claim_ability: 'claim-ability <claimant_player_id> <claimed_character_id>',
+  claim_ability: 'claim | claim-ability | cliam-ability <claimant_player_id> <claimed_character_id>',
   close_vote: 'close-vote [nomination_id] [day_number]',
   resolve_exec: 'resolve-exec [day_number]',
   resolve_conseq: 'resolve-conseq [day_number]',

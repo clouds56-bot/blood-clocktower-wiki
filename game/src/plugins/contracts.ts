@@ -101,6 +101,7 @@ export interface PromptResolvedHookContext {
 export interface ClaimedAbilityUseHookContext {
   state: Readonly<GameState>;
   claimant_player_id: PlayerId;
+  claimed_character_id: string;
 }
 
 export interface EventAppliedHookContext {

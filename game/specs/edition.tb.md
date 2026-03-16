@@ -243,7 +243,8 @@ Each entry lists:
   - `timing_category`: `day`
   - `is_once_per_game`: true
   - command path: `UseClaimedAbility` (no target payload) queues public target prompt
-  - prompt: public choose 1 target
+  - prompt: choose 1 target
+  - visibility: public
   - marker: `slayer:spent`
   - events: `ClaimedAbilityAttempted` + optional `PlayerDied`.
 

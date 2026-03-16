@@ -354,8 +354,9 @@ Compatibility bridge:
 
 - `UseClaimedAbility` is the generic public ability-declaration command path.
 - command payload identifies claimant and claimed character only; target selection is prompt-driven.
-- engine validates coarse timing/eligibility and queues a pending prompt when target input is required.
-- on `ResolvePrompt`, engine emits `ClaimedAbilityAttempted` as the public audit event, then dispatches plugin consequences.
+- engine validates coarse timing/eligibility and queues a pending prompt when target input is required (`PromptQueued`).
+- storyteller resolves that prompt through the normal prompt lifecycle (`ResolvePrompt` command -> `PromptResolved` event).
+- after prompt resolution, engine emits `ClaimedAbilityAttempted` as the public audit event, then dispatches plugin consequences.
 - this flow is shared across day/reactive public claim abilities (for example Slayer) rather than role-specific commands.
 
 ### Extended Hook Surface (planned)

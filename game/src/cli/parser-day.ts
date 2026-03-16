@@ -271,7 +271,7 @@ export function parse_day_domain_command(
     };
   }
 
-  if (command === 'claim-ability') {
+  if (command === 'claim' || command === 'claim-ability' || command === 'cliam-ability') {
     const claimant_player_id = args[0] ?? null;
     const claimed_character_id = args[1] ?? null;
     if (!claimant_player_id || !claimed_character_id) {
