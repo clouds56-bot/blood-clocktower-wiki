@@ -32,7 +32,7 @@ const chef_info_hooks = build_info_role_misinformation_hooks({
         {
           event_type: 'StorytellerRulingRecorded',
           payload: {
-            prompt_id: null,
+            prompt_key: null,
             note: `chef_info:${context.player_id}:adjacent_evil_pairs=${count_adjacent_evil_pairs(context.state)}`
           }
         }
@@ -103,7 +103,7 @@ export const chef_plugin: CharacterPlugin = {
           {
             event_type: 'StorytellerRulingRecorded',
             payload: {
-              prompt_id: context.prompt_id,
+              prompt_key: context.prompt_key,
               note: `chef_info:${context.owner_player_id}:adjacent_evil_pairs=${count_adjacent_evil_pairs(context.state)}`
             }
           }

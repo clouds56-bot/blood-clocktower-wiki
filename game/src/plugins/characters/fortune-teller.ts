@@ -1,4 +1,5 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
+import { build_night_prompt_key, is_night_prompt_key, night_time_key, parse_night_prompt_owner_player_id } from './prompt-key-utils.js';
 import {
   build_registration_query_id,
   build_info_role_misinformation_hooks,
@@ -12,6 +13,28 @@ import {
 } from './tb-info-utils.js';
 
 const FORTUNE_TELLER_PROMPT_PREFIX = 'plugin:fortune_teller:night_check';
+
+function build_fortune_teller_prompt_key(night_number: number, player_id: string): string {
+  return build_night_prompt_key('fortune_teller', 'night_check', night_number, player_id);
+}
+
+function build_fortune_teller_pair_misinfo_prompt_key(
+  night_number: number,
+  owner_player_id: string,
+  left_player_id: string,
+  right_player_id: string
+): string {
+  return `plugin:fortune_teller:misinfo_pair:${night_time_key(night_number)}:${owner_player_id}:${left_player_id},${right_player_id}`;
+}
+
+function resolve_prompt_token(context: Parameters<NonNullable<CharacterPlugin['hooks']['on_prompt_resolved']>>[0]): string {
+  return context.prompt_key;
+}
+
+function is_fortune_teller_pair_prompt_token(prompt_token: string): boolean {
+  return prompt_token.startsWith(FORTUNE_TELLER_PROMPT_PREFIX) ||
+    /^plugin:fortune_teller:night_check:n\d+:[a-z0-9_-]+$/.test(prompt_token);
+}
 
 const fortune_teller_misinfo_hooks = build_info_role_misinformation_hooks({
   role_id: 'fortune_teller',
@@ -27,8 +50,8 @@ const fortune_teller_misinfo_hooks = build_info_role_misinformation_hooks({
       { option_id: 'no', label: 'Show NO' }
     ]
   }),
-  build_misinformation_note: ({ subject_player_id, selected_option_id, prompt_id }) => {
-    const parsed = parse_fortune_teller_misinfo_prompt(prompt_id);
+  build_misinformation_note: ({ subject_player_id, selected_option_id, prompt_key }) => {
+    const parsed = parse_fortune_teller_misinfo_prompt(prompt_key);
     if (!parsed) {
       return `fortune_teller_info:${subject_player_id}:pair=unknown,unknown;yes=${selected_option_id === 'yes'}`;
     }
@@ -72,9 +95,9 @@ export const fortune_teller_plugin: CharacterPlugin = {
         emitted_events: [],
         queued_prompts: [
           {
-            prompt_id: `${FORTUNE_TELLER_PROMPT_PREFIX}:${context.state.night_number}:${context.player_id}`,
+            prompt_key: build_fortune_teller_prompt_key(context.state.night_number, context.player_id),
             kind: 'choice',
-            reason: 'plugin:fortune_teller:choose two players',
+            reason: `plugin:fortune_teller:choose_two_players:${night_time_key(context.state.night_number)}:${context.player_id}`,
             visibility: 'player',
             options: [],
             selection_mode: 'multi_column',
@@ -86,11 +109,20 @@ export const fortune_teller_plugin: CharacterPlugin = {
       };
     },
     on_prompt_resolved: (context): PluginResult => {
-      if (is_misinformation_prompt_id(context.prompt_id, 'fortune_teller')) {
+      const prompt_token = resolve_prompt_token(context);
+      if (is_misinformation_prompt_id(prompt_token, 'fortune_teller')) {
         return fortune_teller_misinfo_hooks.on_prompt_resolved(context);
       }
 
-      const owner_player_id = parse_fortune_teller_prompt_owner_player_id(context.prompt_id);
+      if (!is_fortune_teller_pair_prompt_token(prompt_token)) {
+        return {
+          emitted_events: [],
+          queued_prompts: [],
+          queued_interrupts: []
+        };
+      }
+
+      const owner_player_id = parse_fortune_teller_prompt_owner_player_id(prompt_token);
       if (!owner_player_id) {
         return {
           emitted_events: [],
@@ -106,7 +138,7 @@ export const fortune_teller_plugin: CharacterPlugin = {
             {
               event_type: 'StorytellerRulingRecorded',
               payload: {
-                prompt_id: context.prompt_id,
+                prompt_key: context.prompt_key,
                 note: `fortune_teller_info:${owner_player_id}:inactive`
               }
             }
@@ -147,7 +179,12 @@ export const fortune_teller_plugin: CharacterPlugin = {
             ]
           }
         );
-        misinfo_prompt.prompt_id = `plugin:fortune_teller:misinfo:${context.state.night_number}:${owner_player_id}:${left_id}:${right_id}`;
+        misinfo_prompt.prompt_key = build_fortune_teller_pair_misinfo_prompt_key(
+          context.state.night_number,
+          owner_player_id,
+          left_id,
+          right_id
+        );
         return {
           emitted_events: [],
           queued_prompts: [misinfo_prompt],
@@ -179,7 +216,7 @@ export const fortune_teller_plugin: CharacterPlugin = {
           {
             event_type: 'StorytellerRulingRecorded',
             payload: {
-              prompt_id: context.prompt_id,
+              prompt_key: context.prompt_key,
               note: `fortune_teller_info:${owner_player_id}:pair=${left_id},${right_id};yes=${yes}`
             }
           }
@@ -223,7 +260,7 @@ export const fortune_teller_plugin: CharacterPlugin = {
           {
             event_type: 'StorytellerRulingRecorded',
             payload: {
-              prompt_id: context.prompt_id,
+              prompt_key: context.prompt_key,
               note: `fortune_teller_info:${context.owner_player_id}:pair=${left_id},${right_id};yes=${yes}`
             }
           }
@@ -235,8 +272,8 @@ export const fortune_teller_plugin: CharacterPlugin = {
   }
 };
 
-export function is_fortune_teller_prompt_id(prompt_id: string): boolean {
-  return prompt_id.startsWith(FORTUNE_TELLER_PROMPT_PREFIX);
+export function is_fortune_teller_prompt_id(prompt_key: string): boolean {
+  return is_night_prompt_key(prompt_key, 'fortune_teller', 'night_check');
 }
 
 function build_fortune_teller_registration_requests(
@@ -393,36 +430,47 @@ function is_demon_check_positive(
   });
 }
 
-function parse_fortune_teller_prompt_owner_player_id(prompt_id: string): string | null {
-  const parts = prompt_id.split(':');
-  if (parts.length < 5) {
-    return null;
-  }
-  if (parts[0] !== 'plugin' || parts[1] !== 'fortune_teller' || parts[2] !== 'night_check') {
-    return null;
-  }
-  return parts[4] ?? null;
+function parse_fortune_teller_prompt_owner_player_id(prompt_key: string): string | null {
+  return parse_night_prompt_owner_player_id(prompt_key, 'fortune_teller', 'night_check');
 }
 
 function parse_fortune_teller_misinfo_prompt(
-  prompt_id: string
+  prompt_key: string
 ): { owner_player_id: string; left_player_id: string; right_player_id: string } | null {
-  const parts = prompt_id.split(':');
-  if (parts.length < 7) {
-    return null;
+  const parts = prompt_key.split(':');
+  if (parts.length >= 7 && parts[0] === 'plugin' && parts[1] === 'fortune_teller' && parts[2] === 'misinfo') {
+    const owner_player_id = parts[4] ?? null;
+    const left_player_id = parts[5] ?? null;
+    const right_player_id = parts[6] ?? null;
+    if (!owner_player_id || !left_player_id || !right_player_id) {
+      return null;
+    }
+    return {
+      owner_player_id,
+      left_player_id,
+      right_player_id
+    };
   }
-  if (parts[0] !== 'plugin' || parts[1] !== 'fortune_teller' || parts[2] !== 'misinfo') {
-    return null;
+
+  if (
+    parts.length >= 6 &&
+    parts[0] === 'plugin' &&
+    parts[1] === 'fortune_teller' &&
+    parts[2] === 'misinfo_pair' &&
+    /^n\d+$/.test(parts[3] ?? '')
+  ) {
+    const owner_player_id = parts[4] ?? null;
+    const pair = parts[5] ?? null;
+    const [left_player_id, right_player_id] = (pair ?? '').split(',');
+    if (!owner_player_id || !left_player_id || !right_player_id) {
+      return null;
+    }
+    return {
+      owner_player_id,
+      left_player_id,
+      right_player_id
+    };
   }
-  const owner_player_id = parts[4] ?? null;
-  const left_player_id = parts[5] ?? null;
-  const right_player_id = parts[6] ?? null;
-  if (!owner_player_id || !left_player_id || !right_player_id) {
-    return null;
-  }
-  return {
-    owner_player_id,
-    left_player_id,
-    right_player_id
-  };
+
+  return null;
 }

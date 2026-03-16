@@ -27,79 +27,79 @@ function bootstrap_four_player_state(): GameState {
   const seed = create_initial_state('g1');
   return apply_events(seed, [
     {
-      event_id: 'e1',
+      event_id: 1,
       event_type: 'PlayerAdded',
       created_at: '2026-03-16T00:00:00.000Z',
       payload: { player_id: 'p1', display_name: 'Chef' }
     },
     {
-      event_id: 'e2',
+      event_id: 2,
       event_type: 'PlayerAdded',
       created_at: '2026-03-16T00:00:01.000Z',
       payload: { player_id: 'p2', display_name: 'Spy' }
     },
     {
-      event_id: 'e3',
+      event_id: 3,
       event_type: 'PlayerAdded',
       created_at: '2026-03-16T00:00:02.000Z',
       payload: { player_id: 'p3', display_name: 'Poisoner' }
     },
     {
-      event_id: 'e4',
+      event_id: 4,
       event_type: 'PlayerAdded',
       created_at: '2026-03-16T00:00:03.000Z',
       payload: { player_id: 'p4', display_name: 'Recluse' }
     },
     {
-      event_id: 'e5',
+      event_id: 5,
       event_type: 'SeatOrderSet',
       created_at: '2026-03-16T00:00:04.000Z',
       payload: { seat_order: ['p1', 'p2', 'p3', 'p4'] }
     },
     {
-      event_id: 'e6',
+      event_id: 6,
       event_type: 'CharacterAssigned',
       created_at: '2026-03-16T00:00:05.000Z',
       payload: { player_id: 'p1', true_character_id: 'chef' }
     },
     {
-      event_id: 'e7',
+      event_id: 7,
       event_type: 'CharacterAssigned',
       created_at: '2026-03-16T00:00:06.000Z',
       payload: { player_id: 'p2', true_character_id: 'spy' }
     },
     {
-      event_id: 'e8',
+      event_id: 8,
       event_type: 'CharacterAssigned',
       created_at: '2026-03-16T00:00:07.000Z',
       payload: { player_id: 'p3', true_character_id: 'poisoner' }
     },
     {
-      event_id: 'e9',
+      event_id: 9,
       event_type: 'CharacterAssigned',
       created_at: '2026-03-16T00:00:08.000Z',
       payload: { player_id: 'p4', true_character_id: 'recluse' }
     },
     {
-      event_id: 'e10',
+      event_id: 10,
       event_type: 'AlignmentAssigned',
       created_at: '2026-03-16T00:00:09.000Z',
       payload: { player_id: 'p1', true_alignment: 'good' }
     },
     {
-      event_id: 'e11',
+      event_id: 11,
       event_type: 'AlignmentAssigned',
       created_at: '2026-03-16T00:00:10.000Z',
       payload: { player_id: 'p2', true_alignment: 'evil' }
     },
     {
-      event_id: 'e12',
+      event_id: 12,
       event_type: 'AlignmentAssigned',
       created_at: '2026-03-16T00:00:11.000Z',
       payload: { player_id: 'p3', true_alignment: 'evil' }
     },
     {
-      event_id: 'e13',
+      event_id: 13,
       event_type: 'AlignmentAssigned',
       created_at: '2026-03-16T00:00:12.000Z',
       payload: { player_id: 'p4', true_alignment: 'good' }
@@ -111,97 +111,97 @@ function bootstrap_five_player_state_for_half_resolution(): GameState {
   const seed = create_initial_state('g2');
   return apply_events(seed, [
     {
-      event_id: 'f1',
+      event_id: 14,
       event_type: 'PlayerAdded',
       created_at: '2026-03-16T00:10:00.000Z',
       payload: { player_id: 'p1', display_name: 'Chef' }
     },
     {
-      event_id: 'f2',
+      event_id: 15,
       event_type: 'PlayerAdded',
       created_at: '2026-03-16T00:10:01.000Z',
       payload: { player_id: 'p2', display_name: 'Spy' }
     },
     {
-      event_id: 'f3',
+      event_id: 16,
       event_type: 'PlayerAdded',
       created_at: '2026-03-16T00:10:02.000Z',
       payload: { player_id: 'p3', display_name: 'Recluse' }
     },
     {
-      event_id: 'f4',
+      event_id: 17,
       event_type: 'PlayerAdded',
       created_at: '2026-03-16T00:10:03.000Z',
       payload: { player_id: 'p4', display_name: 'Mayor' }
     },
     {
-      event_id: 'f5',
+      event_id: 18,
       event_type: 'PlayerAdded',
       created_at: '2026-03-16T00:10:04.000Z',
       payload: { player_id: 'p5', display_name: 'Poisoner' }
     },
     {
-      event_id: 'f6',
+      event_id: 19,
       event_type: 'SeatOrderSet',
       created_at: '2026-03-16T00:10:05.000Z',
       payload: { seat_order: ['p1', 'p2', 'p3', 'p4', 'p5'] }
     },
     {
-      event_id: 'f7',
+      event_id: 20,
       event_type: 'CharacterAssigned',
       created_at: '2026-03-16T00:10:06.000Z',
       payload: { player_id: 'p1', true_character_id: 'chef' }
     },
     {
-      event_id: 'f8',
+      event_id: 21,
       event_type: 'CharacterAssigned',
       created_at: '2026-03-16T00:10:07.000Z',
       payload: { player_id: 'p2', true_character_id: 'spy' }
     },
     {
-      event_id: 'f9',
+      event_id: 22,
       event_type: 'CharacterAssigned',
       created_at: '2026-03-16T00:10:08.000Z',
       payload: { player_id: 'p3', true_character_id: 'recluse' }
     },
     {
-      event_id: 'f10',
+      event_id: 23,
       event_type: 'CharacterAssigned',
       created_at: '2026-03-16T00:10:09.000Z',
       payload: { player_id: 'p4', true_character_id: 'mayor' }
     },
     {
-      event_id: 'f11',
+      event_id: 24,
       event_type: 'CharacterAssigned',
       created_at: '2026-03-16T00:10:10.000Z',
       payload: { player_id: 'p5', true_character_id: 'poisoner' }
     },
     {
-      event_id: 'f12',
+      event_id: 25,
       event_type: 'AlignmentAssigned',
       created_at: '2026-03-16T00:10:11.000Z',
       payload: { player_id: 'p1', true_alignment: 'good' }
     },
     {
-      event_id: 'f13',
+      event_id: 26,
       event_type: 'AlignmentAssigned',
       created_at: '2026-03-16T00:10:12.000Z',
       payload: { player_id: 'p2', true_alignment: 'evil' }
     },
     {
-      event_id: 'f14',
+      event_id: 27,
       event_type: 'AlignmentAssigned',
       created_at: '2026-03-16T00:10:13.000Z',
       payload: { player_id: 'p3', true_alignment: 'good' }
     },
     {
-      event_id: 'f15',
+      event_id: 28,
       event_type: 'AlignmentAssigned',
       created_at: '2026-03-16T00:10:14.000Z',
       payload: { player_id: 'p4', true_alignment: 'good' }
     },
     {
-      event_id: 'f16',
+      event_id: 29,
       event_type: 'AlignmentAssigned',
       created_at: '2026-03-16T00:10:15.000Z',
       payload: { player_id: 'p5', true_alignment: 'evil' }
@@ -241,7 +241,7 @@ function resolve_poisoner_and_get_events(
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
-        prompt_id: 'plugin:poisoner:night_poison:1:p3',
+        prompt_key: 'plugin:poisoner:night_poison:n1:p3',
         selected_option_id: target_player_id,
         freeform: null,
         notes: null
@@ -259,17 +259,17 @@ test('baseline: after poisoner self-poisons, chef receives both spy/recluse regi
   const resolve_events = resolve_poisoner_and_get_events(state, registry, 'p3', 'c_resolve_self');
   const queued_prompt_ids = resolve_events
     .filter((event) => event.event_type === 'PromptQueued')
-    .map((event) => String(event.payload.prompt_id));
+    .map((event) => String(event.payload.prompt_key));
 
   assert.equal(
-    queued_prompt_ids.some((prompt_id) => prompt_id.startsWith('plugin:spy:registration:chef:p1:adjacent_pairs:')),
+    queued_prompt_ids.some((prompt_key) => prompt_key.startsWith('plugin:spy:registration:chef:p1:adjacent_pairs:')),
     true
   );
   assert.equal(
-    queued_prompt_ids.some((prompt_id) => prompt_id.startsWith('plugin:recluse:registration:chef:p1:adjacent_pairs:')),
+    queued_prompt_ids.some((prompt_key) => prompt_key.startsWith('plugin:recluse:registration:chef:p1:adjacent_pairs:')),
     true
   );
-  assert.equal(queued_prompt_ids.some((prompt_id) => prompt_id.startsWith('plugin:chef:misinfo:')), false);
+  assert.equal(queued_prompt_ids.some((prompt_key) => prompt_key.startsWith('plugin:chef:misinfo:')), false);
 });
 
 test('poisoned spy suppresses chef registration prompt from spy', () => {
@@ -280,14 +280,14 @@ test('poisoned spy suppresses chef registration prompt from spy', () => {
   const resolve_events = resolve_poisoner_and_get_events(state, registry, 'p2', 'c_resolve_spy');
   const queued_prompt_ids = resolve_events
     .filter((event) => event.event_type === 'PromptQueued')
-    .map((event) => String(event.payload.prompt_id));
+    .map((event) => String(event.payload.prompt_key));
 
   assert.equal(
-    queued_prompt_ids.some((prompt_id) => prompt_id.startsWith('plugin:spy:registration:chef:p1:adjacent_pairs:')),
+    queued_prompt_ids.some((prompt_key) => prompt_key.startsWith('plugin:spy:registration:chef:p1:adjacent_pairs:')),
     false
   );
   assert.equal(
-    queued_prompt_ids.some((prompt_id) => prompt_id.startsWith('plugin:recluse:registration:chef:p1:adjacent_pairs:')),
+    queued_prompt_ids.some((prompt_key) => prompt_key.startsWith('plugin:recluse:registration:chef:p1:adjacent_pairs:')),
     true
   );
 });
@@ -300,14 +300,14 @@ test('poisoned recluse suppresses chef registration prompt from recluse', () => 
   const resolve_events = resolve_poisoner_and_get_events(state, registry, 'p4', 'c_resolve_recluse');
   const queued_prompt_ids = resolve_events
     .filter((event) => event.event_type === 'PromptQueued')
-    .map((event) => String(event.payload.prompt_id));
+    .map((event) => String(event.payload.prompt_key));
 
   assert.equal(
-    queued_prompt_ids.some((prompt_id) => prompt_id.startsWith('plugin:recluse:registration:chef:p1:adjacent_pairs:')),
+    queued_prompt_ids.some((prompt_key) => prompt_key.startsWith('plugin:recluse:registration:chef:p1:adjacent_pairs:')),
     false
   );
   assert.equal(
-    queued_prompt_ids.some((prompt_id) => prompt_id.startsWith('plugin:spy:registration:chef:p1:adjacent_pairs:')),
+    queued_prompt_ids.some((prompt_key) => prompt_key.startsWith('plugin:spy:registration:chef:p1:adjacent_pairs:')),
     true
   );
 });
@@ -320,11 +320,11 @@ test('poisoned chef suppresses registration prompts and receives misinformation 
   const resolve_events = resolve_poisoner_and_get_events(state, registry, 'p1', 'c_resolve_chef');
   const queued_prompt_ids = resolve_events
     .filter((event) => event.event_type === 'PromptQueued')
-    .map((event) => String(event.payload.prompt_id));
+    .map((event) => String(event.payload.prompt_key));
 
-  assert.equal(queued_prompt_ids.some((prompt_id) => prompt_id.startsWith('plugin:chef:misinfo:1:p1')), true);
+  assert.equal(queued_prompt_ids.some((prompt_key) => prompt_key.startsWith('plugin:chef:misinfo:n1:p1')), true);
   assert.equal(
-    queued_prompt_ids.some((prompt_id) => prompt_id.includes(':registration:chef:p1:adjacent_pairs:')),
+    queued_prompt_ids.some((prompt_key) => prompt_key.includes(':registration:chef:p1:adjacent_pairs:')),
     false
   );
 });
@@ -347,7 +347,7 @@ test('chef can emit final info after one registration resolution when remaining 
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
-        prompt_id: 'plugin:poisoner:night_poison:1:p5',
+        prompt_key: 'plugin:poisoner:night_poison:n1:p5',
         selected_option_id: 'p5',
         freeform: null,
         notes: null
@@ -359,13 +359,13 @@ test('chef can emit final info after one registration resolution when remaining 
 
   const queued_after_poisoner = poisoner_resolve_events
     .filter((event) => event.event_type === 'PromptQueued')
-    .map((event) => String(event.payload.prompt_id));
+    .map((event) => String(event.payload.prompt_key));
 
-  const spy_prompt_id = queued_after_poisoner.find((prompt_id) =>
-    prompt_id.startsWith('plugin:spy:registration:chef:p1:adjacent_pairs:')
+  const spy_prompt_id = queued_after_poisoner.find((prompt_key) =>
+    prompt_key.startsWith('plugin:spy:registration:chef:p1:adjacent_pairs:')
   );
-  const recluse_prompt_id = queued_after_poisoner.find((prompt_id) =>
-    prompt_id.startsWith('plugin:recluse:registration:chef:p1:adjacent_pairs:')
+  const recluse_prompt_id = queued_after_poisoner.find((prompt_key) =>
+    prompt_key.startsWith('plugin:recluse:registration:chef:p1:adjacent_pairs:')
   );
   assert.ok(spy_prompt_id);
   assert.ok(recluse_prompt_id);
@@ -377,7 +377,7 @@ test('chef can emit final info after one registration resolution when remaining 
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
-        prompt_id: spy_prompt_id,
+        prompt_key: spy_prompt_id,
         selected_option_id: 'alignment:good',
         freeform: null,
         notes: null

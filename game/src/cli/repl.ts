@@ -317,24 +317,24 @@ interface NextRunOutcome {
   prompts_resolved: number;
 }
 
-function pending_prompt_ids(state: GameState): string[] {
-  return state.pending_prompts.filter((prompt_id) => {
-    const prompt = state.prompts_by_id[prompt_id];
+function pending_prompt_keys(state: GameState): string[] {
+  return state.pending_prompts.filter((prompt_key) => {
+    const prompt = state.prompts_by_id[prompt_key];
     return Boolean(prompt && prompt.status === 'pending');
   });
 }
 
 function resolve_next_pending_prompt(context: CliContext): boolean {
-  const prompt_id = pending_prompt_ids(context.state)[0];
-  if (!prompt_id) {
+  const prompt_key = pending_prompt_keys(context.state)[0];
+  if (!prompt_key) {
     return true;
   }
 
   return run_engine_command(context, {
     command_type: 'ResolvePrompt',
     payload: {
-      prompt_id,
-      selected_option_id: random_option_id_for_prompt(context.state, prompt_id),
+      prompt_key,
+      selected_option_id: random_option_id_for_prompt(context.state, prompt_key),
       freeform: null,
       notes: 'auto_next_prompt'
     }
@@ -343,7 +343,7 @@ function resolve_next_pending_prompt(context: CliContext): boolean {
 
 export function resolve_all_pending_prompts(context: CliContext, guard_limit = 100): NextRunOutcome {
   let prompts_resolved = 0;
-  while (pending_prompt_ids(context.state).length > 0) {
+  while (pending_prompt_keys(context.state).length > 0) {
     if (prompts_resolved >= guard_limit) {
       return {
         stop_reason: 'auto_prompt_guard_hit',
@@ -378,7 +378,7 @@ function make_repl_prompt(state: GameState): string {
 }
 
 function advance_one_step(context: CliContext): NextStopReason {
-  if (pending_prompt_ids(context.state).length > 0) {
+  if (pending_prompt_keys(context.state).length > 0) {
     return 'blocked_by_prompt';
   }
 
@@ -575,7 +575,7 @@ export function run_next_phase(
   if (action.scope === 'phase') {
     const phase_anchor = context.state.phase;
     for (let i = 0; i < 200; i += 1) {
-      if (pending_prompt_ids(context.state).length > 0) {
+      if (pending_prompt_keys(context.state).length > 0) {
         if (!action.auto_prompt) {
           return {
             stop_reason: 'blocked_by_prompt',
@@ -633,7 +633,7 @@ export function run_next_phase(
   const scope_anchor = create_next_scope_anchor(context.state);
 
   for (let i = 0; i < 200; i += 1) {
-    if (pending_prompt_ids(context.state).length > 0) {
+    if (pending_prompt_keys(context.state).length > 0) {
       if (!action.auto_prompt) {
         return {
           stop_reason: 'blocked_by_prompt',
@@ -784,9 +784,9 @@ function handle_local_action(context: CliContext, action: CliLocalAction): boole
   }
 
   if (action.type === 'prompt') {
-    const prompt = context.state.prompts_by_id[action.prompt_id];
+    const prompt = context.state.prompts_by_id[action.prompt_key];
     if (!prompt) {
-      process.stdout.write(`prompt not found: ${action.prompt_id}\n`);
+      process.stdout.write(`prompt not found: ${action.prompt_key}\n`);
       return true;
     }
     process.stdout.write(`${format_prompt(prompt)}\n`);

@@ -50,15 +50,24 @@ Aliases:
   - add `--json` to any `view` command for JSON output
 - `setup-player <player_id> <true_character_id> [perceived_character_id] <townsfolk|outsider|minion|demon|traveller> [good|evil]`
 - `prompts`
-- `prompt <prompt_id>`
+- `prompt <prompt_key>`
 - `new <game_id>`
 - `quit` / `exit`
 
 ## Adjudication Prompt Commands
 
-- `create-prompt <prompt_id> <kind> <storyteller|player|public> <reason...>`
-- `resolve-prompt <prompt_id> [selected_option_id|-] [notes...]`
-- `cancel-prompt <prompt_id> <reason...>`
+- `create-prompt <prompt_key> <kind> <storyteller|player|public> <reason...>`
+- `resolve-prompt <prompt_key> [selected_option_id|-] [notes...]`
+- `cancel-prompt <prompt_key> <reason...>`
+
+Prompt/wake key conventions:
+
+- prompt keys: `plugin:<character_id>:<verb>:<time_key>:<player_id>[:detail...]`
+  - example: `plugin:poisoner:night_poison:n1:p5`
+- wake keys: `wake:<time_key>:<global_order>:<player_id>:<character_id>`
+  - example: `wake:n1:1:p5:poisoner`
+- `time_key`: `d<day_number>` or `n<night_number>`
+- compatibility note: legacy `prompt_id` / `wake_id` fields are removed; use key-only names in commands/events/debug output.
 
 ## Reminder Marker Commands
 

@@ -10,6 +10,25 @@
   - payload/state keys = `snake_case`
   - command/event/type names = `PascalCase`
 
+## Identity Conventions (Repository Default)
+
+- Event identity is dual:
+  - `event_id`: global 1-based numeric ordinal (assigned by reducer append order).
+  - `event_key`: deterministic producer key (command/plugin generated, dedup/correlation).
+- Internal event references use numeric `event_id` in `*_event_id` fields.
+- Prompt identity uses `prompt_key`.
+- Wake identity uses `wake_key`.
+- Time-key shorthand:
+  - `d<day_number>` for day scope (for example `d1`)
+  - `n<night_number>` for night scope (for example `n1`, `n2`)
+- Plugin key prefix shape:
+  - `plugin:<character_id>:<verb>:<time_key>:<player_id>[:detail...]`
+- Wake key shape:
+  - `wake:<time_key>:<global_order>:<player_id>:<character_id>`
+  - `global_order` is per-time-slot sequence (resets each `time_key`).
+- Legacy alias cleanup:
+  - `prompt_id` and `wake_id` are removed from runtime contracts; key-only fields are canonical.
+
 ## Milestones
 
 ### SPEC-01 Foundation
@@ -117,7 +136,7 @@ Provide an interactive CLI to run commands against the engine and inspect emitte
 Model discretionary rulings as explicit prompts.
 
 **Tasks**
-- Define prompt schema (`prompt_id`, `kind`, `reason`, `options`, `visibility`).
+- Define prompt schema (`prompt_key`, `kind`, `reason`, `options`, `visibility`).
 - Add prompt queue lifecycle.
 - Implement `ResolvePrompt` command.
 - Add adjudication events and notes linkage.

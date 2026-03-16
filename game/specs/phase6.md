@@ -37,6 +37,16 @@ By end of Phase 6, character behavior is executed by plugins through determinist
 - Queue structures are serialization-friendly (`snake_case` payload/state keys).
 - Invariants validate queue integrity and reference validity.
 
+Wake key conventions (normative)
+--------------------------------
+- Wake entries are keyed by `wake_key` (not `wake_id`).
+- Format:
+  - `wake:<time_key>:<global_order>:<player_id>:<character_id>`
+- `global_order` is per-time-slot (resets each `time_key`) and reflects deterministic wake ordering for that slot.
+- Examples:
+  - `wake:n1:1:p5:poisoner`
+  - `wake:n1:2:p2:washerwoman`
+
 ### 3) Hook dispatch is deterministic and replay-safe
 
 - Dispatcher runs at explicit boundaries only.
@@ -50,6 +60,18 @@ By end of Phase 6, character behavior is executed by plugins through determinist
 - Prompt resolution can re-enter plugin runtime for follow-up effects.
 - Interrupts are drained deterministically before resuming normal wake flow.
 - Plugin-emitted reminder marker lifecycle events are bridged into compatibility status transitions when effective state changes.
+
+Plugin prompt/reason key conventions (normative)
+------------------------------------------------
+- Plugin-authored prompt keys and plugin reason prefixes should start with:
+  - `plugin:<character_id>:<verb>:<time_key>:<player_id>[:detail...]`
+- Example prompt key:
+  - `plugin:poisoner:night_poison:n1:p5`
+
+Payload conventions (normative)
+-------------------------------
+- `prompt_id` and `wake_id` aliases are removed from Phase 6 runtime payloads.
+- plugin runtime, queue processing, and hook contexts use `prompt_key`/`wake_key` only.
 
 ### 5) Imp and Poisoner prove architecture
 

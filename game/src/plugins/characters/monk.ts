@@ -1,7 +1,21 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
+import {
+  build_night_prompt_key,
+  is_night_prompt_key,
+  night_time_key,
+  parse_night_prompt_owner_player_id
+} from './prompt-key-utils.js';
 import { is_functional_player } from './tb-info-utils.js';
 
 const MONK_PROMPT_PREFIX = 'plugin:monk:night_protect';
+
+function build_monk_prompt_key(night_number: number, player_id: string): string {
+  return build_night_prompt_key('monk', 'night_protect', night_number, player_id);
+}
+
+function resolve_prompt_token(context: Parameters<NonNullable<CharacterPlugin['hooks']['on_prompt_resolved']>>[0]): string {
+  return context.prompt_key;
+}
 
 export const monk_plugin: CharacterPlugin = {
   metadata: {
@@ -41,9 +55,9 @@ export const monk_plugin: CharacterPlugin = {
         emitted_events: [],
         queued_prompts: [
           {
-            prompt_id: `${MONK_PROMPT_PREFIX}:${context.state.night_number}:${context.player_id}`,
+            prompt_key: build_monk_prompt_key(context.state.night_number, context.player_id),
             kind: 'choice',
-            reason: 'plugin:monk:choose protection target',
+            reason: `plugin:monk:choose_protection_target:${night_time_key(context.state.night_number)}:${context.player_id}`,
             visibility: 'player',
             options
           }
@@ -52,7 +66,8 @@ export const monk_plugin: CharacterPlugin = {
       };
     },
     on_prompt_resolved: (context): PluginResult => {
-      const monk_player_id = parse_monk_prompt_owner_player_id(context.prompt_id);
+      const prompt_token = resolve_prompt_token(context);
+      const monk_player_id = parse_monk_prompt_owner_player_id(prompt_token);
       if (!monk_player_id) {
         return {
           emitted_events: [],
@@ -119,12 +134,12 @@ export const monk_plugin: CharacterPlugin = {
           expires_policy: 'end_of_night',
           expires_at_day_number: null,
           expires_at_night_number: null,
-          source_event_id: null,
-          metadata: {
-            from_prompt_id: context.prompt_id
+            source_event_id: null,
+            metadata: {
+              from_prompt_key: context.prompt_key
+            }
           }
-        }
-      });
+        });
 
       return {
         emitted_events,
@@ -135,17 +150,10 @@ export const monk_plugin: CharacterPlugin = {
   }
 };
 
-export function is_monk_prompt_id(prompt_id: string): boolean {
-  return prompt_id.startsWith(MONK_PROMPT_PREFIX);
+export function is_monk_prompt_id(prompt_key: string): boolean {
+  return is_night_prompt_key(prompt_key, 'monk', 'night_protect');
 }
 
-function parse_monk_prompt_owner_player_id(prompt_id: string): string | null {
-  const parts = prompt_id.split(':');
-  if (parts.length < 5) {
-    return null;
-  }
-  if (parts[0] !== 'plugin' || parts[1] !== 'monk' || parts[2] !== 'night_protect') {
-    return null;
-  }
-  return parts[4] ?? null;
+function parse_monk_prompt_owner_player_id(prompt_key: string): string | null {
+  return parse_night_prompt_owner_player_id(prompt_key, 'monk', 'night_protect');
 }

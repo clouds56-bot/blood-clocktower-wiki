@@ -100,7 +100,8 @@ export function handle_advance_phase(
     ok: true,
     value: [
       {
-        event_id: `${command.command_id}:PhaseAdvanced`,
+        event_key: `${command.command_id}:PhaseAdvanced`,
+        event_id: 1,
         event_type: 'PhaseAdvanced',
         created_at,
         actor_id: command.actor_id,

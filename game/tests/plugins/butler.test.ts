@@ -25,7 +25,7 @@ test('butler wake hook returns master selection prompt', () => {
   assert.equal(result?.queued_prompts.length, 1);
   const prompt = result?.queued_prompts[0];
   assert.ok(prompt);
-  assert.equal(is_butler_prompt_id(prompt?.prompt_id ?? ''), true);
+  assert.equal(is_butler_prompt_id(prompt?.prompt_key ?? ''), true);
   assert.deepEqual(prompt?.options.map((option) => option.option_id), ['p2', 'p3']);
 });
 
@@ -49,7 +49,7 @@ test('butler prompt resolution emits master marker and clears previous marker', 
     expires_policy: 'end_of_day',
     expires_at_day_number: null,
     expires_at_night_number: null,
-    created_at_event_id: 'e1',
+    created_at_event_id: 1,
     cleared_at_event_id: null,
     source_event_id: null,
     metadata: {}
@@ -58,7 +58,7 @@ test('butler prompt resolution emits master marker and clears previous marker', 
 
   const result = butler_plugin.hooks.on_prompt_resolved?.({
     state,
-    prompt_id: 'plugin:butler:night_master:2:p1',
+    prompt_key: 'plugin:butler:night_master:n2:p1',
     selected_option_id: 'p3',
     freeform: null
   });
@@ -95,7 +95,7 @@ test('butler vote validation blocks in-favor vote before master vote', () => {
     expires_policy: 'end_of_day',
     expires_at_day_number: null,
     expires_at_night_number: null,
-    created_at_event_id: 'e1',
+    created_at_event_id: 2,
     cleared_at_event_id: null,
     source_event_id: null,
     metadata: {}

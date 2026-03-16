@@ -73,13 +73,14 @@ By end of Phase 5.5, reminder markers are the single authoritative source for ef
   - do not dispatch new commands from reducer/event hooks;
   - produce bridge events in command handling flow where pre/post state can be compared deterministically.
 
-### 5) Event ID and marker ID policy is collision-safe
+### 5) Event identity and marker ID policy is collision-safe
 
 - `event_type` is not unique; repeated same-type events are expected.
-- `event_id` must be unique (for example `${command_id}:${event_type}:${index}`).
+- `event_id` is a global 1-based numeric ordinal assigned by reducer append order.
+- `event_key` is a deterministic producer key string (for example `${command_id}:${event_type}:${index}`) and must be unique.
 - `marker_id` must be deterministic and event-linked:
-  - one marker per event: `marker_id = event_id`
-  - multiple markers per event: `marker_id = ${event_id}:${index}`
+  - one marker per event: `marker_id = event_key`
+  - multiple markers per event: `marker_id = ${event_key}:${index}`
 
 ### 6) Visibility and CLI support are integrated
 

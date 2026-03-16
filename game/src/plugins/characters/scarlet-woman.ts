@@ -102,7 +102,7 @@ export const scarlet_woman_plugin: CharacterPlugin = {
           {
             event_type: 'StorytellerRulingRecorded',
             payload: {
-              prompt_id: null,
+              prompt_key: null,
               note: `demon_continuity:scarlet_woman:${scarlet_woman.player_id}:from:${dead_player.player_id}`
             }
           }

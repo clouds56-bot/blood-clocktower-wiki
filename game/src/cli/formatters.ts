@@ -304,7 +304,7 @@ export function format_storyteller_projection(projection: StorytellerProjection)
         render_table(
           ['id', 'kind', 'status', 'vis', 'input', 'choice', 'notes', 'hint'],
           projection.prompts.map((prompt) => [
-            prompt.prompt_id,
+            prompt.prompt_key,
             prompt.kind,
             prompt.status,
             prompt.visibility,
@@ -339,8 +339,8 @@ export function format_storyteller_projection(projection: StorytellerProjection)
     : [
         'notes:',
         render_table(
-          ['id', 'prompt_id', 'text'],
-          projection.storyteller_notes.map((note) => [note.note_id, note.prompt_id ?? '-', note.text])
+          ['id', 'prompt_key', 'text'],
+          projection.storyteller_notes.map((note) => [String(note.note_id), note.prompt_key ?? '-', note.text])
         )
       ].join('\n');
 
@@ -405,10 +405,10 @@ export function format_prompt_list(state: GameState): string {
       if (left_rank !== right_rank) {
         return left_rank - right_rank;
       }
-      return left.prompt_id.localeCompare(right.prompt_id);
+      return left.prompt_key.localeCompare(right.prompt_key);
     })
     .map((prompt) => [
-      prompt.status === 'resolved' ? paint(prompt.prompt_id, 'gray') : prompt.prompt_id,
+      prompt.status === 'resolved' ? paint(prompt.prompt_key, 'gray') : prompt.prompt_key,
       prompt.kind,
       prompt.status === 'resolved' ? paint(prompt.status, 'gray') : prompt.status,
       prompt.visibility,
@@ -416,7 +416,7 @@ export function format_prompt_list(state: GameState): string {
       prompt.reason
     ]);
 
-  return render_table(['prompt_id', 'kind', 'status', 'vis', 'choice', 'reason'], rows);
+  return render_table(['prompt_key', 'kind', 'status', 'vis', 'choice', 'reason'], rows);
 }
 
 export function format_prompt(prompt: PromptState): string {
@@ -427,7 +427,7 @@ export function format_prompt(prompt: PromptState): string {
   const freeform = prompt.resolution_payload?.freeform ?? 'null';
 
   return [
-    `prompt_id=${prompt.prompt_id} status=${prompt.status}`,
+    `prompt_key=${prompt.prompt_key} status=${prompt.status}`,
     `kind=${prompt.kind} visibility=${prompt.visibility}`,
     `reason=${prompt.reason}`,
     `options=${options}`,

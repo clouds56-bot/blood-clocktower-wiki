@@ -46,31 +46,31 @@ function bootstrap_night_state(): GameState {
   const seed = create_initial_state('g1');
   return apply_events(seed, [
     {
-      event_id: 'e1',
+      event_id: 1,
       event_type: 'PlayerAdded',
       created_at: '2026-03-14T00:00:00.000Z',
       payload: { player_id: 'p1', display_name: 'Alice' }
     },
     {
-      event_id: 'e2',
+      event_id: 2,
       event_type: 'PlayerAdded',
       created_at: '2026-03-14T00:00:01.000Z',
       payload: { player_id: 'p2', display_name: 'Bob' }
     },
     {
-      event_id: 'e3',
+      event_id: 3,
       event_type: 'SeatOrderSet',
       created_at: '2026-03-14T00:00:02.000Z',
       payload: { seat_order: ['p1', 'p2'] }
     },
     {
-      event_id: 'e4',
+      event_id: 4,
       event_type: 'CharacterAssigned',
       created_at: '2026-03-14T00:00:03.000Z',
       payload: { player_id: 'p1', true_character_id: 'imp', is_demon: true }
     },
     {
-      event_id: 'e5',
+      event_id: 5,
       event_type: 'CharacterAssigned',
       created_at: '2026-03-14T00:00:04.000Z',
       payload: { player_id: 'p2', true_character_id: 'poisoner' }
@@ -82,37 +82,37 @@ function bootstrap_day_vote_state(): GameState {
   const seed = create_initial_state('g1');
   return apply_events(seed, [
     {
-      event_id: 'v1',
+      event_id: 6,
       event_type: 'PlayerAdded',
       created_at: '2026-03-14T00:00:00.000Z',
       payload: { player_id: 'p1', display_name: 'Alice' }
     },
     {
-      event_id: 'v2',
+      event_id: 7,
       event_type: 'PlayerAdded',
       created_at: '2026-03-14T00:00:01.000Z',
       payload: { player_id: 'p2', display_name: 'Bob' }
     },
     {
-      event_id: 'v3',
+      event_id: 8,
       event_type: 'PlayerAdded',
       created_at: '2026-03-14T00:00:02.000Z',
       payload: { player_id: 'p3', display_name: 'Cara' }
     },
     {
-      event_id: 'v4',
+      event_id: 9,
       event_type: 'CharacterAssigned',
       created_at: '2026-03-14T00:00:03.000Z',
       payload: { player_id: 'p1', true_character_id: 'butler' }
     },
     {
-      event_id: 'v5',
+      event_id: 10,
       event_type: 'PhaseAdvanced',
       created_at: '2026-03-14T00:00:04.000Z',
       payload: { phase: 'day', subphase: 'vote_in_progress', day_number: 1, night_number: 1 }
     },
     {
-      event_id: 'v6',
+      event_id: 11,
       event_type: 'VoteOpened',
       created_at: '2026-03-14T00:00:05.000Z',
       payload: {
@@ -122,7 +122,7 @@ function bootstrap_day_vote_state(): GameState {
       }
     },
     {
-      event_id: 'v7',
+      event_id: 12,
       event_type: 'ReminderMarkerApplied',
       created_at: '2026-03-14T00:00:06.000Z',
       payload: {
@@ -149,31 +149,31 @@ function bootstrap_day_nomination_state(): GameState {
   const seed = create_initial_state('g1');
   return apply_events(seed, [
     {
-      event_id: 'n1',
+      event_id: 13,
       event_type: 'PlayerAdded',
       created_at: '2026-03-14T00:00:00.000Z',
       payload: { player_id: 'p1', display_name: 'Alice' }
     },
     {
-      event_id: 'n2',
+      event_id: 14,
       event_type: 'PlayerAdded',
       created_at: '2026-03-14T00:00:01.000Z',
       payload: { player_id: 'p2', display_name: 'Bob' }
     },
     {
-      event_id: 'n3',
+      event_id: 15,
       event_type: 'CharacterAssigned',
       created_at: '2026-03-14T00:00:02.000Z',
       payload: { player_id: 'p2', true_character_id: 'custom_nominee' }
     },
     {
-      event_id: 'n4',
+      event_id: 16,
       event_type: 'PhaseAdvanced',
       created_at: '2026-03-14T00:00:03.000Z',
       payload: { phase: 'day', subphase: 'nomination_window', day_number: 1, night_number: 1 }
     },
     {
-      event_id: 'n5',
+      event_id: 17,
       event_type: 'NominationWindowOpened',
       created_at: '2026-03-14T00:00:04.000Z',
       payload: { day_number: 1 }
@@ -199,7 +199,7 @@ test('advance phase night wake boundary suspends further wakes when a prompt is 
         emitted_events: [],
         queued_prompts: [
           {
-            prompt_id: 'plugin:imp:night_kill',
+            prompt_key: 'plugin:imp:night_kill',
             kind: 'choice',
             reason: 'plugin:imp:choose target',
             visibility: 'storyteller',
@@ -225,7 +225,7 @@ test('advance phase night wake boundary suspends further wakes when a prompt is 
         emitted_events: [],
         queued_prompts: [
           {
-            prompt_id: 'plugin:poisoner:night_poison',
+            prompt_key: 'plugin:poisoner:night_poison',
             kind: 'choice',
             reason: 'plugin:poisoner:choose target',
             visibility: 'storyteller',
@@ -263,12 +263,12 @@ test('advance phase night wake boundary suspends further wakes when a prompt is 
 
   assert.equal(
     events.some(
-      (event) => event.event_type === 'PromptQueued' && event.payload.prompt_id === 'plugin:poisoner:night_poison'
+      (event) => event.event_type === 'PromptQueued' && event.payload.prompt_key === 'plugin:poisoner:night_poison'
     ),
     true
   );
   assert.equal(
-    events.some((event) => event.event_type === 'PromptQueued' && event.payload.prompt_id === 'plugin:imp:night_kill'),
+    events.some((event) => event.event_type === 'PromptQueued' && event.payload.prompt_key === 'plugin:imp:night_kill'),
     false
   );
 });
@@ -313,7 +313,7 @@ test('resolve prompt boundary re-enters plugin runtime via prompt owner tag', ()
           {
             event_type: 'StorytellerRulingRecorded',
             payload: {
-              prompt_id: context.prompt_id,
+        prompt_key: context.prompt_key,
               note: `plugin handled ${context.selected_option_id}`
             }
           }
@@ -327,11 +327,11 @@ test('resolve prompt boundary re-enters plugin runtime via prompt owner tag', ()
   const registry = new PluginRegistry([imp]);
   const state = apply_events(create_initial_state('g1'), [
     {
-      event_id: 'e1',
+      event_id: 18,
       event_type: 'PromptQueued',
       created_at: '2026-03-14T00:00:00.000Z',
       payload: {
-        prompt_id: 'plugin:imp:night_kill',
+        prompt_key: 'plugin:imp:night_kill',
         kind: 'choice',
         reason: 'plugin:imp:choose target',
         visibility: 'storyteller',
@@ -347,7 +347,7 @@ test('resolve prompt boundary re-enters plugin runtime via prompt owner tag', ()
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
-        prompt_id: 'plugin:imp:night_kill',
+        prompt_key: 'plugin:imp:night_kill',
         selected_option_id: 'p2',
         freeform: null,
         notes: null
@@ -394,7 +394,7 @@ test('nomination boundary dispatches on_nomination_made for nominee plugin', () 
           {
             event_type: 'StorytellerRulingRecorded',
             payload: {
-              prompt_id: null,
+              prompt_key: null,
               note: `nomination_hook:${context.nomination_id}:${context.nominator_player_id}->${context.nominee_player_id}`
             }
           }
@@ -463,7 +463,7 @@ test('resolve prompt resumes suspended wake queue', () => {
         emitted_events: [],
         queued_prompts: [
           {
-            prompt_id: 'plugin:imp:night_kill',
+            prompt_key: 'plugin:imp:night_kill',
             kind: 'choice',
             reason: 'plugin:imp:choose target',
             visibility: 'player',
@@ -487,7 +487,7 @@ test('resolve prompt resumes suspended wake queue', () => {
         emitted_events: [],
         queued_prompts: [
           {
-            prompt_id: 'plugin:poisoner:night_poison',
+            prompt_key: 'plugin:poisoner:night_poison',
             kind: 'choice',
             reason: 'plugin:poisoner:choose target',
             visibility: 'player',
@@ -529,7 +529,7 @@ test('resolve prompt resumes suspended wake queue', () => {
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
-        prompt_id: 'plugin:poisoner:night_poison',
+        prompt_key: 'plugin:poisoner:night_poison',
         selected_option_id: 'p1',
         freeform: null,
         notes: null
@@ -540,7 +540,7 @@ test('resolve prompt resumes suspended wake queue', () => {
 
   assert.equal(
     resolve_events.some(
-      (event) => event.event_type === 'PromptQueued' && event.payload.prompt_id === 'plugin:imp:night_kill'
+      (event) => event.event_type === 'PromptQueued' && event.payload.prompt_key === 'plugin:imp:night_kill'
     ),
     true
   );
@@ -636,11 +636,11 @@ test('imp plugin prompt resolves into death through engine flow', () => {
   state = apply_events(state, wake_events);
 
   const imp_prompt = wake_events.find(
-    (event) => event.event_type === 'PromptQueued' && event.payload.prompt_id.startsWith('plugin:imp:night_kill:')
+    (event) => event.event_type === 'PromptQueued' && event.payload.prompt_key.startsWith('plugin:imp:night_kill:')
   );
   assert.ok(imp_prompt);
   const imp_prompt_id =
-    imp_prompt && imp_prompt.event_type === 'PromptQueued' ? imp_prompt.payload.prompt_id : null;
+    imp_prompt && imp_prompt.event_type === 'PromptQueued' ? imp_prompt.payload.prompt_key : null;
   assert.ok(imp_prompt_id);
 
   const resolve_events = run_with_registry(
@@ -650,7 +650,7 @@ test('imp plugin prompt resolves into death through engine flow', () => {
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
-        prompt_id: imp_prompt_id!,
+        prompt_key: imp_prompt_id!,
         selected_option_id: 'p2',
         freeform: null,
         notes: 'imp chooses Bob'
@@ -676,7 +676,7 @@ test('plugin runtime returns deterministic error on duplicate queued prompt id',
           emitted_events: [],
           queued_prompts: [
             {
-              prompt_id: 'plugin:imp:night_kill:1:p1',
+              prompt_key: 'plugin:imp:night_kill:n1:p1',
               kind: 'choice',
               reason: 'plugin:imp:choose night kill target',
               visibility: 'storyteller',
@@ -691,11 +691,11 @@ test('plugin runtime returns deterministic error on duplicate queued prompt id',
 
   const state = apply_events(create_initial_state('g1'), [
     {
-      event_id: 'e1',
+      event_id: 19,
       event_type: 'PromptQueued',
       created_at: '2026-03-14T00:00:00.000Z',
       payload: {
-        prompt_id: 'plugin:imp:night_kill:1:p1',
+        prompt_key: 'plugin:imp:night_kill:n1:p1',
         kind: 'choice',
         reason: 'plugin:imp:choose night kill target',
         visibility: 'storyteller',
@@ -711,7 +711,7 @@ test('plugin runtime returns deterministic error on duplicate queued prompt id',
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
-        prompt_id: 'plugin:imp:night_kill:1:p1',
+        prompt_key: 'plugin:imp:night_kill:n1:p1',
         selected_option_id: null,
         freeform: null,
         notes: null
@@ -725,7 +725,7 @@ test('plugin runtime returns deterministic error on duplicate queued prompt id',
 
   assert.equal(result.ok, false);
   if (!result.ok) {
-    assert.equal(result.error.code, 'prompt_id_already_exists');
+    assert.equal(result.error.code, 'prompt_already_exists');
   }
 });
 
@@ -758,7 +758,7 @@ test('poisoner prompt resolves into reminder marker apply and clear flow', () =>
   const poisoner_prompt_n1 = wake_events.find(
     (event) =>
       event.event_type === 'PromptQueued' &&
-      event.payload.prompt_id.startsWith('plugin:poisoner:night_poison:1:')
+      event.payload.prompt_key.startsWith('plugin:poisoner:night_poison:n1:')
   );
   assert.ok(poisoner_prompt_n1 && poisoner_prompt_n1.event_type === 'PromptQueued');
 
@@ -769,7 +769,7 @@ test('poisoner prompt resolves into reminder marker apply and clear flow', () =>
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
-        prompt_id: poisoner_prompt_n1.payload.prompt_id,
+        prompt_key: poisoner_prompt_n1.payload.prompt_key,
         selected_option_id: 'p1',
         freeform: null,
         notes: null
@@ -805,7 +805,7 @@ test('poisoner prompt resolves into reminder marker apply and clear flow', () =>
   const poisoner_prompt_n2 = phase_to_n2.find(
     (event) =>
       event.event_type === 'PromptQueued' &&
-      event.payload.prompt_id.startsWith('plugin:poisoner:night_poison:2:')
+      event.payload.prompt_key.startsWith('plugin:poisoner:night_poison:n2:')
   );
   assert.ok(poisoner_prompt_n2 && poisoner_prompt_n2.event_type === 'PromptQueued');
 
@@ -816,7 +816,7 @@ test('poisoner prompt resolves into reminder marker apply and clear flow', () =>
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
-        prompt_id: poisoner_prompt_n2.payload.prompt_id,
+        prompt_key: poisoner_prompt_n2.payload.prompt_key,
         selected_option_id: 'p2',
         freeform: null,
         notes: null
@@ -839,37 +839,37 @@ test('poisoned imp still wakes and chooses but kill effect is suppressed', () =>
   let state = create_initial_state('g1');
   state = apply_events(state, [
     {
-      event_id: 'e1',
+      event_id: 20,
       event_type: 'PlayerAdded',
       created_at: '2026-03-14T00:00:00.000Z',
       payload: { player_id: 'p1', display_name: 'Poisoner' }
     },
     {
-      event_id: 'e2',
+      event_id: 21,
       event_type: 'PlayerAdded',
       created_at: '2026-03-14T00:00:01.000Z',
       payload: { player_id: 'p2', display_name: 'Imp' }
     },
     {
-      event_id: 'e3',
+      event_id: 22,
       event_type: 'PlayerAdded',
       created_at: '2026-03-14T00:00:02.000Z',
       payload: { player_id: 'p3', display_name: 'Target' }
     },
     {
-      event_id: 'e4',
+      event_id: 23,
       event_type: 'SeatOrderSet',
       created_at: '2026-03-14T00:00:03.000Z',
       payload: { seat_order: ['p1', 'p2', 'p3'] }
     },
     {
-      event_id: 'e5',
+      event_id: 24,
       event_type: 'CharacterAssigned',
       created_at: '2026-03-14T00:00:04.000Z',
       payload: { player_id: 'p1', true_character_id: 'poisoner' }
     },
     {
-      event_id: 'e6',
+      event_id: 25,
       event_type: 'CharacterAssigned',
       created_at: '2026-03-14T00:00:05.000Z',
       payload: { player_id: 'p2', true_character_id: 'imp', is_demon: true }
@@ -902,7 +902,7 @@ test('poisoned imp still wakes and chooses but kill effect is suppressed', () =>
   const poison_prompt = phase_events.find(
     (event) =>
       event.event_type === 'PromptQueued' &&
-      event.payload.prompt_id.startsWith('plugin:poisoner:night_poison:1:p1')
+      event.payload.prompt_key.startsWith('plugin:poisoner:night_poison:n1:p1')
   );
   assert.ok(poison_prompt && poison_prompt.event_type === 'PromptQueued');
 
@@ -913,7 +913,7 @@ test('poisoned imp still wakes and chooses but kill effect is suppressed', () =>
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
-        prompt_id: poison_prompt.payload.prompt_id,
+        prompt_key: poison_prompt.payload.prompt_key,
         selected_option_id: 'p2',
         freeform: null,
         notes: null
@@ -928,7 +928,7 @@ test('poisoned imp still wakes and chooses but kill effect is suppressed', () =>
     resolve_events.some(
       (event) =>
         event.event_type === 'PromptQueued' &&
-        event.payload.prompt_id.startsWith('plugin:imp:night_kill:')
+        event.payload.prompt_key.startsWith('plugin:imp:night_kill:')
     ),
     true
   );
@@ -937,7 +937,7 @@ test('poisoned imp still wakes and chooses but kill effect is suppressed', () =>
   const imp_prompt = resolve_events.find(
     (event) =>
       event.event_type === 'PromptQueued' &&
-      event.payload.prompt_id.startsWith('plugin:imp:night_kill:1:p2')
+      event.payload.prompt_key.startsWith('plugin:imp:night_kill:n1:p2')
   );
   assert.ok(imp_prompt && imp_prompt.event_type === 'PromptQueued');
 
@@ -948,7 +948,7 @@ test('poisoned imp still wakes and chooses but kill effect is suppressed', () =>
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
-        prompt_id: imp_prompt.payload.prompt_id,
+        prompt_key: imp_prompt.payload.prompt_key,
         selected_option_id: 'p3',
         freeform: null,
         notes: null

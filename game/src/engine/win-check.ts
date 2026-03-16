@@ -99,7 +99,8 @@ export function handle_check_win_conditions(
   const evil_wins = saint_executed || count_alive_non_travellers(state) <= 2;
 
   events.push({
-    event_id: `${command.command_id}:WinCheckCompleted`,
+    event_key: `${command.command_id}:WinCheckCompleted`,
+    event_id: 1,
     event_type: 'WinCheckCompleted',
     created_at,
     actor_id: command.actor_id,
@@ -113,7 +114,8 @@ export function handle_check_win_conditions(
   if (saint_executed) {
     const reason = 'saint_executed';
     events.push({
-      event_id: `${command.command_id}:GameWon`,
+      event_key: `${command.command_id}:GameWon`,
+      event_id: 1,
       event_type: 'GameWon',
       created_at,
       actor_id: command.actor_id,
@@ -123,7 +125,8 @@ export function handle_check_win_conditions(
       }
     });
     events.push({
-      event_id: `${command.command_id}:GameEnded`,
+      event_key: `${command.command_id}:GameEnded`,
+      event_id: 1,
       event_type: 'GameEnded',
       created_at,
       actor_id: command.actor_id,
@@ -143,7 +146,8 @@ export function handle_check_win_conditions(
       ? 'demon_died'
       : 'mayor_final_three_no_execution';
     events.push({
-      event_id: `${command.command_id}:GameWon`,
+      event_key: `${command.command_id}:GameWon`,
+      event_id: 1,
       event_type: 'GameWon',
       created_at,
       actor_id: command.actor_id,
@@ -153,7 +157,8 @@ export function handle_check_win_conditions(
       }
     });
     events.push({
-      event_id: `${command.command_id}:GameEnded`,
+      event_key: `${command.command_id}:GameEnded`,
+      event_id: 1,
       event_type: 'GameEnded',
       created_at,
       actor_id: command.actor_id,
@@ -171,7 +176,8 @@ export function handle_check_win_conditions(
   if (evil_wins) {
     const reason = 'two_alive_non_travellers';
     events.push({
-      event_id: `${command.command_id}:GameWon`,
+      event_key: `${command.command_id}:GameWon`,
+      event_id: 1,
       event_type: 'GameWon',
       created_at,
       actor_id: command.actor_id,
@@ -181,7 +187,8 @@ export function handle_check_win_conditions(
       }
     });
     events.push({
-      event_id: `${command.command_id}:GameEnded`,
+      event_key: `${command.command_id}:GameEnded`,
+      event_id: 1,
       event_type: 'GameEnded',
       created_at,
       actor_id: command.actor_id,
@@ -211,7 +218,8 @@ export function handle_declare_forced_victory(
     ok: true,
     value: [
       {
-        event_id: `${command.command_id}:ForcedVictoryDeclared`,
+        event_key: `${command.command_id}:ForcedVictoryDeclared`,
+        event_id: 1,
         event_type: 'ForcedVictoryDeclared',
         created_at,
         actor_id: command.actor_id,
@@ -221,7 +229,8 @@ export function handle_declare_forced_victory(
         }
       },
       {
-        event_id: `${command.command_id}:GameEnded`,
+        event_key: `${command.command_id}:GameEnded`,
+        event_id: 1,
         event_type: 'GameEnded',
         created_at,
         actor_id: command.actor_id,

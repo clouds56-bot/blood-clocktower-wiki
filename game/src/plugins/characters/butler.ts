@@ -1,8 +1,22 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
 import type { GameState } from '../../domain/types.js';
+import {
+  build_night_prompt_key,
+  is_night_prompt_key,
+  night_time_key,
+  parse_night_prompt_owner_player_id
+} from './prompt-key-utils.js';
 import { is_functional_player } from './tb-info-utils.js';
 
 const BUTLER_PROMPT_PREFIX = 'plugin:butler:night_master';
+
+function build_butler_prompt_key(night_number: number, player_id: string): string {
+  return build_night_prompt_key('butler', 'night_master', night_number, player_id);
+}
+
+function resolve_prompt_token(context: Parameters<NonNullable<CharacterPlugin['hooks']['on_prompt_resolved']>>[0]): string {
+  return context.prompt_key;
+}
 
 export const butler_plugin: CharacterPlugin = {
   metadata: {
@@ -42,9 +56,9 @@ export const butler_plugin: CharacterPlugin = {
         emitted_events: [],
         queued_prompts: [
           {
-            prompt_id: `${BUTLER_PROMPT_PREFIX}:${context.state.night_number}:${context.player_id}`,
+            prompt_key: build_butler_prompt_key(context.state.night_number, context.player_id),
             kind: 'choice',
-            reason: 'plugin:butler:choose master',
+            reason: `plugin:butler:choose_master:${night_time_key(context.state.night_number)}:${context.player_id}`,
             visibility: 'player',
             options
           }
@@ -53,7 +67,8 @@ export const butler_plugin: CharacterPlugin = {
       };
     },
     on_prompt_resolved: (context): PluginResult => {
-      const butler_player_id = parse_butler_prompt_owner_player_id(context.prompt_id);
+      const prompt_token = resolve_prompt_token(context);
+      const butler_player_id = parse_butler_prompt_owner_player_id(prompt_token);
       if (!butler_player_id) {
         return {
           emitted_events: [],
@@ -118,12 +133,12 @@ export const butler_plugin: CharacterPlugin = {
           expires_policy: 'end_of_day',
           expires_at_day_number: null,
           expires_at_night_number: null,
-          source_event_id: null,
-          metadata: {
-            from_prompt_id: context.prompt_id
+            source_event_id: null,
+            metadata: {
+              from_prompt_key: resolve_prompt_token(context)
+            }
           }
-        }
-      });
+        });
 
       return {
         emitted_events,
@@ -193,17 +208,10 @@ export function validate_butler_vote_cast(
   };
 }
 
-export function is_butler_prompt_id(prompt_id: string): boolean {
-  return prompt_id.startsWith(BUTLER_PROMPT_PREFIX);
+export function is_butler_prompt_id(prompt_key: string): boolean {
+  return is_night_prompt_key(prompt_key, 'butler', 'night_master');
 }
 
-function parse_butler_prompt_owner_player_id(prompt_id: string): string | null {
-  const parts = prompt_id.split(':');
-  if (parts.length < 5) {
-    return null;
-  }
-  if (parts[0] !== 'plugin' || parts[1] !== 'butler' || parts[2] !== 'night_master') {
-    return null;
-  }
-  return parts[4] ?? null;
+function parse_butler_prompt_owner_player_id(prompt_key: string): string | null {
+  return parse_night_prompt_owner_player_id(prompt_key, 'butler', 'night_master');
 }

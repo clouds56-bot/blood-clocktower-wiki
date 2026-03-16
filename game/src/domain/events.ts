@@ -1,7 +1,8 @@
 import type {
   Alignment,
-  PlayerCharacterType,
   DomainEventEnvelope,
+  EventId,
+  PlayerCharacterType,
   EditionId,
   GameId,
   GamePhase,
@@ -273,7 +274,7 @@ export interface ReminderMarkerAppliedEvent extends BaseDomainEvent {
     expires_policy: ReminderExpiryPolicy;
     expires_at_day_number: number | null;
     expires_at_night_number: number | null;
-    source_event_id: string | null;
+    source_event_id: EventId | null;
     metadata: Record<string, unknown>;
   };
 }
@@ -355,7 +356,7 @@ export interface DeadVoteConsumedEvent extends BaseDomainEvent {
 export interface WakeScheduledEvent extends BaseDomainEvent {
   event_type: 'WakeScheduled';
   payload: {
-    wake_id: string;
+    wake_key: string;
     character_id: string;
     player_id: PlayerId;
   };
@@ -364,7 +365,7 @@ export interface WakeScheduledEvent extends BaseDomainEvent {
 export interface WakeConsumedEvent extends BaseDomainEvent {
   event_type: 'WakeConsumed';
   payload: {
-    wake_id: string;
+    wake_key: string;
   };
 }
 
@@ -388,7 +389,7 @@ export interface InterruptConsumedEvent extends BaseDomainEvent {
 export interface PromptQueuedEvent extends BaseDomainEvent {
   event_type: 'PromptQueued';
   payload: {
-    prompt_id: string;
+    prompt_key: string;
     kind: string;
     reason: string;
     visibility: PromptVisibility;
@@ -403,7 +404,7 @@ export interface PromptQueuedEvent extends BaseDomainEvent {
 export interface PromptResolvedEvent extends BaseDomainEvent {
   event_type: 'PromptResolved';
   payload: {
-    prompt_id: string;
+    prompt_key: string;
     selected_option_id: string | null;
     freeform: string | null;
     notes: string | null;
@@ -413,7 +414,7 @@ export interface PromptResolvedEvent extends BaseDomainEvent {
 export interface PromptCancelledEvent extends BaseDomainEvent {
   event_type: 'PromptCancelled';
   payload: {
-    prompt_id: string;
+    prompt_key: string;
     reason: string;
   };
 }
@@ -447,7 +448,7 @@ export interface RegistrationDecisionRecordedEvent extends BaseDomainEvent {
 export interface StorytellerChoiceMadeEvent extends BaseDomainEvent {
   event_type: 'StorytellerChoiceMade';
   payload: {
-    prompt_id: string;
+    prompt_key: string;
     selected_option_id: string | null;
     freeform: string | null;
   };
@@ -456,7 +457,7 @@ export interface StorytellerChoiceMadeEvent extends BaseDomainEvent {
 export interface StorytellerRulingRecordedEvent extends BaseDomainEvent {
   event_type: 'StorytellerRulingRecorded';
   payload: {
-    prompt_id: string | null;
+    prompt_key: string | null;
     note: string;
   };
 }

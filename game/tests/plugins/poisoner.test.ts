@@ -22,7 +22,7 @@ test('poisoner wake hook returns player-visible poison target prompt', () => {
   assert.ok(prompt);
   assert.equal(prompt?.visibility, 'player');
   assert.equal(prompt?.kind, 'choice');
-  assert.equal(is_poisoner_prompt_id(prompt?.prompt_id ?? ''), true);
+  assert.equal(is_poisoner_prompt_id(prompt?.prompt_key ?? ''), true);
   assert.deepEqual(prompt?.options.map((item) => item.option_id), ['p1', 'p2']);
 });
 
@@ -47,7 +47,7 @@ test('poisoner prompt resolution emits reminder marker lifecycle events', () => 
     expires_policy: 'manual',
     expires_at_day_number: null,
     expires_at_night_number: null,
-    created_at_event_id: 'e1',
+    created_at_event_id: 1,
     cleared_at_event_id: null,
     source_event_id: null,
     metadata: {}
@@ -56,7 +56,7 @@ test('poisoner prompt resolution emits reminder marker lifecycle events', () => 
 
   const result = poisoner_plugin.hooks.on_prompt_resolved?.({
     state,
-    prompt_id: 'plugin:poisoner:night_poison:2:p1',
+    prompt_key: 'plugin:poisoner:night_poison:n2:p1',
     selected_option_id: 'p3',
     freeform: null
   });

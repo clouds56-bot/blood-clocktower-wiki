@@ -143,7 +143,8 @@ function build_restored_events(
       }
       if (effect === 'poisoned') {
         events.push({
-          event_id: `${command_id}:HealthRestored:${index}`,
+          event_key: `${command_id}:HealthRestored:${index}`,
+          event_id: 1,
           event_type: 'HealthRestored',
           created_at,
           ...(actor_id === undefined ? {} : { actor_id }),
@@ -156,7 +157,8 @@ function build_restored_events(
         });
       } else if (effect === 'drunk') {
         events.push({
-          event_id: `${command_id}:SobrietyRestored:${index}`,
+          event_key: `${command_id}:SobrietyRestored:${index}`,
+          event_id: 1,
           event_type: 'SobrietyRestored',
           created_at,
           ...(actor_id === undefined ? {} : { actor_id }),
@@ -186,7 +188,8 @@ export function handle_apply_reminder_marker(
 
   const events: DomainEvent[] = [
     {
-      event_id: `${command.command_id}:ReminderMarkerApplied:0`,
+      event_key: `${command.command_id}:ReminderMarkerApplied:0`,
+      event_id: 1,
       event_type: 'ReminderMarkerApplied',
       created_at,
       actor_id: command.actor_id,
@@ -201,7 +204,8 @@ export function handle_apply_reminder_marker(
   if (target_player_id && command.payload.authoritative) {
     if (command.payload.effect === 'poisoned' && active_marker_count_for_effect(state, target_player_id, 'poisoned') === 0) {
       events.push({
-        event_id: `${command.command_id}:PoisonApplied:0`,
+        event_key: `${command.command_id}:PoisonApplied:0`,
+        event_id: 1,
         event_type: 'PoisonApplied',
         created_at,
         ...(command.actor_id === undefined ? {} : { actor_id: command.actor_id }),
@@ -215,7 +219,8 @@ export function handle_apply_reminder_marker(
     }
     if (command.payload.effect === 'drunk' && active_marker_count_for_effect(state, target_player_id, 'drunk') === 0) {
       events.push({
-        event_id: `${command.command_id}:DrunkApplied:0`,
+        event_key: `${command.command_id}:DrunkApplied:0`,
+        event_id: 1,
         event_type: 'DrunkApplied',
         created_at,
         ...(command.actor_id === undefined ? {} : { actor_id: command.actor_id }),
@@ -251,7 +256,8 @@ export function handle_clear_reminder_marker(
   const removed_marker_ids = new Set<string>([command.payload.marker_id]);
   const events: DomainEvent[] = [
     {
-      event_id: `${command.command_id}:ReminderMarkerCleared:0`,
+      event_key: `${command.command_id}:ReminderMarkerCleared:0`,
+      event_id: 1,
       event_type: 'ReminderMarkerCleared',
       created_at,
       actor_id: command.actor_id,
@@ -288,7 +294,8 @@ export function handle_clear_reminder_markers_by_selector(
 
   const removed_marker_ids = new Set<string>(marker_ids);
   const events: DomainEvent[] = marker_ids.map((marker_id, index) => ({
-    event_id: `${command.command_id}:ReminderMarkerCleared:${index}`,
+    event_key: `${command.command_id}:ReminderMarkerCleared:${index}`,
+    event_id: 1,
     event_type: 'ReminderMarkerCleared',
     created_at,
     actor_id: command.actor_id,
@@ -325,7 +332,8 @@ export function handle_sweep_reminder_expiry(
 
   const removed_marker_ids = new Set<string>(expired_marker_ids);
   const events: DomainEvent[] = expired_marker_ids.map((marker_id, index) => ({
-    event_id: `${command.command_id}:ReminderMarkerExpired:${index}`,
+    event_key: `${command.command_id}:ReminderMarkerExpired:${index}`,
+    event_id: 1,
     event_type: 'ReminderMarkerExpired',
     created_at,
     actor_id: command.actor_id,

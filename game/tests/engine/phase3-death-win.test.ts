@@ -21,25 +21,25 @@ function bootstrap_day_state(): GameState {
   const seed = create_initial_state('g1');
   return apply_events(seed, [
     {
-      event_id: 'e1',
+      event_id: 1,
       event_type: 'PlayerAdded',
       created_at: '2026-03-12T00:00:00.000Z',
       payload: { player_id: 'p1', display_name: 'Alice' }
     },
     {
-      event_id: 'e2',
+      event_id: 2,
       event_type: 'PlayerAdded',
       created_at: '2026-03-12T00:00:01.000Z',
       payload: { player_id: 'p2', display_name: 'Bob' }
     },
     {
-      event_id: 'e3',
+      event_id: 3,
       event_type: 'PlayerAdded',
       created_at: '2026-03-12T00:00:02.000Z',
       payload: { player_id: 'p3', display_name: 'Cara' }
     },
     {
-      event_id: 'e4',
+      event_id: 4,
       event_type: 'PhaseAdvanced',
       created_at: '2026-03-12T00:00:03.000Z',
       payload: { phase: 'day', subphase: 'open_discussion', day_number: 1, night_number: 1 }

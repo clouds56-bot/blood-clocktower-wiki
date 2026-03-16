@@ -20,7 +20,7 @@ export type CliLocalAction =
   | { type: 'view_public'; json: boolean }
   | { type: 'view_player'; player_id: string; json: boolean }
   | { type: 'prompts' }
-  | { type: 'prompt'; prompt_id: string }
+  | { type: 'prompt'; prompt_key: string }
   | { type: 'markers' }
   | { type: 'marker'; marker_id: string }
   | {
@@ -197,7 +197,7 @@ export function default_executed_player_id(state?: GameState): string | null {
   return state.day_state.executed_player_id;
 }
 
-export function default_pending_prompt_id(state?: GameState): string | null {
+export function default_pending_prompt_key(state?: GameState): string | null {
   if (!state) {
     return null;
   }
@@ -207,11 +207,11 @@ export function default_pending_prompt_id(state?: GameState): string | null {
   return state.pending_prompts[0] ?? null;
 }
 
-export function random_option_id_for_prompt(state: GameState | undefined, prompt_id: string): string | null {
+export function random_option_id_for_prompt(state: GameState | undefined, prompt_key: string): string | null {
   if (!state) {
     return null;
   }
-  const prompt = state.prompts_by_id[prompt_id];
+  const prompt = state.prompts_by_id[prompt_key];
   if (!prompt || prompt.status !== 'pending') {
     return null;
   }

@@ -17,25 +17,25 @@ function bootstrap_day_state(): GameState {
   const seed = create_initial_state('g1');
   return apply_events(seed, [
     {
-      event_id: 'e1',
+      event_id: 1,
       event_type: 'PlayerAdded',
       created_at: '2026-03-12T00:00:00.000Z',
       payload: { player_id: 'p1', display_name: 'Alice' }
     },
     {
-      event_id: 'e2',
+      event_id: 2,
       event_type: 'PlayerAdded',
       created_at: '2026-03-12T00:00:01.000Z',
       payload: { player_id: 'p2', display_name: 'Bob' }
     },
     {
-      event_id: 'e3',
+      event_id: 3,
       event_type: 'PlayerAdded',
       created_at: '2026-03-12T00:00:02.000Z',
       payload: { player_id: 'p3', display_name: 'Cara' }
     },
     {
-      event_id: 'e4',
+      event_id: 4,
       event_type: 'PhaseAdvanced',
       created_at: '2026-03-12T00:00:03.000Z',
       payload: { phase: 'day', subphase: 'open_discussion', day_number: 1, night_number: 1 }
@@ -57,7 +57,7 @@ test('valid transition first_night -> day resets day tracking', () => {
   const seed = create_initial_state('g1');
   const firstNight = apply_events(seed, [
     {
-      event_id: 'e1',
+      event_id: 5,
       event_type: 'PhaseAdvanced',
       created_at: '2026-03-12T00:00:00.000Z',
       payload: { phase: 'first_night', subphase: 'night_wake_sequence', day_number: 0, night_number: 1 }
@@ -541,7 +541,7 @@ test('butler yes vote requires master yes vote first', () => {
     expires_policy: 'end_of_day',
     expires_at_day_number: null,
     expires_at_night_number: null,
-    created_at_event_id: 'e_master',
+    created_at_event_id: 6,
     cleared_at_event_id: null,
     source_event_id: null,
     metadata: {}
@@ -702,14 +702,14 @@ test('virgin can execute spy nominator when storyteller resolves spy as townsfol
 
   assert.equal(state.players_by_id.p1?.alive, true);
   assert.equal(state.pending_prompts.length, 1);
-  const prompt_id = state.pending_prompts[0] ?? '';
-  assert.equal(prompt_id.startsWith('plugin:spy:registration:virgin:'), true);
+  const prompt_key = state.pending_prompts[0] ?? '';
+  assert.equal(prompt_key.startsWith('plugin:spy:registration:virgin:'), true);
 
   state = run_command(state, {
     command_id: 'c-resolve-virgin-spy-yes',
     command_type: 'ResolvePrompt',
     payload: {
-      prompt_id,
+      prompt_key: prompt_key,
       selected_option_id: 'character_type:townsfolk',
       freeform: null,
       notes: null
@@ -754,13 +754,13 @@ test('virgin can leave spy nominator alive when registration is not triggered', 
   });
 
   assert.equal(state.pending_prompts.length, 1);
-  const prompt_id = state.pending_prompts[0] ?? '';
+  const prompt_key = state.pending_prompts[0] ?? '';
 
   state = run_command(state, {
     command_id: 'c-resolve-virgin-spy-no',
     command_type: 'ResolvePrompt',
     payload: {
-      prompt_id,
+      prompt_key: prompt_key,
       selected_option_id: 'default',
       freeform: null,
       notes: null
@@ -803,7 +803,7 @@ test('slayer shot kills demon and is once per game', () => {
     command_id: 'c-slay-resolve',
     command_type: 'ResolvePrompt',
     payload: {
-      prompt_id: firstPromptId,
+    prompt_key: firstPromptId,
       selected_option_id: 'p2',
       freeform: null,
       notes: null
@@ -839,7 +839,7 @@ test('slayer shot kills demon and is once per game', () => {
         command_id: 'c-slay-resolve-2',
         command_type: 'ResolvePrompt',
         payload: {
-          prompt_id: secondPromptId,
+    prompt_key: secondPromptId,
           selected_option_id: 'p3',
           freeform: null,
           notes: null

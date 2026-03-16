@@ -47,7 +47,7 @@ Deliverables
 Event/State contract rules
 --------------------------
 - Event envelope:
-  - `event_id`, `event_type` (PascalCase), `created_at`, `actor_id?`, `payload`, `meta?`.
+  - `event_id` (global 1-based ordinal, reducer-assigned), `event_key` (deterministic producer key), `event_type` (PascalCase), `created_at`, `actor_id?`, `payload`, `meta?`.
 - State minimum:
   - `game_id`, `status`, `phase`, `subphase`, `day_number`, `night_number`.
   - `players_by_id`, `seat_order`.
@@ -66,9 +66,15 @@ Test plan (minimum)
 -------------------
 - Reducer determinism: same initial state + same event list => identical final state.
 - Replay determinism: replay twice => deep-equal outputs.
-- Idempotency policy test: duplicate `event_id` behavior (explicit reject/ignore).
+- Idempotency policy test: duplicate `event_key` behavior (explicit reject/ignore).
 - Invariant tests: valid fixture => zero issues; invalid fixture => expected issue codes.
 - Schema tests: ensure `snake_case` payload keys in event fixtures.
+
+Identity conventions (normative)
+-------------------------------
+- `event_id` is numeric ordinal identity and is the canonical internal event reference.
+- `event_key` is deterministic string identity from producers (command handlers/plugins) and is used for dedup/correlation.
+- Internal event-reference fields remain `*_event_id` and store numeric `event_id` values.
 
 Definition of Done
 ------------------

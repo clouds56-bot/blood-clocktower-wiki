@@ -46,7 +46,8 @@ export function handle_resolve_execution_consequences(
       ok: true,
       value: [
         {
-          event_id: `${command.command_id}:ExecutionConsequencesResolved`,
+          event_key: `${command.command_id}:ExecutionConsequencesResolved`,
+          event_id: 1,
           event_type: 'ExecutionConsequencesResolved',
           created_at,
           actor_id: command.actor_id,
@@ -70,7 +71,8 @@ export function handle_resolve_execution_consequences(
       ok: true,
       value: [
         {
-          event_id: `${command.command_id}:ExecutionConsequencesResolved`,
+          event_key: `${command.command_id}:ExecutionConsequencesResolved`,
+          event_id: 1,
           event_type: 'ExecutionConsequencesResolved',
           created_at,
           actor_id: command.actor_id,
@@ -88,7 +90,8 @@ export function handle_resolve_execution_consequences(
     ok: true,
     value: [
       {
-        event_id: `${command.command_id}:PlayerDied`,
+        event_key: `${command.command_id}:PlayerDied`,
+        event_id: 1,
         event_type: 'PlayerDied',
         created_at,
         actor_id: command.actor_id,
@@ -100,7 +103,8 @@ export function handle_resolve_execution_consequences(
         }
       },
       {
-        event_id: `${command.command_id}:ExecutionConsequencesResolved`,
+        event_key: `${command.command_id}:ExecutionConsequencesResolved`,
+        event_id: 1,
         event_type: 'ExecutionConsequencesResolved',
         created_at,
         actor_id: command.actor_id,
@@ -131,7 +135,8 @@ export function handle_apply_death(
     ok: true,
     value: [
       {
-        event_id: `${command.command_id}:PlayerDied`,
+        event_key: `${command.command_id}:PlayerDied`,
+        event_id: 1,
         event_type: 'PlayerDied',
         created_at,
         actor_id: command.actor_id,
@@ -172,7 +177,8 @@ export function handle_mark_player_survived_execution(
     ok: true,
     value: [
       {
-        event_id: `${command.command_id}:PlayerSurvivedExecution`,
+        event_key: `${command.command_id}:PlayerSurvivedExecution`,
+        event_id: 1,
         event_type: 'PlayerSurvivedExecution',
         created_at,
         actor_id: command.actor_id,
@@ -182,7 +188,8 @@ export function handle_mark_player_survived_execution(
         }
       },
       {
-        event_id: `${command.command_id}:ExecutionConsequencesResolved`,
+        event_key: `${command.command_id}:ExecutionConsequencesResolved`,
+        event_id: 1,
         event_type: 'ExecutionConsequencesResolved',
         created_at,
         actor_id: command.actor_id,

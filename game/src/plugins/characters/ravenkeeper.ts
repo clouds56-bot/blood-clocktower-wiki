@@ -1,8 +1,13 @@
 import type { PluginPromptSpec } from '../contracts.js';
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
 import type { GameState } from '../../domain/types.js';
+import { build_night_prompt_key, parse_night_prompt_owner_player_id } from './prompt-key-utils.js';
 
 const RAVENKEEPER_PROMPT_PREFIX = 'plugin:ravenkeeper:night_reveal';
+
+function build_ravenkeeper_prompt_key(night_number: number, player_id: string): string {
+  return build_night_prompt_key('ravenkeeper', 'night_reveal', night_number, player_id);
+}
 
 export const ravenkeeper_plugin: CharacterPlugin = {
   metadata: {
@@ -31,7 +36,8 @@ export const ravenkeeper_plugin: CharacterPlugin = {
   },
   hooks: {
     on_prompt_resolved: (context): PluginResult => {
-      const ravenkeeper_player_id = parse_ravenkeeper_prompt_owner_player_id(context.prompt_id);
+      const prompt_token = context.prompt_key;
+      const ravenkeeper_player_id = parse_ravenkeeper_prompt_owner_player_id(prompt_token);
       if (!ravenkeeper_player_id) {
         return {
           emitted_events: [],
@@ -49,7 +55,7 @@ export const ravenkeeper_plugin: CharacterPlugin = {
           {
             event_type: 'StorytellerRulingRecorded',
             payload: {
-              prompt_id: context.prompt_id,
+              prompt_key: context.prompt_key,
               note: `ravenkeeper_info:${ravenkeeper_player_id}:target=${target_player_id ?? 'none'};character=${target_character_id}`
             }
           }
@@ -73,21 +79,14 @@ export function build_ravenkeeper_reveal_prompt(
     .sort((left, right) => left.option_id.localeCompare(right.option_id));
 
   return {
-    prompt_id: `${RAVENKEEPER_PROMPT_PREFIX}:${state.night_number}:${ravenkeeper_player_id}`,
+    prompt_key: build_ravenkeeper_prompt_key(state.night_number, ravenkeeper_player_id),
     kind: 'choice',
-    reason: 'plugin:ravenkeeper:choose player',
+    reason: `plugin:ravenkeeper:choose_player:n${state.night_number}:${ravenkeeper_player_id}`,
     visibility: 'player',
     options
   };
 }
 
-function parse_ravenkeeper_prompt_owner_player_id(prompt_id: string): string | null {
-  const parts = prompt_id.split(':');
-  if (parts.length < 5) {
-    return null;
-  }
-  if (parts[0] !== 'plugin' || parts[1] !== 'ravenkeeper' || parts[2] !== 'night_reveal') {
-    return null;
-  }
-  return parts[4] ?? null;
+function parse_ravenkeeper_prompt_owner_player_id(prompt_key: string): string | null {
+  return parse_night_prompt_owner_player_id(prompt_key, 'ravenkeeper', 'night_reveal');
 }

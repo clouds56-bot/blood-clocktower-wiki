@@ -15,7 +15,7 @@ test('ravenkeeper prompt builder lists selectable players', () => {
   state.players_by_id.p1 = make_player('p1', 'Ravenkeeper', 'ravenkeeper', 'good');
 
   const prompt = build_ravenkeeper_reveal_prompt(state, 'p1');
-  assert.equal(prompt.prompt_id, 'plugin:ravenkeeper:night_reveal:2:p1');
+  assert.equal(prompt.prompt_key, 'plugin:ravenkeeper:night_reveal:n2:p1');
   assert.deepEqual(prompt.options.map((option) => option.option_id), ['p1', 'p2']);
 });
 
@@ -26,7 +26,7 @@ test('ravenkeeper prompt resolution records revealed character note', () => {
 
   const result = ravenkeeper_plugin.hooks.on_prompt_resolved?.({
     state,
-    prompt_id: 'plugin:ravenkeeper:night_reveal:2:p1',
+    prompt_key: 'plugin:ravenkeeper:night_reveal:n2:p1',
     selected_option_id: 'p2',
     freeform: null
   });

@@ -26,7 +26,7 @@ test('prompt lifecycle create -> resolve is replay-safe', () => {
   state = run(state, {
     command_type: 'CreatePrompt',
     payload: {
-      prompt_id: 'pr1',
+    prompt_key: 'pr1',
       kind: 'false_info',
       reason: 'pick misinformation',
       visibility: 'storyteller',
@@ -43,7 +43,7 @@ test('prompt lifecycle create -> resolve is replay-safe', () => {
   state = run(state, {
     command_type: 'ResolvePrompt',
     payload: {
-      prompt_id: 'pr1',
+    prompt_key: 'pr1',
       selected_option_id: 'o2',
       freeform: null,
       notes: 'picked stronger bluff line'
@@ -61,7 +61,7 @@ test('cannot resolve prompt twice', () => {
   state = run(state, {
     command_type: 'CreatePrompt',
     payload: {
-      prompt_id: 'pr1',
+    prompt_key: 'pr1',
       kind: 'choice',
       reason: 'choose one',
       visibility: 'storyteller',
@@ -71,7 +71,7 @@ test('cannot resolve prompt twice', () => {
   state = run(state, {
     command_type: 'ResolvePrompt',
     payload: {
-      prompt_id: 'pr1',
+    prompt_key: 'pr1',
       selected_option_id: 'yes',
       freeform: null,
       notes: null
@@ -85,7 +85,7 @@ test('cannot resolve prompt twice', () => {
       command_type: 'ResolvePrompt',
       actor_id: 'test',
       payload: {
-        prompt_id: 'pr1',
+        prompt_key: 'pr1',
         selected_option_id: 'yes',
         freeform: null,
         notes: null
@@ -110,7 +110,7 @@ test('resolve unknown prompt is rejected deterministically', () => {
       command_type: 'ResolvePrompt',
       actor_id: 'test',
       payload: {
-        prompt_id: 'missing_prompt',
+        prompt_key: 'missing_prompt',
         selected_option_id: null,
         freeform: null,
         notes: null
@@ -130,7 +130,7 @@ test('resolve prompt emits adjudication event stream', () => {
   state = run(state, {
     command_type: 'CreatePrompt',
     payload: {
-      prompt_id: 'pr_emit',
+    prompt_key: 'pr_emit',
       kind: 'false_info',
       reason: 'select misinformation target',
       visibility: 'storyteller',
@@ -145,7 +145,7 @@ test('resolve prompt emits adjudication event stream', () => {
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
-        prompt_id: 'pr_emit',
+        prompt_key: 'pr_emit',
         selected_option_id: 'opt_a',
         freeform: null,
         notes: 'chosen for balance'
@@ -169,7 +169,7 @@ test('number range prompt accepts values within min/max', () => {
   state = run(state, {
     command_type: 'CreatePrompt',
     payload: {
-      prompt_id: 'pr_range',
+    prompt_key: 'pr_range',
       kind: 'number_pick',
       reason: 'pick number',
       visibility: 'storyteller',
@@ -185,7 +185,7 @@ test('number range prompt accepts values within min/max', () => {
   state = run(state, {
     command_type: 'ResolvePrompt',
     payload: {
-      prompt_id: 'pr_range',
+    prompt_key: 'pr_range',
       selected_option_id: '3',
       freeform: null,
       notes: null
@@ -200,7 +200,7 @@ test('number range prompt rejects out-of-range values', () => {
   state = run(state, {
     command_type: 'CreatePrompt',
     payload: {
-      prompt_id: 'pr_range_exc',
+    prompt_key: 'pr_range_exc',
       kind: 'number_pick',
       reason: 'pick number',
       visibility: 'storyteller',
@@ -221,7 +221,7 @@ test('number range prompt rejects out-of-range values', () => {
       command_type: 'ResolvePrompt',
       actor_id: 'test',
       payload: {
-        prompt_id: 'pr_range_exc',
+        prompt_key: 'pr_range_exc',
         selected_option_id: '100',
         freeform: null,
         notes: null
@@ -241,7 +241,7 @@ test('multi-column prompt validates tuple selections', () => {
   state = run(state, {
     command_type: 'CreatePrompt',
     payload: {
-      prompt_id: 'pr_multi',
+    prompt_key: 'pr_multi',
       kind: 'matrix_pick',
       reason: 'pick tuple',
       visibility: 'storyteller',
@@ -257,7 +257,7 @@ test('multi-column prompt validates tuple selections', () => {
   state = run(state, {
     command_type: 'ResolvePrompt',
     payload: {
-      prompt_id: 'pr_multi',
+    prompt_key: 'pr_multi',
       selected_option_id: '5,c',
       freeform: null,
       notes: null
@@ -272,7 +272,7 @@ test('storyteller hint is stored on prompt state', () => {
   state = run(state, {
     command_type: 'CreatePrompt',
     payload: {
-      prompt_id: 'pr_hint',
+    prompt_key: 'pr_hint',
       kind: 'false_info',
       reason: 'pick misinformation',
       visibility: 'storyteller',

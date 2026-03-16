@@ -168,29 +168,30 @@ export function validate_invariants(state: GameState): InvariantIssue[] {
 
   const seenWakeIds = new Set<string>();
   for (const [index, wake] of state.wake_queue.entries()) {
-    const hasWakeId = typeof wake.wake_id === 'string' && wake.wake_id.trim().length > 0;
+    const wake_key = wake.wake_key;
+    const hasWakeId = typeof wake_key === 'string' && wake_key.trim().length > 0;
     const hasCharacterId = typeof wake.character_id === 'string' && wake.character_id.trim().length > 0;
     const hasPlayerId = typeof wake.player_id === 'string';
 
     if (!hasWakeId || !hasCharacterId) {
       issues.push({
         code: 'wake_queue_invalid_entry',
-        message: 'wake_queue entry must include non-empty wake_id and character_id',
+        message: 'wake_queue entry must include non-empty wake_key and character_id',
         path: `wake_queue.${index}`,
         severity: 'error'
       });
     }
 
-    if (hasWakeId && seenWakeIds.has(wake.wake_id)) {
+    if (hasWakeId && seenWakeIds.has(wake_key)) {
       issues.push({
         code: 'duplicate_wake_queue_id',
-        message: `wake_queue contains duplicate wake id: ${wake.wake_id}`,
+        message: `wake_queue contains duplicate wake id: ${wake_key}`,
         path: `wake_queue.${index}`,
         severity: 'error'
       });
     }
     if (hasWakeId) {
-      seenWakeIds.add(wake.wake_id);
+      seenWakeIds.add(wake_key);
     }
 
     if (!hasPlayerId || !state.players_by_id[wake.player_id]) {
@@ -234,23 +235,23 @@ export function validate_invariants(state: GameState): InvariantIssue[] {
     }
   }
 
-  const seen_pending_prompt_ids = new Set<string>();
-  for (const [index, prompt_id] of state.pending_prompts.entries()) {
-    if (seen_pending_prompt_ids.has(prompt_id)) {
+  const seen_pending_prompt_keys = new Set<string>();
+  for (const [index, prompt_key] of state.pending_prompts.entries()) {
+    if (seen_pending_prompt_keys.has(prompt_key)) {
       issues.push({
         code: 'duplicate_pending_prompt_id',
-        message: `pending_prompts contains duplicate prompt id: ${prompt_id}`,
+        message: `pending_prompts contains duplicate prompt id: ${prompt_key}`,
         path: `pending_prompts.${index}`,
         severity: 'error'
       });
     }
-    seen_pending_prompt_ids.add(prompt_id);
+    seen_pending_prompt_keys.add(prompt_key);
 
-    const prompt = state.prompts_by_id[prompt_id];
+    const prompt = state.prompts_by_id[prompt_key];
     if (!prompt) {
       issues.push({
         code: 'pending_prompt_missing',
-        message: `pending_prompts references missing prompt: ${prompt_id}`,
+        message: `pending_prompts references missing prompt: ${prompt_key}`,
         path: `pending_prompts.${index}`,
         severity: 'error'
       });
@@ -260,19 +261,19 @@ export function validate_invariants(state: GameState): InvariantIssue[] {
     if (prompt.status !== 'pending') {
       issues.push({
         code: 'pending_prompt_not_pending',
-        message: `pending prompt ${prompt_id} has non-pending status ${prompt.status}`,
-        path: `prompts_by_id.${prompt_id}.status`,
+        message: `pending prompt ${prompt_key} has non-pending status ${prompt.status}`,
+        path: `prompts_by_id.${prompt_key}.status`,
         severity: 'error'
       });
     }
   }
 
-  for (const [prompt_id, prompt] of Object.entries(state.prompts_by_id)) {
+  for (const [prompt_key, prompt] of Object.entries(state.prompts_by_id)) {
     if (prompt.status !== 'pending' && prompt.resolved_at_event_id === null) {
       issues.push({
         code: 'resolved_prompt_missing_event_id',
-        message: `prompt ${prompt_id} is ${prompt.status} but has no resolved_at_event_id`,
-        path: `prompts_by_id.${prompt_id}.resolved_at_event_id`,
+        message: `prompt ${prompt_key} is ${prompt.status} but has no resolved_at_event_id`,
+        path: `prompts_by_id.${prompt_key}.resolved_at_event_id`,
         severity: 'error'
       });
     }
