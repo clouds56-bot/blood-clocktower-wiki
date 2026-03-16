@@ -1,163 +1,167 @@
 # AGENTS.md
 
-This document is the operating guide for agentic coding assistants working in this repository.
-It reflects the current project structure, scripts, and conventions found in code.
+Operating guide for agentic coding assistants in this repository.
+Use this as the default execution policy unless a more specific instruction overrides it.
 
-## 1) Project Overview
+## 1) Repository Overview
 
-- Root: pnpm workspace with two packages: `data/` and `wiki/`.
-- `data/`: Node.js scraping/data pipeline package (`type` defaults to CommonJS).
-- `data/scripts/`: scraping and build pipelines.
-- `data/characters/`, `data/rules/`, `data/editions/`: generated/curated content.
-- `wiki/`: Astro static site (ESM, TypeScript enabled).
-- `wiki/src/pages/[lang]`: localized dynamic route pages.
-- `assets/`: downloaded media mirrored into `wiki/public/assets` by scripts.
-- `specs/`: technical notes, parser/scraper policies, and implementation specs.
+- Workspace manager: `pnpm` with packages in `data/`, `game/`, and `wiki/`.
+- `data/`: scraping and transformation pipelines (CommonJS Node scripts).
+- `game/`: TypeScript game engine + CLI + tests.
+- `wiki/`: Astro + TypeScript static site.
+- `assets/`: downloaded media mirrored into `wiki/public/assets` by copy scripts.
+- `specs/`: technical notes and implementation specs.
 
 ## 2) Build, Run, Lint, and Test Commands
 
-Run all commands from repo root unless noted.
+Run from repo root unless noted.
 
 ### Setup
 
-- Install dependencies: `pnpm install`
+- Install deps: `pnpm install`
+- List workspace packages: `pnpm -r list --depth 0`
 
-### Data package (`data/`)
+### Data Package (`data/`)
 
-- Scrape English: `pnpm --filter data run scrape:en`
-- Scrape Chinese: `pnpm --filter data run scrape:cn`
-- Scrape translations: `pnpm --filter data run scrape:translations`
-- Scrape GitHub data: `pnpm --filter data run scrape:github`
-- Scrape tokens: `pnpm --filter data run scrape:token`
-- Scrape EN reminders: `pnpm --filter data run scrape:reminders:en`
-- Scrape CN reminders: `pnpm --filter data run scrape:reminders:cn`
-- Scrape glossary (EN+CN): `pnpm --filter data run scrape:glossary`
-- Build glossary: `pnpm --filter data run build:glossary`
-- Build characters: `pnpm --filter data run build:characters`
-- Build special outputs: `pnpm --filter data run build:special`
-- Full pipeline: `pnpm --filter data run scrape:all`
+- EN scrape pipeline: `pnpm --filter data run scrape:en`
+- CN scrape pipeline: `pnpm --filter data run scrape:cn`
+- Translations scrape: `pnpm --filter data run scrape:translations`
+- Jinx scrape: `pnpm --filter data run scrape:jinx`
+- GitHub scrape: `pnpm --filter data run scrape:github`
+- Token scrape: `pnpm --filter data run scrape:token`
+- Reminder scrape (EN/CN): `pnpm --filter data run scrape:reminders:en` / `pnpm --filter data run scrape:reminders:cn`
+- Rules scrape (EN/CN): `pnpm --filter data run scrape:rules:en` / `pnpm --filter data run scrape:rules:cn`
+- Glossary scrape/build: `pnpm --filter data run scrape:glossary` / `pnpm --filter data run build:glossary`
+- Characters/rules/special build: `pnpm --filter data run build:characters` / `pnpm --filter data run build:rules` / `pnpm --filter data run build:special`
+- Full data pipeline: `pnpm --filter data run scrape:all`
 
-You can also run pipelines directly with Node when debugging:
+### Game Package (`game/`)
 
-- `node data/scripts/pipeline/en.js`
-- `node data/scripts/pipeline/cn.js`
-- `node data/scripts/pipeline/translations.js`
-- `node data/scripts/pipeline/build.js`
+- Typecheck only: `pnpm --filter game run typecheck`
+- Build TS output: `pnpm --filter game run build`
+- Run CLI: `pnpm --filter game run cli`
+- Run example script: `pnpm --filter game run example`
 
-### Wiki package (`wiki/`)
+Testing (`game`):
+
+- Run all game tests: `pnpm --filter game run test`
+- Run coverage: `pnpm --filter game run test:coverage`
+- Run one test file: `pnpm --filter game exec node --test --import tsx tests/path/to/file.test.ts`
+- Run one test by name: `pnpm --filter game exec node --test --import tsx --test-name-pattern="vote threshold" tests/path/to/file.test.ts`
+
+### Wiki Package (`wiki/`)
 
 - Dev server: `pnpm --filter wiki run dev`
-- Build static site: `pnpm --filter wiki run build`
+- Production build: `pnpm --filter wiki run build`
 - Preview build: `pnpm --filter wiki run preview`
+- Typecheck (no emit): `pnpm --filter wiki exec tsc -p tsconfig.json --noEmit`
 
-### Testing (important)
+### Lint/Format Status
 
-Current state:
+- No dedicated ESLint/Prettier scripts are currently defined.
+- When lint/format scripts are added, run them after code edits and before handoff.
 
-- `data/package.json` has `"test": "echo \"No tests\" && exit 0"`.
-- No test files are currently present in the repo.
+## 3) Code Style and Engineering Guidelines
 
-Recommended Node test commands for newly added tests:
+Follow local file conventions first. When unclear, use these defaults.
 
-- Run all tests (native runner): `node --test`
-- Run all tests in a file: `node --test path/to/file.test.js`
-- Run a single test by name: `node --test --test-name-pattern="parseCharacterPage" path/to/file.test.js`
-- Watch mode: `node --test --watch`
+### Language and Modules
 
-If package scripts are added later, prefer package-level commands:
-
-- `pnpm --filter data run test`
-- `pnpm --filter wiki run test`
-
-### Linting and formatting
-
-Current state:
-
-- No ESLint/Prettier scripts are defined in current package.json files.
-- Type checking is available via TypeScript config in `wiki/`.
-
-If lint/format scripts are introduced, run them after edits.
-
-## 3) Code Style Guidelines
-
-Follow existing local patterns first; these rules apply when patterns are missing.
-
-### Language/module conventions
-
-- `data/` scripts: CommonJS (`require`, `module.exports`).
-- `wiki/` code: ESM/TypeScript (`import`, `export`).
-- Avoid mixing module systems in the same package unless required.
+- `data/` uses CommonJS (`require`, `module.exports`).
+- `game/` and `wiki/` use ESM TypeScript (`import`, `export`).
+- Do not mix module systems inside the same package unless required by existing code.
 
 ### Imports
 
-- Order imports as: built-in modules, third-party packages, internal modules.
-- Keep import groups stable and avoid unused imports.
-- Prefer explicit relative paths for local modules.
+- Order imports: Node built-ins, third-party packages, then internal modules.
+- Keep import groups stable and remove unused imports.
+- Prefer explicit relative imports for local modules.
 
 ### Formatting
 
-- Indentation: 2 spaces; do not use tabs.
+- Indentation: 2 spaces.
 - Semicolons: required.
-- Strings: single quotes in JS/TS; double quotes in JSON and markup attributes.
-- Line width: target ~100 chars; split long expressions cleanly.
-- Braces: 1TBS style (`if (...) { ... } else { ... }`).
+- Strings: single quotes in JS/TS; JSON uses double quotes.
+- Keep lines readable (~100 chars target); split long expressions cleanly.
+- Use 1TBS brace style.
 
 ### Naming
 
 - Variables/functions: `camelCase`.
+- Classes/types/components: `PascalCase`.
 - Constants: `UPPER_SNAKE_CASE`.
-- Classes/components/types: `PascalCase`.
-- Script filenames: `kebab-case.js`.
-- Astro/TSX components: `PascalCase` filenames.
+- JS script filenames: `kebab-case.js`.
+- In `game/` serialization payloads/state keys should use `snake_case` per architecture docs.
+- In `game/`, command/event/type identifiers should use `PascalCase` per architecture docs.
 
-### Types and documentation
+### Types and Data Contracts
 
-- In TypeScript, type function params and return values explicitly.
-- Avoid `any`; use unions, generics, or `unknown` + narrowing.
-- In JavaScript files with non-trivial logic, add focused JSDoc.
-- Document data transformation assumptions and schema edge cases.
+- Type function params/returns explicitly in TypeScript.
+- Avoid `any`; use narrowed `unknown`, unions, or generics.
+- Preserve strict-mode compatibility (`strict`, `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes` in `game/`).
+- For DTO/event/state changes, update related types, invariants, and tests together.
 
-### Error handling
+### Error Handling and Logging
 
-- Wrap network and filesystem operations in `try...catch`.
-- Never silently swallow errors.
-- Log actionable context (`id`, URL, filename, operation).
-- Fail fast for corrupted inputs; use graceful fallback only when intentional.
+- Wrap IO/network boundaries in `try...catch`.
+- Never swallow errors silently.
+- Emit actionable context in errors/logs (operation, ids, file path, URL).
+- Prefer fail-fast behavior for invalid/corrupt state.
 
-### Code organization
+### Code Organization
 
-- Prefer small, composable functions over long monolithic procedures.
-- Keep mapping/config objects separate from execution flow.
-- Minimize side effects and isolate I/O boundaries.
-- Add comments for non-obvious "why", not obvious "what".
+- Prefer small, composable functions.
+- Keep pure logic separate from IO.
+- Keep reducers/event handlers deterministic.
+- Add comments only for non-obvious rationale.
 
-## 4) Agent Workflow Rules
+## 4) Game App Development Flow (Required)
 
-- Never assume file contents; inspect files before changing them.
-- Read relevant package configs before choosing commands.
-- Align with existing project conventions over personal preference.
-- Use absolute paths with file tools when required by the environment.
-- Avoid interactive shell commands in non-interactive sessions.
-- Verify changes with the narrowest useful command (build/test/typecheck).
+For any task touching `game/`, follow this sequence:
 
-## 5) Git Conventions
+1. Read `game/architecture.md` first.
+2. Read `game/rules.md` second.
+3. Read `game/speckit-plan.md` third.
+4. For implementation details, also read any relevant docs under `game/spec/*.md`.
+5. If a design/behavior decision is confirmed during implementation, update the corresponding `game/spec/*.md` doc in the same change set.
 
-- Use Conventional Commits (`feat:`, `fix:`, `docs:`, `refactor:`, `chore:`).
-- Do not commit secrets, caches, or dependencies.
-- Respect `.gitignore` and generated output boundaries.
-- Keep commits focused and descriptive.
+Critical review gate:
 
-## 6) Cursor/Copilot Rule Files
+- Do **not** edit `game/architecture.md` or `game/rules.md` directly without explicit human review.
+- If changes to either file are needed, prepare a proposed diff and request review before applying edits.
 
-Checked paths in this repository:
+## 5) Agent Workflow Rules
+
+- Never assume file contents; inspect before editing.
+- Prefer minimal, focused changes that match existing patterns.
+- Verify with the narrowest useful command (targeted test, typecheck, build).
+- Avoid destructive git commands unless explicitly requested.
+- Do not revert unrelated user changes in a dirty working tree.
+
+## 6) Git Conventions
+
+- Use Conventional Commit prefixes: `feat:`, `fix:`, `docs:`, `refactor:`, `chore:`, `test:`.
+- Keep commits scoped and descriptive.
+- Do not commit secrets, credentials, caches, or dependency directories.
+- Respect generated outputs and `.gitignore` boundaries.
+
+## 7) Cursor/Copilot Rules
+
+Checked locations:
 
 - `.cursorrules`
 - `.cursor/rules/`
 - `.github/copilot-instructions.md`
 
-Current state:
+Current repository status:
 
-- No Cursor rule files were found.
-- No GitHub Copilot instruction file was found.
+- Cursor rules: none found.
+- Copilot instructions: found at `.github/copilot-instructions.md` and should be treated as higher-priority guidance for UI/UX work in `wiki/`.
 
-If any of these files are added later, treat them as higher-priority agent instructions and update this document.
+Copilot UI/UX highlights to follow for `wiki/` changes:
+
+- Preserve existing visual language and tokens from `wiki/src/layouts/BaseLayout.astro`.
+- Keep layouts mobile-first and responsive.
+- Maintain clear interaction states and keyboard accessibility.
+- Keep i18n consistent by updating both `en` and `cn` translation keys.
+- Run `pnpm --filter wiki run build` before finalizing UI/UX edits.
