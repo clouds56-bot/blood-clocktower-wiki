@@ -162,7 +162,10 @@ export const fortune_teller_plugin: CharacterPlugin = {
         context_tag: `${left_id},${right_id}`,
         requests: build_fortune_teller_registration_requests(context.state, left_id, right_id)
       });
-      if (registration_plan.queued_prompts.length > 0) {
+      if (
+        registration_plan.has_blocking_pending_queries ||
+        registration_plan.queued_prompts.length > 0
+      ) {
         return {
           emitted_events: registration_plan.emitted_events,
           queued_prompts: registration_plan.queued_prompts,
@@ -203,7 +206,10 @@ export const fortune_teller_plugin: CharacterPlugin = {
         requests: build_fortune_teller_registration_requests(context.state, left_id, right_id)
       });
 
-      if (registration_plan.queued_prompts.length > 0) {
+      if (
+        registration_plan.has_blocking_pending_queries ||
+        registration_plan.queued_prompts.length > 0
+      ) {
         return {
           emitted_events: registration_plan.emitted_events,
           queued_prompts: registration_plan.queued_prompts,

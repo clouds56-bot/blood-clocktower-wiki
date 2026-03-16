@@ -199,7 +199,7 @@ function build_virgin_nomination_result(
     requests: [registration_request]
   });
 
-  if (prompt_plan.queued_prompts.length > 0) {
+  if (prompt_plan.has_blocking_pending_queries || prompt_plan.queued_prompts.length > 0) {
     return {
       emitted_events: [spent_event, ...prompt_plan.emitted_events],
       queued_prompts: prompt_plan.queued_prompts,

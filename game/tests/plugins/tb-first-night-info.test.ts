@@ -261,6 +261,162 @@ test('empath queues misinformation prompt when drunk', () => {
   );
 });
 
+test('empath queues all unresolved registration prompts in a single wake', () => {
+  const state = create_initial_state('g1');
+  state.day_number = 1;
+  state.night_number = 2;
+  state.seat_order = ['p1', 'p2', 'p3', 'p4'];
+  state.players_by_id.p1 = make_player('p1', 'Empath', 'empath', 'good');
+  state.players_by_id.p2 = make_player('p2', 'Spy', 'spy', 'evil');
+  state.players_by_id.p3 = make_player('p3', 'Chef', 'chef', 'good');
+  state.players_by_id.p4 = make_player('p4', 'Recluse', 'recluse', 'good');
+
+  const wake = empath_plugin.hooks.on_night_wake?.({
+    state,
+    player_id: 'p1',
+    wake_step_id: 'wake:2:0:p1:empath'
+  });
+
+  assert.ok(wake);
+  assert.equal(wake?.queued_prompts.length, 2);
+  assert.deepEqual(
+    wake?.queued_prompts.map((prompt) => prompt.prompt_id),
+    [
+      'plugin:recluse:registration:empath:p1:alive_neighbors:reg:empath:alignment_check:d1:n2:p4:neighbor_0:p1',
+      'plugin:spy:registration:empath:p1:alive_neighbors:reg:empath:alignment_check:d1:n2:p2:neighbor_1:p1'
+    ]
+  );
+
+  const query_created_events =
+    wake?.emitted_events.filter((event) => event.event_type === 'RegistrationQueryCreated') ?? [];
+  assert.equal(query_created_events.length, 2);
+});
+
+test('empath on_registration_resolved waits for remaining pending registration queries', () => {
+  const state = create_initial_state('g1');
+  state.day_number = 1;
+  state.night_number = 2;
+  state.phase = 'night';
+  state.seat_order = ['p1', 'p2', 'p3', 'p4'];
+  state.players_by_id.p1 = make_player('p1', 'Empath', 'empath', 'good');
+  state.players_by_id.p2 = make_player('p2', 'Spy', 'spy', 'evil');
+  state.players_by_id.p3 = make_player('p3', 'Chef', 'chef', 'good');
+  state.players_by_id.p4 = make_player('p4', 'Recluse', 'recluse', 'good');
+
+  const qLeft = build_registration_query_id({
+    consumer_role_id: 'empath',
+    query_kind: 'alignment_check',
+    day_number: 1,
+    night_number: 2,
+    subject_player_id: 'p4',
+    query_slot: 'neighbor_0',
+    context_player_ids: ['p1']
+  });
+  const qRight = build_registration_query_id({
+    consumer_role_id: 'empath',
+    query_kind: 'alignment_check',
+    day_number: 1,
+    night_number: 2,
+    subject_player_id: 'p2',
+    query_slot: 'neighbor_1',
+    context_player_ids: ['p1']
+  });
+
+  state.registration_queries_by_id[qLeft] = {
+    query_id: qLeft,
+    consumer_role_id: 'empath',
+    query_kind: 'alignment_check',
+    subject_player_id: 'p4',
+    subject_context_player_ids: ['p1'],
+    phase: 'night',
+    day_number: 1,
+    night_number: 2,
+    status: 'resolved',
+    resolved_character_id: null,
+    resolved_character_type: null,
+    resolved_alignment: 'evil',
+    decision_source: 'storyteller_prompt',
+    created_at_event_id: 'q1',
+    resolved_at_event_id: 'q1r',
+    note: 'recluse registers evil for this check'
+  };
+  state.registration_queries_by_id[qRight] = {
+    query_id: qRight,
+    consumer_role_id: 'empath',
+    query_kind: 'alignment_check',
+    subject_player_id: 'p2',
+    subject_context_player_ids: ['p1'],
+    phase: 'night',
+    day_number: 1,
+    night_number: 2,
+    status: 'pending',
+    resolved_character_id: null,
+    resolved_character_type: null,
+    resolved_alignment: null,
+    decision_source: 'storyteller_prompt',
+    created_at_event_id: 'q2',
+    resolved_at_event_id: null,
+    note: null
+  };
+
+  const blocked = empath_plugin.hooks.on_registration_resolved?.({
+    state,
+    prompt_id: `plugin:recluse:registration:empath:p1:alive_neighbors:${qLeft}`,
+    provider_role_id: 'recluse',
+    consumer_role_id: 'empath',
+    owner_player_id: 'p1',
+    context_tag: 'alive_neighbors',
+    query_id: qLeft,
+    selected_option_id: 'alignment:evil',
+    freeform: null,
+    decision: {
+      query_id: qLeft,
+      resolved_character_id: null,
+      resolved_character_type: null,
+      resolved_alignment: 'evil',
+      decision_source: 'storyteller_prompt',
+      note: 'registration_alignment:evil'
+    }
+  });
+
+  assert.ok(blocked);
+  assert.equal(blocked?.queued_prompts.length, 0);
+  assert.equal(blocked?.emitted_events.length, 0);
+
+  state.registration_queries_by_id[qRight] = {
+    ...state.registration_queries_by_id[qRight],
+    status: 'resolved',
+    resolved_alignment: 'good',
+    resolved_at_event_id: 'q2r',
+    note: 'spy registers good for this check'
+  };
+
+  const done = empath_plugin.hooks.on_registration_resolved?.({
+    state,
+    prompt_id: `plugin:spy:registration:empath:p1:alive_neighbors:${qRight}`,
+    provider_role_id: 'spy',
+    consumer_role_id: 'empath',
+    owner_player_id: 'p1',
+    context_tag: 'alive_neighbors',
+    query_id: qRight,
+    selected_option_id: 'alignment:good',
+    freeform: null,
+    decision: {
+      query_id: qRight,
+      resolved_character_id: null,
+      resolved_character_type: null,
+      resolved_alignment: 'good',
+      decision_source: 'storyteller_prompt',
+      note: 'registration_alignment:good'
+    }
+  });
+
+  assert.ok(done);
+  assert.equal(done?.queued_prompts.length, 0);
+  assert.equal(done?.emitted_events.length, 1);
+  assert.equal(done?.emitted_events[0]?.payload.note, 'empath_info:p1:alive_neighbor_evil_count=1');
+});
+
 test('fortune teller wake prompt uses multi-column player selection', () => {
   const state = create_initial_state('g1');
   state.night_number = 1;

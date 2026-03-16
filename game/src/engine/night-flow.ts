@@ -44,7 +44,11 @@ export function handle_night_transition(
 }
 
 export function collect_night_wake_steps(state: GameState, plugin_registry: PluginRegistry): WakeQueueEntry[] {
-  const wake_steps: WakeQueueEntry[] = [];
+  const wake_candidates: Array<{
+    seat_index: number;
+    wake_step: WakeQueueEntry;
+    night_order: number;
+  }> = [];
 
   for (const [seat_index, player_id] of state.seat_order.entries()) {
     const player = state.players_by_id[player_id];
@@ -62,14 +66,25 @@ export function collect_night_wake_steps(state: GameState, plugin_registry: Plug
       continue;
     }
 
-    wake_steps.push({
-      wake_id: `wake:${state.night_number}:${seat_index}:${player_id}:${player.true_character_id}`,
-      character_id: player.true_character_id,
-      player_id
+    wake_candidates.push({
+      seat_index,
+      wake_step: {
+        wake_id: `wake:${state.night_number}:${seat_index}:${player_id}:${player.true_character_id}`,
+        character_id: player.true_character_id,
+        player_id
+      },
+      night_order: resolve_night_order(player.true_character_id, state.phase)
     });
   }
 
-  return wake_steps;
+  wake_candidates.sort((left, right) => {
+    if (left.night_order !== right.night_order) {
+      return left.night_order - right.night_order;
+    }
+    return left.seat_index - right.seat_index;
+  });
+
+  return wake_candidates.map((candidate) => candidate.wake_step);
 }
 
 function should_wake_for_phase(
@@ -84,3 +99,40 @@ function should_wake_for_phase(
   }
   return false;
 }
+
+function resolve_night_order(character_id: string, phase: GameState['phase']): number {
+  if (phase === 'first_night') {
+    return FIRST_NIGHT_ORDER_BY_CHARACTER_ID[character_id] ?? Number.MAX_SAFE_INTEGER;
+  }
+  if (phase === 'night') {
+    return OTHER_NIGHT_ORDER_BY_CHARACTER_ID[character_id] ?? Number.MAX_SAFE_INTEGER;
+  }
+  return Number.MAX_SAFE_INTEGER;
+}
+
+// Sourced from data/nightorder.tool.json for currently implemented roles.
+const FIRST_NIGHT_ORDER_BY_CHARACTER_ID: Readonly<Record<string, number>> = {
+  poisoner: 32,
+  washerwoman: 51,
+  librarian: 52,
+  investigator: 53,
+  chef: 54,
+  empath: 55,
+  fortune_teller: 56,
+  butler: 57,
+  spy: 71
+};
+
+// Sourced from data/nightorder.tool.json for currently implemented roles.
+const OTHER_NIGHT_ORDER_BY_CHARACTER_ID: Readonly<Record<string, number>> = {
+  poisoner: 17,
+  monk: 24,
+  scarlet_woman: 33,
+  imp: 40,
+  ravenkeeper: 75,
+  empath: 76,
+  fortune_teller: 77,
+  undertaker: 78,
+  butler: 91,
+  spy: 92
+};

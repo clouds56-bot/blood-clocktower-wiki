@@ -19,7 +19,7 @@ const chef_info_hooks = build_info_role_misinformation_hooks({
       context_tag: 'adjacent_pairs',
       requests: build_chef_registration_requests(context.state)
     });
-    if (prompt_plan.queued_prompts.length > 0) {
+    if (prompt_plan.has_blocking_pending_queries || prompt_plan.queued_prompts.length > 0) {
       return {
         emitted_events: prompt_plan.emitted_events,
         queued_prompts: prompt_plan.queued_prompts,
@@ -90,7 +90,7 @@ export const chef_plugin: CharacterPlugin = {
         requests: build_chef_registration_requests(context.state)
       });
 
-      if (prompt_plan.queued_prompts.length > 0) {
+      if (prompt_plan.has_blocking_pending_queries || prompt_plan.queued_prompts.length > 0) {
         return {
           emitted_events: prompt_plan.emitted_events,
           queued_prompts: prompt_plan.queued_prompts,

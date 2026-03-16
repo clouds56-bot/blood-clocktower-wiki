@@ -223,6 +223,7 @@ export interface RegistrationQueryRequest {
 export interface RegistrationPromptPlan {
   emitted_events: PluginEventSpec[];
   queued_prompts: PluginPromptSpec[];
+  has_blocking_pending_queries: boolean;
 }
 
 export function build_registration_query_id(args: {
@@ -267,9 +268,17 @@ export function plan_registration_query_prompt(args: {
   context_tag: string;
   requests: RegistrationQueryRequest[];
 }): RegistrationPromptPlan {
+  const emitted_events: PluginEventSpec[] = [];
+  const queued_prompts: PluginPromptSpec[] = [];
+  let has_blocking_pending_queries = false;
+
   for (const request of args.requests) {
     const existing = args.state.registration_queries_by_id[request.query_id];
     if (existing && existing.status === 'resolved') {
+      continue;
+    }
+    if (existing && existing.status === 'pending') {
+      has_blocking_pending_queries = true;
       continue;
     }
 
@@ -283,22 +292,21 @@ export function plan_registration_query_prompt(args: {
       continue;
     }
 
-    const emitted_events: PluginEventSpec[] = [];
-    if (!existing) {
-      emitted_events.push({
-        event_type: 'RegistrationQueryCreated',
-        payload: {
-          query_id: request.query_id,
-          consumer_role_id: request.consumer_role_id,
-          query_kind: request.query_kind,
-          subject_player_id: request.subject_player_id,
-          subject_context_player_ids: [...(request.subject_context_player_ids ?? [])],
-          phase: args.state.phase,
-          day_number: args.state.day_number,
-          night_number: args.state.night_number
-        }
-      });
-    }
+    has_blocking_pending_queries = true;
+
+    emitted_events.push({
+      event_type: 'RegistrationQueryCreated',
+      payload: {
+        query_id: request.query_id,
+        consumer_role_id: request.consumer_role_id,
+        query_kind: request.query_kind,
+        subject_player_id: request.subject_player_id,
+        subject_context_player_ids: [...(request.subject_context_player_ids ?? [])],
+        phase: args.state.phase,
+        day_number: args.state.day_number,
+        night_number: args.state.night_number
+      }
+    });
     emitted_events.push({
       event_type: 'StorytellerRulingRecorded',
       payload: {
@@ -309,33 +317,29 @@ export function plan_registration_query_prompt(args: {
       }
     });
 
-    return {
-      emitted_events,
-      queued_prompts: [
-        {
-          prompt_id: build_registration_prompt_id({
-            provider_role_id: provider_registration.provider_character_id,
-            consumer_role_id: args.role_id,
-            owner_player_id: args.owner_player_id,
-            context_tag: args.context_tag,
-            query_id: request.query_id
-          }),
-          kind: 'choice',
-          reason: `plugin:${args.role_id}:registration adjudication`,
-          visibility: 'storyteller',
-          options: prompt_options.map((option) => ({
-            option_id: option.option_id,
-            label: option.label
-          })),
-          storyteller_hint: provider_registration.result.prompt_hint ?? null
-        }
-      ]
-    };
+    queued_prompts.push({
+      prompt_id: build_registration_prompt_id({
+        provider_role_id: provider_registration.provider_character_id,
+        consumer_role_id: args.role_id,
+        owner_player_id: args.owner_player_id,
+        context_tag: args.context_tag,
+        query_id: request.query_id
+      }),
+      kind: 'choice',
+      reason: `plugin:${args.role_id}:registration adjudication`,
+      visibility: 'storyteller',
+      options: prompt_options.map((option) => ({
+        option_id: option.option_id,
+        label: option.label
+      })),
+      storyteller_hint: provider_registration.result.prompt_hint ?? null
+    });
   }
 
   return {
-    emitted_events: [],
-    queued_prompts: []
+    emitted_events,
+    queued_prompts,
+    has_blocking_pending_queries
   };
 }
 
