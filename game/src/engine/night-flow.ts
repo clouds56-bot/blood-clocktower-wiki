@@ -89,7 +89,6 @@ export function collect_night_wake_steps(state: GameState, plugin_registry: Plug
     const wake_key = build_wake_key(time_key, global_order, candidate.player_id, candidate.character_id);
     return {
       wake_key,
-      wake_id: wake_key,
       character_id: candidate.character_id,
       player_id: candidate.player_id
     };

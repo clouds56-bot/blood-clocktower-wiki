@@ -58,7 +58,7 @@ export const ravenkeeper_plugin: CharacterPlugin = {
           {
             event_type: 'StorytellerRulingRecorded',
             payload: {
-              prompt_id: context.prompt_id,
+              prompt_key: context.prompt_key,
               note: `ravenkeeper_info:${ravenkeeper_player_id}:target=${target_player_id ?? 'none'};character=${target_character_id}`
             }
           }
@@ -82,7 +82,6 @@ export function build_ravenkeeper_reveal_prompt(
     .sort((left, right) => left.option_id.localeCompare(right.option_id));
 
   return {
-    prompt_id: build_ravenkeeper_prompt_key(state.night_number, ravenkeeper_player_id),
     prompt_key: build_ravenkeeper_prompt_key(state.night_number, ravenkeeper_player_id),
     kind: 'choice',
     reason: `plugin:ravenkeeper:choose_player:${night_time_key(state.night_number)}:${ravenkeeper_player_id}`,
@@ -91,8 +90,8 @@ export function build_ravenkeeper_reveal_prompt(
   };
 }
 
-function parse_ravenkeeper_prompt_owner_player_id(prompt_id: string): string | null {
-  const parts = prompt_id.split(':');
+function parse_ravenkeeper_prompt_owner_player_id(prompt_key: string): string | null {
+  const parts = prompt_key.split(':');
   if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'ravenkeeper' && parts[2] === 'night_reveal' && /^n\d+$/.test(parts[3] ?? '')) {
     return parts[4] ?? null;
   }

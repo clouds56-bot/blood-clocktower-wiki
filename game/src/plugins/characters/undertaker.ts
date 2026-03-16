@@ -35,7 +35,7 @@ export const undertaker_plugin: CharacterPlugin = {
             {
               event_type: 'StorytellerRulingRecorded',
               payload: {
-                prompt_id: null,
+                prompt_key: null,
                 note: `undertaker_info:${context.player_id}:inactive`
               }
             }
@@ -51,7 +51,7 @@ export const undertaker_plugin: CharacterPlugin = {
             {
               event_type: 'StorytellerRulingRecorded',
               payload: {
-                prompt_id: null,
+                prompt_key: null,
                 note: `undertaker_info:${context.player_id}:misinformation_required`
               }
             }
@@ -68,7 +68,7 @@ export const undertaker_plugin: CharacterPlugin = {
             {
               event_type: 'StorytellerRulingRecorded',
               payload: {
-                prompt_id: null,
+                prompt_key: null,
                 note: `undertaker_info:${context.player_id}:no_execution_today`
               }
             }
@@ -86,7 +86,7 @@ export const undertaker_plugin: CharacterPlugin = {
             {
               event_type: 'StorytellerRulingRecorded',
               payload: {
-                prompt_id: null,
+                prompt_key: null,
                 note: `undertaker_info:${context.player_id}:no_execution_today`
               }
             }
@@ -101,7 +101,7 @@ export const undertaker_plugin: CharacterPlugin = {
           {
             event_type: 'StorytellerRulingRecorded',
             payload: {
-              prompt_id: null,
+              prompt_key: null,
               note: `undertaker_info:${context.player_id}:executed_player=${executed_player_id};character=${executed_character_id}`
             }
           }

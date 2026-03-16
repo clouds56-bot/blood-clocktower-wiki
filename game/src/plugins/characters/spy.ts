@@ -43,7 +43,7 @@ export const spy_plugin: CharacterPlugin = {
             {
               event_type: 'StorytellerRulingRecorded',
               payload: {
-                prompt_id: null,
+                prompt_key: null,
                 note: `spy_grimoire:${context.player_id}:misinformation_required`
               }
             }
@@ -64,7 +64,7 @@ export const spy_plugin: CharacterPlugin = {
           {
             event_type: 'StorytellerRulingRecorded',
             payload: {
-              prompt_id: null,
+              prompt_key: null,
               note: `spy_grimoire:${context.player_id}:${visible_players}`
             }
           }

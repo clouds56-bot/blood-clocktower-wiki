@@ -230,7 +230,6 @@ export function handle_use_claimed_ability(
         created_at,
         actor_id: command.actor_id,
         payload: {
-          prompt_id: `plugin:${command.payload.claimed_character_id}:claimed_ability:${state.day_number}:${claimant.player_id}:${command.command_id}`,
           prompt_key: build_plugin_prompt_key(
             command.payload.claimed_character_id,
             'claimed_ability',

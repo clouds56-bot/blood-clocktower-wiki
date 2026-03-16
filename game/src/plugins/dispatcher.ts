@@ -329,12 +329,12 @@ function normalize_plugin_result(
   });
 
   const normalized_prompts = result.queued_prompts.map((item, prompt_index) => {
-    if (item.prompt_id.trim().length === 0) {
+    if (item.prompt_key.trim().length === 0) {
       issues.push({
         code: 'invalid_plugin_prompt_id',
-        message: 'prompt_id must be non-empty',
+        message: 'prompt_key must be non-empty',
         plugin_id,
-        path: `queued_prompts.${prompt_index}.prompt_id`
+        path: `queued_prompts.${prompt_index}.prompt_key`
       });
     }
     if (item.kind.trim().length === 0) {
@@ -410,7 +410,6 @@ function normalize_plugin_result(
 
     return {
       prompt_key: item.prompt_key,
-      prompt_id: item.prompt_id,
       kind: item.kind,
       reason: item.reason,
       visibility: item.visibility,

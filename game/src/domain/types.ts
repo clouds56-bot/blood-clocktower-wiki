@@ -61,7 +61,6 @@ export interface PromptResolutionPayload {
 
 export interface PromptState {
   prompt_key: string;
-  prompt_id: string;
   kind: string;
   reason: string;
   visibility: PromptVisibility;
@@ -80,7 +79,6 @@ export interface PromptState {
 export interface StorytellerNoteRecord {
   note_id: EventId;
   prompt_key: string | null;
-  prompt_id: string | null;
   text: string;
   created_at_event_id: EventId;
 }
@@ -129,7 +127,6 @@ export interface DeathRecord {
 
 export interface WakeQueueEntry {
   wake_key: string;
-  wake_id: string;
   character_id: string;
   player_id: PlayerId;
 }

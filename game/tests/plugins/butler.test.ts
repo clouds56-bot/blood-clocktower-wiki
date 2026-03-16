@@ -25,7 +25,7 @@ test('butler wake hook returns master selection prompt', () => {
   assert.equal(result?.queued_prompts.length, 1);
   const prompt = result?.queued_prompts[0];
   assert.ok(prompt);
-  assert.equal(is_butler_prompt_id(prompt?.prompt_id ?? ''), true);
+  assert.equal(is_butler_prompt_id(prompt?.prompt_key ?? ''), true);
   assert.deepEqual(prompt?.options.map((option) => option.option_id), ['p2', 'p3']);
 });
 
@@ -59,7 +59,6 @@ test('butler prompt resolution emits master marker and clears previous marker', 
   const result = butler_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_key: 'plugin:butler:night_master:n2:p1',
-    prompt_id: 'plugin:butler:night_master:n2:p1',
     selected_option_id: 'p3',
     freeform: null
   });

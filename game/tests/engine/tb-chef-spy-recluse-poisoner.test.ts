@@ -242,7 +242,6 @@ function resolve_poisoner_and_get_events(
       actor_id: 'storyteller',
       payload: {
         prompt_key: 'plugin:poisoner:night_poison:n1:p3',
-        prompt_id: 'plugin:poisoner:night_poison:n1:p3',
         selected_option_id: target_player_id,
         freeform: null,
         notes: null
@@ -260,17 +259,17 @@ test('baseline: after poisoner self-poisons, chef receives both spy/recluse regi
   const resolve_events = resolve_poisoner_and_get_events(state, registry, 'p3', 'c_resolve_self');
   const queued_prompt_ids = resolve_events
     .filter((event) => event.event_type === 'PromptQueued')
-    .map((event) => String(event.payload.prompt_id));
+    .map((event) => String(event.payload.prompt_key));
 
   assert.equal(
-    queued_prompt_ids.some((prompt_id) => prompt_id.startsWith('plugin:spy:registration:chef:p1:adjacent_pairs:')),
+    queued_prompt_ids.some((prompt_key) => prompt_key.startsWith('plugin:spy:registration:chef:p1:adjacent_pairs:')),
     true
   );
   assert.equal(
-    queued_prompt_ids.some((prompt_id) => prompt_id.startsWith('plugin:recluse:registration:chef:p1:adjacent_pairs:')),
+    queued_prompt_ids.some((prompt_key) => prompt_key.startsWith('plugin:recluse:registration:chef:p1:adjacent_pairs:')),
     true
   );
-  assert.equal(queued_prompt_ids.some((prompt_id) => prompt_id.startsWith('plugin:chef:misinfo:')), false);
+  assert.equal(queued_prompt_ids.some((prompt_key) => prompt_key.startsWith('plugin:chef:misinfo:')), false);
 });
 
 test('poisoned spy suppresses chef registration prompt from spy', () => {
@@ -281,14 +280,14 @@ test('poisoned spy suppresses chef registration prompt from spy', () => {
   const resolve_events = resolve_poisoner_and_get_events(state, registry, 'p2', 'c_resolve_spy');
   const queued_prompt_ids = resolve_events
     .filter((event) => event.event_type === 'PromptQueued')
-    .map((event) => String(event.payload.prompt_id));
+    .map((event) => String(event.payload.prompt_key));
 
   assert.equal(
-    queued_prompt_ids.some((prompt_id) => prompt_id.startsWith('plugin:spy:registration:chef:p1:adjacent_pairs:')),
+    queued_prompt_ids.some((prompt_key) => prompt_key.startsWith('plugin:spy:registration:chef:p1:adjacent_pairs:')),
     false
   );
   assert.equal(
-    queued_prompt_ids.some((prompt_id) => prompt_id.startsWith('plugin:recluse:registration:chef:p1:adjacent_pairs:')),
+    queued_prompt_ids.some((prompt_key) => prompt_key.startsWith('plugin:recluse:registration:chef:p1:adjacent_pairs:')),
     true
   );
 });
@@ -301,14 +300,14 @@ test('poisoned recluse suppresses chef registration prompt from recluse', () => 
   const resolve_events = resolve_poisoner_and_get_events(state, registry, 'p4', 'c_resolve_recluse');
   const queued_prompt_ids = resolve_events
     .filter((event) => event.event_type === 'PromptQueued')
-    .map((event) => String(event.payload.prompt_id));
+    .map((event) => String(event.payload.prompt_key));
 
   assert.equal(
-    queued_prompt_ids.some((prompt_id) => prompt_id.startsWith('plugin:recluse:registration:chef:p1:adjacent_pairs:')),
+    queued_prompt_ids.some((prompt_key) => prompt_key.startsWith('plugin:recluse:registration:chef:p1:adjacent_pairs:')),
     false
   );
   assert.equal(
-    queued_prompt_ids.some((prompt_id) => prompt_id.startsWith('plugin:spy:registration:chef:p1:adjacent_pairs:')),
+    queued_prompt_ids.some((prompt_key) => prompt_key.startsWith('plugin:spy:registration:chef:p1:adjacent_pairs:')),
     true
   );
 });
@@ -321,11 +320,11 @@ test('poisoned chef suppresses registration prompts and receives misinformation 
   const resolve_events = resolve_poisoner_and_get_events(state, registry, 'p1', 'c_resolve_chef');
   const queued_prompt_ids = resolve_events
     .filter((event) => event.event_type === 'PromptQueued')
-    .map((event) => String(event.payload.prompt_id));
+    .map((event) => String(event.payload.prompt_key));
 
-  assert.equal(queued_prompt_ids.some((prompt_id) => prompt_id.startsWith('plugin:chef:misinfo:n1:p1')), true);
+  assert.equal(queued_prompt_ids.some((prompt_key) => prompt_key.startsWith('plugin:chef:misinfo:n1:p1')), true);
   assert.equal(
-    queued_prompt_ids.some((prompt_id) => prompt_id.includes(':registration:chef:p1:adjacent_pairs:')),
+    queued_prompt_ids.some((prompt_key) => prompt_key.includes(':registration:chef:p1:adjacent_pairs:')),
     false
   );
 });
@@ -349,7 +348,6 @@ test('chef can emit final info after one registration resolution when remaining 
       actor_id: 'storyteller',
       payload: {
         prompt_key: 'plugin:poisoner:night_poison:n1:p5',
-        prompt_id: 'plugin:poisoner:night_poison:n1:p5',
         selected_option_id: 'p5',
         freeform: null,
         notes: null
@@ -361,13 +359,13 @@ test('chef can emit final info after one registration resolution when remaining 
 
   const queued_after_poisoner = poisoner_resolve_events
     .filter((event) => event.event_type === 'PromptQueued')
-    .map((event) => String(event.payload.prompt_id));
+    .map((event) => String(event.payload.prompt_key));
 
-  const spy_prompt_id = queued_after_poisoner.find((prompt_id) =>
-    prompt_id.startsWith('plugin:spy:registration:chef:p1:adjacent_pairs:')
+  const spy_prompt_id = queued_after_poisoner.find((prompt_key) =>
+    prompt_key.startsWith('plugin:spy:registration:chef:p1:adjacent_pairs:')
   );
-  const recluse_prompt_id = queued_after_poisoner.find((prompt_id) =>
-    prompt_id.startsWith('plugin:recluse:registration:chef:p1:adjacent_pairs:')
+  const recluse_prompt_id = queued_after_poisoner.find((prompt_key) =>
+    prompt_key.startsWith('plugin:recluse:registration:chef:p1:adjacent_pairs:')
   );
   assert.ok(spy_prompt_id);
   assert.ok(recluse_prompt_id);
@@ -380,7 +378,6 @@ test('chef can emit final info after one registration resolution when remaining 
       actor_id: 'storyteller',
       payload: {
         prompt_key: spy_prompt_id,
-        prompt_id: spy_prompt_id,
         selected_option_id: 'alignment:good',
         freeform: null,
         notes: null

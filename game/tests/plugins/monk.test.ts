@@ -22,7 +22,7 @@ test('monk wake hook returns player-visible protection prompt', () => {
   assert.ok(prompt);
   assert.equal(prompt?.visibility, 'player');
   assert.equal(prompt?.kind, 'choice');
-  assert.equal(is_monk_prompt_id(prompt?.prompt_id ?? ''), true);
+  assert.equal(is_monk_prompt_id(prompt?.prompt_key ?? ''), true);
   assert.deepEqual(prompt?.options.map((item) => item.option_id), ['p2']);
 });
 
@@ -56,7 +56,6 @@ test('monk prompt resolution clears prior target and applies fresh protection ma
   const result = monk_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_key: 'plugin:monk:night_protect:n2:p1',
-    prompt_id: 'plugin:monk:night_protect:n2:p1',
     selected_option_id: 'p3',
     freeform: null
   });

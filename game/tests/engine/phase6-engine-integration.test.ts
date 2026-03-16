@@ -200,7 +200,6 @@ test('advance phase night wake boundary suspends further wakes when a prompt is 
         queued_prompts: [
           {
             prompt_key: 'plugin:imp:night_kill',
-              prompt_id: 'plugin:imp:night_kill',
             kind: 'choice',
             reason: 'plugin:imp:choose target',
             visibility: 'storyteller',
@@ -227,7 +226,6 @@ test('advance phase night wake boundary suspends further wakes when a prompt is 
         queued_prompts: [
           {
             prompt_key: 'plugin:poisoner:night_poison',
-              prompt_id: 'plugin:poisoner:night_poison',
             kind: 'choice',
             reason: 'plugin:poisoner:choose target',
             visibility: 'storyteller',
@@ -265,12 +263,12 @@ test('advance phase night wake boundary suspends further wakes when a prompt is 
 
   assert.equal(
     events.some(
-      (event) => event.event_type === 'PromptQueued' && event.payload.prompt_id === 'plugin:poisoner:night_poison'
+      (event) => event.event_type === 'PromptQueued' && event.payload.prompt_key === 'plugin:poisoner:night_poison'
     ),
     true
   );
   assert.equal(
-    events.some((event) => event.event_type === 'PromptQueued' && event.payload.prompt_id === 'plugin:imp:night_kill'),
+    events.some((event) => event.event_type === 'PromptQueued' && event.payload.prompt_key === 'plugin:imp:night_kill'),
     false
   );
 });
@@ -315,8 +313,7 @@ test('resolve prompt boundary re-enters plugin runtime via prompt owner tag', ()
           {
             event_type: 'StorytellerRulingRecorded',
             payload: {
-        prompt_key: context.prompt_id,
-              prompt_id: context.prompt_id,
+        prompt_key: context.prompt_key,
               note: `plugin handled ${context.selected_option_id}`
             }
           }
@@ -335,7 +332,6 @@ test('resolve prompt boundary re-enters plugin runtime via prompt owner tag', ()
       created_at: '2026-03-14T00:00:00.000Z',
       payload: {
         prompt_key: 'plugin:imp:night_kill',
-              prompt_id: 'plugin:imp:night_kill',
         kind: 'choice',
         reason: 'plugin:imp:choose target',
         visibility: 'storyteller',
@@ -352,7 +348,6 @@ test('resolve prompt boundary re-enters plugin runtime via prompt owner tag', ()
       actor_id: 'storyteller',
       payload: {
         prompt_key: 'plugin:imp:night_kill',
-              prompt_id: 'plugin:imp:night_kill',
         selected_option_id: 'p2',
         freeform: null,
         notes: null
@@ -400,7 +395,6 @@ test('nomination boundary dispatches on_nomination_made for nominee plugin', () 
             event_type: 'StorytellerRulingRecorded',
             payload: {
               prompt_key: null,
-              prompt_id: null,
               note: `nomination_hook:${context.nomination_id}:${context.nominator_player_id}->${context.nominee_player_id}`
             }
           }
@@ -470,7 +464,6 @@ test('resolve prompt resumes suspended wake queue', () => {
         queued_prompts: [
           {
             prompt_key: 'plugin:imp:night_kill',
-              prompt_id: 'plugin:imp:night_kill',
             kind: 'choice',
             reason: 'plugin:imp:choose target',
             visibility: 'player',
@@ -495,7 +488,6 @@ test('resolve prompt resumes suspended wake queue', () => {
         queued_prompts: [
           {
             prompt_key: 'plugin:poisoner:night_poison',
-              prompt_id: 'plugin:poisoner:night_poison',
             kind: 'choice',
             reason: 'plugin:poisoner:choose target',
             visibility: 'player',
@@ -538,7 +530,6 @@ test('resolve prompt resumes suspended wake queue', () => {
       actor_id: 'storyteller',
       payload: {
         prompt_key: 'plugin:poisoner:night_poison',
-              prompt_id: 'plugin:poisoner:night_poison',
         selected_option_id: 'p1',
         freeform: null,
         notes: null
@@ -549,7 +540,7 @@ test('resolve prompt resumes suspended wake queue', () => {
 
   assert.equal(
     resolve_events.some(
-      (event) => event.event_type === 'PromptQueued' && event.payload.prompt_id === 'plugin:imp:night_kill'
+      (event) => event.event_type === 'PromptQueued' && event.payload.prompt_key === 'plugin:imp:night_kill'
     ),
     true
   );
@@ -645,11 +636,11 @@ test('imp plugin prompt resolves into death through engine flow', () => {
   state = apply_events(state, wake_events);
 
   const imp_prompt = wake_events.find(
-    (event) => event.event_type === 'PromptQueued' && event.payload.prompt_id.startsWith('plugin:imp:night_kill:')
+    (event) => event.event_type === 'PromptQueued' && event.payload.prompt_key.startsWith('plugin:imp:night_kill:')
   );
   assert.ok(imp_prompt);
   const imp_prompt_id =
-    imp_prompt && imp_prompt.event_type === 'PromptQueued' ? imp_prompt.payload.prompt_id : null;
+    imp_prompt && imp_prompt.event_type === 'PromptQueued' ? imp_prompt.payload.prompt_key : null;
   assert.ok(imp_prompt_id);
 
   const resolve_events = run_with_registry(
@@ -660,7 +651,6 @@ test('imp plugin prompt resolves into death through engine flow', () => {
       actor_id: 'storyteller',
       payload: {
         prompt_key: imp_prompt_id!,
-        prompt_id: imp_prompt_id!,
         selected_option_id: 'p2',
         freeform: null,
         notes: 'imp chooses Bob'
@@ -687,7 +677,6 @@ test('plugin runtime returns deterministic error on duplicate queued prompt id',
           queued_prompts: [
             {
               prompt_key: 'plugin:imp:night_kill:n1:p1',
-              prompt_id: 'plugin:imp:night_kill:n1:p1',
               kind: 'choice',
               reason: 'plugin:imp:choose night kill target',
               visibility: 'storyteller',
@@ -707,7 +696,6 @@ test('plugin runtime returns deterministic error on duplicate queued prompt id',
       created_at: '2026-03-14T00:00:00.000Z',
       payload: {
         prompt_key: 'plugin:imp:night_kill:n1:p1',
-        prompt_id: 'plugin:imp:night_kill:n1:p1',
         kind: 'choice',
         reason: 'plugin:imp:choose night kill target',
         visibility: 'storyteller',
@@ -724,7 +712,6 @@ test('plugin runtime returns deterministic error on duplicate queued prompt id',
       actor_id: 'storyteller',
       payload: {
         prompt_key: 'plugin:imp:night_kill:n1:p1',
-        prompt_id: 'plugin:imp:night_kill:n1:p1',
         selected_option_id: null,
         freeform: null,
         notes: null
@@ -771,7 +758,7 @@ test('poisoner prompt resolves into reminder marker apply and clear flow', () =>
   const poisoner_prompt_n1 = wake_events.find(
     (event) =>
       event.event_type === 'PromptQueued' &&
-      event.payload.prompt_id.startsWith('plugin:poisoner:night_poison:n1:')
+      event.payload.prompt_key.startsWith('plugin:poisoner:night_poison:n1:')
   );
   assert.ok(poisoner_prompt_n1 && poisoner_prompt_n1.event_type === 'PromptQueued');
 
@@ -782,8 +769,7 @@ test('poisoner prompt resolves into reminder marker apply and clear flow', () =>
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
-        prompt_key: poisoner_prompt_n1.payload.prompt_id,
-        prompt_id: poisoner_prompt_n1.payload.prompt_id,
+        prompt_key: poisoner_prompt_n1.payload.prompt_key,
         selected_option_id: 'p1',
         freeform: null,
         notes: null
@@ -819,7 +805,7 @@ test('poisoner prompt resolves into reminder marker apply and clear flow', () =>
   const poisoner_prompt_n2 = phase_to_n2.find(
     (event) =>
       event.event_type === 'PromptQueued' &&
-      event.payload.prompt_id.startsWith('plugin:poisoner:night_poison:n2:')
+      event.payload.prompt_key.startsWith('plugin:poisoner:night_poison:n2:')
   );
   assert.ok(poisoner_prompt_n2 && poisoner_prompt_n2.event_type === 'PromptQueued');
 
@@ -830,8 +816,7 @@ test('poisoner prompt resolves into reminder marker apply and clear flow', () =>
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
-        prompt_key: poisoner_prompt_n2.payload.prompt_id,
-        prompt_id: poisoner_prompt_n2.payload.prompt_id,
+        prompt_key: poisoner_prompt_n2.payload.prompt_key,
         selected_option_id: 'p2',
         freeform: null,
         notes: null
@@ -917,7 +902,7 @@ test('poisoned imp still wakes and chooses but kill effect is suppressed', () =>
   const poison_prompt = phase_events.find(
     (event) =>
       event.event_type === 'PromptQueued' &&
-      event.payload.prompt_id.startsWith('plugin:poisoner:night_poison:n1:p1')
+      event.payload.prompt_key.startsWith('plugin:poisoner:night_poison:n1:p1')
   );
   assert.ok(poison_prompt && poison_prompt.event_type === 'PromptQueued');
 
@@ -928,8 +913,7 @@ test('poisoned imp still wakes and chooses but kill effect is suppressed', () =>
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
-        prompt_key: poison_prompt.payload.prompt_id,
-        prompt_id: poison_prompt.payload.prompt_id,
+        prompt_key: poison_prompt.payload.prompt_key,
         selected_option_id: 'p2',
         freeform: null,
         notes: null
@@ -944,7 +928,7 @@ test('poisoned imp still wakes and chooses but kill effect is suppressed', () =>
     resolve_events.some(
       (event) =>
         event.event_type === 'PromptQueued' &&
-        event.payload.prompt_id.startsWith('plugin:imp:night_kill:')
+        event.payload.prompt_key.startsWith('plugin:imp:night_kill:')
     ),
     true
   );
@@ -953,7 +937,7 @@ test('poisoned imp still wakes and chooses but kill effect is suppressed', () =>
   const imp_prompt = resolve_events.find(
     (event) =>
       event.event_type === 'PromptQueued' &&
-      event.payload.prompt_id.startsWith('plugin:imp:night_kill:n1:p2')
+      event.payload.prompt_key.startsWith('plugin:imp:night_kill:n1:p2')
   );
   assert.ok(imp_prompt && imp_prompt.event_type === 'PromptQueued');
 
@@ -964,8 +948,7 @@ test('poisoned imp still wakes and chooses but kill effect is suppressed', () =>
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
-        prompt_key: imp_prompt.payload.prompt_id,
-        prompt_id: imp_prompt.payload.prompt_id,
+        prompt_key: imp_prompt.payload.prompt_key,
         selected_option_id: 'p3',
         freeform: null,
         notes: null

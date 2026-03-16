@@ -54,7 +54,6 @@ export const butler_plugin: CharacterPlugin = {
         emitted_events: [],
         queued_prompts: [
           {
-            prompt_id: build_butler_prompt_key(context.state.night_number, context.player_id),
             prompt_key: build_butler_prompt_key(context.state.night_number, context.player_id),
             kind: 'choice',
             reason: `plugin:butler:choose_master:${night_time_key(context.state.night_number)}:${context.player_id}`,
@@ -134,7 +133,7 @@ export const butler_plugin: CharacterPlugin = {
           expires_at_night_number: null,
             source_event_id: null,
             metadata: {
-              from_prompt_id: context.prompt_id,
+              from_prompt_id: context.prompt_key,
               from_prompt_key: resolve_prompt_token(context)
             }
           }
@@ -208,12 +207,12 @@ export function validate_butler_vote_cast(
   };
 }
 
-export function is_butler_prompt_id(prompt_id: string): boolean {
-  return /^plugin:butler:night_master:n\d+:[a-z0-9_-]+$/.test(prompt_id);
+export function is_butler_prompt_id(prompt_key: string): boolean {
+  return /^plugin:butler:night_master:n\d+:[a-z0-9_-]+$/.test(prompt_key);
 }
 
-function parse_butler_prompt_owner_player_id(prompt_id: string): string | null {
-  const parts = prompt_id.split(':');
+function parse_butler_prompt_owner_player_id(prompt_key: string): string | null {
+  const parts = prompt_key.split(':');
   if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'butler' && parts[2] === 'night_master' && /^n\d+$/.test(parts[3] ?? '')) {
     return parts[4] ?? null;
   }

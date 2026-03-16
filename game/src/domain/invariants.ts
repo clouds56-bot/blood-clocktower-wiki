@@ -235,9 +235,9 @@ export function validate_invariants(state: GameState): InvariantIssue[] {
     }
   }
 
-  const seen_pending_prompt_ids = new Set<string>();
+  const seen_pending_prompt_keys = new Set<string>();
   for (const [index, prompt_key] of state.pending_prompts.entries()) {
-    if (seen_pending_prompt_ids.has(prompt_key)) {
+    if (seen_pending_prompt_keys.has(prompt_key)) {
       issues.push({
         code: 'duplicate_pending_prompt_id',
         message: `pending_prompts contains duplicate prompt id: ${prompt_key}`,
@@ -245,7 +245,7 @@ export function validate_invariants(state: GameState): InvariantIssue[] {
         severity: 'error'
       });
     }
-    seen_pending_prompt_ids.add(prompt_key);
+    seen_pending_prompt_keys.add(prompt_key);
 
     const prompt = state.prompts_by_id[prompt_key];
     if (!prompt) {

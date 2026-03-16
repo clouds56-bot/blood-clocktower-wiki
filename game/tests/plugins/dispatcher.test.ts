@@ -53,7 +53,6 @@ function make_prompt_context(): PromptResolvedHookContext {
   return {
     state: create_initial_state('g1'),
     prompt_key: 'pr1',
-    prompt_id: 'pr1',
     selected_option_id: 'a',
     freeform: null
   };
@@ -64,7 +63,7 @@ function make_event_context(): EventAppliedHookContext {
     state: create_initial_state('g1'),
     event_type: 'PromptResolved',
     event_payload: {
-      prompt_id: 'pr1'
+      prompt_key: 'pr1'
     }
   };
 }
@@ -106,7 +105,6 @@ test('dispatch_hook executes plugins in deterministic order and merges outputs',
       queued_prompts: [
         {
           prompt_key: 'pr_imp',
-          prompt_id: 'pr_imp',
           kind: 'choice',
           reason: 'imp pick target',
           visibility: 'storyteller',
@@ -210,7 +208,6 @@ test('dispatch_hook fails when plugin returns invalid output', () => {
         queued_prompts: [
           {
             prompt_key: '',
-            prompt_id: '',
             kind: 'choice',
             reason: 'ok',
             visibility: 'storyteller',

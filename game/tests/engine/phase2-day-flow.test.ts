@@ -702,15 +702,14 @@ test('virgin can execute spy nominator when storyteller resolves spy as townsfol
 
   assert.equal(state.players_by_id.p1?.alive, true);
   assert.equal(state.pending_prompts.length, 1);
-  const prompt_id = state.pending_prompts[0] ?? '';
-  assert.equal(prompt_id.startsWith('plugin:spy:registration:virgin:'), true);
+  const prompt_key = state.pending_prompts[0] ?? '';
+  assert.equal(prompt_key.startsWith('plugin:spy:registration:virgin:'), true);
 
   state = run_command(state, {
     command_id: 'c-resolve-virgin-spy-yes',
     command_type: 'ResolvePrompt',
     payload: {
-      prompt_key: prompt_id,
-      prompt_id,
+      prompt_key: prompt_key,
       selected_option_id: 'character_type:townsfolk',
       freeform: null,
       notes: null
@@ -755,14 +754,13 @@ test('virgin can leave spy nominator alive when registration is not triggered', 
   });
 
   assert.equal(state.pending_prompts.length, 1);
-  const prompt_id = state.pending_prompts[0] ?? '';
+  const prompt_key = state.pending_prompts[0] ?? '';
 
   state = run_command(state, {
     command_id: 'c-resolve-virgin-spy-no',
     command_type: 'ResolvePrompt',
     payload: {
-      prompt_key: prompt_id,
-      prompt_id,
+      prompt_key: prompt_key,
       selected_option_id: 'default',
       freeform: null,
       notes: null
@@ -806,7 +804,6 @@ test('slayer shot kills demon and is once per game', () => {
     command_type: 'ResolvePrompt',
     payload: {
     prompt_key: firstPromptId,
-      prompt_id: firstPromptId,
       selected_option_id: 'p2',
       freeform: null,
       notes: null
@@ -843,7 +840,6 @@ test('slayer shot kills demon and is once per game', () => {
         command_type: 'ResolvePrompt',
         payload: {
     prompt_key: secondPromptId,
-          prompt_id: secondPromptId,
           selected_option_id: 'p3',
           freeform: null,
           notes: null

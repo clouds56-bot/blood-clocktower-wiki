@@ -301,7 +301,6 @@ export interface CreatePromptCommand extends BaseCommand {
   command_type: 'CreatePrompt';
   payload: {
     prompt_key: string;
-    prompt_id: string;
     kind: string;
     reason: string;
     visibility: PromptVisibility;
@@ -317,7 +316,6 @@ export interface ResolvePromptCommand extends BaseCommand {
   command_type: 'ResolvePrompt';
   payload: {
     prompt_key: string;
-    prompt_id: string;
     selected_option_id: string | null;
     freeform: string | null;
     notes: string | null;
@@ -328,7 +326,6 @@ export interface CancelPromptCommand extends BaseCommand {
   command_type: 'CancelPrompt';
   payload: {
     prompt_key: string;
-    prompt_id: string;
     reason: string;
   };
 }

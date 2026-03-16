@@ -304,7 +304,7 @@ export function format_storyteller_projection(projection: StorytellerProjection)
         render_table(
           ['id', 'kind', 'status', 'vis', 'input', 'choice', 'notes', 'hint'],
           projection.prompts.map((prompt) => [
-            prompt.prompt_id,
+            prompt.prompt_key,
             prompt.kind,
             prompt.status,
             prompt.visibility,
@@ -339,8 +339,8 @@ export function format_storyteller_projection(projection: StorytellerProjection)
     : [
         'notes:',
         render_table(
-          ['id', 'prompt_id', 'text'],
-          projection.storyteller_notes.map((note) => [String(note.note_id), note.prompt_id ?? '-', note.text])
+          ['id', 'prompt_key', 'text'],
+          projection.storyteller_notes.map((note) => [String(note.note_id), note.prompt_key ?? '-', note.text])
         )
       ].join('\n');
 

@@ -53,8 +53,8 @@ const fortune_teller_misinfo_hooks = build_info_role_misinformation_hooks({
       { option_id: 'no', label: 'Show NO' }
     ]
   }),
-  build_misinformation_note: ({ subject_player_id, selected_option_id, prompt_id }) => {
-    const parsed = parse_fortune_teller_misinfo_prompt(prompt_id);
+  build_misinformation_note: ({ subject_player_id, selected_option_id, prompt_key }) => {
+    const parsed = parse_fortune_teller_misinfo_prompt(prompt_key);
     if (!parsed) {
       return `fortune_teller_info:${subject_player_id}:pair=unknown,unknown;yes=${selected_option_id === 'yes'}`;
     }
@@ -98,7 +98,6 @@ export const fortune_teller_plugin: CharacterPlugin = {
         emitted_events: [],
         queued_prompts: [
           {
-            prompt_id: build_fortune_teller_prompt_key(context.state.night_number, context.player_id),
             prompt_key: build_fortune_teller_prompt_key(context.state.night_number, context.player_id),
             kind: 'choice',
             reason: `plugin:fortune_teller:choose_two_players:${night_time_key(context.state.night_number)}:${context.player_id}`,
@@ -142,7 +141,7 @@ export const fortune_teller_plugin: CharacterPlugin = {
             {
               event_type: 'StorytellerRulingRecorded',
               payload: {
-                prompt_id: context.prompt_id,
+                prompt_key: context.prompt_key,
                 note: `fortune_teller_info:${owner_player_id}:inactive`
               }
             }
@@ -183,7 +182,7 @@ export const fortune_teller_plugin: CharacterPlugin = {
             ]
           }
         );
-        misinfo_prompt.prompt_id = build_fortune_teller_pair_misinfo_prompt_key(
+        misinfo_prompt.prompt_key = build_fortune_teller_pair_misinfo_prompt_key(
           context.state.night_number,
           owner_player_id,
           left_id,
@@ -226,7 +225,7 @@ export const fortune_teller_plugin: CharacterPlugin = {
           {
             event_type: 'StorytellerRulingRecorded',
             payload: {
-              prompt_id: context.prompt_id,
+              prompt_key: context.prompt_key,
               note: `fortune_teller_info:${owner_player_id}:pair=${left_id},${right_id};yes=${yes}`
             }
           }
@@ -270,7 +269,7 @@ export const fortune_teller_plugin: CharacterPlugin = {
           {
             event_type: 'StorytellerRulingRecorded',
             payload: {
-              prompt_id: context.prompt_id,
+              prompt_key: context.prompt_key,
               note: `fortune_teller_info:${context.owner_player_id}:pair=${left_id},${right_id};yes=${yes}`
             }
           }
@@ -282,8 +281,8 @@ export const fortune_teller_plugin: CharacterPlugin = {
   }
 };
 
-export function is_fortune_teller_prompt_id(prompt_id: string): boolean {
-  return /^plugin:fortune_teller:night_check:n\d+:[a-z0-9_-]+$/.test(prompt_id);
+export function is_fortune_teller_prompt_id(prompt_key: string): boolean {
+  return /^plugin:fortune_teller:night_check:n\d+:[a-z0-9_-]+$/.test(prompt_key);
 }
 
 function build_fortune_teller_registration_requests(
@@ -440,8 +439,8 @@ function is_demon_check_positive(
   });
 }
 
-function parse_fortune_teller_prompt_owner_player_id(prompt_id: string): string | null {
-  const parts = prompt_id.split(':');
+function parse_fortune_teller_prompt_owner_player_id(prompt_key: string): string | null {
+  const parts = prompt_key.split(':');
   if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'fortune_teller' && parts[2] === 'night_check' && /^n\d+$/.test(parts[3] ?? '')) {
     return parts[4] ?? null;
   }
@@ -449,9 +448,9 @@ function parse_fortune_teller_prompt_owner_player_id(prompt_id: string): string 
 }
 
 function parse_fortune_teller_misinfo_prompt(
-  prompt_id: string
+  prompt_key: string
 ): { owner_player_id: string; left_player_id: string; right_player_id: string } | null {
-  const parts = prompt_id.split(':');
+  const parts = prompt_key.split(':');
   if (parts.length >= 7 && parts[0] === 'plugin' && parts[1] === 'fortune_teller' && parts[2] === 'misinfo') {
     const owner_player_id = parts[4] ?? null;
     const left_player_id = parts[5] ?? null;

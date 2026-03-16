@@ -41,7 +41,7 @@ export const washerwoman_plugin: CharacterPlugin = {
           {
             event_type: 'StorytellerRulingRecorded',
             payload: {
-              prompt_id: null,
+              prompt_key: null,
               note
             }
           }

@@ -48,7 +48,6 @@ export function handle_create_prompt(
         actor_id: command.actor_id,
         payload: {
           prompt_key,
-          prompt_id: command.payload.prompt_id,
           kind: command.payload.kind,
           reason: command.payload.reason,
           visibility: command.payload.visibility,
@@ -109,7 +108,6 @@ export function handle_resolve_prompt(
       actor_id: command.actor_id,
       payload: {
         prompt_key,
-        prompt_id: command.payload.prompt_id,
         selected_option_id: command.payload.selected_option_id,
         freeform: command.payload.freeform,
         notes: command.payload.notes
@@ -123,7 +121,6 @@ export function handle_resolve_prompt(
       actor_id: command.actor_id,
       payload: {
         prompt_key,
-        prompt_id: command.payload.prompt_id,
         selected_option_id: command.payload.selected_option_id,
         freeform: command.payload.freeform
       }
@@ -139,7 +136,6 @@ export function handle_resolve_prompt(
       actor_id: command.actor_id,
       payload: {
         prompt_key,
-        prompt_id: command.payload.prompt_id,
         note: command.payload.notes
       }
     });
@@ -389,7 +385,6 @@ export function handle_cancel_prompt(
         actor_id: command.actor_id,
         payload: {
           prompt_key,
-          prompt_id: command.payload.prompt_id,
           reason: command.payload.reason
         }
       },
@@ -401,7 +396,6 @@ export function handle_cancel_prompt(
         actor_id: command.actor_id,
         payload: {
           prompt_key,
-          prompt_id: command.payload.prompt_id,
           note: command.payload.reason
         }
       }

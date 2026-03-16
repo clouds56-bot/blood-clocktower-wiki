@@ -29,7 +29,7 @@ export const slayer_plugin: CharacterPlugin = {
   },
   hooks: {
     on_prompt_resolved: (context): PluginResult => {
-      const prompt_owner_player_id = parse_claimed_slayer_prompt_owner_player_id(context.prompt_id);
+      const prompt_owner_player_id = parse_claimed_slayer_prompt_owner_player_id(context.prompt_key);
       if (!prompt_owner_player_id) {
         return {
           emitted_events: [],
@@ -121,8 +121,8 @@ export const slayer_plugin: CharacterPlugin = {
   }
 };
 
-function parse_claimed_slayer_prompt_owner_player_id(prompt_id: string): string | null {
-  const parts = prompt_id.split(':');
+function parse_claimed_slayer_prompt_owner_player_id(prompt_key: string): string | null {
+  const parts = prompt_key.split(':');
   if (
     parts.length >= 5 &&
     parts[0] === 'plugin' &&

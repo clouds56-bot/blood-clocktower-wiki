@@ -37,7 +37,7 @@ test('imp wake hook returns player-visible target prompt', () => {
   assert.ok(prompt);
   assert.equal(prompt?.visibility, 'player');
   assert.equal(prompt?.kind, 'choice');
-  assert.equal(is_imp_prompt_id(prompt?.prompt_id ?? ''), true);
+  assert.equal(is_imp_prompt_id(prompt?.prompt_key ?? ''), true);
   assert.deepEqual(prompt?.options.map((item) => item.option_id), ['p1', 'p2']);
 });
 
@@ -51,7 +51,6 @@ test('imp can choose itself and dies', () => {
   const result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_key: 'plugin:imp:night_kill:n2:p1',
-    prompt_id: 'plugin:imp:night_kill:n2:p1',
     selected_option_id: 'p1',
     freeform: null
   });
@@ -73,7 +72,6 @@ test('imp prompt resolution emits PlayerDied consequence', () => {
   const result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_key: 'plugin:imp:night_kill:n1:p1',
-    prompt_id: 'plugin:imp:night_kill:n1:p1',
     selected_option_id: 'p2',
     freeform: null
   });
@@ -101,7 +99,6 @@ test('imp does not kill dead target', () => {
   const result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_key: 'plugin:imp:night_kill:n2:p1',
-    prompt_id: 'plugin:imp:night_kill:n2:p1',
     selected_option_id: 'p2',
     freeform: null
   });
@@ -120,7 +117,6 @@ test('imp does not kill sober Soldier target', () => {
   const result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_key: 'plugin:imp:night_kill:n2:p1',
-    prompt_id: 'plugin:imp:night_kill:n2:p1',
     selected_option_id: 'p2',
     freeform: null
   });
@@ -139,7 +135,6 @@ test('imp kills poisoned Soldier target', () => {
   const result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_key: 'plugin:imp:night_kill:n2:p1',
-    prompt_id: 'plugin:imp:night_kill:n2:p1',
     selected_option_id: 'p2',
     freeform: null
   });
@@ -179,7 +174,6 @@ test('imp does not kill monk protected target', () => {
   const result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_key: 'plugin:imp:night_kill:n2:p1',
-    prompt_id: 'plugin:imp:night_kill:n2:p1',
     selected_option_id: 'p2',
     freeform: null
   });
@@ -199,7 +193,6 @@ test('imp kill queues ravenkeeper death reveal prompt', () => {
   const result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_key: 'plugin:imp:night_kill:n2:p1',
-    prompt_id: 'plugin:imp:night_kill:n2:p1',
     selected_option_id: 'p2',
     freeform: null
   });
@@ -210,7 +203,7 @@ test('imp kill queues ravenkeeper death reveal prompt', () => {
     ['PlayerDied']
   );
   assert.equal(result?.queued_prompts.length, 1);
-  assert.equal(result?.queued_prompts[0]?.prompt_id, 'plugin:ravenkeeper:night_reveal:n2:p2');
+  assert.equal(result?.queued_prompts[0]?.prompt_key, 'plugin:ravenkeeper:night_reveal:n2:p2');
 });
 
 test('imp on_player_died prefers Scarlet Woman as transfer target', () => {
@@ -226,7 +219,6 @@ test('imp on_player_died prefers Scarlet Woman as transfer target', () => {
   const kill_result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_key: 'plugin:imp:night_kill:n2:p1',
-    prompt_id: 'plugin:imp:night_kill:n2:p1',
     selected_option_id: 'p1',
     freeform: null
   });
@@ -267,7 +259,6 @@ test('imp on_player_died prompts storyteller to choose transfer target when no S
   const kill_result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_key: 'plugin:imp:night_kill:n2:p1',
-    prompt_id: 'plugin:imp:night_kill:n2:p1',
     selected_option_id: 'p1',
     freeform: null
   });
@@ -286,7 +277,7 @@ test('imp on_player_died prompts storyteller to choose transfer target when no S
 
   assert.ok(transfer);
   assert.equal(transfer?.queued_prompts.length, 1);
-  assert.equal(transfer?.queued_prompts[0]?.prompt_id, 'plugin:imp:transfer_target:n2:p1');
+  assert.equal(transfer?.queued_prompts[0]?.prompt_key, 'plugin:imp:transfer_target:n2:p1');
   assert.deepEqual(
     transfer?.queued_prompts[0]?.options.map((option) => option.option_id),
     ['p2', 'p3']
@@ -306,7 +297,6 @@ test('imp transfer target prompt resolves into new demon and transferred imp can
   const kill_result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_key: 'plugin:imp:night_kill:n2:p1',
-    prompt_id: 'plugin:imp:night_kill:n2:p1',
     selected_option_id: 'p1',
     freeform: null
   });
@@ -330,8 +320,7 @@ test('imp transfer target prompt resolves into new demon and transferred imp can
       event_type: 'PromptQueued' as const,
       created_at: '2026-03-15T00:00:00.000Z',
       payload: {
-    prompt_key: prompt.prompt_id,
-        prompt_id: prompt.prompt_id,
+    prompt_key: prompt.prompt_key,
         kind: prompt.kind,
         reason: prompt.reason,
         visibility: prompt.visibility,
@@ -347,7 +336,6 @@ test('imp transfer target prompt resolves into new demon and transferred imp can
   const transfer_prompt_result = imp_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_key: 'plugin:imp:transfer_target:n2:p1',
-    prompt_id: 'plugin:imp:transfer_target:n2:p1',
     selected_option_id: 'p3',
     freeform: null
   });
@@ -369,12 +357,11 @@ test('imp transfer target prompt resolves into new demon and transferred imp can
     wake_step_id: 'wake:3:0:p3:imp'
   });
   assert.ok(wake);
-  assert.equal(wake?.queued_prompts[0]?.prompt_id, 'plugin:imp:night_kill:n3:p3');
+  assert.equal(wake?.queued_prompts[0]?.prompt_key, 'plugin:imp:night_kill:n3:p3');
 
   const next_kill = imp_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_key: 'plugin:imp:night_kill:n3:p3',
-    prompt_id: 'plugin:imp:night_kill:n3:p3',
     selected_option_id: 'p4',
     freeform: null
   });

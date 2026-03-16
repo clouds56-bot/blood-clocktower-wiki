@@ -27,7 +27,6 @@ test('prompt lifecycle create -> resolve is replay-safe', () => {
     command_type: 'CreatePrompt',
     payload: {
     prompt_key: 'pr1',
-      prompt_id: 'pr1',
       kind: 'false_info',
       reason: 'pick misinformation',
       visibility: 'storyteller',
@@ -45,7 +44,6 @@ test('prompt lifecycle create -> resolve is replay-safe', () => {
     command_type: 'ResolvePrompt',
     payload: {
     prompt_key: 'pr1',
-      prompt_id: 'pr1',
       selected_option_id: 'o2',
       freeform: null,
       notes: 'picked stronger bluff line'
@@ -64,7 +62,6 @@ test('cannot resolve prompt twice', () => {
     command_type: 'CreatePrompt',
     payload: {
     prompt_key: 'pr1',
-      prompt_id: 'pr1',
       kind: 'choice',
       reason: 'choose one',
       visibility: 'storyteller',
@@ -75,7 +72,6 @@ test('cannot resolve prompt twice', () => {
     command_type: 'ResolvePrompt',
     payload: {
     prompt_key: 'pr1',
-      prompt_id: 'pr1',
       selected_option_id: 'yes',
       freeform: null,
       notes: null
@@ -90,7 +86,6 @@ test('cannot resolve prompt twice', () => {
       actor_id: 'test',
       payload: {
         prompt_key: 'pr1',
-        prompt_id: 'pr1',
         selected_option_id: 'yes',
         freeform: null,
         notes: null
@@ -116,7 +111,6 @@ test('resolve unknown prompt is rejected deterministically', () => {
       actor_id: 'test',
       payload: {
         prompt_key: 'missing_prompt',
-        prompt_id: 'missing_prompt',
         selected_option_id: null,
         freeform: null,
         notes: null
@@ -137,7 +131,6 @@ test('resolve prompt emits adjudication event stream', () => {
     command_type: 'CreatePrompt',
     payload: {
     prompt_key: 'pr_emit',
-      prompt_id: 'pr_emit',
       kind: 'false_info',
       reason: 'select misinformation target',
       visibility: 'storyteller',
@@ -153,7 +146,6 @@ test('resolve prompt emits adjudication event stream', () => {
       actor_id: 'storyteller',
       payload: {
         prompt_key: 'pr_emit',
-        prompt_id: 'pr_emit',
         selected_option_id: 'opt_a',
         freeform: null,
         notes: 'chosen for balance'
@@ -178,7 +170,6 @@ test('number range prompt accepts values within min/max', () => {
     command_type: 'CreatePrompt',
     payload: {
     prompt_key: 'pr_range',
-      prompt_id: 'pr_range',
       kind: 'number_pick',
       reason: 'pick number',
       visibility: 'storyteller',
@@ -195,7 +186,6 @@ test('number range prompt accepts values within min/max', () => {
     command_type: 'ResolvePrompt',
     payload: {
     prompt_key: 'pr_range',
-      prompt_id: 'pr_range',
       selected_option_id: '3',
       freeform: null,
       notes: null
@@ -211,7 +201,6 @@ test('number range prompt rejects out-of-range values', () => {
     command_type: 'CreatePrompt',
     payload: {
     prompt_key: 'pr_range_exc',
-      prompt_id: 'pr_range_exc',
       kind: 'number_pick',
       reason: 'pick number',
       visibility: 'storyteller',
@@ -233,7 +222,6 @@ test('number range prompt rejects out-of-range values', () => {
       actor_id: 'test',
       payload: {
         prompt_key: 'pr_range_exc',
-        prompt_id: 'pr_range_exc',
         selected_option_id: '100',
         freeform: null,
         notes: null
@@ -254,7 +242,6 @@ test('multi-column prompt validates tuple selections', () => {
     command_type: 'CreatePrompt',
     payload: {
     prompt_key: 'pr_multi',
-      prompt_id: 'pr_multi',
       kind: 'matrix_pick',
       reason: 'pick tuple',
       visibility: 'storyteller',
@@ -271,7 +258,6 @@ test('multi-column prompt validates tuple selections', () => {
     command_type: 'ResolvePrompt',
     payload: {
     prompt_key: 'pr_multi',
-      prompt_id: 'pr_multi',
       selected_option_id: '5,c',
       freeform: null,
       notes: null
@@ -287,7 +273,6 @@ test('storyteller hint is stored on prompt state', () => {
     command_type: 'CreatePrompt',
     payload: {
     prompt_key: 'pr_hint',
-      prompt_id: 'pr_hint',
       kind: 'false_info',
       reason: 'pick misinformation',
       visibility: 'storyteller',

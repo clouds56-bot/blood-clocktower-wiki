@@ -59,8 +59,7 @@ export const imp_plugin: CharacterPlugin = {
         emitted_events: [],
         queued_prompts: [
           {
-            prompt_id: build_imp_prompt_id(context.state.night_number, context.player_id),
-            prompt_key: build_imp_prompt_key(context.state.night_number, context.player_id),
+            prompt_key: build_imp_prompt_id(context.state.night_number, context.player_id),
             kind: 'choice',
             reason: `plugin:imp:choose_night_kill_target:${night_time_key(context.state.night_number)}:${context.player_id}`,
             visibility: 'player',
@@ -71,8 +70,8 @@ export const imp_plugin: CharacterPlugin = {
       };
     },
     on_prompt_resolved: (context): PluginResult => {
-      const imp_player_id = parse_imp_prompt_owner_player_id(context.prompt_id);
-      if (!imp_player_id && !is_imp_transfer_prompt_id(context.prompt_id)) {
+      const imp_player_id = parse_imp_prompt_owner_player_id(context.prompt_key);
+      if (!imp_player_id && !is_imp_transfer_prompt_id(context.prompt_key)) {
         return {
           emitted_events: [],
           queued_prompts: [],
@@ -80,7 +79,7 @@ export const imp_plugin: CharacterPlugin = {
         };
       }
 
-      if (is_imp_transfer_prompt_id(context.prompt_id)) {
+      if (is_imp_transfer_prompt_id(context.prompt_key)) {
         return resolve_imp_transfer_prompt(context);
       }
 
@@ -265,8 +264,7 @@ export const imp_plugin: CharacterPlugin = {
         emitted_events: [],
         queued_prompts: [
           {
-            prompt_id: build_imp_transfer_prompt_id(context.state, dead_player.player_id),
-            prompt_key: build_imp_transfer_prompt_key(context.state, dead_player.player_id),
+            prompt_key: build_imp_transfer_prompt_id(context.state, dead_player.player_id),
             kind: 'choice',
             reason: `plugin:imp:choose_transfer_target:${night_time_key(context.state.night_number)}:${dead_player.player_id}`,
             visibility: 'storyteller',
@@ -282,12 +280,12 @@ export const imp_plugin: CharacterPlugin = {
   }
 };
 
-export function is_imp_prompt_id(prompt_id: string): boolean {
-  return /^plugin:imp:night_kill:n\d+:[a-z0-9_-]+$/.test(prompt_id);
+export function is_imp_prompt_id(prompt_key: string): boolean {
+  return /^plugin:imp:night_kill:n\d+:[a-z0-9_-]+$/.test(prompt_key);
 }
 
-function parse_imp_prompt_owner_player_id(prompt_id: string): string | null {
-  const parts = prompt_id.split(':');
+function parse_imp_prompt_owner_player_id(prompt_key: string): string | null {
+  const parts = prompt_key.split(':');
   if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'imp' && parts[2] === 'night_kill' && /^n\d+$/.test(parts[3] ?? '')) {
     return parts[4] ?? null;
   }
@@ -297,7 +295,7 @@ function parse_imp_prompt_owner_player_id(prompt_id: string): string | null {
 function resolve_imp_transfer_prompt(
   context: Parameters<NonNullable<CharacterPlugin['hooks']['on_prompt_resolved']>>[0]
 ): PluginResult {
-  const dead_imp_id = parse_imp_transfer_prompt_dead_player_id(context.prompt_id);
+  const dead_imp_id = parse_imp_transfer_prompt_dead_player_id(context.prompt_key);
   if (!dead_imp_id || !context.selected_option_id) {
     return {
       emitted_events: [],
@@ -378,12 +376,12 @@ function build_imp_transfer_events(
   ];
 }
 
-function is_imp_transfer_prompt_id(prompt_id: string): boolean {
-  return /^plugin:imp:transfer_target:n\d+:[a-z0-9_-]+$/.test(prompt_id);
+function is_imp_transfer_prompt_id(prompt_key: string): boolean {
+  return /^plugin:imp:transfer_target:n\d+:[a-z0-9_-]+$/.test(prompt_key);
 }
 
-function parse_imp_transfer_prompt_dead_player_id(prompt_id: string): string | null {
-  const parts = prompt_id.split(':');
+function parse_imp_transfer_prompt_dead_player_id(prompt_key: string): string | null {
+  const parts = prompt_key.split(':');
   if (parts.length < 5) {
     return null;
   }

@@ -60,7 +60,6 @@ function make_state() {
   });
   state.prompts_by_id.pr1 = {
     prompt_key: 'pr1',
-    prompt_id: 'pr1',
     kind: 'false_info',
     reason: 'choose false info',
     visibility: 'storyteller',
@@ -75,7 +74,6 @@ function make_state() {
   state.storyteller_notes.push({
     note_id: 2,
     prompt_key: 'pr1',
-    prompt_id: 'pr1',
     text: 'secret adjudication',
     created_at_event_id: 2
   });
@@ -192,7 +190,6 @@ test('projection of replayed state matches directly applied state', () => {
       created_at: '2026-03-13T00:00:04.000Z',
       payload: {
         prompt_key: 'pr1',
-        prompt_id: 'pr1',
         kind: 'false_info',
         reason: 'choose false info',
         visibility: 'storyteller',

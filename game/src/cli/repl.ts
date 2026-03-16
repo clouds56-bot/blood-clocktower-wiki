@@ -334,7 +334,6 @@ function resolve_next_pending_prompt(context: CliContext): boolean {
     command_type: 'ResolvePrompt',
     payload: {
       prompt_key,
-      prompt_id: prompt_key,
       selected_option_id: random_option_id_for_prompt(context.state, prompt_key),
       freeform: null,
       notes: 'auto_next_prompt'

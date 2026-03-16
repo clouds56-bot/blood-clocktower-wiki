@@ -43,7 +43,6 @@ export function parse_prompt_domain_command(
         command_type: 'CreatePrompt',
         payload: {
           prompt_key,
-          prompt_id: prompt_key,
           kind,
           reason,
           visibility,
@@ -71,7 +70,6 @@ export function parse_prompt_domain_command(
           command_type: 'ResolvePrompt',
           payload: {
             prompt_key: default_prompt_key,
-            prompt_id: default_prompt_key,
             selected_option_id: random_option_id_for_prompt(state, default_prompt_key),
             freeform: null,
             notes: 'auto_random_choice'
@@ -108,7 +106,6 @@ export function parse_prompt_domain_command(
         command_type: 'ResolvePrompt',
         payload: {
           prompt_key,
-          prompt_id: prompt_key,
           selected_option_id,
           freeform: null,
           notes: notes_text.length > 0 ? notes_text : null
@@ -130,7 +127,6 @@ export function parse_prompt_domain_command(
         command_type: 'CancelPrompt',
         payload: {
           prompt_key,
-          prompt_id: prompt_key,
           reason
         }
       }

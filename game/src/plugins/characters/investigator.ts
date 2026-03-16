@@ -15,7 +15,7 @@ const investigator_info_hooks = build_info_role_misinformation_hooks({
         {
           event_type: 'StorytellerRulingRecorded',
           payload: {
-            prompt_id: null,
+            prompt_key: null,
             note: build_role_pair_note(context.state, context.player_id, 'minion', 'investigator_info')
           }
         }

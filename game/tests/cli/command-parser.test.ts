@@ -61,7 +61,6 @@ function make_cli_state(): GameState {
   state.day_state.executed_player_id = 'p2';
   state.prompts_by_id.pr1 = {
     prompt_key: 'pr1',
-    prompt_id: 'pr1',
     kind: 'choice',
     reason: 'test prompt',
     visibility: 'storyteller',
@@ -348,7 +347,6 @@ test('parse prompt engine commands', () => {
   if (create.ok && create.kind === 'engine' && create.command.command_type === 'CreatePrompt') {
     assert.deepEqual(create.command.payload, {
       prompt_key: 'pr1',
-    prompt_id: 'pr1',
       kind: 'false_info',
       reason: 'choose false info',
       visibility: 'storyteller',
@@ -361,7 +359,6 @@ test('parse prompt engine commands', () => {
   if (resolve.ok && resolve.kind === 'engine' && resolve.command.command_type === 'ResolvePrompt') {
     assert.deepEqual(resolve.command.payload, {
       prompt_key: 'pr1',
-    prompt_id: 'pr1',
       selected_option_id: 'option_a',
       freeform: null,
       notes: 'note text'
@@ -373,7 +370,6 @@ test('parse prompt engine commands', () => {
   if (chooseAlias.ok && chooseAlias.kind === 'engine' && chooseAlias.command.command_type === 'ResolvePrompt') {
     assert.deepEqual(chooseAlias.command.payload, {
       prompt_key: 'pr1',
-    prompt_id: 'pr1',
       selected_option_id: 'option_a',
       freeform: null,
       notes: 'note text'
@@ -385,7 +381,6 @@ test('parse prompt engine commands', () => {
   if (chAlias.ok && chAlias.kind === 'engine' && chAlias.command.command_type === 'ResolvePrompt') {
     assert.deepEqual(chAlias.command.payload, {
       prompt_key: 'pr1',
-    prompt_id: 'pr1',
       selected_option_id: 'option_a',
       freeform: null,
       notes: 'note text'
@@ -397,7 +392,6 @@ test('parse prompt engine commands', () => {
   if (cancel.ok && cancel.kind === 'engine' && cancel.command.command_type === 'CancelPrompt') {
     assert.deepEqual(cancel.command.payload, {
       prompt_key: 'pr1',
-    prompt_id: 'pr1',
       reason: 'no longer needed'
     });
   }
@@ -655,7 +649,6 @@ test('resolve-prompt can omit prompt_key when exactly one pending prompt exists'
   if (parsed.ok && parsed.kind === 'engine' && parsed.command.command_type === 'ResolvePrompt') {
     assert.deepEqual(parsed.command.payload, {
       prompt_key: 'pr1',
-    prompt_id: 'pr1',
       selected_option_id: null,
       freeform: null,
       notes: null
@@ -671,7 +664,6 @@ test('resolve-prompt can omit prompt_key when exactly one pending prompt exists'
   ) {
     assert.deepEqual(withSelectedOption.command.payload, {
       prompt_key: 'pr1',
-    prompt_id: 'pr1',
       selected_option_id: 'p1',
       freeform: null,
       notes: null

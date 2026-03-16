@@ -19,7 +19,6 @@ test('resolve_all_pending_prompts drains single pending prompt', () => {
   const state = create_initial_state('g1');
   state.prompts_by_id.pr1 = {
     prompt_key: 'pr1',
-    prompt_id: 'pr1',
     kind: 'choice',
     reason: 'test',
     visibility: 'storyteller',
@@ -46,7 +45,6 @@ test('resolve_all_pending_prompts respects guard limit', () => {
   const state = create_initial_state('g2');
   state.prompts_by_id.pr1 = {
     prompt_key: 'pr1',
-    prompt_id: 'pr1',
     kind: 'choice',
     reason: 'test',
     visibility: 'storyteller',
@@ -71,7 +69,6 @@ test('run_next_phase blocks on pending prompt when auto_prompt is false', () => 
   state.subphase = 'open_discussion';
   state.prompts_by_id.pr1 = {
     prompt_key: 'pr1',
-    prompt_id: 'pr1',
     kind: 'choice',
     reason: 'test',
     visibility: 'storyteller',
@@ -96,7 +93,6 @@ test('run_next_phase with auto_prompt resolves prompts then advances one step', 
   state.day_number = 1;
   state.prompts_by_id.pr1 = {
     prompt_key: 'pr1',
-    prompt_id: 'pr1',
     kind: 'choice',
     reason: 'test',
     visibility: 'storyteller',

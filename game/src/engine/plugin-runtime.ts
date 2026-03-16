@@ -105,12 +105,11 @@ export function integrate_plugin_runtime(
           event_type: 'WakeScheduled',
           created_at,
           actor_id: command.actor_id,
-          payload: {
-            wake_key: wake_step.wake_key,
-            wake_id: wake_step.wake_id,
-            character_id: wake_step.character_id,
-            player_id: wake_step.player_id
-          }
+        payload: {
+          wake_key: wake_step.wake_key,
+          character_id: wake_step.character_id,
+          player_id: wake_step.player_id
+        }
         };
         runtime_events.push(wake_scheduled);
         runtime_state = apply_events(runtime_state, [wake_scheduled]);
@@ -164,7 +163,6 @@ export function integrate_plugin_runtime(
         {
           state: runtime_state,
           prompt_key: resolve_prompt_key(command),
-          prompt_id: resolve_prompt_key(command),
           selected_option_id: command.payload.selected_option_id,
           freeform: command.payload.freeform
         }
@@ -235,7 +233,7 @@ export function integrate_plugin_runtime(
       const resolved = resolve_registration_query_prompt({
         state: runtime_state,
         role_id: registration_prompt.consumer_role_id,
-        prompt_id: resolve_prompt_key(command),
+        prompt_key: resolved_prompt_key,
         selected_option_id: command.payload.selected_option_id
       });
       if (!resolved.ok) {
@@ -265,7 +263,6 @@ export function integrate_plugin_runtime(
         {
           state: runtime_state,
           prompt_key: resolved_prompt_key,
-          prompt_id: resolve_prompt_key(command),
           provider_role_id: resolved.parsed.provider_role_id,
           consumer_role_id: resolved.parsed.consumer_role_id,
           owner_player_id: resolved.parsed.owner_player_id,
@@ -338,7 +335,6 @@ export function integrate_plugin_runtime(
         {
           state: runtime_state,
           prompt_key: resolve_prompt_key(command),
-          prompt_id: resolve_prompt_key(command),
           selected_option_id: command.payload.selected_option_id,
           freeform: command.payload.freeform
         }
@@ -612,7 +608,6 @@ function normalize_dispatch_output(
       ...(fallback_actor_id === undefined ? {} : { actor_id: fallback_actor_id }),
       payload: {
         prompt_key: item.prompt_key,
-        prompt_id: item.prompt_id,
         kind: item.kind,
         reason: item.reason,
         visibility: item.visibility,
@@ -852,7 +847,7 @@ function resolve_prompt_owner_plugin_id(
     return reason_match[1] ?? null;
   }
 
-  const prompt_match = /^plugin:([a-z0-9_-]+):/.exec(prompt.prompt_id);
+  const prompt_match = /^plugin:([a-z0-9_-]+):/.exec(prompt.prompt_key);
   if (prompt_match) {
     return prompt_match[1] ?? null;
   }
@@ -971,10 +966,9 @@ function process_wake_queue(
         created_at: context.created_at,
         ...(context.command.actor_id === undefined ? {} : { actor_id: context.command.actor_id }),
       payload: {
-          wake_key: wake_step.wake_key,
-          wake_id: wake_step.wake_id
-        }
-      };
+        wake_key: wake_step.wake_key,
+      }
+    };
       sink.push(wake_consumed);
       runtime_state = apply_events(runtime_state, [wake_consumed]);
       wake_index += 1;
@@ -1027,8 +1021,7 @@ function process_wake_queue(
       created_at: context.created_at,
       ...(context.command.actor_id === undefined ? {} : { actor_id: context.command.actor_id }),
       payload: {
-        wake_key: wake_step.wake_key,
-        wake_id: wake_step.wake_id
+        wake_key: wake_step.wake_key
       }
     };
     sink.push(wake_consumed);

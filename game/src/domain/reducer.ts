@@ -35,8 +35,8 @@ function clone_state(state: GameState): GameState {
     wake_queue: state.wake_queue.map((item) => ({ ...item })),
     interrupt_queue: state.interrupt_queue.map((item) => ({ ...item, payload: clone_payload(item.payload) })),
     prompts_by_id: Object.fromEntries(
-      Object.entries(state.prompts_by_id).map(([prompt_id, prompt]) => [
-        prompt_id,
+      Object.entries(state.prompts_by_id).map(([prompt_key, prompt]) => [
+        prompt_key,
         {
           ...prompt,
           options: prompt.options.map((option) => ({ ...option })),
@@ -388,7 +388,6 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
       if (!next.wake_queue.some((item) => item.wake_key === wake_key)) {
         next.wake_queue.push({
           wake_key,
-          wake_id: event.payload.wake_id,
           character_id: event.payload.character_id,
           player_id: event.payload.player_id
         });
@@ -424,7 +423,6 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
       }
       next.prompts_by_id[prompt_key] = {
         prompt_key,
-        prompt_id: event.payload.prompt_id,
         kind: event.payload.kind,
         reason: event.payload.reason,
         visibility: event.payload.visibility,
@@ -531,7 +529,6 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
       next.storyteller_notes.push({
         note_id: assigned_event_id,
         prompt_key: event.payload.prompt_key,
-        prompt_id: event.payload.prompt_id,
         text: event.payload.note,
         created_at_event_id: assigned_event_id
       });

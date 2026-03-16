@@ -68,7 +68,6 @@ export function build_misinformation_prompt(
   const time_key = `n${night_number}`;
 
   return {
-    prompt_id: `plugin:${role_id}:misinfo:${time_key}:${subject_player_id}`,
     prompt_key: `plugin:${role_id}:misinfo:${time_key}:${subject_player_id}`,
     kind: 'choice',
     reason: `plugin:${role_id}:choose_misinformation:${time_key}:${subject_player_id}`,
@@ -80,15 +79,15 @@ export function build_misinformation_prompt(
   };
 }
 
-export function is_misinformation_prompt_id(prompt_id: string, role_id: string): boolean {
-  if (prompt_id.startsWith(`plugin:${role_id}:misinfo:`)) {
+export function is_misinformation_prompt_id(prompt_key: string, role_id: string): boolean {
+  if (prompt_key.startsWith(`plugin:${role_id}:misinfo:`)) {
     return true;
   }
-  if (prompt_id.startsWith(`plugin:${role_id}:misinfo_pair:`)) {
+  if (prompt_key.startsWith(`plugin:${role_id}:misinfo_pair:`)) {
     return true;
   }
-  return /^plugin:[a-z0-9_-]+:misinfo:n\d+:[a-z0-9_-]+(?:$|:)/.test(prompt_id) &&
-    prompt_id.startsWith(`plugin:${role_id}:`);
+  return /^plugin:[a-z0-9_-]+:misinfo:n\d+:[a-z0-9_-]+(?:$|:)/.test(prompt_key) &&
+    prompt_key.startsWith(`plugin:${role_id}:`);
 }
 
 export interface InfoRoleMisinformationConfig {
@@ -101,7 +100,7 @@ export interface InfoRoleMisinformationConfig {
   build_misinformation_note: (args: {
     subject_player_id: string;
     selected_option_id: string | null;
-    prompt_id: string;
+    prompt_key: string;
     state: Readonly<GameState>;
   }) => string;
   build_truthful_answer?: (context: NightWakeHookContext) => string | null;
@@ -164,7 +163,7 @@ export function build_info_role_misinformation_hooks(config: InfoRoleMisinformat
           {
             event_type: 'StorytellerRulingRecorded',
             payload: {
-              prompt_id: null,
+              prompt_key: null,
               note: inactive_note
             }
           }
@@ -174,7 +173,7 @@ export function build_info_role_misinformation_hooks(config: InfoRoleMisinformat
       };
     },
     on_prompt_resolved: (context): PluginResult => {
-      if (!is_misinformation_prompt_id(context.prompt_id, config.role_id)) {
+      if (!is_misinformation_prompt_id(context.prompt_key, config.role_id)) {
         return {
           emitted_events: [],
           queued_prompts: [],
@@ -182,7 +181,7 @@ export function build_info_role_misinformation_hooks(config: InfoRoleMisinformat
         };
       }
 
-      const subject_player_id = parse_misinfo_prompt_subject_player_id(context.prompt_id);
+      const subject_player_id = parse_misinfo_prompt_subject_player_id(context.prompt_key);
       if (!subject_player_id) {
         return {
           emitted_events: [],
@@ -196,11 +195,11 @@ export function build_info_role_misinformation_hooks(config: InfoRoleMisinformat
           {
             event_type: 'StorytellerRulingRecorded',
             payload: {
-              prompt_id: context.prompt_id,
+              prompt_key: context.prompt_key,
               note: config.build_misinformation_note({
                 subject_player_id,
                 selected_option_id: context.selected_option_id,
-                prompt_id: context.prompt_id,
+                prompt_key: context.prompt_key,
                 state: context.state
               })
             }
@@ -213,8 +212,8 @@ export function build_info_role_misinformation_hooks(config: InfoRoleMisinformat
   };
 }
 
-function parse_misinfo_prompt_subject_player_id(prompt_id: string): string | null {
-  const parts = prompt_id.split(':');
+function parse_misinfo_prompt_subject_player_id(prompt_key: string): string | null {
+  const parts = prompt_key.split(':');
   if (parts.length >= 5 && parts[2] === 'misinfo') {
     return parts[4] ?? null;
   }
@@ -329,7 +328,7 @@ export function plan_registration_query_prompt(args: {
     emitted_events.push({
       event_type: 'StorytellerRulingRecorded',
       payload: {
-        prompt_id: null,
+        prompt_key: null,
         note:
           `registration_query:${request.query_id};provider=${provider_registration.provider_character_id};` +
           `consumer=${args.role_id};subject=${request.subject_player_id};context=${args.context_tag}`
@@ -346,7 +345,6 @@ export function plan_registration_query_prompt(args: {
 
     queued_prompts.push({
       prompt_key: registration_prompt_id,
-      prompt_id: registration_prompt_id,
       kind: 'choice',
       reason: `plugin:${args.role_id}:registration adjudication`,
       visibility: 'storyteller',
@@ -368,7 +366,7 @@ export function plan_registration_query_prompt(args: {
 export function resolve_registration_query_prompt(args: {
   state: Readonly<GameState>;
   role_id: string;
-  prompt_id: string;
+  prompt_key: string;
   selected_option_id: string | null;
 }): {
   ok: true;
@@ -377,7 +375,7 @@ export function resolve_registration_query_prompt(args: {
 } | {
   ok: false;
 } {
-  const parsed = parse_registration_prompt_id(args.prompt_id);
+  const parsed = parse_registration_prompt_id(args.prompt_key);
   if (!parsed) {
     return { ok: false };
   }
@@ -464,8 +462,8 @@ export function resolve_registration_query_prompt(args: {
   return { ok: false };
 }
 
-export function is_registration_query_prompt_id(prompt_id: string, role_id: string): boolean {
-  return prompt_id.startsWith('plugin:') && prompt_id.includes(`:registration:${role_id}:`);
+export function is_registration_query_prompt_id(prompt_key: string, role_id: string): boolean {
+  return prompt_key.startsWith('plugin:') && prompt_key.includes(`:registration:${role_id}:`);
 }
 
 export interface RegistrationPromptDescriptor {
@@ -487,9 +485,9 @@ function build_registration_prompt_id(args: {
 }
 
 export function parse_registration_prompt_id(
-  prompt_id: string
+  prompt_key: string
 ): RegistrationPromptDescriptor | null {
-  const parts = prompt_id.split(':');
+  const parts = prompt_key.split(':');
   if (parts.length < 7) {
     return null;
   }

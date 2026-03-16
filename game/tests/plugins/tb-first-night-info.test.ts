@@ -45,7 +45,7 @@ test('chef queues misinformation prompt when poisoned', () => {
   });
   assert.ok(wake);
   assert.equal(wake?.queued_prompts.length, 1);
-  assert.equal(wake?.queued_prompts[0]?.prompt_id, 'plugin:chef:misinfo:n1:p1');
+  assert.equal(wake?.queued_prompts[0]?.prompt_key, 'plugin:chef:misinfo:n1:p1');
   assert.equal(wake?.queued_prompts[0]?.selection_mode, 'number_range');
   assert.deepEqual(wake?.queued_prompts[0]?.number_range, { min: 0, max: 3 });
   const chef_range = wake?.queued_prompts[0]?.number_range;
@@ -55,7 +55,6 @@ test('chef queues misinformation prompt when poisoned', () => {
   const resolved = chef_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_key: 'plugin:chef:misinfo:n1:p1',
-    prompt_id: 'plugin:chef:misinfo:n1:p1',
     selected_option_id: selected_for_chef,
     freeform: null
   });
@@ -83,7 +82,7 @@ test('poisoned chef prompt includes truthful hint for storyteller', () => {
 
   assert.ok(wake);
   assert.equal(wake?.queued_prompts.length, 1);
-  assert.equal(wake?.queued_prompts[0]?.prompt_id, 'plugin:chef:misinfo:n2:p1');
+  assert.equal(wake?.queued_prompts[0]?.prompt_key, 'plugin:chef:misinfo:n2:p1');
   assert.equal(wake?.queued_prompts[0]?.storyteller_hint, '1');
 });
 
@@ -204,9 +203,9 @@ test('chef unresolved spy registration prompt id is provider-owned and readable'
 
   assert.ok(result);
   assert.equal(result?.queued_prompts.length, 1);
-  const prompt_id = result?.queued_prompts[0]?.prompt_id ?? '';
-  assert.equal(prompt_id.startsWith('plugin:spy:registration:chef:'), true);
-  assert.equal(prompt_id.includes('%3A'), false);
+  const prompt_key = result?.queued_prompts[0]?.prompt_key ?? '';
+  assert.equal(prompt_key.startsWith('plugin:spy:registration:chef:'), true);
+  assert.equal(prompt_key.includes('%3A'), false);
 });
 
 test('empath counts alive evil neighbors and skips dead players', () => {
@@ -242,7 +241,7 @@ test('empath queues misinformation prompt when drunk', () => {
   });
   assert.ok(wake);
   assert.equal(wake?.queued_prompts.length, 1);
-  assert.equal(wake?.queued_prompts[0]?.prompt_id, 'plugin:empath:misinfo:n2:p1');
+  assert.equal(wake?.queued_prompts[0]?.prompt_key, 'plugin:empath:misinfo:n2:p1');
   assert.equal(wake?.queued_prompts[0]?.selection_mode, 'number_range');
   assert.deepEqual(wake?.queued_prompts[0]?.number_range, { min: 0, max: 2 });
   const empath_range = wake?.queued_prompts[0]?.number_range;
@@ -252,7 +251,6 @@ test('empath queues misinformation prompt when drunk', () => {
   const resolved = empath_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_key: 'plugin:empath:misinfo:n2:p1',
-    prompt_id: 'plugin:empath:misinfo:n2:p1',
     selected_option_id: selected_for_empath,
     freeform: null
   });
@@ -282,7 +280,7 @@ test('empath queues all unresolved registration prompts in a single wake', () =>
   assert.ok(wake);
   assert.equal(wake?.queued_prompts.length, 2);
   assert.deepEqual(
-    wake?.queued_prompts.map((prompt) => prompt.prompt_id),
+    wake?.queued_prompts.map((prompt) => prompt.prompt_key),
     [
       'plugin:recluse:registration:empath:p1:alive_neighbors:reg:empath:alignment_check:d1:n2:p4:neighbor_0:p1',
       'plugin:spy:registration:empath:p1:alive_neighbors:reg:empath:alignment_check:d1:n2:p2:neighbor_1:p1'
@@ -364,7 +362,6 @@ test('empath on_registration_resolved waits for remaining pending registration q
   const blocked = empath_plugin.hooks.on_registration_resolved?.({
     state,
     prompt_key: `plugin:recluse:registration:empath:p1:alive_neighbors:${qLeft}`,
-    prompt_id: `plugin:recluse:registration:empath:p1:alive_neighbors:${qLeft}`,
     provider_role_id: 'recluse',
     consumer_role_id: 'empath',
     owner_player_id: 'p1',
@@ -397,7 +394,6 @@ test('empath on_registration_resolved waits for remaining pending registration q
   const done = empath_plugin.hooks.on_registration_resolved?.({
     state,
     prompt_key: `plugin:spy:registration:empath:p1:alive_neighbors:${qRight}`,
-    prompt_id: `plugin:spy:registration:empath:p1:alive_neighbors:${qRight}`,
     provider_role_id: 'spy',
     consumer_role_id: 'empath',
     owner_player_id: 'p1',
@@ -442,7 +438,7 @@ test('fortune teller wake prompt uses multi-column player selection', () => {
   assert.equal(result?.queued_prompts.length, 1);
   const prompt = result?.queued_prompts[0];
   assert.ok(prompt);
-  assert.equal(is_fortune_teller_prompt_id(prompt?.prompt_id ?? ''), true);
+  assert.equal(is_fortune_teller_prompt_id(prompt?.prompt_key ?? ''), true);
   assert.equal(prompt?.selection_mode, 'multi_column');
   assert.deepEqual(prompt?.multi_columns, [
     ['p1', 'p2', 'p3', 'p4'],
@@ -462,7 +458,6 @@ test('fortune teller resolves yes when pair includes dead demon', () => {
   const result = fortune_teller_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_key: 'plugin:fortune_teller:night_check:n2:p1',
-    prompt_id: 'plugin:fortune_teller:night_check:n2:p1',
     selected_option_id: 'p2|p3',
     freeform: null
   });
@@ -511,7 +506,6 @@ test('fortune teller can resolve yes from query-scoped demon registration', () =
   const result = fortune_teller_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_key: 'plugin:fortune_teller:night_check:n2:p1',
-    prompt_id: 'plugin:fortune_teller:night_check:n2:p1',
     selected_option_id: 'p2|p3',
     freeform: null
   });
@@ -531,7 +525,6 @@ test('fortune teller queues storyteller registration prompt for unresolved reclu
   const first = fortune_teller_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_key: 'plugin:fortune_teller:night_check:n2:p1',
-    prompt_id: 'plugin:fortune_teller:night_check:n2:p1',
     selected_option_id: 'p2|p3',
     freeform: null
   });
@@ -539,7 +532,7 @@ test('fortune teller queues storyteller registration prompt for unresolved reclu
   assert.ok(first);
   assert.equal(first?.emitted_events[0]?.event_type, 'RegistrationQueryCreated');
   assert.equal(first?.queued_prompts.length, 1);
-  const registration_prompt_id = first?.queued_prompts[0]?.prompt_id ?? '';
+  const registration_prompt_id = first?.queued_prompts[0]?.prompt_key ?? '';
   assert.equal(registration_prompt_id.startsWith('plugin:recluse:registration:fortune_teller:'), true);
 
   const after_create = create_initial_state('g1');
@@ -575,7 +568,6 @@ test('fortune teller queues storyteller registration prompt for unresolved reclu
   const resolved = fortune_teller_plugin.hooks.on_registration_resolved?.({
     state: after_create,
     prompt_key: registration_prompt_id,
-    prompt_id: registration_prompt_id,
     provider_role_id: 'recluse',
     consumer_role_id: 'fortune_teller',
     owner_player_id: 'p1',
@@ -608,7 +600,6 @@ test('fortune teller skips recluse registration query when pair already has real
   const result = fortune_teller_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_key: 'plugin:fortune_teller:night_check:n2:p1',
-    prompt_id: 'plugin:fortune_teller:night_check:n2:p1',
     selected_option_id: 'p2|p3',
     freeform: null
   });
@@ -651,7 +642,6 @@ test('fortune teller resolves yes when pair includes red herring', () => {
   const result = fortune_teller_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_key: 'plugin:fortune_teller:night_check:n1:p1',
-    prompt_id: 'plugin:fortune_teller:night_check:n1:p1',
     selected_option_id: 'p2|p3',
     freeform: null
   });
@@ -672,13 +662,12 @@ test('fortune teller queues misinformation prompt when poisoned', () => {
   const result = fortune_teller_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_key: 'plugin:fortune_teller:night_check:n2:p1',
-    prompt_id: 'plugin:fortune_teller:night_check:n2:p1',
     selected_option_id: 'p2|p3',
     freeform: null
   });
   assert.ok(result);
   assert.equal(result?.queued_prompts.length, 1);
-  assert.equal(result?.queued_prompts[0]?.prompt_id, 'plugin:fortune_teller:misinfo_pair:n2:p1:p2,p3');
+  assert.equal(result?.queued_prompts[0]?.prompt_key, 'plugin:fortune_teller:misinfo_pair:n2:p1:p2,p3');
   assert.equal(result?.queued_prompts[0]?.selection_mode, 'single_choice');
   assert.deepEqual(
     result?.queued_prompts[0]?.options.map((option) => option.option_id),
@@ -690,7 +679,6 @@ test('fortune teller queues misinformation prompt when poisoned', () => {
   const misinfoResolved = fortune_teller_plugin.hooks.on_prompt_resolved?.({
     state,
     prompt_key: 'plugin:fortune_teller:misinfo_pair:n2:p1:p2,p3',
-    prompt_id: 'plugin:fortune_teller:misinfo_pair:n2:p1:p2,p3',
     selected_option_id: misinfo_choice,
     freeform: null
   });

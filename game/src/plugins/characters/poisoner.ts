@@ -52,8 +52,7 @@ export const poisoner_plugin: CharacterPlugin = {
         emitted_events: [],
         queued_prompts: [
           {
-            prompt_id: build_poisoner_prompt_id(context.state.night_number, context.player_id),
-            prompt_key: build_poisoner_prompt_key(context.state.night_number, context.player_id),
+            prompt_key: build_poisoner_prompt_id(context.state.night_number, context.player_id),
             kind: 'choice',
             reason: `plugin:poisoner:choose_poison_target:${night_time_key(context.state.night_number)}:${context.player_id}`,
             visibility: 'player',
@@ -64,7 +63,7 @@ export const poisoner_plugin: CharacterPlugin = {
       };
     },
     on_prompt_resolved: (context): PluginResult => {
-      const poisoner_player_id = parse_poisoner_prompt_owner_player_id(context.prompt_id);
+      const poisoner_player_id = parse_poisoner_prompt_owner_player_id(context.prompt_key);
       if (!poisoner_player_id) {
         return {
           emitted_events: [],
@@ -130,7 +129,7 @@ export const poisoner_plugin: CharacterPlugin = {
             expires_at_night_number: context.state.night_number + 1,
             source_event_id: null,
             metadata: {
-              from_prompt_id: context.prompt_id
+              from_prompt_id: context.prompt_key
             }
           }
         });
@@ -145,12 +144,12 @@ export const poisoner_plugin: CharacterPlugin = {
   }
 };
 
-export function is_poisoner_prompt_id(prompt_id: string): boolean {
-  return /^plugin:poisoner:night_poison:n\d+:[a-z0-9_-]+$/.test(prompt_id);
+export function is_poisoner_prompt_id(prompt_key: string): boolean {
+  return /^plugin:poisoner:night_poison:n\d+:[a-z0-9_-]+$/.test(prompt_key);
 }
 
-function parse_poisoner_prompt_owner_player_id(prompt_id: string): string | null {
-  const parts = prompt_id.split(':');
+function parse_poisoner_prompt_owner_player_id(prompt_key: string): string | null {
+  const parts = prompt_key.split(':');
   if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'poisoner' && parts[2] === 'night_poison' && /^n\d+$/.test(parts[3] ?? '')) {
     return parts[4] ?? null;
   }
