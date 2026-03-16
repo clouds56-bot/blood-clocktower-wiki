@@ -44,13 +44,13 @@ export const CLI_USAGE = {
   end_day: 'end-day [day_number]',
 
   prompts: 'prompts',
-  prompt: 'prompt <prompt_id>',
+  prompt: 'prompt <prompt_key>',
   create_prompt:
-    'create-prompt <prompt_id> <kind> <storyteller|player|public> <reason...>',
+    'create-prompt <prompt_key> <kind> <storyteller|player|public> <reason...>',
   resolve_prompt:
-    'resolve-prompt | choose | ch [prompt_id] [selected_option_id|-] [notes...]',
+    'resolve-prompt | choose | ch [prompt_key] [selected_option_id|-] [notes...]',
   choose_short: 'choose/ch with no args picks random option',
-  cancel_prompt: 'cancel-prompt <prompt_id> <reason...>',
+  cancel_prompt: 'cancel-prompt <prompt_key> <reason...>',
 
   markers: 'markers | reminders',
   marker: 'marker | reminder <marker_id>',

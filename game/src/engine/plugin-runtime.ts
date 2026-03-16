@@ -22,7 +22,7 @@ interface ParsedClaimedAbilityPrompt {
   claimant_player_id: string;
 }
 
-function resolve_prompt_key(state: GameState, command: ResolvePromptCommand): string {
+function resolve_prompt_key(command: ResolvePromptCommand): string {
   return command.payload.prompt_key ?? command.payload.prompt_id;
 }
 
@@ -163,8 +163,8 @@ export function integrate_plugin_runtime(
         [claimed_ability_prompt.claimed_character_id],
         {
           state: runtime_state,
-          prompt_key: resolve_prompt_key(runtime_state, command),
-          prompt_id: resolve_prompt_key(runtime_state, command),
+          prompt_key: resolve_prompt_key(command),
+          prompt_id: resolve_prompt_key(command),
           selected_option_id: command.payload.selected_option_id,
           freeform: command.payload.freeform
         }
@@ -229,13 +229,13 @@ export function integrate_plugin_runtime(
         runtime_state = wake_processing.value;
       }
     } else {
-    const resolved_prompt_key = resolve_prompt_key(runtime_state, command);
+    const resolved_prompt_key = resolve_prompt_key(command);
     const registration_prompt = parse_registration_prompt_id(resolved_prompt_key);
     if (registration_prompt) {
       const resolved = resolve_registration_query_prompt({
         state: runtime_state,
         role_id: registration_prompt.consumer_role_id,
-        prompt_id: resolve_prompt_key(runtime_state, command),
+        prompt_id: resolve_prompt_key(command),
         selected_option_id: command.payload.selected_option_id
       });
       if (!resolved.ok) {
@@ -265,7 +265,7 @@ export function integrate_plugin_runtime(
         {
           state: runtime_state,
           prompt_key: resolved_prompt_key,
-          prompt_id: resolve_prompt_key(runtime_state, command),
+          prompt_id: resolve_prompt_key(command),
           provider_role_id: resolved.parsed.provider_role_id,
           consumer_role_id: resolved.parsed.consumer_role_id,
           owner_player_id: resolved.parsed.owner_player_id,
@@ -337,8 +337,8 @@ export function integrate_plugin_runtime(
         [prompt_owner_plugin_id],
         {
           state: runtime_state,
-          prompt_key: resolve_prompt_key(runtime_state, command),
-          prompt_id: resolve_prompt_key(runtime_state, command),
+          prompt_key: resolve_prompt_key(command),
+          prompt_id: resolve_prompt_key(command),
           selected_option_id: command.payload.selected_option_id,
           freeform: command.payload.freeform
         }
@@ -559,7 +559,7 @@ function parse_claimed_ability_prompt(
   state: GameState,
   command: ResolvePromptCommand
 ): ParsedClaimedAbilityPrompt | null {
-  const prompt = state.prompts_by_id[resolve_prompt_key(state, command)];
+  const prompt = state.prompts_by_id[resolve_prompt_key(command)];
   if (!prompt) {
     return null;
   }
@@ -611,7 +611,7 @@ function normalize_dispatch_output(
       created_at,
       ...(fallback_actor_id === undefined ? {} : { actor_id: fallback_actor_id }),
       payload: {
-        prompt_key: item.prompt_id,
+        prompt_key: item.prompt_key ?? item.prompt_id,
         prompt_id: item.prompt_id,
         kind: item.kind,
         reason: item.reason,
@@ -842,7 +842,7 @@ function resolve_prompt_owner_plugin_id(
   state: GameState,
   command: ResolvePromptCommand
 ): string | null {
-  const prompt = state.prompts_by_id[resolve_prompt_key(state, command)];
+  const prompt = state.prompts_by_id[resolve_prompt_key(command)];
   if (!prompt) {
     return null;
   }

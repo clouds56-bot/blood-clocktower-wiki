@@ -18,6 +18,7 @@ function makeContext(state = create_initial_state('t1')) {
 test('resolve_all_pending_prompts drains single pending prompt', () => {
   const state = create_initial_state('g1');
   state.prompts_by_id.pr1 = {
+    prompt_key: 'pr1',
     prompt_id: 'pr1',
     kind: 'choice',
     reason: 'test',
@@ -27,7 +28,7 @@ test('resolve_all_pending_prompts drains single pending prompt', () => {
       { option_id: 'opt_b', label: 'B' }
     ],
     status: 'pending',
-    created_at_event_id: 'e1',
+    created_at_event_id: 1,
     resolved_at_event_id: null,
     resolution_payload: null,
     notes: null
@@ -44,13 +45,14 @@ test('resolve_all_pending_prompts drains single pending prompt', () => {
 test('resolve_all_pending_prompts respects guard limit', () => {
   const state = create_initial_state('g2');
   state.prompts_by_id.pr1 = {
+    prompt_key: 'pr1',
     prompt_id: 'pr1',
     kind: 'choice',
     reason: 'test',
     visibility: 'storyteller',
     options: [{ option_id: 'opt_a', label: 'A' }],
     status: 'pending',
-    created_at_event_id: 'e1',
+    created_at_event_id: 1,
     resolved_at_event_id: null,
     resolution_payload: null,
     notes: null
@@ -68,13 +70,14 @@ test('run_next_phase blocks on pending prompt when auto_prompt is false', () => 
   state.phase = 'day';
   state.subphase = 'open_discussion';
   state.prompts_by_id.pr1 = {
+    prompt_key: 'pr1',
     prompt_id: 'pr1',
     kind: 'choice',
     reason: 'test',
     visibility: 'storyteller',
     options: [{ option_id: 'opt_a', label: 'A' }],
     status: 'pending',
-    created_at_event_id: 'e1',
+    created_at_event_id: 1,
     resolved_at_event_id: null,
     resolution_payload: null,
     notes: null
@@ -92,13 +95,14 @@ test('run_next_phase with auto_prompt resolves prompts then advances one step', 
   state.subphase = 'open_discussion';
   state.day_number = 1;
   state.prompts_by_id.pr1 = {
+    prompt_key: 'pr1',
     prompt_id: 'pr1',
     kind: 'choice',
     reason: 'test',
     visibility: 'storyteller',
     options: [{ option_id: 'opt_a', label: 'A' }],
     status: 'pending',
-    created_at_event_id: 'e1',
+    created_at_event_id: 1,
     resolved_at_event_id: null,
     resolution_payload: null,
     notes: null

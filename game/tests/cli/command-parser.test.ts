@@ -60,6 +60,7 @@ function make_cli_state(): GameState {
   };
   state.day_state.executed_player_id = 'p2';
   state.prompts_by_id.pr1 = {
+    prompt_key: 'pr1',
     prompt_id: 'pr1',
     kind: 'choice',
     reason: 'test prompt',
@@ -69,7 +70,7 @@ function make_cli_state(): GameState {
       { option_id: 'opt_b', label: 'B' }
     ],
     status: 'pending',
-    created_at_event_id: 'e1',
+    created_at_event_id: 1,
     resolved_at_event_id: null,
     resolution_payload: null,
     notes: null
@@ -170,7 +171,7 @@ test('parse local commands', () => {
   const prompt = parse_cli_line('prompt pr1');
   assert.equal(prompt.ok, true);
   if (prompt.ok && prompt.kind === 'local' && prompt.action.type === 'prompt') {
-    assert.equal(prompt.action.prompt_id, 'pr1');
+    assert.equal(prompt.action.prompt_key, 'pr1');
   }
 
   const reminders = parse_cli_line('reminders');
@@ -346,7 +347,8 @@ test('parse prompt engine commands', () => {
   assert.equal(create.ok, true);
   if (create.ok && create.kind === 'engine' && create.command.command_type === 'CreatePrompt') {
     assert.deepEqual(create.command.payload, {
-      prompt_id: 'pr1',
+      prompt_key: 'pr1',
+    prompt_id: 'pr1',
       kind: 'false_info',
       reason: 'choose false info',
       visibility: 'storyteller',
@@ -358,7 +360,8 @@ test('parse prompt engine commands', () => {
   assert.equal(resolve.ok, true);
   if (resolve.ok && resolve.kind === 'engine' && resolve.command.command_type === 'ResolvePrompt') {
     assert.deepEqual(resolve.command.payload, {
-      prompt_id: 'pr1',
+      prompt_key: 'pr1',
+    prompt_id: 'pr1',
       selected_option_id: 'option_a',
       freeform: null,
       notes: 'note text'
@@ -369,7 +372,8 @@ test('parse prompt engine commands', () => {
   assert.equal(chooseAlias.ok, true);
   if (chooseAlias.ok && chooseAlias.kind === 'engine' && chooseAlias.command.command_type === 'ResolvePrompt') {
     assert.deepEqual(chooseAlias.command.payload, {
-      prompt_id: 'pr1',
+      prompt_key: 'pr1',
+    prompt_id: 'pr1',
       selected_option_id: 'option_a',
       freeform: null,
       notes: 'note text'
@@ -380,7 +384,8 @@ test('parse prompt engine commands', () => {
   assert.equal(chAlias.ok, true);
   if (chAlias.ok && chAlias.kind === 'engine' && chAlias.command.command_type === 'ResolvePrompt') {
     assert.deepEqual(chAlias.command.payload, {
-      prompt_id: 'pr1',
+      prompt_key: 'pr1',
+    prompt_id: 'pr1',
       selected_option_id: 'option_a',
       freeform: null,
       notes: 'note text'
@@ -391,7 +396,8 @@ test('parse prompt engine commands', () => {
   assert.equal(cancel.ok, true);
   if (cancel.ok && cancel.kind === 'engine' && cancel.command.command_type === 'CancelPrompt') {
     assert.deepEqual(cancel.command.payload, {
-      prompt_id: 'pr1',
+      prompt_key: 'pr1',
+    prompt_id: 'pr1',
       reason: 'no longer needed'
     });
   }
@@ -642,13 +648,14 @@ test('auto-fill requires state when omitted fields are needed', () => {
   }
 });
 
-test('resolve-prompt can omit prompt_id when exactly one pending prompt exists', () => {
+test('resolve-prompt can omit prompt_key when exactly one pending prompt exists', () => {
   const state = make_cli_state();
   const parsed = parse_cli_line('resolve-prompt', state);
   assert.equal(parsed.ok, true);
   if (parsed.ok && parsed.kind === 'engine' && parsed.command.command_type === 'ResolvePrompt') {
     assert.deepEqual(parsed.command.payload, {
-      prompt_id: 'pr1',
+      prompt_key: 'pr1',
+    prompt_id: 'pr1',
       selected_option_id: null,
       freeform: null,
       notes: null
@@ -663,7 +670,8 @@ test('resolve-prompt can omit prompt_id when exactly one pending prompt exists',
     withSelectedOption.command.command_type === 'ResolvePrompt'
   ) {
     assert.deepEqual(withSelectedOption.command.payload, {
-      prompt_id: 'pr1',
+      prompt_key: 'pr1',
+    prompt_id: 'pr1',
       selected_option_id: 'p1',
       freeform: null,
       notes: null
@@ -674,11 +682,11 @@ test('resolve-prompt can omit prompt_id when exactly one pending prompt exists',
   assert.equal(chooseRandom.ok, true);
   if (chooseRandom.ok && chooseRandom.kind === 'engine' && chooseRandom.command.command_type === 'ResolvePrompt') {
     const payload = chooseRandom.command.payload as {
-      prompt_id: string;
+      prompt_key: string;
       selected_option_id: string | null;
       notes: string | null;
     };
-    assert.equal(payload.prompt_id, 'pr1');
+    assert.equal(payload.prompt_key, 'pr1');
     assert.equal(['opt_a', 'opt_b'].includes(payload.selected_option_id ?? ''), true);
     assert.equal(payload.notes, 'auto_random_choice');
   }

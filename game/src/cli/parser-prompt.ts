@@ -1,6 +1,6 @@
 import type { GameState } from '../domain/types.js';
 import {
-  default_pending_prompt_id,
+  default_pending_prompt_key,
   invalid,
   parse_prompt_visibility,
   random_option_id_for_prompt,
@@ -21,19 +21,19 @@ export function parse_prompt_domain_command(
   }
 
   if (command === 'prompt') {
-    const prompt_id = args[0];
-    if (!prompt_id) {
+    const prompt_key = args[0];
+    if (!prompt_key) {
       return invalid(`usage: ${CLI_USAGE.prompt}`);
     }
-    return { ok: true, kind: 'local', action: { type: 'prompt', prompt_id } };
+    return { ok: true, kind: 'local', action: { type: 'prompt', prompt_key } };
   }
 
   if (command === 'create-prompt') {
-    const prompt_id = args[0];
+    const prompt_key = args[0];
     const kind = args[1];
     const visibility = parse_prompt_visibility(args[2] ?? '');
     const reason = args.slice(3).join(' ').trim();
-    if (!prompt_id || !kind || !visibility || reason.length === 0) {
+    if (!prompt_key || !kind || !visibility || reason.length === 0) {
       return invalid(`usage: ${CLI_USAGE.create_prompt}`);
     }
     return {
@@ -42,7 +42,8 @@ export function parse_prompt_domain_command(
       command: {
         command_type: 'CreatePrompt',
         payload: {
-          prompt_id,
+          prompt_key,
+          prompt_id: prompt_key,
           kind,
           reason,
           visibility,
@@ -57,11 +58,11 @@ export function parse_prompt_domain_command(
     if (script_mode && is_choose_alias) {
       return invalid('script mode disallows random choose/ch shorthand');
     }
-    const default_prompt_id = default_pending_prompt_id(state);
+    const default_prompt_key = default_pending_prompt_key(state);
 
     if (is_choose_alias && args.length === 0) {
-      if (!default_prompt_id) {
-        return invalid('usage: choose [prompt_id] [selected_option_id|-] [notes...]');
+      if (!default_prompt_key) {
+        return invalid('usage: choose [prompt_key] [selected_option_id|-] [notes...]');
       }
       return {
         ok: true,
@@ -69,8 +70,9 @@ export function parse_prompt_domain_command(
         command: {
           command_type: 'ResolvePrompt',
           payload: {
-            prompt_id: default_prompt_id,
-            selected_option_id: random_option_id_for_prompt(state, default_prompt_id),
+            prompt_key: default_prompt_key,
+            prompt_id: default_prompt_key,
+            selected_option_id: random_option_id_for_prompt(state, default_prompt_key),
             freeform: null,
             notes: 'auto_random_choice'
           }
@@ -78,22 +80,22 @@ export function parse_prompt_domain_command(
       };
     }
 
-    let prompt_id = args[0] ?? default_prompt_id;
+    let prompt_key = args[0] ?? default_prompt_key;
     let selected_option_id: string | null = args[1] === undefined || args[1] === '-' ? null : (args[1] ?? null);
     let notes_text = args.slice(2).join(' ').trim();
 
-    if (default_prompt_id && args.length > 0 && args[0] !== default_prompt_id) {
-      prompt_id = default_prompt_id;
+    if (default_prompt_key && args.length > 0 && args[0] !== default_prompt_key) {
+      prompt_key = default_prompt_key;
       selected_option_id = args[0] === '-' ? null : (args[0] ?? null);
       notes_text = args.slice(1).join(' ').trim();
     }
 
-    if (!prompt_id) {
+    if (!prompt_key) {
       return invalid(`usage: ${CLI_USAGE.resolve_prompt}`);
     }
 
     if (is_choose_alias && selected_option_id === null) {
-      selected_option_id = random_option_id_for_prompt(state, prompt_id);
+      selected_option_id = random_option_id_for_prompt(state, prompt_key);
       if (notes_text.length === 0) {
         notes_text = 'auto_random_choice';
       }
@@ -105,7 +107,8 @@ export function parse_prompt_domain_command(
       command: {
         command_type: 'ResolvePrompt',
         payload: {
-          prompt_id,
+          prompt_key,
+          prompt_id: prompt_key,
           selected_option_id,
           freeform: null,
           notes: notes_text.length > 0 ? notes_text : null
@@ -115,9 +118,9 @@ export function parse_prompt_domain_command(
   }
 
   if (command === 'cancel-prompt') {
-    const prompt_id = args[0];
+    const prompt_key = args[0];
     const reason = args.slice(1).join(' ').trim();
-    if (!prompt_id || reason.length === 0) {
+    if (!prompt_key || reason.length === 0) {
       return invalid(`usage: ${CLI_USAGE.cancel_prompt}`);
     }
     return {
@@ -126,7 +129,8 @@ export function parse_prompt_domain_command(
       command: {
         command_type: 'CancelPrompt',
         payload: {
-          prompt_id,
+          prompt_key,
+          prompt_id: prompt_key,
           reason
         }
       }
