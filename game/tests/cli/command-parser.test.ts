@@ -322,6 +322,15 @@ test('invalid command gives usage', () => {
   }
 });
 
+test('unknown command returns global help hint', () => {
+  const unknown = parse_cli_line('mystery-command');
+  assert.equal(unknown.ok, false);
+  if (!unknown.ok) {
+    assert.match(unknown.message, /unknown command: mystery-command/);
+    assert.match(unknown.message, /run "help \[all\|phase\]" for available commands/);
+  }
+});
+
 test('parse prompt engine commands', () => {
   const create = parse_cli_line('create-prompt pr1 false_info storyteller choose false info');
   assert.equal(create.ok, true);
