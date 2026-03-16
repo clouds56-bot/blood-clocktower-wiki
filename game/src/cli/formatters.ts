@@ -405,12 +405,10 @@ export function format_prompt_list(state: GameState): string {
       if (left_rank !== right_rank) {
         return left_rank - right_rank;
       }
-      return (left.prompt_key ?? left.prompt_id).localeCompare(right.prompt_key ?? right.prompt_id);
+      return left.prompt_key.localeCompare(right.prompt_key);
     })
     .map((prompt) => [
-      prompt.status === 'resolved'
-        ? paint(prompt.prompt_key ?? prompt.prompt_id, 'gray')
-        : (prompt.prompt_key ?? prompt.prompt_id),
+      prompt.status === 'resolved' ? paint(prompt.prompt_key, 'gray') : prompt.prompt_key,
       prompt.kind,
       prompt.status === 'resolved' ? paint(prompt.status, 'gray') : prompt.status,
       prompt.visibility,
@@ -429,7 +427,7 @@ export function format_prompt(prompt: PromptState): string {
   const freeform = prompt.resolution_payload?.freeform ?? 'null';
 
   return [
-    `prompt_key=${prompt.prompt_key ?? prompt.prompt_id} status=${prompt.status}`,
+    `prompt_key=${prompt.prompt_key} status=${prompt.status}`,
     `kind=${prompt.kind} visibility=${prompt.visibility}`,
     `reason=${prompt.reason}`,
     `options=${options}`,

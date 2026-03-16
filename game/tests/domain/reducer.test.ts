@@ -230,6 +230,7 @@ test('reducer tracks wake and interrupt queues', () => {
   const scheduled = replay_events(events.slice(0, 3), create_initial_state('g1'));
   assert.equal(scheduled.wake_queue.length, 1);
   assert.deepEqual(scheduled.wake_queue[0], {
+    wake_key: 'w1',
     wake_id: 'w1',
     character_id: 'imp',
     player_id: 'p1'

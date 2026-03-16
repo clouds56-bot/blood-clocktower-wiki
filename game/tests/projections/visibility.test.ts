@@ -59,6 +59,7 @@ function make_state() {
     threshold: 1
   });
   state.prompts_by_id.pr1 = {
+    prompt_key: 'pr1',
     prompt_id: 'pr1',
     kind: 'false_info',
     reason: 'choose false info',
@@ -73,6 +74,7 @@ function make_state() {
   state.pending_prompts = ['pr1'];
   state.storyteller_notes.push({
     note_id: 2,
+    prompt_key: 'pr1',
     prompt_id: 'pr1',
     text: 'secret adjudication',
     created_at_event_id: 2

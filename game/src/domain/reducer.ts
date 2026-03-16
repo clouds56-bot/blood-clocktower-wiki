@@ -385,9 +385,9 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
     case 'WakeScheduled': {
       ensure_player(next, event.payload.player_id);
       const wake_key = event.payload.wake_key ?? event.payload.wake_id;
-      if (!next.wake_queue.some((item) => (item.wake_key ?? item.wake_id) === wake_key)) {
+      if (!next.wake_queue.some((item) => item.wake_key === wake_key)) {
         next.wake_queue.push({
-          ...(event.payload.wake_key === undefined ? {} : { wake_key }),
+          wake_key,
           wake_id: event.payload.wake_id,
           character_id: event.payload.character_id,
           player_id: event.payload.player_id
@@ -397,7 +397,7 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
     }
     case 'WakeConsumed': {
       const wake_key = event.payload.wake_key ?? event.payload.wake_id;
-      next.wake_queue = next.wake_queue.filter((item) => (item.wake_key ?? item.wake_id) !== wake_key);
+      next.wake_queue = next.wake_queue.filter((item) => item.wake_key !== wake_key);
       break;
     }
     case 'InterruptScheduled': {

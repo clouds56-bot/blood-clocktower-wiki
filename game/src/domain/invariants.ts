@@ -168,7 +168,7 @@ export function validate_invariants(state: GameState): InvariantIssue[] {
 
   const seenWakeIds = new Set<string>();
   for (const [index, wake] of state.wake_queue.entries()) {
-    const wake_key = wake.wake_key ?? wake.wake_id;
+    const wake_key = wake.wake_key;
     const hasWakeId = typeof wake_key === 'string' && wake_key.trim().length > 0;
     const hasCharacterId = typeof wake.character_id === 'string' && wake.character_id.trim().length > 0;
     const hasPlayerId = typeof wake.player_id === 'string';

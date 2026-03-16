@@ -99,14 +99,14 @@ export function integrate_plugin_runtime(
     if (runtime_state.wake_queue.length === 0) {
       const wake_steps = collect_night_wake_steps(runtime_state, plugin_registry);
       for (const [wake_index, wake_step] of wake_steps.entries()) {
-        const wake_scheduled: DomainEvent = {
+      const wake_scheduled: DomainEvent = {
           event_key: `${command.command_id}:WakeScheduled:${wake_index}`,
           event_id: 1,
           event_type: 'WakeScheduled',
           created_at,
           actor_id: command.actor_id,
           payload: {
-            wake_key: wake_step.wake_key ?? wake_step.wake_id,
+            wake_key: wake_step.wake_key,
             wake_id: wake_step.wake_id,
             character_id: wake_step.character_id,
             player_id: wake_step.player_id
@@ -970,8 +970,8 @@ function process_wake_queue(
         event_type: 'WakeConsumed',
         created_at: context.created_at,
         ...(context.command.actor_id === undefined ? {} : { actor_id: context.command.actor_id }),
-        payload: {
-          wake_key: wake_step.wake_key ?? wake_step.wake_id,
+      payload: {
+          wake_key: wake_step.wake_key,
           wake_id: wake_step.wake_id
         }
       };
@@ -984,7 +984,7 @@ function process_wake_queue(
     const dispatch = dispatch_hook(plugin_registry, 'on_night_wake', [wake_step.character_id], {
       state: runtime_state,
       player_id: wake_step.player_id,
-      wake_step_id: wake_step.wake_key ?? wake_step.wake_id
+      wake_step_id: wake_step.wake_key
     });
 
     if (!dispatch.ok) {

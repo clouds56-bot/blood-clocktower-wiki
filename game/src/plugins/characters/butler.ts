@@ -135,7 +135,7 @@ export const butler_plugin: CharacterPlugin = {
             source_event_id: null,
             metadata: {
               from_prompt_id: context.prompt_id,
-              from_prompt_key: context.prompt_key ?? context.prompt_id
+              from_prompt_key: resolve_prompt_token(context)
             }
           }
         });

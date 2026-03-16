@@ -90,6 +90,7 @@ test('validate_invariants detects dangling pending prompt ids', () => {
 test('validate_invariants detects duplicate/non-pending prompt queue entries', () => {
   const state = create_initial_state('g1');
   state.prompts_by_id.pr1 = {
+    prompt_key: 'pr1',
     prompt_id: 'pr1',
     kind: 'choice',
     reason: 'pick one',
@@ -133,11 +134,13 @@ test('validate_invariants checks wake and interrupt queue integrity', () => {
   };
   state.wake_queue = [
     {
+      wake_key: 'w1',
       wake_id: 'w1',
       character_id: 'imp',
       player_id: 'missing'
     },
     {
+      wake_key: 'w1',
       wake_id: 'w1',
       character_id: 'poisoner',
       player_id: 'p1'
@@ -187,6 +190,7 @@ test('validate_invariants rejects invalid wake and interrupt queue fields', () =
   };
   state.wake_queue = [
     {
+      wake_key: ' ',
       wake_id: ' ',
       character_id: '',
       player_id: 'p1'
@@ -213,6 +217,7 @@ test('validate_invariants handles malformed queue entry types without throwing',
   const state = create_initial_state('g1');
   state.wake_queue = [
     {
+      wake_key: 123 as unknown as string,
       wake_id: 123 as unknown as string,
       character_id: null as unknown as string,
       player_id: 999 as unknown as string
