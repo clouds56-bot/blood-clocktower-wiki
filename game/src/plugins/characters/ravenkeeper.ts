@@ -4,6 +4,14 @@ import type { GameState } from '../../domain/types.js';
 
 const RAVENKEEPER_PROMPT_PREFIX = 'plugin:ravenkeeper:night_reveal';
 
+function night_time_key(night_number: number): string {
+  return `n${night_number}`;
+}
+
+function build_ravenkeeper_prompt_key(night_number: number, player_id: string): string {
+  return `plugin:ravenkeeper:${night_time_key(night_number)}:${player_id}:night_reveal`;
+}
+
 export const ravenkeeper_plugin: CharacterPlugin = {
   metadata: {
     id: 'ravenkeeper',
@@ -31,7 +39,8 @@ export const ravenkeeper_plugin: CharacterPlugin = {
   },
   hooks: {
     on_prompt_resolved: (context): PluginResult => {
-      const ravenkeeper_player_id = parse_ravenkeeper_prompt_owner_player_id(context.prompt_id);
+      const prompt_token = context.prompt_key ?? context.prompt_id;
+      const ravenkeeper_player_id = parse_ravenkeeper_prompt_owner_player_id(prompt_token);
       if (!ravenkeeper_player_id) {
         return {
           emitted_events: [],
@@ -74,8 +83,9 @@ export function build_ravenkeeper_reveal_prompt(
 
   return {
     prompt_id: `${RAVENKEEPER_PROMPT_PREFIX}:${state.night_number}:${ravenkeeper_player_id}`,
+    prompt_key: build_ravenkeeper_prompt_key(state.night_number, ravenkeeper_player_id),
     kind: 'choice',
-    reason: 'plugin:ravenkeeper:choose player',
+    reason: `plugin:ravenkeeper:${night_time_key(state.night_number)}:${ravenkeeper_player_id}:choose_player`,
     visibility: 'player',
     options
   };
@@ -83,11 +93,11 @@ export function build_ravenkeeper_reveal_prompt(
 
 function parse_ravenkeeper_prompt_owner_player_id(prompt_id: string): string | null {
   const parts = prompt_id.split(':');
-  if (parts.length < 5) {
-    return null;
+  if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'ravenkeeper' && parts[2] === 'night_reveal') {
+    return parts[4] ?? null;
   }
-  if (parts[0] !== 'plugin' || parts[1] !== 'ravenkeeper' || parts[2] !== 'night_reveal') {
-    return null;
+  if (parts.length >= 5 && parts[0] === 'plugin' && parts[1] === 'ravenkeeper' && /^n\d+$/.test(parts[2] ?? '') && parts[4] === 'night_reveal') {
+    return parts[3] ?? null;
   }
-  return parts[4] ?? null;
+  return null;
 }
