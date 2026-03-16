@@ -1,6 +1,6 @@
 import type { CharacterPlugin, PluginResult } from '../contracts.js';
 
-const POISONER_PROMPT_PREFIX = 'plugin:poisoner';
+const POISONER_PROMPT_PREFIX = 'plugin:poisoner:night_poison';
 
 function night_time_key(night_number: number): string {
   return `n${night_number}`;
@@ -145,7 +145,7 @@ export const poisoner_plugin: CharacterPlugin = {
 };
 
 export function is_poisoner_prompt_id(prompt_key: string): boolean {
-  return /^plugin:poisoner:night_poison:n\d+:[a-z0-9_-]+$/.test(prompt_key);
+  return prompt_key.startsWith(POISONER_PROMPT_PREFIX);
 }
 
 function parse_poisoner_prompt_owner_player_id(prompt_key: string): string | null {

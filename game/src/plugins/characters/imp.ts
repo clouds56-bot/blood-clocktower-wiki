@@ -2,7 +2,7 @@ import type { CharacterPlugin, PluginResult } from '../contracts.js';
 import type { PlayerState } from '../../domain/types.js';
 import { build_ravenkeeper_reveal_prompt } from './ravenkeeper.js';
 
-const IMP_PROMPT_PREFIX = 'plugin:imp';
+const IMP_PROMPT_PREFIX = 'plugin:imp:night_kill';
 const IMP_TRANSFER_PROMPT_PREFIX = 'plugin:imp:transfer_target';
 const IMP_TRANSFER_MARKER_KIND = 'imp:self_kill_transfer_pending';
 
@@ -11,11 +11,7 @@ function night_time_key(night_number: number): string {
 }
 
 function build_imp_prompt_key(night_number: number, player_id: string): string {
-  return `plugin:imp:night_kill:${night_time_key(night_number)}:${player_id}`;
-}
-
-function build_imp_prompt_id(night_number: number, player_id: string): string {
-  return `plugin:imp:night_kill:${night_time_key(night_number)}:${player_id}`;
+  return `${IMP_PROMPT_PREFIX}:${night_time_key(night_number)}:${player_id}`;
 }
 
 function build_imp_transfer_prompt_key(state: Parameters<typeof build_ravenkeeper_reveal_prompt>[0], dead_imp_id: string): string {
@@ -281,7 +277,7 @@ export const imp_plugin: CharacterPlugin = {
 };
 
 export function is_imp_prompt_id(prompt_key: string): boolean {
-  return /^plugin:imp:night_kill:n\d+:[a-z0-9_-]+$/.test(prompt_key);
+  return prompt_key.startsWith(IMP_PROMPT_PREFIX);
 }
 
 function parse_imp_prompt_owner_player_id(prompt_key: string): string | null {
