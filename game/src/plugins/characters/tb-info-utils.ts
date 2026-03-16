@@ -65,10 +65,13 @@ export function build_misinformation_prompt(
     multi_columns = selection.columns;
   }
 
+  const time_key = `n${night_number}`;
+
   return {
     prompt_id: `plugin:${role_id}:misinfo:${night_number}:${subject_player_id}`,
+    prompt_key: `plugin:${role_id}:${time_key}:${subject_player_id}:misinfo`,
     kind: 'choice',
-    reason: `plugin:${role_id}:choose misinformation`,
+    reason: `plugin:${role_id}:${time_key}:${subject_player_id}:choose_misinformation`,
     visibility: 'storyteller',
     options,
     selection_mode,
@@ -78,7 +81,11 @@ export function build_misinformation_prompt(
 }
 
 export function is_misinformation_prompt_id(prompt_id: string, role_id: string): boolean {
-  return prompt_id.startsWith(`plugin:${role_id}:misinfo:`);
+  if (prompt_id.startsWith(`plugin:${role_id}:misinfo:`)) {
+    return true;
+  }
+  return /^plugin:[a-z0-9_-]+:n\d+:[a-z0-9_-]+:misinfo(?:$|:)/.test(prompt_id) &&
+    prompt_id.startsWith(`plugin:${role_id}:`);
 }
 
 export interface InfoRoleMisinformationConfig {
@@ -205,7 +212,13 @@ export function build_info_role_misinformation_hooks(config: InfoRoleMisinformat
 
 function parse_misinfo_prompt_subject_player_id(prompt_id: string): string | null {
   const parts = prompt_id.split(':');
-  return parts[4] ?? null;
+  if (parts.length >= 5 && parts[2] === 'misinfo') {
+    return parts[4] ?? null;
+  }
+  if (parts.length >= 5 && /^n\d+$/.test(parts[2] ?? '') && parts[4] === 'misinfo') {
+    return parts[3] ?? null;
+  }
+  return null;
 }
 
 export function is_functional_player(state: Readonly<GameState>, player_id: string): boolean {
