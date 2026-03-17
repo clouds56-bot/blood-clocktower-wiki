@@ -9,12 +9,15 @@
     "test": "node --test --import tsx tests/**/*.test.ts",
     "test:coverage": "mkdir -p coverage && node --test --experimental-test-coverage --test-reporter=lcov --import tsx tests/**/*.test.ts > coverage/lcov.info",
     "example": "tsx ./examples/usage.ts",
-    "cli": "tsx ./src/cli/repl.ts"
+    "cli": "tsx ./src/cli/repl.ts",
+    "tui": "tsx ./src/tui/app.ts"
   },
   "dependencies": {
+    "blessed": "^0.1.81",
     "cli-table3": "^0.6.5"
   },
   "devDependencies": {
+    "@types/blessed": "^0.1.25",
     "@types/node": "^24.5.2",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3"

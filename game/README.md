@@ -17,11 +17,32 @@ From repo root:
 pnpm --filter game run cli
 ```
 
+Run the TUI:
+
+```bash
+pnpm --filter game run tui
+```
+
 Optionally pass initial game id:
 
 ```bash
 pnpm --filter game run cli -- my_game
 ```
+
+```bash
+pnpm --filter game run tui -- my_game
+```
+
+## TUI
+
+- The TUI reuses the same command parser and engine command flow as CLI.
+- Type the same commands in the bottom input box (`help`, `start bmr 7`, `next`, etc.).
+- Panels:
+  - left: command/event output log
+  - right: live state snapshot
+- Keybindings:
+  - `F2`: toggle state panel between brief and JSON
+  - `Ctrl+C`: quit
 
 ## Quick Start
 

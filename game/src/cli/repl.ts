@@ -56,7 +56,7 @@ import {
   format_storyteller_projection
 } from './formatters.js';
 
-interface CliContext {
+export interface CliContext {
   state: GameState;
   event_log: DomainEvent[];
   next_command_index: number;
@@ -98,7 +98,7 @@ function make_command_id(context: CliContext): string {
   return id;
 }
 
-function create_cli_context(initial_game_id: string): CliContext {
+export function create_cli_context(initial_game_id: string): CliContext {
   return {
     state: create_initial_state(initial_game_id),
     event_log: [],
@@ -824,7 +824,7 @@ function handle_local_action(context: CliContext, action: CliLocalAction): boole
   return true;
 }
 
-function process_cli_line(context: CliContext, line: string, options?: ProcessLineOptions): boolean {
+export function process_cli_line(context: CliContext, line: string, options?: ProcessLineOptions): boolean {
   const script_mode = options?.script_mode ?? false;
   const parse_options = options?.script_mode ? { script_mode: true } : undefined;
   const parsed = parse_cli_line(line, context.state, parse_options);
