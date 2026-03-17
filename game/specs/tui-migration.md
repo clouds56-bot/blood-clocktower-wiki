@@ -113,10 +113,10 @@ These decisions are locked for current TUI behavior and should guide future refi
 
 ### Mouse and Input Policy
 
-- Mouse support is opt-in via keybinding toggle (`Ctrl+M`), default off.
+- Mouse support (scroll in events pane) is enabled by default and can be toggled via keybinding (`Ctrl+M`).
 - When enabled, wheel events in the events pane move selected event up/down.
 - Escape sequences from mouse reporting must never leak into command input.
-- Keep text selection/copy ergonomics intact by allowing mouse mode to remain disabled.
+- Keep text selection/copy ergonomics intact by allowing mouse mode to be disabled via the toggle when needed.
 
 ### Runtime Subscription Stability
 

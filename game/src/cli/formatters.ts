@@ -90,14 +90,14 @@ export function format_state_players(state: GameState): string {
     '---- ---- ------------ ---- ---- ----- ---- ----- ------ ------------------- -----'
   ];
 
-  for (const [index, player_id] of ordered_player_ids.entries()) {
+  for (const player_id of ordered_player_ids) {
     const player = state.players_by_id[player_id];
     if (!player) {
       continue;
     }
 
-    const seat = String(index + 1).padStart(2, ' ');
-    const id = player.player_id.padEnd(4, ' ').slice(0, 4);
+    const seatIndex = state.seat_order.indexOf(player_id);
+    const seat = seatIndex === -1 ? '--' : String(seatIndex + 1).padStart(2, ' ');
     const name = player.display_name.padEnd(12, ' ').slice(0, 12);
     const life = player.alive ? 'alive' : 'dead ';
     const vote = player.dead_vote_available ? 'yes ' : 'no  ';
