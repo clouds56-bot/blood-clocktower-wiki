@@ -406,6 +406,13 @@ Determinism rules for extended hooks:
 - On prompt resolution, `imp` emits consequence events (for example, death application flow).
 - If timing requires immediate nested resolution, `imp` emits interrupt tasks instead of mutating state.
 
+### First-Night Pair-Info Adjudication Contract (TB)
+
+- `washerwoman`, `librarian`, and `investigator` must request Storyteller selection instead of auto-picking deterministic pairs.
+- For truthful resolution, prompts are constrained to in-play character ids for that role scope (`townsfolk` / `outsider` / `minion`) plus two distinct non-self players.
+- For drunk/poisoned resolution, prompts remain Storyteller-only and allow full role-domain misinformation choices.
+- Resolved output is still recorded as `StorytellerRulingRecorded` notes for replay/audit determinism.
+
 ### Phase 6 Scope Split
 
 - 6.1 contract + metadata schema + registry API.

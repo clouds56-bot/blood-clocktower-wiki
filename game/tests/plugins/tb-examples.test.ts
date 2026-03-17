@@ -176,9 +176,16 @@ test('investigator example: Baron and Mayor pair -> learns Baron', () => {
   state.players_by_id.p2 = make_player('p2', 'Amy', 'baron', 'evil');
   state.players_by_id.p3 = make_player('p3', 'Julian', 'mayor', 'good');
 
-  const result = investigator_plugin.hooks.on_night_wake?.({ state, player_id: 'p1', wake_step_id: 'wake:1' });
+  const wake = investigator_plugin.hooks.on_night_wake?.({ state, player_id: 'p1', wake_step_id: 'wake:1' });
+  assert.equal(wake?.queued_prompts.length, 1);
+  const resolved = investigator_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_key: wake?.queued_prompts[0]?.prompt_key ?? '',
+    selected_option_id: 'baron,p2,p3',
+    freeform: null
+  });
   assert.equal(
-    result?.emitted_events[0]?.payload.note,
+    resolved?.emitted_events[0]?.payload.note,
     'investigator_info:p1:character=baron;players=p2,p3'
   );
 });
@@ -190,9 +197,16 @@ test('investigator example: Spy and Poisoner pair -> learns Spy', () => {
   state.players_by_id.p2 = make_player('p2', 'Angelus', 'spy', 'evil');
   state.players_by_id.p3 = make_player('p3', 'Lewis', 'poisoner', 'evil');
 
-  const result = investigator_plugin.hooks.on_night_wake?.({ state, player_id: 'p1', wake_step_id: 'wake:1' });
+  const wake = investigator_plugin.hooks.on_night_wake?.({ state, player_id: 'p1', wake_step_id: 'wake:1' });
+  assert.equal(wake?.queued_prompts.length, 1);
+  const resolved = investigator_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_key: wake?.queued_prompts[0]?.prompt_key ?? '',
+    selected_option_id: 'spy,p2,p3',
+    freeform: null
+  });
   assert.equal(
-    result?.emitted_events[0]?.payload.note,
+    resolved?.emitted_events[0]?.payload.note,
     'investigator_info:p1:character=spy;players=p2,p3'
   );
 });
@@ -206,8 +220,15 @@ test('librarian example: Saint in pair -> learns Saint', () => {
   state.players_by_id.p2 = make_player('p2', 'Benjamin', 'saint', 'good');
   state.players_by_id.p3 = make_player('p3', 'Filip', 'baron', 'evil');
 
-  const result = librarian_plugin.hooks.on_night_wake?.({ state, player_id: 'p1', wake_step_id: 'wake:1' });
-  assert.equal(result?.emitted_events[0]?.payload.note, 'librarian_info:p1:character=saint;players=p2,p3');
+  const wake = librarian_plugin.hooks.on_night_wake?.({ state, player_id: 'p1', wake_step_id: 'wake:1' });
+  assert.equal(wake?.queued_prompts.length, 1);
+  const resolved = librarian_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_key: wake?.queued_prompts[0]?.prompt_key ?? '',
+    selected_option_id: 'saint,p2,p3',
+    freeform: null
+  });
+  assert.equal(resolved?.emitted_events[0]?.payload.note, 'librarian_info:p1:character=saint;players=p2,p3');
 });
 
 test('librarian example: zero outsiders in play -> learns 0', () => {
@@ -216,8 +237,15 @@ test('librarian example: zero outsiders in play -> learns 0', () => {
   state.players_by_id.p1 = make_player('p1', 'Librarian', 'librarian', 'good');
   state.players_by_id.p2 = make_player('p2', 'Chef', 'chef', 'good');
 
-  const result = librarian_plugin.hooks.on_night_wake?.({ state, player_id: 'p1', wake_step_id: 'wake:1' });
-  assert.equal(result?.emitted_events[0]?.payload.note, 'librarian_info:p1:none_in_play');
+  const wake = librarian_plugin.hooks.on_night_wake?.({ state, player_id: 'p1', wake_step_id: 'wake:1' });
+  assert.equal(wake?.queued_prompts.length, 1);
+  const resolved = librarian_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_key: wake?.queued_prompts[0]?.prompt_key ?? '',
+    selected_option_id: null,
+    freeform: null
+  });
+  assert.equal(resolved?.emitted_events[0]?.payload.note, 'librarian_info:p1:none_in_play');
 });
 
 test('librarian example: Drunk true role is shown, not perceived role', () => {
@@ -230,8 +258,15 @@ test('librarian example: Drunk true role is shown, not perceived role', () => {
   };
   state.players_by_id.p3 = make_player('p3', 'Douglas', 'undertaker', 'good');
 
-  const result = librarian_plugin.hooks.on_night_wake?.({ state, player_id: 'p1', wake_step_id: 'wake:1' });
-  assert.equal(result?.emitted_events[0]?.payload.note, 'librarian_info:p1:character=drunk;players=p2,p3');
+  const wake = librarian_plugin.hooks.on_night_wake?.({ state, player_id: 'p1', wake_step_id: 'wake:1' });
+  assert.equal(wake?.queued_prompts.length, 1);
+  const resolved = librarian_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_key: wake?.queued_prompts[0]?.prompt_key ?? '',
+    selected_option_id: 'drunk,p2,p3',
+    freeform: null
+  });
+  assert.equal(resolved?.emitted_events[0]?.payload.note, 'librarian_info:p1:character=drunk;players=p2,p3');
 });
 
 test('washerwoman example: Chef in pair -> learns Chef', () => {
@@ -241,9 +276,16 @@ test('washerwoman example: Chef in pair -> learns Chef', () => {
   state.players_by_id.p2 = make_player('p2', 'Evin', 'chef', 'good');
   state.players_by_id.p3 = make_player('p3', 'Amy', 'ravenkeeper', 'good');
 
-  const result = washerwoman_plugin.hooks.on_night_wake?.({ state, player_id: 'p1', wake_step_id: 'wake:1' });
+  const wake = washerwoman_plugin.hooks.on_night_wake?.({ state, player_id: 'p1', wake_step_id: 'wake:1' });
+  assert.equal(wake?.queued_prompts.length, 1);
+  const resolved = washerwoman_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_key: wake?.queued_prompts[0]?.prompt_key ?? '',
+    selected_option_id: 'chef,p2,p3',
+    freeform: null
+  });
   assert.equal(
-    result?.emitted_events[0]?.payload.note,
+    resolved?.emitted_events[0]?.payload.note,
     'washerwoman_info:p1:character=chef;players=p2,p3'
   );
 });
@@ -255,9 +297,16 @@ test('washerwoman example: Imp + Virgin pair -> learns Virgin', () => {
   state.players_by_id.p2 = make_player('p2', 'Julian', 'imp', 'evil', { is_demon: true });
   state.players_by_id.p3 = make_player('p3', 'Alex', 'virgin', 'good');
 
-  const result = washerwoman_plugin.hooks.on_night_wake?.({ state, player_id: 'p1', wake_step_id: 'wake:1' });
+  const wake = washerwoman_plugin.hooks.on_night_wake?.({ state, player_id: 'p1', wake_step_id: 'wake:1' });
+  assert.equal(wake?.queued_prompts.length, 1);
+  const resolved = washerwoman_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_key: wake?.queued_prompts[0]?.prompt_key ?? '',
+    selected_option_id: 'virgin,p3,p2',
+    freeform: null
+  });
   assert.equal(
-    result?.emitted_events[0]?.payload.note,
+    resolved?.emitted_events[0]?.payload.note,
     'washerwoman_info:p1:character=virgin;players=p3,p2'
   );
 });
