@@ -185,6 +185,10 @@ Each entry lists:
 - Implementation:
   - `timing_category`: `first_night`
   - prompt: none for player; ST selects pair and role result
+  - truthful invalid selection: retry prompt (no auto fallback)
+  - reminder markers on successful resolution:
+    - `investigator:minion` on shown player
+    - `investigator:wrong` on the other player
   - output: `PrivateInfoShown(minion_role, two_players)`.
 
 #### `librarian`
@@ -194,7 +198,11 @@ Each entry lists:
   - can be false while drunk/poisoned.
 - Implementation:
   - `timing_category`: `first_night`
-  - prompt: none for player
+  - prompt: none for player; ST resolves in storyteller-only prompt
+  - truthful invalid selection: retry prompt (no auto fallback)
+  - reminder markers on successful resolution:
+    - `librarian:outsider` on shown player
+    - `librarian:wrong` on the other player
   - output: `PrivateInfoShown(outsider_or_zero, candidate_players)`.
 
 #### `mayor`
@@ -287,7 +295,11 @@ Each entry lists:
   - false info possible while drunk/poisoned.
 - Implementation:
   - `timing_category`: `first_night`
-  - prompt: none for player; ST chooses payload
+  - prompt: none for player; ST chooses payload in storyteller-only prompt
+  - truthful invalid selection: retry prompt (no auto fallback)
+  - reminder markers on successful resolution:
+    - `washerwoman:townsfolk` on shown player
+    - `washerwoman:wrong` on the other player
   - output: `PrivateInfoShown(townsfolk_role, two_players)`.
 
 ### Outsiders
@@ -464,6 +476,7 @@ Public view:
 ## Adjudication Points (Must Stay Explicit)
 
 - choosing false information under poison/drunk.
+- retrying invalid truthful first-night pair-info selections (`washerwoman`, `librarian`, `investigator`).
 - deciding when "might" registration/replacement effects apply (`recluse`, `spy`, `mayor`).
 - resolving registration per query (not as global once/night lock).
 - tie/edge handling when multiple continuity effects could matter in unusual custom interactions.

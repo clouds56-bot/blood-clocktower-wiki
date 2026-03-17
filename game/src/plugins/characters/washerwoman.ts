@@ -1,5 +1,32 @@
-import type { CharacterPlugin, PluginResult } from '../contracts.js';
-import { get_player_information_mode, list_players_by_true_character_type } from './tb-info-utils.js';
+import type { CharacterPlugin } from '../contracts.js';
+import { build_first_night_pair_info_hooks } from './tb-info-utils.js';
+
+const WASHERWOMAN_TOWNSFOLK = [
+  'chef',
+  'empath',
+  'fortune_teller',
+  'investigator',
+  'librarian',
+  'mayor',
+  'monk',
+  'ravenkeeper',
+  'slayer',
+  'soldier',
+  'undertaker',
+  'virgin',
+  'washerwoman'
+];
+
+const washerwoman_pair_info_hooks = build_first_night_pair_info_hooks({
+  role_id: 'washerwoman',
+  target_type: 'townsfolk',
+  note_prefix: 'washerwoman_info',
+  misinformation_character_ids: WASHERWOMAN_TOWNSFOLK,
+  marker_kinds: {
+    shown: 'washerwoman:townsfolk',
+    wrong: 'washerwoman:wrong'
+  }
+});
 
 export const washerwoman_plugin: CharacterPlugin = {
   metadata: {
@@ -27,57 +54,7 @@ export const washerwoman_plugin: CharacterPlugin = {
     }
   },
   hooks: {
-    on_night_wake: (context): PluginResult => {
-      const info_mode = get_player_information_mode(context.state, context.player_id);
-      let note = `washerwoman_info:${context.player_id}:inactive`;
-      if (info_mode === 'truthful') {
-        note = build_role_pair_note(context.state, context.player_id, 'townsfolk', 'washerwoman_info');
-      } else if (info_mode === 'misinformation') {
-        note = `washerwoman_info:${context.player_id}:misinformation_required`;
-      }
-
-      return {
-        emitted_events: [
-          {
-            event_type: 'StorytellerRulingRecorded',
-            payload: {
-              prompt_key: null,
-              note
-            }
-          }
-        ],
-        queued_prompts: [],
-        queued_interrupts: []
-      };
-    }
+    on_night_wake: washerwoman_pair_info_hooks.on_night_wake,
+    on_prompt_resolved: washerwoman_pair_info_hooks.on_prompt_resolved
   }
 };
-
-function build_role_pair_note(
-  state: Parameters<typeof get_player_information_mode>[0],
-  owner_player_id: string,
-  target_type: 'townsfolk',
-  prefix: string
-): string {
-  const candidates = list_players_by_true_character_type(state, target_type).filter(
-    (player) => player.player_id !== owner_player_id
-  );
-  if (candidates.length === 0) {
-    return `${prefix}:${owner_player_id}:none_in_play`;
-  }
-
-  const shown = candidates[0];
-  if (!shown || !shown.true_character_id) {
-    return `${prefix}:${owner_player_id}:none_in_play`;
-  }
-
-  const decoy = state.seat_order
-    .map((player_id) => state.players_by_id[player_id])
-    .find((player) => player && player.player_id !== shown.player_id && player.player_id !== owner_player_id);
-
-  if (!decoy) {
-    return `${prefix}:${owner_player_id}:character=${shown.true_character_id};players=${shown.player_id}`;
-  }
-
-  return `${prefix}:${owner_player_id}:character=${shown.true_character_id};players=${shown.player_id},${decoy.player_id}`;
-}
