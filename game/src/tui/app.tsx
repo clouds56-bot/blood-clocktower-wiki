@@ -322,10 +322,22 @@ function role_color(character_type: PlayerState['true_character_type']): string 
   return 'white';
 }
 
+function alignment_color(alignment: PlayerState['true_alignment']): string {
+  if (alignment === 'good') {
+    return 'green';
+  }
+  if (alignment === 'evil') {
+    return 'red';
+  }
+  return 'gray';
+}
+
 function format_player_state_row(player: PlayerState, seat_index: number): {
   prefix: string;
+  type: string;
   role: string;
   suffix: string;
+  type_color: string;
   role_color: string;
   italic: boolean;
   strikethrough: boolean;
@@ -333,12 +345,8 @@ function format_player_state_row(player: PlayerState, seat_index: number): {
   const seat = String(seat_index + 1).padStart(2, ' ');
   const id = player.player_id.padEnd(4, ' ').slice(0, 4);
   const name = player.display_name.padEnd(12, ' ').slice(0, 12);
-  const life = player.alive ? 'alive' : 'dead ';
   const vote = player.dead_vote_available ? 'yes ' : 'no  ';
-  const drunk = player.drunk ? 'yes  ' : 'no   ';
-  const poisoned = player.poisoned ? 'yes ' : 'no  ';
-  const alignment = (player.true_alignment ?? 'none').padEnd(5, ' ').slice(0, 5);
-  const team = player.is_demon ? 'demon ' : player.is_traveller ? 'trav  ' : 'none  ';
+  const character_type = (player.true_character_type ?? 'none').padEnd(10, ' ').slice(0, 10);
   const role = (player.true_character_id ?? 'none').padEnd(19, ' ').slice(0, 19);
   const flags = [
     player.perceived_character_id && player.perceived_character_id !== player.true_character_id
@@ -349,9 +357,11 @@ function format_player_state_row(player: PlayerState, seat_index: number): {
   ].filter((value): value is string => Boolean(value)).join(',');
 
   return {
-    prefix: `${seat}   ${id} ${name} ${life} ${vote} ${drunk} ${poisoned} ${alignment} ${team} `,
+    prefix: `${seat}   ${id} ${name} ${vote} `,
+    type: character_type,
     role,
     suffix: ` ${flags || '-'}`,
+    type_color: alignment_color(player.true_alignment),
     role_color: role_color(player.true_character_type ?? null),
     italic: player.drunk || player.poisoned,
     strikethrough: !player.alive
@@ -403,7 +413,6 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     { text: 'Type commands and press Enter. Ctrl+R opens resolve prompt picker.', kind: 'status' }
   ]);
   const [output_lines, set_output_lines] = useState<string[]>([]);
-  const [latest_state_snapshot, set_latest_state_snapshot] = useState<GameState | null>(null);
   const [history, set_history] = useState<string[]>([]);
   const [history_cursor, set_history_cursor] = useState<number | null>(null);
   const [state_mode, set_state_mode] = useState<StateMode>('brief');
@@ -484,9 +493,6 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       const clean = strip_ansi(message.text);
 
       if (message.channel === 'state') {
-        if (message.state_snapshot) {
-          set_latest_state_snapshot(message.state_snapshot);
-        }
         return;
       }
 
@@ -981,12 +987,12 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     }
   });
 
-  const effective_state = latest_state_snapshot ?? context.state;
+  const effective_state = context.state;
   const state_text = state_mode === 'json' ? format_state_json(effective_state) : format_state_brief(effective_state);
 
   const state_lines = state_text.split('\n').slice(0, state_content_rows);
-  const player_state_header = 'seat id   name         life vote drunk pois align team   role                flags';
-  const player_state_separator = '---- ---- ------------ ---- ---- ----- ---- ----- ------ ------------------- -----';
+  const player_state_header = 'seat id   name         vote type       role                flags';
+  const player_state_separator = '---- ---- ------------ ---- ---------- ------------------- -----';
   const player_rows = ordered_player_ids(effective_state)
     .map((player_id, index) => {
       const player = effective_state.players_by_id[player_id];
@@ -1154,6 +1160,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
                       wrap="truncate-end"
                     >
                       <Text>{row.prefix}</Text>
+                      <Text color={row.type_color}>{row.type}</Text>
+                      <Text> </Text>
                       <Text color={row.role_color}>{row.role}</Text>
                       <Text>{row.suffix}</Text>
                     </Text>
