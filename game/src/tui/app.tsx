@@ -488,7 +488,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       return;
     }
     set_selected_player_index((previous) => {
-      const next = clamp(previous + delta, 0, total_count - 1);
+      const normalized_previous = ((previous % total_count) + total_count) % total_count;
+      const next = ((normalized_previous + delta) % total_count + total_count) % total_count;
       set_player_list_offset((offset) => ensure_visible_offset(next, offset, visible_count, total_count));
       return next;
     });
@@ -1077,7 +1078,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     ? effective_state.active_reminder_marker_ids
         .map((marker_id) => effective_state.reminder_markers_by_id[marker_id])
         .filter((marker): marker is NonNullable<typeof marker> => Boolean(marker && marker.target_player_id === selected_player.player_id))
-        .map((marker) => `${marker.kind}:${marker.marker_id}`)
+        .map((marker) => marker.kind)
     : [];
   const selected_player_status_line = selected_player
     ? `selected=${selected_player.player_id} reminders=${selected_player_marker_details.length} ${selected_player_marker_details.length > 0 ? selected_player_marker_details.join(', ') : '(none)'}`
@@ -1202,6 +1203,11 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const modal_active_values = modal_active_column ? column_values(modal_active_column) : [];
   const modal_active_window = Math.max(1, modal_height - 10);
   const modal_inner_width = Math.max(16, modal_width - 4);
+  const timing_label = effective_state.phase === 'day'
+    ? `d${effective_state.day_number}`
+    : effective_state.phase === 'night'
+      ? `n${effective_state.night_number}`
+      : effective_state.phase;
 
   return (
     <Box flexDirection="column" width={columns} height={available_rows}>
@@ -1261,7 +1267,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
           <Box borderStyle="single" flexDirection="column" height={state_height} paddingX={1}>
             <Text color="cyan">
               {state_mode === 'players'
-                ? `State (${state_mode}) d${effective_state.day_number} n${effective_state.night_number} sub=${effective_state.subphase} alive=${alive_count}/${players_total}`
+                ? `State (${state_mode}) ${timing_label} sub=${effective_state.subphase} alive=${alive_count}/${players_total}`
                 : `State (${state_mode})`}
             </Text>
             {state_mode === 'players' ? (
