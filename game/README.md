@@ -44,6 +44,8 @@ pnpm --filter game run tui -- my_game
   - right bottom: inspector panel (overview, prompts, players, markers)
 - Keybindings:
   - `Ctrl+R`: open floating prompt resolver window
+    - normal prompts: choose prompt, then choose option
+    - multi-column prompts: `Left/Right` switch column, `Up/Down` choose value, `Enter` resolve
   - `Ctrl+S`: toggle state panel between brief and JSON
   - `Ctrl+G`: cycle inspector panel (`overview -> prompts -> players -> markers`)
   - `Up` / `Down` (while input focused): browse command history

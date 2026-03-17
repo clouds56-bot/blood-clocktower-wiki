@@ -3,7 +3,7 @@ import { Box, Text, useApp, useInput, useStdout } from 'ink';
 
 import { format_state_brief, format_state_json } from '../cli/formatters.js';
 import { create_cli_context, process_cli_line } from '../cli/repl.js';
-import type { PromptState } from '../domain/types.js';
+import type { PromptColumnSpec, PromptRangeSpec, PromptState } from '../domain/types.js';
 
 type StateMode = 'brief' | 'json';
 type InspectorMode = 'overview' | 'prompts' | 'players' | 'markers';
@@ -144,6 +144,31 @@ function pending_prompts(context: ReturnType<typeof create_cli_context>): Prompt
     .filter((prompt): prompt is PromptState => Boolean(prompt && prompt.status === 'pending'));
 }
 
+function is_range_column(column: PromptColumnSpec): column is PromptRangeSpec {
+  return !Array.isArray(column);
+}
+
+function column_values(column: PromptColumnSpec): string[] {
+  if (Array.isArray(column)) {
+    return column;
+  }
+
+  const min = Math.ceil(column.min);
+  const max_raw = (column.max_inclusive ?? true)
+    ? Math.floor(column.max)
+    : Math.ceil(column.max) - 1;
+  if (max_raw < min) {
+    return [];
+  }
+
+  const max_count = 30;
+  const values: string[] = [];
+  for (let value = min; value <= max_raw && values.length < max_count; value += 1) {
+    values.push(String(value));
+  }
+  return values;
+}
+
 function render_panel_lines(lines: string[]): React.ReactNode {
   return lines.map((line, index) => <Text key={`${index}:${line}`}>{line}</Text>);
 }
@@ -165,10 +190,12 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [state_mode, set_state_mode] = useState<StateMode>('brief');
   const [inspector_mode, set_inspector_mode] = useState<InspectorMode>('overview');
   const [resolver_open, set_resolver_open] = useState(false);
-  const [resolver_step, set_resolver_step] = useState<'prompt' | 'option'>('prompt');
+  const [resolver_step, set_resolver_step] = useState<'prompt' | 'option' | 'multi_column'>('prompt');
   const [resolver_prompt_index, set_resolver_prompt_index] = useState(0);
   const [resolver_option_index, set_resolver_option_index] = useState(0);
   const [resolver_prompt_key, set_resolver_prompt_key] = useState<string | null>(null);
+  const [resolver_multi_values, set_resolver_multi_values] = useState<string[]>([]);
+  const [resolver_multi_column_index, set_resolver_multi_column_index] = useState(0);
   const [, set_tick] = useState(0);
 
   function append_log_lines(lines: string[]): void {
@@ -202,6 +229,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     set_resolver_prompt_index(0);
     set_resolver_option_index(0);
     set_resolver_prompt_key(null);
+    set_resolver_multi_values([]);
+    set_resolver_multi_column_index(0);
   }
 
   function open_resolver(): void {
@@ -215,6 +244,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     set_resolver_prompt_index(0);
     set_resolver_option_index(0);
     set_resolver_prompt_key(null);
+    set_resolver_multi_values([]);
+    set_resolver_multi_column_index(0);
   }
 
   useInput((input_key, key) => {
@@ -256,6 +287,33 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
             return;
           }
 
+          if (prompt.selection_mode === 'multi_column' && prompt.multi_columns && prompt.multi_columns.length > 0) {
+            const initial_values = prompt.multi_columns.map((column) => {
+              const values = column_values(column);
+              return values[0] ?? '0';
+            });
+
+            set_resolver_prompt_key(prompt.prompt_key);
+            set_resolver_multi_values(initial_values);
+            set_resolver_multi_column_index(0);
+            set_resolver_option_index(0);
+            set_resolver_step('multi_column');
+            return;
+          }
+
+          if (prompt.selection_mode === 'number_range' && prompt.number_range) {
+            const values = column_values(prompt.number_range);
+            if (values.length === 0) {
+              append_log_lines([`(prompt ${prompt.prompt_key} has invalid number range)`]);
+              close_resolver();
+              return;
+            }
+            set_resolver_prompt_key(prompt.prompt_key);
+            set_resolver_option_index(1);
+            set_resolver_step('option');
+            return;
+          }
+
           if (prompt.options.length === 0) {
             const result = run_command(`resolve-prompt ${prompt.prompt_key} -`);
             close_resolver();
@@ -268,6 +326,94 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
           set_resolver_prompt_key(prompt.prompt_key);
           set_resolver_option_index(0);
           set_resolver_step('option');
+        }
+        return;
+      }
+
+      if (resolver_step === 'multi_column') {
+        const selected_prompt = pending.find((prompt) => prompt.prompt_key === resolver_prompt_key) ?? null;
+        if (!selected_prompt || !selected_prompt.multi_columns || selected_prompt.multi_columns.length === 0) {
+          set_resolver_step('prompt');
+          set_resolver_prompt_key(null);
+          set_resolver_multi_values([]);
+          set_resolver_multi_column_index(0);
+          set_resolver_option_index(0);
+          return;
+        }
+
+        const column_count = selected_prompt.multi_columns.length;
+        const active_index = Math.min(Math.max(0, resolver_multi_column_index), column_count - 1);
+        const active_column = selected_prompt.multi_columns[active_index];
+        const active_values = active_column ? column_values(active_column) : [];
+
+        if (key.leftArrow) {
+          const next_index = Math.max(0, active_index - 1);
+          set_resolver_multi_column_index(next_index);
+          const next_values = column_values(selected_prompt.multi_columns[next_index] ?? []);
+          const current_value = resolver_multi_values[next_index] ?? next_values[0] ?? '0';
+          const next_option_index = Math.max(0, next_values.indexOf(current_value));
+          set_resolver_option_index(next_option_index);
+          return;
+        }
+
+        if (key.rightArrow) {
+          const next_index = Math.min(column_count - 1, active_index + 1);
+          set_resolver_multi_column_index(next_index);
+          const next_values = column_values(selected_prompt.multi_columns[next_index] ?? []);
+          const current_value = resolver_multi_values[next_index] ?? next_values[0] ?? '0';
+          const next_option_index = Math.max(0, next_values.indexOf(current_value));
+          set_resolver_option_index(next_option_index);
+          return;
+        }
+
+        if (key.upArrow) {
+          const next_option_index = Math.max(0, resolver_option_index - 1);
+          set_resolver_option_index(next_option_index);
+          const next_value = active_values[next_option_index];
+          if (next_value !== undefined) {
+            set_resolver_multi_values((previous) => {
+              const copy = [...previous];
+              copy[active_index] = next_value;
+              return copy;
+            });
+          }
+          return;
+        }
+
+        if (key.downArrow) {
+          const next_option_index = Math.min(active_values.length - 1, resolver_option_index + 1);
+          set_resolver_option_index(next_option_index);
+          const next_value = active_values[next_option_index];
+          if (next_value !== undefined) {
+            set_resolver_multi_values((previous) => {
+              const copy = [...previous];
+              copy[active_index] = next_value;
+              return copy;
+            });
+          }
+          return;
+        }
+
+        if (key.backspace) {
+          set_resolver_step('prompt');
+          set_resolver_multi_values([]);
+          set_resolver_multi_column_index(0);
+          set_resolver_option_index(0);
+          set_resolver_prompt_key(null);
+          return;
+        }
+
+        if (key.return) {
+          const selected_value = resolver_multi_values.length === column_count
+            ? resolver_multi_values.join(',')
+            : selected_prompt.multi_columns
+                .map((column, index) => resolver_multi_values[index] ?? column_values(column)[0] ?? '0')
+                .join(',');
+          const result = run_command(`resolve-prompt ${selected_prompt.prompt_key} ${selected_value}`);
+          close_resolver();
+          if (!result.keep_running) {
+            exit();
+          }
         }
         return;
       }
@@ -419,7 +565,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     return Boolean(prompt && prompt.status === 'pending');
   }).length;
 
-  const modal_width = Math.max(56, Math.min(columns - 4, Math.floor(columns * 0.7)));
+  const modal_width = Math.max(56, Math.min(columns - 4, Math.floor(columns * 0.75)));
   const modal_height = Math.max(12, Math.min(rows - 6, 18));
   const modal_left = Math.max(0, Math.floor((columns - modal_width) / 2));
   const modal_top = Math.max(1, Math.floor((rows - modal_height) / 2));
@@ -428,6 +574,10 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const modal_prompt = resolver_prompt_key
     ? modal_pending.find((prompt) => prompt.prompt_key === resolver_prompt_key) ?? null
     : null;
+  const modal_multi_columns = modal_prompt?.multi_columns ?? [];
+  const modal_active_column = modal_multi_columns[resolver_multi_column_index];
+  const modal_active_values = modal_active_column ? column_values(modal_active_column) : [];
+  const modal_active_window = Math.max(1, modal_height - 10);
 
   return (
     <Box flexDirection="column" width={columns} height={available_rows}>
@@ -463,6 +613,13 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
 
       {resolver_open && (
         <Box position="absolute" width={columns} height={available_rows} flexDirection="column">
+          {Array.from({ length: available_rows }).map((_, index) => (
+            <Text key={`resolver-backdrop-${index}`} backgroundColor="black">
+              {' '.repeat(Math.max(1, columns - 1))}
+            </Text>
+          ))}
+
+          <Box position="absolute" width={columns} height={available_rows} flexDirection="column">
           <Box marginTop={modal_top}>
             <Box marginLeft={modal_left}>
               <Box
@@ -491,6 +648,33 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
                       })
                     )}
                   </>
+                ) : resolver_step === 'multi_column' ? (
+                  <>
+                    <Text>
+                      {modal_prompt
+                        ? `Prompt ${modal_prompt.prompt_key} - use Left/Right to switch column, Up/Down to choose, Enter to resolve`
+                        : 'Prompt no longer pending'}
+                    </Text>
+                    {modal_multi_columns.map((column, index) => {
+                      const current = resolver_multi_values[index] ?? column_values(column)[0] ?? '-';
+                      const selected = index === resolver_multi_column_index;
+                      return (
+                        <Text key={`col-${index}`} color={selected ? 'green' : 'white'}>
+                          {selected ? '> ' : '  '}col {index + 1}: {current}
+                        </Text>
+                      );
+                    })}
+                    <Text>active column options:</Text>
+                    {modal_active_values.slice(0, modal_active_window).map((value, index) => {
+                      const selected = index === resolver_option_index;
+                      return (
+                        <Text key={`active-option-${value}`} color={selected ? 'green' : 'white'}>
+                          {selected ? '> ' : '  '}
+                          {value}
+                        </Text>
+                      );
+                    })}
+                  </>
                 ) : (
                   <>
                     <Text>
@@ -516,6 +700,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
                 )}
               </Box>
             </Box>
+          </Box>
           </Box>
         </Box>
       )}
