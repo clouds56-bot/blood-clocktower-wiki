@@ -8,6 +8,7 @@ import {
 } from '../plugins/characters/tb-info-utils.js';
 import { dispatch_hook, type NormalizedHookOutput } from '../plugins/dispatcher.js';
 import type { PluginRegistry } from '../plugins/registry.js';
+import type { CharacterPlugin } from '../plugins/contracts.js';
 import type { EngineResult } from './phase-machine.js';
 import { collect_night_wake_steps } from './night-flow.js';
 
@@ -188,19 +189,31 @@ export function integrate_plugin_runtime(
       );
 
       const combined = [...normalized, ...settled_execution_deaths];
-      const prompt_id_check = validate_queued_prompt_ids(runtime_state, combined);
+      const pre_death_combined = apply_pre_player_died_hooks(
+        runtime_state,
+        combined,
+        plugin_registry,
+        `${command.command_id}:ClaimedAbilityPromptResolved:PreDeath`,
+        created_at,
+        command.actor_id
+      );
+      if (!pre_death_combined.ok) {
+        return pre_death_combined;
+      }
+      const final_combined = pre_death_combined.value;
+      const prompt_id_check = validate_queued_prompt_ids(runtime_state, final_combined);
       if (!prompt_id_check.ok) {
         return prompt_id_check;
       }
 
-      runtime_events.push(...combined);
+      runtime_events.push(...final_combined);
       const state_before_compat = runtime_state;
-      runtime_state = apply_events(runtime_state, combined);
+      runtime_state = apply_events(runtime_state, final_combined);
 
       const compatibility_events = build_marker_compatibility_events(
         state_before_compat,
         runtime_state,
-        combined,
+        final_combined,
         `${command.command_id}:ClaimedAbilityPromptResolvedCompat`,
         created_at,
         command.actor_id
@@ -301,19 +314,31 @@ export function integrate_plugin_runtime(
       );
 
       const combined = [...normalized, ...settled_execution_deaths];
-      const prompt_id_check = validate_queued_prompt_ids(runtime_state, combined);
+      const pre_death_combined = apply_pre_player_died_hooks(
+        runtime_state,
+        combined,
+        plugin_registry,
+        `${command.command_id}:RegistrationResolved:PreDeath`,
+        created_at,
+        command.actor_id
+      );
+      if (!pre_death_combined.ok) {
+        return pre_death_combined;
+      }
+      const final_combined = pre_death_combined.value;
+      const prompt_id_check = validate_queued_prompt_ids(runtime_state, final_combined);
       if (!prompt_id_check.ok) {
         return prompt_id_check;
       }
 
-      runtime_events.push(...combined);
+      runtime_events.push(...final_combined);
       const state_before_compat = runtime_state;
-      runtime_state = apply_events(runtime_state, combined);
+      runtime_state = apply_events(runtime_state, final_combined);
 
       const compatibility_events = build_marker_compatibility_events(
         state_before_compat,
         runtime_state,
-        combined,
+        final_combined,
         `${command.command_id}:RegistrationResolvedCompat`,
         created_at,
         command.actor_id
@@ -360,20 +385,32 @@ export function integrate_plugin_runtime(
       );
 
       const combined = [...normalized, ...settled_execution_deaths];
+      const pre_death_combined = apply_pre_player_died_hooks(
+        runtime_state,
+        combined,
+        plugin_registry,
+        `${command.command_id}:PromptResolved:PreDeath`,
+        created_at,
+        command.actor_id
+      );
+      if (!pre_death_combined.ok) {
+        return pre_death_combined;
+      }
+      const final_combined = pre_death_combined.value;
 
-      const prompt_id_check = validate_queued_prompt_ids(runtime_state, combined);
+      const prompt_id_check = validate_queued_prompt_ids(runtime_state, final_combined);
       if (!prompt_id_check.ok) {
         return prompt_id_check;
       }
 
-      runtime_events.push(...combined);
+      runtime_events.push(...final_combined);
       const state_before_compat = runtime_state;
-      runtime_state = apply_events(runtime_state, combined);
+      runtime_state = apply_events(runtime_state, final_combined);
 
       const compatibility_events = build_marker_compatibility_events(
         state_before_compat,
         runtime_state,
-        combined,
+        final_combined,
         `${command.command_id}:PromptResolvedCompat`,
         created_at,
         command.actor_id
@@ -437,20 +474,32 @@ export function integrate_plugin_runtime(
       );
 
       const combined = [...normalized, ...settled_execution_deaths];
+      const pre_death_combined = apply_pre_player_died_hooks(
+        runtime_state,
+        combined,
+        plugin_registry,
+        `${command.command_id}:NominationMade:PreDeath`,
+        created_at,
+        command.actor_id
+      );
+      if (!pre_death_combined.ok) {
+        return pre_death_combined;
+      }
+      const final_combined = pre_death_combined.value;
 
-      const prompt_id_check = validate_queued_prompt_ids(runtime_state, combined);
+      const prompt_id_check = validate_queued_prompt_ids(runtime_state, final_combined);
       if (!prompt_id_check.ok) {
         return prompt_id_check;
       }
 
-      runtime_events.push(...combined);
+      runtime_events.push(...final_combined);
       const state_before_compat = runtime_state;
-      runtime_state = apply_events(runtime_state, combined);
+      runtime_state = apply_events(runtime_state, final_combined);
 
       const compatibility_events = build_marker_compatibility_events(
         state_before_compat,
         runtime_state,
-        combined,
+        final_combined,
         `${command.command_id}:NominationMadeCompat`,
         created_at,
         command.actor_id
@@ -512,23 +561,35 @@ export function integrate_plugin_runtime(
     );
 
     const combined = [...normalized, ...settled_execution_deaths];
-    if (combined.length === 0) {
+    const pre_death_combined = apply_pre_player_died_hooks(
+      runtime_state,
+      combined,
+      plugin_registry,
+      `${command.command_id}:PlayerDied:${death_event_index}:PreDeath`,
+      created_at,
+      command.actor_id
+    );
+    if (!pre_death_combined.ok) {
+      return pre_death_combined;
+    }
+    const final_combined = pre_death_combined.value;
+    if (final_combined.length === 0) {
       continue;
     }
 
-    const prompt_id_check = validate_queued_prompt_ids(runtime_state, combined);
+    const prompt_id_check = validate_queued_prompt_ids(runtime_state, final_combined);
     if (!prompt_id_check.ok) {
       return prompt_id_check;
     }
 
-    runtime_events.push(...combined);
+    runtime_events.push(...final_combined);
     const state_before_compat = runtime_state;
-    runtime_state = apply_events(runtime_state, combined);
+    runtime_state = apply_events(runtime_state, final_combined);
 
     const compatibility_events = build_marker_compatibility_events(
       state_before_compat,
       runtime_state,
-      combined,
+      final_combined,
       `${command.command_id}:PlayerDied:${death_event_index}:Compat`,
       created_at,
       command.actor_id
@@ -538,7 +599,7 @@ export function integrate_plugin_runtime(
       runtime_state = apply_events(runtime_state, compatibility_events);
     }
 
-    for (const event of combined) {
+    for (const event of final_combined) {
       if (event.event_type === 'PlayerDied') {
         player_died_events.push(event);
       }
@@ -1047,4 +1108,181 @@ function collect_present_character_plugin_ids(state: GameState): string[] {
     ids.add(player.true_character_id);
   }
   return [...ids];
+}
+
+function apply_pre_player_died_hooks(
+  state: GameState,
+  source_events: DomainEvent[],
+  plugin_registry: PluginRegistry,
+  event_id_prefix: string,
+  created_at: string,
+  fallback_actor_id?: string
+): EngineResult<DomainEvent[]> {
+  const player_died_events = source_events.filter(
+    (event): event is Extract<DomainEvent, { event_type: 'PlayerDied' }> => event.event_type === 'PlayerDied'
+  );
+  if (player_died_events.length === 0) {
+    return {
+      ok: true,
+      value: source_events
+    };
+  }
+
+  const output_events: DomainEvent[] = [];
+  let pre_death_index = 0;
+  let working_state = state;
+
+  for (const event of source_events) {
+    if (event.event_type !== 'PlayerDied') {
+      output_events.push(event);
+      continue;
+    }
+
+    const target = working_state.players_by_id[event.payload.player_id];
+    const source = infer_death_source_player(working_state, event);
+    const plugin_ids = collect_present_character_plugin_ids(working_state);
+
+    let prevented = false;
+    let redirected_player_id: string | null = null;
+    const pre_events: DomainEvent[] = [];
+
+    for (const plugin_id of plugin_ids) {
+      const plugin = plugin_registry.get(plugin_id);
+      const hook = plugin?.hooks.on_pre_player_died;
+      if (!plugin || !hook) {
+        continue;
+      }
+
+      let result: ReturnType<NonNullable<CharacterPlugin['hooks']['on_pre_player_died']>>;
+      try {
+        result = hook({
+          state: working_state,
+          target_player_id: event.payload.player_id,
+          source_player_id: source?.player_id ?? null,
+          source_character_id: source?.true_character_id ?? null,
+          day_number: event.payload.day_number,
+          night_number: event.payload.night_number,
+          reason: event.payload.reason
+        });
+      } catch (cause) {
+        const message = cause instanceof Error ? cause.message : 'unknown plugin hook error';
+        return {
+          ok: false,
+          error: {
+            code: 'plugin_hook_dispatch_failed',
+            message: `failed to dispatch on_pre_player_died for ${plugin_id}: ${message}`
+          }
+        };
+      }
+
+      for (const [idx, pre_event] of (result.emitted_events ?? []).entries()) {
+        pre_events.push({
+          event_key: `${event_id_prefix}:${pre_death_index}:PreEvent:${plugin_id}:${idx}`,
+          event_id: 1,
+          event_type: pre_event.event_type,
+          created_at,
+          ...(pre_event.actor_id === undefined
+            ? fallback_actor_id === undefined
+              ? {}
+              : { actor_id: fallback_actor_id }
+            : { actor_id: pre_event.actor_id }),
+          payload: structuredClone(pre_event.payload)
+        } as DomainEvent);
+      }
+
+      if (result.outcome === 'prevent') {
+        prevented = true;
+      }
+      if (result.outcome === 'redirect') {
+        redirected_player_id = result.redirected_player_id;
+      }
+      if (result.outcome === 'prompt') {
+        pre_events.push({
+          event_key: `${event_id_prefix}:${pre_death_index}:PromptQueued:${plugin_id}`,
+          event_id: 1,
+          event_type: 'PromptQueued',
+          created_at,
+          ...(fallback_actor_id === undefined ? {} : { actor_id: fallback_actor_id }),
+          payload: {
+            prompt_key: result.prompt.prompt_key,
+            kind: result.prompt.kind,
+            reason: result.prompt.reason,
+            visibility: result.prompt.visibility,
+            options: result.prompt.options,
+            selection_mode: result.prompt.selection_mode ?? 'single_choice',
+            number_range: result.prompt.number_range ?? null,
+            multi_columns: result.prompt.multi_columns ?? null,
+            storyteller_hint: result.prompt.storyteller_hint ?? null
+          }
+        });
+        prevented = true;
+      }
+    }
+
+    output_events.push(...pre_events);
+    if (pre_events.length > 0) {
+      working_state = apply_events(working_state, pre_events);
+    }
+    if (prevented) {
+      pre_death_index += 1;
+      continue;
+    }
+
+    if (redirected_player_id) {
+      const redirected_target = working_state.players_by_id[redirected_player_id];
+      if (redirected_target && redirected_target.alive) {
+        output_events.push({
+          event_key: `${event_id_prefix}:${pre_death_index}:Redirected`,
+          event_id: 1,
+          event_type: 'PlayerDied',
+          created_at,
+          ...(fallback_actor_id === undefined ? {} : { actor_id: fallback_actor_id }),
+          payload: {
+            player_id: redirected_player_id,
+            day_number: event.payload.day_number,
+            night_number: event.payload.night_number,
+            reason: event.payload.reason
+          }
+        });
+        working_state = apply_events(working_state, [output_events[output_events.length - 1]!]);
+        pre_death_index += 1;
+        continue;
+      }
+    }
+
+    output_events.push(event);
+    working_state = apply_events(working_state, [event]);
+    pre_death_index += 1;
+  }
+
+  return {
+    ok: true,
+    value: output_events
+  };
+}
+
+function infer_death_source_player(
+  state: GameState,
+  death_event: Extract<DomainEvent, { event_type: 'PlayerDied' }>
+) {
+  if (death_event.payload.reason !== 'night_death') {
+    return null;
+  }
+
+  const death_event_key = death_event.event_key;
+  if (!death_event_key) {
+    return null;
+  }
+  if (!death_event_key.includes('ClaimedAbilityPromptResolved') && !death_event_key.includes('PromptResolved')) {
+    return null;
+  }
+
+  const imp = Object.values(state.players_by_id).find((player) => {
+    return player.alive && player.true_character_id === 'imp' && !player.drunk && !player.poisoned;
+  });
+  if (!imp) {
+    return null;
+  }
+
+  return imp;
 }

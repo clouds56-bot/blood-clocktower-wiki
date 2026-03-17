@@ -133,6 +133,36 @@ export interface PlayerDiedHookContext {
   reason: string;
 }
 
+export interface PrePlayerDiedHookContext {
+  state: Readonly<GameState>;
+  target_player_id: PlayerId;
+  source_player_id: PlayerId | null;
+  source_character_id: string | null;
+  day_number: number;
+  night_number: number;
+  reason: string;
+}
+
+export type PrePlayerDiedHookResult =
+  | {
+      outcome: 'allow';
+      emitted_events?: PluginEventSpec[];
+    }
+  | {
+      outcome: 'prevent';
+      emitted_events?: PluginEventSpec[];
+    }
+  | {
+      outcome: 'redirect';
+      redirected_player_id: PlayerId;
+      emitted_events?: PluginEventSpec[];
+    }
+  | {
+      outcome: 'prompt';
+      prompt: PluginPromptSpec;
+      emitted_events?: PluginEventSpec[];
+    };
+
 export interface RegistrationQueryHookContext {
   state: Readonly<GameState>;
   query_id: string;
@@ -191,6 +221,7 @@ export type VoteCastValidateHookResult =
     };
 
 export interface CharacterPluginHooks {
+  on_pre_player_died?: (context: PrePlayerDiedHookContext) => PrePlayerDiedHookResult;
   on_claimed_ability_use?: (context: ClaimedAbilityUseHookContext) => PluginResult;
   on_night_wake?: (context: NightWakeHookContext) => PluginResult;
   on_prompt_resolved?: (context: PromptResolvedHookContext) => PluginResult;

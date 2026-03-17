@@ -13,6 +13,7 @@ import { fortune_teller_plugin } from '../../src/plugins/characters/fortune-tell
 import { imp_plugin } from '../../src/plugins/characters/imp.js';
 import { investigator_plugin } from '../../src/plugins/characters/investigator.js';
 import { librarian_plugin } from '../../src/plugins/characters/librarian.js';
+import { mayor_plugin } from '../../src/plugins/characters/mayor.js';
 import { monk_plugin } from '../../src/plugins/characters/monk.js';
 import { ravenkeeper_plugin } from '../../src/plugins/characters/ravenkeeper.js';
 import { slayer_plugin } from '../../src/plugins/characters/slayer.js';
@@ -489,65 +490,68 @@ test('monk example: protects Fortune Teller from Imp attack', () => {
   assert.equal(imp_result?.emitted_events.length, 0);
 });
 
-test('monk example: protects Mayor from Imp attack (no death)', () => {
+test('mayor example: Mayor target triggers mayor-owned redirection prompt', () => {
   const state = create_initial_state('g1');
   state.night_number = 2;
-  state.players_by_id.p1 = make_player('p1', 'Monk', 'monk', 'good');
+  state.players_by_id.p1 = make_player('p1', 'Support', 'chef', 'good');
   state.players_by_id.p2 = make_player('p2', 'Mayor', 'mayor', 'good');
   state.players_by_id.p3 = make_player('p3', 'Imp', 'imp', 'evil', { is_demon: true });
 
-  const monk_result = monk_plugin.hooks.on_prompt_resolved?.({
-    state,
-    prompt_key: 'plugin:monk:night_protect:n2:p1',
-    selected_option_id: 'p2',
-    freeform: null
-  });
-  const marker_apply = monk_result?.emitted_events.find((event) => event.event_type === 'ReminderMarkerApplied');
-  assert.ok(marker_apply);
+  let runtime_state = state;
+  runtime_state = apply_events(runtime_state, [
+    {
+      event_key: 't:prompt',
+      event_id: 1,
+      event_type: 'PromptQueued',
+      created_at: '2026-03-12T00:00:00.000Z',
+      payload: {
+        prompt_key: 'plugin:imp:night_kill:n2:p3',
+        kind: 'choice',
+        reason: 'plugin:imp:choose_night_kill_target:n2:p3',
+        visibility: 'player',
+        options: [
+          { option_id: 'p1', label: 'Support' },
+          { option_id: 'p2', label: 'Mayor' },
+          { option_id: 'p3', label: 'Imp' }
+        ],
+        selection_mode: 'single_choice',
+        number_range: null,
+        multi_columns: null,
+        storyteller_hint: null
+      }
+    }
+  ]);
 
-  if (marker_apply && marker_apply.event_type === 'ReminderMarkerApplied') {
-    const payload = marker_apply.payload as {
-      marker_id: string;
-      kind: string;
-      effect: string;
-      note: string;
-      source_player_id: string | null;
-      source_character_id: string | null;
-      target_player_id: string | null;
-      target_scope: 'player' | 'game' | 'pair';
-      authoritative: boolean;
-      expires_policy:
-        | 'manual'
-        | 'end_of_day'
-        | 'start_of_day'
-        | 'end_of_night'
-        | 'start_of_night'
-        | 'on_source_death'
-        | 'on_target_death'
-        | 'at_day'
-        | 'at_night';
-      expires_at_day_number: number | null;
-      expires_at_night_number: number | null;
-      source_event_id: number | null;
-      metadata: Record<string, unknown>;
-    };
+  const resolve_imp = handle_command(
+    runtime_state,
+    {
+      command_id: 'c-resolve-imp-on-mayor',
+      command_type: 'ResolvePrompt',
+      payload: {
+        prompt_key: 'plugin:imp:night_kill:n2:p3',
+        selected_option_id: 'p2',
+        freeform: null,
+        notes: null
+      }
+    },
+    '2026-03-12T00:00:01.000Z',
+    {
+      plugin_registry: new PluginRegistry([imp_plugin, mayor_plugin])
+    }
+  );
 
-    state.reminder_markers_by_id[payload.marker_id] = {
-      ...payload,
-      status: 'active',
-      created_at_event_id: 3,
-      cleared_at_event_id: null
-    };
-    state.active_reminder_marker_ids = [payload.marker_id];
+  assert.equal(resolve_imp.ok, true);
+  if (!resolve_imp.ok) {
+    return;
   }
+  const with_resolved = apply_events(runtime_state, resolve_imp.value);
 
-  const imp_result = imp_plugin.hooks.on_prompt_resolved?.({
-    state,
-    prompt_key: 'plugin:imp:night_kill:n2:p3',
-    selected_option_id: 'p2',
-    freeform: null
-  });
-  assert.equal(imp_result?.emitted_events.length, 0);
+  assert.equal(with_resolved.pending_prompts.length > 0, true);
+  assert.equal(
+    with_resolved.pending_prompts.includes('plugin:mayor:redirect_death:n2:p3'),
+    true
+  );
+  assert.equal(with_resolved.players_by_id.p2?.alive, true);
 });
 
 test('monk example: monk protects Imp self-kill transfer case', () => {
