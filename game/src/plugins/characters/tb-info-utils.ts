@@ -17,6 +17,11 @@ import type {
   RegistrationQueryHookContext,
   RegistrationQueryHookResult
 } from '../contracts.js';
+import {
+  build_night_prompt_key,
+  is_night_prompt_key,
+  parse_night_prompt_owner_player_id
+} from './prompt-key-utils.js';
 import { recluse_plugin } from './recluse.js';
 import { spy_plugin } from './spy.js';
 
@@ -228,6 +233,440 @@ function parse_misinfo_prompt_subject_player_id(prompt_key: string): string | nu
 
 export function is_functional_player(state: Readonly<GameState>, player_id: string): boolean {
   return is_ability_active(state, player_id);
+}
+
+export interface FirstNightPairInfoConfig {
+  role_id: 'washerwoman' | 'librarian' | 'investigator';
+  target_type: 'townsfolk' | 'outsider' | 'minion';
+  note_prefix: string;
+  misinformation_character_ids: string[];
+  marker_kinds: {
+    shown: string;
+    wrong: string;
+  };
+}
+
+export function build_first_night_pair_info_hooks(config: FirstNightPairInfoConfig): {
+  on_night_wake: (context: NightWakeHookContext) => PluginResult;
+  on_prompt_resolved: (context: PromptResolvedHookContext) => PluginResult;
+} {
+  return {
+    on_night_wake: (context): PluginResult => {
+      const info_mode = get_player_information_mode(context.state, context.player_id);
+      if (info_mode === 'inactive') {
+        return {
+          emitted_events: [
+            {
+              event_type: 'StorytellerRulingRecorded',
+              payload: {
+                prompt_key: null,
+                note: `${config.note_prefix}:${context.player_id}:inactive`
+              }
+            }
+          ],
+          queued_prompts: [],
+          queued_interrupts: []
+        };
+      }
+
+      const in_play_character_ids = list_in_play_character_ids(context.state, context.player_id, config.target_type);
+      if (info_mode === 'truthful' && in_play_character_ids.length === 0) {
+        return {
+          emitted_events: [
+            {
+              event_type: 'StorytellerRulingRecorded',
+              payload: {
+                prompt_key: null,
+                note: `${config.note_prefix}:${context.player_id}:none_in_play`
+              }
+            }
+          ],
+          queued_prompts: [],
+          queued_interrupts: []
+        };
+      }
+
+      const player_ids = list_other_player_ids(context.state, context.player_id);
+      const character_ids = info_mode === 'truthful'
+        ? in_play_character_ids
+        : [...config.misinformation_character_ids].sort((a, b) => a.localeCompare(b));
+      const verb = info_mode === 'truthful' ? 'choose_info_truth' : 'choose_info_misinfo';
+
+      return {
+        emitted_events: [],
+        queued_prompts: [
+          {
+            prompt_key: build_night_prompt_key(config.role_id, verb, context.state.night_number, context.player_id),
+            kind: 'choice',
+            reason: `plugin:${config.role_id}:choose_info:n${context.state.night_number}:${context.player_id}`,
+            visibility: 'storyteller',
+            options: [],
+            selection_mode: 'multi_column',
+            multi_columns: [character_ids, player_ids, player_ids],
+            storyteller_hint: build_role_pair_note(
+              context.state,
+              context.player_id,
+              config.target_type,
+              config.note_prefix
+            )
+          }
+        ],
+        queued_interrupts: []
+      };
+    },
+    on_prompt_resolved: (context): PluginResult => {
+      const mode = resolve_pair_prompt_mode(context.prompt_key, config.role_id);
+      if (!mode) {
+        return {
+          emitted_events: [],
+          queued_prompts: [],
+          queued_interrupts: []
+        };
+      }
+
+      const owner_player_id = parse_night_prompt_owner_player_id(
+        context.prompt_key,
+        config.role_id,
+        mode === 'truthful' ? 'choose_info_truth' : 'choose_info_misinfo'
+      );
+      if (!owner_player_id) {
+        return {
+          emitted_events: [],
+          queued_prompts: [],
+          queued_interrupts: []
+        };
+      }
+
+      const parsed = parse_three_column_choice(context.selected_option_id);
+      const has_in_play = list_in_play_character_ids(context.state, owner_player_id, config.target_type).length > 0;
+      if (!parsed) {
+        if (mode === 'truthful' && !has_in_play) {
+          return {
+            emitted_events: [
+              {
+                event_type: 'StorytellerRulingRecorded',
+                payload: {
+                  prompt_key: context.prompt_key,
+                  note: `${config.note_prefix}:${owner_player_id}:none_in_play`
+                }
+              },
+              ...build_clear_pair_marker_events(context.state, config, owner_player_id)
+            ],
+            queued_prompts: [],
+            queued_interrupts: []
+          };
+        }
+        return build_retry_result(context, owner_player_id, config, mode, 'invalid_selection');
+      }
+
+      if (mode === 'truthful' && !is_valid_truthful_selection(context.state, owner_player_id, parsed, config.target_type)) {
+        return build_retry_result(context, owner_player_id, config, mode, 'invalid_selection');
+      }
+
+      const marker_targets = resolve_marker_targets(context.state, parsed, mode);
+      const emitted_events = [
+        {
+          event_type: 'StorytellerRulingRecorded' as const,
+          payload: {
+            prompt_key: context.prompt_key,
+            note:
+              `${config.note_prefix}:${owner_player_id}:character=${parsed.character_id};` +
+              `players=${parsed.left_player_id},${parsed.right_player_id}`
+          }
+        },
+        ...build_clear_pair_marker_events(context.state, config, owner_player_id),
+        build_pair_marker_event({
+          marker_id: build_pair_marker_id(config.role_id, context.prompt_key, 'shown'),
+          marker_kind: config.marker_kinds.shown,
+          marker_note: `${config.role_id} shown candidate`,
+          source_player_id: owner_player_id,
+          target_player_id: marker_targets.shown_player_id,
+          source_prompt_key: context.prompt_key,
+          info_character_id: parsed.character_id,
+          slot: 'shown'
+        }),
+        build_pair_marker_event({
+          marker_id: build_pair_marker_id(config.role_id, context.prompt_key, 'wrong'),
+          marker_kind: config.marker_kinds.wrong,
+          marker_note: `${config.role_id} wrong candidate`,
+          source_player_id: owner_player_id,
+          target_player_id: marker_targets.wrong_player_id,
+          source_prompt_key: context.prompt_key,
+          info_character_id: parsed.character_id,
+          slot: 'wrong'
+        })
+      ];
+
+      return {
+        emitted_events,
+        queued_prompts: [],
+        queued_interrupts: []
+      };
+    }
+  };
+}
+
+function build_retry_result(
+  context: PromptResolvedHookContext,
+  owner_player_id: string,
+  config: FirstNightPairInfoConfig,
+  mode: 'truthful' | 'misinformation',
+  reason: 'invalid_selection'
+): PluginResult {
+  const retry_prompt_key = next_retry_prompt_key(context.prompt_key);
+  const character_ids = mode === 'truthful'
+    ? list_in_play_character_ids(context.state, owner_player_id, config.target_type)
+    : [...config.misinformation_character_ids].sort((a, b) => a.localeCompare(b));
+  const player_ids = list_other_player_ids(context.state, owner_player_id);
+
+  return {
+    emitted_events: [
+      {
+        event_type: 'StorytellerRulingRecorded',
+        payload: {
+          prompt_key: context.prompt_key,
+          note: `${config.note_prefix}:${owner_player_id}:${reason}:retry`
+        }
+      }
+    ],
+    queued_prompts: [
+      {
+        prompt_key: retry_prompt_key,
+        kind: 'choice',
+        reason: `plugin:${config.role_id}:retry_info:${reason}`,
+        visibility: 'storyteller',
+        options: [],
+        selection_mode: 'multi_column',
+        multi_columns: [character_ids, player_ids, player_ids],
+        storyteller_hint: build_role_pair_note(context.state, owner_player_id, config.target_type, config.note_prefix)
+      }
+    ],
+    queued_interrupts: []
+  };
+}
+
+function resolve_pair_prompt_mode(
+  prompt_key: string,
+  role_id: FirstNightPairInfoConfig['role_id']
+): 'truthful' | 'misinformation' | null {
+  if (is_night_prompt_key(prompt_key, role_id, 'choose_info_truth')) {
+    return 'truthful';
+  }
+  if (is_night_prompt_key(prompt_key, role_id, 'choose_info_misinfo')) {
+    return 'misinformation';
+  }
+  return null;
+}
+
+function next_retry_prompt_key(prompt_key: string): string {
+  const retry_match = /:retry(\d+)$/.exec(prompt_key);
+  if (!retry_match) {
+    return `${prompt_key}:retry1`;
+  }
+
+  const next_index = Number.parseInt(retry_match[1] ?? '0', 10) + 1;
+  return prompt_key.replace(/:retry\d+$/, `:retry${next_index}`);
+}
+
+function list_other_player_ids(state: Readonly<GameState>, owner_player_id: string): string[] {
+  const seat_order_ids = state.seat_order.filter((player_id) => player_id !== owner_player_id);
+  const seen = new Set(seat_order_ids);
+  const missing = Object.keys(state.players_by_id)
+    .filter((player_id) => player_id !== owner_player_id && !seen.has(player_id))
+    .sort((a, b) => a.localeCompare(b));
+  return [...seat_order_ids, ...missing];
+}
+
+function list_in_play_character_ids(
+  state: Readonly<GameState>,
+  owner_player_id: string,
+  target_type: FirstNightPairInfoConfig['target_type']
+): string[] {
+  const unique_character_ids = new Set<string>();
+  for (const player of list_players_by_true_character_type(state, target_type)) {
+    if (player.player_id === owner_player_id || !player.true_character_id) {
+      continue;
+    }
+    unique_character_ids.add(player.true_character_id);
+  }
+  return [...unique_character_ids].sort((a, b) => a.localeCompare(b));
+}
+
+function parse_three_column_choice(
+  selected_option_id: string | null
+): { character_id: string; left_player_id: string; right_player_id: string } | null {
+  if (!selected_option_id) {
+    return null;
+  }
+  const [character_id, left_player_id, right_player_id] = selected_option_id.split(',').map((token) => token.trim());
+  if (!character_id || !left_player_id || !right_player_id) {
+    return null;
+  }
+  if (left_player_id === right_player_id) {
+    return null;
+  }
+  return {
+    character_id,
+    left_player_id,
+    right_player_id
+  };
+}
+
+function is_valid_truthful_selection(
+  state: Readonly<GameState>,
+  owner_player_id: string,
+  choice: { character_id: string; left_player_id: string; right_player_id: string },
+  target_type: FirstNightPairInfoConfig['target_type']
+): boolean {
+  if (choice.left_player_id === owner_player_id || choice.right_player_id === owner_player_id) {
+    return false;
+  }
+
+  const left_player = state.players_by_id[choice.left_player_id];
+  const right_player = state.players_by_id[choice.right_player_id];
+  if (!left_player || !right_player) {
+    return false;
+  }
+
+  const in_play = list_in_play_character_ids(state, owner_player_id, target_type);
+  if (!in_play.includes(choice.character_id)) {
+    return false;
+  }
+
+  return left_player.true_character_id === choice.character_id || right_player.true_character_id === choice.character_id;
+}
+
+function resolve_marker_targets(
+  state: Readonly<GameState>,
+  choice: { character_id: string; left_player_id: string; right_player_id: string },
+  mode: 'truthful' | 'misinformation'
+): { shown_player_id: string; wrong_player_id: string } {
+  if (mode === 'misinformation') {
+    return {
+      shown_player_id: choice.left_player_id,
+      wrong_player_id: choice.right_player_id
+    };
+  }
+
+  const left_player = state.players_by_id[choice.left_player_id];
+  const right_player = state.players_by_id[choice.right_player_id];
+  if (left_player?.true_character_id === choice.character_id) {
+    return {
+      shown_player_id: choice.left_player_id,
+      wrong_player_id: choice.right_player_id
+    };
+  }
+  if (right_player?.true_character_id === choice.character_id) {
+    return {
+      shown_player_id: choice.right_player_id,
+      wrong_player_id: choice.left_player_id
+    };
+  }
+
+  return {
+    shown_player_id: choice.left_player_id,
+    wrong_player_id: choice.right_player_id
+  };
+}
+
+function build_role_pair_note(
+  state: Readonly<GameState>,
+  owner_player_id: string,
+  target_type: FirstNightPairInfoConfig['target_type'],
+  prefix: string
+): string {
+  const candidates = list_players_by_true_character_type(state, target_type).filter(
+    (player) => player.player_id !== owner_player_id
+  );
+  if (candidates.length === 0) {
+    return `${prefix}:${owner_player_id}:none_in_play`;
+  }
+
+  const shown = candidates[0];
+  if (!shown || !shown.true_character_id) {
+    return `${prefix}:${owner_player_id}:none_in_play`;
+  }
+
+  const decoy = state.seat_order
+    .map((player_id) => state.players_by_id[player_id])
+    .find((player) => player && player.player_id !== shown.player_id && player.player_id !== owner_player_id);
+
+  if (!decoy) {
+    return `${prefix}:${owner_player_id}:character=${shown.true_character_id};players=${shown.player_id}`;
+  }
+
+  return `${prefix}:${owner_player_id}:character=${shown.true_character_id};players=${shown.player_id},${decoy.player_id}`;
+}
+
+function build_clear_pair_marker_events(
+  state: Readonly<GameState>,
+  config: FirstNightPairInfoConfig,
+  owner_player_id: string
+): PluginEventSpec[] {
+  const events: PluginEventSpec[] = [];
+  const clearable_kinds = new Set([config.marker_kinds.shown, config.marker_kinds.wrong]);
+
+  for (const marker_id of state.active_reminder_marker_ids) {
+    const marker = state.reminder_markers_by_id[marker_id];
+    if (!marker || marker.status !== 'active') {
+      continue;
+    }
+    if (marker.source_player_id !== owner_player_id || marker.source_character_id !== config.role_id) {
+      continue;
+    }
+    if (!clearable_kinds.has(marker.kind)) {
+      continue;
+    }
+
+    events.push({
+      event_type: 'ReminderMarkerCleared',
+      payload: {
+        marker_id: marker.marker_id,
+        reason: `${config.role_id}_info_replaced`
+      }
+    });
+  }
+
+  return events;
+}
+
+function build_pair_marker_id(role_id: string, prompt_key: string, slot: 'shown' | 'wrong'): string {
+  return `plugin:${role_id}:info_marker:${prompt_key}:${slot}`;
+}
+
+function build_pair_marker_event(args: {
+  marker_id: string;
+  marker_kind: string;
+  marker_note: string;
+  source_player_id: string;
+  target_player_id: string;
+  source_prompt_key: string;
+  info_character_id: string;
+  slot: 'shown' | 'wrong';
+}): PluginEventSpec {
+  return {
+    event_type: 'ReminderMarkerApplied',
+    payload: {
+      marker_id: args.marker_id,
+      kind: args.marker_kind,
+      effect: 'first_night_info',
+      note: args.marker_note,
+      source_player_id: args.source_player_id,
+      source_character_id: args.marker_kind.split(':')[0] ?? null,
+      target_player_id: args.target_player_id,
+      target_scope: 'player',
+      authoritative: false,
+      expires_policy: 'manual',
+      expires_at_day_number: null,
+      expires_at_night_number: null,
+      source_event_id: null,
+      metadata: {
+        source_prompt_key: args.source_prompt_key,
+        info_character_id: args.info_character_id,
+        slot: args.slot
+      }
+    }
+  };
 }
 
 export interface RegistrationQueryRequest {

@@ -184,10 +184,15 @@ test('investigator example: Baron and Mayor pair -> learns Baron', () => {
     selected_option_id: 'baron,p2,p3',
     freeform: null
   });
+  const note = resolved?.emitted_events.find((event) => event.event_type === 'StorytellerRulingRecorded');
   assert.equal(
-    resolved?.emitted_events[0]?.payload.note,
+    note?.payload.note,
     'investigator_info:p1:character=baron;players=p2,p3'
   );
+  const markers = resolved?.emitted_events.filter((event) => event.event_type === 'ReminderMarkerApplied') ?? [];
+  assert.equal(markers.length, 2);
+  const markerKinds = markers.map((event) => String(event.payload.kind)).sort((a, b) => a.localeCompare(b));
+  assert.deepEqual(markerKinds, ['investigator:minion', 'investigator:wrong']);
 });
 
 test('investigator example: Spy and Poisoner pair -> learns Spy', () => {
@@ -205,8 +210,9 @@ test('investigator example: Spy and Poisoner pair -> learns Spy', () => {
     selected_option_id: 'spy,p2,p3',
     freeform: null
   });
+  const note = resolved?.emitted_events.find((event) => event.event_type === 'StorytellerRulingRecorded');
   assert.equal(
-    resolved?.emitted_events[0]?.payload.note,
+    note?.payload.note,
     'investigator_info:p1:character=spy;players=p2,p3'
   );
 });
@@ -228,7 +234,12 @@ test('librarian example: Saint in pair -> learns Saint', () => {
     selected_option_id: 'saint,p2,p3',
     freeform: null
   });
-  assert.equal(resolved?.emitted_events[0]?.payload.note, 'librarian_info:p1:character=saint;players=p2,p3');
+  const note = resolved?.emitted_events.find((event) => event.event_type === 'StorytellerRulingRecorded');
+  assert.equal(note?.payload.note, 'librarian_info:p1:character=saint;players=p2,p3');
+  const markers = resolved?.emitted_events.filter((event) => event.event_type === 'ReminderMarkerApplied') ?? [];
+  assert.equal(markers.length, 2);
+  const markerKinds = markers.map((event) => String(event.payload.kind)).sort((a, b) => a.localeCompare(b));
+  assert.deepEqual(markerKinds, ['librarian:outsider', 'librarian:wrong']);
 });
 
 test('librarian example: zero outsiders in play -> learns 0', () => {
@@ -238,14 +249,8 @@ test('librarian example: zero outsiders in play -> learns 0', () => {
   state.players_by_id.p2 = make_player('p2', 'Chef', 'chef', 'good');
 
   const wake = librarian_plugin.hooks.on_night_wake?.({ state, player_id: 'p1', wake_step_id: 'wake:1' });
-  assert.equal(wake?.queued_prompts.length, 1);
-  const resolved = librarian_plugin.hooks.on_prompt_resolved?.({
-    state,
-    prompt_key: wake?.queued_prompts[0]?.prompt_key ?? '',
-    selected_option_id: null,
-    freeform: null
-  });
-  assert.equal(resolved?.emitted_events[0]?.payload.note, 'librarian_info:p1:none_in_play');
+  assert.equal(wake?.queued_prompts.length, 0);
+  assert.equal(wake?.emitted_events[0]?.payload.note, 'librarian_info:p1:none_in_play');
 });
 
 test('librarian example: Drunk true role is shown, not perceived role', () => {
@@ -266,7 +271,8 @@ test('librarian example: Drunk true role is shown, not perceived role', () => {
     selected_option_id: 'drunk,p2,p3',
     freeform: null
   });
-  assert.equal(resolved?.emitted_events[0]?.payload.note, 'librarian_info:p1:character=drunk;players=p2,p3');
+  const note = resolved?.emitted_events.find((event) => event.event_type === 'StorytellerRulingRecorded');
+  assert.equal(note?.payload.note, 'librarian_info:p1:character=drunk;players=p2,p3');
 });
 
 test('washerwoman example: Chef in pair -> learns Chef', () => {
@@ -284,10 +290,15 @@ test('washerwoman example: Chef in pair -> learns Chef', () => {
     selected_option_id: 'chef,p2,p3',
     freeform: null
   });
+  const note = resolved?.emitted_events.find((event) => event.event_type === 'StorytellerRulingRecorded');
   assert.equal(
-    resolved?.emitted_events[0]?.payload.note,
+    note?.payload.note,
     'washerwoman_info:p1:character=chef;players=p2,p3'
   );
+  const markers = resolved?.emitted_events.filter((event) => event.event_type === 'ReminderMarkerApplied') ?? [];
+  assert.equal(markers.length, 2);
+  const markerKinds = markers.map((event) => String(event.payload.kind)).sort((a, b) => a.localeCompare(b));
+  assert.deepEqual(markerKinds, ['washerwoman:townsfolk', 'washerwoman:wrong']);
 });
 
 test('washerwoman example: Imp + Virgin pair -> learns Virgin', () => {
@@ -305,10 +316,114 @@ test('washerwoman example: Imp + Virgin pair -> learns Virgin', () => {
     selected_option_id: 'virgin,p3,p2',
     freeform: null
   });
+  const note = resolved?.emitted_events.find((event) => event.event_type === 'StorytellerRulingRecorded');
   assert.equal(
-    resolved?.emitted_events[0]?.payload.note,
+    note?.payload.note,
     'washerwoman_info:p1:character=virgin;players=p3,p2'
   );
+});
+
+test('washerwoman invalid truthful selection queues retry, then success applies markers', () => {
+  const state = create_initial_state('g1');
+  state.night_number = 1;
+  state.seat_order = ['p1', 'p2', 'p3'];
+  state.players_by_id.p1 = make_player('p1', 'Washerwoman', 'washerwoman', 'good');
+  state.players_by_id.p2 = make_player('p2', 'Chef', 'chef', 'good');
+  state.players_by_id.p3 = make_player('p3', 'Monk', 'monk', 'good');
+
+  const wake = washerwoman_plugin.hooks.on_night_wake?.({ state, player_id: 'p1', wake_step_id: 'wake:1' });
+  assert.equal(wake?.queued_prompts.length, 1);
+
+  const invalid = washerwoman_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_key: wake?.queued_prompts[0]?.prompt_key ?? '',
+    selected_option_id: 'chef,p3,p1',
+    freeform: null
+  });
+  const invalidNote = invalid?.emitted_events.find((event) => event.event_type === 'StorytellerRulingRecorded');
+  assert.equal(invalidNote?.payload.note, 'washerwoman_info:p1:invalid_selection:retry');
+  assert.equal(invalid?.queued_prompts.length, 1);
+  assert.equal(invalid?.queued_prompts[0]?.prompt_key.endsWith(':retry1'), true);
+  const invalidMarkers = invalid?.emitted_events.filter((event) => event.event_type === 'ReminderMarkerApplied') ?? [];
+  assert.equal(invalidMarkers.length, 0);
+
+  const retryResolved = washerwoman_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_key: invalid?.queued_prompts[0]?.prompt_key ?? '',
+    selected_option_id: 'chef,p2,p3',
+    freeform: null
+  });
+
+  const successNote = retryResolved?.emitted_events.find((event) => event.event_type === 'StorytellerRulingRecorded');
+  assert.equal(successNote?.payload.note, 'washerwoman_info:p1:character=chef;players=p2,p3');
+
+  const markerEvents = retryResolved?.emitted_events.filter((event) => event.event_type === 'ReminderMarkerApplied') ?? [];
+  assert.equal(markerEvents.length, 2);
+  const markerKinds = markerEvents
+    .map((event) => String(event.payload.kind))
+    .sort((a, b) => a.localeCompare(b));
+  assert.deepEqual(markerKinds, ['washerwoman:townsfolk', 'washerwoman:wrong']);
+});
+
+test('librarian successful resolution clears older librarian info markers before applying new ones', () => {
+  const state = create_initial_state('g1');
+  state.night_number = 1;
+  state.seat_order = ['p1', 'p2', 'p3'];
+  state.players_by_id.p1 = make_player('p1', 'Librarian', 'librarian', 'good');
+  state.players_by_id.p2 = make_player('p2', 'Saint', 'saint', 'good');
+  state.players_by_id.p3 = make_player('p3', 'Drunk', 'drunk', 'good');
+
+  state.reminder_markers_by_id.oldShown = {
+    marker_id: 'oldShown',
+    kind: 'librarian:outsider',
+    effect: 'first_night_info',
+    note: 'old shown',
+    status: 'active',
+    source_player_id: 'p1',
+    source_character_id: 'librarian',
+    target_player_id: 'p2',
+    target_scope: 'player',
+    authoritative: false,
+    expires_policy: 'manual',
+    expires_at_day_number: null,
+    expires_at_night_number: null,
+    created_at_event_id: 1,
+    cleared_at_event_id: null,
+    source_event_id: null,
+    metadata: {}
+  };
+  state.reminder_markers_by_id.oldWrong = {
+    marker_id: 'oldWrong',
+    kind: 'librarian:wrong',
+    effect: 'first_night_info',
+    note: 'old wrong',
+    status: 'active',
+    source_player_id: 'p1',
+    source_character_id: 'librarian',
+    target_player_id: 'p3',
+    target_scope: 'player',
+    authoritative: false,
+    expires_policy: 'manual',
+    expires_at_day_number: null,
+    expires_at_night_number: null,
+    created_at_event_id: 1,
+    cleared_at_event_id: null,
+    source_event_id: null,
+    metadata: {}
+  };
+  state.active_reminder_marker_ids = ['oldShown', 'oldWrong'];
+
+  const resolved = librarian_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_key: 'plugin:librarian:choose_info_truth:n1:p1',
+    selected_option_id: 'saint,p2,p3',
+    freeform: null
+  });
+
+  const cleared = resolved?.emitted_events.filter((event) => event.event_type === 'ReminderMarkerCleared') ?? [];
+  assert.equal(cleared.length, 2);
+  const applied = resolved?.emitted_events.filter((event) => event.event_type === 'ReminderMarkerApplied') ?? [];
+  assert.equal(applied.length, 2);
 });
 
 test.skip('washerwoman example: spy registers as townsfolk (registration system not implemented yet)');

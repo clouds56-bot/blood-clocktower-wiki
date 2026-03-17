@@ -411,7 +411,9 @@ Determinism rules for extended hooks:
 - `washerwoman`, `librarian`, and `investigator` must request Storyteller selection instead of auto-picking deterministic pairs.
 - For truthful resolution, prompts are constrained to in-play character ids for that role scope (`townsfolk` / `outsider` / `minion`) plus two distinct non-self players.
 - For drunk/poisoned resolution, prompts remain Storyteller-only and allow full role-domain misinformation choices.
-- Resolved output is still recorded as `StorytellerRulingRecorded` notes for replay/audit determinism.
+- Invalid truthful selections must re-prompt the Storyteller (retry required) rather than falling back to an auto-picked pair.
+- Successful first-night pair-info resolutions should apply role reminder markers for the shown candidate and decoy (`*:townsfolk|outsider|minion` + `*:wrong`), aligned with reminder config.
+- Resolved output remains recorded as `StorytellerRulingRecorded` notes for replay/audit determinism.
 
 ### Phase 6 Scope Split
 
