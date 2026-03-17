@@ -182,6 +182,54 @@ test('imp does not kill monk protected target', () => {
   assert.equal(result?.emitted_events.length, 0);
 });
 
+test('imp targeting functional Mayor queues storyteller redirection prompt', () => {
+  const state = create_initial_state('g1');
+  state.day_number = 1;
+  state.night_number = 2;
+  state.seat_order = ['p1', 'p2', 'p3'];
+  state.players_by_id.p1 = make_player('p1', 'ImpPlayer', 'imp', 'evil', { is_demon: true });
+  state.players_by_id.p2 = make_player('p2', 'Mayor', 'mayor', 'good');
+  state.players_by_id.p3 = make_player('p3', 'Chef', 'chef', 'good');
+
+  const result = imp_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_key: 'plugin:imp:night_kill:n2:p1',
+    selected_option_id: 'p2',
+    freeform: null
+  });
+
+  assert.ok(result);
+  assert.equal(result?.emitted_events.length, 0);
+  assert.equal(result?.queued_prompts.length, 1);
+  assert.equal(result?.queued_prompts[0]?.prompt_key, 'plugin:imp:mayor_redirect:n2:p1:p2');
+  assert.deepEqual(
+    result?.queued_prompts[0]?.options.map((option) => option.option_id),
+    ['p1', 'p3']
+  );
+});
+
+test('imp mayor redirection prompt kills chosen replacement target', () => {
+  const state = create_initial_state('g1');
+  state.day_number = 1;
+  state.night_number = 2;
+  state.seat_order = ['p1', 'p2', 'p3'];
+  state.players_by_id.p1 = make_player('p1', 'ImpPlayer', 'imp', 'evil', { is_demon: true });
+  state.players_by_id.p2 = make_player('p2', 'Mayor', 'mayor', 'good');
+  state.players_by_id.p3 = make_player('p3', 'Chef', 'chef', 'good');
+
+  const result = imp_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_key: 'plugin:imp:mayor_redirect:n2:p1:p2',
+    selected_option_id: 'p3',
+    freeform: null
+  });
+
+  assert.ok(result);
+  assert.equal(result?.emitted_events.length, 1);
+  assert.equal(result?.emitted_events[0]?.event_type, 'PlayerDied');
+  assert.equal(result?.emitted_events[0]?.payload.player_id, 'p3');
+});
+
 test('imp kill queues ravenkeeper death reveal prompt', () => {
   const state = create_initial_state('g1');
   state.day_number = 1;

@@ -723,7 +723,54 @@ test('slayer example: chooses Imp, Imp dies, then good wins', () => {
   assert.equal(state.winning_team, 'good');
 });
 
-test.skip('slayer example: chooses Recluse and recluse dies via demon registration (registration not implemented yet)');
+test('slayer example: chooses Recluse and recluse dies via demon registration', () => {
+  let state = bootstrap_day_state();
+  state = run_command(state, {
+    command_id: 'c-assign-slayer',
+    command_type: 'AssignCharacter',
+    payload: { player_id: 'p1', true_character_id: 'slayer' }
+  });
+  state = run_command(state, {
+    command_id: 'c-assign-recluse',
+    command_type: 'AssignCharacter',
+    payload: { player_id: 'p2', true_character_id: 'recluse' }
+  });
+
+  state = run_command(state, {
+    command_id: 'c-slay-recluse',
+    command_type: 'UseClaimedAbility',
+    payload: {
+      claimant_player_id: 'p1',
+      claimed_character_id: 'slayer'
+    }
+  });
+
+  const slayer_prompt_key = state.pending_prompts[0] ?? '';
+  state = run_command(state, {
+    command_id: 'c-slay-recluse-resolve-target',
+    command_type: 'ResolvePrompt',
+    payload: {
+      prompt_key: slayer_prompt_key,
+      selected_option_id: 'p2',
+      freeform: null,
+      notes: null
+    }
+  });
+
+  const registration_prompt_key = state.pending_prompts[0] ?? '';
+  state = run_command(state, {
+    command_id: 'c-slay-recluse-resolve-registration',
+    command_type: 'ResolvePrompt',
+    payload: {
+      prompt_key: registration_prompt_key,
+      selected_option_id: 'character_type:demon',
+      freeform: null,
+      notes: null
+    }
+  });
+
+  assert.equal(state.players_by_id.p2?.alive, false);
+});
 
 test('slayer example: Imp bluffing as Slayer creates attempt but no kill', () => {
   let state = bootstrap_day_state();
@@ -1038,7 +1085,80 @@ test('undertaker example: executed Drunk is seen as Drunk token', () => {
   assert.equal(result?.emitted_events[0]?.payload.note, 'undertaker_info:p1:executed_player=p2;character=drunk');
 });
 
-test.skip('undertaker example: spy registers as butler on death (registration not implemented yet)');
+test('undertaker example: spy registers as butler on death', () => {
+  let state = bootstrap_day_state();
+  state = run_command(state, {
+    command_id: 'c-assign-undertaker',
+    command_type: 'AssignCharacter',
+    payload: { player_id: 'p1', true_character_id: 'undertaker' }
+  });
+  state = run_command(state, {
+    command_id: 'c-assign-spy',
+    command_type: 'AssignCharacter',
+    payload: { player_id: 'p2', true_character_id: 'spy' }
+  });
+  state = run_command(state, {
+    command_id: 'c-exec-spy',
+    command_type: 'ApplyDeath',
+    payload: {
+      player_id: 'p2',
+      reason: 'execution',
+      day_number: 1,
+      night_number: 1
+    }
+  });
+  state.day_state.executed_player_id = 'p2';
+
+  const result = undertaker_plugin.hooks.on_night_wake?.({
+    state,
+    player_id: 'p1',
+    wake_step_id: 'wake:2'
+  });
+  assert.ok(result);
+  assert.equal(result?.queued_prompts.length, 1);
+
+  const reg_prompt_key = result?.queued_prompts[0]?.prompt_key ?? '';
+  const query_id = reg_prompt_key.split(':').slice(6).join(':');
+  state.registration_queries_by_id[query_id] = {
+    query_id,
+    consumer_role_id: 'undertaker',
+    query_kind: 'character_check',
+    subject_player_id: 'p2',
+    subject_context_player_ids: ['p1'],
+    phase: state.phase,
+    day_number: state.day_number,
+    night_number: state.night_number,
+    status: 'resolved',
+    resolved_character_id: 'butler',
+    resolved_character_type: null,
+    resolved_alignment: null,
+    decision_source: 'storyteller_prompt',
+    created_at_event_id: 1,
+    resolved_at_event_id: 2,
+    note: 'spy registers as butler'
+  };
+  const resolved = undertaker_plugin.hooks.on_registration_resolved?.({
+    state,
+    prompt_key: reg_prompt_key,
+    provider_role_id: 'spy',
+    consumer_role_id: 'undertaker',
+    owner_player_id: 'p1',
+    context_tag: 'p2',
+    query_id,
+    selected_option_id: 'character_id:butler',
+    freeform: null,
+    decision: {
+      query_id,
+      resolved_character_id: 'butler',
+      resolved_character_type: null,
+      resolved_alignment: null,
+      decision_source: 'storyteller_prompt',
+      note: 'spy registers as butler'
+    }
+  });
+
+  assert.equal(resolved?.emitted_events[0]?.payload.note, 'undertaker_info:p1:executed_player=p2;character=butler');
+});
 
 test('undertaker example: no execution means undertaker does not wake with info', () => {
   const state = create_initial_state('g1');

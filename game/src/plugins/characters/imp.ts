@@ -10,6 +10,7 @@ import {
 
 const IMP_PROMPT_PREFIX = 'plugin:imp:night_kill';
 const IMP_TRANSFER_PROMPT_PREFIX = 'plugin:imp:transfer_target';
+const IMP_MAYOR_REDIRECT_PROMPT_PREFIX = 'plugin:imp:mayor_redirect';
 const IMP_TRANSFER_MARKER_KIND = 'imp:self_kill_transfer_pending';
 
 function build_imp_prompt_key(night_number: number, player_id: string): string {
@@ -18,6 +19,14 @@ function build_imp_prompt_key(night_number: number, player_id: string): string {
 
 function build_imp_transfer_prompt_key(state: Parameters<typeof build_ravenkeeper_reveal_prompt>[0], dead_imp_id: string): string {
   return `plugin:imp:transfer_target:${night_time_key(state.night_number)}:${dead_imp_id}`;
+}
+
+function build_imp_mayor_redirect_prompt_key(
+  state: Parameters<typeof build_ravenkeeper_reveal_prompt>[0],
+  imp_player_id: string,
+  mayor_player_id: string
+): string {
+  return `plugin:imp:mayor_redirect:${night_time_key(state.night_number)}:${imp_player_id}:${mayor_player_id}`;
 }
 
 export const imp_plugin: CharacterPlugin = {
@@ -69,12 +78,20 @@ export const imp_plugin: CharacterPlugin = {
     },
     on_prompt_resolved: (context): PluginResult => {
       const imp_player_id = parse_imp_prompt_owner_player_id(context.prompt_key);
-      if (!imp_player_id && !is_imp_transfer_prompt_id(context.prompt_key)) {
+      if (
+        !imp_player_id &&
+        !is_imp_transfer_prompt_id(context.prompt_key) &&
+        !is_imp_mayor_redirect_prompt_id(context.prompt_key)
+      ) {
         return {
           emitted_events: [],
           queued_prompts: [],
           queued_interrupts: []
         };
+      }
+
+      if (is_imp_mayor_redirect_prompt_id(context.prompt_key)) {
+        return resolve_imp_mayor_redirect_prompt(context);
       }
 
       if (is_imp_transfer_prompt_id(context.prompt_key)) {
@@ -115,23 +132,36 @@ export const imp_plugin: CharacterPlugin = {
         };
       }
 
-      const target_is_poisoned_or_drunk = target_player.poisoned || target_player.drunk;
-      const target_is_soldier =
-        target_player.true_character_id === 'soldier' && !target_is_poisoned_or_drunk;
-      const target_protected_by_monk =
-        !target_is_poisoned_or_drunk &&
-        context.state.active_reminder_marker_ids.some((marker_id) => {
-          const marker = context.state.reminder_markers_by_id[marker_id];
-          return Boolean(
-            marker &&
-              marker.status === 'active' &&
-              marker.kind === 'monk:safe' &&
-              marker.authoritative &&
-              marker.target_player_id === context.selected_option_id
-          );
-        });
+      if (target_player.true_character_id === 'mayor' && !target_player.drunk && !target_player.poisoned) {
+        const redirect_targets = list_alive_non_mayor_players(context.state, target_player.player_id);
+        if (redirect_targets.length > 0) {
+          return {
+            emitted_events: [],
+            queued_prompts: [
+              {
+                prompt_key: build_imp_mayor_redirect_prompt_key(
+                  context.state,
+                  imp_player_id,
+                  target_player.player_id
+                ),
+                kind: 'choice',
+                reason:
+                  `plugin:imp:choose_mayor_redirect_target:${night_time_key(context.state.night_number)}:` +
+                  `${imp_player_id}:${target_player.player_id}`,
+                visibility: 'storyteller',
+                options: redirect_targets.map((player) => ({
+                  option_id: player.player_id,
+                  label: player.display_name
+                })),
+                storyteller_hint: `${target_player.display_name} is a functional Mayor; choose another player who dies instead.`
+              }
+            ],
+            queued_interrupts: []
+          };
+        }
+      }
 
-      if (target_is_soldier || target_protected_by_monk) {
+      if (!can_imp_kill_target(context.state, target_player.player_id)) {
         return {
           emitted_events: [],
           queued_prompts: [],
@@ -282,6 +312,89 @@ export function is_imp_prompt_id(prompt_key: string): boolean {
   return is_night_prompt_key(prompt_key, 'imp', 'night_kill');
 }
 
+function resolve_imp_mayor_redirect_prompt(
+  context: Parameters<NonNullable<CharacterPlugin['hooks']['on_prompt_resolved']>>[0]
+): PluginResult {
+  const parsed = parse_imp_mayor_redirect_prompt(context.prompt_key);
+  if (!parsed || !context.selected_option_id) {
+    return {
+      emitted_events: [],
+      queued_prompts: [],
+      queued_interrupts: []
+    };
+  }
+
+  const imp = context.state.players_by_id[parsed.imp_player_id];
+  const mayor = context.state.players_by_id[parsed.mayor_player_id];
+  const redirected_target = context.state.players_by_id[context.selected_option_id];
+  if (!imp || !mayor || !redirected_target) {
+    return {
+      emitted_events: [],
+      queued_prompts: [],
+      queued_interrupts: []
+    };
+  }
+
+  if (!imp.alive || imp.true_character_id !== 'imp' || imp.drunk || imp.poisoned) {
+    return {
+      emitted_events: [],
+      queued_prompts: [],
+      queued_interrupts: []
+    };
+  }
+
+  if (!mayor.alive || mayor.true_character_id !== 'mayor' || mayor.drunk || mayor.poisoned) {
+    return {
+      emitted_events: [],
+      queued_prompts: [],
+      queued_interrupts: []
+    };
+  }
+
+  if (!redirected_target.alive || redirected_target.player_id === mayor.player_id) {
+    return {
+      emitted_events: [],
+      queued_prompts: [],
+      queued_interrupts: []
+    };
+  }
+
+  if (!can_imp_kill_target(context.state, redirected_target.player_id)) {
+    return {
+      emitted_events: [],
+      queued_prompts: [],
+      queued_interrupts: []
+    };
+  }
+
+  const emitted_events: PluginResult['emitted_events'] = [
+    {
+      event_type: 'PlayerDied',
+      payload: {
+        player_id: redirected_target.player_id,
+        day_number: context.state.day_number,
+        night_number: context.state.night_number,
+        reason: 'night_death'
+      }
+    }
+  ];
+
+  const queued_prompts: PluginResult['queued_prompts'] = [];
+  if (
+    redirected_target.true_character_id === 'ravenkeeper' &&
+    !redirected_target.poisoned &&
+    !redirected_target.drunk
+  ) {
+    queued_prompts.push(build_ravenkeeper_reveal_prompt(context.state, redirected_target.player_id));
+  }
+
+  return {
+    emitted_events,
+    queued_prompts,
+    queued_interrupts: []
+  };
+}
+
 function parse_imp_prompt_owner_player_id(prompt_key: string): string | null {
   return parse_night_prompt_owner_player_id(prompt_key, 'imp', 'night_kill');
 }
@@ -374,6 +487,10 @@ function is_imp_transfer_prompt_id(prompt_key: string): boolean {
   return /^plugin:imp:transfer_target:n\d+:[a-z0-9_-]+$/.test(prompt_key);
 }
 
+function is_imp_mayor_redirect_prompt_id(prompt_key: string): boolean {
+  return /^plugin:imp:mayor_redirect:n\d+:[a-z0-9_-]+:[a-z0-9_-]+$/.test(prompt_key);
+}
+
 function parse_imp_transfer_prompt_dead_player_id(prompt_key: string): string | null {
   const parts = prompt_key.split(':');
   if (parts.length < 5) {
@@ -386,6 +503,30 @@ function parse_imp_transfer_prompt_dead_player_id(prompt_key: string): string | 
     return parts[4] ?? null;
   }
   return null;
+}
+
+function parse_imp_mayor_redirect_prompt(
+  prompt_key: string
+): { imp_player_id: string; mayor_player_id: string } | null {
+  const parts = prompt_key.split(':');
+  if (parts.length < 6) {
+    return null;
+  }
+  if (parts[0] !== 'plugin' || parts[1] !== 'imp' || parts[2] !== 'mayor_redirect') {
+    return null;
+  }
+  if (!/^n\d+$/.test(parts[3] ?? '')) {
+    return null;
+  }
+  const imp_player_id = parts[4] ?? null;
+  const mayor_player_id = parts[5] ?? null;
+  if (!imp_player_id || !mayor_player_id) {
+    return null;
+  }
+  return {
+    imp_player_id,
+    mayor_player_id
+  };
 }
 
 function build_imp_transfer_marker_id(
@@ -410,6 +551,43 @@ function list_alive_evil_minions(
           player.true_character_type === 'minion'
       );
     });
+}
+
+function list_alive_non_mayor_players(
+  state: Parameters<typeof build_ravenkeeper_reveal_prompt>[0],
+  mayor_player_id: string
+): PlayerState[] {
+  return state.seat_order
+    .map((player_id) => state.players_by_id[player_id])
+    .filter((player): player is PlayerState => Boolean(player && player.alive && player.player_id !== mayor_player_id));
+}
+
+function can_imp_kill_target(
+  state: Parameters<typeof build_ravenkeeper_reveal_prompt>[0],
+  target_player_id: string
+): boolean {
+  const target_player = state.players_by_id[target_player_id];
+  if (!target_player || !target_player.alive) {
+    return false;
+  }
+
+  const target_is_poisoned_or_drunk = target_player.poisoned || target_player.drunk;
+  const target_is_soldier =
+    target_player.true_character_id === 'soldier' && !target_is_poisoned_or_drunk;
+  const target_protected_by_monk =
+    !target_is_poisoned_or_drunk &&
+    state.active_reminder_marker_ids.some((marker_id) => {
+      const marker = state.reminder_markers_by_id[marker_id];
+      return Boolean(
+        marker &&
+          marker.status === 'active' &&
+          marker.kind === 'monk:safe' &&
+          marker.authoritative &&
+          marker.target_player_id === target_player_id
+      );
+    });
+
+  return !target_is_soldier && !target_protected_by_monk;
 }
 
 function find_imp_transfer_pending_marker(
