@@ -183,8 +183,11 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   );
 
   const [input, set_input] = useState('');
-  const [stream_lines, set_stream_lines] = useState<string[]>([
+  const [event_lines, set_event_lines] = useState<string[]>([
     'Clocktower Engine TUI (Ink)',
+    'Event channel is shown here.'
+  ]);
+  const [status_lines, set_status_lines] = useState<string[]>([
     'Type commands and press Enter. Ctrl+R opens resolve prompt picker.'
   ]);
   const [output_lines, set_output_lines] = useState<string[]>([]);
@@ -204,11 +207,21 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [resolver_multi_column_index, set_resolver_multi_column_index] = useState(0);
   const [, set_tick] = useState(0);
 
-  function append_log_lines(lines: string[]): void {
+  function append_event_lines(lines: string[]): void {
     if (lines.length === 0) {
       return;
     }
-    set_stream_lines((previous) => {
+    set_event_lines((previous) => {
+      const merged = [...previous, ...lines];
+      return merged.slice(Math.max(0, merged.length - 120));
+    });
+  }
+
+  function append_status_lines(lines: string[]): void {
+    if (lines.length === 0) {
+      return;
+    }
+    set_status_lines((previous) => {
       const merged = [...previous, ...lines];
       return merged.slice(Math.max(0, merged.length - 120));
     });
@@ -225,7 +238,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   }
 
   function run_command(command: string): boolean {
-    append_log_lines([`> ${command}`]);
+    append_status_lines([`> ${command}`]);
     const keep_running = process_cli_line(context, command);
     set_tick((value) => value + 1);
     return keep_running;
@@ -243,7 +256,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       }
 
       if (message.channel === 'event' && message.event) {
-        append_log_lines([format_event_for_tui(message.event, message.event_index)]);
+        append_event_lines([format_event_for_tui(message.event, message.event_index)]);
         return;
       }
 
@@ -252,7 +265,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
         return;
       }
 
-      append_log_lines([clean]);
+      append_status_lines([clean]);
     });
     return unsubscribe;
   }, [channel_bus]);
@@ -272,7 +285,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   function open_resolver(): void {
     const pending = pending_prompts(context);
     if (pending.length === 0) {
-      append_log_lines(['(no pending prompts to resolve)']);
+      append_status_lines(['(no pending prompts to resolve)']);
       return;
     }
     set_resolver_open(true);
@@ -344,7 +357,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
           if (prompt.selection_mode === 'number_range' && prompt.number_range) {
             const values = column_values(prompt.number_range);
             if (values.length === 0) {
-              append_log_lines([`(prompt ${prompt.prompt_key} has invalid number range)`]);
+              append_status_lines([`(prompt ${prompt.prompt_key} has invalid number range)`]);
               close_resolver();
               return;
             }
@@ -603,15 +616,18 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const header_height = 3;
   const input_height = 3;
   const main_height = Math.max(10, available_rows - header_height - input_height);
-  const state_height = Math.max(6, Math.floor(main_height * 0.58));
-  const inspector_height = Math.max(4, main_height - state_height);
+  const state_height = Math.max(6, Math.floor(main_height * 0.52));
+  const status_height = Math.max(4, Math.floor(main_height * 0.2));
+  const inspector_height = Math.max(4, main_height - state_height - status_height);
   const content_rows = Math.max(1, main_height - 2);
   const state_content_rows = Math.max(1, state_height - 2);
   const inspector_content_rows = Math.max(1, inspector_height - 2);
+  const status_content_rows = Math.max(1, status_height - 2);
 
   const state_lines = state_text.split('\n').slice(0, state_content_rows);
 
   const output_inspector_lines = output_lines.slice(Math.max(0, output_lines.length - inspector_content_rows));
+  const status_inspector_lines = status_lines.slice(Math.max(0, status_lines.length - status_content_rows));
 
   const inspector_lines =
     inspector_mode === 'overview'
@@ -626,7 +642,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
               ? output_inspector_lines
               : ['(no output yet)'];
 
-  const recent_logs = stream_lines.slice(Math.max(0, stream_lines.length - content_rows));
+  const recent_events = event_lines.slice(Math.max(0, event_lines.length - content_rows));
   const players_total = Object.keys(context.state.players_by_id).length;
   const alive_count = Object.values(context.state.players_by_id).filter((player) => player.alive).length;
   const prompt_count = context.state.pending_prompts.filter((prompt_key) => {
@@ -660,7 +676,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       <Box height={main_height}>
         <Box width="50%" borderStyle="single" flexDirection="column" paddingX={1}>
           <Text color="cyan">Events</Text>
-          {render_panel_lines(recent_logs)}
+          {render_panel_lines(recent_events)}
         </Box>
 
         <Box width="50%" flexDirection="column">
@@ -672,6 +688,11 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
           <Box borderStyle="single" flexDirection="column" height={inspector_height} paddingX={1}>
             <Text color="cyan">Inspector ({inspector_mode})</Text>
             {render_panel_lines(inspector_lines.slice(0, inspector_content_rows))}
+          </Box>
+
+          <Box borderStyle="single" flexDirection="column" height={status_height} paddingX={1}>
+            <Text color="cyan">Status</Text>
+            {render_panel_lines(status_inspector_lines)}
           </Box>
         </Box>
       </Box>

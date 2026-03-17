@@ -39,9 +39,10 @@ pnpm --filter game run tui -- my_game
 - It reuses the same command parser and engine command flow as CLI.
 - Type the same commands in the bottom input box (`help`, `start bmr 7`, `next`, etc.).
 - Panels:
-  - left: command/event output log
+  - left: event channel log
   - right top: live state snapshot
-  - right bottom: inspector panel (overview, prompts, players, markers, output)
+  - right middle: inspector panel (overview, prompts, players, markers, output)
+  - right bottom: status channel log (errors/status/commands)
 - Keybindings:
   - `Ctrl+R`: open floating prompt resolver window
     - normal prompts: choose prompt, then choose option
