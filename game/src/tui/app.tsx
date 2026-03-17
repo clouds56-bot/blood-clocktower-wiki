@@ -6,6 +6,7 @@ import { format_state_brief, format_state_json } from '../cli/formatters.js';
 import { create_cli_context, process_cli_line } from '../cli/repl.js';
 import type { DomainEvent } from '../domain/events.js';
 import type { GameState, PromptColumnSpec, PromptRangeSpec, PromptState } from '../domain/types.js';
+import { EventSummaryRow } from './event.js';
 
 type StateMode = 'brief' | 'json';
 type InspectorMode = 'overview' | 'prompts' | 'players' | 'markers' | 'output';
@@ -171,6 +172,29 @@ function render_panel_lines(lines: string[], max_width: number): React.ReactNode
   });
 }
 
+function wrap_line(text: string, width: number): string[] {
+  if (width <= 0) {
+    return [''];
+  }
+  if (text.length <= width) {
+    return [text];
+  }
+
+  const rows: string[] = [];
+  for (let start = 0; start < text.length; start += width) {
+    rows.push(text.slice(start, start + width));
+  }
+  return rows;
+}
+
+function wrap_lines(lines: string[], width: number): string[] {
+  const wrapped: string[] = [];
+  for (const line of lines) {
+    wrapped.push(...wrap_line(line, width));
+  }
+  return wrapped;
+}
+
 function fit_line(text: string, width: number): string {
   if (width <= 0) {
     return '';
@@ -181,51 +205,6 @@ function fit_line(text: string, width: number): string {
 
 function strip_ansi(text: string): string {
   return text.replace(/\x1B\[[0-9;]*m/g, '');
-}
-
-function event_color_for_tui(event_type: DomainEvent['event_type']): string {
-  if (event_type === 'GameEnded' || event_type === 'GameWon' || event_type === 'ForcedVictoryDeclared') {
-    return 'magenta';
-  }
-  if (event_type === 'PlayerDied' || event_type === 'PlayerExecuted') {
-    return 'red';
-  }
-  if (event_type === 'PhaseAdvanced') {
-    return 'blue';
-  }
-  if (event_type === 'PromptQueued') {
-    return 'yellow';
-  }
-  if (
-    event_type === 'NominationMade' ||
-    event_type === 'VoteOpened' ||
-    event_type === 'VoteCast' ||
-    event_type === 'VoteClosed'
-  ) {
-    return 'yellow';
-  }
-  if (event_type === 'WinCheckCompleted' || event_type === 'ExecutionResolutionCompleted') {
-    return 'cyan';
-  }
-  return 'white';
-}
-
-function payload_summary(payload: unknown, max_len: number): string {
-  let raw = '';
-  try {
-    raw = JSON.stringify(payload);
-  } catch {
-    raw = String(payload);
-  }
-  if (raw.length <= max_len) {
-    return raw;
-  }
-  return `${raw.slice(0, Math.max(0, max_len - 1))}~`;
-}
-
-function format_event_summary_line(entry: EventEntry, payload_max_len: number): string {
-  const summary = payload_summary(entry.event.payload, payload_max_len);
-  return `#${entry.event_index} ${entry.event.event_type} ${summary}`;
 }
 
 function format_selected_event_detail_lines(
@@ -248,9 +227,7 @@ function format_selected_event_detail_lines(
     detail_lines.push('event_key=(hidden) Ctrl+K to toggle');
   }
 
-  const payload = JSON.stringify(selected.event.payload, null, 2).split('\n');
-  detail_lines.push('payload:');
-  detail_lines.push(...payload);
+  detail_lines.push(`payload_json=${JSON.stringify(selected.event.payload)}`);
   return detail_lines;
 }
 
@@ -329,10 +306,9 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const state_height = Math.max(6, Math.floor(main_height * 0.52));
   const status_height = Math.max(4, Math.floor(main_height * 0.2));
   const inspector_height = Math.max(4, main_height - state_height - status_height);
-  const event_details_height = Math.max(8, Math.floor(main_height * 0.46));
-  const event_list_height = Math.max(8, main_height - event_details_height);
-  const event_details_content_rows = Math.max(1, event_details_height - 2);
-  const event_list_content_rows = Math.max(1, event_list_height - 3);
+  const event_panel_content_rows = Math.max(1, main_height - 2);
+  const event_details_content_rows = Math.max(4, Math.floor(event_panel_content_rows * 0.3));
+  const event_list_content_rows = Math.max(1, event_panel_content_rows - event_details_content_rows - 3);
   const state_content_rows = Math.max(1, state_height - 2);
   const inspector_content_rows = Math.max(1, inspector_height - 2);
   const status_content_rows = Math.max(1, status_height - 2);
@@ -909,7 +885,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     ? null
     : event_entries[clamped_selected_event_index] ?? null;
   const selected_event_details = format_selected_event_detail_lines(selected_event, show_event_key);
-  const visible_event_details = slice_from_bottom(selected_event_details, event_details_content_rows, 0);
+  const wrapped_event_details = wrap_lines(selected_event_details, Math.max(8, left_pane_width));
+  const visible_event_details = wrapped_event_details.slice(0, event_details_content_rows);
   const event_scrollbar_line = render_scrollbar_line(
     event_entries.length,
     event_list_content_rows,
@@ -953,21 +930,12 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
             borderStyle="single"
             borderColor={pane_focus === 'events' ? 'green' : 'white'}
             flexDirection="column"
-            height={event_details_height}
+            height={main_height}
             paddingX={1}
           >
-            <Text color="cyan">Event Details (selected)</Text>
+            <Text color="cyan">Events ({event_entries.length}) autoscroll={event_autoscroll ? 'on' : 'off'}</Text>
             {render_panel_lines(visible_event_details, left_pane_width)}
-          </Box>
-
-          <Box
-            borderStyle="single"
-            borderColor={pane_focus === 'events' ? 'green' : 'white'}
-            flexDirection="column"
-            height={event_list_height}
-            paddingX={1}
-          >
-            <Text color="cyan">Event Summary ({event_entries.length}) autoscroll={event_autoscroll ? 'on' : 'off'}</Text>
+            <Text color="gray">{fit_line('-'.repeat(Math.max(8, left_pane_width - 1)), left_pane_width)}</Text>
             <Text color="gray">{fit_line(event_scrollbar_line, left_pane_width)}</Text>
             {visible_event_entries.length === 0 ? (
               <Text>(no events yet)</Text>
@@ -975,11 +943,14 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
               visible_event_entries.map((entry, visible_index) => {
                 const absolute_index = effective_event_offset + visible_index;
                 const selected = clamped_selected_event_index === absolute_index;
-                const line = format_event_summary_line(entry, Math.max(24, left_pane_width - 20));
                 return (
-                  <Text key={`event-row-${entry.event_index}`} color={selected ? 'green' : event_color_for_tui(entry.event.event_type)}>
-                    {fit_line(`${selected ? '> ' : '  '}${line}`, left_pane_width)}
-                  </Text>
+                  <EventSummaryRow
+                    key={`event-row-${entry.event_index}`}
+                    event={entry.event}
+                    event_index={entry.event_index}
+                    selected={selected}
+                    width={left_pane_width}
+                  />
                 );
               })
             )}
