@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Box, Text, useApp, useInput, useStdin, useStdout } from 'ink';
 
 import { CliChannelBus } from '../cli/channels.js';
@@ -348,6 +348,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [status_scroll, set_status_scroll] = useState(0);
   const [status_errors_only, set_status_errors_only] = useState(false);
   const [, set_tick] = useState(0);
+  const suppress_input_until_ref = useRef(0);
 
   function append_status_lines(lines: string[], kind: StatusKind = 'status'): void {
     if (lines.length === 0) {
@@ -468,6 +469,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
           continue;
         }
 
+        suppress_input_until_ref.current = Date.now() + 80;
         step_event_selection(is_wheel_up ? -1 : 1);
       }
     };
@@ -511,6 +513,11 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   useInput((input_key, key) => {
     if (key.ctrl && input_key === 'c') {
       exit();
+      return;
+    }
+
+    const suppress_input = Date.now() < suppress_input_until_ref.current;
+    if (suppress_input && !key.ctrl && !key.meta && !key.return) {
       return;
     }
 
@@ -936,9 +943,12 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     ? null
     : clamped_selected_event_index - effective_event_offset;
   const overlay_base_top = 2;
+  const overlay_bottom_top = Math.max(overlay_base_top, event_panel_content_rows - event_overlay_rows);
   const overlay_top = selected_visible_index !== null && selected_visible_index < event_overlay_rows
-    ? Math.max(overlay_base_top, event_panel_content_rows - event_overlay_rows)
-    : overlay_base_top;
+    ? overlay_bottom_top
+    : event_entries.length === 0
+      ? overlay_bottom_top
+      : overlay_base_top;
   const event_scrollbar_line = render_scrollbar_line(
     event_entries.length,
     event_list_content_rows,

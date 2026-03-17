@@ -330,7 +330,7 @@ export function EventSummaryRow(props: {
   const style = event_style_for_tui(event.event_type);
   if (selected) {
     return (
-      <Text color="black" backgroundColor="white" bold wrap="truncate-end">
+      <Text color={style.color} backgroundColor="white" bold wrap="truncate-end">
         {`${prefix}${clipped}`}
       </Text>
     );
