@@ -300,10 +300,11 @@ function next_focus(focus: PaneFocus): PaneFocus {
 }
 
 function ordered_player_ids(state: GameState): string[] {
+  const seated_player_ids = new Set(state.seat_order);
   return [
     ...state.seat_order,
     ...Object.keys(state.players_by_id)
-      .filter((player_id) => !state.seat_order.includes(player_id))
+      .filter((player_id) => !seated_player_ids.has(player_id))
       .sort((a, b) => a.localeCompare(b))
   ];
 }
@@ -459,8 +460,6 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [resolver_multi_values, set_resolver_multi_values] = useState<string[]>([]);
   const [resolver_multi_column_index, set_resolver_multi_column_index] = useState(0);
   const [pane_focus, set_pane_focus] = useState<PaneFocus>('command');
-  const [inspector_scroll, set_inspector_scroll] = useState(0);
-  const [status_scroll, set_status_scroll] = useState(0);
   const [status_errors_only, set_status_errors_only] = useState(false);
   const [mouse_scroll_enabled, set_mouse_scroll_enabled] = useState(true);
   const [, set_tick] = useState(0);
@@ -969,7 +968,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     }
 
     const player_count = ordered_player_ids(context.state).length;
-    const player_visible_count = Math.max(1, state_content_rows - 3);
+    const player_visible_count = Math.max(1, state_content_rows - 4);
 
     if (pane_focus === 'events' && key.upArrow) {
       step_event_selection(-1);
@@ -1072,7 +1071,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     })
     .filter((value): value is { key: string; row: ReturnType<typeof format_player_state_row> } => Boolean(value));
 
-  const player_visible_count = Math.max(0, state_content_rows - 3);
+  const player_visible_count = Math.max(1, state_content_rows - 4);
   const clamped_selected_player_index = player_rows.length === 0
     ? null
     : clamp(selected_player_index, 0, player_rows.length - 1);
@@ -1143,10 +1142,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     selected_player_index
   ]);
 
-  const visible_player_rows = player_rows.slice(
-    effective_player_offset,
-    effective_player_offset + Math.max(0, player_visible_count)
-  );
+  const visible_player_rows = player_rows.slice(effective_player_offset, effective_player_offset + player_visible_count);
 
   const right_pane_width = Math.max(20, Math.floor(columns / 2) - 4);
   const left_pane_width = Math.max(20, Math.floor(columns / 2) - 4);
@@ -1207,8 +1203,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     event_list_content_rows,
     effective_event_offset
   );
-  const inspector_visible_lines = slice_from_bottom(inspector_lines, inspector_content_rows, inspector_scroll);
-  const status_inspector_lines = slice_from_bottom(status_filtered_lines, status_content_rows, status_scroll);
+  const inspector_visible_lines = slice_from_bottom(inspector_lines, inspector_content_rows, 0);
+  const status_inspector_lines = slice_from_bottom(status_filtered_lines, status_content_rows, 0);
   const players_total = Object.keys(context.state.players_by_id).length;
   const alive_count = Object.values(context.state.players_by_id).filter((player) => player.alive).length;
   const prompt_count = context.state.pending_prompts.filter((prompt_key) => {
@@ -1240,7 +1236,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     <Box flexDirection="column" width={columns} height={available_rows}>
       <Box borderStyle="single" paddingX={1} height={header_height}>
         <Text>
-          phase={context.state.phase}/{context.state.subphase} day={context.state.day_number} night={context.state.night_number} alive={alive_count}/{players_total} prompts={prompt_count} | focus={pane_focus} | events autoscroll={event_autoscroll} key={show_event_key ? 'shown' : 'hidden'} mouse={mouse_scroll_enabled ? 'on' : 'off'} | Ctrl+W pane(events/state/command) | Ctrl+A autoscroll | Ctrl+M mouse | Ctrl+L latest | Ctrl+K key | Ctrl+U/D scroll(events) | Ctrl+E errors={status_errors_only} | Ctrl+S state={state_mode} | Ctrl+G inspector={inspector_mode} | Ctrl+C quit
+          phase={context.state.phase}/{context.state.subphase} day={context.state.day_number} night={context.state.night_number} alive={alive_count}/{players_total} prompts={prompt_count} | focus={pane_focus} | events autoscroll={event_autoscroll} key={show_event_key ? 'shown' : 'hidden'} mouse={mouse_scroll_enabled ? 'on' : 'off'} | Ctrl+W pane(events/state/command) | Ctrl+A autoscroll | Ctrl+M mouse | Ctrl+L latest_event | Ctrl+K key | Ctrl+U/D scroll(events) | Ctrl+E errors={status_errors_only} | Ctrl+S state={state_mode} | Ctrl+G inspector={inspector_mode} | Ctrl+C quit
         </Text>
       </Box>
 
