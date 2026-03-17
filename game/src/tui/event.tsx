@@ -167,18 +167,20 @@ function event_tail(event: DomainEvent, payload_max_len: number): string {
       return string_value(payload, 'interrupt_id') ?? compact_json(payload, payload_max_len);
     }
     case 'PromptQueued': {
-      return `${string_value(payload, 'prompt_key') ?? '?'} ${string_value(payload, 'kind') ?? '?'}`;
+      const kind = string_value(payload, 'kind') ?? '?';
+      const prompt_key = string_value(payload, 'prompt_key') ?? '?';
+      return `${kind} pk=${prompt_key}`;
     }
     case 'PromptResolved': {
-      const prompt_key = string_value(payload, 'prompt_key') ?? '?';
       const selected = string_value(payload, 'selected_option_id') ?? '-';
       const note = quote_note(note_value(payload), Math.floor(payload_max_len / 2));
-      return note ? `${prompt_key} ${selected} ${note}` : `${prompt_key} ${selected}`;
+      const prompt_key = string_value(payload, 'prompt_key') ?? '?';
+      return note ? `${selected} ${note} pk=${prompt_key}` : `${selected} pk=${prompt_key}`;
     }
     case 'PromptCancelled': {
-      const prompt_key = string_value(payload, 'prompt_key') ?? '?';
       const reason = quote_note(string_value(payload, 'reason'), Math.floor(payload_max_len / 2));
-      return reason ? `${prompt_key} ${reason}` : prompt_key;
+      const prompt_key = string_value(payload, 'prompt_key') ?? '?';
+      return reason ? `${reason} pk=${prompt_key}` : `pk=${prompt_key}`;
     }
     case 'RegistrationQueryCreated': {
       return `${string_value(payload, 'query_id') ?? '?'} ${string_value(payload, 'consumer_role_id') ?? '?'} ${string_value(payload, 'subject_player_id') ?? '?'}`;
@@ -194,13 +196,17 @@ function event_tail(event: DomainEvent, payload_max_len: number): string {
       return note ? `${query_id} ${result} ${note}` : `${query_id} ${result}`;
     }
     case 'StorytellerChoiceMade': {
-      const prompt_key = string_value(payload, 'prompt_key') ?? '?';
       const selected = string_value(payload, 'selected_option_id') ?? '-';
       const note = quote_note(note_value(payload), Math.floor(payload_max_len / 2));
-      return note ? `${prompt_key} ${selected} ${note}` : `${prompt_key} ${selected}`;
+      const prompt_key = string_value(payload, 'prompt_key') ?? '?';
+      return note ? `${selected} ${note} pk=${prompt_key}` : `${selected} pk=${prompt_key}`;
     }
     case 'StorytellerRulingRecorded': {
       const note = quote_note(note_value(payload), payload_max_len);
+      const prompt_key = string_value(payload, 'prompt_key');
+      if (prompt_key && prompt_key.length > 0) {
+        return note ? `${note} pk=${prompt_key}` : `pk=${prompt_key}`;
+      }
       return note || '<note>';
     }
     case 'WinCheckCompleted': {
@@ -223,18 +229,56 @@ function event_tail(event: DomainEvent, payload_max_len: number): string {
   }
 }
 
-export function event_color_for_tui(event_type: DomainEvent['event_type']): string {
+interface EventStyle {
+  color: string;
+  bold?: boolean;
+}
+
+export function event_style_for_tui(event_type: DomainEvent['event_type']): EventStyle {
+  if (
+    event_type === 'GameCreated' ||
+    event_type === 'ScriptSelected' ||
+    event_type === 'EditionSelected' ||
+    event_type === 'PlayerAdded' ||
+    event_type === 'SeatOrderSet' ||
+    event_type === 'CharacterAssigned' ||
+    event_type === 'PerceivedCharacterAssigned' ||
+    event_type === 'AlignmentAssigned'
+  ) {
+    return { color: 'gray' };
+  }
   if (event_type === 'GameEnded' || event_type === 'GameWon' || event_type === 'ForcedVictoryDeclared') {
-    return 'magenta';
+    return { color: 'magenta', bold: true };
   }
-  if (event_type === 'PlayerDied' || event_type === 'PlayerExecuted') {
-    return 'red';
+  if (
+    event_type === 'PlayerDied' ||
+    event_type === 'PlayerExecuted' ||
+    event_type === 'ExecutionOccurred' ||
+    event_type === 'ExecutionConsequencesResolved'
+  ) {
+    return { color: 'red' };
   }
-  if (event_type === 'PhaseAdvanced') {
-    return 'blue';
+  if (event_type === 'PhaseAdvanced' || event_type === 'NominationWindowOpened') {
+    return { color: 'blue', bold: true };
+  }
+  if (event_type === 'WakeScheduled' || event_type === 'WakeConsumed') {
+    return { color: 'blue' };
   }
   if (event_type === 'PromptQueued') {
-    return 'yellow';
+    return { color: 'yellow', bold: true };
+  }
+  if (event_type === 'PromptResolved' || event_type === 'PromptCancelled') {
+    return { color: 'yellow' };
+  }
+  if (event_type === 'StorytellerChoiceMade' || event_type === 'StorytellerRulingRecorded') {
+    return { color: 'cyan' };
+  }
+  if (
+    event_type === 'ReminderMarkerApplied' ||
+    event_type === 'ReminderMarkerCleared' ||
+    event_type === 'ReminderMarkerExpired'
+  ) {
+    return { color: 'magenta' };
   }
   if (
     event_type === 'NominationMade' ||
@@ -242,12 +286,19 @@ export function event_color_for_tui(event_type: DomainEvent['event_type']): stri
     event_type === 'VoteCast' ||
     event_type === 'VoteClosed'
   ) {
-    return 'yellow';
+    return { color: 'white' };
   }
-  if (event_type === 'WinCheckCompleted' || event_type === 'ExecutionResolutionCompleted') {
-    return 'cyan';
+  if (
+    event_type === 'WinCheckCompleted' ||
+    event_type === 'ExecutionResolutionCompleted' ||
+    event_type === 'InterruptScheduled' ||
+    event_type === 'InterruptConsumed' ||
+    event_type === 'RegistrationQueryCreated' ||
+    event_type === 'RegistrationDecisionRecorded'
+  ) {
+    return { color: 'cyan' };
   }
-  return 'white';
+  return { color: 'white' };
 }
 
 export function format_event_summary_text(event: DomainEvent, event_index: number, payload_max_len = 64): string {
@@ -268,8 +319,10 @@ export function EventSummaryRow(props: {
   const content_width = Math.max(8, width - prefix.length);
   const line = format_event_summary_text(event, event_index, Math.max(24, content_width - 18));
   const clipped = line.length > content_width ? `${line.slice(0, Math.max(0, content_width - 1))}~` : line;
+  const style = event_style_for_tui(event.event_type);
+  const is_bold = selected ? true : Boolean(style.bold);
   return (
-    <Text color={selected ? 'green' : event_color_for_tui(event.event_type)} wrap="truncate-end">
+    <Text color={selected ? 'green' : style.color} bold={is_bold} wrap="truncate-end">
       {`${prefix}${clipped}`}
     </Text>
   );

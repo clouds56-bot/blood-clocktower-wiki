@@ -307,8 +307,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const status_height = Math.max(4, Math.floor(main_height * 0.2));
   const inspector_height = Math.max(4, main_height - state_height - status_height);
   const event_panel_content_rows = Math.max(1, main_height - 2);
-  const event_details_content_rows = Math.max(4, Math.floor(event_panel_content_rows * 0.3));
-  const event_list_content_rows = Math.max(1, event_panel_content_rows - event_details_content_rows - 3);
+  const event_details_max_rows = Math.max(5, Math.min(10, Math.floor(event_panel_content_rows * 0.45)));
+  const event_list_content_rows = Math.max(1, event_panel_content_rows - 2);
   const state_content_rows = Math.max(1, state_height - 2);
   const inspector_content_rows = Math.max(1, inspector_height - 2);
   const status_content_rows = Math.max(1, status_height - 2);
@@ -886,7 +886,19 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     : event_entries[clamped_selected_event_index] ?? null;
   const selected_event_details = format_selected_event_detail_lines(selected_event, show_event_key);
   const wrapped_event_details = wrap_lines(selected_event_details, Math.max(8, left_pane_width));
-  const visible_event_details = wrapped_event_details.slice(0, event_details_content_rows);
+  const event_overlay_rows = clamp(wrapped_event_details.length + 1, 4, event_details_max_rows);
+  const visible_event_details = wrapped_event_details.slice(0, Math.max(1, event_overlay_rows - 1));
+  const overlay_detail_rows = Array.from(
+    { length: Math.max(1, event_overlay_rows - 1) },
+    (_, index) => visible_event_details[index] ?? ''
+  );
+  const selected_visible_index = clamped_selected_event_index === null
+    ? null
+    : clamped_selected_event_index - effective_event_offset;
+  const overlay_base_top = 2;
+  const overlay_top = selected_visible_index !== null && selected_visible_index < event_overlay_rows
+    ? Math.max(overlay_base_top, event_panel_content_rows - event_overlay_rows)
+    : overlay_base_top;
   const event_scrollbar_line = render_scrollbar_line(
     event_entries.length,
     event_list_content_rows,
@@ -934,8 +946,6 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
             paddingX={1}
           >
             <Text color="cyan">Events ({event_entries.length}) autoscroll={event_autoscroll ? 'on' : 'off'}</Text>
-            {render_panel_lines(visible_event_details, left_pane_width)}
-            <Text color="gray">{fit_line('-'.repeat(Math.max(8, left_pane_width - 1)), left_pane_width)}</Text>
             <Text color="gray">{fit_line(event_scrollbar_line, left_pane_width)}</Text>
             {visible_event_entries.length === 0 ? (
               <Text>(no events yet)</Text>
@@ -954,6 +964,22 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
                 );
               })
             )}
+
+            <Box
+              position="absolute"
+              marginTop={overlay_top}
+              marginLeft={2}
+              width={left_pane_width}
+              height={event_overlay_rows}
+              flexDirection="column"
+            >
+              <Text color="cyan" backgroundColor="black">{fit_line('Selected Event', left_pane_width)}</Text>
+              {overlay_detail_rows.map((line, index) => (
+                <Text key={`event-detail-${index}`} backgroundColor="black">
+                  {fit_line(index === 0 && line.length === 0 ? '(none)' : line, left_pane_width)}
+                </Text>
+              ))}
+            </Box>
           </Box>
         </Box>
 
