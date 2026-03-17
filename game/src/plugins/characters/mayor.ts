@@ -1,5 +1,6 @@
 import type { CharacterPlugin, PluginResult, PrePlayerDiedHookResult } from '../contracts.js';
 import { night_time_key } from './prompt-key-utils.js';
+import { build_ravenkeeper_reveal_prompt } from './ravenkeeper.js';
 
 const MAYOR_ALLOW_ORIGINAL_DEATH_OPTION_ID = 'allow_original_death';
 
@@ -190,6 +191,13 @@ export const mayor_plugin: CharacterPlugin = {
         };
       }
 
+      const queued_prompts =
+        redirected_target.true_character_id === 'ravenkeeper' &&
+        !redirected_target.poisoned &&
+        !redirected_target.drunk
+          ? [build_ravenkeeper_reveal_prompt(context.state, redirected_target.player_id)]
+          : [];
+
       return {
         emitted_events: [
           {
@@ -204,7 +212,7 @@ export const mayor_plugin: CharacterPlugin = {
             }
           }
         ],
-        queued_prompts: [],
+        queued_prompts,
         queued_interrupts: []
       };
     }

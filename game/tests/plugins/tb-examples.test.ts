@@ -15,7 +15,9 @@ import { investigator_plugin } from '../../src/plugins/characters/investigator.j
 import { librarian_plugin } from '../../src/plugins/characters/librarian.js';
 import { mayor_plugin } from '../../src/plugins/characters/mayor.js';
 import { monk_plugin } from '../../src/plugins/characters/monk.js';
+import { poisoner_plugin } from '../../src/plugins/characters/poisoner.js';
 import { ravenkeeper_plugin } from '../../src/plugins/characters/ravenkeeper.js';
+import { spy_plugin } from '../../src/plugins/characters/spy.js';
 import { slayer_plugin } from '../../src/plugins/characters/slayer.js';
 import { undertaker_plugin } from '../../src/plugins/characters/undertaker.js';
 import { virgin_plugin } from '../../src/plugins/characters/virgin.js';
@@ -51,7 +53,64 @@ test('chef example: two adjacent evil pairs -> learns 2', () => {
   assert.equal(result?.emitted_events[0]?.payload.note, 'chef_info:p1:adjacent_evil_pairs=2');
 });
 
-test.skip('chef example: recluse registration split pair behavior (not implemented yet)');
+test('chef example: recluse registration split pair behavior', () => {
+  const state = create_initial_state('g1');
+  state.day_number = 0;
+  state.night_number = 1;
+  state.seat_order = ['p1', 'p2', 'p3', 'p4'];
+  state.players_by_id.p1 = make_player('p1', 'Chef', 'chef', 'good');
+  state.players_by_id.p2 = make_player('p2', 'Recluse', 'recluse', 'good');
+  state.players_by_id.p3 = make_player('p3', 'Poisoner', 'poisoner', 'evil');
+  state.players_by_id.p4 = make_player('p4', 'Monk', 'monk', 'good');
+
+  const wake = chef_plugin.hooks.on_night_wake?.({ state, player_id: 'p1', wake_step_id: 'wake:1' });
+  assert.ok(wake);
+  assert.equal(wake?.queued_prompts.length, 1);
+
+  const reg_prompt_key = wake?.queued_prompts[0]?.prompt_key ?? '';
+  const query_id = reg_prompt_key.split(':').slice(6).join(':');
+  state.registration_queries_by_id[query_id] = {
+    query_id,
+    consumer_role_id: 'chef',
+    query_kind: 'alignment_check',
+    subject_player_id: 'p2',
+    subject_context_player_ids: ['p3'],
+    phase: state.phase,
+    day_number: state.day_number,
+    night_number: state.night_number,
+    status: 'resolved',
+    resolved_character_id: null,
+    resolved_character_type: null,
+    resolved_alignment: 'evil',
+    decision_source: 'storyteller_prompt',
+    created_at_event_id: 1,
+    resolved_at_event_id: 2,
+    note: 'recluse registers evil in pair with poisoner'
+  };
+
+  const resolved = chef_plugin.hooks.on_registration_resolved?.({
+    state,
+    prompt_key: reg_prompt_key,
+    provider_role_id: 'recluse',
+    consumer_role_id: 'chef',
+    owner_player_id: 'p1',
+    context_tag: 'adjacent_pairs',
+    query_id,
+    selected_option_id: 'alignment:evil',
+    freeform: null,
+    decision: {
+      query_id,
+      resolved_character_id: null,
+      resolved_character_type: null,
+      resolved_alignment: 'evil',
+      decision_source: 'storyteller_prompt',
+      note: 'recluse registers evil in pair with poisoner'
+    }
+  });
+
+  assert.equal(resolved?.queued_prompts.length, 0);
+  assert.equal(resolved?.emitted_events[0]?.payload.note, 'chef_info:p1:adjacent_evil_pairs=1');
+});
 
 test('empath example: neighbors are Soldier and Monk -> learns 0', () => {
   const state = create_initial_state('g1');
@@ -218,7 +277,28 @@ test('investigator example: Spy and Poisoner pair -> learns Spy', () => {
   );
 });
 
-test.skip('investigator example: recluse registers as minion (registration system not implemented yet)');
+test('investigator example: recluse registers as minion', () => {
+  const state = create_initial_state('g1');
+  state.day_number = 0;
+  state.night_number = 1;
+  state.seat_order = ['p1', 'p2', 'p3'];
+  state.players_by_id.p1 = make_player('p1', 'Investigator', 'investigator', 'good');
+  state.players_by_id.p2 = make_player('p2', 'Recluse', 'recluse', 'good');
+  state.players_by_id.p3 = make_player('p3', 'Chef', 'chef', 'good');
+
+  const wake = investigator_plugin.hooks.on_night_wake?.({ state, player_id: 'p1', wake_step_id: 'wake:1' });
+  assert.equal(wake?.queued_prompts.length, 0);
+
+  const resolved = investigator_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_key: 'plugin:investigator:choose_info_misinfo:n1:p1',
+    selected_option_id: 'spy,p2,p3',
+    freeform: null
+  });
+
+  const note = resolved?.emitted_events.find((event) => event.event_type === 'StorytellerRulingRecorded');
+  assert.equal(note?.payload.note, 'investigator_info:p1:character=spy;players=p2,p3');
+});
 
 test('librarian example: Saint in pair -> learns Saint', () => {
   const state = create_initial_state('g1');
@@ -427,7 +507,48 @@ test('librarian successful resolution clears older librarian info markers before
   assert.equal(applied.length, 2);
 });
 
-test.skip('washerwoman example: spy registers as townsfolk (registration system not implemented yet)');
+test('washerwoman example: spy registers as townsfolk', () => {
+  const state = create_initial_state('g1');
+  state.day_number = 0;
+  state.night_number = 1;
+  state.seat_order = ['p1', 'p2', 'p3'];
+  state.players_by_id.p1 = make_player('p1', 'Washerwoman', 'washerwoman', 'good');
+  state.players_by_id.p2 = make_player('p2', 'Spy', 'spy', 'evil');
+  state.players_by_id.p3 = make_player('p3', 'Chef', 'chef', 'good');
+
+  const wake = washerwoman_plugin.hooks.on_night_wake?.({ state, player_id: 'p1', wake_step_id: 'wake:1' });
+  assert.equal(wake?.queued_prompts.length, 1);
+
+  const reg_prompt_key = wake?.queued_prompts[0]?.prompt_key ?? '';
+  const query_id = reg_prompt_key.split(':').slice(6).join(':');
+  state.registration_queries_by_id[query_id] = {
+    query_id,
+    consumer_role_id: 'washerwoman',
+    query_kind: 'character_type_check',
+    subject_player_id: 'p2',
+    subject_context_player_ids: ['p3'],
+    phase: state.phase,
+    day_number: state.day_number,
+    night_number: state.night_number,
+    status: 'resolved',
+    resolved_character_id: null,
+    resolved_character_type: 'townsfolk',
+    resolved_alignment: null,
+    decision_source: 'storyteller_prompt',
+    created_at_event_id: 1,
+    resolved_at_event_id: 2,
+    note: 'spy registers as townsfolk'
+  };
+
+  const resolved = washerwoman_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_key: wake?.queued_prompts[0]?.prompt_key ?? '',
+    selected_option_id: 'chef,p2,p3',
+    freeform: null
+  });
+  const note = resolved?.emitted_events.find((event) => event.event_type === 'StorytellerRulingRecorded');
+  assert.equal(note?.payload.note, 'washerwoman_info:p1:character=chef;players=p2,p3');
+});
 
 test('monk example: protects Fortune Teller from Imp attack', () => {
   const state = create_initial_state('g1');
@@ -1002,7 +1123,45 @@ test('imp example: self-kill passes demonhood to a minion', () => {
     ['PlayerDied', 'ReminderMarkerApplied']
   );
 });
-test.skip('poisoner examples: slayer/undertaker/saint/poison-source removal interactions (not implemented yet)');
+test('poisoner example: retarget clears prior poison marker from same source', () => {
+  const state = create_initial_state('g1');
+  state.night_number = 2;
+  state.players_by_id.p1 = make_player('p1', 'Poisoner', 'poisoner', 'evil');
+  state.players_by_id.p2 = make_player('p2', 'Slayer', 'slayer', 'good');
+  state.players_by_id.p3 = make_player('p3', 'Undertaker', 'undertaker', 'good');
+  state.reminder_markers_by_id.old = {
+    marker_id: 'old',
+    kind: 'poisoner:poisoned',
+    effect: 'poisoned',
+    note: 'old poison',
+    status: 'active',
+    source_player_id: 'p1',
+    source_character_id: 'poisoner',
+    target_player_id: 'p2',
+    target_scope: 'player',
+    authoritative: true,
+    expires_policy: 'at_night',
+    expires_at_day_number: null,
+    expires_at_night_number: 3,
+    created_at_event_id: 1,
+    cleared_at_event_id: null,
+    source_event_id: null,
+    metadata: {}
+  };
+  state.active_reminder_marker_ids = ['old'];
+
+  const result = poisoner_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_key: 'plugin:poisoner:night_poison:n2:p1',
+    selected_option_id: 'p3',
+    freeform: null
+  });
+
+  assert.deepEqual(
+    result?.emitted_events.map((event) => event.event_type),
+    ['ReminderMarkerCleared', 'ReminderMarkerApplied']
+  );
+});
 
 test('slayer example: chooses Imp, Imp dies, then good wins', () => {
   let state = bootstrap_day_state();
@@ -1301,7 +1460,24 @@ test('ravenkeeper example: killed by Imp and learns chosen player character', ()
   assert.equal(rk_result?.emitted_events[0]?.payload.note, 'ravenkeeper_info:p2:target=p3;character=empath');
 });
 
-test.skip('ravenkeeper example: mayor redirection and recluse registration (registration/redirection not fully implemented yet)');
+test('ravenkeeper example: mayor redirection kill still grants ravenkeeper reveal', () => {
+  const state = create_initial_state('g1');
+  state.night_number = 2;
+  state.players_by_id.p1 = make_player('p1', 'Imp', 'imp', 'evil', { is_demon: true });
+  state.players_by_id.p2 = make_player('p2', 'Mayor', 'mayor', 'good');
+  state.players_by_id.p3 = make_player('p3', 'Ravenkeeper', 'ravenkeeper', 'good');
+
+  const resolved = mayor_plugin.hooks.on_prompt_resolved?.({
+    state,
+    prompt_key: 'plugin:mayor:redirect_death:n2:p1',
+    selected_option_id: 'p3',
+    freeform: null
+  });
+
+  assert.equal(resolved?.emitted_events[0]?.event_type, 'PlayerDied');
+  assert.equal(resolved?.emitted_events[0]?.payload.player_id, 'p3');
+  assert.equal(resolved?.queued_prompts[0]?.prompt_key, 'plugin:ravenkeeper:night_reveal:n2:p3');
+});
 
 test('saint example: executed saint causes evil win', () => {
   let state = bootstrap_day_state();
@@ -1495,7 +1671,28 @@ test('undertaker example: no execution means undertaker does not wake with info'
   assert.equal(result?.emitted_events[0]?.payload.note, 'undertaker_info:p1:no_execution_today');
 });
 
-test.skip('spy examples are registration-driven and deferred until registration system is implemented');
+test('spy example: registration query can resolve as townsfolk character', () => {
+  const state = create_initial_state('g1');
+  state.day_number = 1;
+  state.night_number = 1;
+  state.players_by_id.p1 = make_player('p1', 'Spy', 'spy', 'evil');
+
+  const query = spy_plugin.hooks.on_registration_query?.({
+    state,
+    query_id: 'reg:spy:character',
+    consumer_role_id: 'washerwoman',
+    query_kind: 'character_check',
+    subject_player_id: 'p1',
+    subject_context_player_ids: ['p2'],
+    requested_fields: ['character_id']
+  });
+
+  assert.equal(query?.status, 'needs_storyteller');
+  assert.equal(
+    (query?.prompt_options ?? []).some((option) => option.option_id === 'character_id:chef'),
+    true
+  );
+});
 
 function bootstrap_day_state(): GameState {
   const seed = create_initial_state('g1');
