@@ -426,6 +426,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [history_cursor, set_history_cursor] = useState<number | null>(null);
   const [state_mode, set_state_mode] = useState<StateMode>('brief');
   const [selected_player_index, set_selected_player_index] = useState(0);
+  const [player_list_offset, set_player_list_offset] = useState(0);
   const [inspector_mode, set_inspector_mode] = useState<InspectorMode>('overview');
   const [resolver_open, set_resolver_open] = useState(false);
   const [resolver_step, set_resolver_step] = useState<'prompt' | 'option' | 'multi_column'>('prompt');
@@ -481,6 +482,17 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     set_tick((value) => value + 1);
     return keep_running;
   }
+
+  const step_player_selection = useCallback((delta: number, total_count: number, visible_count: number): void => {
+    if (total_count <= 0 || delta === 0) {
+      return;
+    }
+    set_selected_player_index((previous) => {
+      const next = clamp(previous + delta, 0, total_count - 1);
+      set_player_list_offset((offset) => ensure_visible_offset(next, offset, visible_count, total_count));
+      return next;
+    });
+  }, []);
 
   const step_event_selection = useCallback((delta: number): void => {
     if (event_entries.length === 0 || delta === 0) {
@@ -942,13 +954,16 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       return;
     }
 
+    const player_count = ordered_player_ids(context.state).length;
+    const player_visible_count = Math.max(1, state_content_rows - 3);
+
     if (key.ctrl && input_key === 'p') {
-      set_selected_player_index((value) => Math.max(0, value - 1));
+      step_player_selection(-1, player_count, player_visible_count);
       return;
     }
 
     if (key.ctrl && input_key === 'n') {
-      set_selected_player_index((value) => value + 1);
+      step_player_selection(1, player_count, player_visible_count);
       return;
     }
 
@@ -959,6 +974,16 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
 
     if (pane_focus === 'events' && key.downArrow) {
       step_event_selection(1);
+      return;
+    }
+
+    if (state_mode === 'players' && pane_focus !== 'events' && key.upArrow) {
+      step_player_selection(-1, player_count, player_visible_count);
+      return;
+    }
+
+    if (state_mode === 'players' && pane_focus !== 'events' && key.downArrow) {
+      step_player_selection(1, player_count, player_visible_count);
       return;
     }
 
@@ -1039,9 +1064,12 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     })
     .filter((value): value is { key: string; row: ReturnType<typeof format_player_state_row> } => Boolean(value));
 
+  const player_visible_count = Math.max(0, state_content_rows - 3);
   const clamped_selected_player_index = player_rows.length === 0
     ? null
     : clamp(selected_player_index, 0, player_rows.length - 1);
+  const max_player_offset = Math.max(0, player_rows.length - Math.max(1, player_visible_count));
+  const effective_player_offset = clamp(player_list_offset, 0, max_player_offset);
   const selected_player = clamped_selected_player_index === null
     ? null
     : effective_state.players_by_id[player_ids[clamped_selected_player_index] ?? ''] ?? null;
@@ -1060,14 +1088,37 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       if (selected_player_index !== 0) {
         set_selected_player_index(0);
       }
+      if (player_list_offset !== 0) {
+        set_player_list_offset(0);
+      }
       return;
     }
     if (selected_player_index >= player_rows.length) {
       set_selected_player_index(player_rows.length - 1);
     }
-  }, [player_rows.length, selected_player_index]);
+    if (clamped_selected_player_index !== null) {
+      const next_offset = ensure_visible_offset(
+        clamped_selected_player_index,
+        player_list_offset,
+        Math.max(1, player_visible_count),
+        player_rows.length
+      );
+      if (next_offset !== player_list_offset) {
+        set_player_list_offset(next_offset);
+      }
+    }
+  }, [
+    clamped_selected_player_index,
+    player_list_offset,
+    player_rows.length,
+    player_visible_count,
+    selected_player_index
+  ]);
 
-  const visible_player_rows = player_rows.slice(0, Math.max(0, state_content_rows - 3));
+  const visible_player_rows = player_rows.slice(
+    effective_player_offset,
+    effective_player_offset + Math.max(0, player_visible_count)
+  );
 
   const right_pane_width = Math.max(20, Math.floor(columns / 2) - 4);
   const left_pane_width = Math.max(20, Math.floor(columns / 2) - 4);
@@ -1208,14 +1259,19 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
 
         <Box width="50%" flexDirection="column">
           <Box borderStyle="single" flexDirection="column" height={state_height} paddingX={1}>
-            <Text color="cyan">State ({state_mode})</Text>
+            <Text color="cyan">
+              {state_mode === 'players'
+                ? `State (${state_mode}) d${effective_state.day_number} n${effective_state.night_number} sub=${effective_state.subphase} alive=${alive_count}/${players_total}`
+                : `State (${state_mode})`}
+            </Text>
             {state_mode === 'players' ? (
               <>
                 <Text>{fit_line(player_state_header, right_pane_width)}</Text>
                 <Text color="gray">{fit_line(player_state_separator, right_pane_width)}</Text>
                 {visible_player_rows.length > 0 ? (
                   visible_player_rows.map(({ key, row }, index) => {
-                    const selected = index === (clamped_selected_player_index ?? -1);
+                    const absolute_index = effective_player_offset + index;
+                    const selected = absolute_index === (clamped_selected_player_index ?? -1);
                     const content = (
                       <>
                         <Text>{selected ? '>  ' : '   '}</Text>
@@ -1230,28 +1286,15 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
                       </>
                     );
                     return (
-                      selected ? (
-                        <Text
-                          key={`player-state-${key}`}
-                          backgroundColor="white"
-                          color="black"
-                          bold
-                          italic={row.italic}
-                          strikethrough={row.strikethrough}
-                          wrap="truncate-end"
-                        >
-                          {content}
-                        </Text>
-                      ) : (
-                        <Text
-                          key={`player-state-${key}`}
-                          italic={row.italic}
-                          strikethrough={row.strikethrough}
-                          wrap="truncate-end"
-                        >
-                          {content}
-                        </Text>
-                      )
+                      <Text
+                        key={`player-state-${key}`}
+                        bold={selected}
+                        italic={row.italic}
+                        strikethrough={row.strikethrough}
+                        wrap="truncate-end"
+                      >
+                        {content}
+                      </Text>
                     );
                   })
                 ) : (
