@@ -10,8 +10,13 @@ import { EventSummaryRow } from './event.js';
 
 type StateMode = 'brief' | 'players' | 'json';
 type InspectorMode = 'overview' | 'prompts' | 'players' | 'markers' | 'output';
-type PaneFocus = 'events' | 'inspector' | 'status';
+type PaneFocus = 'events' | 'state' | 'command';
 type StatusKind = 'status' | 'error';
+
+interface MarkerSeatToken {
+  seat: string;
+  color: string;
+}
 
 interface StatusEntry {
   text: string;
@@ -286,10 +291,10 @@ function slice_from_bottom(lines: string[], visible_count: number, scroll_offset
 
 function next_focus(focus: PaneFocus): PaneFocus {
   if (focus === 'events') {
-    return 'inspector';
+    return 'state';
   }
-  if (focus === 'inspector') {
-    return 'status';
+  if (focus === 'state') {
+    return 'command';
   }
   return 'events';
 }
@@ -346,11 +351,12 @@ function marker_source_color(effect: string | null | undefined): string {
   return 'white';
 }
 
-function format_player_state_row(player: PlayerState, seat_index: number, marker_sources: string[]): {
+function format_player_state_row(player: PlayerState, seat_index: number, marker_sources: MarkerSeatToken[]): {
   seat: string;
   identity: string;
   vote: string;
   markers: string;
+  marker_tokens: MarkerSeatToken[];
   type: string;
   role: string;
   suffix: string;
@@ -364,7 +370,7 @@ function format_player_state_row(player: PlayerState, seat_index: number, marker
   const id = player.player_id.padEnd(4, ' ').slice(0, 4);
   const name = player.display_name.padEnd(12, ' ').slice(0, 12);
   const vote = player.dead_vote_available ? 'yes ' : 'no  ';
-  const markers = marker_sources.length > 0 ? marker_sources.join(',') : '-';
+  const markers = marker_sources.length > 0 ? marker_sources.map((source) => source.seat).join(',') : '-';
   const character_type = (player.true_character_type ?? 'none').padEnd(10, ' ').slice(0, 10);
   const role = (player.true_character_id ?? 'none').padEnd(19, ' ').slice(0, 19);
   const flags = [
@@ -380,6 +386,7 @@ function format_player_state_row(player: PlayerState, seat_index: number, marker
     identity: `${id} ${name}`,
     vote,
     markers,
+    marker_tokens: marker_sources,
     type: character_type,
     role,
     suffix: ` ${flags || '-'}`,
@@ -451,7 +458,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [resolver_prompt_key, set_resolver_prompt_key] = useState<string | null>(null);
   const [resolver_multi_values, set_resolver_multi_values] = useState<string[]>([]);
   const [resolver_multi_column_index, set_resolver_multi_column_index] = useState(0);
-  const [pane_focus, set_pane_focus] = useState<PaneFocus>('events');
+  const [pane_focus, set_pane_focus] = useState<PaneFocus>('command');
   const [inspector_scroll, set_inspector_scroll] = useState(0);
   const [status_scroll, set_status_scroll] = useState(0);
   const [status_errors_only, set_status_errors_only] = useState(false);
@@ -921,10 +928,6 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       if (pane_focus === 'events') {
         set_event_autoscroll(false);
         set_event_list_offset((value) => Math.max(0, value - 1));
-      } else if (pane_focus === 'inspector') {
-        set_inspector_scroll((value) => value + 1);
-      } else {
-        set_status_scroll((value) => value + 1);
       }
       return;
     }
@@ -934,15 +937,11 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
         set_event_autoscroll(false);
         const max_offset = Math.max(0, event_entries.length - event_list_content_rows);
         set_event_list_offset((value) => Math.min(max_offset, value + 1));
-      } else if (pane_focus === 'inspector') {
-        set_inspector_scroll((value) => Math.max(0, value - 1));
-      } else {
-        set_status_scroll((value) => Math.max(0, value - 1));
       }
       return;
     }
 
-    if (key.return) {
+    if (pane_focus === 'command' && key.return) {
       const command = input.trim();
       if (command.length === 0) {
         return;
@@ -972,16 +971,6 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     const player_count = ordered_player_ids(context.state).length;
     const player_visible_count = Math.max(1, state_content_rows - 3);
 
-    if (key.ctrl && input_key === 'p') {
-      step_player_selection(-1, player_count, player_visible_count);
-      return;
-    }
-
-    if (key.ctrl && input_key === 'n') {
-      step_player_selection(1, player_count, player_visible_count);
-      return;
-    }
-
     if (pane_focus === 'events' && key.upArrow) {
       step_event_selection(-1);
       return;
@@ -992,17 +981,17 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       return;
     }
 
-    if (state_mode === 'players' && pane_focus !== 'events' && key.upArrow) {
+    if (state_mode === 'players' && pane_focus === 'state' && key.upArrow) {
       step_player_selection(-1, player_count, player_visible_count);
       return;
     }
 
-    if (state_mode === 'players' && pane_focus !== 'events' && key.downArrow) {
+    if (state_mode === 'players' && pane_focus === 'state' && key.downArrow) {
       step_player_selection(1, player_count, player_visible_count);
       return;
     }
 
-    if (key.upArrow) {
+    if (pane_focus === 'command' && key.upArrow) {
       if (history.length === 0) {
         return;
       }
@@ -1014,7 +1003,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       return;
     }
 
-    if (key.downArrow) {
+    if (pane_focus === 'command' && key.downArrow) {
       if (history.length === 0) {
         return;
       }
@@ -1033,7 +1022,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       return;
     }
 
-    if (key.backspace || key.delete) {
+    if (pane_focus === 'command' && (key.backspace || key.delete)) {
       set_input((value) => value.slice(0, -1));
       return;
     }
@@ -1042,7 +1031,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       return;
     }
 
-    if (!key.ctrl && !key.meta && input_key.length > 0) {
+    if (pane_focus === 'command' && !key.ctrl && !key.meta && input_key.length > 0) {
       set_input((value) => `${value}${input_key}`);
     }
   });
@@ -1057,15 +1046,16 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const seat_by_player_id = new Map<string, string>(
     player_ids.map((player_id, index) => [player_id, String(index + 1)])
   );
-  const player_marker_sources = new Map<string, string[]>();
+  const player_marker_sources = new Map<string, MarkerSeatToken[]>();
   for (const marker_id of effective_state.active_reminder_marker_ids) {
     const marker = effective_state.reminder_markers_by_id[marker_id];
     if (!marker || !marker.target_player_id) {
       continue;
     }
     const source_seat = marker.source_player_id ? seat_by_player_id.get(marker.source_player_id) ?? '?' : '?';
+    const source_color = marker_source_color(marker.effect);
     const current = player_marker_sources.get(marker.target_player_id) ?? [];
-    current.push(source_seat);
+    current.push({ seat: source_seat, color: source_color });
     player_marker_sources.set(marker.target_player_id, current);
   }
   const player_rows = player_ids
@@ -1250,7 +1240,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     <Box flexDirection="column" width={columns} height={available_rows}>
       <Box borderStyle="single" paddingX={1} height={header_height}>
         <Text>
-          phase={context.state.phase}/{context.state.subphase} day={context.state.day_number} night={context.state.night_number} alive={alive_count}/{players_total} prompts={prompt_count} | focus={pane_focus} | events autoscroll={event_autoscroll} key={show_event_key ? 'shown' : 'hidden'} mouse={mouse_scroll_enabled ? 'on' : 'off'} | Ctrl+W pane | Ctrl+A autoscroll | Ctrl+M mouse | Ctrl+L latest | Ctrl+K key | Ctrl+U/D scroll | Ctrl+E errors={status_errors_only} | Ctrl+S state={state_mode} | Ctrl+G inspector={inspector_mode} | Ctrl+P/N player | Ctrl+C quit
+          phase={context.state.phase}/{context.state.subphase} day={context.state.day_number} night={context.state.night_number} alive={alive_count}/{players_total} prompts={prompt_count} | focus={pane_focus} | events autoscroll={event_autoscroll} key={show_event_key ? 'shown' : 'hidden'} mouse={mouse_scroll_enabled ? 'on' : 'off'} | Ctrl+W pane(events/state/command) | Ctrl+A autoscroll | Ctrl+M mouse | Ctrl+L latest | Ctrl+K key | Ctrl+U/D scroll(events) | Ctrl+E errors={status_errors_only} | Ctrl+S state={state_mode} | Ctrl+G inspector={inspector_mode} | Ctrl+C quit
         </Text>
       </Box>
 
@@ -1301,7 +1291,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
         </Box>
 
         <Box width="50%" flexDirection="column">
-          <Box borderStyle="single" flexDirection="column" height={state_height} paddingX={1}>
+          <Box borderStyle="single" borderColor={pane_focus === 'state' ? 'green' : 'white'} flexDirection="column" height={state_height} paddingX={1}>
             <Text color="cyan">
               {state_mode === 'players'
                 ? `State (${state_mode}) ${timing_label} sub=${effective_state.subphase} alive=${alive_count}/${players_total}`
@@ -1321,7 +1311,19 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
                         <Text>{`${row.seat}   `}</Text>
                         <Text color={row.identity_color}>{`${row.identity} `}</Text>
                         <Text>{`${row.vote} `}</Text>
-                        <Text>{`${row.markers.padEnd(7, ' ')} `}</Text>
+                        {row.marker_tokens.length > 0 ? (
+                          <Text>
+                            {row.marker_tokens.map((token, token_index) => (
+                              <Text key={`marker-seat-${token.seat}-${token_index}`}>
+                                <Text color={token.color}>{token.seat}</Text>
+                                <Text>{token_index < row.marker_tokens.length - 1 ? ',' : ''}</Text>
+                              </Text>
+                            ))}
+                            <Text> </Text>
+                          </Text>
+                        ) : (
+                          <Text>{`${row.markers.padEnd(7, ' ')} `}</Text>
+                        )}
                         <Text color={row.type_color}>{row.type}</Text>
                         <Text> </Text>
                         <Text color={row.role_color}>{row.role}</Text>
@@ -1367,19 +1369,19 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
             )}
           </Box>
 
-          <Box borderStyle="single" borderColor={pane_focus === 'inspector' ? 'green' : 'white'} flexDirection="column" height={inspector_height} paddingX={1}>
+          <Box borderStyle="single" borderColor="white" flexDirection="column" height={inspector_height} paddingX={1}>
             <Text color="cyan">Inspector ({inspector_mode})</Text>
             {render_panel_lines(inspector_visible_lines, right_pane_width)}
           </Box>
 
-          <Box borderStyle="single" borderColor={pane_focus === 'status' ? 'green' : 'white'} flexDirection="column" height={status_height} paddingX={1}>
+          <Box borderStyle="single" borderColor="white" flexDirection="column" height={status_height} paddingX={1}>
             <Text color="cyan">Status (errors_only={status_errors_only})</Text>
             {render_panel_lines(status_inspector_lines, right_pane_width)}
           </Box>
         </Box>
       </Box>
 
-      <Box borderStyle="single" paddingX={1} height={input_height}>
+      <Box borderStyle="single" borderColor={pane_focus === 'command' ? 'green' : 'white'} paddingX={1} height={input_height}>
         <Text color="green">Command&gt; </Text>
         <Text>{input.slice(0, command_width)}</Text>
       </Box>
