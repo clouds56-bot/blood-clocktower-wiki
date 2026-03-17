@@ -10,6 +10,7 @@ Migrate the existing interactive CLI experience to a maintainable TUI while pres
 - Phase 2 complete: parser and engine execution are reused from CLI.
 - Phase 3 complete: multi-panel layout, inspector panel, focus cycling, and command history navigation.
 - Phase 3.5 complete: high-signal inspector modes (`overview`, `prompts`, `players`, `markers`).
+- Phase 3.6 complete: floating prompt resolve window (keyboard-driven) in Ink TUI.
 
 ## Architecture Decision
 

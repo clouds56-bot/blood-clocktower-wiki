@@ -3,6 +3,7 @@ import { Box, Text, useApp, useInput, useStdout } from 'ink';
 
 import { format_state_brief, format_state_json } from '../cli/formatters.js';
 import { create_cli_context, process_cli_line } from '../cli/repl.js';
+import type { PromptState } from '../domain/types.js';
 
 type StateMode = 'brief' | 'json';
 type InspectorMode = 'overview' | 'prompts' | 'players' | 'markers';
@@ -137,6 +138,12 @@ function next_inspector_mode(mode: InspectorMode): InspectorMode {
   return 'overview';
 }
 
+function pending_prompts(context: ReturnType<typeof create_cli_context>): PromptState[] {
+  return context.state.pending_prompts
+    .map((prompt_key) => context.state.prompts_by_id[prompt_key])
+    .filter((prompt): prompt is PromptState => Boolean(prompt && prompt.status === 'pending'));
+}
+
 function render_panel_lines(lines: string[]): React.ReactNode {
   return lines.map((line, index) => <Text key={`${index}:${line}`}>{line}</Text>);
 }
@@ -151,12 +158,17 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [input, set_input] = useState('');
   const [logs, set_logs] = useState<string[]>([
     'Clocktower Engine TUI (Ink)',
-    'Type commands and press Enter. F2 toggles state mode. F3 cycles inspector.'
+    'Type commands and press Enter. Ctrl+R opens resolve prompt picker.'
   ]);
   const [history, set_history] = useState<string[]>([]);
   const [history_cursor, set_history_cursor] = useState<number | null>(null);
   const [state_mode, set_state_mode] = useState<StateMode>('brief');
   const [inspector_mode, set_inspector_mode] = useState<InspectorMode>('overview');
+  const [resolver_open, set_resolver_open] = useState(false);
+  const [resolver_step, set_resolver_step] = useState<'prompt' | 'option'>('prompt');
+  const [resolver_prompt_index, set_resolver_prompt_index] = useState(0);
+  const [resolver_option_index, set_resolver_option_index] = useState(0);
+  const [resolver_prompt_key, set_resolver_prompt_key] = useState<string | null>(null);
   const [, set_tick] = useState(0);
 
   function append_log_lines(lines: string[]): void {
@@ -184,9 +196,124 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     };
   }
 
+  function close_resolver(): void {
+    set_resolver_open(false);
+    set_resolver_step('prompt');
+    set_resolver_prompt_index(0);
+    set_resolver_option_index(0);
+    set_resolver_prompt_key(null);
+  }
+
+  function open_resolver(): void {
+    const pending = pending_prompts(context);
+    if (pending.length === 0) {
+      append_log_lines(['(no pending prompts to resolve)']);
+      return;
+    }
+    set_resolver_open(true);
+    set_resolver_step('prompt');
+    set_resolver_prompt_index(0);
+    set_resolver_option_index(0);
+    set_resolver_prompt_key(null);
+  }
+
   useInput((input_key, key) => {
     if (key.ctrl && input_key === 'c') {
       exit();
+      return;
+    }
+
+    const pending = pending_prompts(context);
+
+    if (resolver_open) {
+      if (key.escape) {
+        close_resolver();
+        return;
+      }
+
+      if (resolver_step === 'prompt') {
+        if (pending.length === 0) {
+          if (key.return) {
+            close_resolver();
+          }
+          return;
+        }
+
+        if (key.upArrow) {
+          set_resolver_prompt_index((index) => Math.max(0, index - 1));
+          return;
+        }
+
+        if (key.downArrow) {
+          set_resolver_prompt_index((index) => Math.min(pending.length - 1, index + 1));
+          return;
+        }
+
+        if (key.return) {
+          const prompt = pending[resolver_prompt_index] ?? pending[0];
+          if (!prompt) {
+            close_resolver();
+            return;
+          }
+
+          if (prompt.options.length === 0) {
+            const result = run_command(`resolve-prompt ${prompt.prompt_key} -`);
+            close_resolver();
+            if (!result.keep_running) {
+              exit();
+            }
+            return;
+          }
+
+          set_resolver_prompt_key(prompt.prompt_key);
+          set_resolver_option_index(0);
+          set_resolver_step('option');
+        }
+        return;
+      }
+
+      const selected_prompt = pending.find((prompt) => prompt.prompt_key === resolver_prompt_key) ?? null;
+      if (!selected_prompt) {
+        set_resolver_step('prompt');
+        set_resolver_prompt_key(null);
+        set_resolver_option_index(0);
+        return;
+      }
+
+      const option_count = selected_prompt.options.length + 1;
+
+      if (key.upArrow) {
+        set_resolver_option_index((index) => Math.max(0, index - 1));
+        return;
+      }
+
+      if (key.downArrow) {
+        set_resolver_option_index((index) => Math.min(option_count - 1, index + 1));
+        return;
+      }
+
+      if (key.leftArrow || key.backspace) {
+        set_resolver_step('prompt');
+        set_resolver_option_index(0);
+        set_resolver_prompt_key(null);
+        return;
+      }
+
+      if (key.return) {
+        const selected_option = resolver_option_index === 0
+          ? '-'
+          : selected_prompt.options[resolver_option_index - 1]?.option_id ?? '-';
+        const result = run_command(`resolve-prompt ${selected_prompt.prompt_key} ${selected_option}`);
+        close_resolver();
+        if (!result.keep_running) {
+          exit();
+        }
+      }
+      return;
+    }
+
+    if (key.ctrl && input_key === 'r') {
+      open_resolver();
       return;
     }
 
@@ -292,6 +419,16 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     return Boolean(prompt && prompt.status === 'pending');
   }).length;
 
+  const modal_width = Math.max(56, Math.min(columns - 4, Math.floor(columns * 0.7)));
+  const modal_height = Math.max(12, Math.min(rows - 6, 18));
+  const modal_left = Math.max(0, Math.floor((columns - modal_width) / 2));
+  const modal_top = Math.max(1, Math.floor((rows - modal_height) / 2));
+
+  const modal_pending = pending_prompts(context);
+  const modal_prompt = resolver_prompt_key
+    ? modal_pending.find((prompt) => prompt.prompt_key === resolver_prompt_key) ?? null
+    : null;
+
   return (
     <Box flexDirection="column" width={columns} height={available_rows}>
       <Box borderStyle="single" paddingX={1} height={header_height}>
@@ -323,6 +460,65 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
         <Text color="green">Command&gt; </Text>
         <Text>{input}</Text>
       </Box>
+
+      {resolver_open && (
+        <Box position="absolute" width={columns} height={available_rows} flexDirection="column">
+          <Box marginTop={modal_top}>
+            <Box marginLeft={modal_left}>
+              <Box
+                width={modal_width}
+                height={modal_height}
+                borderStyle="double"
+                borderColor="yellow"
+                flexDirection="column"
+                paddingX={1}
+              >
+                <Text color="yellow">Resolve Prompt</Text>
+                {resolver_step === 'prompt' ? (
+                  <>
+                    <Text>Select pending prompt (Enter). Esc closes.</Text>
+                    {modal_pending.length === 0 ? (
+                      <Text>(no pending prompts)</Text>
+                    ) : (
+                      modal_pending.slice(0, modal_height - 5).map((prompt, index) => {
+                        const selected = index === resolver_prompt_index;
+                        return (
+                          <Text key={prompt.prompt_key} color={selected ? 'green' : 'white'}>
+                            {selected ? '> ' : '  '}
+                            {prompt.prompt_key} kind={prompt.kind} vis={prompt.visibility}
+                          </Text>
+                        );
+                      })
+                    )}
+                  </>
+                ) : (
+                  <>
+                    <Text>
+                      {modal_prompt
+                        ? `Prompt ${modal_prompt.prompt_key} - choose option (Backspace to prompt list)`
+                        : 'Prompt no longer pending'}
+                    </Text>
+                    {modal_prompt && (
+                      <Text color={resolver_option_index === 0 ? 'green' : 'white'}>
+                        {resolver_option_index === 0 ? '> ' : '  '}skip option (-)
+                      </Text>
+                    )}
+                    {modal_prompt?.options.slice(0, modal_height - 6).map((option, index) => {
+                      const selected = resolver_option_index === index + 1;
+                      return (
+                        <Text key={option.option_id} color={selected ? 'green' : 'white'}>
+                          {selected ? '> ' : '  '}
+                          {option.option_id} - {option.label}
+                        </Text>
+                      );
+                    })}
+                  </>
+                )}
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+      )}
     </Box>
   );
 }

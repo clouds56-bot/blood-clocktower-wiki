@@ -43,6 +43,7 @@ pnpm --filter game run tui -- my_game
   - right top: live state snapshot
   - right bottom: inspector panel (overview, prompts, players, markers)
 - Keybindings:
+  - `Ctrl+R`: open floating prompt resolver window
   - `Ctrl+S`: toggle state panel between brief and JSON
   - `Ctrl+G`: cycle inspector panel (`overview -> prompts -> players -> markers`)
   - `Up` / `Down` (while input focused): browse command history
