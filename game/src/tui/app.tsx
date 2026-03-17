@@ -157,8 +157,13 @@ function column_values(column: PromptColumnSpec): string[] {
   return values;
 }
 
-function render_panel_lines(lines: string[]): React.ReactNode {
-  return lines.map((line, index) => <Text key={`${index}:${line}`}>{line}</Text>);
+function render_panel_lines(lines: string[], max_width: number): React.ReactNode {
+  return lines.map((line, index) => {
+    const clipped = max_width > 0 && line.length > max_width
+      ? `${line.slice(0, Math.max(0, max_width - 1))}~`
+      : line;
+    return <Text key={`${index}:${line}`}>{clipped}</Text>;
+  });
 }
 
 function fit_line(text: string, width: number): string {
@@ -687,6 +692,10 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
 
   const state_lines = state_text.split('\n').slice(0, state_content_rows);
 
+  const right_pane_width = Math.max(20, Math.floor(columns / 2) - 4);
+  const left_pane_width = Math.max(20, Math.floor(columns / 2) - 4);
+  const command_width = Math.max(10, columns - 14);
+
   const output_inspector_lines = output_lines;
   const status_filtered_lines = status_entries
     .filter((entry) => !status_errors_only || entry.kind === 'error')
@@ -741,30 +750,30 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       <Box height={main_height}>
         <Box width="50%" borderStyle="single" borderColor={pane_focus === 'events' ? 'green' : 'white'} flexDirection="column" paddingX={1}>
           <Text color="cyan">Events</Text>
-          {render_panel_lines(recent_events)}
+          {render_panel_lines(recent_events, left_pane_width)}
         </Box>
 
         <Box width="50%" flexDirection="column">
           <Box borderStyle="single" flexDirection="column" height={state_height} paddingX={1}>
             <Text color="cyan">State ({state_mode})</Text>
-            {render_panel_lines(state_lines)}
+            {render_panel_lines(state_lines, right_pane_width)}
           </Box>
 
           <Box borderStyle="single" borderColor={pane_focus === 'inspector' ? 'green' : 'white'} flexDirection="column" height={inspector_height} paddingX={1}>
             <Text color="cyan">Inspector ({inspector_mode})</Text>
-            {render_panel_lines(inspector_visible_lines)}
+            {render_panel_lines(inspector_visible_lines, right_pane_width)}
           </Box>
 
           <Box borderStyle="single" borderColor={pane_focus === 'status' ? 'green' : 'white'} flexDirection="column" height={status_height} paddingX={1}>
             <Text color="cyan">Status (errors_only={status_errors_only})</Text>
-            {render_panel_lines(status_inspector_lines)}
+            {render_panel_lines(status_inspector_lines, right_pane_width)}
           </Box>
         </Box>
       </Box>
 
       <Box borderStyle="single" paddingX={1} height={input_height}>
         <Text color="green">Command&gt; </Text>
-        <Text>{input}</Text>
+        <Text>{input.slice(0, command_width)}</Text>
       </Box>
 
       {resolver_open && (
