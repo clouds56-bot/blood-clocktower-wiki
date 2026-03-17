@@ -330,8 +330,9 @@ export function EventSummaryRow(props: {
   const clipped = line.length > content_width ? `${line.slice(0, Math.max(0, content_width - 1))}~` : line;
   const style = event_style_for_tui(event.event_type);
   if (selected) {
+    const selected_bold = style.color !== 'gray';
     return (
-      <Text color={style.color} backgroundColor="white" bold wrap="truncate-end">
+      <Text color="black" backgroundColor="white" bold={selected_bold} wrap="truncate-end">
         {`${prefix}${clipped}`}
       </Text>
     );

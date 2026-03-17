@@ -347,6 +347,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [inspector_scroll, set_inspector_scroll] = useState(0);
   const [status_scroll, set_status_scroll] = useState(0);
   const [status_errors_only, set_status_errors_only] = useState(false);
+  const [mouse_scroll_enabled, set_mouse_scroll_enabled] = useState(false);
   const [, set_tick] = useState(0);
   const suppress_input_until_ref = useRef(0);
   const event_autoscroll_ref = useRef(event_autoscroll);
@@ -445,7 +446,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   }, [channel_bus]);
 
   useEffect(() => {
-    if (!stdin || !process.stdout.isTTY) {
+    if (!stdin || !process.stdout.isTTY || !mouse_scroll_enabled) {
       return;
     }
 
@@ -465,6 +466,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
         if (action !== 'M') {
           continue;
         }
+        suppress_input_until_ref.current = Date.now() + 120;
+
         const is_wheel_up = code === 64;
         const is_wheel_down = code === 65;
         if (!is_wheel_up && !is_wheel_down) {
@@ -479,7 +482,6 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
           continue;
         }
 
-        suppress_input_until_ref.current = Date.now() + 80;
         step_event_selection(is_wheel_up ? -1 : 1);
       }
     };
@@ -489,7 +491,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       stdin.off('data', on_data);
       process.stdout.write(disable);
     };
-  }, [stdin, columns, header_height, main_height, step_event_selection]);
+  }, [stdin, columns, header_height, main_height, mouse_scroll_enabled, step_event_selection]);
 
   function close_resolver(): void {
     set_resolver_open(false);
@@ -774,6 +776,11 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       return;
     }
 
+    if (key.ctrl && input_key === 'm') {
+      set_mouse_scroll_enabled((value) => !value);
+      return;
+    }
+
     if (key.ctrl && input_key === 'k') {
       set_show_event_key((value) => !value);
       return;
@@ -992,7 +999,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     <Box flexDirection="column" width={columns} height={available_rows}>
       <Box borderStyle="single" paddingX={1} height={header_height}>
         <Text>
-          phase={context.state.phase}/{context.state.subphase} day={context.state.day_number} night={context.state.night_number} alive={alive_count}/{players_total} prompts={prompt_count} | focus={pane_focus} | events autoscroll={event_autoscroll} key={show_event_key ? 'shown' : 'hidden'} | Ctrl+W pane | Ctrl+A autoscroll | Ctrl+L latest | Ctrl+K key | Ctrl+U/D scroll | Ctrl+E errors={status_errors_only} | Ctrl+S state={state_mode} | Ctrl+G inspector={inspector_mode} | Ctrl+C quit
+          phase={context.state.phase}/{context.state.subphase} day={context.state.day_number} night={context.state.night_number} alive={alive_count}/{players_total} prompts={prompt_count} | focus={pane_focus} | events autoscroll={event_autoscroll} key={show_event_key ? 'shown' : 'hidden'} mouse={mouse_scroll_enabled ? 'on' : 'off'} | Ctrl+W pane | Ctrl+A autoscroll | Ctrl+M mouse | Ctrl+L latest | Ctrl+K key | Ctrl+U/D scroll | Ctrl+E errors={status_errors_only} | Ctrl+S state={state_mode} | Ctrl+G inspector={inspector_mode} | Ctrl+C quit
         </Text>
       </Box>
 
