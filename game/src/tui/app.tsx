@@ -17,6 +17,11 @@ interface StatusEntry {
   kind: StatusKind;
 }
 
+interface EventEntry {
+  event: DomainEvent;
+  event_index: number;
+}
+
 function format_overview_panel(context: ReturnType<typeof create_cli_context>): string[] {
   const state = context.state;
   const players = Object.values(state.players_by_id);
@@ -178,9 +183,122 @@ function strip_ansi(text: string): string {
   return text.replace(/\x1B\[[0-9;]*m/g, '');
 }
 
-function format_event_for_tui(event: DomainEvent, event_index?: number): string {
-  const prefix = event_index ? `#${event_index} ` : '';
-  return `${prefix}${event.event_type} ${JSON.stringify(event.payload)}`;
+function event_color_for_tui(event_type: DomainEvent['event_type']): string {
+  if (event_type === 'GameEnded' || event_type === 'GameWon' || event_type === 'ForcedVictoryDeclared') {
+    return 'magenta';
+  }
+  if (event_type === 'PlayerDied' || event_type === 'PlayerExecuted') {
+    return 'red';
+  }
+  if (event_type === 'PhaseAdvanced') {
+    return 'blue';
+  }
+  if (event_type === 'PromptQueued') {
+    return 'yellow';
+  }
+  if (
+    event_type === 'NominationMade' ||
+    event_type === 'VoteOpened' ||
+    event_type === 'VoteCast' ||
+    event_type === 'VoteClosed'
+  ) {
+    return 'yellow';
+  }
+  if (event_type === 'WinCheckCompleted' || event_type === 'ExecutionResolutionCompleted') {
+    return 'cyan';
+  }
+  return 'white';
+}
+
+function payload_summary(payload: unknown, max_len: number): string {
+  let raw = '';
+  try {
+    raw = JSON.stringify(payload);
+  } catch {
+    raw = String(payload);
+  }
+  if (raw.length <= max_len) {
+    return raw;
+  }
+  return `${raw.slice(0, Math.max(0, max_len - 1))}~`;
+}
+
+function format_event_summary_line(entry: EventEntry, payload_max_len: number): string {
+  const summary = payload_summary(entry.event.payload, payload_max_len);
+  return `#${entry.event_index} ${entry.event.event_type} ${summary}`;
+}
+
+function format_selected_event_detail_lines(
+  selected: EventEntry | null,
+  show_event_key: boolean
+): string[] {
+  if (!selected) {
+    return ['(no event selected)', 'Use Ctrl+W to focus events, Up/Down to select.'];
+  }
+
+  const detail_lines = [
+    `selected=#${selected.event_index} ${selected.event.event_type}`,
+    `event_id=${selected.event.event_id} created_at=${selected.event.created_at}`,
+    `actor_id=${selected.event.actor_id ?? 'none'}`
+  ];
+
+  if (show_event_key) {
+    detail_lines.push(`event_key=${selected.event.event_key ?? 'none'}`);
+  } else {
+    detail_lines.push('event_key=(hidden) Ctrl+K to toggle');
+  }
+
+  const payload = JSON.stringify(selected.event.payload, null, 2).split('\n');
+  detail_lines.push('payload:');
+  detail_lines.push(...payload);
+  return detail_lines;
+}
+
+function clamp(value: number, min: number, max: number): number {
+  return Math.min(max, Math.max(min, value));
+}
+
+function ensure_visible_offset(
+  selected_index: number,
+  current_offset: number,
+  visible_count: number,
+  total_count: number
+): number {
+  const max_offset = Math.max(0, total_count - visible_count);
+  if (selected_index < current_offset) {
+    return clamp(selected_index, 0, max_offset);
+  }
+  if (selected_index >= current_offset + visible_count) {
+    return clamp(selected_index - visible_count + 1, 0, max_offset);
+  }
+  return clamp(current_offset, 0, max_offset);
+}
+
+function render_scrollbar_line(total_count: number, visible_count: number, offset: number): string {
+  const width = 18;
+  if (total_count <= 0) {
+    return `scroll [${'-'.repeat(width)}] 0/0`;
+  }
+
+  if (total_count <= visible_count) {
+    return `scroll [${'#'.repeat(width)}] ${total_count}/${total_count}`;
+  }
+
+  const max_offset = Math.max(1, total_count - visible_count);
+  const thumb_size = Math.max(1, Math.round((visible_count / total_count) * width));
+  const travel = Math.max(0, width - thumb_size);
+  const thumb_pos = Math.round((offset / max_offset) * travel);
+
+  const chars = Array.from({ length: width }, () => '-');
+  for (let i = 0; i < thumb_size; i += 1) {
+    const position = thumb_pos + i;
+    if (position >= 0 && position < chars.length) {
+      chars[position] = '#';
+    }
+  }
+
+  const view_end = Math.min(total_count, offset + visible_count);
+  return `scroll [${chars.join('')}] ${view_end}/${total_count}`;
 }
 
 function slice_from_bottom(lines: string[], visible_count: number, scroll_offset: number): string[] {
@@ -204,6 +322,20 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const { stdout } = useStdout();
   const columns = stdout.columns ?? 120;
   const rows = stdout.rows ?? 40;
+  const available_rows = Math.max(24, rows);
+  const header_height = 3;
+  const input_height = 3;
+  const main_height = Math.max(10, available_rows - header_height - input_height);
+  const state_height = Math.max(6, Math.floor(main_height * 0.52));
+  const status_height = Math.max(4, Math.floor(main_height * 0.2));
+  const inspector_height = Math.max(4, main_height - state_height - status_height);
+  const event_details_height = Math.max(8, Math.floor(main_height * 0.46));
+  const event_list_height = Math.max(8, main_height - event_details_height);
+  const event_details_content_rows = Math.max(1, event_details_height - 2);
+  const event_list_content_rows = Math.max(1, event_list_height - 3);
+  const state_content_rows = Math.max(1, state_height - 2);
+  const inspector_content_rows = Math.max(1, inspector_height - 2);
+  const status_content_rows = Math.max(1, status_height - 2);
   const channel_bus = useMemo(() => new CliChannelBus(), []);
   const context = useMemo(
     () => create_cli_context(initial_game_id, { channel_bus }),
@@ -211,10 +343,11 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   );
 
   const [input, set_input] = useState('');
-  const [event_lines, set_event_lines] = useState<string[]>([
-    'Clocktower Engine TUI (Ink)',
-    'Event channel is shown here.'
-  ]);
+  const [event_entries, set_event_entries] = useState<EventEntry[]>([]);
+  const [selected_event_index, set_selected_event_index] = useState<number | null>(null);
+  const [event_list_offset, set_event_list_offset] = useState(0);
+  const [event_autoscroll, set_event_autoscroll] = useState(true);
+  const [show_event_key, set_show_event_key] = useState(false);
   const [status_entries, set_status_entries] = useState<StatusEntry[]>([
     { text: 'Type commands and press Enter. Ctrl+R opens resolve prompt picker.', kind: 'status' }
   ]);
@@ -234,21 +367,10 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [resolver_multi_values, set_resolver_multi_values] = useState<string[]>([]);
   const [resolver_multi_column_index, set_resolver_multi_column_index] = useState(0);
   const [pane_focus, set_pane_focus] = useState<PaneFocus>('events');
-  const [event_scroll, set_event_scroll] = useState(0);
   const [inspector_scroll, set_inspector_scroll] = useState(0);
   const [status_scroll, set_status_scroll] = useState(0);
   const [status_errors_only, set_status_errors_only] = useState(false);
   const [, set_tick] = useState(0);
-
-  function append_event_lines(lines: string[]): void {
-    if (lines.length === 0) {
-      return;
-    }
-    set_event_lines((previous) => {
-      const merged = [...previous, ...lines];
-      return merged.slice(Math.max(0, merged.length - 120));
-    });
-  }
 
   function append_status_lines(lines: string[], kind: StatusKind = 'status'): void {
     if (lines.length === 0) {
@@ -289,8 +411,22 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
         return;
       }
 
-      if (message.channel === 'event' && message.event) {
-        append_event_lines([format_event_for_tui(message.event, message.event_index)]);
+      if (message.channel === 'event') {
+        const event = message.event;
+        if (!event) {
+          return;
+        }
+        set_event_entries((previous) => {
+          const next_index = message.event_index ?? previous.length + 1;
+          const merged = [...previous, { event, event_index: next_index }];
+          if (event_autoscroll) {
+            const latest = merged.length - 1;
+            set_selected_event_index(latest);
+            const max_offset = Math.max(0, merged.length - event_list_content_rows);
+            set_event_list_offset(max_offset);
+          }
+          return merged;
+        });
         return;
       }
 
@@ -302,7 +438,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       append_status_lines([clean], message.channel === 'error' ? 'error' : 'status');
     });
     return unsubscribe;
-  }, [channel_bus]);
+  }, [channel_bus, event_autoscroll, event_list_content_rows]);
 
   function close_resolver(): void {
     set_resolver_open(false);
@@ -577,6 +713,25 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       return;
     }
 
+    if (key.ctrl && input_key === 'a') {
+      set_event_autoscroll((value) => !value);
+      return;
+    }
+
+    if (key.ctrl && input_key === 'k') {
+      set_show_event_key((value) => !value);
+      return;
+    }
+
+    if (key.ctrl && input_key === 'l') {
+      const last_index = event_entries.length - 1;
+      if (last_index >= 0) {
+        set_selected_event_index(last_index);
+      }
+      set_event_autoscroll(true);
+      return;
+    }
+
     if (key.ctrl && input_key === 'e') {
       set_status_errors_only((value) => !value);
       return;
@@ -584,7 +739,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
 
     if (key.ctrl && input_key === 'u') {
       if (pane_focus === 'events') {
-        set_event_scroll((value) => value + 1);
+        set_event_autoscroll(false);
+        set_event_list_offset((value) => Math.max(0, value - 1));
       } else if (pane_focus === 'inspector') {
         set_inspector_scroll((value) => value + 1);
       } else {
@@ -595,7 +751,9 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
 
     if (key.ctrl && input_key === 'd') {
       if (pane_focus === 'events') {
-        set_event_scroll((value) => Math.max(0, value - 1));
+        set_event_autoscroll(false);
+        const max_offset = Math.max(0, event_entries.length - event_list_content_rows);
+        set_event_list_offset((value) => Math.min(max_offset, value + 1));
       } else if (pane_focus === 'inspector') {
         set_inspector_scroll((value) => Math.max(0, value - 1));
       } else {
@@ -628,6 +786,39 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
 
     if (key.ctrl && input_key === 'g') {
       set_inspector_mode((mode) => next_inspector_mode(mode));
+      return;
+    }
+
+    if (pane_focus === 'events' && key.upArrow) {
+      if (event_entries.length === 0) {
+        return;
+      }
+      set_event_autoscroll(false);
+      set_selected_event_index((previous) => {
+        const current = previous ?? event_entries.length - 1;
+        const next = Math.max(0, current - 1);
+        set_event_list_offset((offset) =>
+          ensure_visible_offset(next, offset, event_list_content_rows, event_entries.length)
+        );
+        return next;
+      });
+      return;
+    }
+
+    if (pane_focus === 'events' && key.downArrow) {
+      if (event_entries.length === 0) {
+        return;
+      }
+      set_selected_event_index((previous) => {
+        const current = previous ?? event_entries.length - 1;
+        const next = Math.min(event_entries.length - 1, current + 1);
+        const at_latest = next === event_entries.length - 1;
+        set_event_autoscroll(at_latest);
+        set_event_list_offset((offset) =>
+          ensure_visible_offset(next, offset, event_list_content_rows, event_entries.length)
+        );
+        return next;
+      });
       return;
     }
 
@@ -678,17 +869,6 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
 
   const effective_state = latest_state_snapshot ?? context.state;
   const state_text = state_mode === 'json' ? format_state_json(effective_state) : format_state_brief(effective_state);
-  const available_rows = Math.max(24, rows);
-  const header_height = 3;
-  const input_height = 3;
-  const main_height = Math.max(10, available_rows - header_height - input_height);
-  const state_height = Math.max(6, Math.floor(main_height * 0.52));
-  const status_height = Math.max(4, Math.floor(main_height * 0.2));
-  const inspector_height = Math.max(4, main_height - state_height - status_height);
-  const content_rows = Math.max(1, main_height - 2);
-  const state_content_rows = Math.max(1, state_height - 2);
-  const inspector_content_rows = Math.max(1, inspector_height - 2);
-  const status_content_rows = Math.max(1, status_height - 2);
 
   const state_lines = state_text.split('\n').slice(0, state_content_rows);
 
@@ -714,7 +894,27 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
               ? output_inspector_lines
               : ['(no output yet)'];
 
-  const recent_events = slice_from_bottom(event_lines, content_rows, event_scroll);
+  const clamped_selected_event_index = selected_event_index === null
+    ? (event_entries.length === 0 ? null : event_entries.length - 1)
+    : clamp(selected_event_index, 0, Math.max(0, event_entries.length - 1));
+  const max_event_offset = Math.max(0, event_entries.length - event_list_content_rows);
+  const effective_event_offset = event_autoscroll
+    ? max_event_offset
+    : clamp(event_list_offset, 0, max_event_offset);
+  const visible_event_entries = event_entries.slice(
+    effective_event_offset,
+    effective_event_offset + event_list_content_rows
+  );
+  const selected_event = clamped_selected_event_index === null
+    ? null
+    : event_entries[clamped_selected_event_index] ?? null;
+  const selected_event_details = format_selected_event_detail_lines(selected_event, show_event_key);
+  const visible_event_details = slice_from_bottom(selected_event_details, event_details_content_rows, 0);
+  const event_scrollbar_line = render_scrollbar_line(
+    event_entries.length,
+    event_list_content_rows,
+    effective_event_offset
+  );
   const inspector_visible_lines = slice_from_bottom(inspector_lines, inspector_content_rows, inspector_scroll);
   const status_inspector_lines = slice_from_bottom(status_filtered_lines, status_content_rows, status_scroll);
   const players_total = Object.keys(context.state.players_by_id).length;
@@ -743,14 +943,47 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     <Box flexDirection="column" width={columns} height={available_rows}>
       <Box borderStyle="single" paddingX={1} height={header_height}>
         <Text>
-          phase={context.state.phase}/{context.state.subphase} day={context.state.day_number} night={context.state.night_number} alive={alive_count}/{players_total} prompts={prompt_count} | focus={pane_focus} | Ctrl+W pane | Ctrl+U/D scroll | Ctrl+E errors={status_errors_only} | Ctrl+S state={state_mode} | Ctrl+G inspector={inspector_mode} | Ctrl+C quit
+          phase={context.state.phase}/{context.state.subphase} day={context.state.day_number} night={context.state.night_number} alive={alive_count}/{players_total} prompts={prompt_count} | focus={pane_focus} | events autoscroll={event_autoscroll} key={show_event_key ? 'shown' : 'hidden'} | Ctrl+W pane | Ctrl+A autoscroll | Ctrl+L latest | Ctrl+K key | Ctrl+U/D scroll | Ctrl+E errors={status_errors_only} | Ctrl+S state={state_mode} | Ctrl+G inspector={inspector_mode} | Ctrl+C quit
         </Text>
       </Box>
 
       <Box height={main_height}>
-        <Box width="50%" borderStyle="single" borderColor={pane_focus === 'events' ? 'green' : 'white'} flexDirection="column" paddingX={1}>
-          <Text color="cyan">Events</Text>
-          {render_panel_lines(recent_events, left_pane_width)}
+        <Box width="50%" flexDirection="column">
+          <Box
+            borderStyle="single"
+            borderColor={pane_focus === 'events' ? 'green' : 'white'}
+            flexDirection="column"
+            height={event_details_height}
+            paddingX={1}
+          >
+            <Text color="cyan">Event Details (selected)</Text>
+            {render_panel_lines(visible_event_details, left_pane_width)}
+          </Box>
+
+          <Box
+            borderStyle="single"
+            borderColor={pane_focus === 'events' ? 'green' : 'white'}
+            flexDirection="column"
+            height={event_list_height}
+            paddingX={1}
+          >
+            <Text color="cyan">Event Summary ({event_entries.length}) autoscroll={event_autoscroll ? 'on' : 'off'}</Text>
+            <Text color="gray">{fit_line(event_scrollbar_line, left_pane_width)}</Text>
+            {visible_event_entries.length === 0 ? (
+              <Text>(no events yet)</Text>
+            ) : (
+              visible_event_entries.map((entry, visible_index) => {
+                const absolute_index = effective_event_offset + visible_index;
+                const selected = clamped_selected_event_index === absolute_index;
+                const line = format_event_summary_line(entry, Math.max(24, left_pane_width - 20));
+                return (
+                  <Text key={`event-row-${entry.event_index}`} color={selected ? 'green' : event_color_for_tui(entry.event.event_type)}>
+                    {fit_line(`${selected ? '> ' : '  '}${line}`, left_pane_width)}
+                  </Text>
+                );
+              })
+            )}
+          </Box>
         </Box>
 
         <Box width="50%" flexDirection="column">
