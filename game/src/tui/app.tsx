@@ -445,7 +445,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [output_lines, set_output_lines] = useState<string[]>([]);
   const [history, set_history] = useState<string[]>([]);
   const [history_cursor, set_history_cursor] = useState<number | null>(null);
-  const [state_mode, set_state_mode] = useState<StateMode>('brief');
+  const [state_mode, set_state_mode] = useState<StateMode>('players');
   const [selected_player_index, set_selected_player_index] = useState(0);
   const [player_list_offset, set_player_list_offset] = useState(0);
   const [inspector_mode, set_inspector_mode] = useState<InspectorMode>('overview');
@@ -1313,12 +1313,44 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
                         <Text>{`${row.vote} `}</Text>
                         {row.marker_tokens.length > 0 ? (
                           <Text>
-                            {row.marker_tokens.map((token, token_index) => (
-                              <Text key={`marker-seat-${token.seat}-${token_index}`}>
-                                <Text color={token.color}>{token.seat}</Text>
-                                <Text>{token_index < row.marker_tokens.length - 1 ? ',' : ''}</Text>
-                              </Text>
-                            ))}
+                            {(() => {
+                              const marker_column_width = 7;
+                              const chunks: Array<{ text: string; color?: string }> = [];
+                              let used = 0;
+                              for (let token_index = 0; token_index < row.marker_tokens.length; token_index += 1) {
+                                const token = row.marker_tokens[token_index];
+                                if (!token) {
+                                  continue;
+                                }
+                                if (used >= marker_column_width) {
+                                  break;
+                                }
+                                const raw = `${token.seat}${token_index < row.marker_tokens.length - 1 ? ',' : ''}`;
+                                const available = marker_column_width - used;
+                                const text = raw.slice(0, available);
+                                if (text.length > 0) {
+                                  chunks.push({ text, color: token.color });
+                                  used += text.length;
+                                }
+                              }
+                              if (used < marker_column_width) {
+                                chunks.push({ text: ' '.repeat(marker_column_width - used) });
+                              }
+                              return chunks.map((chunk, chunk_index) => (
+                                chunk.color ? (
+                                  <Text
+                                    key={`marker-seat-${key}-${chunk_index}`}
+                                    color={chunk.color}
+                                  >
+                                    {chunk.text}
+                                  </Text>
+                                ) : (
+                                  <Text key={`marker-seat-${key}-${chunk_index}`}>
+                                    {chunk.text}
+                                  </Text>
+                                )
+                              ));
+                            })()}
                             <Text> </Text>
                           </Text>
                         ) : (
