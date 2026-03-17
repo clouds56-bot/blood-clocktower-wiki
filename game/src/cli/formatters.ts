@@ -77,6 +77,56 @@ export function format_state_brief(state: GameState): string {
   ].join('\n');
 }
 
+export function format_state_players(state: GameState): string {
+  const ordered_player_ids = [
+    ...state.seat_order,
+    ...Object.keys(state.players_by_id)
+      .filter((player_id) => !state.seat_order.includes(player_id))
+      .sort((a, b) => a.localeCompare(b))
+  ];
+
+  const lines = [
+    'seat id   name         life vote drunk pois align team   role                flags',
+    '---- ---- ------------ ---- ---- ----- ---- ----- ------ ------------------- -----'
+  ];
+
+  for (const [index, player_id] of ordered_player_ids.entries()) {
+    const player = state.players_by_id[player_id];
+    if (!player) {
+      continue;
+    }
+
+    const seat = String(index + 1).padStart(2, ' ');
+    const id = player.player_id.padEnd(4, ' ').slice(0, 4);
+    const name = player.display_name.padEnd(12, ' ').slice(0, 12);
+    const life = player.alive ? 'alive' : 'dead ';
+    const vote = player.dead_vote_available ? 'yes ' : 'no  ';
+    const drunk = player.drunk ? 'yes  ' : 'no   ';
+    const poisoned = player.poisoned ? 'yes ' : 'no  ';
+    const alignment = (player.true_alignment ?? 'none').padEnd(5, ' ').slice(0, 5);
+    const team = player.is_demon ? 'demon ' : player.is_traveller ? 'trav  ' : 'none  ';
+    const role = (player.true_character_id ?? 'none').padEnd(19, ' ').slice(0, 19);
+    const flags = [
+      player.perceived_character_id && player.perceived_character_id !== player.true_character_id
+        ? `seen:${player.perceived_character_id}`
+        : null,
+      player.registered_alignment ? `regA:${player.registered_alignment}` : null,
+      player.registered_character_id ? `regC:${player.registered_character_id}` : null
+    ].filter((value): value is string => Boolean(value)).join(',');
+
+    lines.push(
+      `${seat}   ${id} ${name} ${life} ${vote} ${drunk} ${poisoned} ${alignment} ${team} ${role} ${flags || '-'} `
+        .trimEnd()
+    );
+  }
+
+  if (ordered_player_ids.length === 0) {
+    lines.push('(no players)');
+  }
+
+  return lines.join('\n');
+}
+
 export function format_state_json(state: GameState): string {
   return JSON.stringify(state, null, 2);
 }

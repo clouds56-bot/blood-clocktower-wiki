@@ -2,13 +2,13 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Box, Text, useApp, useInput, useStdin, useStdout } from 'ink';
 
 import { CliChannelBus } from '../cli/channels.js';
-import { format_state_brief, format_state_json } from '../cli/formatters.js';
+import { format_state_brief, format_state_json, format_state_players } from '../cli/formatters.js';
 import { create_cli_context, process_cli_line } from '../cli/repl.js';
 import type { DomainEvent } from '../domain/events.js';
 import type { GameState, PromptColumnSpec, PromptRangeSpec, PromptState } from '../domain/types.js';
 import { EventSummaryRow } from './event.js';
 
-type StateMode = 'brief' | 'json';
+type StateMode = 'brief' | 'players' | 'json';
 type InspectorMode = 'overview' | 'prompts' | 'players' | 'markers' | 'output';
 type PaneFocus = 'events' | 'inspector' | 'status';
 type StatusKind = 'status' | 'error';
@@ -292,6 +292,16 @@ function next_focus(focus: PaneFocus): PaneFocus {
     return 'status';
   }
   return 'events';
+}
+
+function next_state_mode(mode: StateMode): StateMode {
+  if (mode === 'brief') {
+    return 'players';
+  }
+  if (mode === 'players') {
+    return 'json';
+  }
+  return 'brief';
 }
 
 function App({ initial_game_id }: { initial_game_id: string }): React.ReactElement {
@@ -843,7 +853,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     }
 
     if (key.ctrl && input_key === 's') {
-      set_state_mode((mode) => (mode === 'brief' ? 'json' : 'brief'));
+      set_state_mode((mode) => next_state_mode(mode));
       return;
     }
 
@@ -908,7 +918,11 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   });
 
   const effective_state = latest_state_snapshot ?? context.state;
-  const state_text = state_mode === 'json' ? format_state_json(effective_state) : format_state_brief(effective_state);
+  const state_text = state_mode === 'json'
+    ? format_state_json(effective_state)
+    : state_mode === 'players'
+      ? format_state_players(effective_state)
+      : format_state_brief(effective_state);
 
   const state_lines = state_text.split('\n').slice(0, state_content_rows);
 

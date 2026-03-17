@@ -50,7 +50,7 @@ pnpm --filter game run tui -- my_game
   - `Ctrl+W`: cycle focused pane (`events -> inspector -> status`)
   - `Ctrl+U` / `Ctrl+D`: scroll focused pane up/down
   - `Ctrl+E`: toggle status pane filter (errors only)
-  - `Ctrl+S`: toggle state panel between brief and JSON
+  - `Ctrl+S`: cycle state panel (`brief -> players -> json`)
   - `Ctrl+G`: cycle inspector panel (`overview -> prompts -> players -> markers -> output`)
   - `Up` / `Down` (while input focused): browse command history
   - `Ctrl+C`: quit
