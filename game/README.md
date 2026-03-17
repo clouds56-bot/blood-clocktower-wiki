@@ -47,6 +47,9 @@ pnpm --filter game run tui -- my_game
   - `Ctrl+R`: open floating prompt resolver window
     - normal prompts: choose prompt, then choose option
     - multi-column prompts: `Left/Right` switch column, `Up/Down` choose value, `Enter` resolve
+  - `Ctrl+W`: cycle focused pane (`events -> inspector -> status`)
+  - `Ctrl+U` / `Ctrl+D`: scroll focused pane up/down
+  - `Ctrl+E`: toggle status pane filter (errors only)
   - `Ctrl+S`: toggle state panel between brief and JSON
   - `Ctrl+G`: cycle inspector panel (`overview -> prompts -> players -> markers -> output`)
   - `Up` / `Down` (while input focused): browse command history

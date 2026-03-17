@@ -9,6 +9,13 @@ import type { GameState, PromptColumnSpec, PromptRangeSpec, PromptState } from '
 
 type StateMode = 'brief' | 'json';
 type InspectorMode = 'overview' | 'prompts' | 'players' | 'markers' | 'output';
+type PaneFocus = 'events' | 'inspector' | 'status';
+type StatusKind = 'status' | 'error';
+
+interface StatusEntry {
+  text: string;
+  kind: StatusKind;
+}
 
 function format_overview_panel(context: ReturnType<typeof create_cli_context>): string[] {
   const state = context.state;
@@ -171,6 +178,22 @@ function format_event_for_tui(event: DomainEvent, event_index?: number): string 
   return `${prefix}${event.event_type} ${JSON.stringify(event.payload)}`;
 }
 
+function slice_from_bottom(lines: string[], visible_count: number, scroll_offset: number): string[] {
+  const end = Math.max(0, lines.length - Math.max(0, scroll_offset));
+  const start = Math.max(0, end - Math.max(1, visible_count));
+  return lines.slice(start, end);
+}
+
+function next_focus(focus: PaneFocus): PaneFocus {
+  if (focus === 'events') {
+    return 'inspector';
+  }
+  if (focus === 'inspector') {
+    return 'status';
+  }
+  return 'events';
+}
+
 function App({ initial_game_id }: { initial_game_id: string }): React.ReactElement {
   const { exit } = useApp();
   const { stdout } = useStdout();
@@ -187,8 +210,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     'Clocktower Engine TUI (Ink)',
     'Event channel is shown here.'
   ]);
-  const [status_lines, set_status_lines] = useState<string[]>([
-    'Type commands and press Enter. Ctrl+R opens resolve prompt picker.'
+  const [status_entries, set_status_entries] = useState<StatusEntry[]>([
+    { text: 'Type commands and press Enter. Ctrl+R opens resolve prompt picker.', kind: 'status' }
   ]);
   const [output_lines, set_output_lines] = useState<string[]>([]);
   const [latest_state_snapshot, set_latest_state_snapshot] = useState<GameState | null>(null);
@@ -205,6 +228,11 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [resolver_prompt_key, set_resolver_prompt_key] = useState<string | null>(null);
   const [resolver_multi_values, set_resolver_multi_values] = useState<string[]>([]);
   const [resolver_multi_column_index, set_resolver_multi_column_index] = useState(0);
+  const [pane_focus, set_pane_focus] = useState<PaneFocus>('events');
+  const [event_scroll, set_event_scroll] = useState(0);
+  const [inspector_scroll, set_inspector_scroll] = useState(0);
+  const [status_scroll, set_status_scroll] = useState(0);
+  const [status_errors_only, set_status_errors_only] = useState(false);
   const [, set_tick] = useState(0);
 
   function append_event_lines(lines: string[]): void {
@@ -217,12 +245,13 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     });
   }
 
-  function append_status_lines(lines: string[]): void {
+  function append_status_lines(lines: string[], kind: StatusKind = 'status'): void {
     if (lines.length === 0) {
       return;
     }
-    set_status_lines((previous) => {
-      const merged = [...previous, ...lines];
+    set_status_entries((previous) => {
+      const next = lines.map((line) => ({ text: line, kind }));
+      const merged = [...previous, ...next];
       return merged.slice(Math.max(0, merged.length - 120));
     });
   }
@@ -265,7 +294,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
         return;
       }
 
-      append_status_lines([clean]);
+      append_status_lines([clean], message.channel === 'error' ? 'error' : 'status');
     });
     return unsubscribe;
   }, [channel_bus]);
@@ -538,6 +567,38 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       return;
     }
 
+    if (key.ctrl && input_key === 'w') {
+      set_pane_focus((focus) => next_focus(focus));
+      return;
+    }
+
+    if (key.ctrl && input_key === 'e') {
+      set_status_errors_only((value) => !value);
+      return;
+    }
+
+    if (key.ctrl && input_key === 'u') {
+      if (pane_focus === 'events') {
+        set_event_scroll((value) => value + 1);
+      } else if (pane_focus === 'inspector') {
+        set_inspector_scroll((value) => value + 1);
+      } else {
+        set_status_scroll((value) => value + 1);
+      }
+      return;
+    }
+
+    if (key.ctrl && input_key === 'd') {
+      if (pane_focus === 'events') {
+        set_event_scroll((value) => Math.max(0, value - 1));
+      } else if (pane_focus === 'inspector') {
+        set_inspector_scroll((value) => Math.max(0, value - 1));
+      } else {
+        set_status_scroll((value) => Math.max(0, value - 1));
+      }
+      return;
+    }
+
     if (key.return) {
       const command = input.trim();
       if (command.length === 0) {
@@ -626,8 +687,10 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
 
   const state_lines = state_text.split('\n').slice(0, state_content_rows);
 
-  const output_inspector_lines = output_lines.slice(Math.max(0, output_lines.length - inspector_content_rows));
-  const status_inspector_lines = status_lines.slice(Math.max(0, status_lines.length - status_content_rows));
+  const output_inspector_lines = output_lines;
+  const status_filtered_lines = status_entries
+    .filter((entry) => !status_errors_only || entry.kind === 'error')
+    .map((entry) => (entry.kind === 'error' ? `! ${entry.text}` : entry.text));
 
   const inspector_lines =
     inspector_mode === 'overview'
@@ -642,7 +705,9 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
               ? output_inspector_lines
               : ['(no output yet)'];
 
-  const recent_events = event_lines.slice(Math.max(0, event_lines.length - content_rows));
+  const recent_events = slice_from_bottom(event_lines, content_rows, event_scroll);
+  const inspector_visible_lines = slice_from_bottom(inspector_lines, inspector_content_rows, inspector_scroll);
+  const status_inspector_lines = slice_from_bottom(status_filtered_lines, status_content_rows, status_scroll);
   const players_total = Object.keys(context.state.players_by_id).length;
   const alive_count = Object.values(context.state.players_by_id).filter((player) => player.alive).length;
   const prompt_count = context.state.pending_prompts.filter((prompt_key) => {
@@ -669,12 +734,12 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     <Box flexDirection="column" width={columns} height={available_rows}>
       <Box borderStyle="single" paddingX={1} height={header_height}>
         <Text>
-          phase={context.state.phase}/{context.state.subphase} day={context.state.day_number} night={context.state.night_number} alive={alive_count}/{players_total} prompts={prompt_count} | Ctrl+S state={state_mode} | Ctrl+G inspector={inspector_mode} | Ctrl+C quit
+          phase={context.state.phase}/{context.state.subphase} day={context.state.day_number} night={context.state.night_number} alive={alive_count}/{players_total} prompts={prompt_count} | focus={pane_focus} | Ctrl+W pane | Ctrl+U/D scroll | Ctrl+E errors={status_errors_only} | Ctrl+S state={state_mode} | Ctrl+G inspector={inspector_mode} | Ctrl+C quit
         </Text>
       </Box>
 
       <Box height={main_height}>
-        <Box width="50%" borderStyle="single" flexDirection="column" paddingX={1}>
+        <Box width="50%" borderStyle="single" borderColor={pane_focus === 'events' ? 'green' : 'white'} flexDirection="column" paddingX={1}>
           <Text color="cyan">Events</Text>
           {render_panel_lines(recent_events)}
         </Box>
@@ -685,13 +750,13 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
             {render_panel_lines(state_lines)}
           </Box>
 
-          <Box borderStyle="single" flexDirection="column" height={inspector_height} paddingX={1}>
+          <Box borderStyle="single" borderColor={pane_focus === 'inspector' ? 'green' : 'white'} flexDirection="column" height={inspector_height} paddingX={1}>
             <Text color="cyan">Inspector ({inspector_mode})</Text>
-            {render_panel_lines(inspector_lines.slice(0, inspector_content_rows))}
+            {render_panel_lines(inspector_visible_lines)}
           </Box>
 
-          <Box borderStyle="single" flexDirection="column" height={status_height} paddingX={1}>
-            <Text color="cyan">Status</Text>
+          <Box borderStyle="single" borderColor={pane_focus === 'status' ? 'green' : 'white'} flexDirection="column" height={status_height} paddingX={1}>
+            <Text color="cyan">Status (errors_only={status_errors_only})</Text>
             {render_panel_lines(status_inspector_lines)}
           </Box>
         </Box>
