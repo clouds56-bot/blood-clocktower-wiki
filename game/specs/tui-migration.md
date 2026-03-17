@@ -12,6 +12,7 @@ Migrate the existing interactive CLI experience to a maintainable TUI while pres
 - Phase 3.5 complete: high-signal inspector modes (`overview`, `prompts`, `players`, `markers`).
 - Phase 3.6 complete: floating prompt resolve window (keyboard-driven) in Ink TUI.
 - Phase 3.7 complete: state panel mode cycle includes storyteller-dense `players` view.
+- Phase 3.8 complete: focus model and player-state rendering are tuned for storyteller scan speed.
 
 ## Architecture Decision
 
@@ -123,6 +124,44 @@ These decisions are locked for current TUI behavior and should guide future refi
 - Channel subscriptions should be stable and not re-created for visual state changes.
 - Do not include rapidly changing view flags (for example autoscroll/layout rows) in subscription effect dependencies.
 - Use refs for live read of mutable view-state inside subscribed handlers to avoid event-loss windows.
+
+## State Panel Design Decisions (Normative)
+
+These decisions lock the current storyteller-oriented state panel behavior.
+
+### Focus and Input Principles
+
+- Focus cycle is intentionally limited to `events -> state -> command` (`Ctrl+W`).
+- `inspector` and `status` panes are always visible but are not focus targets.
+- Command editing/submit is active only when focus is `command`.
+- Player selection (`Up`/`Down`) is active only when focus is `state` and state mode is `players`.
+- Player selection wraps at boundaries (first <-> last).
+
+### Players Mode Information Architecture
+
+- Default state mode is `players` for operational play.
+- Header line in players mode should show timing as a single label (`dN` or `nN`), current subphase, and alive count.
+- Table columns are fixed-width and single-line to keep scanning stable under rapid updates.
+- Markers column shows source seat ids for active reminders on each target player.
+- Markers column width is capped/padded to preserve table alignment.
+
+### Players Mode Visual Style Semantics
+
+- Selected row uses marker (`>`) + bold emphasis; no background inversion.
+- Dead players use strikethrough and gray id/name to reduce noise while preserving visibility.
+- Drunk or poisoned players use italic row style.
+- `type` column color reflects true alignment (`good` green, `evil` red, unknown gray).
+- `role` column color reflects true character type (townsfolk/outsider/minion/demon/traveller mapping).
+
+### Reminder Encoding Principles
+
+- Bottom selected-player status line starts with `selected=<player_id>` and omits redundant counters for compactness.
+- Reminder summaries are grouped by kind/effect and list source seats as comma-separated values.
+- Source-seat color in reminder summaries and markers follows effect semantics:
+  - poison/drunk effects => magenta;
+  - protect effects => green;
+  - no effect => gray;
+  - any other effect => default foreground.
 
 ## Non-Goals
 
