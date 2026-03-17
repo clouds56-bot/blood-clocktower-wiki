@@ -35,16 +35,16 @@ pnpm --filter game run tui -- my_game
 
 ## TUI
 
-- The TUI reuses the same command parser and engine command flow as CLI.
+- The TUI is implemented with Ink (React for CLIs), replacing blessed.
+- It reuses the same command parser and engine command flow as CLI.
 - Type the same commands in the bottom input box (`help`, `start bmr 7`, `next`, etc.).
 - Panels:
   - left: command/event output log
   - right top: live state snapshot
-  - right bottom: inspector panel (prompts or players)
+  - right bottom: inspector panel (overview, prompts, players, markers)
 - Keybindings:
-  - `F2`: toggle state panel between brief and JSON
-  - `F3`: toggle inspector panel between prompts and players
-  - `Tab` / `Shift+Tab`: cycle focus between panels and input
+  - `Ctrl+S`: toggle state panel between brief and JSON
+  - `Ctrl+G`: cycle inspector panel (`overview -> prompts -> players -> markers`)
   - `Up` / `Down` (while input focused): browse command history
   - `Ctrl+C`: quit
 

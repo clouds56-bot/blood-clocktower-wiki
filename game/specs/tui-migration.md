@@ -1,4 +1,4 @@
-# TUI Migration Design (Blessed)
+# TUI Migration Design (Ink)
 
 ## Goal
 
@@ -6,9 +6,19 @@ Migrate the existing interactive CLI experience to a maintainable TUI while pres
 
 ## Current Status
 
-- Phase 1 complete: initial blessed app entrypoint exists.
+- Phase 1 complete: initial TUI app entrypoint exists.
 - Phase 2 complete: parser and engine execution are reused from CLI.
 - Phase 3 complete: multi-panel layout, inspector panel, focus cycling, and command history navigation.
+- Phase 3.5 complete: high-signal inspector modes (`overview`, `prompts`, `players`, `markers`).
+
+## Architecture Decision
+
+- The TUI stack is Ink (React-based) instead of blessed.
+- Reason: blessed is unmaintained; Ink has an active ecosystem and clearer component model.
+- Short-term compatibility strategy:
+  - keep command parser and engine command flow shared with CLI
+  - keep script mode as CLI-only deterministic path
+  - incrementally move from stdout-capture to structured runtime outputs
 
 ## Next Phase (Phase 4)
 
@@ -42,6 +52,12 @@ Focus on making the TUI operationally complete for Storyteller workflows.
 - Add event filter modes (`all`, `engine-only`, `errors`).
 - Add sticky phase/day/night status indicators.
 - Add compact projection switching (`storyteller`, `public`, `player <id>`) in inspector.
+
+### 4.5 Prompt-Centric Interaction
+
+- Add dedicated pending-prompt list selection and inline resolve actions.
+- Add shortcuts for common prompt actions (`resolve`, `inspect`, `cancel`) with confirmation.
+- Keep typed command fallback for full flexibility.
 
 ## Phase 5 Hardening
 
