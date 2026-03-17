@@ -304,7 +304,9 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
           player_id: event.payload.player_id,
           day_number: event.payload.day_number,
           night_number: event.payload.night_number,
-          reason: event.payload.reason
+          reason: event.payload.reason,
+          source_player_id: event.payload.source_player_id,
+          source_character_id: event.payload.source_character_id
         });
       }
       break;

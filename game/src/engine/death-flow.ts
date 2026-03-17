@@ -99,7 +99,9 @@ export function handle_resolve_execution_consequences(
           player_id: executed_player_id,
           day_number: state.day_number,
           night_number: state.night_number,
-          reason: 'execution'
+          reason: 'execution',
+          source_player_id: null,
+          source_character_id: null
         }
       },
       {
@@ -144,7 +146,9 @@ export function handle_apply_death(
           player_id: command.payload.player_id,
           day_number: command.payload.day_number,
           night_number: command.payload.night_number,
-          reason: command.payload.reason
+          reason: command.payload.reason,
+          source_player_id: null,
+          source_character_id: null
         }
       }
     ]

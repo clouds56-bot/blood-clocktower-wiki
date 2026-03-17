@@ -29,6 +29,23 @@ test('spy wake hook records grimoire snapshot note', () => {
   assert.equal(result?.emitted_events[0]?.payload.note, 'spy_grimoire:p1:p1:spy,p2:imp,p3:chef');
 });
 
+test('dead spy does not receive grimoire wake information', () => {
+  const state = create_initial_state('g1');
+  state.seat_order = ['p1', 'p2'];
+  state.players_by_id.p1 = make_player('p1', 'Spy', 'spy', 'evil', { alive: false });
+  state.players_by_id.p2 = make_player('p2', 'Imp', 'imp', 'evil', { is_demon: true });
+
+  const result = spy_plugin.hooks.on_night_wake?.({
+    state,
+    player_id: 'p1',
+    wake_step_id: 'wake:2:0:p1:spy'
+  });
+
+  assert.ok(result);
+  assert.equal(result?.emitted_events.length, 0);
+  assert.equal(result?.queued_prompts.length, 0);
+});
+
 test('spy registration provider does not auto-randomize unresolved query', () => {
   const state = create_initial_state('g1');
   state.day_number = 1;

@@ -115,23 +115,7 @@ export const imp_plugin: CharacterPlugin = {
         };
       }
 
-      const target_is_poisoned_or_drunk = target_player.poisoned || target_player.drunk;
-      const target_is_soldier =
-        target_player.true_character_id === 'soldier' && !target_is_poisoned_or_drunk;
-      const target_protected_by_monk =
-        !target_is_poisoned_or_drunk &&
-        context.state.active_reminder_marker_ids.some((marker_id) => {
-          const marker = context.state.reminder_markers_by_id[marker_id];
-          return Boolean(
-            marker &&
-              marker.status === 'active' &&
-              marker.kind === 'monk:safe' &&
-              marker.authoritative &&
-              marker.target_player_id === context.selected_option_id
-          );
-        });
-
-      if (target_is_soldier || target_protected_by_monk) {
+      if (!can_imp_kill_target(context.state, target_player.player_id)) {
         return {
           emitted_events: [],
           queued_prompts: [],
@@ -146,7 +130,9 @@ export const imp_plugin: CharacterPlugin = {
             player_id: context.selected_option_id,
             day_number: context.state.day_number,
             night_number: context.state.night_number,
-            reason: 'night_death'
+            reason: 'night_death',
+            source_player_id: imp_player_id,
+            source_character_id: 'imp'
           }
         }
       ];
@@ -388,6 +374,7 @@ function parse_imp_transfer_prompt_dead_player_id(prompt_key: string): string | 
   return null;
 }
 
+
 function build_imp_transfer_marker_id(
   state: Parameters<typeof build_ravenkeeper_reveal_prompt>[0],
   imp_player_id: string
@@ -410,6 +397,34 @@ function list_alive_evil_minions(
           player.true_character_type === 'minion'
       );
     });
+}
+
+function can_imp_kill_target(
+  state: Parameters<typeof build_ravenkeeper_reveal_prompt>[0],
+  target_player_id: string
+): boolean {
+  const target_player = state.players_by_id[target_player_id];
+  if (!target_player || !target_player.alive) {
+    return false;
+  }
+
+  const target_is_poisoned_or_drunk = target_player.poisoned || target_player.drunk;
+  const target_is_soldier =
+    target_player.true_character_id === 'soldier' && !target_is_poisoned_or_drunk;
+  const target_protected_by_monk =
+    !target_is_poisoned_or_drunk &&
+    state.active_reminder_marker_ids.some((marker_id) => {
+      const marker = state.reminder_markers_by_id[marker_id];
+      return Boolean(
+        marker &&
+          marker.status === 'active' &&
+          marker.kind === 'monk:safe' &&
+          marker.authoritative &&
+          marker.target_player_id === target_player_id
+      );
+    });
+
+  return !target_is_soldier && !target_protected_by_monk;
 }
 
 function find_imp_transfer_pending_marker(
