@@ -1,36 +1,13 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Box, Text, useApp, useInput, useStdout } from 'ink';
 
+import { CliChannelBus } from '../cli/channels.js';
 import { format_state_brief, format_state_json } from '../cli/formatters.js';
 import { create_cli_context, process_cli_line } from '../cli/repl.js';
 import type { PromptColumnSpec, PromptRangeSpec, PromptState } from '../domain/types.js';
 
 type StateMode = 'brief' | 'json';
-type InspectorMode = 'overview' | 'prompts' | 'players' | 'markers';
-
-interface CommandResult {
-  keep_running: boolean;
-  output: string;
-}
-
-function capture_stdout<T>(run: () => T): { value: T; output: string } {
-  let output = '';
-  const original_write = process.stdout.write.bind(process.stdout);
-
-  process.stdout.write = ((chunk: string | Uint8Array): boolean => {
-    output += typeof chunk === 'string' ? chunk : Buffer.from(chunk).toString('utf8');
-    return true;
-  }) as typeof process.stdout.write;
-
-  try {
-    return {
-      value: run(),
-      output
-    };
-  } finally {
-    process.stdout.write = original_write;
-  }
-}
+type InspectorMode = 'overview' | 'prompts' | 'players' | 'markers' | 'output';
 
 function format_overview_panel(context: ReturnType<typeof create_cli_context>): string[] {
   const state = context.state;
@@ -135,6 +112,9 @@ function next_inspector_mode(mode: InspectorMode): InspectorMode {
   if (mode === 'players') {
     return 'markers';
   }
+  if (mode === 'markers') {
+    return 'output';
+  }
   return 'overview';
 }
 
@@ -181,18 +161,27 @@ function fit_line(text: string, width: number): string {
   return clipped.padEnd(width, ' ');
 }
 
+function strip_ansi(text: string): string {
+  return text.replace(/\x1B\[[0-9;]*m/g, '');
+}
+
 function App({ initial_game_id }: { initial_game_id: string }): React.ReactElement {
   const { exit } = useApp();
   const { stdout } = useStdout();
   const columns = stdout.columns ?? 120;
   const rows = stdout.rows ?? 40;
-  const context = useMemo(() => create_cli_context(initial_game_id), [initial_game_id]);
+  const channel_bus = useMemo(() => new CliChannelBus(), []);
+  const context = useMemo(
+    () => create_cli_context(initial_game_id, { channel_bus }),
+    [initial_game_id, channel_bus]
+  );
 
   const [input, set_input] = useState('');
-  const [logs, set_logs] = useState<string[]>([
+  const [stream_lines, set_stream_lines] = useState<string[]>([
     'Clocktower Engine TUI (Ink)',
     'Type commands and press Enter. Ctrl+R opens resolve prompt picker.'
   ]);
+  const [output_lines, set_output_lines] = useState<string[]>([]);
   const [history, set_history] = useState<string[]>([]);
   const [history_cursor, set_history_cursor] = useState<number | null>(null);
   const [state_mode, set_state_mode] = useState<StateMode>('brief');
@@ -212,26 +201,45 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     if (lines.length === 0) {
       return;
     }
-    set_logs((previous) => {
+    set_stream_lines((previous) => {
       const merged = [...previous, ...lines];
       return merged.slice(Math.max(0, merged.length - 120));
     });
   }
 
-  function run_command(command: string): CommandResult {
-    append_log_lines([`> ${command}`]);
-    const captured = capture_stdout(() => process_cli_line(context, command));
-    const output_lines = captured.output
-      .split('\n')
-      .map((line) => line.trimEnd())
-      .filter((line) => line.length > 0);
-    append_log_lines(output_lines);
-    set_tick((value) => value + 1);
-    return {
-      keep_running: captured.value,
-      output: captured.output
-    };
+  function append_output_lines(lines: string[]): void {
+    if (lines.length === 0) {
+      return;
+    }
+    set_output_lines((previous) => {
+      const merged = [...previous, ...lines];
+      return merged.slice(Math.max(0, merged.length - 200));
+    });
   }
+
+  function run_command(command: string): boolean {
+    append_log_lines([`> ${command}`]);
+    const keep_running = process_cli_line(context, command);
+    set_tick((value) => value + 1);
+    return keep_running;
+  }
+
+  useEffect(() => {
+    const unsubscribe = channel_bus.subscribe('*', (message) => {
+      const clean = strip_ansi(message.text);
+      if (message.channel === 'state') {
+        return;
+      }
+
+      if (message.channel === 'output') {
+        append_output_lines(clean.split('\n'));
+        return;
+      }
+
+      append_log_lines([clean]);
+    });
+    return unsubscribe;
+  }, [channel_bus]);
 
   function close_resolver(): void {
     set_resolver_open(false);
@@ -337,9 +345,9 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
           const option_labels = prompt.options.map((option) => `${option.option_id} - ${option.label}`);
 
           if (option_values.length === 0) {
-            const result = run_command(`resolve-prompt ${prompt.prompt_key} -`);
+            const keep_running = run_command(`resolve-prompt ${prompt.prompt_key} -`);
             close_resolver();
-            if (!result.keep_running) {
+            if (!keep_running) {
               exit();
             }
             return;
@@ -437,9 +445,9 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
             : selected_prompt.multi_columns
                 .map((column, index) => resolver_multi_values[index] ?? column_values(column)[0] ?? '0')
                 .join(',');
-          const result = run_command(`resolve-prompt ${selected_prompt.prompt_key} ${selected_value}`);
+          const keep_running = run_command(`resolve-prompt ${selected_prompt.prompt_key} ${selected_value}`);
           close_resolver();
-          if (!result.keep_running) {
+          if (!keep_running) {
             exit();
           }
         }
@@ -487,9 +495,9 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
 
       if (key.return) {
         const selected_option = resolver_option_values[resolver_option_index] ?? '-';
-        const result = run_command(`resolve-prompt ${selected_prompt.prompt_key} ${selected_option}`);
+        const keep_running = run_command(`resolve-prompt ${selected_prompt.prompt_key} ${selected_option}`);
         close_resolver();
-        if (!result.keep_running) {
+        if (!keep_running) {
           exit();
         }
       }
@@ -511,8 +519,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       set_history_cursor(null);
       set_input('');
 
-      const result = run_command(command);
-      if (!result.keep_running) {
+      const keep_running = run_command(command);
+      if (!keep_running) {
         exit();
       }
       return;
@@ -586,6 +594,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
 
   const state_lines = state_text.split('\n').slice(0, state_content_rows);
 
+  const output_inspector_lines = output_lines.slice(Math.max(0, output_lines.length - inspector_content_rows));
+
   const inspector_lines =
     inspector_mode === 'overview'
       ? format_overview_panel(context)
@@ -593,9 +603,13 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
         ? format_prompts_panel(context)
         : inspector_mode === 'players'
           ? format_players_panel(context)
-          : format_markers_panel(context);
+          : inspector_mode === 'markers'
+            ? format_markers_panel(context)
+            : output_inspector_lines.length > 0
+              ? output_inspector_lines
+              : ['(no output yet)'];
 
-  const recent_logs = logs.slice(Math.max(0, logs.length - content_rows));
+  const recent_logs = stream_lines.slice(Math.max(0, stream_lines.length - content_rows));
   const players_total = Object.keys(context.state.players_by_id).length;
   const alive_count = Object.values(context.state.players_by_id).filter((player) => player.alive).length;
   const prompt_count = context.state.pending_prompts.filter((prompt_key) => {

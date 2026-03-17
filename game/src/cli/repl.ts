@@ -33,6 +33,7 @@ import { project_for_public } from '../projections/public.js';
 import { project_for_storyteller } from '../projections/storyteller.js';
 import { create_next_scope_anchor, has_reached_next_scope_target } from './next-utils.js';
 import { random_option_id_for_prompt } from './parser-common.js';
+import { CliChannelBus, type CliChannel } from './channels.js';
 import {
   build_quick_setup_seed_commands,
   infer_alignment_from_type,
@@ -61,6 +62,7 @@ export interface CliContext {
   event_log: DomainEvent[];
   next_command_index: number;
   plugin_registry: PluginRegistry;
+  channel_bus?: CliChannelBus;
 }
 
 interface ProcessLineOptions {
@@ -92,14 +94,29 @@ function now_iso(): string {
   return new Date().toISOString();
 }
 
+function emit_line(context: CliContext, channel: CliChannel, line: string): void {
+  if (context.channel_bus) {
+    context.channel_bus.emit({ channel, text: line });
+    return;
+  }
+  process.stdout.write(`${line}\n`);
+}
+
+function emit_text(context: CliContext, channel: CliChannel, text: string): void {
+  const lines = text.split('\n');
+  lines.forEach((line) => {
+    emit_line(context, channel, line);
+  });
+}
+
 function make_command_id(context: CliContext): string {
   const id = `cli-${String(context.next_command_index).padStart(6, '0')}`;
   context.next_command_index += 1;
   return id;
 }
 
-export function create_cli_context(initial_game_id: string): CliContext {
-  return {
+export function create_cli_context(initial_game_id: string, options?: { channel_bus?: CliChannelBus }): CliContext {
+  const context: CliContext = {
     state: create_initial_state(initial_game_id),
     event_log: [],
     next_command_index: 1,
@@ -126,6 +143,20 @@ export function create_cli_context(initial_game_id: string): CliContext {
       washerwoman_plugin
     ])
   };
+
+  if (options?.channel_bus) {
+    context.channel_bus = options.channel_bus;
+  }
+
+  return context;
+}
+
+function create_stdout_channel_context(initial_game_id: string): CliContext {
+  const channel_bus = new CliChannelBus();
+  channel_bus.subscribe('*', (message) => {
+    process.stdout.write(`${message.text}\n`);
+  });
+  return create_cli_context(initial_game_id, { channel_bus });
 }
 
 function run_quick_setup(context: CliContext, script_input: string, player_num: number, game_id?: string): void {
@@ -141,7 +172,7 @@ function run_quick_setup(context: CliContext, script_input: string, player_num: 
     quick_setup_seed = build_quick_setup_seed_commands(quick_setup_options);
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : String(error);
-    process.stdout.write(`${paint('quick_setup_error', 'red')} ${message}\n`);
+    emit_line(context, 'error', `${paint('quick_setup_error', 'red')} ${message}`);
     return;
   }
 
@@ -160,8 +191,10 @@ function run_quick_setup(context: CliContext, script_input: string, player_num: 
       plugin_registry: context.plugin_registry
     });
     if (!result.ok) {
-      process.stdout.write(
-        `${paint('quick_setup_error', 'red')} code=${result.error.code} message=${result.error.message} command=${command.command_type}\n`
+      emit_line(
+        context,
+        'error',
+        `${paint('quick_setup_error', 'red')} code=${result.error.code} message=${result.error.message} command=${command.command_type}`
       );
       return;
     }
@@ -170,16 +203,14 @@ function run_quick_setup(context: CliContext, script_input: string, player_num: 
   }
 
   if (context.event_log.length > 0) {
-    process.stdout.write(`${paint('ok', 'green')} emitted=${context.event_log.length}\n`);
+    emit_line(context, 'status', `${paint('ok', 'green')} emitted=${context.event_log.length}`);
     context.event_log.forEach((event, index) => {
-      process.stdout.write(`${format_event(event, index + 1)}\n`);
+      emit_line(context, 'event', format_event(event, index + 1));
     });
   }
 
-  process.stdout.write(
-    `quick setup complete: script=${script_id} players=${player_num} game=${resolved_game_id}\n`
-  );
-  process.stdout.write(`${format_state_brief(context.state)}\n`);
+  emit_line(context, 'status', `quick setup complete: script=${script_id} players=${player_num} game=${resolved_game_id}`);
+  emit_text(context, 'state', format_state_brief(context.state));
 }
 
 function run_engine_command(context: CliContext, command: Omit<Command, 'command_id'>): boolean {
@@ -193,9 +224,7 @@ function run_engine_command(context: CliContext, command: Omit<Command, 'command
     plugin_registry: context.plugin_registry
   });
   if (!result.ok) {
-    process.stdout.write(
-      `${paint('engine_error', 'red')} code=${result.error.code} message=${result.error.message}\n`
-    );
+    emit_line(context, 'error', `${paint('engine_error', 'red')} code=${result.error.code} message=${result.error.message}`);
     return false;
   }
 
@@ -204,14 +233,14 @@ function run_engine_command(context: CliContext, command: Omit<Command, 'command
   context.event_log.push(...events);
 
   if (events.length === 0) {
-    process.stdout.write(`${paint('ok', 'green')} (no events)\n`);
+    emit_line(context, 'status', `${paint('ok', 'green')} (no events)`);
     return true;
   }
 
-  process.stdout.write(`${paint('ok', 'green')} emitted=${events.length}\n`);
+  emit_line(context, 'status', `${paint('ok', 'green')} emitted=${events.length}`);
   const start_index = context.event_log.length - events.length + 1;
   events.forEach((event, event_index) => {
-    process.stdout.write(`${format_event(event, start_index + event_index)}\n`);
+    emit_line(context, 'event', format_event(event, start_index + event_index));
   });
   return true;
 }
@@ -234,7 +263,7 @@ function run_bulk_vote(
 ): void {
   const unique_voters = Array.from(new Set(voter_player_ids));
   if (unique_voters.length === 0) {
-    process.stdout.write('vote requires at least one voter\n');
+    emit_line(context, 'error', 'vote requires at least one voter');
     return;
   }
 
@@ -255,16 +284,14 @@ function run_setup_player(
   action: Extract<CliLocalAction, { type: 'setup_player' }>
 ): void {
   if (!is_character_type_token(action.character_type)) {
-    process.stdout.write(`invalid setup-player type: ${action.character_type}\n`);
+    emit_line(context, 'error', `invalid setup-player type: ${action.character_type}`);
     return;
   }
 
   const inferred_alignment = infer_alignment_from_type(action.character_type);
   const alignment = action.alignment ?? inferred_alignment;
   if (action.character_type !== 'traveller' && alignment !== inferred_alignment) {
-    process.stdout.write(
-      `setup-player alignment mismatch: type=${action.character_type} expects=${inferred_alignment} got=${alignment}\n`
-    );
+    emit_line(context, 'error', `setup-player alignment mismatch: type=${action.character_type} expects=${inferred_alignment} got=${alignment}`);
     return;
   }
 
@@ -680,28 +707,26 @@ export function run_next_phase(
 
 function handle_local_action(context: CliContext, action: CliLocalAction): boolean {
   if (action.type === 'quit') {
-    process.stdout.write('bye\n');
+    emit_line(context, 'status', 'bye');
     return false;
   }
 
   if (action.type === 'help') {
-    process.stdout.write(`${format_help(action.topic ?? 'all')}\n`);
+    emit_text(context, 'output', format_help(action.topic ?? 'all'));
     return true;
   }
 
   if (action.type === 'next_phase') {
     const outcome = run_next_phase(context, action);
-    process.stdout.write(
-      `next stop=${outcome.stop_reason} steps=${outcome.steps_advanced} prompts_resolved=${outcome.prompts_resolved}\n`
-    );
+    emit_line(context, 'status', `next stop=${outcome.stop_reason} steps=${outcome.steps_advanced} prompts_resolved=${outcome.prompts_resolved}`);
     return true;
   }
 
   if (action.type === 'state') {
     if (action.format === 'json') {
-      process.stdout.write(`${format_state_json(context.state)}\n`);
+      emit_text(context, 'state', format_state_json(context.state));
     } else {
-      process.stdout.write(`${format_state_brief(context.state)}\n`);
+      emit_text(context, 'state', format_state_brief(context.state));
     }
     return true;
   }
@@ -713,38 +738,38 @@ function handle_local_action(context: CliContext, action: CliLocalAction): boole
 
   if (action.type === 'events') {
     if (context.event_log.length === 0) {
-      process.stdout.write('no events\n');
+      emit_line(context, 'event', 'no events');
       return true;
     }
     const count = Math.max(0, action.count);
     const start = Math.max(0, context.event_log.length - count);
     context.event_log.slice(start).forEach((event, index) => {
-      process.stdout.write(`${format_event(event, start + index + 1)}\n`);
+      emit_line(context, 'event', format_event(event, start + index + 1));
     });
     return true;
   }
 
   if (action.type === 'players') {
-    process.stdout.write(`${format_players_table(context.state)}\n`);
+    emit_text(context, 'output', format_players_table(context.state));
     return true;
   }
 
   if (action.type === 'player') {
     const player = context.state.players_by_id[action.player_id];
     if (!player) {
-      process.stdout.write(`player not found: ${action.player_id}\n`);
+      emit_line(context, 'error', `player not found: ${action.player_id}`);
       return true;
     }
-    process.stdout.write(`${format_player(player)}\n`);
+    emit_text(context, 'output', format_player(player));
     return true;
   }
 
   if (action.type === 'view_storyteller') {
     const projection = project_for_storyteller(context.state);
     if (action.json) {
-      process.stdout.write(`${format_projection_json(projection)}\n`);
+      emit_text(context, 'output', format_projection_json(projection));
     } else {
-      process.stdout.write(`${format_storyteller_projection(projection)}\n`);
+      emit_text(context, 'output', format_storyteller_projection(projection));
     }
     return true;
   }
@@ -752,9 +777,9 @@ function handle_local_action(context: CliContext, action: CliLocalAction): boole
   if (action.type === 'view_public') {
     const projection = project_for_public(context.state);
     if (action.json) {
-      process.stdout.write(`${format_projection_json(projection)}\n`);
+      emit_text(context, 'output', format_projection_json(projection));
     } else {
-      process.stdout.write(`${format_public_projection(projection)}\n`);
+      emit_text(context, 'output', format_public_projection(projection));
     }
     return true;
   }
@@ -762,13 +787,13 @@ function handle_local_action(context: CliContext, action: CliLocalAction): boole
   if (action.type === 'view_player') {
     const projected = project_for_player(context.state, action.player_id);
     if (!projected.ok) {
-      process.stdout.write(`projection_error code=${projected.error.code} message=${projected.error.message}\n`);
+      emit_line(context, 'error', `projection_error code=${projected.error.code} message=${projected.error.message}`);
       return true;
     }
     if (action.json) {
-      process.stdout.write(`${format_projection_json(projected.value)}\n`);
+      emit_text(context, 'output', format_projection_json(projected.value));
     } else {
-      process.stdout.write(`${format_player_projection(projected.value)}\n`);
+      emit_text(context, 'output', format_player_projection(projected.value));
     }
     return true;
   }
@@ -779,40 +804,40 @@ function handle_local_action(context: CliContext, action: CliLocalAction): boole
   }
 
   if (action.type === 'prompts') {
-    process.stdout.write(`${format_prompt_list(context.state)}\n`);
+    emit_text(context, 'output', format_prompt_list(context.state));
     return true;
   }
 
   if (action.type === 'prompt') {
     const prompt = context.state.prompts_by_id[action.prompt_key];
     if (!prompt) {
-      process.stdout.write(`prompt not found: ${action.prompt_key}\n`);
+      emit_line(context, 'error', `prompt not found: ${action.prompt_key}`);
       return true;
     }
-    process.stdout.write(`${format_prompt(prompt)}\n`);
+    emit_text(context, 'output', format_prompt(prompt));
     return true;
   }
 
   if (action.type === 'markers') {
-    process.stdout.write(`${format_marker_list(context.state)}\n`);
+    emit_text(context, 'output', format_marker_list(context.state));
     return true;
   }
 
   if (action.type === 'marker') {
     const marker = context.state.reminder_markers_by_id[action.marker_id];
     if (!marker) {
-      process.stdout.write(`marker not found: ${action.marker_id}\n`);
+      emit_line(context, 'error', `marker not found: ${action.marker_id}`);
       return true;
     }
-    process.stdout.write(`${format_marker(marker)}\n`);
+    emit_text(context, 'output', format_marker(marker));
     return true;
   }
 
   if (action.type === 'new_game') {
     context.state = create_initial_state(action.game_id);
     context.event_log = [];
-    process.stdout.write(`created game ${action.game_id}\n`);
-    process.stdout.write(`${format_state_brief(context.state)}\n`);
+    emit_line(context, 'status', `created game ${action.game_id}`);
+    emit_text(context, 'state', format_state_brief(context.state));
     return true;
   }
 
@@ -829,7 +854,7 @@ export function process_cli_line(context: CliContext, line: string, options?: Pr
   const parse_options = options?.script_mode ? { script_mode: true } : undefined;
   const parsed = parse_cli_line(line, context.state, parse_options);
   if (!parsed.ok) {
-    process.stdout.write(`${parsed.message}\n`);
+    emit_line(context, 'error', parsed.message);
     return !script_mode;
   }
 
@@ -849,12 +874,12 @@ export function process_cli_line(context: CliContext, line: string, options?: Pr
 }
 
 export async function run_cli_script_file(script_path: string, initial_game_id = 'cli_game'): Promise<void> {
-  const context = create_cli_context(initial_game_id);
+  const context = create_stdout_channel_context(initial_game_id);
   const raw = await readFile(script_path, 'utf8');
   const lines = raw.split(/\r?\n/);
 
-  process.stdout.write(`running script: ${script_path}\n`);
-  process.stdout.write(`${format_state_brief(context.state)}\n`);
+  emit_line(context, 'status', `running script: ${script_path}`);
+  emit_text(context, 'state', format_state_brief(context.state));
 
   for (let index = 0; index < lines.length; index += 1) {
     const original = lines[index] ?? '';
@@ -863,19 +888,19 @@ export async function run_cli_script_file(script_path: string, initial_game_id =
       continue;
     }
 
-    process.stdout.write(`> ${line}\n`);
+    emit_line(context, 'status', `> ${line}`);
     const ok = process_cli_line(context, line, { script_mode: true });
     if (!ok) {
       throw new Error(`script failed at line ${index + 1}: ${line}`);
     }
   }
 
-  process.stdout.write('script complete\n');
-  process.stdout.write(`${format_state_brief(context.state)}\n`);
+  emit_line(context, 'status', 'script complete');
+  emit_text(context, 'state', format_state_brief(context.state));
 }
 
 export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void> {
-  const context = create_cli_context(initial_game_id);
+  const context = create_stdout_channel_context(initial_game_id);
 
   process.stdout.write('Clocktower Engine CLI (Phase 5)\n');
   process.stdout.write(`${paint('type "help" for commands', 'yellow')}\n`);
