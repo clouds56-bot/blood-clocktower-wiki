@@ -332,6 +332,20 @@ function alignment_color(alignment: PlayerState['true_alignment']): string {
   return 'gray';
 }
 
+function marker_source_color(effect: string | null | undefined): string {
+  const normalized = (effect ?? '').toLowerCase();
+  if (normalized.includes('poison') || normalized.includes('drunk')) {
+    return 'magenta';
+  }
+  if (normalized.includes('protect')) {
+    return 'green';
+  }
+  if (normalized.length === 0 || normalized === 'none') {
+    return 'gray';
+  }
+  return 'white';
+}
+
 function format_player_state_row(player: PlayerState, seat_index: number, marker_count: number): {
   seat: string;
   identity: string;
@@ -1051,6 +1065,9 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   }
 
   const player_ids = ordered_player_ids(effective_state);
+  const seat_by_player_id = new Map<string, string>(
+    player_ids.map((player_id, index) => [player_id, String(index + 1)])
+  );
   const player_rows = player_ids
     .map((player_id, index) => {
       const player = effective_state.players_by_id[player_id];
@@ -1078,10 +1095,30 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     ? effective_state.active_reminder_marker_ids
         .map((marker_id) => effective_state.reminder_markers_by_id[marker_id])
         .filter((marker): marker is NonNullable<typeof marker> => Boolean(marker && marker.target_player_id === selected_player.player_id))
-        .map((marker) => marker.kind)
-    : [];
-  const selected_player_status_line = selected_player
-    ? `selected=${selected_player.player_id} reminders=${selected_player_marker_details.length} ${selected_player_marker_details.length > 0 ? selected_player_marker_details.join(', ') : '(none)'}`
+        .reduce((acc, marker) => {
+          const key = `${marker.kind}|${marker.effect}`;
+          const seat = marker.source_player_id ? seat_by_player_id.get(marker.source_player_id) ?? '?' : '?';
+          const existing = acc.get(key);
+          if (existing) {
+            existing.seats.push(seat);
+            return acc;
+          }
+          acc.set(key, {
+            kind: marker.kind,
+            effect: marker.effect,
+            seats: [seat]
+          });
+          return acc;
+        }, new Map<string, { kind: string; effect: string; seats: string[] }>())
+    : new Map<string, { kind: string; effect: string; seats: string[] }>();
+  const selected_player_markers = Array.from(selected_player_marker_details.values())
+    .map((entry) => ({
+      ...entry,
+      seats: [...entry.seats].sort((a, b) => a.localeCompare(b))
+    }))
+    .sort((left, right) => left.kind.localeCompare(right.kind));
+  const selected_player_status_prefix = selected_player
+    ? `selected=${selected_player.player_id} reminders=${selected_player_markers.length} `
     : 'selected=(none) reminders=(none)';
 
   useEffect(() => {
@@ -1306,7 +1343,24 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
                 ) : (
                   <Text>(no players)</Text>
                 )}
-                <Text color="gray" wrap="truncate-end">{fit_line(selected_player_status_line, right_pane_width)}</Text>
+                {selected_player ? (
+                  <Text wrap="truncate-end">
+                    <Text color="gray">{selected_player_status_prefix}</Text>
+                    {selected_player_markers.length > 0 ? (
+                      selected_player_markers.map((marker, index) => (
+                        <Text key={`selected-player-marker-${marker.kind}-${marker.effect}-${index}`}>
+                          <Text>{`${marker.kind}:`}</Text>
+                          <Text color={marker_source_color(marker.effect)}>{marker.seats.join(',')}</Text>
+                          <Text>{index < selected_player_markers.length - 1 ? ', ' : ''}</Text>
+                        </Text>
+                      ))
+                    ) : (
+                      <Text color="gray">(none)</Text>
+                    )}
+                  </Text>
+                ) : (
+                  <Text color="gray" wrap="truncate-end">{selected_player_status_prefix}</Text>
+                )}
               </>
             ) : (
               render_panel_lines(state_lines, right_pane_width)
