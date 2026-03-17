@@ -262,7 +262,7 @@ export function event_style_for_tui(event_type: DomainEvent['event_type']): Even
     return { color: 'blue', bold: true };
   }
   if (event_type === 'WakeScheduled' || event_type === 'WakeConsumed') {
-    return { color: 'blue' };
+    return { color: 'gray' };
   }
   if (event_type === 'PromptQueued') {
     return { color: 'yellow', bold: true };
@@ -271,12 +271,20 @@ export function event_style_for_tui(event_type: DomainEvent['event_type']): Even
     return { color: 'yellow' };
   }
   if (event_type === 'StorytellerChoiceMade' || event_type === 'StorytellerRulingRecorded') {
-    return { color: 'cyan' };
+    return { color: 'white', bold: true };
   }
   if (
     event_type === 'ReminderMarkerApplied' ||
     event_type === 'ReminderMarkerCleared' ||
     event_type === 'ReminderMarkerExpired'
+  ) {
+    return { color: 'magenta', bold: true };
+  }
+  if (
+    event_type === 'DrunkApplied' ||
+    event_type === 'SobrietyRestored' ||
+    event_type === 'PoisonApplied' ||
+    event_type === 'PoisonCleared'
   ) {
     return { color: 'magenta' };
   }
@@ -320,9 +328,16 @@ export function EventSummaryRow(props: {
   const line = format_event_summary_text(event, event_index, Math.max(24, content_width - 18));
   const clipped = line.length > content_width ? `${line.slice(0, Math.max(0, content_width - 1))}~` : line;
   const style = event_style_for_tui(event.event_type);
-  const is_bold = selected ? true : Boolean(style.bold);
+  if (selected) {
+    return (
+      <Text color="black" backgroundColor="white" bold wrap="truncate-end">
+        {`${prefix}${clipped}`}
+      </Text>
+    );
+  }
+
   return (
-    <Text color={selected ? 'green' : style.color} bold={is_bold} wrap="truncate-end">
+    <Text color={style.color} bold={Boolean(style.bold)} wrap="truncate-end">
       {`${prefix}${clipped}`}
     </Text>
   );

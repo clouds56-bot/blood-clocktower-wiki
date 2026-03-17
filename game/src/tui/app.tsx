@@ -968,7 +968,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
             <Box
               position="absolute"
               marginTop={overlay_top}
-              marginLeft={2}
+              marginLeft={1}
               width={left_pane_width}
               height={event_overlay_rows}
               flexDirection="column"
