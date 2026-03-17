@@ -17,11 +17,43 @@ From repo root:
 pnpm --filter game run cli
 ```
 
+Run the TUI:
+
+```bash
+pnpm --filter game run tui
+```
+
 Optionally pass initial game id:
 
 ```bash
 pnpm --filter game run cli -- my_game
 ```
+
+```bash
+pnpm --filter game run tui -- my_game
+```
+
+## TUI
+
+- The TUI is implemented with Ink (React for CLIs), replacing blessed.
+- It reuses the same command parser and engine command flow as CLI.
+- Type the same commands in the bottom input box (`help`, `start bmr 7`, `next`, etc.).
+- Panels:
+  - left: event channel log
+  - right top: live state snapshot
+  - right middle: inspector panel (overview, prompts, players, markers, output)
+  - right bottom: status channel log (errors/status/commands)
+- Keybindings:
+  - `Ctrl+R`: open floating prompt resolver window
+    - normal prompts: choose prompt, then choose option
+    - multi-column prompts: `Left/Right` switch column, `Up/Down` choose value, `Enter` resolve
+  - `Ctrl+W`: cycle focused pane (`events -> inspector -> status`)
+  - `Ctrl+U` / `Ctrl+D`: scroll focused pane up/down
+  - `Ctrl+E`: toggle status pane filter (errors only)
+  - `Ctrl+S`: toggle state panel between brief and JSON
+  - `Ctrl+G`: cycle inspector panel (`overview -> prompts -> players -> markers -> output`)
+  - `Up` / `Down` (while input focused): browse command history
+  - `Ctrl+C`: quit
 
 ## Quick Start
 
