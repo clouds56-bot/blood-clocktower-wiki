@@ -346,7 +346,7 @@ function marker_source_color(effect: string | null | undefined): string {
   return 'white';
 }
 
-function format_player_state_row(player: PlayerState, seat_index: number, marker_count: number): {
+function format_player_state_row(player: PlayerState, seat_index: number, marker_sources: string[]): {
   seat: string;
   identity: string;
   vote: string;
@@ -364,7 +364,7 @@ function format_player_state_row(player: PlayerState, seat_index: number, marker
   const id = player.player_id.padEnd(4, ' ').slice(0, 4);
   const name = player.display_name.padEnd(12, ' ').slice(0, 12);
   const vote = player.dead_vote_available ? 'yes ' : 'no  ';
-  const markers = marker_count > 0 ? '.'.repeat(marker_count) : '-';
+  const markers = marker_sources.length > 0 ? marker_sources.join(',') : '-';
   const character_type = (player.true_character_type ?? 'none').padEnd(10, ' ').slice(0, 10);
   const role = (player.true_character_id ?? 'none').padEnd(19, ' ').slice(0, 19);
   const flags = [
@@ -1053,31 +1053,31 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const state_lines = state_text.split('\n').slice(0, state_content_rows);
   const player_state_header = 'sel seat id   name         vote markers type       role                flags';
   const player_state_separator = '--- ---- ---- ------------ ---- ------- ---------- ------------------- -----';
-  const player_marker_ids = new Map<string, string[]>();
+  const player_ids = ordered_player_ids(effective_state);
+  const seat_by_player_id = new Map<string, string>(
+    player_ids.map((player_id, index) => [player_id, String(index + 1)])
+  );
+  const player_marker_sources = new Map<string, string[]>();
   for (const marker_id of effective_state.active_reminder_marker_ids) {
     const marker = effective_state.reminder_markers_by_id[marker_id];
     if (!marker || !marker.target_player_id) {
       continue;
     }
-    const current = player_marker_ids.get(marker.target_player_id) ?? [];
-    current.push(marker_id);
-    player_marker_ids.set(marker.target_player_id, current);
+    const source_seat = marker.source_player_id ? seat_by_player_id.get(marker.source_player_id) ?? '?' : '?';
+    const current = player_marker_sources.get(marker.target_player_id) ?? [];
+    current.push(source_seat);
+    player_marker_sources.set(marker.target_player_id, current);
   }
-
-  const player_ids = ordered_player_ids(effective_state);
-  const seat_by_player_id = new Map<string, string>(
-    player_ids.map((player_id, index) => [player_id, String(index + 1)])
-  );
   const player_rows = player_ids
     .map((player_id, index) => {
       const player = effective_state.players_by_id[player_id];
       if (!player) {
         return null;
       }
-      const marker_count = player_marker_ids.get(player_id)?.length ?? 0;
+      const marker_sources = player_marker_sources.get(player_id) ?? [];
       return {
         key: `${player_id}:${index}`,
-        row: format_player_state_row(player, index, marker_count)
+        row: format_player_state_row(player, index, marker_sources)
       };
     })
     .filter((value): value is { key: string; row: ReturnType<typeof format_player_state_row> } => Boolean(value));
@@ -1118,8 +1118,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     }))
     .sort((left, right) => left.kind.localeCompare(right.kind));
   const selected_player_status_prefix = selected_player
-    ? `selected=${selected_player.player_id} reminders=${selected_player_markers.length} `
-    : 'selected=(none) reminders=(none)';
+    ? `selected=${selected_player.player_id} `
+    : 'selected=(none)';
 
   useEffect(() => {
     if (player_rows.length === 0) {
