@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { Box, Text, useApp, useInput, useStdout } from 'ink';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { Box, Text, useApp, useInput, useStdin, useStdout } from 'ink';
 
 import { CliChannelBus } from '../cli/channels.js';
 import { format_state_brief, format_state_json } from '../cli/formatters.js';
@@ -297,6 +297,7 @@ function next_focus(focus: PaneFocus): PaneFocus {
 function App({ initial_game_id }: { initial_game_id: string }): React.ReactElement {
   const { exit } = useApp();
   const { stdout } = useStdout();
+  const { stdin } = useStdin();
   const columns = stdout.columns ?? 120;
   const rows = stdout.rows ?? 40;
   const available_rows = Math.max(24, rows);
@@ -376,6 +377,22 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     return keep_running;
   }
 
+  const step_event_selection = useCallback((delta: number): void => {
+    if (event_entries.length === 0 || delta === 0) {
+      return;
+    }
+    set_selected_event_index((previous) => {
+      const current = previous ?? event_entries.length - 1;
+      const next = clamp(current + delta, 0, event_entries.length - 1);
+      const at_latest = next === event_entries.length - 1;
+      set_event_autoscroll(at_latest);
+      set_event_list_offset((offset) =>
+        ensure_visible_offset(next, offset, event_list_content_rows, event_entries.length)
+      );
+      return next;
+    });
+  }, [event_entries.length, event_list_content_rows]);
+
   useEffect(() => {
     const unsubscribe = channel_bus.subscribe('*', (message) => {
       const clean = strip_ansi(message.text);
@@ -415,6 +432,52 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     });
     return unsubscribe;
   }, [channel_bus, event_autoscroll, event_list_content_rows]);
+
+  useEffect(() => {
+    if (!stdin || !process.stdout.isTTY) {
+      return;
+    }
+
+    const enable = '\x1b[?1000h\x1b[?1006h';
+    const disable = '\x1b[?1000l\x1b[?1006l';
+    process.stdout.write(enable);
+
+    const on_data = (chunk: Buffer | string): void => {
+      const text = typeof chunk === 'string' ? chunk : chunk.toString('utf8');
+      const matches = text.matchAll(/\x1b\[<(\d+);(\d+);(\d+)([mM])/g);
+      for (const match of matches) {
+        const code = Number(match[1]);
+        const x = Number(match[2]);
+        const y = Number(match[3]);
+        const action = match[4];
+
+        if (action !== 'M') {
+          continue;
+        }
+        const is_wheel_up = code === 64;
+        const is_wheel_down = code === 65;
+        if (!is_wheel_up && !is_wheel_down) {
+          continue;
+        }
+
+        const event_panel_right = Math.max(1, Math.floor(columns / 2));
+        const event_panel_top = header_height + 1;
+        const event_panel_bottom = header_height + main_height;
+        const in_event_panel = x >= 1 && x <= event_panel_right && y >= event_panel_top && y <= event_panel_bottom;
+        if (!in_event_panel) {
+          continue;
+        }
+
+        step_event_selection(is_wheel_up ? -1 : 1);
+      }
+    };
+
+    stdin.on('data', on_data);
+    return () => {
+      stdin.off('data', on_data);
+      process.stdout.write(disable);
+    };
+  }, [stdin, columns, header_height, main_height, step_event_selection]);
 
   function close_resolver(): void {
     set_resolver_open(false);
@@ -766,35 +829,12 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     }
 
     if (pane_focus === 'events' && key.upArrow) {
-      if (event_entries.length === 0) {
-        return;
-      }
-      set_event_autoscroll(false);
-      set_selected_event_index((previous) => {
-        const current = previous ?? event_entries.length - 1;
-        const next = Math.max(0, current - 1);
-        set_event_list_offset((offset) =>
-          ensure_visible_offset(next, offset, event_list_content_rows, event_entries.length)
-        );
-        return next;
-      });
+      step_event_selection(-1);
       return;
     }
 
     if (pane_focus === 'events' && key.downArrow) {
-      if (event_entries.length === 0) {
-        return;
-      }
-      set_selected_event_index((previous) => {
-        const current = previous ?? event_entries.length - 1;
-        const next = Math.min(event_entries.length - 1, current + 1);
-        const at_latest = next === event_entries.length - 1;
-        set_event_autoscroll(at_latest);
-        set_event_list_offset((offset) =>
-          ensure_visible_offset(next, offset, event_list_content_rows, event_entries.length)
-        );
-        return next;
-      });
+      step_event_selection(1);
       return;
     }
 
@@ -968,7 +1008,6 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
             <Box
               position="absolute"
               marginTop={overlay_top}
-              marginLeft={1}
               width={left_pane_width}
               height={event_overlay_rows}
               flexDirection="column"
