@@ -123,6 +123,8 @@ export interface DeathRecord {
   day_number: number;
   night_number: number;
   reason: 'execution' | 'night_death' | 'ability' | 'storyteller';
+  source_player_id: PlayerId | null;
+  source_character_id: string | null;
 }
 
 export interface WakeQueueEntry {

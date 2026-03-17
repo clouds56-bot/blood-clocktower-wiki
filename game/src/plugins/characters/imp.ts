@@ -130,7 +130,9 @@ export const imp_plugin: CharacterPlugin = {
             player_id: context.selected_option_id,
             day_number: context.state.day_number,
             night_number: context.state.night_number,
-            reason: 'night_death'
+            reason: 'night_death',
+            source_player_id: imp_player_id,
+            source_character_id: 'imp'
           }
         }
       ];

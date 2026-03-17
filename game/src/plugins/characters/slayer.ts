@@ -150,7 +150,9 @@ export const slayer_plugin: CharacterPlugin = {
             player_id: target_player_id,
             day_number: context.state.day_number,
             night_number: context.state.night_number,
-            reason: 'ability'
+            reason: 'ability',
+            source_player_id: prompt_owner_player_id,
+            source_character_id: 'slayer'
           }
         });
       }
@@ -229,7 +231,9 @@ export const slayer_plugin: CharacterPlugin = {
               player_id: target_player_id,
               day_number: context.state.day_number,
               night_number: context.state.night_number,
-              reason: 'ability'
+              reason: 'ability',
+              source_player_id: context.owner_player_id,
+              source_character_id: 'slayer'
             }
           }
         ],

@@ -85,7 +85,9 @@ test('imp prompt resolution emits PlayerDied consequence', () => {
     player_id: 'p2',
     day_number: 0,
     night_number: 1,
-    reason: 'night_death'
+    reason: 'night_death',
+    source_player_id: 'p1',
+    source_character_id: 'imp'
   });
 });
 

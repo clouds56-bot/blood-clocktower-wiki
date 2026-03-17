@@ -743,13 +743,15 @@ function build_execution_death_events(
       event_type: 'PlayerDied',
       created_at,
       ...(fallback_actor_id === undefined ? {} : { actor_id: fallback_actor_id }),
-      payload: {
-        player_id: executed_player_id,
-        day_number: state.day_number,
-        night_number: state.night_number,
-        reason: 'execution'
-      }
-    });
+          payload: {
+            player_id: executed_player_id,
+            day_number: state.day_number,
+            night_number: state.night_number,
+            reason: 'execution',
+            source_player_id: null,
+            source_character_id: null
+          }
+        });
     index += 1;
   }
 
@@ -1139,7 +1141,10 @@ function apply_pre_player_died_hooks(
     }
 
     const target = working_state.players_by_id[event.payload.player_id];
-    const source = infer_death_source_player(working_state, event);
+    const source_player =
+      event.payload.source_player_id === null
+        ? null
+        : working_state.players_by_id[event.payload.source_player_id] ?? null;
     const plugin_ids = collect_present_character_plugin_ids(working_state);
 
     let prevented = false;
@@ -1158,8 +1163,9 @@ function apply_pre_player_died_hooks(
         result = hook({
           state: working_state,
           target_player_id: event.payload.player_id,
-          source_player_id: source?.player_id ?? null,
-          source_character_id: source?.true_character_id ?? null,
+          source_player_id: source_player?.player_id ?? event.payload.source_player_id,
+          source_character_id:
+            event.payload.source_character_id ?? source_player?.true_character_id ?? null,
           day_number: event.payload.day_number,
           night_number: event.payload.night_number,
           reason: event.payload.reason
@@ -1241,7 +1247,9 @@ function apply_pre_player_died_hooks(
             player_id: redirected_player_id,
             day_number: event.payload.day_number,
             night_number: event.payload.night_number,
-            reason: event.payload.reason
+            reason: event.payload.reason,
+            source_player_id: event.payload.source_player_id,
+            source_character_id: event.payload.source_character_id
           }
         });
         working_state = apply_events(working_state, [output_events[output_events.length - 1]!]);
@@ -1259,30 +1267,4 @@ function apply_pre_player_died_hooks(
     ok: true,
     value: output_events
   };
-}
-
-function infer_death_source_player(
-  state: GameState,
-  death_event: Extract<DomainEvent, { event_type: 'PlayerDied' }>
-) {
-  if (death_event.payload.reason !== 'night_death') {
-    return null;
-  }
-
-  const death_event_key = death_event.event_key;
-  if (!death_event_key) {
-    return null;
-  }
-  if (!death_event_key.includes('ClaimedAbilityPromptResolved') && !death_event_key.includes('PromptResolved')) {
-    return null;
-  }
-
-  const imp = Object.values(state.players_by_id).find((player) => {
-    return player.alive && player.true_character_id === 'imp' && !player.drunk && !player.poisoned;
-  });
-  if (!imp) {
-    return null;
-  }
-
-  return imp;
 }
