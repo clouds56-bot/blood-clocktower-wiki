@@ -347,7 +347,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [inspector_scroll, set_inspector_scroll] = useState(0);
   const [status_scroll, set_status_scroll] = useState(0);
   const [status_errors_only, set_status_errors_only] = useState(false);
-  const [mouse_scroll_enabled, set_mouse_scroll_enabled] = useState(false);
+  const [mouse_scroll_enabled, set_mouse_scroll_enabled] = useState(true);
   const [, set_tick] = useState(0);
   const suppress_input_until_ref = useRef(0);
   const event_autoscroll_ref = useRef(event_autoscroll);

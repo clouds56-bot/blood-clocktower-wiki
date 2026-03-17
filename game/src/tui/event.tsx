@@ -331,8 +331,9 @@ export function EventSummaryRow(props: {
   const style = event_style_for_tui(event.event_type);
   if (selected) {
     const selected_bold = style.color !== 'gray';
+    const selected_color = (style.color !== 'gray' && style.color !== 'white') ? style.color : 'black'; 
     return (
-      <Text color="black" backgroundColor="white" bold={selected_bold} wrap="truncate-end">
+      <Text color={selected_color} backgroundColor="white" bold={selected_bold} wrap="truncate-end">
         {`${prefix}${clipped}`}
       </Text>
     );
