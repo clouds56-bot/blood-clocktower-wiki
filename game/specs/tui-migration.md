@@ -17,6 +17,7 @@ Migrate the existing interactive CLI experience to a maintainable TUI while pres
 - The TUI stack is Ink (React-based) instead of blessed.
 - Reason: blessed is unmaintained; Ink has an active ecosystem and clearer component model.
 - Runtime output transport is channel-based (`event`, `output`, `error`, `state`, `status`) instead of direct `stdout` coupling.
+- Channel envelopes now carry structured payloads where available (for example `event` includes domain event object + index, `state` includes state snapshot).
 - Short-term compatibility strategy:
   - keep command parser and engine command flow shared with CLI
   - keep script mode as CLI-only deterministic path

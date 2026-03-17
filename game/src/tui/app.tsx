@@ -4,7 +4,8 @@ import { Box, Text, useApp, useInput, useStdout } from 'ink';
 import { CliChannelBus } from '../cli/channels.js';
 import { format_state_brief, format_state_json } from '../cli/formatters.js';
 import { create_cli_context, process_cli_line } from '../cli/repl.js';
-import type { PromptColumnSpec, PromptRangeSpec, PromptState } from '../domain/types.js';
+import type { DomainEvent } from '../domain/events.js';
+import type { GameState, PromptColumnSpec, PromptRangeSpec, PromptState } from '../domain/types.js';
 
 type StateMode = 'brief' | 'json';
 type InspectorMode = 'overview' | 'prompts' | 'players' | 'markers' | 'output';
@@ -165,6 +166,11 @@ function strip_ansi(text: string): string {
   return text.replace(/\x1B\[[0-9;]*m/g, '');
 }
 
+function format_event_for_tui(event: DomainEvent, event_index?: number): string {
+  const prefix = event_index ? `#${event_index} ` : '';
+  return `${prefix}${event.event_type} ${JSON.stringify(event.payload)}`;
+}
+
 function App({ initial_game_id }: { initial_game_id: string }): React.ReactElement {
   const { exit } = useApp();
   const { stdout } = useStdout();
@@ -182,6 +188,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     'Type commands and press Enter. Ctrl+R opens resolve prompt picker.'
   ]);
   const [output_lines, set_output_lines] = useState<string[]>([]);
+  const [latest_state_snapshot, set_latest_state_snapshot] = useState<GameState | null>(null);
   const [history, set_history] = useState<string[]>([]);
   const [history_cursor, set_history_cursor] = useState<number | null>(null);
   const [state_mode, set_state_mode] = useState<StateMode>('brief');
@@ -227,7 +234,16 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   useEffect(() => {
     const unsubscribe = channel_bus.subscribe('*', (message) => {
       const clean = strip_ansi(message.text);
+
       if (message.channel === 'state') {
+        if (message.state_snapshot) {
+          set_latest_state_snapshot(message.state_snapshot);
+        }
+        return;
+      }
+
+      if (message.channel === 'event' && message.event) {
+        append_log_lines([format_event_for_tui(message.event, message.event_index)]);
         return;
       }
 
@@ -581,7 +597,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     }
   });
 
-  const state_text = state_mode === 'json' ? format_state_json(context.state) : format_state_brief(context.state);
+  const effective_state = latest_state_snapshot ?? context.state;
+  const state_text = state_mode === 'json' ? format_state_json(effective_state) : format_state_brief(effective_state);
   const available_rows = Math.max(24, rows);
   const header_height = 3;
   const input_height = 3;

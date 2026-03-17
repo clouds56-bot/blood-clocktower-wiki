@@ -102,6 +102,31 @@ function emit_line(context: CliContext, channel: CliChannel, line: string): void
   process.stdout.write(`${line}\n`);
 }
 
+function emit_event(context: CliContext, line: string, event: DomainEvent, event_index: number): void {
+  if (context.channel_bus) {
+    context.channel_bus.emit({
+      channel: 'event',
+      text: line,
+      event,
+      event_index
+    });
+    return;
+  }
+  process.stdout.write(`${line}\n`);
+}
+
+function emit_state_snapshot(context: CliContext, text: string): void {
+  if (context.channel_bus) {
+    context.channel_bus.emit({
+      channel: 'state',
+      text,
+      state_snapshot: context.state
+    });
+    return;
+  }
+  emit_text(context, 'state', text);
+}
+
 function emit_text(context: CliContext, channel: CliChannel, text: string): void {
   const lines = text.split('\n');
   lines.forEach((line) => {
@@ -205,12 +230,12 @@ function run_quick_setup(context: CliContext, script_input: string, player_num: 
   if (context.event_log.length > 0) {
     emit_line(context, 'status', `${paint('ok', 'green')} emitted=${context.event_log.length}`);
     context.event_log.forEach((event, index) => {
-      emit_line(context, 'event', format_event(event, index + 1));
+      emit_event(context, format_event(event, index + 1), event, index + 1);
     });
   }
 
   emit_line(context, 'status', `quick setup complete: script=${script_id} players=${player_num} game=${resolved_game_id}`);
-  emit_text(context, 'state', format_state_brief(context.state));
+  emit_state_snapshot(context, format_state_brief(context.state));
 }
 
 function run_engine_command(context: CliContext, command: Omit<Command, 'command_id'>): boolean {
@@ -240,7 +265,12 @@ function run_engine_command(context: CliContext, command: Omit<Command, 'command
   emit_line(context, 'status', `${paint('ok', 'green')} emitted=${events.length}`);
   const start_index = context.event_log.length - events.length + 1;
   events.forEach((event, event_index) => {
-    emit_line(context, 'event', format_event(event, start_index + event_index));
+    emit_event(
+      context,
+      format_event(event, start_index + event_index),
+      event,
+      start_index + event_index
+    );
   });
   return true;
 }
@@ -724,9 +754,9 @@ function handle_local_action(context: CliContext, action: CliLocalAction): boole
 
   if (action.type === 'state') {
     if (action.format === 'json') {
-      emit_text(context, 'state', format_state_json(context.state));
+      emit_state_snapshot(context, format_state_json(context.state));
     } else {
-      emit_text(context, 'state', format_state_brief(context.state));
+      emit_state_snapshot(context, format_state_brief(context.state));
     }
     return true;
   }
@@ -744,7 +774,7 @@ function handle_local_action(context: CliContext, action: CliLocalAction): boole
     const count = Math.max(0, action.count);
     const start = Math.max(0, context.event_log.length - count);
     context.event_log.slice(start).forEach((event, index) => {
-      emit_line(context, 'event', format_event(event, start + index + 1));
+      emit_event(context, format_event(event, start + index + 1), event, start + index + 1);
     });
     return true;
   }
@@ -837,7 +867,7 @@ function handle_local_action(context: CliContext, action: CliLocalAction): boole
     context.state = create_initial_state(action.game_id);
     context.event_log = [];
     emit_line(context, 'status', `created game ${action.game_id}`);
-    emit_text(context, 'state', format_state_brief(context.state));
+    emit_state_snapshot(context, format_state_brief(context.state));
     return true;
   }
 
@@ -879,7 +909,7 @@ export async function run_cli_script_file(script_path: string, initial_game_id =
   const lines = raw.split(/\r?\n/);
 
   emit_line(context, 'status', `running script: ${script_path}`);
-  emit_text(context, 'state', format_state_brief(context.state));
+  emit_state_snapshot(context, format_state_brief(context.state));
 
   for (let index = 0; index < lines.length; index += 1) {
     const original = lines[index] ?? '';
@@ -896,7 +926,7 @@ export async function run_cli_script_file(script_path: string, initial_game_id =
   }
 
   emit_line(context, 'status', 'script complete');
-  emit_text(context, 'state', format_state_brief(context.state));
+  emit_state_snapshot(context, format_state_brief(context.state));
 }
 
 export async function start_cli_repl(initial_game_id = 'cli_game'): Promise<void> {

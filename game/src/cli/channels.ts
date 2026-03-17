@@ -1,8 +1,14 @@
+import type { DomainEvent } from '../domain/events.js';
+import type { GameState } from '../domain/types.js';
+
 export type CliChannel = 'event' | 'output' | 'error' | 'state' | 'status';
 
 export interface CliMessage {
   channel: CliChannel;
   text: string;
+  event?: DomainEvent;
+  event_index?: number;
+  state_snapshot?: GameState;
 }
 
 export type CliMessageHandler = (message: CliMessage) => void;
