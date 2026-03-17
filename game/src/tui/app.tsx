@@ -349,6 +349,16 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [status_errors_only, set_status_errors_only] = useState(false);
   const [, set_tick] = useState(0);
   const suppress_input_until_ref = useRef(0);
+  const event_autoscroll_ref = useRef(event_autoscroll);
+  const event_list_content_rows_ref = useRef(event_list_content_rows);
+
+  useEffect(() => {
+    event_autoscroll_ref.current = event_autoscroll;
+  }, [event_autoscroll]);
+
+  useEffect(() => {
+    event_list_content_rows_ref.current = event_list_content_rows;
+  }, [event_list_content_rows]);
 
   function append_status_lines(lines: string[], kind: StatusKind = 'status'): void {
     if (lines.length === 0) {
@@ -413,10 +423,10 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
         set_event_entries((previous) => {
           const next_index = message.event_index ?? previous.length + 1;
           const merged = [...previous, { event, event_index: next_index }];
-          if (event_autoscroll) {
+          if (event_autoscroll_ref.current) {
             const latest = merged.length - 1;
             set_selected_event_index(latest);
-            const max_offset = Math.max(0, merged.length - event_list_content_rows);
+            const max_offset = Math.max(0, merged.length - event_list_content_rows_ref.current);
             set_event_list_offset(max_offset);
           }
           return merged;
@@ -432,7 +442,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       append_status_lines([clean], message.channel === 'error' ? 'error' : 'status');
     });
     return unsubscribe;
-  }, [channel_bus, event_autoscroll, event_list_content_rows]);
+  }, [channel_bus]);
 
   useEffect(() => {
     if (!stdin || !process.stdout.isTTY) {

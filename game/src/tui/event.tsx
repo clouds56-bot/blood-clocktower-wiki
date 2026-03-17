@@ -283,6 +283,7 @@ export function event_style_for_tui(event_type: DomainEvent['event_type']): Even
   if (
     event_type === 'DrunkApplied' ||
     event_type === 'SobrietyRestored' ||
+    event_type === 'HealthRestored' ||
     event_type === 'PoisonApplied' ||
     event_type === 'PoisonCleared'
   ) {
