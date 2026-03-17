@@ -1,6 +1,8 @@
 import type { CharacterPlugin, PluginResult, PrePlayerDiedHookResult } from '../contracts.js';
 import { night_time_key } from './prompt-key-utils.js';
 
+const MAYOR_ALLOW_ORIGINAL_DEATH_OPTION_ID = 'allow_original_death';
+
 function build_mayor_redirect_prompt_key(night_number: number, source_player_id: string): string {
   return `plugin:mayor:redirect_death:${night_time_key(night_number)}:${source_player_id}`;
 }
@@ -63,6 +65,12 @@ export const mayor_plugin: CharacterPlugin = {
         return { outcome: 'allow' };
       }
 
+      const existing_redirect_prompt =
+        context.state.prompts_by_id[build_mayor_redirect_prompt_key(context.night_number, context.source_player_id)];
+      if (existing_redirect_prompt && existing_redirect_prompt.status === 'resolved') {
+        return { outcome: 'allow' };
+      }
+
       const redirect_targets = Object.values(context.state.players_by_id)
         .filter((player) => player.alive && player.player_id !== target.player_id)
         .map((player) => ({
@@ -83,8 +91,16 @@ export const mayor_plugin: CharacterPlugin = {
             `plugin:mayor:choose_redirect_target:${night_time_key(context.night_number)}:` +
             `${context.source_player_id}`,
           visibility: 'storyteller',
-          options: redirect_targets,
-          storyteller_hint: `${target.display_name} is a functional Mayor; choose another player who dies instead.`
+          options: [
+            {
+              option_id: MAYOR_ALLOW_ORIGINAL_DEATH_OPTION_ID,
+              label: 'Do not redirect'
+            },
+            ...redirect_targets
+          ],
+          storyteller_hint:
+            `${target.display_name} is a functional Mayor; choose another player who dies instead, ` +
+            'or choose Do not redirect.'
         }
       };
     },
@@ -101,6 +117,37 @@ export const mayor_plugin: CharacterPlugin = {
       if (!source_player_id || !context.selected_option_id) {
         return {
           emitted_events: [],
+          queued_prompts: [],
+          queued_interrupts: []
+        };
+      }
+
+      if (context.selected_option_id === MAYOR_ALLOW_ORIGINAL_DEATH_OPTION_ID) {
+        const mayor_target = Object.values(context.state.players_by_id).find((player) => {
+          return player.alive && player.true_character_id === 'mayor';
+        });
+        if (!mayor_target) {
+          return {
+            emitted_events: [],
+            queued_prompts: [],
+            queued_interrupts: []
+          };
+        }
+
+        return {
+          emitted_events: [
+            {
+              event_type: 'PlayerDied',
+              payload: {
+                player_id: mayor_target.player_id,
+                day_number: context.state.day_number,
+                night_number: context.state.night_number,
+                reason: 'night_death',
+                source_player_id,
+                source_character_id: 'imp'
+              }
+            }
+          ],
           queued_prompts: [],
           queued_interrupts: []
         };
@@ -135,6 +182,14 @@ export const mayor_plugin: CharacterPlugin = {
         };
       }
 
+      if (!can_player_die_from_imp_attack(context.state, redirected_target.player_id)) {
+        return {
+          emitted_events: [],
+          queued_prompts: [],
+          queued_interrupts: []
+        };
+      }
+
       return {
         emitted_events: [
           {
@@ -155,3 +210,31 @@ export const mayor_plugin: CharacterPlugin = {
     }
   }
 };
+
+function can_player_die_from_imp_attack(
+  state: Parameters<NonNullable<CharacterPlugin['hooks']['on_prompt_resolved']>>[0]['state'],
+  player_id: string
+): boolean {
+  const target_player = state.players_by_id[player_id];
+  if (!target_player || !target_player.alive) {
+    return false;
+  }
+
+  const target_is_poisoned_or_drunk = target_player.poisoned || target_player.drunk;
+  const target_is_soldier =
+    target_player.true_character_id === 'soldier' && !target_is_poisoned_or_drunk;
+  const target_protected_by_monk =
+    !target_is_poisoned_or_drunk &&
+    state.active_reminder_marker_ids.some((marker_id) => {
+      const marker = state.reminder_markers_by_id[marker_id];
+      return Boolean(
+        marker &&
+          marker.status === 'active' &&
+          marker.kind === 'monk:safe' &&
+          marker.authoritative &&
+          marker.target_player_id === player_id
+      );
+    });
+
+  return !target_is_soldier && !target_protected_by_monk;
+}
