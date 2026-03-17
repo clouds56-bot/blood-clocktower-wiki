@@ -332,11 +332,15 @@ function alignment_color(alignment: PlayerState['true_alignment']): string {
   return 'gray';
 }
 
-function format_player_state_row(player: PlayerState, seat_index: number): {
-  prefix: string;
+function format_player_state_row(player: PlayerState, seat_index: number, marker_count: number): {
+  seat: string;
+  identity: string;
+  vote: string;
+  markers: string;
   type: string;
   role: string;
   suffix: string;
+  identity_color: string;
   type_color: string;
   role_color: string;
   italic: boolean;
@@ -346,6 +350,7 @@ function format_player_state_row(player: PlayerState, seat_index: number): {
   const id = player.player_id.padEnd(4, ' ').slice(0, 4);
   const name = player.display_name.padEnd(12, ' ').slice(0, 12);
   const vote = player.dead_vote_available ? 'yes ' : 'no  ';
+  const markers = marker_count > 0 ? '.'.repeat(marker_count) : '-';
   const character_type = (player.true_character_type ?? 'none').padEnd(10, ' ').slice(0, 10);
   const role = (player.true_character_id ?? 'none').padEnd(19, ' ').slice(0, 19);
   const flags = [
@@ -357,10 +362,14 @@ function format_player_state_row(player: PlayerState, seat_index: number): {
   ].filter((value): value is string => Boolean(value)).join(',');
 
   return {
-    prefix: `${seat}   ${id} ${name} ${vote} `,
+    seat,
+    identity: `${id} ${name}`,
+    vote,
+    markers,
     type: character_type,
     role,
     suffix: ` ${flags || '-'}`,
+    identity_color: player.alive ? 'white' : 'gray',
     type_color: alignment_color(player.true_alignment),
     role_color: role_color(player.true_character_type ?? null),
     italic: player.drunk || player.poisoned,
@@ -416,6 +425,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [history, set_history] = useState<string[]>([]);
   const [history_cursor, set_history_cursor] = useState<number | null>(null);
   const [state_mode, set_state_mode] = useState<StateMode>('brief');
+  const [selected_player_index, set_selected_player_index] = useState(0);
   const [inspector_mode, set_inspector_mode] = useState<InspectorMode>('overview');
   const [resolver_open, set_resolver_open] = useState(false);
   const [resolver_step, set_resolver_step] = useState<'prompt' | 'option' | 'multi_column'>('prompt');
@@ -932,6 +942,16 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       return;
     }
 
+    if (key.ctrl && input_key === 'p') {
+      set_selected_player_index((value) => Math.max(0, value - 1));
+      return;
+    }
+
+    if (key.ctrl && input_key === 'n') {
+      set_selected_player_index((value) => value + 1);
+      return;
+    }
+
     if (pane_focus === 'events' && key.upArrow) {
       step_event_selection(-1);
       return;
@@ -991,21 +1011,63 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const state_text = state_mode === 'json' ? format_state_json(effective_state) : format_state_brief(effective_state);
 
   const state_lines = state_text.split('\n').slice(0, state_content_rows);
-  const player_state_header = 'seat id   name         vote type       role                flags';
-  const player_state_separator = '---- ---- ------------ ---- ---------- ------------------- -----';
-  const player_rows = ordered_player_ids(effective_state)
+  const player_state_header = 'sel seat id   name         vote markers type       role                flags';
+  const player_state_separator = '--- ---- ---- ------------ ---- ------- ---------- ------------------- -----';
+  const player_marker_ids = new Map<string, string[]>();
+  for (const marker_id of effective_state.active_reminder_marker_ids) {
+    const marker = effective_state.reminder_markers_by_id[marker_id];
+    if (!marker || !marker.target_player_id) {
+      continue;
+    }
+    const current = player_marker_ids.get(marker.target_player_id) ?? [];
+    current.push(marker_id);
+    player_marker_ids.set(marker.target_player_id, current);
+  }
+
+  const player_ids = ordered_player_ids(effective_state);
+  const player_rows = player_ids
     .map((player_id, index) => {
       const player = effective_state.players_by_id[player_id];
       if (!player) {
         return null;
       }
+      const marker_count = player_marker_ids.get(player_id)?.length ?? 0;
       return {
         key: `${player_id}:${index}`,
-        row: format_player_state_row(player, index)
+        row: format_player_state_row(player, index, marker_count)
       };
     })
     .filter((value): value is { key: string; row: ReturnType<typeof format_player_state_row> } => Boolean(value));
-  const visible_player_rows = player_rows.slice(0, Math.max(0, state_content_rows - 2));
+
+  const clamped_selected_player_index = player_rows.length === 0
+    ? null
+    : clamp(selected_player_index, 0, player_rows.length - 1);
+  const selected_player = clamped_selected_player_index === null
+    ? null
+    : effective_state.players_by_id[player_ids[clamped_selected_player_index] ?? ''] ?? null;
+  const selected_player_marker_details = selected_player
+    ? effective_state.active_reminder_marker_ids
+        .map((marker_id) => effective_state.reminder_markers_by_id[marker_id])
+        .filter((marker): marker is NonNullable<typeof marker> => Boolean(marker && marker.target_player_id === selected_player.player_id))
+        .map((marker) => `${marker.kind}:${marker.marker_id}`)
+    : [];
+  const selected_player_status_line = selected_player
+    ? `selected=${selected_player.player_id} reminders=${selected_player_marker_details.length} ${selected_player_marker_details.length > 0 ? selected_player_marker_details.join(', ') : '(none)'}`
+    : 'selected=(none) reminders=(none)';
+
+  useEffect(() => {
+    if (player_rows.length === 0) {
+      if (selected_player_index !== 0) {
+        set_selected_player_index(0);
+      }
+      return;
+    }
+    if (selected_player_index >= player_rows.length) {
+      set_selected_player_index(player_rows.length - 1);
+    }
+  }, [player_rows.length, selected_player_index]);
+
+  const visible_player_rows = player_rows.slice(0, Math.max(0, state_content_rows - 3));
 
   const right_pane_width = Math.max(20, Math.floor(columns / 2) - 4);
   const left_pane_width = Math.max(20, Math.floor(columns / 2) - 4);
@@ -1094,7 +1156,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     <Box flexDirection="column" width={columns} height={available_rows}>
       <Box borderStyle="single" paddingX={1} height={header_height}>
         <Text>
-          phase={context.state.phase}/{context.state.subphase} day={context.state.day_number} night={context.state.night_number} alive={alive_count}/{players_total} prompts={prompt_count} | focus={pane_focus} | events autoscroll={event_autoscroll} key={show_event_key ? 'shown' : 'hidden'} mouse={mouse_scroll_enabled ? 'on' : 'off'} | Ctrl+W pane | Ctrl+A autoscroll | Ctrl+M mouse | Ctrl+L latest | Ctrl+K key | Ctrl+U/D scroll | Ctrl+E errors={status_errors_only} | Ctrl+S state={state_mode} | Ctrl+G inspector={inspector_mode} | Ctrl+C quit
+          phase={context.state.phase}/{context.state.subphase} day={context.state.day_number} night={context.state.night_number} alive={alive_count}/{players_total} prompts={prompt_count} | focus={pane_focus} | events autoscroll={event_autoscroll} key={show_event_key ? 'shown' : 'hidden'} mouse={mouse_scroll_enabled ? 'on' : 'off'} | Ctrl+W pane | Ctrl+A autoscroll | Ctrl+M mouse | Ctrl+L latest | Ctrl+K key | Ctrl+U/D scroll | Ctrl+E errors={status_errors_only} | Ctrl+S state={state_mode} | Ctrl+G inspector={inspector_mode} | Ctrl+P/N player | Ctrl+C quit
         </Text>
       </Box>
 
@@ -1152,23 +1214,50 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
                 <Text>{fit_line(player_state_header, right_pane_width)}</Text>
                 <Text color="gray">{fit_line(player_state_separator, right_pane_width)}</Text>
                 {visible_player_rows.length > 0 ? (
-                  visible_player_rows.map(({ key, row }) => (
-                    <Text
-                      key={`player-state-${key}`}
-                      italic={row.italic}
-                      strikethrough={row.strikethrough}
-                      wrap="truncate-end"
-                    >
-                      <Text>{row.prefix}</Text>
-                      <Text color={row.type_color}>{row.type}</Text>
-                      <Text> </Text>
-                      <Text color={row.role_color}>{row.role}</Text>
-                      <Text>{row.suffix}</Text>
-                    </Text>
-                  ))
+                  visible_player_rows.map(({ key, row }, index) => {
+                    const selected = index === (clamped_selected_player_index ?? -1);
+                    const content = (
+                      <>
+                        <Text>{selected ? '>  ' : '   '}</Text>
+                        <Text>{`${row.seat}   `}</Text>
+                        <Text color={row.identity_color}>{`${row.identity} `}</Text>
+                        <Text>{`${row.vote} `}</Text>
+                        <Text>{`${row.markers.padEnd(7, ' ')} `}</Text>
+                        <Text color={row.type_color}>{row.type}</Text>
+                        <Text> </Text>
+                        <Text color={row.role_color}>{row.role}</Text>
+                        <Text>{row.suffix}</Text>
+                      </>
+                    );
+                    return (
+                      selected ? (
+                        <Text
+                          key={`player-state-${key}`}
+                          backgroundColor="white"
+                          color="black"
+                          bold
+                          italic={row.italic}
+                          strikethrough={row.strikethrough}
+                          wrap="truncate-end"
+                        >
+                          {content}
+                        </Text>
+                      ) : (
+                        <Text
+                          key={`player-state-${key}`}
+                          italic={row.italic}
+                          strikethrough={row.strikethrough}
+                          wrap="truncate-end"
+                        >
+                          {content}
+                        </Text>
+                      )
+                    );
+                  })
                 ) : (
                   <Text>(no players)</Text>
                 )}
+                <Text color="gray" wrap="truncate-end">{fit_line(selected_player_status_line, right_pane_width)}</Text>
               </>
             ) : (
               render_panel_lines(state_lines, right_pane_width)
