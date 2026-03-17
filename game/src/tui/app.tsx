@@ -5,13 +5,18 @@ import { CliChannelBus } from '../cli/channels.js';
 import { format_state_brief, format_state_json } from '../cli/formatters.js';
 import { create_cli_context, process_cli_line } from '../cli/repl.js';
 import type { DomainEvent } from '../domain/events.js';
-import type { GameState, PromptColumnSpec, PromptRangeSpec, PromptState } from '../domain/types.js';
+import type { GameState, PlayerState, PromptColumnSpec, PromptRangeSpec, PromptState } from '../domain/types.js';
 import { EventSummaryRow } from './event.js';
 
-type StateMode = 'brief' | 'json';
+type StateMode = 'brief' | 'players' | 'json';
 type InspectorMode = 'overview' | 'prompts' | 'players' | 'markers' | 'output';
-type PaneFocus = 'events' | 'inspector' | 'status';
+type PaneFocus = 'events' | 'state' | 'command';
 type StatusKind = 'status' | 'error';
+
+interface MarkerSeatToken {
+  seat: string;
+  color: string;
+}
 
 interface StatusEntry {
   text: string;
@@ -286,12 +291,122 @@ function slice_from_bottom(lines: string[], visible_count: number, scroll_offset
 
 function next_focus(focus: PaneFocus): PaneFocus {
   if (focus === 'events') {
-    return 'inspector';
+    return 'state';
   }
-  if (focus === 'inspector') {
-    return 'status';
+  if (focus === 'state') {
+    return 'command';
   }
   return 'events';
+}
+
+function ordered_player_ids(state: GameState): string[] {
+  const seated_player_ids = new Set(state.seat_order);
+  return [
+    ...state.seat_order,
+    ...Object.keys(state.players_by_id)
+      .filter((player_id) => !seated_player_ids.has(player_id))
+      .sort((a, b) => a.localeCompare(b))
+  ];
+}
+
+function role_color(character_type: PlayerState['true_character_type']): string {
+  if (character_type === 'townsfolk') {
+    return 'blue';
+  }
+  if (character_type === 'outsider') {
+    return 'cyan';
+  }
+  if (character_type === 'minion') {
+    return 'magenta';
+  }
+  if (character_type === 'demon') {
+    return 'red';
+  }
+  if (character_type === 'traveller') {
+    return 'yellow';
+  }
+  return 'white';
+}
+
+function alignment_color(alignment: PlayerState['true_alignment']): string {
+  if (alignment === 'good') {
+    return 'green';
+  }
+  if (alignment === 'evil') {
+    return 'red';
+  }
+  return 'gray';
+}
+
+function marker_source_color(effect: string | null | undefined): string {
+  const normalized = (effect ?? '').toLowerCase();
+  if (normalized.includes('poison') || normalized.includes('drunk')) {
+    return 'magenta';
+  }
+  if (normalized.includes('protect')) {
+    return 'green';
+  }
+  if (normalized.length === 0 || normalized === 'none') {
+    return 'gray';
+  }
+  return 'white';
+}
+
+function format_player_state_row(player: PlayerState, seat_index: number, marker_sources: MarkerSeatToken[]): {
+  seat: string;
+  identity: string;
+  vote: string;
+  markers: string;
+  marker_tokens: MarkerSeatToken[];
+  type: string;
+  role: string;
+  suffix: string;
+  identity_color: string;
+  type_color: string;
+  role_color: string;
+  italic: boolean;
+  strikethrough: boolean;
+} {
+  const seat = String(seat_index + 1).padStart(2, ' ');
+  const id = player.player_id.padEnd(4, ' ').slice(0, 4);
+  const name = player.display_name.padEnd(12, ' ').slice(0, 12);
+  const vote = player.dead_vote_available ? 'yes ' : 'no  ';
+  const markers = marker_sources.length > 0 ? marker_sources.map((source) => source.seat).join(',') : '-';
+  const character_type = (player.true_character_type ?? 'none').padEnd(10, ' ').slice(0, 10);
+  const role = (player.true_character_id ?? 'none').padEnd(19, ' ').slice(0, 19);
+  const flags = [
+    player.perceived_character_id && player.perceived_character_id !== player.true_character_id
+      ? `seen:${player.perceived_character_id}`
+      : null,
+    player.registered_alignment ? `regA:${player.registered_alignment}` : null,
+    player.registered_character_id ? `regC:${player.registered_character_id}` : null
+  ].filter((value): value is string => Boolean(value)).join(',');
+
+  return {
+    seat,
+    identity: `${id} ${name}`,
+    vote,
+    markers,
+    marker_tokens: marker_sources,
+    type: character_type,
+    role,
+    suffix: ` ${flags || '-'}`,
+    identity_color: player.alive ? 'white' : 'gray',
+    type_color: alignment_color(player.true_alignment),
+    role_color: role_color(player.true_character_type ?? null),
+    italic: player.drunk || player.poisoned,
+    strikethrough: !player.alive
+  };
+}
+
+function next_state_mode(mode: StateMode): StateMode {
+  if (mode === 'brief') {
+    return 'players';
+  }
+  if (mode === 'players') {
+    return 'json';
+  }
+  return 'brief';
 }
 
 function App({ initial_game_id }: { initial_game_id: string }): React.ReactElement {
@@ -329,10 +444,11 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     { text: 'Type commands and press Enter. Ctrl+R opens resolve prompt picker.', kind: 'status' }
   ]);
   const [output_lines, set_output_lines] = useState<string[]>([]);
-  const [latest_state_snapshot, set_latest_state_snapshot] = useState<GameState | null>(null);
   const [history, set_history] = useState<string[]>([]);
   const [history_cursor, set_history_cursor] = useState<number | null>(null);
-  const [state_mode, set_state_mode] = useState<StateMode>('brief');
+  const [state_mode, set_state_mode] = useState<StateMode>('players');
+  const [selected_player_index, set_selected_player_index] = useState(0);
+  const [player_list_offset, set_player_list_offset] = useState(0);
   const [inspector_mode, set_inspector_mode] = useState<InspectorMode>('overview');
   const [resolver_open, set_resolver_open] = useState(false);
   const [resolver_step, set_resolver_step] = useState<'prompt' | 'option' | 'multi_column'>('prompt');
@@ -343,9 +459,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [resolver_prompt_key, set_resolver_prompt_key] = useState<string | null>(null);
   const [resolver_multi_values, set_resolver_multi_values] = useState<string[]>([]);
   const [resolver_multi_column_index, set_resolver_multi_column_index] = useState(0);
-  const [pane_focus, set_pane_focus] = useState<PaneFocus>('events');
-  const [inspector_scroll, set_inspector_scroll] = useState(0);
-  const [status_scroll, set_status_scroll] = useState(0);
+  const [pane_focus, set_pane_focus] = useState<PaneFocus>('command');
   const [status_errors_only, set_status_errors_only] = useState(false);
   const [mouse_scroll_enabled, set_mouse_scroll_enabled] = useState(true);
   const [, set_tick] = useState(0);
@@ -389,6 +503,18 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     return keep_running;
   }
 
+  const step_player_selection = useCallback((delta: number, total_count: number, visible_count: number): void => {
+    if (total_count <= 0 || delta === 0) {
+      return;
+    }
+    set_selected_player_index((previous) => {
+      const normalized_previous = ((previous % total_count) + total_count) % total_count;
+      const next = ((normalized_previous + delta) % total_count + total_count) % total_count;
+      set_player_list_offset((offset) => ensure_visible_offset(next, offset, visible_count, total_count));
+      return next;
+    });
+  }, []);
+
   const step_event_selection = useCallback((delta: number): void => {
     if (event_entries.length === 0 || delta === 0) {
       return;
@@ -410,9 +536,6 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       const clean = strip_ansi(message.text);
 
       if (message.channel === 'state') {
-        if (message.state_snapshot) {
-          set_latest_state_snapshot(message.state_snapshot);
-        }
         return;
       }
 
@@ -804,10 +927,6 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       if (pane_focus === 'events') {
         set_event_autoscroll(false);
         set_event_list_offset((value) => Math.max(0, value - 1));
-      } else if (pane_focus === 'inspector') {
-        set_inspector_scroll((value) => value + 1);
-      } else {
-        set_status_scroll((value) => value + 1);
       }
       return;
     }
@@ -817,15 +936,11 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
         set_event_autoscroll(false);
         const max_offset = Math.max(0, event_entries.length - event_list_content_rows);
         set_event_list_offset((value) => Math.min(max_offset, value + 1));
-      } else if (pane_focus === 'inspector') {
-        set_inspector_scroll((value) => Math.max(0, value - 1));
-      } else {
-        set_status_scroll((value) => Math.max(0, value - 1));
       }
       return;
     }
 
-    if (key.return) {
+    if (pane_focus === 'command' && key.return) {
       const command = input.trim();
       if (command.length === 0) {
         return;
@@ -843,7 +958,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     }
 
     if (key.ctrl && input_key === 's') {
-      set_state_mode((mode) => (mode === 'brief' ? 'json' : 'brief'));
+      set_state_mode((mode) => next_state_mode(mode));
       return;
     }
 
@@ -851,6 +966,9 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       set_inspector_mode((mode) => next_inspector_mode(mode));
       return;
     }
+
+    const player_count = ordered_player_ids(context.state).length;
+    const player_visible_count = Math.max(1, state_content_rows - 4);
 
     if (pane_focus === 'events' && key.upArrow) {
       step_event_selection(-1);
@@ -862,7 +980,17 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       return;
     }
 
-    if (key.upArrow) {
+    if (state_mode === 'players' && pane_focus === 'state' && key.upArrow) {
+      step_player_selection(-1, player_count, player_visible_count);
+      return;
+    }
+
+    if (state_mode === 'players' && pane_focus === 'state' && key.downArrow) {
+      step_player_selection(1, player_count, player_visible_count);
+      return;
+    }
+
+    if (pane_focus === 'command' && key.upArrow) {
       if (history.length === 0) {
         return;
       }
@@ -874,7 +1002,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       return;
     }
 
-    if (key.downArrow) {
+    if (pane_focus === 'command' && key.downArrow) {
       if (history.length === 0) {
         return;
       }
@@ -893,7 +1021,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       return;
     }
 
-    if (key.backspace || key.delete) {
+    if (pane_focus === 'command' && (key.backspace || key.delete)) {
       set_input((value) => value.slice(0, -1));
       return;
     }
@@ -902,15 +1030,119 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       return;
     }
 
-    if (!key.ctrl && !key.meta && input_key.length > 0) {
+    if (pane_focus === 'command' && !key.ctrl && !key.meta && input_key.length > 0) {
       set_input((value) => `${value}${input_key}`);
     }
   });
 
-  const effective_state = latest_state_snapshot ?? context.state;
+  const effective_state = context.state;
   const state_text = state_mode === 'json' ? format_state_json(effective_state) : format_state_brief(effective_state);
 
   const state_lines = state_text.split('\n').slice(0, state_content_rows);
+  const player_state_header = 'sel seat id   name         vote markers type       role                flags';
+  const player_state_separator = '--- ---- ---- ------------ ---- ------- ---------- ------------------- -----';
+  const player_ids = ordered_player_ids(effective_state);
+  const seat_by_player_id = new Map<string, string>(
+    player_ids.map((player_id, index) => [player_id, String(index + 1)])
+  );
+  const player_marker_sources = new Map<string, MarkerSeatToken[]>();
+  for (const marker_id of effective_state.active_reminder_marker_ids) {
+    const marker = effective_state.reminder_markers_by_id[marker_id];
+    if (!marker || !marker.target_player_id) {
+      continue;
+    }
+    const source_seat = marker.source_player_id ? seat_by_player_id.get(marker.source_player_id) ?? '?' : '?';
+    const source_color = marker_source_color(marker.effect);
+    const current = player_marker_sources.get(marker.target_player_id) ?? [];
+    current.push({ seat: source_seat, color: source_color });
+    player_marker_sources.set(marker.target_player_id, current);
+  }
+  const player_rows = player_ids
+    .map((player_id, index) => {
+      const player = effective_state.players_by_id[player_id];
+      if (!player) {
+        return null;
+      }
+      const marker_sources = player_marker_sources.get(player_id) ?? [];
+      return {
+        key: `${player_id}:${index}`,
+        row: format_player_state_row(player, index, marker_sources)
+      };
+    })
+    .filter((value): value is { key: string; row: ReturnType<typeof format_player_state_row> } => Boolean(value));
+
+  const player_visible_count = Math.max(1, state_content_rows - 4);
+  const clamped_selected_player_index = player_rows.length === 0
+    ? null
+    : clamp(selected_player_index, 0, player_rows.length - 1);
+  const max_player_offset = Math.max(0, player_rows.length - Math.max(1, player_visible_count));
+  const effective_player_offset = clamp(player_list_offset, 0, max_player_offset);
+  const selected_player = clamped_selected_player_index === null
+    ? null
+    : effective_state.players_by_id[player_ids[clamped_selected_player_index] ?? ''] ?? null;
+  const selected_player_marker_details = selected_player
+    ? effective_state.active_reminder_marker_ids
+        .map((marker_id) => effective_state.reminder_markers_by_id[marker_id])
+        .filter((marker): marker is NonNullable<typeof marker> => Boolean(marker && marker.target_player_id === selected_player.player_id))
+        .reduce((acc, marker) => {
+          const key = `${marker.kind}|${marker.effect}`;
+          const seat = marker.source_player_id ? seat_by_player_id.get(marker.source_player_id) ?? '?' : '?';
+          const existing = acc.get(key);
+          if (existing) {
+            existing.seats.push(seat);
+            return acc;
+          }
+          acc.set(key, {
+            kind: marker.kind,
+            effect: marker.effect,
+            seats: [seat]
+          });
+          return acc;
+        }, new Map<string, { kind: string; effect: string; seats: string[] }>())
+    : new Map<string, { kind: string; effect: string; seats: string[] }>();
+  const selected_player_markers = Array.from(selected_player_marker_details.values())
+    .map((entry) => ({
+      ...entry,
+      seats: [...entry.seats].sort((a, b) => a.localeCompare(b))
+    }))
+    .sort((left, right) => left.kind.localeCompare(right.kind));
+  const selected_player_status_prefix = selected_player
+    ? `selected=${selected_player.player_id} `
+    : 'selected=(none)';
+
+  useEffect(() => {
+    if (player_rows.length === 0) {
+      if (selected_player_index !== 0) {
+        set_selected_player_index(0);
+      }
+      if (player_list_offset !== 0) {
+        set_player_list_offset(0);
+      }
+      return;
+    }
+    if (selected_player_index >= player_rows.length) {
+      set_selected_player_index(player_rows.length - 1);
+    }
+    if (clamped_selected_player_index !== null) {
+      const next_offset = ensure_visible_offset(
+        clamped_selected_player_index,
+        player_list_offset,
+        Math.max(1, player_visible_count),
+        player_rows.length
+      );
+      if (next_offset !== player_list_offset) {
+        set_player_list_offset(next_offset);
+      }
+    }
+  }, [
+    clamped_selected_player_index,
+    player_list_offset,
+    player_rows.length,
+    player_visible_count,
+    selected_player_index
+  ]);
+
+  const visible_player_rows = player_rows.slice(effective_player_offset, effective_player_offset + player_visible_count);
 
   const right_pane_width = Math.max(20, Math.floor(columns / 2) - 4);
   const left_pane_width = Math.max(20, Math.floor(columns / 2) - 4);
@@ -971,8 +1203,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     event_list_content_rows,
     effective_event_offset
   );
-  const inspector_visible_lines = slice_from_bottom(inspector_lines, inspector_content_rows, inspector_scroll);
-  const status_inspector_lines = slice_from_bottom(status_filtered_lines, status_content_rows, status_scroll);
+  const inspector_visible_lines = slice_from_bottom(inspector_lines, inspector_content_rows, 0);
+  const status_inspector_lines = slice_from_bottom(status_filtered_lines, status_content_rows, 0);
   const players_total = Object.keys(context.state.players_by_id).length;
   const alive_count = Object.values(context.state.players_by_id).filter((player) => player.alive).length;
   const prompt_count = context.state.pending_prompts.filter((prompt_key) => {
@@ -994,12 +1226,17 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const modal_active_values = modal_active_column ? column_values(modal_active_column) : [];
   const modal_active_window = Math.max(1, modal_height - 10);
   const modal_inner_width = Math.max(16, modal_width - 4);
+  const timing_label = effective_state.phase === 'day'
+    ? `d${effective_state.day_number}`
+    : effective_state.phase === 'night'
+      ? `n${effective_state.night_number}`
+      : effective_state.phase;
 
   return (
     <Box flexDirection="column" width={columns} height={available_rows}>
       <Box borderStyle="single" paddingX={1} height={header_height}>
         <Text>
-          phase={context.state.phase}/{context.state.subphase} day={context.state.day_number} night={context.state.night_number} alive={alive_count}/{players_total} prompts={prompt_count} | focus={pane_focus} | events autoscroll={event_autoscroll} key={show_event_key ? 'shown' : 'hidden'} mouse={mouse_scroll_enabled ? 'on' : 'off'} | Ctrl+W pane | Ctrl+A autoscroll | Ctrl+M mouse | Ctrl+L latest | Ctrl+K key | Ctrl+U/D scroll | Ctrl+E errors={status_errors_only} | Ctrl+S state={state_mode} | Ctrl+G inspector={inspector_mode} | Ctrl+C quit
+          phase={context.state.phase}/{context.state.subphase} day={context.state.day_number} night={context.state.night_number} alive={alive_count}/{players_total} prompts={prompt_count} | focus={pane_focus} | events autoscroll={event_autoscroll} key={show_event_key ? 'shown' : 'hidden'} mouse={mouse_scroll_enabled ? 'on' : 'off'} | Ctrl+W pane(events/state/command) | Ctrl+A autoscroll | Ctrl+M mouse | Ctrl+L latest_event | Ctrl+K key | Ctrl+U/D scroll(events) | Ctrl+E errors={status_errors_only} | Ctrl+S state={state_mode} | Ctrl+G inspector={inspector_mode} | Ctrl+C quit
         </Text>
       </Box>
 
@@ -1050,24 +1287,129 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
         </Box>
 
         <Box width="50%" flexDirection="column">
-          <Box borderStyle="single" flexDirection="column" height={state_height} paddingX={1}>
-            <Text color="cyan">State ({state_mode})</Text>
-            {render_panel_lines(state_lines, right_pane_width)}
+          <Box borderStyle="single" borderColor={pane_focus === 'state' ? 'green' : 'white'} flexDirection="column" height={state_height} paddingX={1}>
+            <Text color="cyan">
+              {state_mode === 'players'
+                ? `State (${state_mode}) ${timing_label} sub=${effective_state.subphase} alive=${alive_count}/${players_total}`
+                : `State (${state_mode})`}
+            </Text>
+            {state_mode === 'players' ? (
+              <>
+                <Text>{fit_line(player_state_header, right_pane_width)}</Text>
+                <Text color="gray">{fit_line(player_state_separator, right_pane_width)}</Text>
+                {visible_player_rows.length > 0 ? (
+                  visible_player_rows.map(({ key, row }, index) => {
+                    const absolute_index = effective_player_offset + index;
+                    const selected = absolute_index === (clamped_selected_player_index ?? -1);
+                    const content = (
+                      <>
+                        <Text>{selected ? '>  ' : '   '}</Text>
+                        <Text>{`${row.seat}   `}</Text>
+                        <Text color={row.identity_color}>{`${row.identity} `}</Text>
+                        <Text>{`${row.vote} `}</Text>
+                        {row.marker_tokens.length > 0 ? (
+                          <Text>
+                            {(() => {
+                              const marker_column_width = 7;
+                              const chunks: Array<{ text: string; color?: string }> = [];
+                              let used = 0;
+                              for (let token_index = 0; token_index < row.marker_tokens.length; token_index += 1) {
+                                const token = row.marker_tokens[token_index];
+                                if (!token) {
+                                  continue;
+                                }
+                                if (used >= marker_column_width) {
+                                  break;
+                                }
+                                const raw = `${token.seat}${token_index < row.marker_tokens.length - 1 ? ',' : ''}`;
+                                const available = marker_column_width - used;
+                                const text = raw.slice(0, available);
+                                if (text.length > 0) {
+                                  chunks.push({ text, color: token.color });
+                                  used += text.length;
+                                }
+                              }
+                              if (used < marker_column_width) {
+                                chunks.push({ text: ' '.repeat(marker_column_width - used) });
+                              }
+                              return chunks.map((chunk, chunk_index) => (
+                                chunk.color ? (
+                                  <Text
+                                    key={`marker-seat-${key}-${chunk_index}`}
+                                    color={chunk.color}
+                                  >
+                                    {chunk.text}
+                                  </Text>
+                                ) : (
+                                  <Text key={`marker-seat-${key}-${chunk_index}`}>
+                                    {chunk.text}
+                                  </Text>
+                                )
+                              ));
+                            })()}
+                            <Text> </Text>
+                          </Text>
+                        ) : (
+                          <Text>{`${row.markers.padEnd(7, ' ')} `}</Text>
+                        )}
+                        <Text color={row.type_color}>{row.type}</Text>
+                        <Text> </Text>
+                        <Text color={row.role_color}>{row.role}</Text>
+                        <Text>{row.suffix}</Text>
+                      </>
+                    );
+                    return (
+                      <Text
+                        key={`player-state-${key}`}
+                        bold={selected}
+                        italic={row.italic}
+                        strikethrough={row.strikethrough}
+                        wrap="truncate-end"
+                      >
+                        {content}
+                      </Text>
+                    );
+                  })
+                ) : (
+                  <Text>(no players)</Text>
+                )}
+                {selected_player ? (
+                  <Text wrap="truncate-end">
+                    <Text color="gray">{selected_player_status_prefix}</Text>
+                    {selected_player_markers.length > 0 ? (
+                      selected_player_markers.map((marker, index) => (
+                        <Text key={`selected-player-marker-${marker.kind}-${marker.effect}-${index}`}>
+                          <Text>{`${marker.kind}:`}</Text>
+                          <Text color={marker_source_color(marker.effect)}>{marker.seats.join(',')}</Text>
+                          <Text>{index < selected_player_markers.length - 1 ? ', ' : ''}</Text>
+                        </Text>
+                      ))
+                    ) : (
+                      <Text color="gray">(none)</Text>
+                    )}
+                  </Text>
+                ) : (
+                  <Text color="gray" wrap="truncate-end">{selected_player_status_prefix}</Text>
+                )}
+              </>
+            ) : (
+              render_panel_lines(state_lines, right_pane_width)
+            )}
           </Box>
 
-          <Box borderStyle="single" borderColor={pane_focus === 'inspector' ? 'green' : 'white'} flexDirection="column" height={inspector_height} paddingX={1}>
+          <Box borderStyle="single" borderColor="white" flexDirection="column" height={inspector_height} paddingX={1}>
             <Text color="cyan">Inspector ({inspector_mode})</Text>
             {render_panel_lines(inspector_visible_lines, right_pane_width)}
           </Box>
 
-          <Box borderStyle="single" borderColor={pane_focus === 'status' ? 'green' : 'white'} flexDirection="column" height={status_height} paddingX={1}>
+          <Box borderStyle="single" borderColor="white" flexDirection="column" height={status_height} paddingX={1}>
             <Text color="cyan">Status (errors_only={status_errors_only})</Text>
             {render_panel_lines(status_inspector_lines, right_pane_width)}
           </Box>
         </Box>
       </Box>
 
-      <Box borderStyle="single" paddingX={1} height={input_height}>
+      <Box borderStyle="single" borderColor={pane_focus === 'command' ? 'green' : 'white'} paddingX={1} height={input_height}>
         <Text color="green">Command&gt; </Text>
         <Text>{input.slice(0, command_width)}</Text>
       </Box>

@@ -11,6 +11,7 @@ Migrate the existing interactive CLI experience to a maintainable TUI while pres
 - Phase 3 complete: multi-panel layout, inspector panel, focus cycling, and command history navigation.
 - Phase 3.5 complete: high-signal inspector modes (`overview`, `prompts`, `players`, `markers`).
 - Phase 3.6 complete: floating prompt resolve window (keyboard-driven) in Ink TUI.
+- Phase 3.7 complete: state panel mode cycle includes storyteller-dense `players` view.
 
 ## Architecture Decision
 
@@ -69,6 +70,59 @@ Focus on making the TUI operationally complete for Storyteller workflows.
 - Add parser/runtime regression tests for runtime extraction.
 - Ensure no script-mode behavior changes.
 - Update README with final keymap and panel docs.
+
+## Event Panel Design Decisions (Normative)
+
+These decisions are locked for current TUI behavior and should guide future refinements.
+
+### Layout and Interaction
+
+- Left side uses a single framed `Events` panel.
+- Selected-event details render as an in-panel floating overlay (no nested border).
+- Overlay placement rules:
+  - default near top;
+  - move to bottom if selected row is in covered top area;
+  - when there are no events, pin overlay to bottom.
+- Event list viewport must remain stable regardless of detail content length.
+- Details may wrap across multiple lines; summary rows must remain strict single-line.
+- `event_key` is hidden by default in details and can be toggled.
+
+### Event Summary Formatting
+
+- Summary format is compact and event-specific, implemented in `src/tui/event.tsx`.
+- `prompt_key` should be rendered as the final field for prompt/storyteller-related summaries (`pk=<prompt_key>`).
+- Storyteller choice/ruling summaries should include note/freeform text when present.
+- Fallback formatting should degrade to compact single-line JSON if no specific formatter exists.
+
+### Visual Style Semantics
+
+- Selected row uses white background.
+- Selected row foreground stays black for contrast; boldness depends on base style:
+  - base white style => bold black;
+  - base gray style => non-bold black.
+- Event color/style mapping:
+  - setup/config events => gray;
+  - phase events => bold blue;
+  - wake events => gray;
+  - `PromptQueued` => bold yellow;
+  - other prompt events => yellow;
+  - storyteller-related events => bold white;
+  - death/execution events => red;
+  - reminder marker events => bold magenta;
+  - poison/drunk/health effect toggles => magenta.
+
+### Mouse and Input Policy
+
+- Mouse support (scroll in events pane) is enabled by default and can be toggled via keybinding (`Ctrl+M`).
+- When enabled, wheel events in the events pane move selected event up/down.
+- Escape sequences from mouse reporting must never leak into command input.
+- Keep text selection/copy ergonomics intact by allowing mouse mode to be disabled via the toggle when needed.
+
+### Runtime Subscription Stability
+
+- Channel subscriptions should be stable and not re-created for visual state changes.
+- Do not include rapidly changing view flags (for example autoscroll/layout rows) in subscription effect dependencies.
+- Use refs for live read of mutable view-state inside subscribed handlers to avoid event-loss windows.
 
 ## Non-Goals
 
