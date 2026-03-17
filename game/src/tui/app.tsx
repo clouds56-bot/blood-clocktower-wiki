@@ -173,6 +173,14 @@ function render_panel_lines(lines: string[]): React.ReactNode {
   return lines.map((line, index) => <Text key={`${index}:${line}`}>{line}</Text>);
 }
 
+function fit_line(text: string, width: number): string {
+  if (width <= 0) {
+    return '';
+  }
+  const clipped = text.length > width ? text.slice(0, width) : text;
+  return clipped.padEnd(width, ' ');
+}
+
 function App({ initial_game_id }: { initial_game_id: string }): React.ReactElement {
   const { exit } = useApp();
   const { stdout } = useStdout();
@@ -193,6 +201,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [resolver_step, set_resolver_step] = useState<'prompt' | 'option' | 'multi_column'>('prompt');
   const [resolver_prompt_index, set_resolver_prompt_index] = useState(0);
   const [resolver_option_index, set_resolver_option_index] = useState(0);
+  const [resolver_option_values, set_resolver_option_values] = useState<string[]>([]);
+  const [resolver_option_labels, set_resolver_option_labels] = useState<string[]>([]);
   const [resolver_prompt_key, set_resolver_prompt_key] = useState<string | null>(null);
   const [resolver_multi_values, set_resolver_multi_values] = useState<string[]>([]);
   const [resolver_multi_column_index, set_resolver_multi_column_index] = useState(0);
@@ -228,6 +238,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     set_resolver_step('prompt');
     set_resolver_prompt_index(0);
     set_resolver_option_index(0);
+    set_resolver_option_values([]);
+    set_resolver_option_labels([]);
     set_resolver_prompt_key(null);
     set_resolver_multi_values([]);
     set_resolver_multi_column_index(0);
@@ -243,6 +255,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     set_resolver_step('prompt');
     set_resolver_prompt_index(0);
     set_resolver_option_index(0);
+    set_resolver_option_values([]);
+    set_resolver_option_labels([]);
     set_resolver_prompt_key(null);
     set_resolver_multi_values([]);
     set_resolver_multi_column_index(0);
@@ -297,6 +311,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
             set_resolver_multi_values(initial_values);
             set_resolver_multi_column_index(0);
             set_resolver_option_index(0);
+            set_resolver_option_values([]);
+            set_resolver_option_labels([]);
             set_resolver_step('multi_column');
             return;
           }
@@ -308,13 +324,19 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
               close_resolver();
               return;
             }
+
             set_resolver_prompt_key(prompt.prompt_key);
-            set_resolver_option_index(1);
+            set_resolver_option_values(values);
+            set_resolver_option_labels(values);
+            set_resolver_option_index(0);
             set_resolver_step('option');
             return;
           }
 
-          if (prompt.options.length === 0) {
+          const option_values = prompt.options.map((option) => option.option_id);
+          const option_labels = prompt.options.map((option) => `${option.option_id} - ${option.label}`);
+
+          if (option_values.length === 0) {
             const result = run_command(`resolve-prompt ${prompt.prompt_key} -`);
             close_resolver();
             if (!result.keep_running) {
@@ -324,6 +346,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
           }
 
           set_resolver_prompt_key(prompt.prompt_key);
+          set_resolver_option_values(option_values);
+          set_resolver_option_labels(option_labels);
           set_resolver_option_index(0);
           set_resolver_step('option');
         }
@@ -335,6 +359,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
         if (!selected_prompt || !selected_prompt.multi_columns || selected_prompt.multi_columns.length === 0) {
           set_resolver_step('prompt');
           set_resolver_prompt_key(null);
+          set_resolver_option_values([]);
+          set_resolver_option_labels([]);
           set_resolver_multi_values([]);
           set_resolver_multi_column_index(0);
           set_resolver_option_index(0);
@@ -396,6 +422,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
 
         if (key.backspace) {
           set_resolver_step('prompt');
+          set_resolver_option_values([]);
+          set_resolver_option_labels([]);
           set_resolver_multi_values([]);
           set_resolver_multi_column_index(0);
           set_resolver_option_index(0);
@@ -422,11 +450,21 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       if (!selected_prompt) {
         set_resolver_step('prompt');
         set_resolver_prompt_key(null);
+        set_resolver_option_values([]);
+        set_resolver_option_labels([]);
         set_resolver_option_index(0);
         return;
       }
 
-      const option_count = selected_prompt.options.length + 1;
+      const option_count = resolver_option_values.length;
+      if (option_count === 0) {
+        set_resolver_step('prompt');
+        set_resolver_prompt_key(null);
+        set_resolver_option_values([]);
+        set_resolver_option_labels([]);
+        set_resolver_option_index(0);
+        return;
+      }
 
       if (key.upArrow) {
         set_resolver_option_index((index) => Math.max(0, index - 1));
@@ -442,13 +480,13 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
         set_resolver_step('prompt');
         set_resolver_option_index(0);
         set_resolver_prompt_key(null);
+        set_resolver_option_values([]);
+        set_resolver_option_labels([]);
         return;
       }
 
       if (key.return) {
-        const selected_option = resolver_option_index === 0
-          ? '-'
-          : selected_prompt.options[resolver_option_index - 1]?.option_id ?? '-';
+        const selected_option = resolver_option_values[resolver_option_index] ?? '-';
         const result = run_command(`resolve-prompt ${selected_prompt.prompt_key} ${selected_option}`);
         close_resolver();
         if (!result.keep_running) {
@@ -578,6 +616,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const modal_active_column = modal_multi_columns[resolver_multi_column_index];
   const modal_active_values = modal_active_column ? column_values(modal_active_column) : [];
   const modal_active_window = Math.max(1, modal_height - 10);
+  const modal_inner_width = Math.max(16, modal_width - 4);
 
   return (
     <Box flexDirection="column" width={columns} height={available_rows}>
@@ -613,12 +652,6 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
 
       {resolver_open && (
         <Box position="absolute" width={columns} height={available_rows} flexDirection="column">
-          {Array.from({ length: available_rows }).map((_, index) => (
-            <Text key={`resolver-backdrop-${index}`} backgroundColor="black">
-              {' '.repeat(Math.max(1, columns - 1))}
-            </Text>
-          ))}
-
           <Box position="absolute" width={columns} height={available_rows} flexDirection="column">
           <Box marginTop={modal_top}>
             <Box marginLeft={modal_left}>
@@ -630,19 +663,18 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
                 flexDirection="column"
                 paddingX={1}
               >
-                <Text color="yellow">Resolve Prompt</Text>
+                <Text color="yellow" backgroundColor="black">{fit_line('Resolve Prompt', modal_inner_width)}</Text>
                 {resolver_step === 'prompt' ? (
                   <>
-                    <Text>Select pending prompt (Enter). Esc closes.</Text>
+                    <Text backgroundColor="black">{fit_line('Select pending prompt (Enter). Esc closes.', modal_inner_width)}</Text>
                     {modal_pending.length === 0 ? (
-                      <Text>(no pending prompts)</Text>
+                      <Text backgroundColor="black">{fit_line('(no pending prompts)', modal_inner_width)}</Text>
                     ) : (
                       modal_pending.slice(0, modal_height - 5).map((prompt, index) => {
                         const selected = index === resolver_prompt_index;
                         return (
-                          <Text key={prompt.prompt_key} color={selected ? 'green' : 'white'}>
-                            {selected ? '> ' : '  '}
-                            {prompt.prompt_key} kind={prompt.kind} vis={prompt.visibility}
+                          <Text key={prompt.prompt_key} color={selected ? 'green' : 'white'} backgroundColor="black">
+                            {fit_line(`${selected ? '> ' : '  '}${prompt.prompt_key} kind=${prompt.kind} vis=${prompt.visibility}`, modal_inner_width)}
                           </Text>
                         );
                       })
@@ -650,49 +682,52 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
                   </>
                 ) : resolver_step === 'multi_column' ? (
                   <>
-                    <Text>
-                      {modal_prompt
-                        ? `Prompt ${modal_prompt.prompt_key} - use Left/Right to switch column, Up/Down to choose, Enter to resolve`
-                        : 'Prompt no longer pending'}
+                    <Text backgroundColor="black">
+                      {fit_line(
+                        modal_prompt
+                          ? `Prompt ${modal_prompt.prompt_key} - Left/Right col, Up/Down value, Enter resolve`
+                          : 'Prompt no longer pending',
+                        modal_inner_width
+                      )}
                     </Text>
+                    <Box>
                     {modal_multi_columns.map((column, index) => {
                       const current = resolver_multi_values[index] ?? column_values(column)[0] ?? '-';
                       const selected = index === resolver_multi_column_index;
                       return (
-                        <Text key={`col-${index}`} color={selected ? 'green' : 'white'}>
-                          {selected ? '> ' : '  '}col {index + 1}: {current}
-                        </Text>
+                        <Box key={`col-${index}`} marginRight={2}>
+                          <Text color={selected ? 'green' : 'white'} backgroundColor="black">
+                            {fit_line(`${selected ? '> ' : '  '}col ${index + 1}: ${current}`, 18)}
+                          </Text>
+                        </Box>
                       );
                     })}
-                    <Text>active column options:</Text>
+                    </Box>
+                    <Text backgroundColor="black">{fit_line('active column options:', modal_inner_width)}</Text>
                     {modal_active_values.slice(0, modal_active_window).map((value, index) => {
                       const selected = index === resolver_option_index;
                       return (
-                        <Text key={`active-option-${value}`} color={selected ? 'green' : 'white'}>
-                          {selected ? '> ' : '  '}
-                          {value}
+                        <Text key={`active-option-${value}`} color={selected ? 'green' : 'white'} backgroundColor="black">
+                          {fit_line(`${selected ? '> ' : '  '}${value}`, modal_inner_width)}
                         </Text>
                       );
                     })}
                   </>
                 ) : (
                   <>
-                    <Text>
-                      {modal_prompt
-                        ? `Prompt ${modal_prompt.prompt_key} - choose option (Backspace to prompt list)`
-                        : 'Prompt no longer pending'}
+                    <Text backgroundColor="black">
+                      {fit_line(
+                        modal_prompt
+                          ? `Prompt ${modal_prompt.prompt_key} - choose option (Backspace to prompt list)`
+                          : 'Prompt no longer pending',
+                        modal_inner_width
+                      )}
                     </Text>
-                    {modal_prompt && (
-                      <Text color={resolver_option_index === 0 ? 'green' : 'white'}>
-                        {resolver_option_index === 0 ? '> ' : '  '}skip option (-)
-                      </Text>
-                    )}
-                    {modal_prompt?.options.slice(0, modal_height - 6).map((option, index) => {
-                      const selected = resolver_option_index === index + 1;
+                    {resolver_option_labels.slice(0, modal_height - 5).map((option_label, index) => {
+                      const selected = resolver_option_index === index;
                       return (
-                        <Text key={option.option_id} color={selected ? 'green' : 'white'}>
-                          {selected ? '> ' : '  '}
-                          {option.option_id} - {option.label}
+                        <Text key={`option-label-${index}`} color={selected ? 'green' : 'white'} backgroundColor="black">
+                          {fit_line(`${selected ? '> ' : '  '}${option_label}`, modal_inner_width)}
                         </Text>
                       );
                     })}
