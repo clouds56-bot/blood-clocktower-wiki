@@ -31,6 +31,110 @@ function fit_line(text: string, width: number): string {
   return clipped.padEnd(width, ' ');
 }
 
+function PlayersStateWidget(props: {
+  right_pane_width: number;
+  player_state_header: string;
+  player_state_separator: string;
+  visible_player_rows: PlayerStateRow[];
+  effective_player_offset: number;
+  selected_player_index: number | null;
+  selected_player_status_prefix: string;
+  selected_player_marker_lines: Array<{ text: string; color: string }>;
+}): React.ReactElement {
+  return (
+    <>
+      <Text>{fit_line(props.player_state_header, props.right_pane_width)}</Text>
+      <Text color="gray">{fit_line(props.player_state_separator, props.right_pane_width)}</Text>
+      {props.visible_player_rows.length > 0 ? (
+        props.visible_player_rows.map((row, index) => {
+          const absolute_index = props.effective_player_offset + index;
+          const selected = absolute_index === (props.selected_player_index ?? -1);
+          return (
+            <Text
+              key={`player-state-${row.key}`}
+              bold={selected}
+              italic={row.italic}
+              strikethrough={row.strikethrough}
+              wrap="truncate-end"
+            >
+              <Text>{selected ? '>  ' : '   '}</Text>
+              <Text>{`${row.seat}   `}</Text>
+              <Text color={row.identity_color}>{`${row.identity} `}</Text>
+              <Text>{`${row.vote} `}</Text>
+              <Text>{`${row.markers.padEnd(7, ' ')} `}</Text>
+              <Text color={row.type_color}>{row.type}</Text>
+              <Text> </Text>
+              <Text color={row.role_color}>{row.role}</Text>
+              <Text>{row.suffix}</Text>
+            </Text>
+          );
+        })
+      ) : (
+        <Text>(no players)</Text>
+      )}
+      <Text wrap="truncate-end">
+        <Text color="gray">{props.selected_player_status_prefix}</Text>
+        {props.selected_player_marker_lines.length > 0 ? (
+          props.selected_player_marker_lines.map((marker, index) => (
+            <Text key={`selected-player-marker-${index}`}>
+              <Text color={marker.color}>{marker.text}</Text>
+              <Text>{index < props.selected_player_marker_lines.length - 1 ? ', ' : ''}</Text>
+            </Text>
+          ))
+        ) : (
+          <Text color="gray">(none)</Text>
+        )}
+      </Text>
+    </>
+  );
+}
+
+function TextStateWidget(props: { lines: string[] }): React.ReactElement {
+  return <>{props.lines.map((line, index) => <Text key={`state-line-${index}`}>{line}</Text>)}</>;
+}
+
+function JsonStateWidget(props: {
+  lines: string[];
+  offset: number;
+  selected_index: number | null;
+  matched_indices: Set<number>;
+}): React.ReactElement {
+  return (
+    <>
+      {props.lines.map((line, index) => {
+        const absolute = props.offset + index;
+        const selected = props.selected_index === absolute;
+        const matched = props.matched_indices.has(absolute);
+        const color = selected ? 'black' : matched ? 'yellow' : 'white';
+        const content = `${selected ? '> ' : '  '}${line}`;
+        if (selected) {
+          return (
+            <Text
+              key={`state-json-${absolute}`}
+              color={color}
+              backgroundColor="white"
+              bold
+              wrap="truncate-end"
+            >
+              {content}
+            </Text>
+          );
+        }
+        return (
+          <Text
+            key={`state-json-${absolute}`}
+            color={color}
+            bold={matched}
+            wrap="truncate-end"
+          >
+            {content}
+          </Text>
+        );
+      })}
+    </>
+  );
+}
+
 export function StatePane(props: {
   pane_focus: 'events' | 'state';
   state_height: number;
@@ -38,6 +142,9 @@ export function StatePane(props: {
   state_mode: 'brief' | 'players' | 'json';
   title: string;
   panel_lines: string[];
+  json_offset: number;
+  json_selected_index: number | null;
+  json_matched_indices: Set<number>;
   player_state_header: string;
   player_state_separator: string;
   visible_player_rows: PlayerStateRow[];
@@ -66,52 +173,25 @@ export function StatePane(props: {
     <Box borderStyle="single" borderColor={pane_focus === 'state' ? 'green' : 'white'} flexDirection="column" height={state_height} paddingX={1}>
       <Text color="cyan">{title}</Text>
       {state_mode === 'players' ? (
-        <>
-          <Text>{fit_line(player_state_header, right_pane_width)}</Text>
-          <Text color="gray">{fit_line(player_state_separator, right_pane_width)}</Text>
-          {visible_player_rows.length > 0 ? (
-            visible_player_rows.map((row, index) => {
-              const absolute_index = effective_player_offset + index;
-              const selected = absolute_index === (selected_player_index ?? -1);
-              return (
-                <Text
-                  key={`player-state-${row.key}`}
-                  bold={selected}
-                  italic={row.italic}
-                  strikethrough={row.strikethrough}
-                  wrap="truncate-end"
-                >
-                  <Text>{selected ? '>  ' : '   '}</Text>
-                  <Text>{`${row.seat}   `}</Text>
-                  <Text color={row.identity_color}>{`${row.identity} `}</Text>
-                  <Text>{`${row.vote} `}</Text>
-                  <Text>{`${row.markers.padEnd(7, ' ')} `}</Text>
-                  <Text color={row.type_color}>{row.type}</Text>
-                  <Text> </Text>
-                  <Text color={row.role_color}>{row.role}</Text>
-                  <Text>{row.suffix}</Text>
-                </Text>
-              );
-            })
-          ) : (
-            <Text>(no players)</Text>
-          )}
-          <Text wrap="truncate-end">
-            <Text color="gray">{selected_player_status_prefix}</Text>
-            {selected_player_marker_lines.length > 0 ? (
-              selected_player_marker_lines.map((marker, index) => (
-                <Text key={`selected-player-marker-${index}`}>
-                  <Text color={marker.color}>{marker.text}</Text>
-                  <Text>{index < selected_player_marker_lines.length - 1 ? ', ' : ''}</Text>
-                </Text>
-              ))
-            ) : (
-              <Text color="gray">(none)</Text>
-            )}
-          </Text>
-        </>
+        <PlayersStateWidget
+          right_pane_width={right_pane_width}
+          player_state_header={player_state_header}
+          player_state_separator={player_state_separator}
+          visible_player_rows={visible_player_rows}
+          effective_player_offset={effective_player_offset}
+          selected_player_index={selected_player_index}
+          selected_player_status_prefix={selected_player_status_prefix}
+          selected_player_marker_lines={selected_player_marker_lines}
+        />
+      ) : state_mode === 'json' ? (
+        <JsonStateWidget
+          lines={panel_lines}
+          offset={props.json_offset}
+          selected_index={props.json_selected_index}
+          matched_indices={props.json_matched_indices}
+        />
       ) : (
-        panel_lines.map((line, index) => <Text key={`state-line-${index}`}>{line}</Text>)
+        <TextStateWidget lines={panel_lines} />
       )}
     </Box>
   );

@@ -18,6 +18,7 @@ type StateMode = 'brief' | 'players' | 'json';
 type InspectorMode = 'overview' | 'prompts' | 'players' | 'markers' | 'output';
 type PaneFocus = 'events' | 'state';
 type StatusKind = 'status' | 'error';
+type SearchTarget = 'events' | 'state_json';
 
 interface MarkerSeatToken {
   seat: string;
@@ -445,7 +446,12 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [active_search_query, set_active_search_query] = useState('');
   const [last_search_query, set_last_search_query] = useState('');
   const [last_search_direction, set_last_search_direction] = useState<1 | -1>(-1);
+  const [last_search_target, set_last_search_target] = useState<SearchTarget>('events');
+  const [search_entry_direction, set_search_entry_direction] = useState<1 | -1>(-1);
   const [filter_query, set_filter_query] = useState('');
+  const [state_json_cursor, set_state_json_cursor] = useState(0);
+  const [state_json_offset, set_state_json_offset] = useState(0);
+  const [state_json_search_query, set_state_json_search_query] = useState('');
   const [event_entries, set_event_entries] = useState<EventEntry[]>([]);
   const [selected_event_index, set_selected_event_index] = useState<number | null>(null);
   const [event_list_offset, set_event_list_offset] = useState(0);
@@ -472,6 +478,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [resolver_multi_column_index, set_resolver_multi_column_index] = useState(0);
   const [pane_focus, set_pane_focus] = useState<PaneFocus>('events');
   const [mode_return_focus, set_mode_return_focus] = useState<PaneFocus>('events');
+  const [mode_return_state_mode, set_mode_return_state_mode] = useState<StateMode>('players');
   const [status_errors_only, set_status_errors_only] = useState(false);
   const [mouse_scroll_enabled, set_mouse_scroll_enabled] = useState(true);
   const [, set_tick] = useState(0);
@@ -480,6 +487,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const event_list_content_rows_ref = useRef(event_list_content_rows);
   const event_view_indices_ref = useRef<number[]>([]);
   const filter_query_ref = useRef(filter_query);
+  const state_json_lines = useMemo(() => format_state_json(context.state).split('\n'), [context.state]);
 
   useEffect(() => {
     event_autoscroll_ref.current = event_autoscroll;
@@ -623,6 +631,99 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     }
   }
 
+  function move_state_json_cursor(delta: number): void {
+    if (state_json_lines.length === 0 || delta === 0) {
+      return;
+    }
+    set_state_json_cursor((previous) => {
+      const next = clamp(previous + delta, 0, state_json_lines.length - 1);
+      set_state_json_offset((offset) => ensure_visible_offset(next, offset, state_content_rows, state_json_lines.length));
+      return next;
+    });
+  }
+
+  function jump_state_json_top(count: number | null): void {
+    if (state_json_lines.length === 0) {
+      return;
+    }
+    const target = count === null ? 0 : clamp(count - 1, 0, state_json_lines.length - 1);
+    set_state_json_cursor(target);
+    set_state_json_offset((offset) => ensure_visible_offset(target, offset, state_content_rows, state_json_lines.length));
+  }
+
+  function jump_state_json_bottom(): void {
+    if (state_json_lines.length === 0) {
+      return;
+    }
+    const target = state_json_lines.length - 1;
+    set_state_json_cursor(target);
+    set_state_json_offset((offset) => ensure_visible_offset(target, offset, state_content_rows, state_json_lines.length));
+  }
+
+  function find_state_json_match_index(query: string, direction: 1 | -1): number | null {
+    const needle = query.trim().toLowerCase();
+    if (needle.length === 0 || state_json_lines.length === 0) {
+      return null;
+    }
+    const current = clamp(state_json_cursor, 0, Math.max(0, state_json_lines.length - 1));
+    for (let step = 1; step <= state_json_lines.length; step += 1) {
+      const candidate = (current + direction * step + state_json_lines.length * 2) % state_json_lines.length;
+      const line = state_json_lines[candidate] ?? '';
+      if (line.toLowerCase().includes(needle)) {
+        return candidate;
+      }
+    }
+    return null;
+  }
+
+  function run_state_json_search(query: string, direction: 1 | -1, emit_not_found = true): boolean {
+    const needle = query.trim();
+    if (needle.length === 0) {
+      return false;
+    }
+    const matched = find_state_json_match_index(needle, direction);
+    if (matched === null) {
+      if (emit_not_found) {
+        append_status_lines([`(no match for /${needle} in state json)`]);
+      }
+      return false;
+    }
+    set_state_json_cursor(matched);
+    set_state_json_offset((offset) => ensure_visible_offset(matched, offset, state_content_rows, state_json_lines.length));
+    return true;
+  }
+
+  function repeat_last_search(kind: 'same' | 'opposite', count: number): void {
+    const needle = last_search_query.trim();
+    if (needle.length === 0) {
+      append_status_lines(['(no previous search query)']);
+      return;
+    }
+    const direction = kind === 'same'
+      ? last_search_direction
+      : (last_search_direction === 1 ? -1 : 1);
+    const attempts = Math.max(1, count);
+    for (let i = 0; i < attempts; i += 1) {
+      if (last_search_target === 'state_json') {
+        const matched = find_state_json_match_index(needle, direction);
+        if (matched === null) {
+          append_status_lines([`(no match for /${needle} in state json)`]);
+          return;
+        }
+        set_state_json_cursor(matched);
+        set_state_json_offset((offset) => ensure_visible_offset(matched, offset, state_content_rows, state_json_lines.length));
+        continue;
+      }
+
+      const matched = find_event_match_index(needle, direction);
+      if (matched === null) {
+        append_status_lines([`(no match for /${needle})`]);
+        return;
+      }
+      select_event_at(matched);
+    }
+  }
+
   function submit_mode_input(): void {
     if (vim_mode === 'command') {
       const command = input.trim();
@@ -645,18 +746,31 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     }
     if (vim_mode === 'search') {
       const needle = input.trim();
+      const target: SearchTarget = mode_return_focus === 'state' && mode_return_state_mode === 'json'
+        ? 'state_json'
+        : 'events';
       if (needle.length === 0) {
-        set_active_search_query('');
+        if (target === 'state_json') {
+          set_state_json_search_query('');
+        } else {
+          set_active_search_query('');
+        }
         set_last_search_query('');
         set_vim_mode('normal');
         set_input('');
         set_pane_focus(mode_return_focus);
         return;
       }
-      set_active_search_query(needle);
+      if (target === 'state_json') {
+        set_state_json_search_query(needle);
+        run_state_json_search(needle, search_entry_direction, false);
+      } else {
+        set_active_search_query(needle);
+        run_event_search(needle, search_entry_direction, false);
+      }
       set_last_search_query(needle);
-      set_last_search_direction(-1);
-      run_event_search(needle, -1, false);
+      set_last_search_direction(search_entry_direction);
+      set_last_search_target(target);
       set_input('');
       set_vim_mode('normal');
       set_pane_focus(mode_return_focus);
@@ -688,9 +802,19 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       const next = previous.slice(0, -1);
       if (vim_mode === 'search') {
         const needle = next.trim();
-        set_active_search_query(needle);
-        if (needle.length > 0) {
-          run_event_search(needle, -1, false);
+        const target: SearchTarget = mode_return_focus === 'state' && mode_return_state_mode === 'json'
+          ? 'state_json'
+          : 'events';
+        if (target === 'state_json') {
+          set_state_json_search_query(needle);
+          if (needle.length > 0) {
+            run_state_json_search(needle, search_entry_direction, false);
+          }
+        } else {
+          set_active_search_query(needle);
+          if (needle.length > 0) {
+            run_event_search(needle, search_entry_direction, false);
+          }
         }
       }
       if (vim_mode === 'filter') {
@@ -751,8 +875,12 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       const wrapped_target = ((raw_target % total_count) + total_count) % total_count;
       set_selected_player_index(wrapped_target);
       set_player_list_offset((offset) => ensure_visible_offset(wrapped_target, offset, Math.max(1, state_content_rows - 4), total_count));
+      return;
     }
-  }, [pane_focus, state_mode, context.state, state_content_rows]);
+    if (pane_focus === 'state' && state_mode === 'json') {
+      jump_state_json_top(count);
+    }
+  }, [pane_focus, state_mode, context.state, state_content_rows, jump_state_json_top]);
 
   const jump_bottom_selection = useCallback((): void => {
     if (pane_focus === 'events') {
@@ -770,8 +898,12 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       }
       set_selected_player_index(total_count - 1);
       set_player_list_offset((offset) => ensure_visible_offset(total_count - 1, offset, Math.max(1, state_content_rows - 4), total_count));
+      return;
     }
-  }, [pane_focus, state_mode, context.state, state_content_rows]);
+    if (pane_focus === 'state' && state_mode === 'json') {
+      jump_state_json_bottom();
+    }
+  }, [pane_focus, state_mode, context.state, state_content_rows, jump_state_json_bottom]);
 
   useEffect(() => {
     const unsubscribe = channel_bus.subscribe('*', (message) => {
@@ -1165,22 +1297,17 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
         },
         page_events_by: (delta_pages) => {
           const step = Math.max(1, event_list_content_rows - 1);
-          const delta = delta_pages * step;
-          set_event_autoscroll(false);
-          const max_offset = Math.max(0, event_view_indices_ref.current.length - event_list_content_rows);
-          set_event_list_offset((value) => clamp(value + delta, 0, max_offset));
+          step_event_selection(delta_pages * step);
         },
         half_page_events_by: (delta_half_pages) => {
           const step = Math.max(1, Math.floor(event_list_content_rows / 2));
-          const delta = delta_half_pages * step;
-          set_event_autoscroll(false);
-          const max_offset = Math.max(0, event_view_indices_ref.current.length - event_list_content_rows);
-          set_event_list_offset((value) => clamp(value + delta, 0, max_offset));
+          step_event_selection(delta_half_pages * step);
         },
         cycle_state_mode: () => set_state_mode((mode) => next_state_mode(mode)),
         cycle_inspector_mode: () => set_inspector_mode((mode) => next_inspector_mode(mode)),
         step_event_selection,
         step_player_selection,
+        step_state_json_selection: move_state_json_cursor,
         history_up: () => {
           if (history.length === 0) {
             return;
@@ -1210,7 +1337,23 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
         },
         mode_enter: (mode) => {
           set_mode_return_focus(pane_focus);
+          set_mode_return_state_mode(state_mode);
           set_vim_mode(mode);
+          set_input('');
+          set_history_cursor(null);
+        },
+        mode_enter_search: (direction) => {
+          set_mode_return_focus(pane_focus);
+          set_mode_return_state_mode(state_mode);
+          set_search_entry_direction(direction);
+          set_vim_mode('search');
+          set_input('');
+          set_history_cursor(null);
+        },
+        mode_enter_filter: () => {
+          set_mode_return_focus(pane_focus);
+          set_mode_return_state_mode(state_mode);
+          set_vim_mode('filter');
           set_input('');
           set_history_cursor(null);
         },
@@ -1221,9 +1364,19 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
             const next = `${current}${value}`;
             if (vim_mode === 'search') {
               const needle = next.trim();
-              set_active_search_query(needle);
-              if (needle.length > 0) {
-                run_event_search(needle, -1, false);
+              const target: SearchTarget = mode_return_focus === 'state' && mode_return_state_mode === 'json'
+                ? 'state_json'
+                : 'events';
+              if (target === 'state_json') {
+                set_state_json_search_query(needle);
+                if (needle.length > 0) {
+                  run_state_json_search(needle, search_entry_direction, false);
+                }
+              } else {
+                set_active_search_query(needle);
+                if (needle.length > 0) {
+                  run_event_search(needle, search_entry_direction, false);
+                }
               }
             }
             if (vim_mode === 'filter') {
@@ -1238,15 +1391,58 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
         set_pending_g,
         jump_top: jump_top_selection,
         jump_bottom: jump_bottom_selection,
-        search_repeat: repeat_event_search
+        search_repeat: repeat_last_search
       }
     );
   });
 
   const effective_state = context.state;
-  const state_text = state_mode === 'json' ? format_state_json(effective_state) : format_state_brief(effective_state);
+  const state_brief_lines = format_state_brief(effective_state).split('\n').slice(0, state_content_rows);
+  const state_json_matched_indices = useMemo(() => {
+    const matches = new Set<number>();
+    const needle = state_json_search_query.trim().toLowerCase();
+    if (needle.length === 0) {
+      return matches;
+    }
+    for (let index = 0; index < state_json_lines.length; index += 1) {
+      const line = state_json_lines[index] ?? '';
+      if (line.toLowerCase().includes(needle)) {
+        matches.add(index);
+      }
+    }
+    return matches;
+  }, [state_json_lines, state_json_search_query]);
 
-  const state_lines = state_text.split('\n').slice(0, state_content_rows);
+  const clamped_state_json_cursor = state_json_lines.length === 0
+    ? null
+    : clamp(state_json_cursor, 0, state_json_lines.length - 1);
+  const max_state_json_offset = Math.max(0, state_json_lines.length - state_content_rows);
+  const effective_state_json_offset = clamp(state_json_offset, 0, max_state_json_offset);
+  const visible_state_json_lines = state_json_lines.slice(
+    effective_state_json_offset,
+    effective_state_json_offset + state_content_rows
+  );
+
+  useEffect(() => {
+    if (state_json_lines.length === 0) {
+      if (state_json_cursor !== 0) {
+        set_state_json_cursor(0);
+      }
+      if (state_json_offset !== 0) {
+        set_state_json_offset(0);
+      }
+      return;
+    }
+    const clamped = clamp(state_json_cursor, 0, state_json_lines.length - 1);
+    if (clamped !== state_json_cursor) {
+      set_state_json_cursor(clamped);
+    }
+    const next_offset = ensure_visible_offset(clamped, state_json_offset, state_content_rows, state_json_lines.length);
+    if (next_offset !== state_json_offset) {
+      set_state_json_offset(next_offset);
+    }
+  }, [state_json_cursor, state_json_offset, state_json_lines, state_content_rows]);
+
   const player_state_header = 'sel seat id   name         vote markers type       role                flags';
   const player_state_separator = '--- ---- ---- ------------ ---- ------- ---------- ------------------- -----';
   const player_ids = ordered_player_ids(effective_state);
@@ -1559,7 +1755,10 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
             title={state_mode === 'players'
               ? `State (${state_mode}) ${timing_label} sub=${effective_state.subphase} alive=${alive_count}/${players_total}`
               : `State (${state_mode})`}
-            panel_lines={state_lines}
+            panel_lines={state_mode === 'json' ? visible_state_json_lines : state_brief_lines}
+            json_offset={effective_state_json_offset}
+            json_selected_index={clamped_state_json_cursor}
+            json_matched_indices={state_json_matched_indices}
             player_state_header={player_state_header}
             player_state_separator={player_state_separator}
             visible_player_rows={visible_player_rows}

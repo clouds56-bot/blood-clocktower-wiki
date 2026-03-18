@@ -15,6 +15,7 @@ export interface InputKey {
 type PaneFocus = 'events' | 'state';
 type StateMode = 'brief' | 'players' | 'json';
 type VimMode = 'normal' | 'command' | 'search' | 'filter';
+type SearchDirection = 1 | -1;
 
 export interface ShortcutContext {
   suppress_input: boolean;
@@ -46,9 +47,12 @@ export interface ShortcutHandlers {
   cycle_inspector_mode: () => void;
   step_event_selection: (delta: number) => void;
   step_player_selection: (delta: number, total_count: number, visible_count: number) => void;
+  step_state_json_selection: (delta: number) => void;
   history_up: () => void;
   history_down: () => void;
   mode_enter: (mode: VimMode) => void;
+  mode_enter_search: (direction: SearchDirection) => void;
+  mode_enter_filter: () => void;
   mode_cancel: () => void;
   mode_submit: () => void;
   mode_append: (value: string) => void;
@@ -214,12 +218,20 @@ export function handle_tui_shortcut(
   }
   if (input_key === '/') {
     reset_motion_state(handlers);
-    handlers.mode_enter('search');
+    if (context.pane_focus === 'state' && context.state_mode === 'json') {
+      handlers.mode_enter_search(1);
+    } else {
+      handlers.mode_enter_search(-1);
+    }
     return true;
   }
   if (input_key === '?') {
     reset_motion_state(handlers);
-    handlers.mode_enter('filter');
+    if (context.pane_focus === 'state' && context.state_mode === 'json') {
+      handlers.mode_enter_search(-1);
+    } else {
+      handlers.mode_enter_filter();
+    }
     return true;
   }
 
@@ -249,6 +261,8 @@ export function handle_tui_shortcut(
       handlers.step_event_selection(count);
     } else if (context.pane_focus === 'state' && context.state_mode === 'players') {
       handlers.step_player_selection(count, context.player_count, context.player_visible_count);
+    } else if (context.pane_focus === 'state' && context.state_mode === 'json') {
+      handlers.step_state_json_selection(count);
     }
     reset_motion_state(handlers);
     return true;
@@ -258,6 +272,8 @@ export function handle_tui_shortcut(
       handlers.step_event_selection(-count);
     } else if (context.pane_focus === 'state' && context.state_mode === 'players') {
       handlers.step_player_selection(-count, context.player_count, context.player_visible_count);
+    } else if (context.pane_focus === 'state' && context.state_mode === 'json') {
+      handlers.step_state_json_selection(-count);
     }
     reset_motion_state(handlers);
     return true;
