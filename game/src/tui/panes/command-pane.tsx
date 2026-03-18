@@ -91,10 +91,6 @@ export function handle_command_mode_command(
     return true;
   }
 
-  if (command.id === 'search:preview') {
-    return true;
-  }
-
   if (command.id === 'search:cancel') {
     if (context.mode === 'search') {
       const target = resolve_search_target(context.mode_return_focus, context.mode_return_state_mode);
@@ -112,10 +108,6 @@ export function handle_command_mode_command(
     handlers.set_mode('filter');
     handlers.set_input('');
     handlers.set_history_cursor(null);
-    return true;
-  }
-
-  if (command.id === 'filter:preview') {
     return true;
   }
 
@@ -191,17 +183,21 @@ export function handle_command_mode_command(
   if (command.id === 'mode:backspace') {
     handlers.set_input((previous) => {
       if (previous.length === 0) {
-        handlers.set_mode('normal');
-        handlers.set_pane_focus(context.mode_return_focus);
         return '';
       }
       const next = previous.slice(0, -1);
       if (context.mode === 'search') {
         const target = resolve_search_target(context.mode_return_focus, context.mode_return_state_mode);
-        handlers.apply_search_preview(target, next.trim(), context.search_entry_direction);
+        const pattern = next.trim();
+        if (pattern.length > 0) {
+          handlers.apply_search_preview(target, pattern, context.search_entry_direction);
+        }
       }
       if (context.mode === 'filter') {
-        handlers.apply_filter_preview(next.trim());
+        const pattern = next.trim();
+        if (pattern.length > 0) {
+          handlers.apply_filter_preview(pattern);
+        }
       }
       return next;
     });
@@ -214,10 +210,16 @@ export function handle_command_mode_command(
       const next = `${current}${value}`;
       if (context.mode === 'search') {
         const target = resolve_search_target(context.mode_return_focus, context.mode_return_state_mode);
-        handlers.apply_search_preview(target, next.trim(), context.search_entry_direction);
+        const pattern = next.trim();
+        if (pattern.length > 0) {
+          handlers.apply_search_preview(target, pattern, context.search_entry_direction);
+        }
       }
       if (context.mode === 'filter') {
-        handlers.apply_filter_preview(next.trim());
+        const pattern = next.trim();
+        if (pattern.length > 0) {
+          handlers.apply_filter_preview(pattern);
+        }
       }
       return next;
     });

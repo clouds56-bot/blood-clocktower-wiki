@@ -336,10 +336,6 @@ export function handle_state_pane_command(
       handlers.start_search(command.direction ?? 1);
       return true;
     }
-    if (command.id === 'search:preview') {
-      handlers.start_search(command.direction ?? 1);
-      return true;
-    }
     if (command.id === 'search:end') {
       handlers.end_search();
       return true;

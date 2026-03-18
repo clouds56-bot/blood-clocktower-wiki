@@ -80,8 +80,14 @@ export function resolve_tui_command(
 
   if (context.mode === 'command' || context.mode === 'search' || context.mode === 'filter') {
     if (context.mode === 'search') {
-      if (key.escape || key.backspace || key.delete) {
+      if (key.escape) {
         return result(true, { id: 'search:cancel' }, next_count, next_pending_g);
+      }
+      if (key.backspace || key.delete) {
+        if (context.mode_input.length === 0) {
+          return result(true, { id: 'search:cancel' }, next_count, next_pending_g);
+        }
+        return result(true, { id: 'mode:backspace' }, next_count, next_pending_g);
       }
       if (key.return) {
         const pattern = context.mode_input.trim();
@@ -91,19 +97,20 @@ export function resolve_tui_command(
         return result(true, { id: 'search:start', direction: context.search_entry_direction, pattern }, next_count, next_pending_g);
       }
       if (!key.ctrl && !key.meta && !key.tab && input_key.length > 0) {
-        return result(
-          true,
-          { id: 'search:preview', direction: context.search_entry_direction, pattern: `${context.mode_input}${input_key}` },
-          next_count,
-          next_pending_g
-        );
+        return result(true, { id: 'mode:append_input', text: input_key }, next_count, next_pending_g);
       }
       return result(true, null, next_count, next_pending_g);
     }
 
     if (context.mode === 'filter') {
-      if (key.escape || key.backspace || key.delete) {
+      if (key.escape) {
         return result(true, { id: 'filter:cancel' }, next_count, next_pending_g);
+      }
+      if (key.backspace || key.delete) {
+        if (context.mode_input.length === 0) {
+          return result(true, { id: 'filter:cancel' }, next_count, next_pending_g);
+        }
+        return result(true, { id: 'mode:backspace' }, next_count, next_pending_g);
       }
       if (key.return) {
         const pattern = context.mode_input.trim();
@@ -113,12 +120,7 @@ export function resolve_tui_command(
         return result(true, { id: 'filter:start', pattern }, next_count, next_pending_g);
       }
       if (!key.ctrl && !key.meta && !key.tab && input_key.length > 0) {
-        return result(
-          true,
-          { id: 'filter:preview', pattern: `${context.mode_input}${input_key}` },
-          next_count,
-          next_pending_g
-        );
+        return result(true, { id: 'mode:append_input', text: input_key }, next_count, next_pending_g);
       }
       return result(true, null, next_count, next_pending_g);
     }

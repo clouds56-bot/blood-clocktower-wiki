@@ -302,10 +302,6 @@ export function handle_events_pane_command(
     handlers.start_search(command.direction ?? -1);
     return true;
   }
-  if (command.id === 'search:preview') {
-    handlers.start_search(command.direction ?? -1);
-    return true;
-  }
   if (command.id === 'search:end') {
     handlers.end_search();
     return true;
@@ -323,10 +319,6 @@ export function handle_events_pane_command(
     return true;
   }
   if (command.id === 'filter:start') {
-    handlers.start_filter();
-    return true;
-  }
-  if (command.id === 'filter:preview') {
     handlers.start_filter();
     return true;
   }
