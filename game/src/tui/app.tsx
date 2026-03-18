@@ -1052,6 +1052,104 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     }
 
     const command: TuiCommand = binding.command;
+
+    if (
+      vim_mode !== 'normal'
+      && (command.id.startsWith('mode:') || command.id.startsWith('search:') || command.id.startsWith('filter:'))
+    ) {
+      const prior_phase = search_phase;
+      const handled = handle_command_mode_command(
+        command,
+        {
+          mode: vim_mode,
+          input,
+          history,
+          history_cursor,
+          pane_focus,
+          state_mode,
+          mode_return_focus,
+          mode_return_state_mode,
+          search_entry_direction
+        },
+        {
+          set_mode: set_vim_mode,
+          set_input,
+          set_history,
+          set_history_cursor,
+          set_mode_return_context: (focus, mode) => {
+            set_mode_return_focus(focus);
+            set_mode_return_state_mode(mode);
+          },
+          set_search_entry_direction,
+          set_pane_focus,
+          start_search_session,
+          cancel_search: cancel_search_session,
+          apply_search_preview: (target, query, direction) => {
+            if (target === 'state_json') {
+              set_state_json_search_query(query);
+              if (query.length > 0) {
+                const base = search_anchor_state_json_cursor ?? state_json_cursor;
+                run_state_json_search(query, direction, false, base, true);
+              }
+            } else {
+              set_event_search_query(query);
+              if (query.length > 0) {
+                const base = search_anchor_event_index ?? selected_event_index;
+                run_event_search(query, direction, false, base, true);
+              }
+            }
+            set_search_phase('preview');
+          },
+          apply_search_commit: (target, query, direction) => {
+            if (target === 'state_json') {
+              set_state_json_search_query(query);
+              const base = search_anchor_state_json_cursor ?? state_json_cursor;
+              const matched = run_state_json_search(query, direction, false, base, true);
+              if (matched) {
+                set_last_state_json_search_query(query);
+                set_last_state_json_search_direction(direction);
+                set_search_phase('started');
+              }
+            } else {
+              set_event_search_query(query);
+              const base = search_anchor_event_index ?? selected_event_index;
+              const matched = run_event_search(query, direction, false, base, true);
+              if (matched) {
+                set_last_event_search_query(query);
+                set_last_event_search_direction(direction);
+                set_search_phase('started');
+              }
+            }
+          },
+          clear_search: (target) => {
+            if (target === 'state_json') {
+              set_state_json_search_query('');
+              set_last_state_json_search_query('');
+            } else {
+              set_event_search_query('');
+              set_last_event_search_query('');
+            }
+          },
+          apply_filter_preview: (query) => {
+            set_filter_query(query);
+            set_search_phase('preview');
+          },
+          apply_filter_commit: (query) => {
+            set_filter_query(query);
+            set_search_phase('started');
+          },
+          run_command,
+          exit
+        }
+      );
+      if (handled) {
+        if (command.id === 'search:end' && prior_phase === 'started') {
+          close_search_session();
+        }
+        return;
+      }
+    }
+
     const target = route_tui_command(command, { pane_focus, state_mode });
     const should_try_pane = !command.id.startsWith('mode:')
       && (
@@ -1211,7 +1309,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       set_inspector_mode((mode) => next_inspector_mode(mode));
       return;
     }
-    if (command.id.startsWith('mode:') || command.id.startsWith('search:') || command.id.startsWith('filter:')) {
+    if (vim_mode === 'normal' && (command.id.startsWith('mode:') || command.id.startsWith('search:') || command.id.startsWith('filter:'))) {
       const prior_phase = search_phase;
       const handled = handle_command_mode_command(
         command,
