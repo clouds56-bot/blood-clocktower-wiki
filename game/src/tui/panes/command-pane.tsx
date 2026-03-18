@@ -31,6 +31,8 @@ export function handle_command_mode_command(
     set_mode_return_context: (pane_focus: PaneFocus, state_mode: StateMode) => void;
     set_search_entry_direction: (direction: 1 | -1) => void;
     set_pane_focus: (focus: PaneFocus) => void;
+    start_search_session: (target: SearchTarget) => void;
+    cancel_search: (target: SearchTarget) => void;
     apply_search_preview: (target: SearchTarget, query: string, direction: 1 | -1) => void;
     apply_search_commit: (target: SearchTarget, query: string, direction: 1 | -1) => void;
     clear_search: (target: SearchTarget) => void;
@@ -79,7 +81,9 @@ export function handle_command_mode_command(
   }
 
   if (command.id === 'mode:enter_search' || command.id === 'search:start') {
+    const target = resolve_search_target(context.pane_focus, context.state_mode);
     handlers.set_mode_return_context(context.pane_focus, context.state_mode);
+    handlers.start_search_session(target);
     handlers.set_search_entry_direction(command.direction ?? -1);
     handlers.set_mode('search');
     handlers.set_input('');
@@ -96,6 +100,10 @@ export function handle_command_mode_command(
   }
 
   if (command.id === 'mode:cancel' || command.id === 'search:end' || command.id === 'filter:end') {
+    if (context.mode === 'search' || command.id === 'search:end') {
+      const target = resolve_search_target(context.mode_return_focus, context.mode_return_state_mode);
+      handlers.cancel_search(target);
+    }
     handlers.set_input('');
     handlers.set_history_cursor(null);
     handlers.set_mode('normal');
@@ -128,6 +136,7 @@ export function handle_command_mode_command(
       const query = context.input.trim();
       const target = resolve_search_target(context.mode_return_focus, context.mode_return_state_mode);
       if (query.length === 0) {
+        handlers.cancel_search(target);
         handlers.clear_search(target);
       } else {
         handlers.apply_search_commit(target, query, context.search_entry_direction);

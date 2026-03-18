@@ -11,6 +11,7 @@ import { CommandPane, handle_command_mode_command, type VimMode } from './panes/
 import {
   EventsPane,
   derive_event_view_model,
+  event_matches_query,
   find_event_match_index,
   handle_events_pane_command
 } from './panes/events-pane.js';
@@ -309,6 +310,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [pane_focus, set_pane_focus] = useState<PaneFocus>('events');
   const [mode_return_focus, set_mode_return_focus] = useState<PaneFocus>('events');
   const [mode_return_state_mode, set_mode_return_state_mode] = useState<StateMode>('players');
+  const [search_start_event_index, set_search_start_event_index] = useState<number | null>(null);
+  const [search_start_state_json_cursor, set_search_start_state_json_cursor] = useState<number | null>(null);
   const [status_errors_only, set_status_errors_only] = useState(false);
   const [mouse_scroll_enabled, set_mouse_scroll_enabled] = useState(true);
   const [, set_tick] = useState(0);
@@ -396,6 +399,13 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     if (needle.length === 0) {
       return false;
     }
+    const current = selected_event_index;
+    if (current !== null) {
+      const current_entry = event_entries[current];
+      if (current_entry && event_matches_query(current_entry, needle)) {
+        return true;
+      }
+    }
     const matched = find_event_match_index({
       query: needle,
       direction,
@@ -446,6 +456,11 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     const needle = query.trim();
     if (needle.length === 0) {
       return false;
+    }
+    const current = clamp(state_json_cursor, 0, Math.max(0, state_json_lines.length - 1));
+    const current_line = state_json_lines[current] ?? '';
+    if (current_line.toLowerCase().includes(needle.toLowerCase())) {
+      return true;
     }
     const matched = find_state_json_match_index({
       query: needle,
@@ -514,6 +529,30 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       set_state_json_cursor(matched);
       set_state_json_offset((offset) => ensure_visible_offset(matched, offset, state_content_rows, state_json_lines.length));
     }
+  }
+
+  function start_search_session(target: 'events' | 'state_json'): void {
+    if (target === 'state_json') {
+      set_search_start_state_json_cursor(state_json_cursor);
+      return;
+    }
+    set_search_start_event_index(selected_event_index);
+  }
+
+  function cancel_search_session(target: 'events' | 'state_json'): void {
+    if (target === 'state_json') {
+      if (search_start_state_json_cursor !== null) {
+        const restored = clamp(search_start_state_json_cursor, 0, Math.max(0, state_json_lines.length - 1));
+        set_state_json_cursor(restored);
+        set_state_json_offset((offset) => ensure_visible_offset(restored, offset, state_content_rows, state_json_lines.length));
+      }
+      set_search_start_state_json_cursor(null);
+      return;
+    }
+    if (search_start_event_index !== null) {
+      select_event_at(search_start_event_index);
+    }
+    set_search_start_event_index(null);
   }
 
   const step_player_selection = useCallback((delta: number, total_count: number, visible_count: number): void => {
@@ -1140,6 +1179,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
           },
           set_search_entry_direction,
           set_pane_focus,
+          start_search_session,
+          cancel_search: cancel_search_session,
           apply_search_preview: (target, query, direction) => {
             if (target === 'state_json') {
               set_state_json_search_query(query);
