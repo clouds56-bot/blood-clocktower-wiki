@@ -11,7 +11,7 @@ function resolve_search_target(mode_return_focus: PaneFocus, mode_return_state_m
 }
 
 export function handle_command_mode_command(
-  command: { id: string; text?: string; direction?: 1 | -1 },
+  command: { id: string; text?: string; pattern?: string; direction?: 1 | -1 },
   context: {
     mode: VimMode;
     input: string;
@@ -80,7 +80,7 @@ export function handle_command_mode_command(
     return true;
   }
 
-  if (command.id === 'mode:enter_search' || command.id === 'search:start') {
+  if (command.id === 'mode:enter_search') {
     const target = resolve_search_target(context.pane_focus, context.state_mode);
     handlers.set_mode_return_context(context.pane_focus, context.state_mode);
     handlers.start_search_session(target);
@@ -103,7 +103,7 @@ export function handle_command_mode_command(
     return true;
   }
 
-  if (command.id === 'mode:enter_filter' || command.id === 'filter:start') {
+  if (command.id === 'mode:enter_filter') {
     handlers.set_mode_return_context(context.pane_focus, context.state_mode);
     handlers.set_mode('filter');
     handlers.set_input('');
@@ -118,6 +118,37 @@ export function handle_command_mode_command(
       handlers.set_mode('normal');
       handlers.set_pane_focus(context.mode_return_focus);
     }
+    return true;
+  }
+
+  
+  if (command.id === 'search:start') {
+    const query = command.text ?? command.pattern ?? context.input.trim();
+    const target = resolve_search_target(context.mode_return_focus, context.mode_return_state_mode);
+    if (query.length === 0) {
+      handlers.cancel_search(target);
+      handlers.clear_search(target);
+    } else {
+      handlers.apply_search_commit(target, query, context.search_entry_direction);
+    }
+    handlers.set_input('');
+    handlers.set_history_cursor(null);
+    handlers.set_mode('normal');
+    handlers.set_pane_focus(context.mode_return_focus);
+    return true;
+  }
+
+  if (command.id === 'filter:start') {
+    const query = command.text ?? command.pattern ?? context.input.trim();
+    if (query.length === 0) {
+      handlers.apply_filter_commit('');
+    } else {
+      handlers.apply_filter_commit(query);
+    }
+    handlers.set_input('');
+    handlers.set_history_cursor(null);
+    handlers.set_mode('normal');
+    handlers.set_pane_focus(context.mode_return_focus);
     return true;
   }
 
@@ -153,30 +184,6 @@ export function handle_command_mode_command(
       }
       return true;
     }
-
-    if (context.mode === 'search') {
-      const query = context.input.trim();
-      const target = resolve_search_target(context.mode_return_focus, context.mode_return_state_mode);
-      if (query.length === 0) {
-        handlers.cancel_search(target);
-        handlers.clear_search(target);
-      } else {
-        handlers.apply_search_commit(target, query, context.search_entry_direction);
-      }
-      handlers.set_input('');
-      handlers.set_mode('normal');
-      handlers.set_pane_focus(context.mode_return_focus);
-      return true;
-    }
-
-    if (context.mode === 'filter') {
-      handlers.apply_filter_commit(context.input.trim());
-      handlers.set_input('');
-      handlers.set_mode('normal');
-      handlers.set_pane_focus(context.mode_return_focus);
-      return true;
-    }
-
     return true;
   }
 

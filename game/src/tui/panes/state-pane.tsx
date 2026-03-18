@@ -294,8 +294,6 @@ export function handle_state_pane_command(
     move_json_cursor: (delta: number) => void;
     jump_top: (count: number | null) => void;
     jump_bottom: () => void;
-    start_search: (direction: 1 | -1) => void;
-    end_search: () => void;
     repeat_search: (kind: 'same' | 'opposite', count: number) => void;
     cycle_state_mode: () => void;
     cycle_inspector_mode: () => void;
@@ -332,18 +330,6 @@ export function handle_state_pane_command(
   }
 
   if (context.state_mode === 'json') {
-    if (command.id === 'search:start') {
-      handlers.start_search(command.direction ?? 1);
-      return true;
-    }
-    if (command.id === 'search:end') {
-      handlers.end_search();
-      return true;
-    }
-    if (command.id === 'search:cancel') {
-      handlers.end_search();
-      return true;
-    }
     if (command.id === 'search:forward_direction') {
       handlers.repeat_search('same', count);
       return true;

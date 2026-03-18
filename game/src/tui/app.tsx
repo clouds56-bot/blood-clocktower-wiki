@@ -1118,7 +1118,6 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
               if (matched) {
                 set_last_state_json_search_query(query);
                 set_last_state_json_search_direction(direction);
-                set_search_phase('started');
               }
             } else {
               set_event_search_query(query);
@@ -1127,9 +1126,9 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
               if (matched) {
                 set_last_event_search_query(query);
                 set_last_event_search_direction(direction);
-                set_search_phase('started');
               }
             }
+            set_search_phase('started');
           },
           clear_search: (target) => {
             if (target === 'state_json') {
@@ -1185,42 +1184,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
             move_cursor: step_event_selection,
             jump_top: jump_top_selection,
             jump_bottom: jump_bottom_selection,
-            start_search: (direction) => {
-              set_mode_return_focus(pane_focus);
-              set_mode_return_state_mode(state_mode);
-              set_search_entry_direction(direction);
-              set_vim_mode('search');
-              set_input('');
-              set_history_cursor(null);
-            },
-            end_search: () => {
-              const target_mode = mode_return_focus === 'state' && mode_return_state_mode === 'json'
-                ? 'state_json'
-                : 'events';
-              if (search_phase === 'preview') {
-                cancel_search_session(target_mode);
-              } else {
-                close_search_session();
-              }
-              set_input('');
-              set_history_cursor(null);
-              set_vim_mode('normal');
-              set_pane_focus(mode_return_focus);
-            },
             repeat_search: repeat_event_search,
-            start_filter: () => {
-              set_mode_return_focus(pane_focus);
-              set_mode_return_state_mode(state_mode);
-              set_vim_mode('filter');
-              set_input('');
-              set_history_cursor(null);
-            },
-            end_filter: () => {
-              set_input('');
-              set_history_cursor(null);
-              set_vim_mode('normal');
-              set_pane_focus(mode_return_focus);
-            }
           }
         );
         if (handled) {
@@ -1243,28 +1207,6 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
             move_json_cursor: move_state_json_cursor,
             jump_top: jump_top_selection,
             jump_bottom: jump_bottom_selection,
-            start_search: (direction) => {
-              set_mode_return_focus(pane_focus);
-              set_mode_return_state_mode(state_mode);
-              set_search_entry_direction(direction);
-              set_vim_mode('search');
-              set_input('');
-              set_history_cursor(null);
-            },
-            end_search: () => {
-              const target_mode = mode_return_focus === 'state' && mode_return_state_mode === 'json'
-                ? 'state_json'
-                : 'events';
-              if (search_phase === 'preview') {
-                cancel_search_session(target_mode);
-              } else {
-                close_search_session();
-              }
-              set_input('');
-              set_history_cursor(null);
-              set_vim_mode('normal');
-              set_pane_focus(mode_return_focus);
-            },
             repeat_search: repeat_state_json_search,
             cycle_state_mode: () => set_state_mode((mode) => next_state_mode(mode)),
             cycle_inspector_mode: () => set_inspector_mode((mode) => next_inspector_mode(mode))

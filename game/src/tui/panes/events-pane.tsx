@@ -274,11 +274,7 @@ export function handle_events_pane_command(
     move_cursor: (delta: number) => void;
     jump_top: (count: number | null) => void;
     jump_bottom: () => void;
-    start_search: (direction: 1 | -1) => void;
-    end_search: () => void;
     repeat_search: (kind: 'same' | 'opposite', count: number) => void;
-    start_filter: () => void;
-    end_filter: () => void;
   }
 ): boolean {
   const count = Math.max(1, command.count ?? 1);
@@ -298,36 +294,12 @@ export function handle_events_pane_command(
     handlers.jump_bottom();
     return true;
   }
-  if (command.id === 'search:start') {
-    handlers.start_search(command.direction ?? -1);
-    return true;
-  }
-  if (command.id === 'search:end') {
-    handlers.end_search();
-    return true;
-  }
-  if (command.id === 'search:cancel') {
-    handlers.end_search();
-    return true;
-  }
   if (command.id === 'search:forward_direction') {
     handlers.repeat_search('same', count);
     return true;
   }
   if (command.id === 'search:backward_direction') {
     handlers.repeat_search('opposite', count);
-    return true;
-  }
-  if (command.id === 'filter:start') {
-    handlers.start_filter();
-    return true;
-  }
-  if (command.id === 'filter:end') {
-    handlers.end_filter();
-    return true;
-  }
-  if (command.id === 'filter:cancel') {
-    handlers.end_filter();
     return true;
   }
   if (command.id === 'viewport:line_up') {
