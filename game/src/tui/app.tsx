@@ -745,20 +745,13 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
           continue;
         }
 
-        handle_events_pane_command(
+        dispatch_tui_command(
           {
             id: is_wheel_up ? 'cursor:line_up' : 'cursor:line_down',
             count: 1
           },
           {
-            page_size: Math.max(1, event_list_content_rows_ref.current - 1),
-            half_page_size: Math.max(1, Math.floor(event_list_content_rows_ref.current / 2))
-          },
-          {
-            move_cursor: step_event_selection,
-            jump_top: () => undefined,
-            jump_bottom: () => undefined,
-            repeat_search: () => undefined
+            pane_focus_override: 'events'
           }
         );
       }
@@ -798,6 +791,117 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     set_resolver_prompt_key(null);
     set_resolver_multi_values([]);
     set_resolver_multi_column_index(0);
+  }
+
+  function dispatch_tui_command(command: TuiCommand, options?: { pane_focus_override?: PaneFocus }): boolean {
+    const dispatch_focus = options?.pane_focus_override ?? pane_focus;
+    const player_count = ordered_player_ids(context.state).length;
+    const player_visible_count = Math.max(1, state_content_rows - 4);
+    const target = route_tui_command(command, { pane_focus: dispatch_focus, state_mode });
+    const should_try_pane = !command.id.startsWith('mode:')
+      && (
+        target === 'pane'
+        || command.id.startsWith('search:')
+        || command.id.startsWith('filter:')
+        || command.id.startsWith('state:')
+        || command.id.startsWith('inspector:')
+      );
+
+    if (should_try_pane) {
+      if (dispatch_focus === 'events') {
+        const handled = handle_events_pane_command(
+          command,
+          {
+            page_size: Math.max(1, event_list_content_rows - 1),
+            half_page_size: Math.max(1, Math.floor(event_list_content_rows / 2))
+          },
+          {
+            move_cursor: step_event_selection,
+            jump_top: jump_top_selection,
+            jump_bottom: jump_bottom_selection,
+            repeat_search: repeat_event_search,
+          }
+        );
+        if (handled) {
+          return true;
+        }
+      }
+
+      if (dispatch_focus === 'state') {
+        const handled = handle_state_pane_command(
+          command,
+          {
+            state_mode,
+            page_size: Math.max(1, state_content_rows - 1),
+            half_page_size: Math.max(1, Math.floor(state_content_rows / 2)),
+            player_count,
+            player_visible_count
+          },
+          {
+            move_player: step_player_selection,
+            move_json_cursor: move_state_json_cursor,
+            jump_top: jump_top_selection,
+            jump_bottom: jump_bottom_selection,
+            repeat_search: repeat_state_json_search,
+            cycle_state_mode: () => set_state_mode((mode) => next_state_mode(mode)),
+            cycle_inspector_mode: () => set_inspector_mode((mode) => next_inspector_mode(mode))
+          }
+        );
+        if (handled) {
+          return true;
+        }
+      }
+    }
+
+    if (command.id === 'app:exit') {
+      exit();
+      return true;
+    }
+    if (command.id === 'resolver:open') {
+      open_resolver();
+      return true;
+    }
+    if (command.id === 'pane:focus_next') {
+      set_pane_focus((focus) => next_focus(focus));
+      return true;
+    }
+    if (command.id === 'pane:focus_prev') {
+      set_pane_focus((focus) => prev_focus(focus));
+      return true;
+    }
+    if (command.id === 'events:toggle_autoscroll') {
+      set_event_autoscroll((value) => !value);
+      return true;
+    }
+    if (command.id === 'events:toggle_mouse_scroll') {
+      set_mouse_scroll_enabled((value) => !value);
+      return true;
+    }
+    if (command.id === 'events:toggle_key') {
+      set_show_event_key((value) => !value);
+      return true;
+    }
+    if (command.id === 'events:jump_latest') {
+      const view = event_view_indices_ref.current;
+      if (view.length > 0) {
+        select_event_by_view_position(view.length - 1);
+      }
+      return true;
+    }
+    if (command.id === 'status:toggle_errors_only') {
+      set_status_errors_only((value) => !value);
+      return true;
+    }
+    if (command.id === 'state:cycle_mode') {
+      set_state_mode((mode) => next_state_mode(mode));
+      return true;
+    }
+    if (command.id === 'inspector:cycle_mode') {
+      set_inspector_mode((mode) => next_inspector_mode(mode));
+      return true;
+    }
+
+    return false;
   }
 
   useInput((input_key, key) => {
@@ -1039,8 +1143,6 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       return;
     }
 
-    const player_count = ordered_player_ids(context.state).length;
-    const player_visible_count = Math.max(1, state_content_rows - 4);
     const binding = resolve_tui_command(input_key, key, {
       suppress_input,
       mode: vim_mode,
@@ -1188,106 +1290,8 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       }
     }
 
-    const target = route_tui_command(command, { pane_focus, state_mode });
-    const should_try_pane = !command.id.startsWith('mode:')
-      && (
-        target === 'pane'
-        || command.id.startsWith('search:')
-        || command.id.startsWith('filter:')
-        || command.id.startsWith('state:')
-        || command.id.startsWith('inspector:')
-      );
-    if (should_try_pane) {
-      if (pane_focus === 'events') {
-        const handled = handle_events_pane_command(
-          command,
-          {
-            page_size: Math.max(1, event_list_content_rows - 1),
-            half_page_size: Math.max(1, Math.floor(event_list_content_rows / 2))
-          },
-          {
-            move_cursor: step_event_selection,
-            jump_top: jump_top_selection,
-            jump_bottom: jump_bottom_selection,
-            repeat_search: repeat_event_search,
-          }
-        );
-        if (handled) {
-          return;
-        }
-      }
-
-      if (pane_focus === 'state') {
-        const handled = handle_state_pane_command(
-          command,
-          {
-            state_mode,
-            page_size: Math.max(1, state_content_rows - 1),
-            half_page_size: Math.max(1, Math.floor(state_content_rows / 2)),
-            player_count,
-            player_visible_count
-          },
-          {
-            move_player: step_player_selection,
-            move_json_cursor: move_state_json_cursor,
-            jump_top: jump_top_selection,
-            jump_bottom: jump_bottom_selection,
-            repeat_search: repeat_state_json_search,
-            cycle_state_mode: () => set_state_mode((mode) => next_state_mode(mode)),
-            cycle_inspector_mode: () => set_inspector_mode((mode) => next_inspector_mode(mode))
-          }
-        );
-        if (handled) {
-          return;
-        }
-      }
-    }
-
-    if (command.id === 'app:exit') {
-      exit();
-      return;
-    }
-    if (command.id === 'resolver:open') {
-      open_resolver();
-      return;
-    }
-    if (command.id === 'pane:focus_next') {
-      set_pane_focus((focus) => next_focus(focus));
-      return;
-    }
-    if (command.id === 'pane:focus_prev') {
-      set_pane_focus((focus) => prev_focus(focus));
-      return;
-    }
-    if (command.id === 'events:toggle_autoscroll') {
-      set_event_autoscroll((value) => !value);
-      return;
-    }
-    if (command.id === 'events:toggle_mouse_scroll') {
-      set_mouse_scroll_enabled((value) => !value);
-      return;
-    }
-    if (command.id === 'events:toggle_key') {
-      set_show_event_key((value) => !value);
-      return;
-    }
-    if (command.id === 'events:jump_latest') {
-      const view = event_view_indices_ref.current;
-      if (view.length > 0) {
-        select_event_by_view_position(view.length - 1);
-      }
-      return;
-    }
-    if (command.id === 'status:toggle_errors_only') {
-      set_status_errors_only((value) => !value);
-      return;
-    }
-    if (command.id === 'state:cycle_mode') {
-      set_state_mode((mode) => next_state_mode(mode));
-      return;
-    }
-    if (command.id === 'inspector:cycle_mode') {
-      set_inspector_mode((mode) => next_inspector_mode(mode));
+    const handled_dispatch = dispatch_tui_command(command);
+    if (handled_dispatch) {
       return;
     }
   });

@@ -89,6 +89,7 @@ This phase tightens command/search/filter behavior and prepares command-palette 
 - Prefer dispatching `TuiCommand` ids through pane/app command handlers instead of direct helper calls.
 - Input sources (keyboard now, command palette later) should invoke the same command dispatch path.
 - Pane handlers remain command-id based (`cursor:*`, `viewport:*`, `search:*`, `filter:*`).
+- App input handling should use a central command dispatcher (`dispatch_tui_command`) as a single routing path.
 
 ### 4.6.3 Command-Mode Backspace Cancellation
 
