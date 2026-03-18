@@ -23,6 +23,89 @@ export interface PlayerStateRow {
   strikethrough: boolean;
 }
 
+export function handle_state_pane_command(
+  command: { id: string; count?: number },
+  context: {
+    state_mode: 'brief' | 'players' | 'json';
+    page_size: number;
+    half_page_size: number;
+    player_count: number;
+    player_visible_count: number;
+  },
+  handlers: {
+    move_player: (delta: number, total_count: number, visible_count: number) => void;
+    move_json_cursor: (delta: number) => void;
+    jump_top: (count: number | null) => void;
+    jump_bottom: () => void;
+  }
+): boolean {
+  const count = Math.max(1, command.count ?? 1);
+  if (context.state_mode === 'players') {
+    if (command.id === 'cursor:move_up') {
+      handlers.move_player(-count, context.player_count, context.player_visible_count);
+      return true;
+    }
+    if (command.id === 'cursor:move_down') {
+      handlers.move_player(count, context.player_count, context.player_visible_count);
+      return true;
+    }
+    if (command.id === 'cursor:jump_top') {
+      handlers.jump_top(command.count ?? null);
+      return true;
+    }
+    if (command.id === 'cursor:jump_bottom') {
+      handlers.jump_bottom();
+      return true;
+    }
+    return false;
+  }
+
+  if (context.state_mode === 'json') {
+    if (command.id === 'cursor:move_up') {
+      handlers.move_json_cursor(-count);
+      return true;
+    }
+    if (command.id === 'cursor:move_down') {
+      handlers.move_json_cursor(count);
+      return true;
+    }
+    if (command.id === 'cursor:jump_top') {
+      handlers.jump_top(command.count ?? null);
+      return true;
+    }
+    if (command.id === 'cursor:jump_bottom') {
+      handlers.jump_bottom();
+      return true;
+    }
+    if (command.id === 'scroll:line_up') {
+      handlers.move_json_cursor(-count);
+      return true;
+    }
+    if (command.id === 'scroll:line_down') {
+      handlers.move_json_cursor(count);
+      return true;
+    }
+    if (command.id === 'scroll:half_page_up') {
+      handlers.move_json_cursor(-context.half_page_size * count);
+      return true;
+    }
+    if (command.id === 'scroll:half_page_down') {
+      handlers.move_json_cursor(context.half_page_size * count);
+      return true;
+    }
+    if (command.id === 'scroll:page_up') {
+      handlers.move_json_cursor(-context.page_size * count);
+      return true;
+    }
+    if (command.id === 'scroll:page_down') {
+      handlers.move_json_cursor(context.page_size * count);
+      return true;
+    }
+  }
+
+  return false;
+}
+
 function fit_line(text: string, width: number): string {
   if (width <= 0) {
     return '';

@@ -7,12 +7,12 @@ import { create_cli_context, process_cli_line } from '../cli/repl.js';
 import type { DomainEvent } from '../domain/events.js';
 import type { GameState, PlayerState, PromptColumnSpec, PromptRangeSpec, PromptState } from '../domain/types.js';
 import { format_event_summary_text } from './event.js';
+import { resolve_tui_command, route_tui_command, type TuiCommand } from './command-bindings.js';
 import { CommandPane, type VimMode } from './panes/command-pane.js';
-import { EventsPane } from './panes/events-pane.js';
+import { EventsPane, handle_events_pane_command } from './panes/events-pane.js';
 import { InspectorPane } from './panes/inspector-pane.js';
-import { StatePane, type PlayerStateRow } from './panes/state-pane.js';
+import { StatePane, type PlayerStateRow, handle_state_pane_command } from './panes/state-pane.js';
 import { StatusPane } from './panes/status-pane.js';
-import { handle_tui_shortcut } from './shortcut.js';
 
 type StateMode = 'brief' | 'players' | 'json';
 type InspectorMode = 'overview' | 'prompts' | 'players' | 'markers' | 'output';
@@ -609,26 +609,6 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     }
     select_event_at(matched);
     return true;
-  }
-
-  function repeat_event_search(kind: 'same' | 'opposite', count: number): void {
-    const needle = last_search_query.trim();
-    if (needle.length === 0) {
-      append_status_lines(['(no previous search query)']);
-      return;
-    }
-    const direction = kind === 'same'
-      ? last_search_direction
-      : (last_search_direction === 1 ? -1 : 1);
-    const attempts = Math.max(1, count);
-    for (let i = 0; i < attempts; i += 1) {
-      const matched = find_event_match_index(needle, direction);
-      if (matched === null) {
-        append_status_lines([`(no match for /${needle})`]);
-        return;
-      }
-      select_event_at(matched);
-    }
   }
 
   function move_state_json_cursor(delta: number): void {
@@ -1260,140 +1240,217 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
 
     const player_count = ordered_player_ids(context.state).length;
     const player_visible_count = Math.max(1, state_content_rows - 4);
-    handle_tui_shortcut(
-      input_key,
-      key,
-      {
-        suppress_input,
-        mode: vim_mode,
-        pane_focus,
-        state_mode,
-        count_prefix,
-        pending_g,
-        history_length: history.length,
-        event_count: event_entries.length,
-        player_count,
-        player_visible_count
-      },
-      {
-        exit,
-        open_resolver,
-        cycle_focus_forward: () => set_pane_focus((focus) => next_focus(focus)),
-        cycle_focus_backward: () => set_pane_focus((focus) => prev_focus(focus)),
-        toggle_event_autoscroll: () => set_event_autoscroll((value) => !value),
-        toggle_mouse_scroll: () => set_mouse_scroll_enabled((value) => !value),
-        toggle_event_key: () => set_show_event_key((value) => !value),
-        jump_latest_event: () => {
-          const view = event_view_indices_ref.current;
-          if (view.length > 0) {
-            select_event_by_view_position(view.length - 1);
+    const binding = resolve_tui_command(input_key, key, {
+      suppress_input,
+      mode: vim_mode,
+      pane_focus,
+      state_mode,
+      count_prefix,
+      pending_g
+    });
+
+    if (binding.count_prefix !== count_prefix) {
+      set_count_prefix(binding.count_prefix);
+    }
+    if (binding.pending_g !== pending_g) {
+      set_pending_g(binding.pending_g);
+    }
+    if (!binding.handled || !binding.command) {
+      return;
+    }
+
+    const command: TuiCommand = binding.command;
+    const target = route_tui_command(command, { pane_focus, state_mode });
+    if (target === 'pane') {
+      if (pane_focus === 'events') {
+        const handled = handle_events_pane_command(
+          command,
+          {
+            page_size: Math.max(1, event_list_content_rows - 1),
+            half_page_size: Math.max(1, Math.floor(event_list_content_rows / 2))
+          },
+          {
+            move_cursor: step_event_selection,
+            jump_top: jump_top_selection,
+            jump_bottom: jump_bottom_selection
           }
-        },
-        toggle_status_errors_only: () => set_status_errors_only((value) => !value),
-        scroll_events_by: (delta) => {
-          set_event_autoscroll(false);
-          const max_offset = Math.max(0, event_view_indices_ref.current.length - event_list_content_rows);
-          set_event_list_offset((value) => clamp(value + delta, 0, max_offset));
-        },
-        page_events_by: (delta_pages) => {
-          const step = Math.max(1, event_list_content_rows - 1);
-          step_event_selection(delta_pages * step);
-        },
-        half_page_events_by: (delta_half_pages) => {
-          const step = Math.max(1, Math.floor(event_list_content_rows / 2));
-          step_event_selection(delta_half_pages * step);
-        },
-        cycle_state_mode: () => set_state_mode((mode) => next_state_mode(mode)),
-        cycle_inspector_mode: () => set_inspector_mode((mode) => next_inspector_mode(mode)),
-        step_event_selection,
-        step_player_selection,
-        step_state_json_selection: move_state_json_cursor,
-        history_up: () => {
-          if (history.length === 0) {
-            return;
-          }
-          set_history_cursor((cursor) => {
-            const next = cursor === null ? history.length - 1 : Math.max(0, cursor - 1);
-            set_input(history[next] ?? '');
-            return next;
-          });
-        },
-        history_down: () => {
-          if (history.length === 0) {
-            return;
-          }
-          set_history_cursor((cursor) => {
-            if (cursor === null) {
-              return null;
-            }
-            const next = cursor + 1;
-            if (next >= history.length) {
-              set_input('');
-              return null;
-            }
-            set_input(history[next] ?? '');
-            return next;
-          });
-        },
-        mode_enter: (mode) => {
-          set_mode_return_focus(pane_focus);
-          set_mode_return_state_mode(state_mode);
-          set_vim_mode(mode);
-          set_input('');
-          set_history_cursor(null);
-        },
-        mode_enter_search: (direction) => {
-          set_mode_return_focus(pane_focus);
-          set_mode_return_state_mode(state_mode);
-          set_search_entry_direction(direction);
-          set_vim_mode('search');
-          set_input('');
-          set_history_cursor(null);
-        },
-        mode_enter_filter: () => {
-          set_mode_return_focus(pane_focus);
-          set_mode_return_state_mode(state_mode);
-          set_vim_mode('filter');
-          set_input('');
-          set_history_cursor(null);
-        },
-        mode_cancel: cancel_mode_input,
-        mode_submit: submit_mode_input,
-        mode_append: (value) => {
-          set_input((current) => {
-            const next = `${current}${value}`;
-            if (vim_mode === 'search') {
-              const needle = next.trim();
-              const target: SearchTarget = mode_return_focus === 'state' && mode_return_state_mode === 'json'
-                ? 'state_json'
-                : 'events';
-              if (target === 'state_json') {
-                set_state_json_search_query(needle);
-                if (needle.length > 0) {
-                  run_state_json_search(needle, search_entry_direction, false);
-                }
-              } else {
-                set_active_search_query(needle);
-                if (needle.length > 0) {
-                  run_event_search(needle, search_entry_direction, false);
-                }
-              }
-            }
-            if (vim_mode === 'filter') {
-              set_filter_query(next.trim());
-            }
-            return next;
-          });
-        },
-        mode_backspace: backspace_mode_input,
-        set_count_prefix,
-        clear_count_prefix: () => set_count_prefix(''),
-        set_pending_g,
-        jump_top: jump_top_selection,
-        jump_bottom: jump_bottom_selection,
-        search_repeat: repeat_last_search
+        );
+        if (handled) {
+          return;
+        }
       }
-    );
+
+      if (pane_focus === 'state') {
+        const handled = handle_state_pane_command(
+          command,
+          {
+            state_mode,
+            page_size: Math.max(1, state_content_rows - 1),
+            half_page_size: Math.max(1, Math.floor(state_content_rows / 2)),
+            player_count,
+            player_visible_count
+          },
+          {
+            move_player: step_player_selection,
+            move_json_cursor: move_state_json_cursor,
+            jump_top: jump_top_selection,
+            jump_bottom: jump_bottom_selection
+          }
+        );
+        if (handled) {
+          return;
+        }
+      }
+    }
+
+    if (command.id === 'app:exit') {
+      exit();
+      return;
+    }
+    if (command.id === 'resolver:open') {
+      open_resolver();
+      return;
+    }
+    if (command.id === 'pane:focus_next') {
+      set_pane_focus((focus) => next_focus(focus));
+      return;
+    }
+    if (command.id === 'pane:focus_prev') {
+      set_pane_focus((focus) => prev_focus(focus));
+      return;
+    }
+    if (command.id === 'events:toggle_autoscroll') {
+      set_event_autoscroll((value) => !value);
+      return;
+    }
+    if (command.id === 'events:toggle_mouse_scroll') {
+      set_mouse_scroll_enabled((value) => !value);
+      return;
+    }
+    if (command.id === 'events:toggle_key') {
+      set_show_event_key((value) => !value);
+      return;
+    }
+    if (command.id === 'events:jump_latest') {
+      const view = event_view_indices_ref.current;
+      if (view.length > 0) {
+        select_event_by_view_position(view.length - 1);
+      }
+      return;
+    }
+    if (command.id === 'status:toggle_errors_only') {
+      set_status_errors_only((value) => !value);
+      return;
+    }
+    if (command.id === 'state:cycle_mode') {
+      set_state_mode((mode) => next_state_mode(mode));
+      return;
+    }
+    if (command.id === 'inspector:cycle_mode') {
+      set_inspector_mode((mode) => next_inspector_mode(mode));
+      return;
+    }
+    if (command.id === 'mode:history_up') {
+      if (history.length === 0) {
+        return;
+      }
+      set_history_cursor((cursor) => {
+        const next = cursor === null ? history.length - 1 : Math.max(0, cursor - 1);
+        set_input(history[next] ?? '');
+        return next;
+      });
+      return;
+    }
+    if (command.id === 'mode:history_down') {
+      if (history.length === 0) {
+        return;
+      }
+      set_history_cursor((cursor) => {
+        if (cursor === null) {
+          return null;
+        }
+        const next = cursor + 1;
+        if (next >= history.length) {
+          set_input('');
+          return null;
+        }
+        set_input(history[next] ?? '');
+        return next;
+      });
+      return;
+    }
+    if (command.id === 'mode:enter_command') {
+      set_mode_return_focus(pane_focus);
+      set_mode_return_state_mode(state_mode);
+      set_vim_mode('command');
+      set_input('');
+      set_history_cursor(null);
+      return;
+    }
+    if (command.id === 'mode:enter_search') {
+      set_mode_return_focus(pane_focus);
+      set_mode_return_state_mode(state_mode);
+      set_search_entry_direction(command.direction ?? -1);
+      set_vim_mode('search');
+      set_input('');
+      set_history_cursor(null);
+      return;
+    }
+    if (command.id === 'mode:enter_filter') {
+      set_mode_return_focus(pane_focus);
+      set_mode_return_state_mode(state_mode);
+      set_vim_mode('filter');
+      set_input('');
+      set_history_cursor(null);
+      return;
+    }
+    if (command.id === 'mode:cancel') {
+      cancel_mode_input();
+      return;
+    }
+    if (command.id === 'mode:submit') {
+      submit_mode_input();
+      return;
+    }
+    if (command.id === 'mode:backspace') {
+      backspace_mode_input();
+      return;
+    }
+    if (command.id === 'mode:append_input') {
+      const value = command.text ?? '';
+      set_input((current) => {
+        const next = `${current}${value}`;
+        if (vim_mode === 'search') {
+          const needle = next.trim();
+          const target_mode: SearchTarget = mode_return_focus === 'state' && mode_return_state_mode === 'json'
+            ? 'state_json'
+            : 'events';
+          if (target_mode === 'state_json') {
+            set_state_json_search_query(needle);
+            if (needle.length > 0) {
+              run_state_json_search(needle, search_entry_direction, false);
+            }
+          } else {
+            set_active_search_query(needle);
+            if (needle.length > 0) {
+              run_event_search(needle, search_entry_direction, false);
+            }
+          }
+        }
+        if (vim_mode === 'filter') {
+          set_filter_query(next.trim());
+        }
+        return next;
+      });
+      return;
+    }
+    if (command.id === 'search:repeat_same') {
+      repeat_last_search('same', Math.max(1, command.count ?? 1));
+      return;
+    }
+    if (command.id === 'search:repeat_opposite') {
+      repeat_last_search('opposite', Math.max(1, command.count ?? 1));
+    }
   });
 
   const effective_state = context.state;
