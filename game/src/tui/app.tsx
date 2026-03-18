@@ -1054,8 +1054,18 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     const command: TuiCommand = binding.command;
 
     if (
-      vim_mode !== 'normal'
-      && (command.id.startsWith('mode:') || command.id.startsWith('search:') || command.id.startsWith('filter:'))
+      command.id.startsWith('mode:')
+      || (
+        vim_mode !== 'normal'
+        && (
+          command.id === 'search:start'
+          || command.id === 'search:end'
+          || command.id === 'search:cancel'
+          || command.id === 'filter:start'
+          || command.id === 'filter:end'
+          || command.id === 'filter:cancel'
+        )
+      )
     ) {
       const prior_phase = search_phase;
       const handled = handle_command_mode_command(
