@@ -1158,7 +1158,21 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
           }
         },
         toggle_status_errors_only: () => set_status_errors_only((value) => !value),
-        scroll_events_page: (delta) => {
+        scroll_events_by: (delta) => {
+          set_event_autoscroll(false);
+          const max_offset = Math.max(0, event_view_indices_ref.current.length - event_list_content_rows);
+          set_event_list_offset((value) => clamp(value + delta, 0, max_offset));
+        },
+        page_events_by: (delta_pages) => {
+          const step = Math.max(1, event_list_content_rows - 1);
+          const delta = delta_pages * step;
+          set_event_autoscroll(false);
+          const max_offset = Math.max(0, event_view_indices_ref.current.length - event_list_content_rows);
+          set_event_list_offset((value) => clamp(value + delta, 0, max_offset));
+        },
+        half_page_events_by: (delta_half_pages) => {
+          const step = Math.max(1, Math.floor(event_list_content_rows / 2));
+          const delta = delta_half_pages * step;
           set_event_autoscroll(false);
           const max_offset = Math.max(0, event_view_indices_ref.current.length - event_list_content_rows);
           set_event_list_offset((value) => clamp(value + delta, 0, max_offset));
@@ -1515,7 +1529,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     <Box flexDirection="column" width={columns} height={available_rows}>
       <Box borderStyle="single" paddingX={1} height={header_height}>
         <Text>
-          phase={context.state.phase}/{context.state.subphase} day={context.state.day_number} night={context.state.night_number} alive={alive_count}/{players_total} prompts={prompt_count} | mode={vim_mode} focus={pane_focus} count={count_prefix || '1'} | events autoscroll={event_autoscroll} key={show_event_key ? 'shown' : 'hidden'} mouse={mouse_scroll_enabled ? 'on' : 'off'} | : command | / search | ? filter | j/k move | gg/G | n/N repeat | w/W pane | Ctrl+R resolver | Ctrl+C quit
+          phase={context.state.phase}/{context.state.subphase} day={context.state.day_number} night={context.state.night_number} alive={alive_count}/{players_total} prompts={prompt_count} | mode={vim_mode} focus={pane_focus} count={count_prefix || '1'} | events autoscroll={event_autoscroll} key={show_event_key ? 'shown' : 'hidden'} mouse={mouse_scroll_enabled ? 'on' : 'off'} | : command | / search | ? filter | j/k move | gg/G | n/N repeat | w/W pane | Ctrl+F/B page | Ctrl+U/D half | Ctrl+E/Y line | Ctrl+R resolver | Ctrl+C quit
         </Text>
       </Box>
 

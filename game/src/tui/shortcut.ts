@@ -39,7 +39,9 @@ export interface ShortcutHandlers {
   toggle_event_key: () => void;
   jump_latest_event: () => void;
   toggle_status_errors_only: () => void;
-  scroll_events_page: (delta: number) => void;
+  scroll_events_by: (delta: number) => void;
+  page_events_by: (delta_pages: number) => void;
+  half_page_events_by: (delta_half_pages: number) => void;
   cycle_state_mode: () => void;
   cycle_inspector_mode: () => void;
   step_event_selection: (delta: number) => void;
@@ -94,6 +96,37 @@ export function handle_tui_shortcut(
     handlers.open_resolver();
     return true;
   }
+
+  if (context.mode === 'command' || context.mode === 'search' || context.mode === 'filter') {
+    if (key.escape) {
+      handlers.mode_cancel();
+      return true;
+    }
+    if (key.return) {
+      handlers.mode_submit();
+      return true;
+    }
+    if (key.backspace || key.delete) {
+      handlers.mode_backspace();
+      return true;
+    }
+
+    if (context.mode === 'command' && key.upArrow) {
+      handlers.history_up();
+      return true;
+    }
+    if (context.mode === 'command' && key.downArrow) {
+      handlers.history_down();
+      return true;
+    }
+
+    if (!key.ctrl && !key.meta && !key.tab && input_key.length > 0) {
+      handlers.mode_append(input_key);
+      return true;
+    }
+    return true;
+  }
+
   if (context.mode === 'normal' && input_key === 'w') {
     handlers.cycle_focus_forward();
     return true;
@@ -123,18 +156,40 @@ export function handle_tui_shortcut(
     return true;
   }
   if (key.ctrl && input_key === 'e') {
-    handlers.toggle_status_errors_only();
+    if (context.pane_focus === 'events') {
+      handlers.scroll_events_by(1);
+    } else {
+      handlers.toggle_status_errors_only();
+    }
+    return true;
+  }
+  if (key.ctrl && input_key === 'y') {
+    if (context.pane_focus === 'events') {
+      handlers.scroll_events_by(-1);
+    }
     return true;
   }
   if (key.ctrl && input_key === 'u') {
     if (context.pane_focus === 'events') {
-      handlers.scroll_events_page(-1);
+      handlers.half_page_events_by(-1);
     }
     return true;
   }
   if (key.ctrl && input_key === 'd') {
     if (context.pane_focus === 'events') {
-      handlers.scroll_events_page(1);
+      handlers.half_page_events_by(1);
+    }
+    return true;
+  }
+  if (key.ctrl && input_key === 'b') {
+    if (context.pane_focus === 'events') {
+      handlers.page_events_by(-1);
+    }
+    return true;
+  }
+  if (key.ctrl && input_key === 'f') {
+    if (context.pane_focus === 'events') {
+      handlers.page_events_by(1);
     }
     return true;
   }
@@ -144,36 +199,6 @@ export function handle_tui_shortcut(
   }
   if (key.ctrl && input_key === 'g') {
     handlers.cycle_inspector_mode();
-    return true;
-  }
-
-  if (context.mode === 'command' || context.mode === 'search' || context.mode === 'filter') {
-    if (key.escape) {
-      handlers.mode_cancel();
-      return true;
-    }
-    if (key.return) {
-      handlers.mode_submit();
-      return true;
-    }
-    if (key.backspace || key.delete) {
-      handlers.mode_backspace();
-      return true;
-    }
-
-    if (context.mode === 'command' && key.upArrow) {
-      handlers.history_up();
-      return true;
-    }
-    if (context.mode === 'command' && key.downArrow) {
-      handlers.history_down();
-      return true;
-    }
-
-    if (!key.ctrl && !key.meta && !key.tab && input_key.length > 0) {
-      handlers.mode_append(input_key);
-      return true;
-    }
     return true;
   }
 

@@ -62,9 +62,8 @@ export function EventsPane(props: {
         {visible_event_entries.length === 0 ? (
           <Text>(no events yet)</Text>
         ) : (
-          visible_event_entries.map((entry, visible_index) => {
-            const absolute_index = effective_event_offset + visible_index;
-            const selected = selected_event_index === absolute_index;
+          visible_event_entries.map((entry) => {
+            const selected = selected_event_index === entry.absolute_index;
             return (
               <EventSummaryRow
                 key={`event-row-${entry.event_index}`}
