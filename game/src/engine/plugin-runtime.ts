@@ -1,7 +1,7 @@
 import type { Command, ResolvePromptCommand } from '../domain/commands.js';
 import type { DomainEvent } from '../domain/events.js';
 import { apply_events } from '../domain/reducer.js';
-import type { GameState } from '../domain/types.js';
+import type { GameState, PlayerState } from '../domain/types.js';
 import {
   parse_registration_prompt_id,
   resolve_registration_query_prompt
@@ -22,6 +22,128 @@ interface ParsedClaimedAbilityPrompt {
   claimed_character_id: string;
   claimant_player_id: string;
 }
+
+const FIRST_NIGHT_SPECIAL_PROMPT_ORDER: ReadonlyArray<'minioninfo' | 'demoninfo'> = [
+  'minioninfo',
+  'demoninfo'
+];
+
+const GOOD_CHARACTER_IDS_BY_SCRIPT_ID: Readonly<Record<string, readonly string[]>> = {
+  tb: [
+    'chef',
+    'empath',
+    'fortune_teller',
+    'investigator',
+    'librarian',
+    'mayor',
+    'monk',
+    'ravenkeeper',
+    'slayer',
+    'soldier',
+    'undertaker',
+    'virgin',
+    'washerwoman',
+    'butler',
+    'drunk',
+    'recluse',
+    'saint'
+  ],
+  trouble_brewing: [
+    'chef',
+    'empath',
+    'fortune_teller',
+    'investigator',
+    'librarian',
+    'mayor',
+    'monk',
+    'ravenkeeper',
+    'slayer',
+    'soldier',
+    'undertaker',
+    'virgin',
+    'washerwoman',
+    'butler',
+    'drunk',
+    'recluse',
+    'saint'
+  ],
+  bmr: [
+    'grandmother',
+    'sailor',
+    'chambermaid',
+    'exorcist',
+    'innkeeper',
+    'gambler',
+    'gossip',
+    'courtier',
+    'professor',
+    'minstrel',
+    'tea_lady',
+    'pacifist',
+    'fool',
+    'tinker',
+    'moonchild',
+    'goon',
+    'lunatic'
+  ],
+  bad_moon_rising: [
+    'grandmother',
+    'sailor',
+    'chambermaid',
+    'exorcist',
+    'innkeeper',
+    'gambler',
+    'gossip',
+    'courtier',
+    'professor',
+    'minstrel',
+    'tea_lady',
+    'pacifist',
+    'fool',
+    'tinker',
+    'moonchild',
+    'goon',
+    'lunatic'
+  ],
+  snv: [
+    'clockmaker',
+    'dreamer',
+    'snake_charmer',
+    'mathematician',
+    'flowergirl',
+    'town_crier',
+    'oracle',
+    'savant',
+    'seamstress',
+    'philosopher',
+    'artist',
+    'juggler',
+    'sage',
+    'mutant',
+    'sweetheart',
+    'barber',
+    'klutz'
+  ],
+  sects_and_violets: [
+    'clockmaker',
+    'dreamer',
+    'snake_charmer',
+    'mathematician',
+    'flowergirl',
+    'town_crier',
+    'oracle',
+    'savant',
+    'seamstress',
+    'philosopher',
+    'artist',
+    'juggler',
+    'sage',
+    'mutant',
+    'sweetheart',
+    'barber',
+    'klutz'
+  ]
+};
 
 function resolve_prompt_key(command: ResolvePromptCommand): string {
   return command.payload.prompt_key;
@@ -97,6 +219,12 @@ export function integrate_plugin_runtime(
   }
 
   if (command.command_type === 'AdvancePhase' && is_night_wake_boundary(runtime_state)) {
+    const special_prompt_events = queue_next_first_night_special_prompt(runtime_state, command, created_at);
+    if (special_prompt_events.length > 0) {
+      runtime_events.push(...special_prompt_events);
+      runtime_state = apply_events(runtime_state, special_prompt_events);
+    }
+
     if (runtime_state.wake_queue.length === 0) {
       const wake_steps = collect_night_wake_steps(runtime_state, plugin_registry);
       for (const [wake_index, wake_step] of wake_steps.entries()) {
@@ -226,6 +354,12 @@ export function integrate_plugin_runtime(
       const drained = drain_interrupt_queue(runtime_state, context, runtime_events);
       runtime_state = drained.state;
 
+      const special_prompt_events = queue_next_first_night_special_prompt(runtime_state, command, created_at);
+      if (special_prompt_events.length > 0) {
+        runtime_events.push(...special_prompt_events);
+        runtime_state = apply_events(runtime_state, special_prompt_events);
+      }
+
       if (is_night_wake_boundary(runtime_state) && runtime_state.pending_prompts.length === 0) {
         const wake_processing = process_wake_queue(
           runtime_state,
@@ -350,6 +484,12 @@ export function integrate_plugin_runtime(
 
       const drained = drain_interrupt_queue(runtime_state, context, runtime_events);
       runtime_state = drained.state;
+
+      const special_prompt_events = queue_next_first_night_special_prompt(runtime_state, command, created_at);
+      if (special_prompt_events.length > 0) {
+        runtime_events.push(...special_prompt_events);
+        runtime_state = apply_events(runtime_state, special_prompt_events);
+      }
     } else {
       const prompt_owner_plugin_id = resolve_prompt_owner_plugin_id(state, command);
       if (prompt_owner_plugin_id !== null) {
@@ -422,6 +562,12 @@ export function integrate_plugin_runtime(
 
       const drained = drain_interrupt_queue(runtime_state, context, runtime_events);
       runtime_state = drained.state;
+
+      const special_prompt_events = queue_next_first_night_special_prompt(runtime_state, command, created_at);
+      if (special_prompt_events.length > 0) {
+        runtime_events.push(...special_prompt_events);
+        runtime_state = apply_events(runtime_state, special_prompt_events);
+      }
 
       if (is_night_wake_boundary(runtime_state) && runtime_state.pending_prompts.length === 0) {
         const wake_processing = process_wake_queue(
@@ -961,6 +1107,141 @@ function as_dispatch_error(code: string, message: string): EngineResult<never> {
       message
     }
   };
+}
+
+function queue_next_first_night_special_prompt(
+  state: GameState,
+  command: Command,
+  created_at: string
+): DomainEvent[] {
+  if (state.phase !== 'first_night' || state.subphase !== 'night_wake_sequence') {
+    return [];
+  }
+
+  const non_traveller_count = Object.values(state.players_by_id).filter((player) => !player.is_traveller).length;
+  if (non_traveller_count < 7) {
+    return [];
+  }
+
+  for (const special_id of FIRST_NIGHT_SPECIAL_PROMPT_ORDER) {
+    const prompt_key = build_first_night_special_prompt_key(state.night_number, special_id);
+    if (state.prompts_by_id[prompt_key]) {
+      continue;
+    }
+
+    const prompt = build_first_night_special_prompt(state, special_id);
+    if (!prompt) {
+      continue;
+    }
+
+    return [
+      {
+        event_key: `${command.command_id}:SpecialPromptQueued:${special_id}`,
+        event_id: 1,
+        event_type: 'PromptQueued',
+        created_at,
+        ...(command.actor_id === undefined ? {} : { actor_id: command.actor_id }),
+        payload: prompt
+      }
+    ];
+  }
+
+  return [];
+}
+
+function build_first_night_special_prompt(
+  state: GameState,
+  special_id: 'minioninfo' | 'demoninfo'
+): Extract<DomainEvent, { event_type: 'PromptQueued' }>['payload'] | null {
+  const minions = list_players_by_character_type(state, 'minion');
+  const demons = list_players_by_character_type(state, 'demon');
+
+  if (special_id === 'minioninfo') {
+    if (minions.length === 0 || demons.length === 0) {
+      return null;
+    }
+
+    const demon = demons[0];
+    if (!demon) {
+      return null;
+    }
+
+    const teammate_ids = minions.map((player) => player.player_id).join(',');
+
+    return {
+      prompt_key: build_first_night_special_prompt_key(state.night_number, special_id),
+      kind: 'choice',
+      reason: `plugin:${special_id}:first_night_info:n${state.night_number}`,
+      visibility: 'storyteller',
+      options: [],
+      selection_mode: 'single_choice',
+      number_range: null,
+      multi_columns: null,
+      storyteller_hint: `minioninfo:demon=${demon.player_id};minions=${teammate_ids}`
+    };
+  }
+
+  if (demons.length === 0) {
+    return null;
+  }
+
+  const minion_ids = minions.map((player) => player.player_id).join(',');
+  const suggested_bluffs = suggest_not_in_play_good_bluffs(state).join(',');
+
+  return {
+    prompt_key: build_first_night_special_prompt_key(state.night_number, special_id),
+    kind: 'choice',
+    reason: `plugin:${special_id}:first_night_info:n${state.night_number}`,
+    visibility: 'storyteller',
+    options: [],
+    selection_mode: 'single_choice',
+    number_range: null,
+    multi_columns: null,
+    storyteller_hint:
+      suggested_bluffs.length > 0
+        ? `demoninfo:minions=${minion_ids};suggested_bluffs=${suggested_bluffs}`
+        : `demoninfo:minions=${minion_ids}`
+  };
+}
+
+function build_first_night_special_prompt_key(
+  night_number: number,
+  special_id: 'minioninfo' | 'demoninfo'
+): string {
+  return `plugin:${special_id}:first_night_info:n${night_number}`;
+}
+
+function list_players_by_character_type(
+  state: GameState,
+  character_type: 'minion' | 'demon'
+): PlayerState[] {
+  return state.seat_order
+    .map((player_id) => state.players_by_id[player_id])
+    .filter(
+      (player): player is PlayerState =>
+        Boolean(
+          player &&
+            !player.is_traveller &&
+            player.true_character_type === character_type &&
+            typeof player.true_character_id === 'string'
+        )
+    );
+}
+
+function suggest_not_in_play_good_bluffs(state: GameState): string[] {
+  const script_id = (state.script_id ?? '').trim().toLowerCase();
+  const script_good_ids = GOOD_CHARACTER_IDS_BY_SCRIPT_ID[script_id];
+  if (!script_good_ids) {
+    return [];
+  }
+
+  const in_play = new Set(
+    Object.values(state.players_by_id)
+      .map((player) => player.true_character_id)
+      .filter((character_id): character_id is string => typeof character_id === 'string')
+  );
+
+  return script_good_ids.filter((character_id) => !in_play.has(character_id)).slice(0, 3);
 }
 
 function validate_queued_prompt_ids(

@@ -181,6 +181,98 @@ function bootstrap_day_nomination_state(): GameState {
   ]);
 }
 
+function bootstrap_first_night_special_info_state(args?: {
+  script_id?: string;
+  player_count?: number;
+}): GameState {
+  const script_id = args?.script_id ?? 'tb';
+  const player_count = args?.player_count ?? 7;
+  const seed = create_initial_state('g1');
+  const events: Parameters<typeof apply_events>[1] = [
+    {
+      event_id: 100,
+      event_type: 'ScriptSelected',
+      created_at: '2026-03-14T00:00:00.000Z',
+      payload: { script_id }
+    }
+  ];
+
+  const seat_order: string[] = [];
+  for (let index = 1; index <= player_count; index += 1) {
+    const player_id = `p${index}`;
+    seat_order.push(player_id);
+    events.push({
+      event_id: 100 + index,
+      event_type: 'PlayerAdded',
+      created_at: `2026-03-14T00:00:${String(index).padStart(2, '0')}.000Z`,
+      payload: { player_id, display_name: `Player ${index}` }
+    });
+  }
+
+  events.push({
+    event_id: 200,
+    event_type: 'SeatOrderSet',
+    created_at: '2026-03-14T00:01:00.000Z',
+    payload: { seat_order }
+  });
+
+  if (player_count >= 1) {
+    events.push({
+      event_id: 201,
+      event_type: 'CharacterAssigned',
+      created_at: '2026-03-14T00:01:01.000Z',
+      payload: {
+        player_id: 'p1',
+        true_character_id: 'imp',
+        true_character_type: 'demon',
+        is_demon: true
+      }
+    });
+  }
+
+  if (player_count >= 2) {
+    events.push({
+      event_id: 202,
+      event_type: 'CharacterAssigned',
+      created_at: '2026-03-14T00:01:02.000Z',
+      payload: {
+        player_id: 'p2',
+        true_character_id: 'poisoner',
+        true_character_type: 'minion'
+      }
+    });
+  }
+
+  const fallback_townsfolk = [
+    'washerwoman',
+    'librarian',
+    'investigator',
+    'chef',
+    'empath',
+    'fortune_teller',
+    'butler',
+    'virgin',
+    'slayer'
+  ];
+
+  for (let index = 3; index <= player_count; index += 1) {
+    const player_id = `p${index}`;
+    const character_id = fallback_townsfolk[index - 3] ?? 'washerwoman';
+    events.push({
+      event_id: 202 + index,
+      event_type: 'CharacterAssigned',
+      created_at: `2026-03-14T00:01:${String(2 + index).padStart(2, '0')}.000Z`,
+      payload: {
+        player_id,
+        true_character_id: character_id,
+        true_character_type: index === player_count ? 'outsider' : 'townsfolk'
+      }
+    });
+  }
+
+  return apply_events(seed, events);
+}
+
 function run_with_registry(state: GameState, command: Command, registry: PluginRegistry) {
   const result = handle_command(state, command, '2026-03-14T01:00:00.000Z', {
     plugin_registry: registry
@@ -607,6 +699,156 @@ test('imp does not wake on first night', () => {
   );
 
   assert.deepEqual(events.map((event) => event.event_type), ['PhaseAdvanced']);
+});
+
+test('first-night minioninfo and demoninfo are queued as script-level prompts', () => {
+  const state = bootstrap_first_night_special_info_state({ script_id: 'tb', player_count: 7 });
+  const registry = new PluginRegistry([poisoner_plugin]);
+
+  const wake_events = run_with_registry(
+    state,
+    {
+      command_id: 'c_first_night_special_start',
+      command_type: 'AdvancePhase',
+      actor_id: 'storyteller',
+      payload: {
+        phase: 'first_night',
+        subphase: 'night_wake_sequence',
+        day_number: 0,
+        night_number: 1
+      }
+    },
+    registry
+  );
+
+  const minioninfo_prompt = wake_events.find(
+    (event) =>
+      event.event_type === 'PromptQueued' &&
+      event.payload.prompt_key === 'plugin:minioninfo:first_night_info:n1'
+  );
+  assert.ok(minioninfo_prompt && minioninfo_prompt.event_type === 'PromptQueued');
+  assert.equal(minioninfo_prompt.payload.storyteller_hint?.includes('minioninfo:demon='), true);
+
+  assert.equal(
+    wake_events.some(
+      (event) =>
+        event.event_type === 'PromptQueued' &&
+        event.payload.prompt_key === 'plugin:demoninfo:first_night_info:n1'
+    ),
+    false
+  );
+
+  const after_first = apply_events(state, wake_events);
+  const resolve_minioninfo = run_with_registry(
+    after_first,
+    {
+      command_id: 'c_first_night_special_resolve_minion',
+      command_type: 'ResolvePrompt',
+      actor_id: 'storyteller',
+      payload: {
+        prompt_key: 'plugin:minioninfo:first_night_info:n1',
+        selected_option_id: null,
+        freeform: null,
+        notes: 'minion info delivered'
+      }
+    },
+    registry
+  );
+
+  const demoninfo_prompt = resolve_minioninfo.find(
+    (event) =>
+      event.event_type === 'PromptQueued' &&
+      event.payload.prompt_key === 'plugin:demoninfo:first_night_info:n1'
+  );
+  assert.ok(demoninfo_prompt && demoninfo_prompt.event_type === 'PromptQueued');
+  assert.equal(demoninfo_prompt.payload.storyteller_hint?.includes('suggested_bluffs='), true);
+
+  const after_second = apply_events(after_first, resolve_minioninfo);
+  const resolve_demoninfo = run_with_registry(
+    after_second,
+    {
+      command_id: 'c_first_night_special_resolve_demon',
+      command_type: 'ResolvePrompt',
+      actor_id: 'storyteller',
+      payload: {
+        prompt_key: 'plugin:demoninfo:first_night_info:n1',
+        selected_option_id: null,
+        freeform: null,
+        notes: 'demon info delivered'
+      }
+    },
+    registry
+  );
+
+  assert.equal(
+    resolve_demoninfo.some(
+      (event) =>
+        event.event_type === 'PromptQueued' &&
+        event.payload.prompt_key.startsWith('plugin:poisoner:night_poison:n1:p2')
+    ),
+    true
+  );
+});
+
+test('first-night special prompts are skipped below seven non-traveller players', () => {
+  const state = bootstrap_first_night_special_info_state({ script_id: 'tb', player_count: 6 });
+  const registry = new PluginRegistry([poisoner_plugin]);
+
+  const wake_events = run_with_registry(
+    state,
+    {
+      command_id: 'c_first_night_special_small_game',
+      command_type: 'AdvancePhase',
+      actor_id: 'storyteller',
+      payload: {
+        phase: 'first_night',
+        subphase: 'night_wake_sequence',
+        day_number: 0,
+        night_number: 1
+      }
+    },
+    registry
+  );
+
+  assert.equal(
+    wake_events.some(
+      (event) =>
+        event.event_type === 'PromptQueued' &&
+        (event.payload.prompt_key === 'plugin:minioninfo:first_night_info:n1' ||
+          event.payload.prompt_key === 'plugin:demoninfo:first_night_info:n1')
+    ),
+    false
+  );
+});
+
+test('first-night special prompts are not TB-specific and run for BMR script', () => {
+  const state = bootstrap_first_night_special_info_state({ script_id: 'bmr', player_count: 7 });
+  const registry = new PluginRegistry([poisoner_plugin]);
+
+  const wake_events = run_with_registry(
+    state,
+    {
+      command_id: 'c_first_night_special_bmr',
+      command_type: 'AdvancePhase',
+      actor_id: 'storyteller',
+      payload: {
+        phase: 'first_night',
+        subphase: 'night_wake_sequence',
+        day_number: 0,
+        night_number: 1
+      }
+    },
+    registry
+  );
+
+  assert.equal(
+    wake_events.some(
+      (event) =>
+        event.event_type === 'PromptQueued' &&
+        event.payload.prompt_key === 'plugin:minioninfo:first_night_info:n1'
+    ),
+    true
+  );
 });
 
 test('imp plugin prompt resolves into death through engine flow', () => {
