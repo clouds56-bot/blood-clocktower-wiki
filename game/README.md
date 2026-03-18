@@ -102,6 +102,8 @@ The next TUI rebuild switches input from editor-like typing to a vim-like mode m
 Implementation note:
 
 - command dispatch uses colon-style ids (for example `cursor:line_up`, `viewport:page_down`).
+- search and filter lifecycle commands are explicit (`search:start`/`search:end`, `filter:start`/`filter:end`).
+- dispatch is pane-first when possible; app-level handlers are used for global behavior, with `mode:*` handled by app.
 
 ## Quick Start
 

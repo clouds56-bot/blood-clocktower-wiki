@@ -77,6 +77,12 @@ export function resolve_tui_command(
 
   if (context.mode === 'command' || context.mode === 'search' || context.mode === 'filter') {
     if (key.escape) {
+      if (context.mode === 'search') {
+        return result(true, { id: 'search:end' }, next_count, next_pending_g);
+      }
+      if (context.mode === 'filter') {
+        return result(true, { id: 'filter:end' }, next_count, next_pending_g);
+      }
       return result(true, { id: 'mode:cancel' }, next_count, next_pending_g);
     }
     if (key.return) {
@@ -175,15 +181,15 @@ export function resolve_tui_command(
   }
   if (input_key === '/') {
     if (context.pane_focus === 'state' && context.state_mode === 'json') {
-      return result(true, { id: 'mode:enter_search', direction: 1 }, '', false);
+      return result(true, { id: 'search:start', direction: 1 }, '', false);
     }
-    return result(true, { id: 'mode:enter_search', direction: -1 }, '', false);
+    return result(true, { id: 'search:start', direction: -1 }, '', false);
   }
   if (input_key === '?') {
     if (context.pane_focus === 'state' && context.state_mode === 'json') {
-      return result(true, { id: 'mode:enter_search', direction: -1 }, '', false);
+      return result(true, { id: 'search:start', direction: -1 }, '', false);
     }
-    return result(true, { id: 'mode:enter_filter' }, '', false);
+    return result(true, { id: 'filter:start' }, '', false);
   }
 
   if (/^[0-9]$/.test(input_key)) {
@@ -237,7 +243,14 @@ export function route_tui_command(command: TuiCommand, context: {
   pane_focus: PaneFocus;
   state_mode: StateMode;
 }): 'app' | 'pane' {
-  if (command.id.startsWith('cursor:') || command.id.startsWith('viewport:')) {
+  if (
+    command.id.startsWith('cursor:')
+    || command.id.startsWith('viewport:')
+    || command.id.startsWith('search:')
+    || command.id.startsWith('filter:')
+    || command.id.startsWith('state:')
+    || command.id.startsWith('inspector:')
+  ) {
     if (context.pane_focus === 'events') {
       return 'pane';
     }

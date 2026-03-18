@@ -1261,7 +1261,15 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
 
     const command: TuiCommand = binding.command;
     const target = route_tui_command(command, { pane_focus, state_mode });
-    if (target === 'pane') {
+    const should_try_pane = !command.id.startsWith('mode:')
+      && (
+        target === 'pane'
+        || command.id.startsWith('search:')
+        || command.id.startsWith('filter:')
+        || command.id.startsWith('state:')
+        || command.id.startsWith('inspector:')
+      );
+    if (should_try_pane) {
       if (pane_focus === 'events') {
         const handled = handle_events_pane_command(
           command,
@@ -1272,7 +1280,35 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
           {
             move_cursor: step_event_selection,
             jump_top: jump_top_selection,
-            jump_bottom: jump_bottom_selection
+            jump_bottom: jump_bottom_selection,
+            start_search: (direction) => {
+              set_mode_return_focus(pane_focus);
+              set_mode_return_state_mode(state_mode);
+              set_search_entry_direction(direction);
+              set_vim_mode('search');
+              set_input('');
+              set_history_cursor(null);
+            },
+            end_search: () => {
+              set_input('');
+              set_history_cursor(null);
+              set_vim_mode('normal');
+              set_pane_focus(mode_return_focus);
+            },
+            repeat_search: repeat_last_search,
+            start_filter: () => {
+              set_mode_return_focus(pane_focus);
+              set_mode_return_state_mode(state_mode);
+              set_vim_mode('filter');
+              set_input('');
+              set_history_cursor(null);
+            },
+            end_filter: () => {
+              set_input('');
+              set_history_cursor(null);
+              set_vim_mode('normal');
+              set_pane_focus(mode_return_focus);
+            }
           }
         );
         if (handled) {
@@ -1294,7 +1330,24 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
             move_player: step_player_selection,
             move_json_cursor: move_state_json_cursor,
             jump_top: jump_top_selection,
-            jump_bottom: jump_bottom_selection
+            jump_bottom: jump_bottom_selection,
+            start_search: (direction) => {
+              set_mode_return_focus(pane_focus);
+              set_mode_return_state_mode(state_mode);
+              set_search_entry_direction(direction);
+              set_vim_mode('search');
+              set_input('');
+              set_history_cursor(null);
+            },
+            end_search: () => {
+              set_input('');
+              set_history_cursor(null);
+              set_vim_mode('normal');
+              set_pane_focus(mode_return_focus);
+            },
+            repeat_search: repeat_last_search,
+            cycle_state_mode: () => set_state_mode((mode) => next_state_mode(mode)),
+            cycle_inspector_mode: () => set_inspector_mode((mode) => next_inspector_mode(mode))
           }
         );
         if (handled) {
@@ -1450,6 +1503,38 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     }
     if (command.id === 'search:repeat_opposite') {
       repeat_last_search('opposite', Math.max(1, command.count ?? 1));
+      return;
+    }
+    if (command.id === 'search:start') {
+      set_mode_return_focus(pane_focus);
+      set_mode_return_state_mode(state_mode);
+      set_search_entry_direction(command.direction ?? -1);
+      set_vim_mode('search');
+      set_input('');
+      set_history_cursor(null);
+      return;
+    }
+    if (command.id === 'search:end') {
+      set_input('');
+      set_history_cursor(null);
+      set_vim_mode('normal');
+      set_pane_focus(mode_return_focus);
+      return;
+    }
+    if (command.id === 'filter:start') {
+      set_mode_return_focus(pane_focus);
+      set_mode_return_state_mode(state_mode);
+      set_vim_mode('filter');
+      set_input('');
+      set_history_cursor(null);
+      return;
+    }
+    if (command.id === 'filter:end') {
+      set_input('');
+      set_history_cursor(null);
+      set_vim_mode('normal');
+      set_pane_focus(mode_return_focus);
+      return;
     }
   });
 

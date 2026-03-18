@@ -169,6 +169,8 @@ Overflow behavior:
 - `Ctrl+E` and `Ctrl+Y` move one line down/up in the events pane.
 - These scroll motions also move selection/cursor to stay aligned with viewport movement.
 - Internal command naming follows colon-style ids, with `cursor:line_*` for line motions and `viewport:*` for viewport motions.
+- Search/filter lifecycle commands are explicit: `search:start`/`search:end` and `filter:start`/`filter:end`.
+- Command routing is pane-first when possible; app handles global concerns, with `mode:*` treated as app-handled lifecycle.
 
 ### Runtime Subscription Stability
 

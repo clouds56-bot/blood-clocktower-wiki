@@ -24,7 +24,7 @@ export interface PlayerStateRow {
 }
 
 export function handle_state_pane_command(
-  command: { id: string; count?: number },
+  command: { id: string; count?: number; direction?: 1 | -1 },
   context: {
     state_mode: 'brief' | 'players' | 'json';
     page_size: number;
@@ -37,9 +37,23 @@ export function handle_state_pane_command(
     move_json_cursor: (delta: number) => void;
     jump_top: (count: number | null) => void;
     jump_bottom: () => void;
+    start_search: (direction: 1 | -1) => void;
+    end_search: () => void;
+    repeat_search: (kind: 'same' | 'opposite', count: number) => void;
+    cycle_state_mode: () => void;
+    cycle_inspector_mode: () => void;
   }
 ): boolean {
   const count = Math.max(1, command.count ?? 1);
+  if (command.id === 'state:cycle_mode') {
+    handlers.cycle_state_mode();
+    return true;
+  }
+  if (command.id === 'inspector:cycle_mode') {
+    handlers.cycle_inspector_mode();
+    return true;
+  }
+
   if (context.state_mode === 'players') {
     if (command.id === 'cursor:line_up') {
       handlers.move_player(-count, context.player_count, context.player_visible_count);
@@ -61,6 +75,22 @@ export function handle_state_pane_command(
   }
 
   if (context.state_mode === 'json') {
+    if (command.id === 'search:start') {
+      handlers.start_search(command.direction ?? 1);
+      return true;
+    }
+    if (command.id === 'search:end') {
+      handlers.end_search();
+      return true;
+    }
+    if (command.id === 'search:repeat_same') {
+      handlers.repeat_search('same', count);
+      return true;
+    }
+    if (command.id === 'search:repeat_opposite') {
+      handlers.repeat_search('opposite', count);
+      return true;
+    }
     if (command.id === 'cursor:line_up') {
       handlers.move_json_cursor(-count);
       return true;
