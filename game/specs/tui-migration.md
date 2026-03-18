@@ -119,6 +119,39 @@ These decisions are locked for current TUI behavior and should guide future refi
 - Escape sequences from mouse reporting must never leak into command input.
 - Keep text selection/copy ergonomics intact by allowing mouse mode to be disabled via the toggle when needed.
 
+## Input Mode Migration Decisions (Locked for Rebuild)
+
+These decisions define the vim-like input model for the TUI rebuild.
+
+### Modes
+
+- Input is mode-based with `normal` as default.
+- `:` enters command mode.
+- `/` enters search mode for event summaries.
+
+### Command and Search Cancellation
+
+- `Esc` exits command/search mode without execution.
+- `Backspace` on empty command/search input exits that mode.
+
+### Navigation Keys and Counts
+
+- In normal mode, `j` moves down and `k` moves up in the active pane behavior.
+- No `jk` sequence-buffer logic is used; behavior is per single keypress.
+- Numeric count prefixes apply to movement commands (for example `100j`).
+- `gg` jumps to the first row/item; counted form `Ngg` jumps to index/row `N`.
+
+Overflow behavior:
+
+- Events pane motion is saturating/clamped at bounds.
+- Players pane motion wraps circularly at bounds.
+
+### Search Repeat
+
+- `/` captures and stores the last search query for event summaries.
+- `n` repeats the search forward to the next match.
+- `N` repeats the search backward to the previous match.
+
 ### Runtime Subscription Stability
 
 - Channel subscriptions should be stable and not re-created for visual state changes.

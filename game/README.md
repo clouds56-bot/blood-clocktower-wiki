@@ -55,6 +55,29 @@ pnpm --filter game run tui -- my_game
   - `Up` / `Down` (while command focused): browse command history; in `State(players)` while state focused: move selected player
   - `Ctrl+C`: quit
 
+## TUI Rebuild Input Model (planned)
+
+The next TUI rebuild switches input from editor-like typing to a vim-like mode model.
+
+- Modes:
+  - `normal` (default): navigation and pane interaction
+  - `command`: enter with `:` and run CLI commands
+  - `search`: enter with `/` and search in events
+- Command/search cancellation:
+  - `Esc` cancels command/search mode.
+  - `Backspace` on empty command/search input also cancels that mode.
+- Movement keys in normal mode:
+  - `j` moves down and `k` moves up.
+  - No `jk` sequence buffer is used; behavior is strictly per keypress.
+- Count prefixes:
+  - Numeric prefixes apply to motion (for example `100j`).
+  - `gg` jumps to top, with optional count (`100gg` to jump to index/row 100).
+  - Events pane motions are saturated on overflow (clamped to bounds).
+  - Players pane motions wrap on overflow (circular navigation).
+- Search repeat:
+  - `n` jumps to next match for the last `/` search.
+  - `N` jumps to previous match for the last `/` search.
+
 ## Quick Start
 
 Create a ready-to-run setup (players + seats + random script-valid character/alignment assignment):
