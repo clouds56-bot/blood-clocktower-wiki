@@ -236,15 +236,18 @@ export function find_event_match_index(params: {
   event_entries: EventEntry[];
   view_indices: number[];
   selected_event_index: number | null;
+  include_start?: boolean;
 }): number | null {
-  const { query, direction, event_entries, view_indices, selected_event_index } = params;
+  const { query, direction, event_entries, view_indices, selected_event_index, include_start = false } = params;
   const needle = query.trim().toLowerCase();
   if (needle.length === 0 || view_indices.length === 0) {
     return null;
   }
   const current_absolute = selected_event_index ?? view_indices[view_indices.length - 1] ?? 0;
   const current_position = Math.max(0, view_indices.indexOf(current_absolute));
-  for (let step = 1; step <= view_indices.length; step += 1) {
+  const attempts = view_indices.length;
+  for (let iter = 0; iter < attempts; iter += 1) {
+    const step = include_start ? iter : iter + 1;
     const candidate_position = (current_position + direction * step + view_indices.length * 2) % view_indices.length;
     const candidate_absolute = view_indices[candidate_position];
     if (candidate_absolute === undefined) {

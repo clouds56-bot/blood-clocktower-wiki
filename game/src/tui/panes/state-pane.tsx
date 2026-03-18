@@ -12,14 +12,17 @@ export function find_state_json_match_index(params: {
   direction: 1 | -1;
   lines: string[];
   current_index: number;
+  include_start?: boolean;
 }): number | null {
-  const { query, direction, lines, current_index } = params;
+  const { query, direction, lines, current_index, include_start = false } = params;
   const needle = query.trim().toLowerCase();
   if (needle.length === 0 || lines.length === 0) {
     return null;
   }
   const current = clamp(current_index, 0, Math.max(0, lines.length - 1));
-  for (let step = 1; step <= lines.length; step += 1) {
+  const attempts = lines.length;
+  for (let iter = 0; iter < attempts; iter += 1) {
+    const step = include_start ? iter : iter + 1;
     const candidate = (current + direction * step + lines.length * 2) % lines.length;
     const line = lines[candidate] ?? '';
     if (line.toLowerCase().includes(needle)) {
