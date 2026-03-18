@@ -16,7 +16,7 @@ import { handle_tui_shortcut } from './shortcut.js';
 
 type StateMode = 'brief' | 'players' | 'json';
 type InspectorMode = 'overview' | 'prompts' | 'players' | 'markers' | 'output';
-type PaneFocus = 'events' | 'state' | 'command';
+type PaneFocus = 'events' | 'state';
 type StatusKind = 'status' | 'error';
 
 interface MarkerSeatToken {
@@ -296,13 +296,11 @@ function slice_from_bottom(lines: string[], visible_count: number, scroll_offset
 }
 
 function next_focus(focus: PaneFocus): PaneFocus {
-  if (focus === 'events') {
-    return 'state';
-  }
-  if (focus === 'state') {
-    return 'command';
-  }
-  return 'events';
+  return focus === 'events' ? 'state' : 'events';
+}
+
+function prev_focus(focus: PaneFocus): PaneFocus {
+  return focus === 'events' ? 'state' : 'events';
 }
 
 function ordered_player_ids(state: GameState): string[] {
@@ -444,7 +442,10 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [vim_mode, set_vim_mode] = useState<VimMode>('normal');
   const [count_prefix, set_count_prefix] = useState('');
   const [pending_g, set_pending_g] = useState(false);
+  const [active_search_query, set_active_search_query] = useState('');
   const [last_search_query, set_last_search_query] = useState('');
+  const [last_search_direction, set_last_search_direction] = useState<1 | -1>(-1);
+  const [filter_query, set_filter_query] = useState('');
   const [event_entries, set_event_entries] = useState<EventEntry[]>([]);
   const [selected_event_index, set_selected_event_index] = useState<number | null>(null);
   const [event_list_offset, set_event_list_offset] = useState(0);
@@ -469,13 +470,16 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [resolver_prompt_key, set_resolver_prompt_key] = useState<string | null>(null);
   const [resolver_multi_values, set_resolver_multi_values] = useState<string[]>([]);
   const [resolver_multi_column_index, set_resolver_multi_column_index] = useState(0);
-  const [pane_focus, set_pane_focus] = useState<PaneFocus>('command');
+  const [pane_focus, set_pane_focus] = useState<PaneFocus>('events');
+  const [mode_return_focus, set_mode_return_focus] = useState<PaneFocus>('events');
   const [status_errors_only, set_status_errors_only] = useState(false);
   const [mouse_scroll_enabled, set_mouse_scroll_enabled] = useState(true);
   const [, set_tick] = useState(0);
   const suppress_input_until_ref = useRef(0);
   const event_autoscroll_ref = useRef(event_autoscroll);
   const event_list_content_rows_ref = useRef(event_list_content_rows);
+  const event_view_indices_ref = useRef<number[]>([]);
+  const filter_query_ref = useRef(filter_query);
 
   useEffect(() => {
     event_autoscroll_ref.current = event_autoscroll;
@@ -484,6 +488,10 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   useEffect(() => {
     event_list_content_rows_ref.current = event_list_content_rows;
   }, [event_list_content_rows]);
+
+  useEffect(() => {
+    filter_query_ref.current = filter_query;
+  }, [filter_query]);
 
   function append_status_lines(lines: string[], kind: StatusKind = 'status'): void {
     if (lines.length === 0) {
@@ -513,62 +521,100 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     return keep_running;
   }
 
-  function select_event_at(index: number): void {
-    if (event_entries.length === 0) {
+  function event_matches_query(entry: EventEntry, query: string): boolean {
+    const needle = query.trim().toLowerCase();
+    if (needle.length === 0) {
+      return false;
+    }
+    const summary = format_event_summary_text(entry.event, entry.event_index, 256).toLowerCase();
+    return summary.includes(needle);
+  }
+
+  function select_event_by_view_position(view_position: number): void {
+    const view = event_view_indices_ref.current;
+    if (view.length === 0) {
       return;
     }
-    const next = clamp(index, 0, event_entries.length - 1);
-    const at_latest = next === event_entries.length - 1;
-    set_selected_event_index(next);
+    const clamped_position = clamp(view_position, 0, view.length - 1);
+    const absolute_index = view[clamped_position];
+    if (absolute_index === undefined) {
+      return;
+    }
+    const at_latest = clamped_position === view.length - 1;
+    set_selected_event_index(absolute_index);
     set_event_autoscroll(at_latest);
-    set_event_list_offset((offset) => ensure_visible_offset(next, offset, event_list_content_rows, event_entries.length));
+    set_event_list_offset((offset) =>
+      ensure_visible_offset(clamped_position, offset, event_list_content_rows, view.length)
+    );
+  }
+
+  function select_event_at(absolute_index: number): void {
+    const view = event_view_indices_ref.current;
+    if (view.length === 0) {
+      return;
+    }
+    const position = view.indexOf(absolute_index);
+    if (position >= 0) {
+      select_event_by_view_position(position);
+      return;
+    }
+    const fallback = clamp(absolute_index, 0, view.length - 1);
+    select_event_by_view_position(fallback);
   }
 
   function find_event_match_index(query: string, direction: 1 | -1): number | null {
     const needle = query.trim().toLowerCase();
-    if (needle.length === 0 || event_entries.length === 0) {
+    const source_indices = event_view_indices_ref.current;
+    if (needle.length === 0 || source_indices.length === 0) {
       return null;
     }
-    const current = selected_event_index ?? event_entries.length - 1;
-    for (let step = 1; step <= event_entries.length; step += 1) {
-      const candidate = (current + direction * step + event_entries.length * 2) % event_entries.length;
-      const entry = event_entries[candidate];
+    const current_absolute = selected_event_index ?? source_indices[source_indices.length - 1] ?? 0;
+    const current_position = Math.max(0, source_indices.indexOf(current_absolute));
+    for (let step = 1; step <= source_indices.length; step += 1) {
+      const candidate_position = (current_position + direction * step + source_indices.length * 2) % source_indices.length;
+      const candidate_absolute = source_indices[candidate_position];
+      if (candidate_absolute === undefined) {
+        continue;
+      }
+      const entry = event_entries[candidate_absolute];
       if (!entry) {
         continue;
       }
-      const summary = format_event_summary_text(entry.event, entry.event_index, 256).toLowerCase();
-      if (summary.includes(needle)) {
-        return candidate;
+      if (event_matches_query(entry, needle)) {
+        return candidate_absolute;
       }
     }
     return null;
   }
 
-  function run_event_search(query: string): void {
+  function run_event_search(query: string, direction: 1 | -1, emit_not_found = true): boolean {
     const needle = query.trim();
     if (needle.length === 0) {
-      append_status_lines(['(empty search)']);
-      return;
+      return false;
     }
-    set_last_search_query(needle);
-    const matched = find_event_match_index(needle, 1);
+    const matched = find_event_match_index(needle, direction);
     if (matched === null) {
-      append_status_lines([`(no match for /${needle})`]);
-      return;
+      if (emit_not_found) {
+        append_status_lines([`(no match for /${needle})`]);
+      }
+      return false;
     }
     select_event_at(matched);
+    return true;
   }
 
-  function repeat_event_search(direction: 1 | -1, count: number): void {
+  function repeat_event_search(kind: 'same' | 'opposite', count: number): void {
     const needle = last_search_query.trim();
     if (needle.length === 0) {
       append_status_lines(['(no previous search query)']);
       return;
     }
-    let matched: number | null = null;
+    const direction = kind === 'same'
+      ? last_search_direction
+      : (last_search_direction === 1 ? -1 : 1);
     const attempts = Math.max(1, count);
     for (let i = 0; i < attempts; i += 1) {
-      matched = find_event_match_index(needle, direction);
+      const matched = find_event_match_index(needle, direction);
       if (matched === null) {
         append_status_lines([`(no match for /${needle})`]);
         return;
@@ -583,12 +629,14 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       if (command.length === 0) {
         set_vim_mode('normal');
         set_input('');
+        set_pane_focus(mode_return_focus);
         return;
       }
       set_history((previous) => [...previous, command]);
       set_history_cursor(null);
       set_input('');
       set_vim_mode('normal');
+      set_pane_focus(mode_return_focus);
       const keep_running = run_command(command);
       if (!keep_running) {
         exit();
@@ -596,9 +644,30 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       return;
     }
     if (vim_mode === 'search') {
-      run_event_search(input);
+      const needle = input.trim();
+      if (needle.length === 0) {
+        set_active_search_query('');
+        set_last_search_query('');
+        set_vim_mode('normal');
+        set_input('');
+        set_pane_focus(mode_return_focus);
+        return;
+      }
+      set_active_search_query(needle);
+      set_last_search_query(needle);
+      set_last_search_direction(-1);
+      run_event_search(needle, -1, false);
       set_input('');
       set_vim_mode('normal');
+      set_pane_focus(mode_return_focus);
+      return;
+    }
+    if (vim_mode === 'filter') {
+      const needle = input.trim();
+      set_filter_query(needle);
+      set_input('');
+      set_vim_mode('normal');
+      set_pane_focus(mode_return_focus);
     }
   }
 
@@ -606,15 +675,28 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     set_input('');
     set_history_cursor(null);
     set_vim_mode('normal');
+    set_pane_focus(mode_return_focus);
   }
 
   function backspace_mode_input(): void {
     set_input((previous) => {
       if (previous.length === 0) {
         set_vim_mode('normal');
+        set_pane_focus(mode_return_focus);
         return '';
       }
-      return previous.slice(0, -1);
+      const next = previous.slice(0, -1);
+      if (vim_mode === 'search') {
+        const needle = next.trim();
+        set_active_search_query(needle);
+        if (needle.length > 0) {
+          run_event_search(needle, -1, false);
+        }
+      }
+      if (vim_mode === 'filter') {
+        set_filter_query(next.trim());
+      }
+      return next;
     });
   }
 
@@ -631,28 +713,33 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   }, []);
 
   const step_event_selection = useCallback((delta: number): void => {
-    if (event_entries.length === 0 || delta === 0) {
+    const view = event_view_indices_ref.current;
+    if (view.length === 0 || delta === 0) {
       return;
     }
-    set_selected_event_index((previous) => {
-      const current = previous ?? event_entries.length - 1;
-      const next = clamp(current + delta, 0, event_entries.length - 1);
-      const at_latest = next === event_entries.length - 1;
+    set_selected_event_index((previous_absolute) => {
+      const fallback = view[view.length - 1] ?? 0;
+      const current_absolute = previous_absolute ?? fallback;
+      const current_position = Math.max(0, view.indexOf(current_absolute));
+      const next_position = clamp(current_position + delta, 0, view.length - 1);
+      const next_absolute = view[next_position] ?? current_absolute;
+      const at_latest = next_position === view.length - 1;
       set_event_autoscroll(at_latest);
       set_event_list_offset((offset) =>
-        ensure_visible_offset(next, offset, event_list_content_rows, event_entries.length)
+        ensure_visible_offset(next_position, offset, event_list_content_rows, view.length)
       );
-      return next;
+      return next_absolute;
     });
-  }, [event_entries.length, event_list_content_rows]);
+  }, [event_list_content_rows]);
 
   const jump_top_selection = useCallback((count: number | null): void => {
     if (pane_focus === 'events') {
-      if (event_entries.length === 0) {
+      const total_count = event_view_indices_ref.current.length;
+      if (total_count === 0) {
         return;
       }
-      const target = count === null ? 0 : clamp(count - 1, 0, event_entries.length - 1);
-      select_event_at(target);
+      const target_position = count === null ? 0 : clamp(count - 1, 0, total_count - 1);
+      select_event_by_view_position(target_position);
       return;
     }
     if (pane_focus === 'state' && state_mode === 'players') {
@@ -665,7 +752,26 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       set_selected_player_index(wrapped_target);
       set_player_list_offset((offset) => ensure_visible_offset(wrapped_target, offset, Math.max(1, state_content_rows - 4), total_count));
     }
-  }, [pane_focus, event_entries.length, state_mode, context.state, state_content_rows]);
+  }, [pane_focus, state_mode, context.state, state_content_rows]);
+
+  const jump_bottom_selection = useCallback((): void => {
+    if (pane_focus === 'events') {
+      const total_count = event_view_indices_ref.current.length;
+      if (total_count <= 0) {
+        return;
+      }
+      select_event_by_view_position(total_count - 1);
+      return;
+    }
+    if (pane_focus === 'state' && state_mode === 'players') {
+      const total_count = ordered_player_ids(context.state).length;
+      if (total_count <= 0) {
+        return;
+      }
+      set_selected_player_index(total_count - 1);
+      set_player_list_offset((offset) => ensure_visible_offset(total_count - 1, offset, Math.max(1, state_content_rows - 4), total_count));
+    }
+  }, [pane_focus, state_mode, context.state, state_content_rows]);
 
   useEffect(() => {
     const unsubscribe = channel_bus.subscribe('*', (message) => {
@@ -683,7 +789,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
         set_event_entries((previous) => {
           const next_index = message.event_index ?? previous.length + 1;
           const merged = [...previous, { event, event_index: next_index }];
-          if (event_autoscroll_ref.current) {
+          if (event_autoscroll_ref.current && filter_query_ref.current.trim().length === 0) {
             const latest = merged.length - 1;
             set_selected_event_index(latest);
             const max_offset = Math.max(0, merged.length - event_list_content_rows_ref.current);
@@ -1040,20 +1146,21 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       {
         exit,
         open_resolver,
-        cycle_focus: () => set_pane_focus((focus) => next_focus(focus)),
+        cycle_focus_forward: () => set_pane_focus((focus) => next_focus(focus)),
+        cycle_focus_backward: () => set_pane_focus((focus) => prev_focus(focus)),
         toggle_event_autoscroll: () => set_event_autoscroll((value) => !value),
         toggle_mouse_scroll: () => set_mouse_scroll_enabled((value) => !value),
         toggle_event_key: () => set_show_event_key((value) => !value),
         jump_latest_event: () => {
-          const last_index = event_entries.length - 1;
-          if (last_index >= 0) {
-            select_event_at(last_index);
+          const view = event_view_indices_ref.current;
+          if (view.length > 0) {
+            select_event_by_view_position(view.length - 1);
           }
         },
         toggle_status_errors_only: () => set_status_errors_only((value) => !value),
         scroll_events_page: (delta) => {
           set_event_autoscroll(false);
-          const max_offset = Math.max(0, event_entries.length - event_list_content_rows);
+          const max_offset = Math.max(0, event_view_indices_ref.current.length - event_list_content_rows);
           set_event_list_offset((value) => clamp(value + delta, 0, max_offset));
         },
         cycle_state_mode: () => set_state_mode((mode) => next_state_mode(mode)),
@@ -1088,18 +1195,35 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
           });
         },
         mode_enter: (mode) => {
+          set_mode_return_focus(pane_focus);
           set_vim_mode(mode);
           set_input('');
           set_history_cursor(null);
         },
         mode_cancel: cancel_mode_input,
         mode_submit: submit_mode_input,
-        mode_append: (value) => set_input((current) => `${current}${value}`),
+        mode_append: (value) => {
+          set_input((current) => {
+            const next = `${current}${value}`;
+            if (vim_mode === 'search') {
+              const needle = next.trim();
+              set_active_search_query(needle);
+              if (needle.length > 0) {
+                run_event_search(needle, -1, false);
+              }
+            }
+            if (vim_mode === 'filter') {
+              set_filter_query(next.trim());
+            }
+            return next;
+          });
+        },
         mode_backspace: backspace_mode_input,
         set_count_prefix,
         clear_count_prefix: () => set_count_prefix(''),
         set_pending_g,
         jump_top: jump_top_selection,
+        jump_bottom: jump_bottom_selection,
         search_repeat: repeat_event_search
       }
     );
@@ -1253,17 +1377,85 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
               ? output_inspector_lines
               : ['(no output yet)'];
 
+  const matched_event_indices = useMemo(() => {
+    const indices = new Set<number>();
+    const search_needle = active_search_query.trim();
+    if (search_needle.length === 0) {
+      return indices;
+    }
+    for (let index = 0; index < event_entries.length; index += 1) {
+      const entry = event_entries[index];
+      if (!entry) {
+        continue;
+      }
+      if (event_matches_query(entry, search_needle)) {
+        indices.add(index);
+      }
+    }
+    return indices;
+  }, [active_search_query, event_entries]);
+
+  const event_view_indices = useMemo(() => {
+    const filter_needle = filter_query.trim();
+    if (filter_needle.length === 0) {
+      return event_entries.map((_, index) => index);
+    }
+    return event_entries
+      .map((entry, index) => ({ entry, index }))
+      .filter(({ entry }) => event_matches_query(entry, filter_needle))
+      .map(({ index }) => index);
+  }, [event_entries, filter_query]);
+  event_view_indices_ref.current = event_view_indices;
+
+  useEffect(() => {
+    if (event_view_indices.length === 0) {
+      if (selected_event_index !== null) {
+        set_selected_event_index(null);
+      }
+      set_event_list_offset(0);
+      return;
+    }
+    if (selected_event_index === null || event_view_indices.indexOf(selected_event_index) < 0) {
+      const fallback = event_view_indices[event_view_indices.length - 1] ?? null;
+      if (fallback !== null) {
+        set_selected_event_index(fallback);
+      }
+    }
+  }, [event_view_indices, selected_event_index]);
+
+  const default_selected_event_index = event_view_indices.length > 0
+    ? event_view_indices[event_view_indices.length - 1] ?? null
+    : null;
   const clamped_selected_event_index = selected_event_index === null
-    ? (event_entries.length === 0 ? null : event_entries.length - 1)
-    : clamp(selected_event_index, 0, Math.max(0, event_entries.length - 1));
-  const max_event_offset = Math.max(0, event_entries.length - event_list_content_rows);
+    ? default_selected_event_index
+    : event_entries[selected_event_index]
+      ? selected_event_index
+      : default_selected_event_index;
+
+  const selected_view_position = clamped_selected_event_index === null
+    ? null
+    : (() => {
+        const position = event_view_indices.indexOf(clamped_selected_event_index);
+        return position >= 0 ? position : null;
+      })();
+
+  const max_event_offset = Math.max(0, event_view_indices.length - event_list_content_rows);
   const effective_event_offset = event_autoscroll
     ? max_event_offset
     : clamp(event_list_offset, 0, max_event_offset);
-  const visible_event_entries = event_entries.slice(
-    effective_event_offset,
-    effective_event_offset + event_list_content_rows
-  );
+  const visible_event_entries = event_view_indices
+    .slice(effective_event_offset, effective_event_offset + event_list_content_rows)
+    .map((absolute_index) => {
+      const entry = event_entries[absolute_index];
+      if (!entry) {
+        return null;
+      }
+      return {
+        ...entry,
+        absolute_index
+      };
+    })
+    .filter((entry): entry is EventEntry & { absolute_index: number } => Boolean(entry));
   const selected_event = clamped_selected_event_index === null
     ? null
     : event_entries[clamped_selected_event_index] ?? null;
@@ -1275,18 +1467,18 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     { length: Math.max(1, event_overlay_rows - 1) },
     (_, index) => visible_event_details[index] ?? ''
   );
-  const selected_visible_index = clamped_selected_event_index === null
+  const selected_visible_index = selected_view_position === null
     ? null
-    : clamped_selected_event_index - effective_event_offset;
+    : selected_view_position - effective_event_offset;
   const overlay_base_top = 2;
   const overlay_bottom_top = Math.max(overlay_base_top, event_panel_content_rows - event_overlay_rows);
   const overlay_top = selected_visible_index !== null && selected_visible_index < event_overlay_rows
     ? overlay_bottom_top
-    : event_entries.length === 0
+    : event_view_indices.length === 0
       ? overlay_bottom_top
       : overlay_base_top;
   const event_scrollbar_line = render_scrollbar_line(
-    event_entries.length,
+    event_view_indices.length,
     event_list_content_rows,
     effective_event_offset
   );
@@ -1323,7 +1515,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     <Box flexDirection="column" width={columns} height={available_rows}>
       <Box borderStyle="single" paddingX={1} height={header_height}>
         <Text>
-          phase={context.state.phase}/{context.state.subphase} day={context.state.day_number} night={context.state.night_number} alive={alive_count}/{players_total} prompts={prompt_count} | mode={vim_mode} focus={pane_focus} count={count_prefix || '1'} | events autoscroll={event_autoscroll} key={show_event_key ? 'shown' : 'hidden'} mouse={mouse_scroll_enabled ? 'on' : 'off'} | : command | / search | j/k move | gg top | n/N repeat | Ctrl+W pane | Ctrl+R resolver | Ctrl+C quit
+          phase={context.state.phase}/{context.state.subphase} day={context.state.day_number} night={context.state.night_number} alive={alive_count}/{players_total} prompts={prompt_count} | mode={vim_mode} focus={pane_focus} count={count_prefix || '1'} | events autoscroll={event_autoscroll} key={show_event_key ? 'shown' : 'hidden'} mouse={mouse_scroll_enabled ? 'on' : 'off'} | : command | / search | ? filter | j/k move | gg/G | n/N repeat | w/W pane | Ctrl+R resolver | Ctrl+C quit
         </Text>
       </Box>
 
@@ -1338,6 +1530,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
           visible_event_entries={visible_event_entries}
           effective_event_offset={effective_event_offset}
           selected_event_index={clamped_selected_event_index}
+          matched_event_indices={matched_event_indices}
           overlay_top={overlay_top}
           event_overlay_rows={event_overlay_rows}
           overlay_detail_rows={overlay_detail_rows}

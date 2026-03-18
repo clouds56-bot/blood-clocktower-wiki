@@ -18,15 +18,16 @@ function fit_line(text: string, width: number): string {
 }
 
 export function EventsPane(props: {
-  pane_focus: 'events' | 'state' | 'command';
+  pane_focus: 'events' | 'state';
   main_height: number;
   left_pane_width: number;
   event_entries: EventEntry[];
   event_autoscroll: boolean;
   event_scrollbar_line: string;
-  visible_event_entries: EventEntry[];
+  visible_event_entries: Array<EventEntry & { absolute_index: number }>;
   effective_event_offset: number;
   selected_event_index: number | null;
+  matched_event_indices: Set<number>;
   overlay_top: number;
   event_overlay_rows: number;
   overlay_detail_rows: string[];
@@ -41,6 +42,7 @@ export function EventsPane(props: {
     visible_event_entries,
     effective_event_offset,
     selected_event_index,
+    matched_event_indices,
     overlay_top,
     event_overlay_rows,
     overlay_detail_rows
@@ -69,6 +71,7 @@ export function EventsPane(props: {
                 event={entry.event}
                 event_index={entry.event_index}
                 selected={selected}
+                matched={matched_event_indices.has(entry.absolute_index)}
                 width={left_pane_width}
               />
             );

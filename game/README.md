@@ -47,12 +47,18 @@ pnpm --filter game run tui -- my_game
   - `Ctrl+R`: open floating prompt resolver window
     - normal prompts: choose prompt, then choose option
     - multi-column prompts: `Left/Right` switch column, `Up/Down` choose value, `Enter` resolve
-  - `Ctrl+W`: cycle focused pane (`events -> state -> command`)
+  - `w` / `W`: cycle focused pane (`events <-> state`)
+  - `:` enter command mode, `Enter` run command, `Esc` cancel
+  - `/` enter immediate search mode in events, `Enter` commit, `/<enter>` clear search
+  - `?` enter immediate filter mode in events, `?<enter>` clear filter
+  - `j` / `k`: move down/up in focused pane (`events` clamped, `players` wrapped)
+  - `gg` / `G`: jump to first/last row; count supported for motions (for example `100j`, `100gg`)
+  - `n` / `N`: repeat search same/opposite direction
   - `Ctrl+U` / `Ctrl+D`: scroll events pane up/down
   - `Ctrl+E`: toggle status pane filter (errors only)
   - `Ctrl+S`: cycle state panel (`brief -> players -> json`)
   - `Ctrl+G`: cycle inspector panel (`overview -> prompts -> players -> markers -> output`)
-  - `Up` / `Down` (while command focused): browse command history; in `State(players)` while state focused: move selected player
+  - `Up` / `Down` (in command mode): browse command history
   - `Ctrl+C`: quit
 
 ## TUI Rebuild Input Model (planned)
@@ -69,14 +75,23 @@ The next TUI rebuild switches input from editor-like typing to a vim-like mode m
 - Movement keys in normal mode:
   - `j` moves down and `k` moves up.
   - No `jk` sequence buffer is used; behavior is strictly per keypress.
+  - `G` jumps to last row/item in the active pane.
+  - `w` / `W` cycles pane focus (no command pane in focus cycle).
 - Count prefixes:
   - Numeric prefixes apply to motion (for example `100j`).
   - `gg` jumps to top, with optional count (`100gg` to jump to index/row 100).
   - Events pane motions are saturated on overflow (clamped to bounds).
   - Players pane motions wrap on overflow (circular navigation).
 - Search repeat:
-  - `n` jumps to next match for the last `/` search.
-  - `N` jumps to previous match for the last `/` search.
+  - `/` search is immediate while typing and highlights matches.
+  - `/` defaults to backward jump direction in events.
+  - `/<enter>` clears active search.
+  - `n` repeats in the same direction as the last search.
+  - `N` repeats in the opposite direction of the last search.
+- Filter mode:
+  - `?` enters immediate filter mode for events.
+  - only matching rows are shown while filtering.
+  - `?<enter>` clears the filter.
 
 ## Quick Start
 

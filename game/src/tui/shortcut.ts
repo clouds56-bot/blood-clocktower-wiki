@@ -12,9 +12,9 @@ export interface InputKey {
   tab?: boolean;
 }
 
-type PaneFocus = 'events' | 'state' | 'command';
+type PaneFocus = 'events' | 'state';
 type StateMode = 'brief' | 'players' | 'json';
-type VimMode = 'normal' | 'command' | 'search';
+type VimMode = 'normal' | 'command' | 'search' | 'filter';
 
 export interface ShortcutContext {
   suppress_input: boolean;
@@ -32,7 +32,8 @@ export interface ShortcutContext {
 export interface ShortcutHandlers {
   exit: () => void;
   open_resolver: () => void;
-  cycle_focus: () => void;
+  cycle_focus_forward: () => void;
+  cycle_focus_backward: () => void;
   toggle_event_autoscroll: () => void;
   toggle_mouse_scroll: () => void;
   toggle_event_key: () => void;
@@ -54,7 +55,8 @@ export interface ShortcutHandlers {
   clear_count_prefix: () => void;
   set_pending_g: (value: boolean) => void;
   jump_top: (count: number | null) => void;
-  search_repeat: (direction: 1 | -1, count: number) => void;
+  jump_bottom: () => void;
+  search_repeat: (kind: 'same' | 'opposite', count: number) => void;
 }
 
 function parse_count(prefix: string): number {
@@ -92,8 +94,16 @@ export function handle_tui_shortcut(
     handlers.open_resolver();
     return true;
   }
+  if (context.mode === 'normal' && input_key === 'w') {
+    handlers.cycle_focus_forward();
+    return true;
+  }
+  if (context.mode === 'normal' && input_key === 'W') {
+    handlers.cycle_focus_backward();
+    return true;
+  }
   if (key.ctrl && input_key === 'w') {
-    handlers.cycle_focus();
+    handlers.cycle_focus_forward();
     return true;
   }
   if (key.ctrl && input_key === 'a') {
@@ -137,7 +147,7 @@ export function handle_tui_shortcut(
     return true;
   }
 
-  if (context.mode === 'command' || context.mode === 'search') {
+  if (context.mode === 'command' || context.mode === 'search' || context.mode === 'filter') {
     if (key.escape) {
       handlers.mode_cancel();
       return true;
@@ -182,6 +192,11 @@ export function handle_tui_shortcut(
     handlers.mode_enter('search');
     return true;
   }
+  if (input_key === '?') {
+    reset_motion_state(handlers);
+    handlers.mode_enter('filter');
+    return true;
+  }
 
   if (/^[0-9]$/.test(input_key)) {
     const next = `${context.count_prefix}${input_key}`.slice(0, 8);
@@ -223,13 +238,19 @@ export function handle_tui_shortcut(
     return true;
   }
 
+  if (input_key === 'G') {
+    handlers.jump_bottom();
+    reset_motion_state(handlers);
+    return true;
+  }
+
   if (input_key === 'n') {
-    handlers.search_repeat(1, count);
+    handlers.search_repeat('same', count);
     reset_motion_state(handlers);
     return true;
   }
   if (input_key === 'N') {
-    handlers.search_repeat(-1, count);
+    handlers.search_repeat('opposite', count);
     reset_motion_state(handlers);
     return true;
   }

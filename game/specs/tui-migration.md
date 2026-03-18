@@ -140,6 +140,8 @@ These decisions define the vim-like input model for the TUI rebuild.
 - No `jk` sequence-buffer logic is used; behavior is per single keypress.
 - Numeric count prefixes apply to movement commands (for example `100j`).
 - `gg` jumps to the first row/item; counted form `Ngg` jumps to index/row `N`.
+- `G` jumps to the last row/item.
+- Pane focus moves with `w`/`W` and cycles only between navigable panes (`events` and `state`), excluding command mode.
 
 Overflow behavior:
 
@@ -148,9 +150,17 @@ Overflow behavior:
 
 ### Search Repeat
 
-- `/` captures and stores the last search query for event summaries.
-- `n` repeats the search forward to the next match.
-- `N` repeats the search backward to the previous match.
+- `/` is immediate while typing, highlights matches, and stores the last search query for event summaries.
+- `/` uses backward direction by default for the initial jump.
+- `/<enter>` clears the active search query/highlights.
+- `n` repeats in the same direction as the last search.
+- `N` repeats in the opposite direction.
+
+### Filter Mode
+
+- `?` enters immediate filter mode for the events pane.
+- While filtering, only matching rows are shown.
+- `?<enter>` clears the active filter.
 
 ### Runtime Subscription Stability
 
@@ -164,7 +174,7 @@ These decisions lock the current storyteller-oriented state panel behavior.
 
 ### Focus and Input Principles
 
-- Focus cycle is intentionally limited to `events -> state -> command` (`Ctrl+W`).
+- Focus cycle is intentionally limited to `events <-> state` (`w`/`W`).
 - `inspector` and `status` panes are always visible but are not focus targets.
 - Command editing/submit is active only when focus is `command`.
 - Player selection (`Up`/`Down`) is active only when focus is `state` and state mode is `players`.

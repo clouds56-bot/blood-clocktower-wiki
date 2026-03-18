@@ -32,7 +32,7 @@ function fit_line(text: string, width: number): string {
 }
 
 export function StatePane(props: {
-  pane_focus: 'events' | 'state' | 'command';
+  pane_focus: 'events' | 'state';
   state_height: number;
   right_pane_width: number;
   state_mode: 'brief' | 'players' | 'json';
