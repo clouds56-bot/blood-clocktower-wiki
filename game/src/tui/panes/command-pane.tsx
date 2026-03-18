@@ -29,7 +29,7 @@ export function handle_command_mode_command(
     set_history: (updater: (previous: string[]) => string[]) => void;
     set_history_cursor: (value: number | null | ((previous: number | null) => number | null)) => void;
     set_mode_return_context: (pane_focus: PaneFocus, state_mode: StateMode) => void;
-    set_search_entry_direction: (direction: 1 | -1) => void;
+    set_search_entry_direction: (target: SearchTarget, direction: 1 | -1) => void;
     set_pane_focus: (focus: PaneFocus) => void;
     start_search_session: (target: SearchTarget) => void;
     cancel_search: (target: SearchTarget) => void;
@@ -84,7 +84,7 @@ export function handle_command_mode_command(
     const target = resolve_search_target(context.pane_focus, context.state_mode);
     handlers.set_mode_return_context(context.pane_focus, context.state_mode);
     handlers.start_search_session(target);
-    handlers.set_search_entry_direction(command.direction ?? -1);
+    handlers.set_search_entry_direction(target, command.direction ?? -1);
     handlers.set_mode('search');
     handlers.set_input('');
     handlers.set_history_cursor(null);

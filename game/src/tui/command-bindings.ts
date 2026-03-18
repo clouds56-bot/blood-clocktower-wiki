@@ -132,6 +132,9 @@ export function resolve_tui_command(
       return result(true, { id: 'mode:submit' }, next_count, next_pending_g);
     }
     if (key.backspace || key.delete) {
+      if (context.mode === 'command' && context.mode_input.length === 0) {
+        return result(true, { id: 'mode:cancel' }, next_count, next_pending_g);
+      }
       return result(true, { id: 'mode:backspace' }, next_count, next_pending_g);
     }
 

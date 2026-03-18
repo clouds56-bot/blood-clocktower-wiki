@@ -9,6 +9,111 @@ interface EventEntry {
   event_index: number;
 }
 
+export type SearchPhase = 'idle' | 'preview' | 'started';
+
+export interface EventPaneSearchState {
+  query: string;
+  last_query: string;
+  last_direction: 1 | -1;
+  entry_direction: 1 | -1;
+  phase: SearchPhase;
+  start_index: number | null;
+  anchor_index: number | null;
+}
+
+export function create_event_pane_search_state(): EventPaneSearchState {
+  return {
+    query: '',
+    last_query: '',
+    last_direction: -1,
+    entry_direction: -1,
+    phase: 'idle',
+    start_index: null,
+    anchor_index: null
+  };
+}
+
+export function begin_event_pane_search(
+  state: EventPaneSearchState,
+  selected_index: number | null,
+  direction: 1 | -1
+): EventPaneSearchState {
+  return {
+    ...state,
+    entry_direction: direction,
+    phase: 'preview',
+    start_index: selected_index,
+    anchor_index: selected_index,
+    query: ''
+  };
+}
+
+export function update_event_pane_search_preview(
+  state: EventPaneSearchState,
+  query: string
+): EventPaneSearchState {
+  return {
+    ...state,
+    query,
+    phase: 'preview'
+  };
+}
+
+export function commit_event_pane_search(
+  state: EventPaneSearchState,
+  query: string,
+  matched: boolean
+): EventPaneSearchState {
+  if (!matched) {
+    return {
+      ...state,
+      query,
+      phase: 'preview'
+    };
+  }
+  return {
+    ...state,
+    query,
+    last_query: query,
+    last_direction: state.entry_direction,
+    phase: 'started'
+  };
+}
+
+export function end_event_pane_search(state: EventPaneSearchState): EventPaneSearchState {
+  return {
+    ...state,
+    phase: 'idle',
+    start_index: null,
+    anchor_index: null
+  };
+}
+
+export function clear_event_pane_search(state: EventPaneSearchState): EventPaneSearchState {
+  return {
+    ...state,
+    query: '',
+    last_query: ''
+  };
+}
+
+export function cancel_event_pane_search(state: EventPaneSearchState): {
+  next: EventPaneSearchState;
+  restore_index: number | null;
+} {
+  const restore_index = state.phase === 'preview' ? state.start_index : null;
+  return {
+    next: {
+      ...state,
+      query: '',
+      phase: 'idle',
+      start_index: null,
+      anchor_index: null
+    },
+    restore_index
+  };
+}
+
 function clamp(value: number, min: number, max: number): number {
   return Math.min(max, Math.max(min, value));
 }

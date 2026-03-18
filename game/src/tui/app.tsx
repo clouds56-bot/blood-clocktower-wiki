@@ -10,18 +10,33 @@ import { resolve_tui_command, route_tui_command, type TuiCommand } from './comma
 import { CommandPane, handle_command_mode_command, type VimMode } from './panes/command-pane.js';
 import {
   EventsPane,
+  begin_event_pane_search,
+  cancel_event_pane_search,
+  clear_event_pane_search,
+  commit_event_pane_search,
+  create_event_pane_search_state,
   derive_event_view_model,
+  end_event_pane_search,
   event_matches_query,
   find_event_match_index,
-  handle_events_pane_command
+  handle_events_pane_command,
+  update_event_pane_search_preview
 } from './panes/events-pane.js';
 import { InspectorPane } from './panes/inspector-pane.js';
 import {
   StatePane,
+  begin_state_json_search,
+  cancel_state_json_search,
+  clear_state_json_search,
+  commit_state_json_search,
+  create_state_json_search_state,
   derive_player_state_model,
+  end_state_json_search,
   find_state_json_match_index,
+  type SearchPhase,
   ordered_player_ids,
-  handle_state_pane_command
+  handle_state_pane_command,
+  update_state_json_search_preview
 } from './panes/state-pane.js';
 import { StatusPane } from './panes/status-pane.js';
 
@@ -273,16 +288,11 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [vim_mode, set_vim_mode] = useState<VimMode>('normal');
   const [count_prefix, set_count_prefix] = useState('');
   const [pending_g, set_pending_g] = useState(false);
-  const [event_search_query, set_event_search_query] = useState('');
-  const [last_event_search_query, set_last_event_search_query] = useState('');
-  const [last_event_search_direction, set_last_event_search_direction] = useState<1 | -1>(-1);
-  const [search_entry_direction, set_search_entry_direction] = useState<1 | -1>(-1);
+  const [event_search_state, set_event_search_state] = useState(create_event_pane_search_state);
   const [filter_query, set_filter_query] = useState('');
   const [state_json_cursor, set_state_json_cursor] = useState(0);
   const [state_json_offset, set_state_json_offset] = useState(0);
-  const [state_json_search_query, set_state_json_search_query] = useState('');
-  const [last_state_json_search_query, set_last_state_json_search_query] = useState('');
-  const [last_state_json_search_direction, set_last_state_json_search_direction] = useState<1 | -1>(1);
+  const [state_json_search_state, set_state_json_search_state] = useState(create_state_json_search_state);
   const [event_entries, set_event_entries] = useState<EventEntry[]>([]);
   const [selected_event_index, set_selected_event_index] = useState<number | null>(null);
   const [event_list_offset, set_event_list_offset] = useState(0);
@@ -310,11 +320,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [pane_focus, set_pane_focus] = useState<PaneFocus>('events');
   const [mode_return_focus, set_mode_return_focus] = useState<PaneFocus>('events');
   const [mode_return_state_mode, set_mode_return_state_mode] = useState<StateMode>('players');
-  const [search_start_event_index, set_search_start_event_index] = useState<number | null>(null);
-  const [search_start_state_json_cursor, set_search_start_state_json_cursor] = useState<number | null>(null);
-  const [search_anchor_event_index, set_search_anchor_event_index] = useState<number | null>(null);
-  const [search_anchor_state_json_cursor, set_search_anchor_state_json_cursor] = useState<number | null>(null);
-  const [search_phase, set_search_phase] = useState<'idle' | 'preview' | 'started'>('idle');
+  const [search_phase, set_search_phase] = useState<SearchPhase>('idle');
   const [status_errors_only, set_status_errors_only] = useState(false);
   const [mouse_scroll_enabled, set_mouse_scroll_enabled] = useState(true);
   const [, set_tick] = useState(0);
@@ -497,14 +503,14 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   }
 
   function repeat_event_search(kind: 'same' | 'opposite', count: number): void {
-    const needle = last_event_search_query.trim();
+    const needle = event_search_state.last_query.trim();
     if (needle.length === 0) {
       append_status_lines(['(no previous search query in events)']);
       return;
     }
     const direction = kind === 'same'
-      ? last_event_search_direction
-      : (last_event_search_direction === 1 ? -1 : 1);
+      ? event_search_state.last_direction
+      : (event_search_state.last_direction === 1 ? -1 : 1);
     const attempts = Math.max(1, count);
     for (let i = 0; i < attempts; i += 1) {
       const matched = find_event_match_index({
@@ -523,14 +529,14 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   }
 
   function repeat_state_json_search(kind: 'same' | 'opposite', count: number): void {
-    const needle = last_state_json_search_query.trim();
+    const needle = state_json_search_state.last_query.trim();
     if (needle.length === 0) {
       append_status_lines(['(no previous search query in state json)']);
       return;
     }
     const direction = kind === 'same'
-      ? last_state_json_search_direction
-      : (last_state_json_search_direction === 1 ? -1 : 1);
+      ? state_json_search_state.last_direction
+      : (state_json_search_state.last_direction === 1 ? -1 : 1);
     const attempts = Math.max(1, count);
     for (let i = 0; i < attempts; i += 1) {
       const matched = find_state_json_match_index({
@@ -549,48 +555,38 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   }
 
   function start_search_session(target: 'events' | 'state_json'): void {
-    set_search_phase('preview');
     if (target === 'state_json') {
-      set_search_start_state_json_cursor(state_json_cursor);
-      set_search_anchor_state_json_cursor(state_json_cursor);
-      set_search_start_event_index(null);
-      set_search_anchor_event_index(null);
+      set_state_json_search_state((previous) => begin_state_json_search(previous, state_json_cursor, previous.entry_direction));
+      set_search_phase('preview');
       return;
     }
-    set_search_start_event_index(selected_event_index);
-    set_search_anchor_event_index(selected_event_index);
-    set_search_start_state_json_cursor(null);
-    set_search_anchor_state_json_cursor(null);
+    set_event_search_state((previous) => begin_event_pane_search(previous, selected_event_index, previous.entry_direction));
+    set_search_phase('preview');
   }
 
   function cancel_search_session(target: 'events' | 'state_json'): void {
-    if (search_phase !== 'preview') {
-      return;
-    }
     if (target === 'state_json') {
-      if (search_start_state_json_cursor !== null) {
-        const restored = clamp(search_start_state_json_cursor, 0, Math.max(0, state_json_lines.length - 1));
+      const cancelled = cancel_state_json_search(state_json_search_state);
+      set_state_json_search_state(cancelled.next);
+      if (cancelled.restore_cursor !== null) {
+        const restored = clamp(cancelled.restore_cursor, 0, Math.max(0, state_json_lines.length - 1));
         set_state_json_cursor(restored);
         set_state_json_offset((offset) => ensure_visible_offset(restored, offset, state_content_rows, state_json_lines.length));
       }
-      set_search_start_state_json_cursor(null);
-      set_search_anchor_state_json_cursor(null);
       set_search_phase('idle');
       return;
     }
-    if (search_start_event_index !== null) {
-      select_event_at(search_start_event_index);
+    const cancelled = cancel_event_pane_search(event_search_state);
+    set_event_search_state(cancelled.next);
+    if (cancelled.restore_index !== null) {
+      select_event_at(cancelled.restore_index);
     }
-    set_search_start_event_index(null);
-    set_search_anchor_event_index(null);
     set_search_phase('idle');
   }
 
   function close_search_session(): void {
-    set_search_start_event_index(null);
-    set_search_start_state_json_cursor(null);
-    set_search_anchor_event_index(null);
-    set_search_anchor_state_json_cursor(null);
+    set_event_search_state((previous) => end_event_pane_search(previous));
+    set_state_json_search_state((previous) => end_state_json_search(previous));
     set_search_phase('idle');
   }
 
@@ -749,7 +745,22 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
           continue;
         }
 
-        step_event_selection(is_wheel_up ? -1 : 1);
+        handle_events_pane_command(
+          {
+            id: is_wheel_up ? 'cursor:line_up' : 'cursor:line_down',
+            count: 1
+          },
+          {
+            page_size: Math.max(1, event_list_content_rows_ref.current - 1),
+            half_page_size: Math.max(1, Math.floor(event_list_content_rows_ref.current / 2))
+          },
+          {
+            move_cursor: step_event_selection,
+            jump_top: () => undefined,
+            jump_bottom: () => undefined,
+            repeat_search: () => undefined
+          }
+        );
       }
     };
 
@@ -1038,7 +1049,9 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       count_prefix,
       pending_g,
       mode_input: input,
-      search_entry_direction
+      search_entry_direction: mode_return_focus === 'state' && mode_return_state_mode === 'json'
+        ? state_json_search_state.entry_direction
+        : event_search_state.entry_direction
     });
 
     if (binding.count_prefix !== count_prefix) {
@@ -1079,7 +1092,9 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
           state_mode,
           mode_return_focus,
           mode_return_state_mode,
-          search_entry_direction
+          search_entry_direction: mode_return_focus === 'state' && mode_return_state_mode === 'json'
+            ? state_json_search_state.entry_direction
+            : event_search_state.entry_direction
         },
         {
           set_mode: set_vim_mode,
@@ -1090,53 +1105,63 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
             set_mode_return_focus(focus);
             set_mode_return_state_mode(mode);
           },
-          set_search_entry_direction,
+          set_search_entry_direction: (target, direction) => {
+            if (target === 'state_json') {
+              set_state_json_search_state((previous) => ({ ...previous, entry_direction: direction }));
+            } else {
+              set_event_search_state((previous) => ({ ...previous, entry_direction: direction }));
+            }
+          },
           set_pane_focus,
           start_search_session,
           cancel_search: cancel_search_session,
           apply_search_preview: (target, query, direction) => {
             if (target === 'state_json') {
-              set_state_json_search_query(query);
-              if (query.length > 0) {
-                const base = search_anchor_state_json_cursor ?? state_json_cursor;
-                run_state_json_search(query, direction, false, base, true);
-              }
+              set_state_json_search_state((previous) => {
+                const next = update_state_json_search_preview(previous, query);
+                const pattern = query.trim();
+                if (pattern.length > 0) {
+                  const base = next.anchor_cursor ?? state_json_cursor;
+                  run_state_json_search(pattern, direction, false, base, true);
+                }
+                return next;
+              });
             } else {
-              set_event_search_query(query);
-              if (query.length > 0) {
-                const base = search_anchor_event_index ?? selected_event_index;
-                run_event_search(query, direction, false, base, true);
-              }
+              set_event_search_state((previous) => {
+                const next = update_event_pane_search_preview(previous, query);
+                const pattern = query.trim();
+                if (pattern.length > 0) {
+                  const base = next.anchor_index ?? selected_event_index;
+                  run_event_search(pattern, direction, false, base, true);
+                }
+                return next;
+              });
             }
             set_search_phase('preview');
           },
           apply_search_commit: (target, query, direction) => {
             if (target === 'state_json') {
-              set_state_json_search_query(query);
-              const base = search_anchor_state_json_cursor ?? state_json_cursor;
-              const matched = run_state_json_search(query, direction, false, base, true);
-              if (matched) {
-                set_last_state_json_search_query(query);
-                set_last_state_json_search_direction(direction);
-              }
+              set_state_json_search_state((previous) => {
+                const base = previous.anchor_cursor ?? state_json_cursor;
+                const matched = run_state_json_search(query, direction, false, base, true);
+                const staged = { ...previous, entry_direction: direction };
+                return commit_state_json_search(staged, query, matched);
+              });
             } else {
-              set_event_search_query(query);
-              const base = search_anchor_event_index ?? selected_event_index;
-              const matched = run_event_search(query, direction, false, base, true);
-              if (matched) {
-                set_last_event_search_query(query);
-                set_last_event_search_direction(direction);
-              }
+              set_event_search_state((previous) => {
+                const base = previous.anchor_index ?? selected_event_index;
+                const matched = run_event_search(query, direction, false, base, true);
+                const staged = { ...previous, entry_direction: direction };
+                return commit_event_pane_search(staged, query, matched);
+              });
             }
             set_search_phase('started');
           },
           clear_search: (target) => {
             if (target === 'state_json') {
-              set_state_json_search_query('');
-              set_last_state_json_search_query('');
+              set_state_json_search_state((previous) => clear_state_json_search(previous));
             } else {
-              set_event_search_query('');
-              set_last_event_search_query('');
+              set_event_search_state((previous) => clear_event_pane_search(previous));
             }
           },
           apply_filter_preview: (query) => {
@@ -1271,7 +1296,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const state_brief_lines = format_state_brief(effective_state).split('\n').slice(0, state_content_rows);
   const state_json_matched_indices = useMemo(() => {
     const matches = new Set<number>();
-    const needle = state_json_search_query.trim().toLowerCase();
+    const needle = state_json_search_state.query.trim().toLowerCase();
     if (needle.length === 0) {
       return matches;
     }
@@ -1282,7 +1307,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       }
     }
     return matches;
-  }, [state_json_lines, state_json_search_query]);
+  }, [state_json_lines, state_json_search_state.query]);
 
   const clamped_state_json_cursor = state_json_lines.length === 0
     ? null
@@ -1375,7 +1400,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     event_panel_content_rows,
     event_details_max_rows,
     left_pane_width,
-    event_search_query,
+    event_search_query: event_search_state.query,
     filter_query,
     show_event_key
   }), [
@@ -1387,7 +1412,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     event_panel_content_rows,
     event_details_max_rows,
     left_pane_width,
-    event_search_query,
+    event_search_state.query,
     filter_query,
     show_event_key
   ]);

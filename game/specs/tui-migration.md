@@ -72,6 +72,30 @@ Focus on making the TUI operationally complete for Storyteller workflows.
 - Ensure no script-mode behavior changes.
 - Update README with final keymap and panel docs.
 
+## Phase 4.6 Input Lifecycle Hardening (Current)
+
+This phase tightens command/search/filter behavior and prepares command-palette style invocation.
+
+### 4.6.1 Pane-Owned Search State
+
+- Search session state should be owned by the target pane domain:
+  - events pane owns event search lifecycle and repeat state;
+  - state-json pane owns json search lifecycle and repeat state.
+- App-level code should orchestrate routing and rendering only.
+- Search lifecycle state machine remains `idle -> preview -> started`.
+
+### 4.6.2 Dispatch-First Command Execution
+
+- Prefer dispatching `TuiCommand` ids through pane/app command handlers instead of direct helper calls.
+- Input sources (keyboard now, command palette later) should invoke the same command dispatch path.
+- Pane handlers remain command-id based (`cursor:*`, `viewport:*`, `search:*`, `filter:*`).
+
+### 4.6.3 Command-Mode Backspace Cancellation
+
+- `:` command mode adopts the same empty-input backspace cancellation rule used by search/filter:
+  - Backspace on empty input exits command mode.
+  - Backspace on non-empty input deletes one character.
+
 ## Event Panel Design Decisions (Normative)
 
 These decisions are locked for current TUI behavior and should guide future refinements.

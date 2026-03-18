@@ -3,6 +3,111 @@ import { Box, Text } from 'ink';
 
 import type { GameState, PlayerState } from '../../domain/types.js';
 
+export type SearchPhase = 'idle' | 'preview' | 'started';
+
+export interface StateJsonSearchState {
+  query: string;
+  last_query: string;
+  last_direction: 1 | -1;
+  entry_direction: 1 | -1;
+  phase: SearchPhase;
+  start_cursor: number | null;
+  anchor_cursor: number | null;
+}
+
+export function create_state_json_search_state(): StateJsonSearchState {
+  return {
+    query: '',
+    last_query: '',
+    last_direction: 1,
+    entry_direction: 1,
+    phase: 'idle',
+    start_cursor: null,
+    anchor_cursor: null
+  };
+}
+
+export function begin_state_json_search(
+  state: StateJsonSearchState,
+  cursor: number,
+  direction: 1 | -1
+): StateJsonSearchState {
+  return {
+    ...state,
+    entry_direction: direction,
+    phase: 'preview',
+    start_cursor: cursor,
+    anchor_cursor: cursor,
+    query: ''
+  };
+}
+
+export function update_state_json_search_preview(
+  state: StateJsonSearchState,
+  query: string
+): StateJsonSearchState {
+  return {
+    ...state,
+    query,
+    phase: 'preview'
+  };
+}
+
+export function commit_state_json_search(
+  state: StateJsonSearchState,
+  query: string,
+  matched: boolean
+): StateJsonSearchState {
+  if (!matched) {
+    return {
+      ...state,
+      query,
+      phase: 'preview'
+    };
+  }
+  return {
+    ...state,
+    query,
+    last_query: query,
+    last_direction: state.entry_direction,
+    phase: 'started'
+  };
+}
+
+export function end_state_json_search(state: StateJsonSearchState): StateJsonSearchState {
+  return {
+    ...state,
+    phase: 'idle',
+    start_cursor: null,
+    anchor_cursor: null
+  };
+}
+
+export function clear_state_json_search(state: StateJsonSearchState): StateJsonSearchState {
+  return {
+    ...state,
+    query: '',
+    last_query: ''
+  };
+}
+
+export function cancel_state_json_search(state: StateJsonSearchState): {
+  next: StateJsonSearchState;
+  restore_cursor: number | null;
+} {
+  const restore_cursor = state.phase === 'preview' ? state.start_cursor : null;
+  return {
+    next: {
+      ...state,
+      query: '',
+      phase: 'idle',
+      start_cursor: null,
+      anchor_cursor: null
+    },
+    restore_cursor
+  };
+}
+
 function clamp(value: number, min: number, max: number): number {
   return Math.min(max, Math.max(min, value));
 }
