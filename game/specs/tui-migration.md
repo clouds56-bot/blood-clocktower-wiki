@@ -162,6 +162,13 @@ Overflow behavior:
 - While filtering, only matching rows are shown.
 - `?<enter>` clears the active filter.
 
+### Vim-Style Event Scrolling
+
+- `Ctrl+F` and `Ctrl+B` move one page down/up in the events pane.
+- `Ctrl+D` and `Ctrl+U` move half page down/up in the events pane.
+- `Ctrl+E` and `Ctrl+Y` move one line down/up in the events pane.
+- These scroll motions also move selection/cursor to stay aligned with viewport movement.
+
 ### Runtime Subscription Stability
 
 - Channel subscriptions should be stable and not re-created for visual state changes.
@@ -176,7 +183,7 @@ These decisions lock the current storyteller-oriented state panel behavior.
 
 - Focus cycle is intentionally limited to `events <-> state` (`w`/`W`).
 - `inspector` and `status` panes are always visible but are not focus targets.
-- Command editing/submit is active only when focus is `command`.
+- Command editing/submit is mode-based (`:` enters command mode) and not tied to a dedicated focus pane.
 - Player selection (`Up`/`Down`) is active only when focus is `state` and state mode is `players`.
 - Player selection wraps at boundaries (first <-> last).
 

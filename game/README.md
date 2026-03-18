@@ -54,8 +54,10 @@ pnpm --filter game run tui -- my_game
   - `j` / `k`: move down/up in focused pane (`events` clamped, `players` wrapped)
   - `gg` / `G`: jump to first/last row; count supported for motions (for example `100j`, `100gg`)
   - `n` / `N`: repeat search same/opposite direction
-  - `Ctrl+U` / `Ctrl+D`: scroll events pane up/down
-  - `Ctrl+E`: toggle status pane filter (errors only)
+  - `Ctrl+F` / `Ctrl+B`: page down/up in events (moves cursor)
+  - `Ctrl+D` / `Ctrl+U`: half-page down/up in events (moves cursor)
+  - `Ctrl+E` / `Ctrl+Y`: line down/up in events (moves cursor)
+  - `Ctrl+E` (outside events): toggle status pane filter (errors only)
   - `Ctrl+S`: cycle state panel (`brief -> players -> json`)
   - `Ctrl+G`: cycle inspector panel (`overview -> prompts -> players -> markers -> output`)
   - `Up` / `Down` (in command mode): browse command history
@@ -92,6 +94,10 @@ The next TUI rebuild switches input from editor-like typing to a vim-like mode m
   - `?` enters immediate filter mode for events.
   - only matching rows are shown while filtering.
   - `?<enter>` clears the filter.
+- Vim-style scrolling (events):
+  - `Ctrl+F` / `Ctrl+B` move by page and keep selection aligned.
+  - `Ctrl+D` / `Ctrl+U` move by half-page and keep selection aligned.
+  - `Ctrl+E` / `Ctrl+Y` move by one line and keep selection aligned.
 
 ## Quick Start
 
