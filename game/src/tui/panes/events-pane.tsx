@@ -2,11 +2,51 @@ import React from 'react';
 import { Box, Text } from 'ink';
 
 import type { DomainEvent } from '../../domain/events.js';
-import { EventSummaryRow } from '../event.js';
+import { EventSummaryRow, format_event_summary_text } from '../event.js';
 
 interface EventEntry {
   event: DomainEvent;
   event_index: number;
+}
+
+export function event_matches_query(entry: EventEntry, query: string): boolean {
+  const needle = query.trim().toLowerCase();
+  if (needle.length === 0) {
+    return false;
+  }
+  const summary = format_event_summary_text(entry.event, entry.event_index, 256).toLowerCase();
+  return summary.includes(needle);
+}
+
+export function find_event_match_index(params: {
+  query: string;
+  direction: 1 | -1;
+  event_entries: EventEntry[];
+  view_indices: number[];
+  selected_event_index: number | null;
+}): number | null {
+  const { query, direction, event_entries, view_indices, selected_event_index } = params;
+  const needle = query.trim().toLowerCase();
+  if (needle.length === 0 || view_indices.length === 0) {
+    return null;
+  }
+  const current_absolute = selected_event_index ?? view_indices[view_indices.length - 1] ?? 0;
+  const current_position = Math.max(0, view_indices.indexOf(current_absolute));
+  for (let step = 1; step <= view_indices.length; step += 1) {
+    const candidate_position = (current_position + direction * step + view_indices.length * 2) % view_indices.length;
+    const candidate_absolute = view_indices[candidate_position];
+    if (candidate_absolute === undefined) {
+      continue;
+    }
+    const entry = event_entries[candidate_absolute];
+    if (!entry) {
+      continue;
+    }
+    if (event_matches_query(entry, needle)) {
+      return candidate_absolute;
+    }
+  }
+  return null;
 }
 
 export function handle_events_pane_command(
