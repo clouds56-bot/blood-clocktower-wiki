@@ -321,9 +321,10 @@ export function EventSummaryRow(props: {
   event: DomainEvent;
   event_index: number;
   selected: boolean;
+  matched?: boolean;
   width: number;
 }): JSX.Element {
-  const { event, event_index, selected, width } = props;
+  const { event, event_index, selected, matched = false, width } = props;
   const prefix = selected ? '> ' : '  ';
   const content_width = Math.max(8, width - prefix.length);
   const line = format_event_summary_text(event, event_index, Math.max(24, content_width - 18));
@@ -334,6 +335,14 @@ export function EventSummaryRow(props: {
     const selected_color = (style.color !== 'gray' && style.color !== 'white') ? style.color : 'black'; 
     return (
       <Text color={selected_color} backgroundColor="white" bold={selected_bold} wrap="truncate-end">
+        {`${prefix}${clipped}`}
+      </Text>
+    );
+  }
+
+  if (matched) {
+    return (
+      <Text color="yellow" bold wrap="truncate-end">
         {`${prefix}${clipped}`}
       </Text>
     );

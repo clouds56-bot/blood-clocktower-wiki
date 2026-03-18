@@ -6,12 +6,19 @@ import { format_state_brief, format_state_json } from '../cli/formatters.js';
 import { create_cli_context, process_cli_line } from '../cli/repl.js';
 import type { DomainEvent } from '../domain/events.js';
 import type { GameState, PlayerState, PromptColumnSpec, PromptRangeSpec, PromptState } from '../domain/types.js';
-import { EventSummaryRow } from './event.js';
+import { format_event_summary_text } from './event.js';
+import { resolve_tui_command, route_tui_command, type TuiCommand } from './command-bindings.js';
+import { CommandPane, type VimMode } from './panes/command-pane.js';
+import { EventsPane, handle_events_pane_command } from './panes/events-pane.js';
+import { InspectorPane } from './panes/inspector-pane.js';
+import { StatePane, type PlayerStateRow, handle_state_pane_command } from './panes/state-pane.js';
+import { StatusPane } from './panes/status-pane.js';
 
 type StateMode = 'brief' | 'players' | 'json';
 type InspectorMode = 'overview' | 'prompts' | 'players' | 'markers' | 'output';
-type PaneFocus = 'events' | 'state' | 'command';
+type PaneFocus = 'events' | 'state';
 type StatusKind = 'status' | 'error';
+type SearchTarget = 'events' | 'state_json';
 
 interface MarkerSeatToken {
   seat: string;
@@ -290,13 +297,11 @@ function slice_from_bottom(lines: string[], visible_count: number, scroll_offset
 }
 
 function next_focus(focus: PaneFocus): PaneFocus {
-  if (focus === 'events') {
-    return 'state';
-  }
-  if (focus === 'state') {
-    return 'command';
-  }
-  return 'events';
+  return focus === 'events' ? 'state' : 'events';
+}
+
+function prev_focus(focus: PaneFocus): PaneFocus {
+  return focus === 'events' ? 'state' : 'events';
 }
 
 function ordered_player_ids(state: GameState): string[] {
@@ -435,6 +440,18 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   );
 
   const [input, set_input] = useState('');
+  const [vim_mode, set_vim_mode] = useState<VimMode>('normal');
+  const [count_prefix, set_count_prefix] = useState('');
+  const [pending_g, set_pending_g] = useState(false);
+  const [active_search_query, set_active_search_query] = useState('');
+  const [last_search_query, set_last_search_query] = useState('');
+  const [last_search_direction, set_last_search_direction] = useState<1 | -1>(-1);
+  const [last_search_target, set_last_search_target] = useState<SearchTarget>('events');
+  const [search_entry_direction, set_search_entry_direction] = useState<1 | -1>(-1);
+  const [filter_query, set_filter_query] = useState('');
+  const [state_json_cursor, set_state_json_cursor] = useState(0);
+  const [state_json_offset, set_state_json_offset] = useState(0);
+  const [state_json_search_query, set_state_json_search_query] = useState('');
   const [event_entries, set_event_entries] = useState<EventEntry[]>([]);
   const [selected_event_index, set_selected_event_index] = useState<number | null>(null);
   const [event_list_offset, set_event_list_offset] = useState(0);
@@ -459,13 +476,18 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [resolver_prompt_key, set_resolver_prompt_key] = useState<string | null>(null);
   const [resolver_multi_values, set_resolver_multi_values] = useState<string[]>([]);
   const [resolver_multi_column_index, set_resolver_multi_column_index] = useState(0);
-  const [pane_focus, set_pane_focus] = useState<PaneFocus>('command');
+  const [pane_focus, set_pane_focus] = useState<PaneFocus>('events');
+  const [mode_return_focus, set_mode_return_focus] = useState<PaneFocus>('events');
+  const [mode_return_state_mode, set_mode_return_state_mode] = useState<StateMode>('players');
   const [status_errors_only, set_status_errors_only] = useState(false);
   const [mouse_scroll_enabled, set_mouse_scroll_enabled] = useState(true);
   const [, set_tick] = useState(0);
   const suppress_input_until_ref = useRef(0);
   const event_autoscroll_ref = useRef(event_autoscroll);
   const event_list_content_rows_ref = useRef(event_list_content_rows);
+  const event_view_indices_ref = useRef<number[]>([]);
+  const filter_query_ref = useRef(filter_query);
+  const state_json_lines = useMemo(() => format_state_json(context.state).split('\n'), [context.state]);
 
   useEffect(() => {
     event_autoscroll_ref.current = event_autoscroll;
@@ -474,6 +496,10 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   useEffect(() => {
     event_list_content_rows_ref.current = event_list_content_rows;
   }, [event_list_content_rows]);
+
+  useEffect(() => {
+    filter_query_ref.current = filter_query;
+  }, [filter_query]);
 
   function append_status_lines(lines: string[], kind: StatusKind = 'status'): void {
     if (lines.length === 0) {
@@ -503,6 +529,281 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     return keep_running;
   }
 
+  function event_matches_query(entry: EventEntry, query: string): boolean {
+    const needle = query.trim().toLowerCase();
+    if (needle.length === 0) {
+      return false;
+    }
+    const summary = format_event_summary_text(entry.event, entry.event_index, 256).toLowerCase();
+    return summary.includes(needle);
+  }
+
+  function select_event_by_view_position(view_position: number): void {
+    const view = event_view_indices_ref.current;
+    if (view.length === 0) {
+      return;
+    }
+    const clamped_position = clamp(view_position, 0, view.length - 1);
+    const absolute_index = view[clamped_position];
+    if (absolute_index === undefined) {
+      return;
+    }
+    const at_latest = clamped_position === view.length - 1;
+    set_selected_event_index(absolute_index);
+    set_event_autoscroll(at_latest);
+    set_event_list_offset((offset) =>
+      ensure_visible_offset(clamped_position, offset, event_list_content_rows, view.length)
+    );
+  }
+
+  function select_event_at(absolute_index: number): void {
+    const view = event_view_indices_ref.current;
+    if (view.length === 0) {
+      return;
+    }
+    const position = view.indexOf(absolute_index);
+    if (position >= 0) {
+      select_event_by_view_position(position);
+      return;
+    }
+    const fallback = clamp(absolute_index, 0, view.length - 1);
+    select_event_by_view_position(fallback);
+  }
+
+  function find_event_match_index(query: string, direction: 1 | -1): number | null {
+    const needle = query.trim().toLowerCase();
+    const source_indices = event_view_indices_ref.current;
+    if (needle.length === 0 || source_indices.length === 0) {
+      return null;
+    }
+    const current_absolute = selected_event_index ?? source_indices[source_indices.length - 1] ?? 0;
+    const current_position = Math.max(0, source_indices.indexOf(current_absolute));
+    for (let step = 1; step <= source_indices.length; step += 1) {
+      const candidate_position = (current_position + direction * step + source_indices.length * 2) % source_indices.length;
+      const candidate_absolute = source_indices[candidate_position];
+      if (candidate_absolute === undefined) {
+        continue;
+      }
+      const entry = event_entries[candidate_absolute];
+      if (!entry) {
+        continue;
+      }
+      if (event_matches_query(entry, needle)) {
+        return candidate_absolute;
+      }
+    }
+    return null;
+  }
+
+  function run_event_search(query: string, direction: 1 | -1, emit_not_found = true): boolean {
+    const needle = query.trim();
+    if (needle.length === 0) {
+      return false;
+    }
+    const matched = find_event_match_index(needle, direction);
+    if (matched === null) {
+      if (emit_not_found) {
+        append_status_lines([`(no match for /${needle})`]);
+      }
+      return false;
+    }
+    select_event_at(matched);
+    return true;
+  }
+
+  function move_state_json_cursor(delta: number): void {
+    if (state_json_lines.length === 0 || delta === 0) {
+      return;
+    }
+    set_state_json_cursor((previous) => {
+      const next = clamp(previous + delta, 0, state_json_lines.length - 1);
+      set_state_json_offset((offset) => ensure_visible_offset(next, offset, state_content_rows, state_json_lines.length));
+      return next;
+    });
+  }
+
+  function jump_state_json_top(count: number | null): void {
+    if (state_json_lines.length === 0) {
+      return;
+    }
+    const target = count === null ? 0 : clamp(count - 1, 0, state_json_lines.length - 1);
+    set_state_json_cursor(target);
+    set_state_json_offset((offset) => ensure_visible_offset(target, offset, state_content_rows, state_json_lines.length));
+  }
+
+  function jump_state_json_bottom(): void {
+    if (state_json_lines.length === 0) {
+      return;
+    }
+    const target = state_json_lines.length - 1;
+    set_state_json_cursor(target);
+    set_state_json_offset((offset) => ensure_visible_offset(target, offset, state_content_rows, state_json_lines.length));
+  }
+
+  function find_state_json_match_index(query: string, direction: 1 | -1): number | null {
+    const needle = query.trim().toLowerCase();
+    if (needle.length === 0 || state_json_lines.length === 0) {
+      return null;
+    }
+    const current = clamp(state_json_cursor, 0, Math.max(0, state_json_lines.length - 1));
+    for (let step = 1; step <= state_json_lines.length; step += 1) {
+      const candidate = (current + direction * step + state_json_lines.length * 2) % state_json_lines.length;
+      const line = state_json_lines[candidate] ?? '';
+      if (line.toLowerCase().includes(needle)) {
+        return candidate;
+      }
+    }
+    return null;
+  }
+
+  function run_state_json_search(query: string, direction: 1 | -1, emit_not_found = true): boolean {
+    const needle = query.trim();
+    if (needle.length === 0) {
+      return false;
+    }
+    const matched = find_state_json_match_index(needle, direction);
+    if (matched === null) {
+      if (emit_not_found) {
+        append_status_lines([`(no match for /${needle} in state json)`]);
+      }
+      return false;
+    }
+    set_state_json_cursor(matched);
+    set_state_json_offset((offset) => ensure_visible_offset(matched, offset, state_content_rows, state_json_lines.length));
+    return true;
+  }
+
+  function repeat_last_search(kind: 'same' | 'opposite', count: number): void {
+    const needle = last_search_query.trim();
+    if (needle.length === 0) {
+      append_status_lines(['(no previous search query)']);
+      return;
+    }
+    const direction = kind === 'same'
+      ? last_search_direction
+      : (last_search_direction === 1 ? -1 : 1);
+    const attempts = Math.max(1, count);
+    for (let i = 0; i < attempts; i += 1) {
+      if (last_search_target === 'state_json') {
+        const matched = find_state_json_match_index(needle, direction);
+        if (matched === null) {
+          append_status_lines([`(no match for /${needle} in state json)`]);
+          return;
+        }
+        set_state_json_cursor(matched);
+        set_state_json_offset((offset) => ensure_visible_offset(matched, offset, state_content_rows, state_json_lines.length));
+        continue;
+      }
+
+      const matched = find_event_match_index(needle, direction);
+      if (matched === null) {
+        append_status_lines([`(no match for /${needle})`]);
+        return;
+      }
+      select_event_at(matched);
+    }
+  }
+
+  function submit_mode_input(): void {
+    if (vim_mode === 'command') {
+      const command = input.trim();
+      if (command.length === 0) {
+        set_vim_mode('normal');
+        set_input('');
+        set_pane_focus(mode_return_focus);
+        return;
+      }
+      set_history((previous) => [...previous, command]);
+      set_history_cursor(null);
+      set_input('');
+      set_vim_mode('normal');
+      set_pane_focus(mode_return_focus);
+      const keep_running = run_command(command);
+      if (!keep_running) {
+        exit();
+      }
+      return;
+    }
+    if (vim_mode === 'search') {
+      const needle = input.trim();
+      const target: SearchTarget = mode_return_focus === 'state' && mode_return_state_mode === 'json'
+        ? 'state_json'
+        : 'events';
+      if (needle.length === 0) {
+        if (target === 'state_json') {
+          set_state_json_search_query('');
+        } else {
+          set_active_search_query('');
+        }
+        set_last_search_query('');
+        set_vim_mode('normal');
+        set_input('');
+        set_pane_focus(mode_return_focus);
+        return;
+      }
+      if (target === 'state_json') {
+        set_state_json_search_query(needle);
+        run_state_json_search(needle, search_entry_direction, false);
+      } else {
+        set_active_search_query(needle);
+        run_event_search(needle, search_entry_direction, false);
+      }
+      set_last_search_query(needle);
+      set_last_search_direction(search_entry_direction);
+      set_last_search_target(target);
+      set_input('');
+      set_vim_mode('normal');
+      set_pane_focus(mode_return_focus);
+      return;
+    }
+    if (vim_mode === 'filter') {
+      const needle = input.trim();
+      set_filter_query(needle);
+      set_input('');
+      set_vim_mode('normal');
+      set_pane_focus(mode_return_focus);
+    }
+  }
+
+  function cancel_mode_input(): void {
+    set_input('');
+    set_history_cursor(null);
+    set_vim_mode('normal');
+    set_pane_focus(mode_return_focus);
+  }
+
+  function backspace_mode_input(): void {
+    set_input((previous) => {
+      if (previous.length === 0) {
+        set_vim_mode('normal');
+        set_pane_focus(mode_return_focus);
+        return '';
+      }
+      const next = previous.slice(0, -1);
+      if (vim_mode === 'search') {
+        const needle = next.trim();
+        const target: SearchTarget = mode_return_focus === 'state' && mode_return_state_mode === 'json'
+          ? 'state_json'
+          : 'events';
+        if (target === 'state_json') {
+          set_state_json_search_query(needle);
+          if (needle.length > 0) {
+            run_state_json_search(needle, search_entry_direction, false);
+          }
+        } else {
+          set_active_search_query(needle);
+          if (needle.length > 0) {
+            run_event_search(needle, search_entry_direction, false);
+          }
+        }
+      }
+      if (vim_mode === 'filter') {
+        set_filter_query(next.trim());
+      }
+      return next;
+    });
+  }
+
   const step_player_selection = useCallback((delta: number, total_count: number, visible_count: number): void => {
     if (total_count <= 0 || delta === 0) {
       return;
@@ -516,20 +817,73 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   }, []);
 
   const step_event_selection = useCallback((delta: number): void => {
-    if (event_entries.length === 0 || delta === 0) {
+    const view = event_view_indices_ref.current;
+    if (view.length === 0 || delta === 0) {
       return;
     }
-    set_selected_event_index((previous) => {
-      const current = previous ?? event_entries.length - 1;
-      const next = clamp(current + delta, 0, event_entries.length - 1);
-      const at_latest = next === event_entries.length - 1;
+    set_selected_event_index((previous_absolute) => {
+      const fallback = view[view.length - 1] ?? 0;
+      const current_absolute = previous_absolute ?? fallback;
+      const current_position = Math.max(0, view.indexOf(current_absolute));
+      const next_position = clamp(current_position + delta, 0, view.length - 1);
+      const next_absolute = view[next_position] ?? current_absolute;
+      const at_latest = next_position === view.length - 1;
       set_event_autoscroll(at_latest);
       set_event_list_offset((offset) =>
-        ensure_visible_offset(next, offset, event_list_content_rows, event_entries.length)
+        ensure_visible_offset(next_position, offset, event_list_content_rows, view.length)
       );
-      return next;
+      return next_absolute;
     });
-  }, [event_entries.length, event_list_content_rows]);
+  }, [event_list_content_rows]);
+
+  const jump_top_selection = useCallback((count: number | null): void => {
+    if (pane_focus === 'events') {
+      const total_count = event_view_indices_ref.current.length;
+      if (total_count === 0) {
+        return;
+      }
+      const target_position = count === null ? 0 : clamp(count - 1, 0, total_count - 1);
+      select_event_by_view_position(target_position);
+      return;
+    }
+    if (pane_focus === 'state' && state_mode === 'players') {
+      const total_count = ordered_player_ids(context.state).length;
+      if (total_count <= 0) {
+        return;
+      }
+      const raw_target = count === null ? 0 : Math.max(0, count - 1);
+      const wrapped_target = ((raw_target % total_count) + total_count) % total_count;
+      set_selected_player_index(wrapped_target);
+      set_player_list_offset((offset) => ensure_visible_offset(wrapped_target, offset, Math.max(1, state_content_rows - 4), total_count));
+      return;
+    }
+    if (pane_focus === 'state' && state_mode === 'json') {
+      jump_state_json_top(count);
+    }
+  }, [pane_focus, state_mode, context.state, state_content_rows, jump_state_json_top]);
+
+  const jump_bottom_selection = useCallback((): void => {
+    if (pane_focus === 'events') {
+      const total_count = event_view_indices_ref.current.length;
+      if (total_count <= 0) {
+        return;
+      }
+      select_event_by_view_position(total_count - 1);
+      return;
+    }
+    if (pane_focus === 'state' && state_mode === 'players') {
+      const total_count = ordered_player_ids(context.state).length;
+      if (total_count <= 0) {
+        return;
+      }
+      set_selected_player_index(total_count - 1);
+      set_player_list_offset((offset) => ensure_visible_offset(total_count - 1, offset, Math.max(1, state_content_rows - 4), total_count));
+      return;
+    }
+    if (pane_focus === 'state' && state_mode === 'json') {
+      jump_state_json_bottom();
+    }
+  }, [pane_focus, state_mode, context.state, state_content_rows, jump_state_json_bottom]);
 
   useEffect(() => {
     const unsubscribe = channel_bus.subscribe('*', (message) => {
@@ -547,7 +901,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
         set_event_entries((previous) => {
           const next_index = message.event_index ?? previous.length + 1;
           const merged = [...previous, { event, event_index: next_index }];
-          if (event_autoscroll_ref.current) {
+          if (event_autoscroll_ref.current && filter_query_ref.current.trim().length === 0) {
             const latest = merged.length - 1;
             set_selected_event_index(latest);
             const max_offset = Math.max(0, merged.length - event_list_content_rows_ref.current);
@@ -884,113 +1238,172 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       return;
     }
 
-    if (key.ctrl && input_key === 'r') {
+    const player_count = ordered_player_ids(context.state).length;
+    const player_visible_count = Math.max(1, state_content_rows - 4);
+    const binding = resolve_tui_command(input_key, key, {
+      suppress_input,
+      mode: vim_mode,
+      pane_focus,
+      state_mode,
+      count_prefix,
+      pending_g
+    });
+
+    if (binding.count_prefix !== count_prefix) {
+      set_count_prefix(binding.count_prefix);
+    }
+    if (binding.pending_g !== pending_g) {
+      set_pending_g(binding.pending_g);
+    }
+    if (!binding.handled || !binding.command) {
+      return;
+    }
+
+    const command: TuiCommand = binding.command;
+    const target = route_tui_command(command, { pane_focus, state_mode });
+    const should_try_pane = !command.id.startsWith('mode:')
+      && (
+        target === 'pane'
+        || command.id.startsWith('search:')
+        || command.id.startsWith('filter:')
+        || command.id.startsWith('state:')
+        || command.id.startsWith('inspector:')
+      );
+    if (should_try_pane) {
+      if (pane_focus === 'events') {
+        const handled = handle_events_pane_command(
+          command,
+          {
+            page_size: Math.max(1, event_list_content_rows - 1),
+            half_page_size: Math.max(1, Math.floor(event_list_content_rows / 2))
+          },
+          {
+            move_cursor: step_event_selection,
+            jump_top: jump_top_selection,
+            jump_bottom: jump_bottom_selection,
+            start_search: (direction) => {
+              set_mode_return_focus(pane_focus);
+              set_mode_return_state_mode(state_mode);
+              set_search_entry_direction(direction);
+              set_vim_mode('search');
+              set_input('');
+              set_history_cursor(null);
+            },
+            end_search: () => {
+              set_input('');
+              set_history_cursor(null);
+              set_vim_mode('normal');
+              set_pane_focus(mode_return_focus);
+            },
+            repeat_search: repeat_last_search,
+            start_filter: () => {
+              set_mode_return_focus(pane_focus);
+              set_mode_return_state_mode(state_mode);
+              set_vim_mode('filter');
+              set_input('');
+              set_history_cursor(null);
+            },
+            end_filter: () => {
+              set_input('');
+              set_history_cursor(null);
+              set_vim_mode('normal');
+              set_pane_focus(mode_return_focus);
+            }
+          }
+        );
+        if (handled) {
+          return;
+        }
+      }
+
+      if (pane_focus === 'state') {
+        const handled = handle_state_pane_command(
+          command,
+          {
+            state_mode,
+            page_size: Math.max(1, state_content_rows - 1),
+            half_page_size: Math.max(1, Math.floor(state_content_rows / 2)),
+            player_count,
+            player_visible_count
+          },
+          {
+            move_player: step_player_selection,
+            move_json_cursor: move_state_json_cursor,
+            jump_top: jump_top_selection,
+            jump_bottom: jump_bottom_selection,
+            start_search: (direction) => {
+              set_mode_return_focus(pane_focus);
+              set_mode_return_state_mode(state_mode);
+              set_search_entry_direction(direction);
+              set_vim_mode('search');
+              set_input('');
+              set_history_cursor(null);
+            },
+            end_search: () => {
+              set_input('');
+              set_history_cursor(null);
+              set_vim_mode('normal');
+              set_pane_focus(mode_return_focus);
+            },
+            repeat_search: repeat_last_search,
+            cycle_state_mode: () => set_state_mode((mode) => next_state_mode(mode)),
+            cycle_inspector_mode: () => set_inspector_mode((mode) => next_inspector_mode(mode))
+          }
+        );
+        if (handled) {
+          return;
+        }
+      }
+    }
+
+    if (command.id === 'app:exit') {
+      exit();
+      return;
+    }
+    if (command.id === 'resolver:open') {
       open_resolver();
       return;
     }
-
-    if (key.ctrl && input_key === 'w') {
+    if (command.id === 'pane:focus_next') {
       set_pane_focus((focus) => next_focus(focus));
       return;
     }
-
-    if (key.ctrl && input_key === 'a') {
+    if (command.id === 'pane:focus_prev') {
+      set_pane_focus((focus) => prev_focus(focus));
+      return;
+    }
+    if (command.id === 'events:toggle_autoscroll') {
       set_event_autoscroll((value) => !value);
       return;
     }
-
-    if (key.ctrl && input_key === 'm') {
+    if (command.id === 'events:toggle_mouse_scroll') {
       set_mouse_scroll_enabled((value) => !value);
       return;
     }
-
-    if (key.ctrl && input_key === 'k') {
+    if (command.id === 'events:toggle_key') {
       set_show_event_key((value) => !value);
       return;
     }
-
-    if (key.ctrl && input_key === 'l') {
-      const last_index = event_entries.length - 1;
-      if (last_index >= 0) {
-        set_selected_event_index(last_index);
+    if (command.id === 'events:jump_latest') {
+      const view = event_view_indices_ref.current;
+      if (view.length > 0) {
+        select_event_by_view_position(view.length - 1);
       }
-      set_event_autoscroll(true);
       return;
     }
-
-    if (key.ctrl && input_key === 'e') {
+    if (command.id === 'status:toggle_errors_only') {
       set_status_errors_only((value) => !value);
       return;
     }
-
-    if (key.ctrl && input_key === 'u') {
-      if (pane_focus === 'events') {
-        set_event_autoscroll(false);
-        set_event_list_offset((value) => Math.max(0, value - 1));
-      }
-      return;
-    }
-
-    if (key.ctrl && input_key === 'd') {
-      if (pane_focus === 'events') {
-        set_event_autoscroll(false);
-        const max_offset = Math.max(0, event_entries.length - event_list_content_rows);
-        set_event_list_offset((value) => Math.min(max_offset, value + 1));
-      }
-      return;
-    }
-
-    if (pane_focus === 'command' && key.return) {
-      const command = input.trim();
-      if (command.length === 0) {
-        return;
-      }
-
-      set_history((previous) => [...previous, command]);
-      set_history_cursor(null);
-      set_input('');
-
-      const keep_running = run_command(command);
-      if (!keep_running) {
-        exit();
-      }
-      return;
-    }
-
-    if (key.ctrl && input_key === 's') {
+    if (command.id === 'state:cycle_mode') {
       set_state_mode((mode) => next_state_mode(mode));
       return;
     }
-
-    if (key.ctrl && input_key === 'g') {
+    if (command.id === 'inspector:cycle_mode') {
       set_inspector_mode((mode) => next_inspector_mode(mode));
       return;
     }
-
-    const player_count = ordered_player_ids(context.state).length;
-    const player_visible_count = Math.max(1, state_content_rows - 4);
-
-    if (pane_focus === 'events' && key.upArrow) {
-      step_event_selection(-1);
-      return;
-    }
-
-    if (pane_focus === 'events' && key.downArrow) {
-      step_event_selection(1);
-      return;
-    }
-
-    if (state_mode === 'players' && pane_focus === 'state' && key.upArrow) {
-      step_player_selection(-1, player_count, player_visible_count);
-      return;
-    }
-
-    if (state_mode === 'players' && pane_focus === 'state' && key.downArrow) {
-      step_player_selection(1, player_count, player_visible_count);
-      return;
-    }
-
-    if (pane_focus === 'command' && key.upArrow) {
+    if (command.id === 'mode:history_up') {
       if (history.length === 0) {
         return;
       }
@@ -1001,8 +1414,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       });
       return;
     }
-
-    if (pane_focus === 'command' && key.downArrow) {
+    if (command.id === 'mode:history_down') {
       if (history.length === 0) {
         return;
       }
@@ -1020,25 +1432,159 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       });
       return;
     }
-
-    if (pane_focus === 'command' && (key.backspace || key.delete)) {
-      set_input((value) => value.slice(0, -1));
+    if (command.id === 'mode:enter_command') {
+      set_mode_return_focus(pane_focus);
+      set_mode_return_state_mode(state_mode);
+      set_vim_mode('command');
+      set_input('');
+      set_history_cursor(null);
       return;
     }
-
-    if (key.tab) {
+    if (command.id === 'mode:enter_search') {
+      set_mode_return_focus(pane_focus);
+      set_mode_return_state_mode(state_mode);
+      set_search_entry_direction(command.direction ?? -1);
+      set_vim_mode('search');
+      set_input('');
+      set_history_cursor(null);
       return;
     }
-
-    if (pane_focus === 'command' && !key.ctrl && !key.meta && input_key.length > 0) {
-      set_input((value) => `${value}${input_key}`);
+    if (command.id === 'mode:enter_filter') {
+      set_mode_return_focus(pane_focus);
+      set_mode_return_state_mode(state_mode);
+      set_vim_mode('filter');
+      set_input('');
+      set_history_cursor(null);
+      return;
+    }
+    if (command.id === 'mode:cancel') {
+      cancel_mode_input();
+      return;
+    }
+    if (command.id === 'mode:submit') {
+      submit_mode_input();
+      return;
+    }
+    if (command.id === 'mode:backspace') {
+      backspace_mode_input();
+      return;
+    }
+    if (command.id === 'mode:append_input') {
+      const value = command.text ?? '';
+      set_input((current) => {
+        const next = `${current}${value}`;
+        if (vim_mode === 'search') {
+          const needle = next.trim();
+          const target_mode: SearchTarget = mode_return_focus === 'state' && mode_return_state_mode === 'json'
+            ? 'state_json'
+            : 'events';
+          if (target_mode === 'state_json') {
+            set_state_json_search_query(needle);
+            if (needle.length > 0) {
+              run_state_json_search(needle, search_entry_direction, false);
+            }
+          } else {
+            set_active_search_query(needle);
+            if (needle.length > 0) {
+              run_event_search(needle, search_entry_direction, false);
+            }
+          }
+        }
+        if (vim_mode === 'filter') {
+          set_filter_query(next.trim());
+        }
+        return next;
+      });
+      return;
+    }
+    if (command.id === 'search:repeat_same') {
+      repeat_last_search('same', Math.max(1, command.count ?? 1));
+      return;
+    }
+    if (command.id === 'search:repeat_opposite') {
+      repeat_last_search('opposite', Math.max(1, command.count ?? 1));
+      return;
+    }
+    if (command.id === 'search:start') {
+      set_mode_return_focus(pane_focus);
+      set_mode_return_state_mode(state_mode);
+      set_search_entry_direction(command.direction ?? -1);
+      set_vim_mode('search');
+      set_input('');
+      set_history_cursor(null);
+      return;
+    }
+    if (command.id === 'search:end') {
+      set_input('');
+      set_history_cursor(null);
+      set_vim_mode('normal');
+      set_pane_focus(mode_return_focus);
+      return;
+    }
+    if (command.id === 'filter:start') {
+      set_mode_return_focus(pane_focus);
+      set_mode_return_state_mode(state_mode);
+      set_vim_mode('filter');
+      set_input('');
+      set_history_cursor(null);
+      return;
+    }
+    if (command.id === 'filter:end') {
+      set_input('');
+      set_history_cursor(null);
+      set_vim_mode('normal');
+      set_pane_focus(mode_return_focus);
+      return;
     }
   });
 
   const effective_state = context.state;
-  const state_text = state_mode === 'json' ? format_state_json(effective_state) : format_state_brief(effective_state);
+  const state_brief_lines = format_state_brief(effective_state).split('\n').slice(0, state_content_rows);
+  const state_json_matched_indices = useMemo(() => {
+    const matches = new Set<number>();
+    const needle = state_json_search_query.trim().toLowerCase();
+    if (needle.length === 0) {
+      return matches;
+    }
+    for (let index = 0; index < state_json_lines.length; index += 1) {
+      const line = state_json_lines[index] ?? '';
+      if (line.toLowerCase().includes(needle)) {
+        matches.add(index);
+      }
+    }
+    return matches;
+  }, [state_json_lines, state_json_search_query]);
 
-  const state_lines = state_text.split('\n').slice(0, state_content_rows);
+  const clamped_state_json_cursor = state_json_lines.length === 0
+    ? null
+    : clamp(state_json_cursor, 0, state_json_lines.length - 1);
+  const max_state_json_offset = Math.max(0, state_json_lines.length - state_content_rows);
+  const effective_state_json_offset = clamp(state_json_offset, 0, max_state_json_offset);
+  const visible_state_json_lines = state_json_lines.slice(
+    effective_state_json_offset,
+    effective_state_json_offset + state_content_rows
+  );
+
+  useEffect(() => {
+    if (state_json_lines.length === 0) {
+      if (state_json_cursor !== 0) {
+        set_state_json_cursor(0);
+      }
+      if (state_json_offset !== 0) {
+        set_state_json_offset(0);
+      }
+      return;
+    }
+    const clamped = clamp(state_json_cursor, 0, state_json_lines.length - 1);
+    if (clamped !== state_json_cursor) {
+      set_state_json_cursor(clamped);
+    }
+    const next_offset = ensure_visible_offset(clamped, state_json_offset, state_content_rows, state_json_lines.length);
+    if (next_offset !== state_json_offset) {
+      set_state_json_offset(next_offset);
+    }
+  }, [state_json_cursor, state_json_offset, state_json_lines, state_content_rows]);
+
   const player_state_header = 'sel seat id   name         vote markers type       role                flags';
   const player_state_separator = '--- ---- ---- ------------ ---- ------- ---------- ------------------- -----';
   const player_ids = ordered_player_ids(effective_state);
@@ -1064,12 +1610,25 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
         return null;
       }
       const marker_sources = player_marker_sources.get(player_id) ?? [];
+      const row = format_player_state_row(player, index, marker_sources);
       return {
         key: `${player_id}:${index}`,
-        row: format_player_state_row(player, index, marker_sources)
+        seat: row.seat,
+        identity: row.identity,
+        vote: row.vote,
+        markers: row.markers,
+        marker_tokens: row.marker_tokens,
+        type: row.type,
+        role: row.role,
+        suffix: row.suffix,
+        identity_color: row.identity_color,
+        type_color: row.type_color,
+        role_color: row.role_color,
+        italic: row.italic,
+        strikethrough: row.strikethrough
       };
     })
-    .filter((value): value is { key: string; row: ReturnType<typeof format_player_state_row> } => Boolean(value));
+    .filter((value): value is PlayerStateRow => Boolean(value));
 
   const player_visible_count = Math.max(1, state_content_rows - 4);
   const clamped_selected_player_index = player_rows.length === 0
@@ -1109,6 +1668,10 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const selected_player_status_prefix = selected_player
     ? `selected=${selected_player.player_id} `
     : 'selected=(none)';
+  const selected_player_marker_lines = selected_player_markers.map((marker) => ({
+    text: `${marker.kind}:${marker.seats.join(',')}`,
+    color: marker_source_color(marker.effect)
+  }));
 
   useEffect(() => {
     if (player_rows.length === 0) {
@@ -1166,17 +1729,85 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
               ? output_inspector_lines
               : ['(no output yet)'];
 
+  const matched_event_indices = useMemo(() => {
+    const indices = new Set<number>();
+    const search_needle = active_search_query.trim();
+    if (search_needle.length === 0) {
+      return indices;
+    }
+    for (let index = 0; index < event_entries.length; index += 1) {
+      const entry = event_entries[index];
+      if (!entry) {
+        continue;
+      }
+      if (event_matches_query(entry, search_needle)) {
+        indices.add(index);
+      }
+    }
+    return indices;
+  }, [active_search_query, event_entries]);
+
+  const event_view_indices = useMemo(() => {
+    const filter_needle = filter_query.trim();
+    if (filter_needle.length === 0) {
+      return event_entries.map((_, index) => index);
+    }
+    return event_entries
+      .map((entry, index) => ({ entry, index }))
+      .filter(({ entry }) => event_matches_query(entry, filter_needle))
+      .map(({ index }) => index);
+  }, [event_entries, filter_query]);
+  event_view_indices_ref.current = event_view_indices;
+
+  useEffect(() => {
+    if (event_view_indices.length === 0) {
+      if (selected_event_index !== null) {
+        set_selected_event_index(null);
+      }
+      set_event_list_offset(0);
+      return;
+    }
+    if (selected_event_index === null || event_view_indices.indexOf(selected_event_index) < 0) {
+      const fallback = event_view_indices[event_view_indices.length - 1] ?? null;
+      if (fallback !== null) {
+        set_selected_event_index(fallback);
+      }
+    }
+  }, [event_view_indices, selected_event_index]);
+
+  const default_selected_event_index = event_view_indices.length > 0
+    ? event_view_indices[event_view_indices.length - 1] ?? null
+    : null;
   const clamped_selected_event_index = selected_event_index === null
-    ? (event_entries.length === 0 ? null : event_entries.length - 1)
-    : clamp(selected_event_index, 0, Math.max(0, event_entries.length - 1));
-  const max_event_offset = Math.max(0, event_entries.length - event_list_content_rows);
+    ? default_selected_event_index
+    : event_entries[selected_event_index]
+      ? selected_event_index
+      : default_selected_event_index;
+
+  const selected_view_position = clamped_selected_event_index === null
+    ? null
+    : (() => {
+        const position = event_view_indices.indexOf(clamped_selected_event_index);
+        return position >= 0 ? position : null;
+      })();
+
+  const max_event_offset = Math.max(0, event_view_indices.length - event_list_content_rows);
   const effective_event_offset = event_autoscroll
     ? max_event_offset
     : clamp(event_list_offset, 0, max_event_offset);
-  const visible_event_entries = event_entries.slice(
-    effective_event_offset,
-    effective_event_offset + event_list_content_rows
-  );
+  const visible_event_entries = event_view_indices
+    .slice(effective_event_offset, effective_event_offset + event_list_content_rows)
+    .map((absolute_index) => {
+      const entry = event_entries[absolute_index];
+      if (!entry) {
+        return null;
+      }
+      return {
+        ...entry,
+        absolute_index
+      };
+    })
+    .filter((entry): entry is EventEntry & { absolute_index: number } => Boolean(entry));
   const selected_event = clamped_selected_event_index === null
     ? null
     : event_entries[clamped_selected_event_index] ?? null;
@@ -1188,18 +1819,18 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     { length: Math.max(1, event_overlay_rows - 1) },
     (_, index) => visible_event_details[index] ?? ''
   );
-  const selected_visible_index = clamped_selected_event_index === null
+  const selected_visible_index = selected_view_position === null
     ? null
-    : clamped_selected_event_index - effective_event_offset;
+    : selected_view_position - effective_event_offset;
   const overlay_base_top = 2;
   const overlay_bottom_top = Math.max(overlay_base_top, event_panel_content_rows - event_overlay_rows);
   const overlay_top = selected_visible_index !== null && selected_visible_index < event_overlay_rows
     ? overlay_bottom_top
-    : event_entries.length === 0
+    : event_view_indices.length === 0
       ? overlay_bottom_top
       : overlay_base_top;
   const event_scrollbar_line = render_scrollbar_line(
-    event_entries.length,
+    event_view_indices.length,
     event_list_content_rows,
     effective_event_offset
   );
@@ -1236,183 +1867,62 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     <Box flexDirection="column" width={columns} height={available_rows}>
       <Box borderStyle="single" paddingX={1} height={header_height}>
         <Text>
-          phase={context.state.phase}/{context.state.subphase} day={context.state.day_number} night={context.state.night_number} alive={alive_count}/{players_total} prompts={prompt_count} | focus={pane_focus} | events autoscroll={event_autoscroll} key={show_event_key ? 'shown' : 'hidden'} mouse={mouse_scroll_enabled ? 'on' : 'off'} | Ctrl+W pane(events/state/command) | Ctrl+A autoscroll | Ctrl+M mouse | Ctrl+L latest_event | Ctrl+K key | Ctrl+U/D scroll(events) | Ctrl+E errors={status_errors_only} | Ctrl+S state={state_mode} | Ctrl+G inspector={inspector_mode} | Ctrl+C quit
+          phase={context.state.phase}/{context.state.subphase} day={context.state.day_number} night={context.state.night_number} alive={alive_count}/{players_total} prompts={prompt_count} | mode={vim_mode} focus={pane_focus} count={count_prefix || '1'} | events autoscroll={event_autoscroll} key={show_event_key ? 'shown' : 'hidden'} mouse={mouse_scroll_enabled ? 'on' : 'off'} | : command | / search | ? filter | j/k move | gg/G | n/N repeat | w/W pane | Ctrl+F/B page | Ctrl+U/D half | Ctrl+E/Y line | Ctrl+R resolver | Ctrl+C quit
         </Text>
       </Box>
 
       <Box height={main_height}>
-        <Box width="50%" flexDirection="column">
-          <Box
-            borderStyle="single"
-            borderColor={pane_focus === 'events' ? 'green' : 'white'}
-            flexDirection="column"
-            height={main_height}
-            paddingX={1}
-          >
-            <Text color="cyan">Events ({event_entries.length}) autoscroll={event_autoscroll ? 'on' : 'off'}</Text>
-            <Text color="gray">{fit_line(event_scrollbar_line, left_pane_width)}</Text>
-            {visible_event_entries.length === 0 ? (
-              <Text>(no events yet)</Text>
-            ) : (
-              visible_event_entries.map((entry, visible_index) => {
-                const absolute_index = effective_event_offset + visible_index;
-                const selected = clamped_selected_event_index === absolute_index;
-                return (
-                  <EventSummaryRow
-                    key={`event-row-${entry.event_index}`}
-                    event={entry.event}
-                    event_index={entry.event_index}
-                    selected={selected}
-                    width={left_pane_width}
-                  />
-                );
-              })
-            )}
-
-            <Box
-              position="absolute"
-              marginTop={overlay_top}
-              width={left_pane_width}
-              height={event_overlay_rows}
-              flexDirection="column"
-            >
-              <Text color="cyan" backgroundColor="black">{fit_line('Selected Event', left_pane_width)}</Text>
-              {overlay_detail_rows.map((line, index) => (
-                <Text key={`event-detail-${index}`} backgroundColor="black">
-                  {fit_line(index === 0 && line.length === 0 ? '(none)' : line, left_pane_width)}
-                </Text>
-              ))}
-            </Box>
-          </Box>
-        </Box>
+        <EventsPane
+          pane_focus={pane_focus}
+          main_height={main_height}
+          left_pane_width={left_pane_width}
+          event_entries={event_entries}
+          event_autoscroll={event_autoscroll}
+          event_scrollbar_line={event_scrollbar_line}
+          visible_event_entries={visible_event_entries}
+          effective_event_offset={effective_event_offset}
+          selected_event_index={clamped_selected_event_index}
+          matched_event_indices={matched_event_indices}
+          overlay_top={overlay_top}
+          event_overlay_rows={event_overlay_rows}
+          overlay_detail_rows={overlay_detail_rows}
+        />
 
         <Box width="50%" flexDirection="column">
-          <Box borderStyle="single" borderColor={pane_focus === 'state' ? 'green' : 'white'} flexDirection="column" height={state_height} paddingX={1}>
-            <Text color="cyan">
-              {state_mode === 'players'
-                ? `State (${state_mode}) ${timing_label} sub=${effective_state.subphase} alive=${alive_count}/${players_total}`
-                : `State (${state_mode})`}
-            </Text>
-            {state_mode === 'players' ? (
-              <>
-                <Text>{fit_line(player_state_header, right_pane_width)}</Text>
-                <Text color="gray">{fit_line(player_state_separator, right_pane_width)}</Text>
-                {visible_player_rows.length > 0 ? (
-                  visible_player_rows.map(({ key, row }, index) => {
-                    const absolute_index = effective_player_offset + index;
-                    const selected = absolute_index === (clamped_selected_player_index ?? -1);
-                    const content = (
-                      <>
-                        <Text>{selected ? '>  ' : '   '}</Text>
-                        <Text>{`${row.seat}   `}</Text>
-                        <Text color={row.identity_color}>{`${row.identity} `}</Text>
-                        <Text>{`${row.vote} `}</Text>
-                        {row.marker_tokens.length > 0 ? (
-                          <Text>
-                            {(() => {
-                              const marker_column_width = 7;
-                              const chunks: Array<{ text: string; color?: string }> = [];
-                              let used = 0;
-                              for (let token_index = 0; token_index < row.marker_tokens.length; token_index += 1) {
-                                const token = row.marker_tokens[token_index];
-                                if (!token) {
-                                  continue;
-                                }
-                                if (used >= marker_column_width) {
-                                  break;
-                                }
-                                const raw = `${token.seat}${token_index < row.marker_tokens.length - 1 ? ',' : ''}`;
-                                const available = marker_column_width - used;
-                                const text = raw.slice(0, available);
-                                if (text.length > 0) {
-                                  chunks.push({ text, color: token.color });
-                                  used += text.length;
-                                }
-                              }
-                              if (used < marker_column_width) {
-                                chunks.push({ text: ' '.repeat(marker_column_width - used) });
-                              }
-                              return chunks.map((chunk, chunk_index) => (
-                                chunk.color ? (
-                                  <Text
-                                    key={`marker-seat-${key}-${chunk_index}`}
-                                    color={chunk.color}
-                                  >
-                                    {chunk.text}
-                                  </Text>
-                                ) : (
-                                  <Text key={`marker-seat-${key}-${chunk_index}`}>
-                                    {chunk.text}
-                                  </Text>
-                                )
-                              ));
-                            })()}
-                            <Text> </Text>
-                          </Text>
-                        ) : (
-                          <Text>{`${row.markers.padEnd(7, ' ')} `}</Text>
-                        )}
-                        <Text color={row.type_color}>{row.type}</Text>
-                        <Text> </Text>
-                        <Text color={row.role_color}>{row.role}</Text>
-                        <Text>{row.suffix}</Text>
-                      </>
-                    );
-                    return (
-                      <Text
-                        key={`player-state-${key}`}
-                        bold={selected}
-                        italic={row.italic}
-                        strikethrough={row.strikethrough}
-                        wrap="truncate-end"
-                      >
-                        {content}
-                      </Text>
-                    );
-                  })
-                ) : (
-                  <Text>(no players)</Text>
-                )}
-                {selected_player ? (
-                  <Text wrap="truncate-end">
-                    <Text color="gray">{selected_player_status_prefix}</Text>
-                    {selected_player_markers.length > 0 ? (
-                      selected_player_markers.map((marker, index) => (
-                        <Text key={`selected-player-marker-${marker.kind}-${marker.effect}-${index}`}>
-                          <Text>{`${marker.kind}:`}</Text>
-                          <Text color={marker_source_color(marker.effect)}>{marker.seats.join(',')}</Text>
-                          <Text>{index < selected_player_markers.length - 1 ? ', ' : ''}</Text>
-                        </Text>
-                      ))
-                    ) : (
-                      <Text color="gray">(none)</Text>
-                    )}
-                  </Text>
-                ) : (
-                  <Text color="gray" wrap="truncate-end">{selected_player_status_prefix}</Text>
-                )}
-              </>
-            ) : (
-              render_panel_lines(state_lines, right_pane_width)
-            )}
-          </Box>
-
-          <Box borderStyle="single" borderColor="white" flexDirection="column" height={inspector_height} paddingX={1}>
-            <Text color="cyan">Inspector ({inspector_mode})</Text>
-            {render_panel_lines(inspector_visible_lines, right_pane_width)}
-          </Box>
-
-          <Box borderStyle="single" borderColor="white" flexDirection="column" height={status_height} paddingX={1}>
-            <Text color="cyan">Status (errors_only={status_errors_only})</Text>
-            {render_panel_lines(status_inspector_lines, right_pane_width)}
-          </Box>
+          <StatePane
+            pane_focus={pane_focus}
+            state_height={state_height}
+            right_pane_width={right_pane_width}
+            state_mode={state_mode}
+            title={state_mode === 'players'
+              ? `State (${state_mode}) ${timing_label} sub=${effective_state.subphase} alive=${alive_count}/${players_total}`
+              : `State (${state_mode})`}
+            panel_lines={state_mode === 'json' ? visible_state_json_lines : state_brief_lines}
+            json_offset={effective_state_json_offset}
+            json_selected_index={clamped_state_json_cursor}
+            json_matched_indices={state_json_matched_indices}
+            player_state_header={player_state_header}
+            player_state_separator={player_state_separator}
+            visible_player_rows={visible_player_rows}
+            effective_player_offset={effective_player_offset}
+            selected_player_index={clamped_selected_player_index}
+            selected_player_status_prefix={selected_player_status_prefix}
+            selected_player_marker_lines={selected_player_marker_lines}
+          />
+          <InspectorPane inspector_height={inspector_height} inspector_mode={inspector_mode} lines={inspector_visible_lines} />
+          <StatusPane status_height={status_height} status_errors_only={status_errors_only} lines={status_inspector_lines} />
         </Box>
       </Box>
 
-      <Box borderStyle="single" borderColor={pane_focus === 'command' ? 'green' : 'white'} paddingX={1} height={input_height}>
-        <Text color="green">Command&gt; </Text>
-        <Text>{input.slice(0, command_width)}</Text>
-      </Box>
+      <CommandPane
+        pane_focus={pane_focus}
+        input_height={input_height}
+        command_width={command_width}
+        mode={vim_mode}
+        input={input}
+        count_prefix={count_prefix}
+        pending_g={pending_g}
+      />
 
       {resolver_open && (
         <Box position="absolute" width={columns} height={available_rows} flexDirection="column">
