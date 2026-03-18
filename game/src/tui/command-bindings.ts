@@ -21,6 +21,7 @@ export interface TuiCommand {
   count?: number;
   text?: string;
   direction?: 1 | -1;
+  pattern?: string;
 }
 
 export interface CommandBindingContext {
@@ -30,6 +31,8 @@ export interface CommandBindingContext {
   state_mode: StateMode;
   count_prefix: string;
   pending_g: boolean;
+  mode_input: string;
+  search_entry_direction: 1 | -1;
 }
 
 export interface CommandBindingResult {
@@ -76,19 +79,62 @@ export function resolve_tui_command(
   }
 
   if (context.mode === 'command' || context.mode === 'search' || context.mode === 'filter') {
+    if (context.mode === 'search') {
+      if (key.escape) {
+        return result(true, { id: 'search:cancel' }, next_count, next_pending_g);
+      }
+      if (key.backspace || key.delete) {
+        if (context.mode_input.length === 0) {
+          return result(true, { id: 'search:cancel' }, next_count, next_pending_g);
+        }
+        return result(true, { id: 'mode:backspace' }, next_count, next_pending_g);
+      }
+      if (key.return) {
+        const pattern = context.mode_input.trim();
+        if (pattern.length === 0) {
+          return result(true, { id: 'search:end' }, next_count, next_pending_g);
+        }
+        return result(true, { id: 'search:start', direction: context.search_entry_direction, pattern }, next_count, next_pending_g);
+      }
+      if (!key.ctrl && !key.meta && !key.tab && input_key.length > 0) {
+        return result(true, { id: 'mode:append_input', text: input_key }, next_count, next_pending_g);
+      }
+      return result(true, null, next_count, next_pending_g);
+    }
+
+    if (context.mode === 'filter') {
+      if (key.escape) {
+        return result(true, { id: 'filter:cancel' }, next_count, next_pending_g);
+      }
+      if (key.backspace || key.delete) {
+        if (context.mode_input.length === 0) {
+          return result(true, { id: 'filter:cancel' }, next_count, next_pending_g);
+        }
+        return result(true, { id: 'mode:backspace' }, next_count, next_pending_g);
+      }
+      if (key.return) {
+        const pattern = context.mode_input.trim();
+        if (pattern.length === 0) {
+          return result(true, { id: 'filter:end' }, next_count, next_pending_g);
+        }
+        return result(true, { id: 'filter:start', pattern }, next_count, next_pending_g);
+      }
+      if (!key.ctrl && !key.meta && !key.tab && input_key.length > 0) {
+        return result(true, { id: 'mode:append_input', text: input_key }, next_count, next_pending_g);
+      }
+      return result(true, null, next_count, next_pending_g);
+    }
+
     if (key.escape) {
-      if (context.mode === 'search') {
-        return result(true, { id: 'search:end' }, next_count, next_pending_g);
-      }
-      if (context.mode === 'filter') {
-        return result(true, { id: 'filter:end' }, next_count, next_pending_g);
-      }
       return result(true, { id: 'mode:cancel' }, next_count, next_pending_g);
     }
     if (key.return) {
       return result(true, { id: 'mode:submit' }, next_count, next_pending_g);
     }
     if (key.backspace || key.delete) {
+      if (context.mode === 'command' && context.mode_input.length === 0) {
+        return result(true, { id: 'mode:cancel' }, next_count, next_pending_g);
+      }
       return result(true, { id: 'mode:backspace' }, next_count, next_pending_g);
     }
 
@@ -181,15 +227,15 @@ export function resolve_tui_command(
   }
   if (input_key === '/') {
     if (context.pane_focus === 'state' && context.state_mode === 'json') {
-      return result(true, { id: 'search:start', direction: 1 }, '', false);
+      return result(true, { id: 'mode:enter_search', direction: 1 }, '', false);
     }
-    return result(true, { id: 'search:start', direction: -1 }, '', false);
+    return result(true, { id: 'mode:enter_search', direction: -1 }, '', false);
   }
   if (input_key === '?') {
     if (context.pane_focus === 'state' && context.state_mode === 'json') {
-      return result(true, { id: 'search:start', direction: -1 }, '', false);
+      return result(true, { id: 'mode:enter_search', direction: -1 }, '', false);
     }
-    return result(true, { id: 'filter:start' }, '', false);
+    return result(true, { id: 'mode:enter_filter' }, '', false);
   }
 
   if (/^[0-9]$/.test(input_key)) {
@@ -227,10 +273,10 @@ export function resolve_tui_command(
     return result(true, { id: 'cursor:jump_bottom' }, '', false);
   }
   if (input_key === 'n') {
-    return result(true, { id: 'search:repeat_same', count }, '', false);
+    return result(true, { id: 'search:forward_direction', count }, '', false);
   }
   if (input_key === 'N') {
-    return result(true, { id: 'search:repeat_opposite', count }, '', false);
+    return result(true, { id: 'search:backward_direction', count }, '', false);
   }
   if (key.tab) {
     return result(true, null, next_count, next_pending_g);

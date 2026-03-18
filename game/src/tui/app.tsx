@@ -5,26 +5,45 @@ import { CliChannelBus } from '../cli/channels.js';
 import { format_state_brief, format_state_json } from '../cli/formatters.js';
 import { create_cli_context, process_cli_line } from '../cli/repl.js';
 import type { DomainEvent } from '../domain/events.js';
-import type { GameState, PlayerState, PromptColumnSpec, PromptRangeSpec, PromptState } from '../domain/types.js';
-import { format_event_summary_text } from './event.js';
+import type { PromptColumnSpec, PromptRangeSpec, PromptState } from '../domain/types.js';
 import { resolve_tui_command, route_tui_command, type TuiCommand } from './command-bindings.js';
-import { CommandPane, type VimMode } from './panes/command-pane.js';
-import { EventsPane, handle_events_pane_command } from './panes/events-pane.js';
+import { CommandPane, handle_command_mode_command, type VimMode } from './panes/command-pane.js';
+import {
+  EventsPane,
+  begin_event_pane_search,
+  cancel_event_pane_search,
+  clear_event_pane_search,
+  commit_event_pane_search,
+  create_event_pane_search_state,
+  derive_event_view_model,
+  end_event_pane_search,
+  event_matches_query,
+  find_event_match_index,
+  handle_events_pane_command,
+  update_event_pane_search_preview
+} from './panes/events-pane.js';
 import { InspectorPane } from './panes/inspector-pane.js';
-import { StatePane, type PlayerStateRow, handle_state_pane_command } from './panes/state-pane.js';
+import {
+  StatePane,
+  begin_state_json_search,
+  cancel_state_json_search,
+  clear_state_json_search,
+  commit_state_json_search,
+  create_state_json_search_state,
+  derive_player_state_model,
+  end_state_json_search,
+  find_state_json_match_index,
+  type SearchPhase,
+  ordered_player_ids,
+  handle_state_pane_command,
+  update_state_json_search_preview
+} from './panes/state-pane.js';
 import { StatusPane } from './panes/status-pane.js';
 
 type StateMode = 'brief' | 'players' | 'json';
 type InspectorMode = 'overview' | 'prompts' | 'players' | 'markers' | 'output';
 type PaneFocus = 'events' | 'state';
 type StatusKind = 'status' | 'error';
-type SearchTarget = 'events' | 'state_json';
-
-interface MarkerSeatToken {
-  seat: string;
-  color: string;
-}
-
 interface StatusEntry {
   text: string;
   kind: StatusKind;
@@ -184,29 +203,6 @@ function render_panel_lines(lines: string[], max_width: number): React.ReactNode
   });
 }
 
-function wrap_line(text: string, width: number): string[] {
-  if (width <= 0) {
-    return [''];
-  }
-  if (text.length <= width) {
-    return [text];
-  }
-
-  const rows: string[] = [];
-  for (let start = 0; start < text.length; start += width) {
-    rows.push(text.slice(start, start + width));
-  }
-  return rows;
-}
-
-function wrap_lines(lines: string[], width: number): string[] {
-  const wrapped: string[] = [];
-  for (const line of lines) {
-    wrapped.push(...wrap_line(line, width));
-  }
-  return wrapped;
-}
-
 function fit_line(text: string, width: number): string {
   if (width <= 0) {
     return '';
@@ -217,30 +213,6 @@ function fit_line(text: string, width: number): string {
 
 function strip_ansi(text: string): string {
   return text.replace(/\x1B\[[0-9;]*m/g, '');
-}
-
-function format_selected_event_detail_lines(
-  selected: EventEntry | null,
-  show_event_key: boolean
-): string[] {
-  if (!selected) {
-    return ['(no event selected)', 'Use Ctrl+W to focus events, Up/Down to select.'];
-  }
-
-  const detail_lines = [
-    `selected=#${selected.event_index} ${selected.event.event_type}`,
-    `event_id=${selected.event.event_id} created_at=${selected.event.created_at}`,
-    `actor_id=${selected.event.actor_id ?? 'none'}`
-  ];
-
-  if (show_event_key) {
-    detail_lines.push(`event_key=${selected.event.event_key ?? 'none'}`);
-  } else {
-    detail_lines.push('event_key=(hidden) Ctrl+K to toggle');
-  }
-
-  detail_lines.push(`payload_json=${JSON.stringify(selected.event.payload)}`);
-  return detail_lines;
 }
 
 function clamp(value: number, min: number, max: number): number {
@@ -263,33 +235,6 @@ function ensure_visible_offset(
   return clamp(current_offset, 0, max_offset);
 }
 
-function render_scrollbar_line(total_count: number, visible_count: number, offset: number): string {
-  const width = 18;
-  if (total_count <= 0) {
-    return `scroll [${'-'.repeat(width)}] 0/0`;
-  }
-
-  if (total_count <= visible_count) {
-    return `scroll [${'#'.repeat(width)}] ${total_count}/${total_count}`;
-  }
-
-  const max_offset = Math.max(1, total_count - visible_count);
-  const thumb_size = Math.max(1, Math.round((visible_count / total_count) * width));
-  const travel = Math.max(0, width - thumb_size);
-  const thumb_pos = Math.round((offset / max_offset) * travel);
-
-  const chars = Array.from({ length: width }, () => '-');
-  for (let i = 0; i < thumb_size; i += 1) {
-    const position = thumb_pos + i;
-    if (position >= 0 && position < chars.length) {
-      chars[position] = '#';
-    }
-  }
-
-  const view_end = Math.min(total_count, offset + visible_count);
-  return `scroll [${chars.join('')}] ${view_end}/${total_count}`;
-}
-
 function slice_from_bottom(lines: string[], visible_count: number, scroll_offset: number): string[] {
   const end = Math.max(0, lines.length - Math.max(0, scroll_offset));
   const start = Math.max(0, end - Math.max(1, visible_count));
@@ -302,106 +247,6 @@ function next_focus(focus: PaneFocus): PaneFocus {
 
 function prev_focus(focus: PaneFocus): PaneFocus {
   return focus === 'events' ? 'state' : 'events';
-}
-
-function ordered_player_ids(state: GameState): string[] {
-  const seated_player_ids = new Set(state.seat_order);
-  return [
-    ...state.seat_order,
-    ...Object.keys(state.players_by_id)
-      .filter((player_id) => !seated_player_ids.has(player_id))
-      .sort((a, b) => a.localeCompare(b))
-  ];
-}
-
-function role_color(character_type: PlayerState['true_character_type']): string {
-  if (character_type === 'townsfolk') {
-    return 'blue';
-  }
-  if (character_type === 'outsider') {
-    return 'cyan';
-  }
-  if (character_type === 'minion') {
-    return 'magenta';
-  }
-  if (character_type === 'demon') {
-    return 'red';
-  }
-  if (character_type === 'traveller') {
-    return 'yellow';
-  }
-  return 'white';
-}
-
-function alignment_color(alignment: PlayerState['true_alignment']): string {
-  if (alignment === 'good') {
-    return 'green';
-  }
-  if (alignment === 'evil') {
-    return 'red';
-  }
-  return 'gray';
-}
-
-function marker_source_color(effect: string | null | undefined): string {
-  const normalized = (effect ?? '').toLowerCase();
-  if (normalized.includes('poison') || normalized.includes('drunk')) {
-    return 'magenta';
-  }
-  if (normalized.includes('protect')) {
-    return 'green';
-  }
-  if (normalized.length === 0 || normalized === 'none') {
-    return 'gray';
-  }
-  return 'white';
-}
-
-function format_player_state_row(player: PlayerState, seat_index: number, marker_sources: MarkerSeatToken[]): {
-  seat: string;
-  identity: string;
-  vote: string;
-  markers: string;
-  marker_tokens: MarkerSeatToken[];
-  type: string;
-  role: string;
-  suffix: string;
-  identity_color: string;
-  type_color: string;
-  role_color: string;
-  italic: boolean;
-  strikethrough: boolean;
-} {
-  const seat = String(seat_index + 1).padStart(2, ' ');
-  const id = player.player_id.padEnd(4, ' ').slice(0, 4);
-  const name = player.display_name.padEnd(12, ' ').slice(0, 12);
-  const vote = player.dead_vote_available ? 'yes ' : 'no  ';
-  const markers = marker_sources.length > 0 ? marker_sources.map((source) => source.seat).join(',') : '-';
-  const character_type = (player.true_character_type ?? 'none').padEnd(10, ' ').slice(0, 10);
-  const role = (player.true_character_id ?? 'none').padEnd(19, ' ').slice(0, 19);
-  const flags = [
-    player.perceived_character_id && player.perceived_character_id !== player.true_character_id
-      ? `seen:${player.perceived_character_id}`
-      : null,
-    player.registered_alignment ? `regA:${player.registered_alignment}` : null,
-    player.registered_character_id ? `regC:${player.registered_character_id}` : null
-  ].filter((value): value is string => Boolean(value)).join(',');
-
-  return {
-    seat,
-    identity: `${id} ${name}`,
-    vote,
-    markers,
-    marker_tokens: marker_sources,
-    type: character_type,
-    role,
-    suffix: ` ${flags || '-'}`,
-    identity_color: player.alive ? 'white' : 'gray',
-    type_color: alignment_color(player.true_alignment),
-    role_color: role_color(player.true_character_type ?? null),
-    italic: player.drunk || player.poisoned,
-    strikethrough: !player.alive
-  };
 }
 
 function next_state_mode(mode: StateMode): StateMode {
@@ -443,15 +288,11 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [vim_mode, set_vim_mode] = useState<VimMode>('normal');
   const [count_prefix, set_count_prefix] = useState('');
   const [pending_g, set_pending_g] = useState(false);
-  const [active_search_query, set_active_search_query] = useState('');
-  const [last_search_query, set_last_search_query] = useState('');
-  const [last_search_direction, set_last_search_direction] = useState<1 | -1>(-1);
-  const [last_search_target, set_last_search_target] = useState<SearchTarget>('events');
-  const [search_entry_direction, set_search_entry_direction] = useState<1 | -1>(-1);
+  const [event_search_state, set_event_search_state] = useState(create_event_pane_search_state);
   const [filter_query, set_filter_query] = useState('');
   const [state_json_cursor, set_state_json_cursor] = useState(0);
   const [state_json_offset, set_state_json_offset] = useState(0);
-  const [state_json_search_query, set_state_json_search_query] = useState('');
+  const [state_json_search_state, set_state_json_search_state] = useState(create_state_json_search_state);
   const [event_entries, set_event_entries] = useState<EventEntry[]>([]);
   const [selected_event_index, set_selected_event_index] = useState<number | null>(null);
   const [event_list_offset, set_event_list_offset] = useState(0);
@@ -479,6 +320,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [pane_focus, set_pane_focus] = useState<PaneFocus>('events');
   const [mode_return_focus, set_mode_return_focus] = useState<PaneFocus>('events');
   const [mode_return_state_mode, set_mode_return_state_mode] = useState<StateMode>('players');
+  const [search_phase, set_search_phase] = useState<SearchPhase>('idle');
   const [status_errors_only, set_status_errors_only] = useState(false);
   const [mouse_scroll_enabled, set_mouse_scroll_enabled] = useState(true);
   const [, set_tick] = useState(0);
@@ -529,15 +371,6 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     return keep_running;
   }
 
-  function event_matches_query(entry: EventEntry, query: string): boolean {
-    const needle = query.trim().toLowerCase();
-    if (needle.length === 0) {
-      return false;
-    }
-    const summary = format_event_summary_text(entry.event, entry.event_index, 256).toLowerCase();
-    return summary.includes(needle);
-  }
-
   function select_event_by_view_position(view_position: number): void {
     const view = event_view_indices_ref.current;
     if (view.length === 0) {
@@ -570,37 +403,32 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     select_event_by_view_position(fallback);
   }
 
-  function find_event_match_index(query: string, direction: 1 | -1): number | null {
-    const needle = query.trim().toLowerCase();
-    const source_indices = event_view_indices_ref.current;
-    if (needle.length === 0 || source_indices.length === 0) {
-      return null;
-    }
-    const current_absolute = selected_event_index ?? source_indices[source_indices.length - 1] ?? 0;
-    const current_position = Math.max(0, source_indices.indexOf(current_absolute));
-    for (let step = 1; step <= source_indices.length; step += 1) {
-      const candidate_position = (current_position + direction * step + source_indices.length * 2) % source_indices.length;
-      const candidate_absolute = source_indices[candidate_position];
-      if (candidate_absolute === undefined) {
-        continue;
-      }
-      const entry = event_entries[candidate_absolute];
-      if (!entry) {
-        continue;
-      }
-      if (event_matches_query(entry, needle)) {
-        return candidate_absolute;
-      }
-    }
-    return null;
-  }
-
-  function run_event_search(query: string, direction: 1 | -1, emit_not_found = true): boolean {
+  function run_event_search(
+    query: string,
+    direction: 1 | -1,
+    emit_not_found = true,
+    base_index: number | null = selected_event_index,
+    include_start = true
+  ): boolean {
     const needle = query.trim();
     if (needle.length === 0) {
       return false;
     }
-    const matched = find_event_match_index(needle, direction);
+    const current = base_index;
+    if (current !== null) {
+      const current_entry = event_entries[current];
+      if (current_entry && event_matches_query(current_entry, needle)) {
+        return true;
+      }
+    }
+    const matched = find_event_match_index({
+      query: needle,
+      direction,
+      event_entries,
+      view_indices: event_view_indices_ref.current,
+      selected_event_index: base_index,
+      include_start
+    });
     if (matched === null) {
       if (emit_not_found) {
         append_status_lines([`(no match for /${needle})`]);
@@ -640,28 +468,29 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     set_state_json_offset((offset) => ensure_visible_offset(target, offset, state_content_rows, state_json_lines.length));
   }
 
-  function find_state_json_match_index(query: string, direction: 1 | -1): number | null {
-    const needle = query.trim().toLowerCase();
-    if (needle.length === 0 || state_json_lines.length === 0) {
-      return null;
-    }
-    const current = clamp(state_json_cursor, 0, Math.max(0, state_json_lines.length - 1));
-    for (let step = 1; step <= state_json_lines.length; step += 1) {
-      const candidate = (current + direction * step + state_json_lines.length * 2) % state_json_lines.length;
-      const line = state_json_lines[candidate] ?? '';
-      if (line.toLowerCase().includes(needle)) {
-        return candidate;
-      }
-    }
-    return null;
-  }
-
-  function run_state_json_search(query: string, direction: 1 | -1, emit_not_found = true): boolean {
+  function run_state_json_search(
+    query: string,
+    direction: 1 | -1,
+    emit_not_found = true,
+    base_index = state_json_cursor,
+    include_start = true
+  ): boolean {
     const needle = query.trim();
     if (needle.length === 0) {
       return false;
     }
-    const matched = find_state_json_match_index(needle, direction);
+    const current = clamp(base_index, 0, Math.max(0, state_json_lines.length - 1));
+    const current_line = state_json_lines[current] ?? '';
+    if (current_line.toLowerCase().includes(needle.toLowerCase())) {
+      return true;
+    }
+    const matched = find_state_json_match_index({
+      query: needle,
+      direction,
+      lines: state_json_lines,
+      current_index: base_index,
+      include_start
+    });
     if (matched === null) {
       if (emit_not_found) {
         append_status_lines([`(no match for /${needle} in state json)`]);
@@ -673,29 +502,24 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     return true;
   }
 
-  function repeat_last_search(kind: 'same' | 'opposite', count: number): void {
-    const needle = last_search_query.trim();
+  function repeat_event_search(kind: 'same' | 'opposite', count: number): void {
+    const needle = event_search_state.last_query.trim();
     if (needle.length === 0) {
-      append_status_lines(['(no previous search query)']);
+      append_status_lines(['(no previous search query in events)']);
       return;
     }
     const direction = kind === 'same'
-      ? last_search_direction
-      : (last_search_direction === 1 ? -1 : 1);
+      ? event_search_state.last_direction
+      : (event_search_state.last_direction === 1 ? -1 : 1);
     const attempts = Math.max(1, count);
     for (let i = 0; i < attempts; i += 1) {
-      if (last_search_target === 'state_json') {
-        const matched = find_state_json_match_index(needle, direction);
-        if (matched === null) {
-          append_status_lines([`(no match for /${needle} in state json)`]);
-          return;
-        }
-        set_state_json_cursor(matched);
-        set_state_json_offset((offset) => ensure_visible_offset(matched, offset, state_content_rows, state_json_lines.length));
-        continue;
-      }
-
-      const matched = find_event_match_index(needle, direction);
+      const matched = find_event_match_index({
+        query: needle,
+        direction,
+        event_entries,
+        view_indices: event_view_indices_ref.current,
+        selected_event_index
+      });
       if (matched === null) {
         append_status_lines([`(no match for /${needle})`]);
         return;
@@ -704,104 +528,66 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     }
   }
 
-  function submit_mode_input(): void {
-    if (vim_mode === 'command') {
-      const command = input.trim();
-      if (command.length === 0) {
-        set_vim_mode('normal');
-        set_input('');
-        set_pane_focus(mode_return_focus);
-        return;
-      }
-      set_history((previous) => [...previous, command]);
-      set_history_cursor(null);
-      set_input('');
-      set_vim_mode('normal');
-      set_pane_focus(mode_return_focus);
-      const keep_running = run_command(command);
-      if (!keep_running) {
-        exit();
-      }
+  function repeat_state_json_search(kind: 'same' | 'opposite', count: number): void {
+    const needle = state_json_search_state.last_query.trim();
+    if (needle.length === 0) {
+      append_status_lines(['(no previous search query in state json)']);
       return;
     }
-    if (vim_mode === 'search') {
-      const needle = input.trim();
-      const target: SearchTarget = mode_return_focus === 'state' && mode_return_state_mode === 'json'
-        ? 'state_json'
-        : 'events';
-      if (needle.length === 0) {
-        if (target === 'state_json') {
-          set_state_json_search_query('');
-        } else {
-          set_active_search_query('');
-        }
-        set_last_search_query('');
-        set_vim_mode('normal');
-        set_input('');
-        set_pane_focus(mode_return_focus);
+    const direction = kind === 'same'
+      ? state_json_search_state.last_direction
+      : (state_json_search_state.last_direction === 1 ? -1 : 1);
+    const attempts = Math.max(1, count);
+    for (let i = 0; i < attempts; i += 1) {
+      const matched = find_state_json_match_index({
+        query: needle,
+        direction,
+        lines: state_json_lines,
+        current_index: state_json_cursor
+      });
+      if (matched === null) {
+        append_status_lines([`(no match for /${needle} in state json)`]);
         return;
       }
-      if (target === 'state_json') {
-        set_state_json_search_query(needle);
-        run_state_json_search(needle, search_entry_direction, false);
-      } else {
-        set_active_search_query(needle);
-        run_event_search(needle, search_entry_direction, false);
-      }
-      set_last_search_query(needle);
-      set_last_search_direction(search_entry_direction);
-      set_last_search_target(target);
-      set_input('');
-      set_vim_mode('normal');
-      set_pane_focus(mode_return_focus);
-      return;
-    }
-    if (vim_mode === 'filter') {
-      const needle = input.trim();
-      set_filter_query(needle);
-      set_input('');
-      set_vim_mode('normal');
-      set_pane_focus(mode_return_focus);
+      set_state_json_cursor(matched);
+      set_state_json_offset((offset) => ensure_visible_offset(matched, offset, state_content_rows, state_json_lines.length));
     }
   }
 
-  function cancel_mode_input(): void {
-    set_input('');
-    set_history_cursor(null);
-    set_vim_mode('normal');
-    set_pane_focus(mode_return_focus);
+  function start_search_session(target: 'events' | 'state_json'): void {
+    if (target === 'state_json') {
+      set_state_json_search_state((previous) => begin_state_json_search(previous, state_json_cursor, previous.entry_direction));
+      set_search_phase('preview');
+      return;
+    }
+    set_event_search_state((previous) => begin_event_pane_search(previous, selected_event_index, previous.entry_direction));
+    set_search_phase('preview');
   }
 
-  function backspace_mode_input(): void {
-    set_input((previous) => {
-      if (previous.length === 0) {
-        set_vim_mode('normal');
-        set_pane_focus(mode_return_focus);
-        return '';
+  function cancel_search_session(target: 'events' | 'state_json'): void {
+    if (target === 'state_json') {
+      const cancelled = cancel_state_json_search(state_json_search_state);
+      set_state_json_search_state(cancelled.next);
+      if (cancelled.restore_cursor !== null) {
+        const restored = clamp(cancelled.restore_cursor, 0, Math.max(0, state_json_lines.length - 1));
+        set_state_json_cursor(restored);
+        set_state_json_offset((offset) => ensure_visible_offset(restored, offset, state_content_rows, state_json_lines.length));
       }
-      const next = previous.slice(0, -1);
-      if (vim_mode === 'search') {
-        const needle = next.trim();
-        const target: SearchTarget = mode_return_focus === 'state' && mode_return_state_mode === 'json'
-          ? 'state_json'
-          : 'events';
-        if (target === 'state_json') {
-          set_state_json_search_query(needle);
-          if (needle.length > 0) {
-            run_state_json_search(needle, search_entry_direction, false);
-          }
-        } else {
-          set_active_search_query(needle);
-          if (needle.length > 0) {
-            run_event_search(needle, search_entry_direction, false);
-          }
-        }
-      }
-      if (vim_mode === 'filter') {
-        set_filter_query(next.trim());
-      }
-      return next;
-    });
+      set_search_phase('idle');
+      return;
+    }
+    const cancelled = cancel_event_pane_search(event_search_state);
+    set_event_search_state(cancelled.next);
+    if (cancelled.restore_index !== null) {
+      select_event_at(cancelled.restore_index);
+    }
+    set_search_phase('idle');
+  }
+
+  function close_search_session(): void {
+    set_event_search_state((previous) => end_event_pane_search(previous));
+    set_state_json_search_state((previous) => end_state_json_search(previous));
+    set_search_phase('idle');
   }
 
   const step_player_selection = useCallback((delta: number, total_count: number, visible_count: number): void => {
@@ -959,7 +745,15 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
           continue;
         }
 
-        step_event_selection(is_wheel_up ? -1 : 1);
+        dispatch_tui_command(
+          {
+            id: is_wheel_up ? 'cursor:line_up' : 'cursor:line_down',
+            count: 1
+          },
+          {
+            pane_focus_override: 'events'
+          }
+        );
       }
     };
 
@@ -997,6 +791,117 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     set_resolver_prompt_key(null);
     set_resolver_multi_values([]);
     set_resolver_multi_column_index(0);
+  }
+
+  function dispatch_tui_command(command: TuiCommand, options?: { pane_focus_override?: PaneFocus }): boolean {
+    const dispatch_focus = options?.pane_focus_override ?? pane_focus;
+    const player_count = ordered_player_ids(context.state).length;
+    const player_visible_count = Math.max(1, state_content_rows - 4);
+    const target = route_tui_command(command, { pane_focus: dispatch_focus, state_mode });
+    const should_try_pane = !command.id.startsWith('mode:')
+      && (
+        target === 'pane'
+        || command.id.startsWith('search:')
+        || command.id.startsWith('filter:')
+        || command.id.startsWith('state:')
+        || command.id.startsWith('inspector:')
+      );
+
+    if (should_try_pane) {
+      if (dispatch_focus === 'events') {
+        const handled = handle_events_pane_command(
+          command,
+          {
+            page_size: Math.max(1, event_list_content_rows - 1),
+            half_page_size: Math.max(1, Math.floor(event_list_content_rows / 2))
+          },
+          {
+            move_cursor: step_event_selection,
+            jump_top: jump_top_selection,
+            jump_bottom: jump_bottom_selection,
+            repeat_search: repeat_event_search,
+          }
+        );
+        if (handled) {
+          return true;
+        }
+      }
+
+      if (dispatch_focus === 'state') {
+        const handled = handle_state_pane_command(
+          command,
+          {
+            state_mode,
+            page_size: Math.max(1, state_content_rows - 1),
+            half_page_size: Math.max(1, Math.floor(state_content_rows / 2)),
+            player_count,
+            player_visible_count
+          },
+          {
+            move_player: step_player_selection,
+            move_json_cursor: move_state_json_cursor,
+            jump_top: jump_top_selection,
+            jump_bottom: jump_bottom_selection,
+            repeat_search: repeat_state_json_search,
+            cycle_state_mode: () => set_state_mode((mode) => next_state_mode(mode)),
+            cycle_inspector_mode: () => set_inspector_mode((mode) => next_inspector_mode(mode))
+          }
+        );
+        if (handled) {
+          return true;
+        }
+      }
+    }
+
+    if (command.id === 'app:exit') {
+      exit();
+      return true;
+    }
+    if (command.id === 'resolver:open') {
+      open_resolver();
+      return true;
+    }
+    if (command.id === 'pane:focus_next') {
+      set_pane_focus((focus) => next_focus(focus));
+      return true;
+    }
+    if (command.id === 'pane:focus_prev') {
+      set_pane_focus((focus) => prev_focus(focus));
+      return true;
+    }
+    if (command.id === 'events:toggle_autoscroll') {
+      set_event_autoscroll((value) => !value);
+      return true;
+    }
+    if (command.id === 'events:toggle_mouse_scroll') {
+      set_mouse_scroll_enabled((value) => !value);
+      return true;
+    }
+    if (command.id === 'events:toggle_key') {
+      set_show_event_key((value) => !value);
+      return true;
+    }
+    if (command.id === 'events:jump_latest') {
+      const view = event_view_indices_ref.current;
+      if (view.length > 0) {
+        select_event_by_view_position(view.length - 1);
+      }
+      return true;
+    }
+    if (command.id === 'status:toggle_errors_only') {
+      set_status_errors_only((value) => !value);
+      return true;
+    }
+    if (command.id === 'state:cycle_mode') {
+      set_state_mode((mode) => next_state_mode(mode));
+      return true;
+    }
+    if (command.id === 'inspector:cycle_mode') {
+      set_inspector_mode((mode) => next_inspector_mode(mode));
+      return true;
+    }
+
+    return false;
   }
 
   useInput((input_key, key) => {
@@ -1238,15 +1143,17 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       return;
     }
 
-    const player_count = ordered_player_ids(context.state).length;
-    const player_visible_count = Math.max(1, state_content_rows - 4);
     const binding = resolve_tui_command(input_key, key, {
       suppress_input,
       mode: vim_mode,
       pane_focus,
       state_mode,
       count_prefix,
-      pending_g
+      pending_g,
+      mode_input: input,
+      search_entry_direction: mode_return_focus === 'state' && mode_return_state_mode === 'json'
+        ? state_json_search_state.entry_direction
+        : event_search_state.entry_direction
     });
 
     if (binding.count_prefix !== count_prefix) {
@@ -1260,280 +1167,131 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     }
 
     const command: TuiCommand = binding.command;
-    const target = route_tui_command(command, { pane_focus, state_mode });
-    const should_try_pane = !command.id.startsWith('mode:')
-      && (
-        target === 'pane'
-        || command.id.startsWith('search:')
-        || command.id.startsWith('filter:')
-        || command.id.startsWith('state:')
-        || command.id.startsWith('inspector:')
+
+    if (
+      command.id.startsWith('mode:')
+      || (
+        vim_mode !== 'normal'
+        && (
+          command.id === 'search:start'
+          || command.id === 'search:end'
+          || command.id === 'search:cancel'
+          || command.id === 'filter:start'
+          || command.id === 'filter:end'
+          || command.id === 'filter:cancel'
+        )
+      )
+    ) {
+      const prior_phase = search_phase;
+      const handled = handle_command_mode_command(
+        command,
+        {
+          mode: vim_mode,
+          input,
+          history,
+          history_cursor,
+          pane_focus,
+          state_mode,
+          mode_return_focus,
+          mode_return_state_mode,
+          search_entry_direction: mode_return_focus === 'state' && mode_return_state_mode === 'json'
+            ? state_json_search_state.entry_direction
+            : event_search_state.entry_direction
+        },
+        {
+          set_mode: set_vim_mode,
+          set_input,
+          set_history,
+          set_history_cursor,
+          set_mode_return_context: (focus, mode) => {
+            set_mode_return_focus(focus);
+            set_mode_return_state_mode(mode);
+          },
+          set_search_entry_direction: (target, direction) => {
+            if (target === 'state_json') {
+              set_state_json_search_state((previous) => ({ ...previous, entry_direction: direction }));
+            } else {
+              set_event_search_state((previous) => ({ ...previous, entry_direction: direction }));
+            }
+          },
+          set_pane_focus,
+          start_search_session,
+          cancel_search: cancel_search_session,
+          apply_search_preview: (target, query, direction) => {
+            if (target === 'state_json') {
+              set_state_json_search_state((previous) => {
+                const next = update_state_json_search_preview(previous, query);
+                const pattern = query.trim();
+                if (pattern.length > 0) {
+                  const base = next.anchor_cursor ?? state_json_cursor;
+                  run_state_json_search(pattern, direction, false, base, true);
+                }
+                return next;
+              });
+            } else {
+              set_event_search_state((previous) => {
+                const next = update_event_pane_search_preview(previous, query);
+                const pattern = query.trim();
+                if (pattern.length > 0) {
+                  const base = next.anchor_index ?? selected_event_index;
+                  run_event_search(pattern, direction, false, base, true);
+                }
+                return next;
+              });
+            }
+            set_search_phase('preview');
+          },
+          apply_search_commit: (target, query, direction) => {
+            if (target === 'state_json') {
+              set_state_json_search_state((previous) => {
+                const base = previous.anchor_cursor ?? state_json_cursor;
+                const matched = run_state_json_search(query, direction, false, base, true);
+                const staged = { ...previous, entry_direction: direction };
+                return commit_state_json_search(staged, query, matched);
+              });
+            } else {
+              set_event_search_state((previous) => {
+                const base = previous.anchor_index ?? selected_event_index;
+                const matched = run_event_search(query, direction, false, base, true);
+                const staged = { ...previous, entry_direction: direction };
+                return commit_event_pane_search(staged, query, matched);
+              });
+            }
+            set_search_phase('started');
+          },
+          clear_search: (target) => {
+            if (target === 'state_json') {
+              set_state_json_search_state((previous) => clear_state_json_search(previous));
+            } else {
+              set_event_search_state((previous) => clear_event_pane_search(previous));
+            }
+          },
+          apply_filter_preview: (query) => {
+            const normalized = query.trim();
+            if (normalized.length === 0) {
+              return;
+            }
+            set_filter_query(query);
+            set_search_phase('preview');
+          },
+          apply_filter_commit: (query) => {
+            set_filter_query(query);
+            set_search_phase('started');
+          },
+          run_command,
+          exit
+        }
       );
-    if (should_try_pane) {
-      if (pane_focus === 'events') {
-        const handled = handle_events_pane_command(
-          command,
-          {
-            page_size: Math.max(1, event_list_content_rows - 1),
-            half_page_size: Math.max(1, Math.floor(event_list_content_rows / 2))
-          },
-          {
-            move_cursor: step_event_selection,
-            jump_top: jump_top_selection,
-            jump_bottom: jump_bottom_selection,
-            start_search: (direction) => {
-              set_mode_return_focus(pane_focus);
-              set_mode_return_state_mode(state_mode);
-              set_search_entry_direction(direction);
-              set_vim_mode('search');
-              set_input('');
-              set_history_cursor(null);
-            },
-            end_search: () => {
-              set_input('');
-              set_history_cursor(null);
-              set_vim_mode('normal');
-              set_pane_focus(mode_return_focus);
-            },
-            repeat_search: repeat_last_search,
-            start_filter: () => {
-              set_mode_return_focus(pane_focus);
-              set_mode_return_state_mode(state_mode);
-              set_vim_mode('filter');
-              set_input('');
-              set_history_cursor(null);
-            },
-            end_filter: () => {
-              set_input('');
-              set_history_cursor(null);
-              set_vim_mode('normal');
-              set_pane_focus(mode_return_focus);
-            }
-          }
-        );
-        if (handled) {
-          return;
+      if (handled) {
+        if (command.id === 'search:end' && prior_phase === 'started') {
+          close_search_session();
         }
-      }
-
-      if (pane_focus === 'state') {
-        const handled = handle_state_pane_command(
-          command,
-          {
-            state_mode,
-            page_size: Math.max(1, state_content_rows - 1),
-            half_page_size: Math.max(1, Math.floor(state_content_rows / 2)),
-            player_count,
-            player_visible_count
-          },
-          {
-            move_player: step_player_selection,
-            move_json_cursor: move_state_json_cursor,
-            jump_top: jump_top_selection,
-            jump_bottom: jump_bottom_selection,
-            start_search: (direction) => {
-              set_mode_return_focus(pane_focus);
-              set_mode_return_state_mode(state_mode);
-              set_search_entry_direction(direction);
-              set_vim_mode('search');
-              set_input('');
-              set_history_cursor(null);
-            },
-            end_search: () => {
-              set_input('');
-              set_history_cursor(null);
-              set_vim_mode('normal');
-              set_pane_focus(mode_return_focus);
-            },
-            repeat_search: repeat_last_search,
-            cycle_state_mode: () => set_state_mode((mode) => next_state_mode(mode)),
-            cycle_inspector_mode: () => set_inspector_mode((mode) => next_inspector_mode(mode))
-          }
-        );
-        if (handled) {
-          return;
-        }
+        return;
       }
     }
 
-    if (command.id === 'app:exit') {
-      exit();
-      return;
-    }
-    if (command.id === 'resolver:open') {
-      open_resolver();
-      return;
-    }
-    if (command.id === 'pane:focus_next') {
-      set_pane_focus((focus) => next_focus(focus));
-      return;
-    }
-    if (command.id === 'pane:focus_prev') {
-      set_pane_focus((focus) => prev_focus(focus));
-      return;
-    }
-    if (command.id === 'events:toggle_autoscroll') {
-      set_event_autoscroll((value) => !value);
-      return;
-    }
-    if (command.id === 'events:toggle_mouse_scroll') {
-      set_mouse_scroll_enabled((value) => !value);
-      return;
-    }
-    if (command.id === 'events:toggle_key') {
-      set_show_event_key((value) => !value);
-      return;
-    }
-    if (command.id === 'events:jump_latest') {
-      const view = event_view_indices_ref.current;
-      if (view.length > 0) {
-        select_event_by_view_position(view.length - 1);
-      }
-      return;
-    }
-    if (command.id === 'status:toggle_errors_only') {
-      set_status_errors_only((value) => !value);
-      return;
-    }
-    if (command.id === 'state:cycle_mode') {
-      set_state_mode((mode) => next_state_mode(mode));
-      return;
-    }
-    if (command.id === 'inspector:cycle_mode') {
-      set_inspector_mode((mode) => next_inspector_mode(mode));
-      return;
-    }
-    if (command.id === 'mode:history_up') {
-      if (history.length === 0) {
-        return;
-      }
-      set_history_cursor((cursor) => {
-        const next = cursor === null ? history.length - 1 : Math.max(0, cursor - 1);
-        set_input(history[next] ?? '');
-        return next;
-      });
-      return;
-    }
-    if (command.id === 'mode:history_down') {
-      if (history.length === 0) {
-        return;
-      }
-      set_history_cursor((cursor) => {
-        if (cursor === null) {
-          return null;
-        }
-        const next = cursor + 1;
-        if (next >= history.length) {
-          set_input('');
-          return null;
-        }
-        set_input(history[next] ?? '');
-        return next;
-      });
-      return;
-    }
-    if (command.id === 'mode:enter_command') {
-      set_mode_return_focus(pane_focus);
-      set_mode_return_state_mode(state_mode);
-      set_vim_mode('command');
-      set_input('');
-      set_history_cursor(null);
-      return;
-    }
-    if (command.id === 'mode:enter_search') {
-      set_mode_return_focus(pane_focus);
-      set_mode_return_state_mode(state_mode);
-      set_search_entry_direction(command.direction ?? -1);
-      set_vim_mode('search');
-      set_input('');
-      set_history_cursor(null);
-      return;
-    }
-    if (command.id === 'mode:enter_filter') {
-      set_mode_return_focus(pane_focus);
-      set_mode_return_state_mode(state_mode);
-      set_vim_mode('filter');
-      set_input('');
-      set_history_cursor(null);
-      return;
-    }
-    if (command.id === 'mode:cancel') {
-      cancel_mode_input();
-      return;
-    }
-    if (command.id === 'mode:submit') {
-      submit_mode_input();
-      return;
-    }
-    if (command.id === 'mode:backspace') {
-      backspace_mode_input();
-      return;
-    }
-    if (command.id === 'mode:append_input') {
-      const value = command.text ?? '';
-      set_input((current) => {
-        const next = `${current}${value}`;
-        if (vim_mode === 'search') {
-          const needle = next.trim();
-          const target_mode: SearchTarget = mode_return_focus === 'state' && mode_return_state_mode === 'json'
-            ? 'state_json'
-            : 'events';
-          if (target_mode === 'state_json') {
-            set_state_json_search_query(needle);
-            if (needle.length > 0) {
-              run_state_json_search(needle, search_entry_direction, false);
-            }
-          } else {
-            set_active_search_query(needle);
-            if (needle.length > 0) {
-              run_event_search(needle, search_entry_direction, false);
-            }
-          }
-        }
-        if (vim_mode === 'filter') {
-          set_filter_query(next.trim());
-        }
-        return next;
-      });
-      return;
-    }
-    if (command.id === 'search:repeat_same') {
-      repeat_last_search('same', Math.max(1, command.count ?? 1));
-      return;
-    }
-    if (command.id === 'search:repeat_opposite') {
-      repeat_last_search('opposite', Math.max(1, command.count ?? 1));
-      return;
-    }
-    if (command.id === 'search:start') {
-      set_mode_return_focus(pane_focus);
-      set_mode_return_state_mode(state_mode);
-      set_search_entry_direction(command.direction ?? -1);
-      set_vim_mode('search');
-      set_input('');
-      set_history_cursor(null);
-      return;
-    }
-    if (command.id === 'search:end') {
-      set_input('');
-      set_history_cursor(null);
-      set_vim_mode('normal');
-      set_pane_focus(mode_return_focus);
-      return;
-    }
-    if (command.id === 'filter:start') {
-      set_mode_return_focus(pane_focus);
-      set_mode_return_state_mode(state_mode);
-      set_vim_mode('filter');
-      set_input('');
-      set_history_cursor(null);
-      return;
-    }
-    if (command.id === 'filter:end') {
-      set_input('');
-      set_history_cursor(null);
-      set_vim_mode('normal');
-      set_pane_focus(mode_return_focus);
+    const handled_dispatch = dispatch_tui_command(command);
+    if (handled_dispatch) {
       return;
     }
   });
@@ -1542,7 +1300,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const state_brief_lines = format_state_brief(effective_state).split('\n').slice(0, state_content_rows);
   const state_json_matched_indices = useMemo(() => {
     const matches = new Set<number>();
-    const needle = state_json_search_query.trim().toLowerCase();
+    const needle = state_json_search_state.query.trim().toLowerCase();
     if (needle.length === 0) {
       return matches;
     }
@@ -1553,7 +1311,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       }
     }
     return matches;
-  }, [state_json_lines, state_json_search_query]);
+  }, [state_json_lines, state_json_search_state.query]);
 
   const clamped_state_json_cursor = state_json_lines.length === 0
     ? null
@@ -1587,125 +1345,33 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
 
   const player_state_header = 'sel seat id   name         vote markers type       role                flags';
   const player_state_separator = '--- ---- ---- ------------ ---- ------- ---------- ------------------- -----';
-  const player_ids = ordered_player_ids(effective_state);
-  const seat_by_player_id = new Map<string, string>(
-    player_ids.map((player_id, index) => [player_id, String(index + 1)])
-  );
-  const player_marker_sources = new Map<string, MarkerSeatToken[]>();
-  for (const marker_id of effective_state.active_reminder_marker_ids) {
-    const marker = effective_state.reminder_markers_by_id[marker_id];
-    if (!marker || !marker.target_player_id) {
-      continue;
-    }
-    const source_seat = marker.source_player_id ? seat_by_player_id.get(marker.source_player_id) ?? '?' : '?';
-    const source_color = marker_source_color(marker.effect);
-    const current = player_marker_sources.get(marker.target_player_id) ?? [];
-    current.push({ seat: source_seat, color: source_color });
-    player_marker_sources.set(marker.target_player_id, current);
-  }
-  const player_rows = player_ids
-    .map((player_id, index) => {
-      const player = effective_state.players_by_id[player_id];
-      if (!player) {
-        return null;
-      }
-      const marker_sources = player_marker_sources.get(player_id) ?? [];
-      const row = format_player_state_row(player, index, marker_sources);
-      return {
-        key: `${player_id}:${index}`,
-        seat: row.seat,
-        identity: row.identity,
-        vote: row.vote,
-        markers: row.markers,
-        marker_tokens: row.marker_tokens,
-        type: row.type,
-        role: row.role,
-        suffix: row.suffix,
-        identity_color: row.identity_color,
-        type_color: row.type_color,
-        role_color: row.role_color,
-        italic: row.italic,
-        strikethrough: row.strikethrough
-      };
-    })
-    .filter((value): value is PlayerStateRow => Boolean(value));
+  const player_model = useMemo(() => derive_player_state_model({
+    state: effective_state,
+    selected_player_index,
+    player_list_offset,
+    state_content_rows
+  }), [effective_state, selected_player_index, player_list_offset, state_content_rows]);
 
-  const player_visible_count = Math.max(1, state_content_rows - 4);
-  const clamped_selected_player_index = player_rows.length === 0
-    ? null
-    : clamp(selected_player_index, 0, player_rows.length - 1);
-  const max_player_offset = Math.max(0, player_rows.length - Math.max(1, player_visible_count));
-  const effective_player_offset = clamp(player_list_offset, 0, max_player_offset);
-  const selected_player = clamped_selected_player_index === null
-    ? null
-    : effective_state.players_by_id[player_ids[clamped_selected_player_index] ?? ''] ?? null;
-  const selected_player_marker_details = selected_player
-    ? effective_state.active_reminder_marker_ids
-        .map((marker_id) => effective_state.reminder_markers_by_id[marker_id])
-        .filter((marker): marker is NonNullable<typeof marker> => Boolean(marker && marker.target_player_id === selected_player.player_id))
-        .reduce((acc, marker) => {
-          const key = `${marker.kind}|${marker.effect}`;
-          const seat = marker.source_player_id ? seat_by_player_id.get(marker.source_player_id) ?? '?' : '?';
-          const existing = acc.get(key);
-          if (existing) {
-            existing.seats.push(seat);
-            return acc;
-          }
-          acc.set(key, {
-            kind: marker.kind,
-            effect: marker.effect,
-            seats: [seat]
-          });
-          return acc;
-        }, new Map<string, { kind: string; effect: string; seats: string[] }>())
-    : new Map<string, { kind: string; effect: string; seats: string[] }>();
-  const selected_player_markers = Array.from(selected_player_marker_details.values())
-    .map((entry) => ({
-      ...entry,
-      seats: [...entry.seats].sort((a, b) => a.localeCompare(b))
-    }))
-    .sort((left, right) => left.kind.localeCompare(right.kind));
-  const selected_player_status_prefix = selected_player
-    ? `selected=${selected_player.player_id} `
-    : 'selected=(none)';
-  const selected_player_marker_lines = selected_player_markers.map((marker) => ({
-    text: `${marker.kind}:${marker.seats.join(',')}`,
-    color: marker_source_color(marker.effect)
-  }));
+  const {
+    player_rows,
+    clamped_selected_player_index,
+    effective_player_offset,
+    player_visible_count,
+    visible_player_rows,
+    selected_player_status_prefix,
+    selected_player_marker_lines,
+    next_selected_player_index,
+    next_player_list_offset
+  } = player_model;
 
   useEffect(() => {
-    if (player_rows.length === 0) {
-      if (selected_player_index !== 0) {
-        set_selected_player_index(0);
-      }
-      if (player_list_offset !== 0) {
-        set_player_list_offset(0);
-      }
-      return;
+    if (next_selected_player_index !== selected_player_index) {
+      set_selected_player_index(next_selected_player_index);
     }
-    if (selected_player_index >= player_rows.length) {
-      set_selected_player_index(player_rows.length - 1);
+    if (next_player_list_offset !== player_list_offset) {
+      set_player_list_offset(next_player_list_offset);
     }
-    if (clamped_selected_player_index !== null) {
-      const next_offset = ensure_visible_offset(
-        clamped_selected_player_index,
-        player_list_offset,
-        Math.max(1, player_visible_count),
-        player_rows.length
-      );
-      if (next_offset !== player_list_offset) {
-        set_player_list_offset(next_offset);
-      }
-    }
-  }, [
-    clamped_selected_player_index,
-    player_list_offset,
-    player_rows.length,
-    player_visible_count,
-    selected_player_index
-  ]);
-
-  const visible_player_rows = player_rows.slice(effective_player_offset, effective_player_offset + player_visible_count);
+  }, [next_selected_player_index, next_player_list_offset, selected_player_index, player_list_offset]);
 
   const right_pane_width = Math.max(20, Math.floor(columns / 2) - 4);
   const left_pane_width = Math.max(20, Math.floor(columns / 2) - 4);
@@ -1729,111 +1395,55 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
               ? output_inspector_lines
               : ['(no output yet)'];
 
-  const matched_event_indices = useMemo(() => {
-    const indices = new Set<number>();
-    const search_needle = active_search_query.trim();
-    if (search_needle.length === 0) {
-      return indices;
-    }
-    for (let index = 0; index < event_entries.length; index += 1) {
-      const entry = event_entries[index];
-      if (!entry) {
-        continue;
-      }
-      if (event_matches_query(entry, search_needle)) {
-        indices.add(index);
-      }
-    }
-    return indices;
-  }, [active_search_query, event_entries]);
+  const event_model = useMemo(() => derive_event_view_model({
+    event_entries,
+    selected_event_index,
+    event_list_offset,
+    event_autoscroll,
+    event_list_content_rows,
+    event_panel_content_rows,
+    event_details_max_rows,
+    left_pane_width,
+    event_search_query: event_search_state.query,
+    filter_query,
+    show_event_key
+  }), [
+    event_entries,
+    selected_event_index,
+    event_list_offset,
+    event_autoscroll,
+    event_list_content_rows,
+    event_panel_content_rows,
+    event_details_max_rows,
+    left_pane_width,
+    event_search_state.query,
+    filter_query,
+    show_event_key
+  ]);
 
-  const event_view_indices = useMemo(() => {
-    const filter_needle = filter_query.trim();
-    if (filter_needle.length === 0) {
-      return event_entries.map((_, index) => index);
-    }
-    return event_entries
-      .map((entry, index) => ({ entry, index }))
-      .filter(({ entry }) => event_matches_query(entry, filter_needle))
-      .map(({ index }) => index);
-  }, [event_entries, filter_query]);
+  const {
+    matched_event_indices,
+    event_view_indices,
+    selected_event_index: clamped_selected_event_index,
+    effective_event_offset,
+    visible_event_entries,
+    overlay_top,
+    event_overlay_rows,
+    overlay_detail_rows,
+    event_scrollbar_line,
+    next_selected_event_index,
+    next_event_list_offset
+  } = event_model;
   event_view_indices_ref.current = event_view_indices;
 
   useEffect(() => {
-    if (event_view_indices.length === 0) {
-      if (selected_event_index !== null) {
-        set_selected_event_index(null);
-      }
-      set_event_list_offset(0);
-      return;
+    if (next_selected_event_index !== selected_event_index) {
+      set_selected_event_index(next_selected_event_index);
     }
-    if (selected_event_index === null || event_view_indices.indexOf(selected_event_index) < 0) {
-      const fallback = event_view_indices[event_view_indices.length - 1] ?? null;
-      if (fallback !== null) {
-        set_selected_event_index(fallback);
-      }
+    if (next_event_list_offset !== event_list_offset) {
+      set_event_list_offset(next_event_list_offset);
     }
-  }, [event_view_indices, selected_event_index]);
-
-  const default_selected_event_index = event_view_indices.length > 0
-    ? event_view_indices[event_view_indices.length - 1] ?? null
-    : null;
-  const clamped_selected_event_index = selected_event_index === null
-    ? default_selected_event_index
-    : event_entries[selected_event_index]
-      ? selected_event_index
-      : default_selected_event_index;
-
-  const selected_view_position = clamped_selected_event_index === null
-    ? null
-    : (() => {
-        const position = event_view_indices.indexOf(clamped_selected_event_index);
-        return position >= 0 ? position : null;
-      })();
-
-  const max_event_offset = Math.max(0, event_view_indices.length - event_list_content_rows);
-  const effective_event_offset = event_autoscroll
-    ? max_event_offset
-    : clamp(event_list_offset, 0, max_event_offset);
-  const visible_event_entries = event_view_indices
-    .slice(effective_event_offset, effective_event_offset + event_list_content_rows)
-    .map((absolute_index) => {
-      const entry = event_entries[absolute_index];
-      if (!entry) {
-        return null;
-      }
-      return {
-        ...entry,
-        absolute_index
-      };
-    })
-    .filter((entry): entry is EventEntry & { absolute_index: number } => Boolean(entry));
-  const selected_event = clamped_selected_event_index === null
-    ? null
-    : event_entries[clamped_selected_event_index] ?? null;
-  const selected_event_details = format_selected_event_detail_lines(selected_event, show_event_key);
-  const wrapped_event_details = wrap_lines(selected_event_details, Math.max(8, left_pane_width));
-  const event_overlay_rows = clamp(wrapped_event_details.length + 1, 4, event_details_max_rows);
-  const visible_event_details = wrapped_event_details.slice(0, Math.max(1, event_overlay_rows - 1));
-  const overlay_detail_rows = Array.from(
-    { length: Math.max(1, event_overlay_rows - 1) },
-    (_, index) => visible_event_details[index] ?? ''
-  );
-  const selected_visible_index = selected_view_position === null
-    ? null
-    : selected_view_position - effective_event_offset;
-  const overlay_base_top = 2;
-  const overlay_bottom_top = Math.max(overlay_base_top, event_panel_content_rows - event_overlay_rows);
-  const overlay_top = selected_visible_index !== null && selected_visible_index < event_overlay_rows
-    ? overlay_bottom_top
-    : event_view_indices.length === 0
-      ? overlay_bottom_top
-      : overlay_base_top;
-  const event_scrollbar_line = render_scrollbar_line(
-    event_view_indices.length,
-    event_list_content_rows,
-    effective_event_offset
-  );
+  }, [next_selected_event_index, next_event_list_offset, selected_event_index, event_list_offset]);
   const inspector_visible_lines = slice_from_bottom(inspector_lines, inspector_content_rows, 0);
   const status_inspector_lines = slice_from_bottom(status_filtered_lines, status_content_rows, 0);
   const players_total = Object.keys(context.state.players_by_id).length;
