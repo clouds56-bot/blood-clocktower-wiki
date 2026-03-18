@@ -7,7 +7,7 @@ import { create_cli_context, process_cli_line } from '../cli/repl.js';
 import type { DomainEvent } from '../domain/events.js';
 import type { PromptColumnSpec, PromptRangeSpec, PromptState } from '../domain/types.js';
 import { resolve_tui_command, route_tui_command, type TuiCommand } from './command-bindings.js';
-import { CommandPane, type VimMode } from './panes/command-pane.js';
+import { CommandPane, handle_command_mode_command, type VimMode } from './panes/command-pane.js';
 import {
   EventsPane,
   derive_event_view_model,
@@ -514,104 +514,6 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       set_state_json_cursor(matched);
       set_state_json_offset((offset) => ensure_visible_offset(matched, offset, state_content_rows, state_json_lines.length));
     }
-  }
-
-  function submit_mode_input(): void {
-    if (vim_mode === 'command') {
-      const command = input.trim();
-      if (command.length === 0) {
-        set_vim_mode('normal');
-        set_input('');
-        set_pane_focus(mode_return_focus);
-        return;
-      }
-      set_history((previous) => [...previous, command]);
-      set_history_cursor(null);
-      set_input('');
-      set_vim_mode('normal');
-      set_pane_focus(mode_return_focus);
-      const keep_running = run_command(command);
-      if (!keep_running) {
-        exit();
-      }
-      return;
-    }
-    if (vim_mode === 'search') {
-      const needle = input.trim();
-      const target_is_state_json = mode_return_focus === 'state' && mode_return_state_mode === 'json';
-      if (needle.length === 0) {
-        if (target_is_state_json) {
-          set_state_json_search_query('');
-          set_last_state_json_search_query('');
-        } else {
-          set_event_search_query('');
-          set_last_event_search_query('');
-        }
-        set_vim_mode('normal');
-        set_input('');
-        set_pane_focus(mode_return_focus);
-        return;
-      }
-      if (target_is_state_json) {
-        set_state_json_search_query(needle);
-        run_state_json_search(needle, search_entry_direction, false);
-        set_last_state_json_search_query(needle);
-        set_last_state_json_search_direction(search_entry_direction);
-      } else {
-        set_event_search_query(needle);
-        run_event_search(needle, search_entry_direction, false);
-        set_last_event_search_query(needle);
-        set_last_event_search_direction(search_entry_direction);
-      }
-      set_input('');
-      set_vim_mode('normal');
-      set_pane_focus(mode_return_focus);
-      return;
-    }
-    if (vim_mode === 'filter') {
-      const needle = input.trim();
-      set_filter_query(needle);
-      set_input('');
-      set_vim_mode('normal');
-      set_pane_focus(mode_return_focus);
-    }
-  }
-
-  function cancel_mode_input(): void {
-    set_input('');
-    set_history_cursor(null);
-    set_vim_mode('normal');
-    set_pane_focus(mode_return_focus);
-  }
-
-  function backspace_mode_input(): void {
-    set_input((previous) => {
-      if (previous.length === 0) {
-        set_vim_mode('normal');
-        set_pane_focus(mode_return_focus);
-        return '';
-      }
-      const next = previous.slice(0, -1);
-      if (vim_mode === 'search') {
-        const needle = next.trim();
-        const target_is_state_json = mode_return_focus === 'state' && mode_return_state_mode === 'json';
-        if (target_is_state_json) {
-          set_state_json_search_query(needle);
-          if (needle.length > 0) {
-            run_state_json_search(needle, search_entry_direction, false);
-          }
-        } else {
-          set_event_search_query(needle);
-          if (needle.length > 0) {
-            run_event_search(needle, search_entry_direction, false);
-          }
-        }
-      }
-      if (vim_mode === 'filter') {
-        set_filter_query(next.trim());
-      }
-      return next;
-    });
   }
 
   const step_player_selection = useCallback((delta: number, total_count: number, visible_count: number): void => {
@@ -1213,144 +1115,75 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       set_inspector_mode((mode) => next_inspector_mode(mode));
       return;
     }
-    if (command.id === 'mode:history_up') {
-      if (history.length === 0) {
-        return;
-      }
-      set_history_cursor((cursor) => {
-        const next = cursor === null ? history.length - 1 : Math.max(0, cursor - 1);
-        set_input(history[next] ?? '');
-        return next;
-      });
-      return;
-    }
-    if (command.id === 'mode:history_down') {
-      if (history.length === 0) {
-        return;
-      }
-      set_history_cursor((cursor) => {
-        if (cursor === null) {
-          return null;
-        }
-        const next = cursor + 1;
-        if (next >= history.length) {
-          set_input('');
-          return null;
-        }
-        set_input(history[next] ?? '');
-        return next;
-      });
-      return;
-    }
-    if (command.id === 'mode:enter_command') {
-      set_mode_return_focus(pane_focus);
-      set_mode_return_state_mode(state_mode);
-      set_vim_mode('command');
-      set_input('');
-      set_history_cursor(null);
-      return;
-    }
-    if (command.id === 'mode:enter_search') {
-      set_mode_return_focus(pane_focus);
-      set_mode_return_state_mode(state_mode);
-      set_search_entry_direction(command.direction ?? -1);
-      set_vim_mode('search');
-      set_input('');
-      set_history_cursor(null);
-      return;
-    }
-    if (command.id === 'mode:enter_filter') {
-      set_mode_return_focus(pane_focus);
-      set_mode_return_state_mode(state_mode);
-      set_vim_mode('filter');
-      set_input('');
-      set_history_cursor(null);
-      return;
-    }
-    if (command.id === 'mode:cancel') {
-      cancel_mode_input();
-      return;
-    }
-    if (command.id === 'mode:submit') {
-      submit_mode_input();
-      return;
-    }
-    if (command.id === 'mode:backspace') {
-      backspace_mode_input();
-      return;
-    }
-    if (command.id === 'mode:append_input') {
-      const value = command.text ?? '';
-      set_input((current) => {
-        const next = `${current}${value}`;
-        if (vim_mode === 'search') {
-          const needle = next.trim();
-          const target_is_state_json = mode_return_focus === 'state' && mode_return_state_mode === 'json';
-          if (target_is_state_json) {
-            set_state_json_search_query(needle);
-            if (needle.length > 0) {
-              run_state_json_search(needle, search_entry_direction, false);
+    if (command.id.startsWith('mode:') || command.id.startsWith('search:') || command.id.startsWith('filter:')) {
+      const handled = handle_command_mode_command(
+        command,
+        {
+          mode: vim_mode,
+          input,
+          history,
+          history_cursor,
+          pane_focus,
+          state_mode,
+          mode_return_focus,
+          mode_return_state_mode,
+          search_entry_direction
+        },
+        {
+          set_mode: set_vim_mode,
+          set_input,
+          set_history,
+          set_history_cursor,
+          set_mode_return_context: (focus, mode) => {
+            set_mode_return_focus(focus);
+            set_mode_return_state_mode(mode);
+          },
+          set_search_entry_direction,
+          set_pane_focus,
+          apply_search_preview: (target, query, direction) => {
+            if (target === 'state_json') {
+              set_state_json_search_query(query);
+              if (query.length > 0) {
+                run_state_json_search(query, direction, false);
+              }
+            } else {
+              set_event_search_query(query);
+              if (query.length > 0) {
+                run_event_search(query, direction, false);
+              }
             }
-          } else {
-            set_event_search_query(needle);
-            if (needle.length > 0) {
-              run_event_search(needle, search_entry_direction, false);
+          },
+          apply_search_commit: (target, query, direction) => {
+            if (target === 'state_json') {
+              set_state_json_search_query(query);
+              run_state_json_search(query, direction, false);
+              set_last_state_json_search_query(query);
+              set_last_state_json_search_direction(direction);
+            } else {
+              set_event_search_query(query);
+              run_event_search(query, direction, false);
+              set_last_event_search_query(query);
+              set_last_event_search_direction(direction);
             }
-          }
+          },
+          clear_search: (target) => {
+            if (target === 'state_json') {
+              set_state_json_search_query('');
+              set_last_state_json_search_query('');
+            } else {
+              set_event_search_query('');
+              set_last_event_search_query('');
+            }
+          },
+          apply_filter_preview: (query) => set_filter_query(query),
+          apply_filter_commit: (query) => set_filter_query(query),
+          run_command,
+          exit
         }
-        if (vim_mode === 'filter') {
-          set_filter_query(next.trim());
-        }
-        return next;
-      });
-      return;
-    }
-    if (command.id === 'search:repeat_same') {
-      if (pane_focus === 'state' && state_mode === 'json') {
-        repeat_state_json_search('same', Math.max(1, command.count ?? 1));
+      );
+      if (handled) {
         return;
       }
-      repeat_event_search('same', Math.max(1, command.count ?? 1));
-      return;
-    }
-    if (command.id === 'search:repeat_opposite') {
-      if (pane_focus === 'state' && state_mode === 'json') {
-        repeat_state_json_search('opposite', Math.max(1, command.count ?? 1));
-        return;
-      }
-      repeat_event_search('opposite', Math.max(1, command.count ?? 1));
-      return;
-    }
-    if (command.id === 'search:start') {
-      set_mode_return_focus(pane_focus);
-      set_mode_return_state_mode(state_mode);
-      set_search_entry_direction(command.direction ?? -1);
-      set_vim_mode('search');
-      set_input('');
-      set_history_cursor(null);
-      return;
-    }
-    if (command.id === 'search:end') {
-      set_input('');
-      set_history_cursor(null);
-      set_vim_mode('normal');
-      set_pane_focus(mode_return_focus);
-      return;
-    }
-    if (command.id === 'filter:start') {
-      set_mode_return_focus(pane_focus);
-      set_mode_return_state_mode(state_mode);
-      set_vim_mode('filter');
-      set_input('');
-      set_history_cursor(null);
-      return;
-    }
-    if (command.id === 'filter:end') {
-      set_input('');
-      set_history_cursor(null);
-      set_vim_mode('normal');
-      set_pane_focus(mode_return_focus);
-      return;
     }
   });
 
