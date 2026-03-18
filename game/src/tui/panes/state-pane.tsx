@@ -41,11 +41,11 @@ export function handle_state_pane_command(
 ): boolean {
   const count = Math.max(1, command.count ?? 1);
   if (context.state_mode === 'players') {
-    if (command.id === 'cursor:move_up') {
+    if (command.id === 'cursor:line_up') {
       handlers.move_player(-count, context.player_count, context.player_visible_count);
       return true;
     }
-    if (command.id === 'cursor:move_down') {
+    if (command.id === 'cursor:line_down') {
       handlers.move_player(count, context.player_count, context.player_visible_count);
       return true;
     }
@@ -61,11 +61,11 @@ export function handle_state_pane_command(
   }
 
   if (context.state_mode === 'json') {
-    if (command.id === 'cursor:move_up') {
+    if (command.id === 'cursor:line_up') {
       handlers.move_json_cursor(-count);
       return true;
     }
-    if (command.id === 'cursor:move_down') {
+    if (command.id === 'cursor:line_down') {
       handlers.move_json_cursor(count);
       return true;
     }
@@ -77,27 +77,27 @@ export function handle_state_pane_command(
       handlers.jump_bottom();
       return true;
     }
-    if (command.id === 'scroll:line_up') {
+    if (command.id === 'viewport:line_up') {
       handlers.move_json_cursor(-count);
       return true;
     }
-    if (command.id === 'scroll:line_down') {
+    if (command.id === 'viewport:line_down') {
       handlers.move_json_cursor(count);
       return true;
     }
-    if (command.id === 'scroll:half_page_up') {
+    if (command.id === 'viewport:half_page_up') {
       handlers.move_json_cursor(-context.half_page_size * count);
       return true;
     }
-    if (command.id === 'scroll:half_page_down') {
+    if (command.id === 'viewport:half_page_down') {
       handlers.move_json_cursor(context.half_page_size * count);
       return true;
     }
-    if (command.id === 'scroll:page_up') {
+    if (command.id === 'viewport:page_up') {
       handlers.move_json_cursor(-context.page_size * count);
       return true;
     }
-    if (command.id === 'scroll:page_down') {
+    if (command.id === 'viewport:page_down') {
       handlers.move_json_cursor(context.page_size * count);
       return true;
     }

@@ -125,37 +125,37 @@ export function resolve_tui_command(
   }
   if (key.ctrl && input_key === 'f') {
     if (context.pane_focus === 'events' || (context.pane_focus === 'state' && context.state_mode === 'json')) {
-      return result(true, { id: 'scroll:page_down' }, next_count, next_pending_g);
+      return result(true, { id: 'viewport:page_down' }, next_count, next_pending_g);
     }
     return result(true, null, next_count, next_pending_g);
   }
   if (key.ctrl && input_key === 'b') {
     if (context.pane_focus === 'events' || (context.pane_focus === 'state' && context.state_mode === 'json')) {
-      return result(true, { id: 'scroll:page_up' }, next_count, next_pending_g);
+      return result(true, { id: 'viewport:page_up' }, next_count, next_pending_g);
     }
     return result(true, null, next_count, next_pending_g);
   }
   if (key.ctrl && input_key === 'd') {
     if (context.pane_focus === 'events' || (context.pane_focus === 'state' && context.state_mode === 'json')) {
-      return result(true, { id: 'scroll:half_page_down' }, next_count, next_pending_g);
+      return result(true, { id: 'viewport:half_page_down' }, next_count, next_pending_g);
     }
     return result(true, null, next_count, next_pending_g);
   }
   if (key.ctrl && input_key === 'u') {
     if (context.pane_focus === 'events' || (context.pane_focus === 'state' && context.state_mode === 'json')) {
-      return result(true, { id: 'scroll:half_page_up' }, next_count, next_pending_g);
+      return result(true, { id: 'viewport:half_page_up' }, next_count, next_pending_g);
     }
     return result(true, null, next_count, next_pending_g);
   }
   if (key.ctrl && input_key === 'e') {
     if (context.pane_focus === 'events' || (context.pane_focus === 'state' && context.state_mode === 'json')) {
-      return result(true, { id: 'scroll:line_down' }, next_count, next_pending_g);
+      return result(true, { id: 'viewport:line_down' }, next_count, next_pending_g);
     }
     return result(true, { id: 'status:toggle_errors_only' }, next_count, next_pending_g);
   }
   if (key.ctrl && input_key === 'y') {
     if (context.pane_focus === 'events' || (context.pane_focus === 'state' && context.state_mode === 'json')) {
-      return result(true, { id: 'scroll:line_up' }, next_count, next_pending_g);
+      return result(true, { id: 'viewport:line_up' }, next_count, next_pending_g);
     }
     return result(true, null, next_count, next_pending_g);
   }
@@ -212,10 +212,10 @@ export function resolve_tui_command(
   }
 
   if (input_key === 'j' || key.downArrow) {
-    return result(true, { id: 'cursor:move_down', count }, '', false);
+    return result(true, { id: 'cursor:line_down', count }, '', false);
   }
   if (input_key === 'k' || key.upArrow) {
-    return result(true, { id: 'cursor:move_up', count }, '', false);
+    return result(true, { id: 'cursor:line_up', count }, '', false);
   }
   if (input_key === 'G') {
     return result(true, { id: 'cursor:jump_bottom' }, '', false);
@@ -237,7 +237,7 @@ export function route_tui_command(command: TuiCommand, context: {
   pane_focus: PaneFocus;
   state_mode: StateMode;
 }): 'app' | 'pane' {
-  if (command.id.startsWith('cursor:') || command.id.startsWith('scroll:')) {
+  if (command.id.startsWith('cursor:') || command.id.startsWith('viewport:')) {
     if (context.pane_focus === 'events') {
       return 'pane';
     }

@@ -99,6 +99,10 @@ The next TUI rebuild switches input from editor-like typing to a vim-like mode m
   - `Ctrl+D` / `Ctrl+U` move by half-page and keep selection aligned.
   - `Ctrl+E` / `Ctrl+Y` move by one line and keep selection aligned.
 
+Implementation note:
+
+- command dispatch uses colon-style ids (for example `cursor:line_up`, `viewport:page_down`).
+
 ## Quick Start
 
 Create a ready-to-run setup (players + seats + random script-valid character/alignment assignment):

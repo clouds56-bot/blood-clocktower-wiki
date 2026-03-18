@@ -162,12 +162,13 @@ Overflow behavior:
 - While filtering, only matching rows are shown.
 - `?<enter>` clears the active filter.
 
-### Vim-Style Event Scrolling
+### Vim-Style Event Viewport Scrolling
 
 - `Ctrl+F` and `Ctrl+B` move one page down/up in the events pane.
 - `Ctrl+D` and `Ctrl+U` move half page down/up in the events pane.
 - `Ctrl+E` and `Ctrl+Y` move one line down/up in the events pane.
 - These scroll motions also move selection/cursor to stay aligned with viewport movement.
+- Internal command naming follows colon-style ids, with `cursor:line_*` for line motions and `viewport:*` for viewport motions.
 
 ### Runtime Subscription Stability
 

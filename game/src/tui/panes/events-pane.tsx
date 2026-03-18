@@ -22,11 +22,11 @@ export function handle_events_pane_command(
   }
 ): boolean {
   const count = Math.max(1, command.count ?? 1);
-  if (command.id === 'cursor:move_up') {
+  if (command.id === 'cursor:line_up') {
     handlers.move_cursor(-count);
     return true;
   }
-  if (command.id === 'cursor:move_down') {
+  if (command.id === 'cursor:line_down') {
     handlers.move_cursor(count);
     return true;
   }
@@ -38,27 +38,27 @@ export function handle_events_pane_command(
     handlers.jump_bottom();
     return true;
   }
-  if (command.id === 'scroll:line_up') {
+  if (command.id === 'viewport:line_up') {
     handlers.move_cursor(-count);
     return true;
   }
-  if (command.id === 'scroll:line_down') {
+  if (command.id === 'viewport:line_down') {
     handlers.move_cursor(count);
     return true;
   }
-  if (command.id === 'scroll:half_page_up') {
+  if (command.id === 'viewport:half_page_up') {
     handlers.move_cursor(-options.half_page_size * count);
     return true;
   }
-  if (command.id === 'scroll:half_page_down') {
+  if (command.id === 'viewport:half_page_down') {
     handlers.move_cursor(options.half_page_size * count);
     return true;
   }
-  if (command.id === 'scroll:page_up') {
+  if (command.id === 'viewport:page_up') {
     handlers.move_cursor(-options.page_size * count);
     return true;
   }
-  if (command.id === 'scroll:page_down') {
+  if (command.id === 'viewport:page_down') {
     handlers.move_cursor(options.page_size * count);
     return true;
   }
