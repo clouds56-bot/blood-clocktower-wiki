@@ -9,6 +9,218 @@ interface EventEntry {
   event_index: number;
 }
 
+function clamp(value: number, min: number, max: number): number {
+  return Math.min(max, Math.max(min, value));
+}
+
+function wrap_line(text: string, width: number): string[] {
+  if (width <= 0) {
+    return [''];
+  }
+  if (text.length <= width) {
+    return [text];
+  }
+
+  const rows: string[] = [];
+  for (let start = 0; start < text.length; start += width) {
+    rows.push(text.slice(start, start + width));
+  }
+  return rows;
+}
+
+function wrap_lines(lines: string[], width: number): string[] {
+  const wrapped: string[] = [];
+  for (const line of lines) {
+    wrapped.push(...wrap_line(line, width));
+  }
+  return wrapped;
+}
+
+function render_scrollbar_line(total_count: number, visible_count: number, offset: number): string {
+  const width = 18;
+  if (total_count <= 0) {
+    return `scroll [${'-'.repeat(width)}] 0/0`;
+  }
+
+  if (total_count <= visible_count) {
+    return `scroll [${'#'.repeat(width)}] ${total_count}/${total_count}`;
+  }
+
+  const max_offset = Math.max(1, total_count - visible_count);
+  const thumb_size = Math.max(1, Math.round((visible_count / total_count) * width));
+  const travel = Math.max(0, width - thumb_size);
+  const thumb_pos = Math.round((offset / max_offset) * travel);
+
+  const chars = Array.from({ length: width }, () => '-');
+  for (let i = 0; i < thumb_size; i += 1) {
+    const position = thumb_pos + i;
+    if (position >= 0 && position < chars.length) {
+      chars[position] = '#';
+    }
+  }
+
+  const view_end = Math.min(total_count, offset + visible_count);
+  return `scroll [${chars.join('')}] ${view_end}/${total_count}`;
+}
+
+function format_selected_event_detail_lines(selected: EventEntry | null, show_event_key: boolean): string[] {
+  if (!selected) {
+    return ['(no event selected)', 'Use w/W to focus events, j/k to select.'];
+  }
+
+  const detail_lines = [
+    `selected=#${selected.event_index} ${selected.event.event_type}`,
+    `event_id=${selected.event.event_id} created_at=${selected.event.created_at}`,
+    `actor_id=${selected.event.actor_id ?? 'none'}`
+  ];
+
+  if (show_event_key) {
+    detail_lines.push(`event_key=${selected.event.event_key ?? 'none'}`);
+  } else {
+    detail_lines.push('event_key=(hidden) Ctrl+K to toggle');
+  }
+
+  detail_lines.push(`payload_json=${JSON.stringify(selected.event.payload)}`);
+  return detail_lines;
+}
+
+export function derive_event_view_model(args: {
+  event_entries: EventEntry[];
+  selected_event_index: number | null;
+  event_list_offset: number;
+  event_autoscroll: boolean;
+  event_list_content_rows: number;
+  event_panel_content_rows: number;
+  event_details_max_rows: number;
+  left_pane_width: number;
+  event_search_query: string;
+  filter_query: string;
+  show_event_key: boolean;
+}): {
+  matched_event_indices: Set<number>;
+  event_view_indices: number[];
+  selected_event_index: number | null;
+  effective_event_offset: number;
+  visible_event_entries: Array<EventEntry & { absolute_index: number }>;
+  overlay_top: number;
+  event_overlay_rows: number;
+  overlay_detail_rows: string[];
+  event_scrollbar_line: string;
+  next_selected_event_index: number | null;
+  next_event_list_offset: number;
+} {
+  const {
+    event_entries,
+    selected_event_index,
+    event_list_offset,
+    event_autoscroll,
+    event_list_content_rows,
+    event_panel_content_rows,
+    event_details_max_rows,
+    left_pane_width,
+    event_search_query,
+    filter_query,
+    show_event_key
+  } = args;
+
+  const matched_event_indices = new Set<number>();
+  const search_needle = event_search_query.trim();
+  if (search_needle.length > 0) {
+    for (let index = 0; index < event_entries.length; index += 1) {
+      const entry = event_entries[index];
+      if (!entry) {
+        continue;
+      }
+      if (event_matches_query(entry, search_needle)) {
+        matched_event_indices.add(index);
+      }
+    }
+  }
+
+  const filter_needle = filter_query.trim();
+  const event_view_indices = filter_needle.length === 0
+    ? event_entries.map((_, index) => index)
+    : event_entries
+        .map((entry, index) => ({ entry, index }))
+        .filter(({ entry }) => event_matches_query(entry, filter_needle))
+        .map(({ index }) => index);
+
+  const fallback_selected = event_view_indices.length > 0
+    ? event_view_indices[event_view_indices.length - 1] ?? null
+    : null;
+  const normalized_selected = selected_event_index === null
+    ? fallback_selected
+    : (event_entries[selected_event_index] && event_view_indices.includes(selected_event_index)
+      ? selected_event_index
+      : fallback_selected);
+
+  const selected_view_position = normalized_selected === null
+    ? null
+    : (() => {
+        const position = event_view_indices.indexOf(normalized_selected);
+        return position >= 0 ? position : null;
+      })();
+
+  const max_event_offset = Math.max(0, event_view_indices.length - event_list_content_rows);
+  const effective_event_offset = event_autoscroll
+    ? max_event_offset
+    : clamp(event_list_offset, 0, max_event_offset);
+
+  const visible_event_entries = event_view_indices
+    .slice(effective_event_offset, effective_event_offset + event_list_content_rows)
+    .map((absolute_index) => {
+      const entry = event_entries[absolute_index];
+      if (!entry) {
+        return null;
+      }
+      return { ...entry, absolute_index };
+    })
+    .filter((entry): entry is EventEntry & { absolute_index: number } => Boolean(entry));
+
+  const selected_event = normalized_selected === null
+    ? null
+    : event_entries[normalized_selected] ?? null;
+  const selected_event_details = format_selected_event_detail_lines(selected_event, show_event_key);
+  const wrapped_event_details = wrap_lines(selected_event_details, Math.max(8, left_pane_width));
+  const event_overlay_rows = clamp(wrapped_event_details.length + 1, 4, event_details_max_rows);
+  const visible_event_details = wrapped_event_details.slice(0, Math.max(1, event_overlay_rows - 1));
+  const overlay_detail_rows = Array.from(
+    { length: Math.max(1, event_overlay_rows - 1) },
+    (_, index) => visible_event_details[index] ?? ''
+  );
+
+  const selected_visible_index = selected_view_position === null
+    ? null
+    : selected_view_position - effective_event_offset;
+  const overlay_base_top = 2;
+  const overlay_bottom_top = Math.max(overlay_base_top, event_panel_content_rows - event_overlay_rows);
+  const overlay_top = selected_visible_index !== null && selected_visible_index < event_overlay_rows
+    ? overlay_bottom_top
+    : event_view_indices.length === 0
+      ? overlay_bottom_top
+      : overlay_base_top;
+
+  const event_scrollbar_line = render_scrollbar_line(
+    event_view_indices.length,
+    event_list_content_rows,
+    effective_event_offset
+  );
+
+  return {
+    matched_event_indices,
+    event_view_indices,
+    selected_event_index: normalized_selected,
+    effective_event_offset,
+    visible_event_entries,
+    overlay_top,
+    event_overlay_rows,
+    overlay_detail_rows,
+    event_scrollbar_line,
+    next_selected_event_index: normalized_selected,
+    next_event_list_offset: event_view_indices.length === 0 ? 0 : clamp(event_list_offset, 0, max_event_offset)
+  };
+}
+
 export function event_matches_query(entry: EventEntry, query: string): boolean {
   const needle = query.trim().toLowerCase();
   if (needle.length === 0) {
