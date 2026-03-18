@@ -4,6 +4,10 @@ import type { GameState, WakeQueueEntry } from '../domain/types.js';
 import type { TimingCategory } from '../plugins/contracts.js';
 import type { PluginRegistry } from '../plugins/registry.js';
 import type { EngineResult } from './phase-machine.js';
+import {
+  FIRST_NIGHT_ORDER_BY_CHARACTER_ID,
+  OTHER_NIGHT_ORDER_BY_CHARACTER_ID
+} from './night-order-tool.js';
 
 function error(code: string, message: string): EngineResult<never> {
   return {
@@ -130,30 +134,3 @@ function resolve_night_order(character_id: string, phase: GameState['phase']): n
   }
   return Number.MAX_SAFE_INTEGER;
 }
-
-// Sourced from data/nightorder.tool.json for currently implemented roles.
-const FIRST_NIGHT_ORDER_BY_CHARACTER_ID: Readonly<Record<string, number>> = {
-  poisoner: 32,
-  washerwoman: 51,
-  librarian: 52,
-  investigator: 53,
-  chef: 54,
-  empath: 55,
-  fortune_teller: 56,
-  butler: 57,
-  spy: 71
-};
-
-// Sourced from data/nightorder.tool.json for currently implemented roles.
-const OTHER_NIGHT_ORDER_BY_CHARACTER_ID: Readonly<Record<string, number>> = {
-  poisoner: 17,
-  monk: 24,
-  scarlet_woman: 33,
-  imp: 40,
-  ravenkeeper: 75,
-  empath: 76,
-  fortune_teller: 77,
-  undertaker: 78,
-  butler: 91,
-  spy: 92
-};

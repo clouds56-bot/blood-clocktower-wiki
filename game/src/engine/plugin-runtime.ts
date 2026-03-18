@@ -10,6 +10,7 @@ import { dispatch_hook, type NormalizedHookOutput } from '../plugins/dispatcher.
 import type { PluginRegistry } from '../plugins/registry.js';
 import type { CharacterPlugin } from '../plugins/contracts.js';
 import type { EngineResult } from './phase-machine.js';
+import { FIRST_NIGHT_SPECIAL_ORDER_BY_NUMBER } from './night-order-tool.js';
 import { collect_night_wake_steps } from './night-flow.js';
 
 interface RuntimeContext {
@@ -23,10 +24,7 @@ interface ParsedClaimedAbilityPrompt {
   claimant_player_id: string;
 }
 
-const FIRST_NIGHT_SPECIAL_PROMPT_ORDER: ReadonlyArray<'minioninfo' | 'demoninfo'> = [
-  'minioninfo',
-  'demoninfo'
-];
+const SUPPORTED_FIRST_NIGHT_SPECIAL_IDS = new Set(['minioninfo', 'demoninfo']);
 
 const GOOD_CHARACTER_IDS_BY_SCRIPT_ID: Readonly<Record<string, readonly string[]>> = {
   tb: [
@@ -1123,7 +1121,10 @@ function queue_next_first_night_special_prompt(
     return [];
   }
 
-  for (const special_id of FIRST_NIGHT_SPECIAL_PROMPT_ORDER) {
+  for (const special_id of FIRST_NIGHT_SPECIAL_ORDER_BY_NUMBER) {
+    if (!SUPPORTED_FIRST_NIGHT_SPECIAL_IDS.has(special_id)) {
+      continue;
+    }
     const prompt_key = build_first_night_special_prompt_key(state.night_number, special_id);
     if (state.prompts_by_id[prompt_key]) {
       continue;
@@ -1151,7 +1152,7 @@ function queue_next_first_night_special_prompt(
 
 function build_first_night_special_prompt(
   state: GameState,
-  special_id: 'minioninfo' | 'demoninfo'
+  special_id: string
 ): Extract<DomainEvent, { event_type: 'PromptQueued' }>['payload'] | null {
   const minions = list_players_by_character_type(state, 'minion');
   const demons = list_players_by_character_type(state, 'demon');
@@ -1206,7 +1207,7 @@ function build_first_night_special_prompt(
 
 function build_first_night_special_prompt_key(
   night_number: number,
-  special_id: 'minioninfo' | 'demoninfo'
+  special_id: string
 ): string {
   return `plugin:${special_id}:first_night_info:n${night_number}`;
 }

@@ -60,6 +60,7 @@ Wake key conventions (normative)
 - First-night script-level special items from `data/nightorder.tool.json` (not character plugins) are surfaced as Storyteller prompts.
   - Implemented special items: `minioninfo`, `demoninfo`.
   - Gating: only when non-Traveller player count is 7 or more.
+  - Sequencing follows `data/nightorder.tool.json` numeric step order.
   - Scope: script-agnostic (applies to any script that includes these special items), not TB-only.
 - Prompt resolution can re-enter plugin runtime for follow-up effects.
 - Interrupts are drained deterministically before resuming normal wake flow.
