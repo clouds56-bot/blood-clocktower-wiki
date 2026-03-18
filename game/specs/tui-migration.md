@@ -150,17 +150,24 @@ Overflow behavior:
 
 ### Search Repeat
 
-- `/` is immediate while typing, highlights matches, and stores the last search query for event summaries.
-- `/` uses backward direction by default for the initial jump.
-- `/<enter>` clears the active search query/highlights.
-- `n` repeats in the same direction as the last search.
-- `N` repeats in the opposite direction.
+- `/` only enters search mode (`mode:enter_search`) and does not preview by itself.
+- Typing in search mode appends to input first (`mode:append_input`), then emits preview behavior (`search:preview`) from the current input value.
+- Search lifecycle states are `idle`, `preview`, and `started`.
+- `search:preview` is anchored and immediate; nearest match is chosen from anchor in current direction.
+- `search:start` commits the current search input as started session.
+- `search:end` exits search mode; if phase was `preview`, restore anchor; if phase was `started`, keep current line.
+- `search:cancel` exits preview-only sessions and restores anchor.
+- `Backspace` cancellation rule: only backspace on already-empty input cancels (`search:cancel`); if backspace makes input empty, do not auto-cancel.
+- `n` maps to `search:forward_direction`; `N` maps to `search:backward_direction`.
 
 ### Filter Mode
 
-- `?` enters immediate filter mode for the events pane.
-- While filtering, only matching rows are shown.
-- `?<enter>` clears the active filter.
+- `?` only enters filter mode (`mode:enter_filter`) and does not preview by itself.
+- Typing in filter mode appends to input first (`mode:append_input`), then emits preview behavior (`filter:preview`) from current input.
+- `filter:start` commits current input as started filter session.
+- `filter:end` exits filter mode; preview phase restores, started phase keeps current filtering.
+- `filter:cancel` exits preview-only filter sessions.
+- Backspace cancellation rule mirrors search: only backspace on already-empty input cancels.
 
 ### Vim-Style Event Viewport Scrolling
 
@@ -169,7 +176,8 @@ Overflow behavior:
 - `Ctrl+E` and `Ctrl+Y` move one line down/up in the events pane.
 - These scroll motions also move selection/cursor to stay aligned with viewport movement.
 - Internal command naming follows colon-style ids, with `cursor:line_*` for line motions and `viewport:*` for viewport motions.
-- Search/filter lifecycle commands are explicit: `search:start`/`search:end` and `filter:start`/`filter:end`.
+- Search lifecycle command set: `search:preview`, `search:start`, `search:end`, `search:cancel`, `search:forward_direction`, `search:backward_direction`.
+- Filter lifecycle command set: `filter:preview`, `filter:start`, `filter:end`, `filter:cancel`.
 - Command routing is pane-first when possible; app handles global concerns, with `mode:*` treated as app-handled lifecycle.
 
 ### Runtime Subscription Stability

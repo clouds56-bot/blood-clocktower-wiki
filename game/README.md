@@ -85,15 +85,18 @@ The next TUI rebuild switches input from editor-like typing to a vim-like mode m
   - Events pane motions are saturated on overflow (clamped to bounds).
   - Players pane motions wrap on overflow (circular navigation).
 - Search repeat:
-  - `/` search is immediate while typing and highlights matches.
-  - `/` defaults to backward jump direction in events.
-  - `/<enter>` clears active search.
-  - `n` repeats in the same direction as the last search.
-  - `N` repeats in the opposite direction of the last search.
+  - `/` enters search mode only (no preview until text is typed).
+  - typing in search mode updates the input buffer and runs immediate preview + highlight.
+  - `Esc` cancels preview (restores anchor) and exits search mode.
+  - `Backspace` on empty search input cancels preview; backspacing to empty does not auto-cancel.
+  - `/<enter>` emits search end: preview phase restores anchor; started phase keeps current line.
+  - `n` moves in forward direction of the active search, `N` in backward direction.
 - Filter mode:
-  - `?` enters immediate filter mode for events.
-  - only matching rows are shown while filtering.
-  - `?<enter>` clears the filter.
+  - `?` enters filter mode only (no preview until text is typed).
+  - typing in filter mode updates input and previews filtered rows.
+  - `Esc` cancels filter preview and exits filter mode.
+  - `Backspace` on empty filter input cancels; backspacing to empty does not auto-cancel.
+  - `?<enter>` ends filter mode; preview phase restores, started phase keeps current filtering.
 - Vim-style scrolling (events):
   - `Ctrl+F` / `Ctrl+B` move by page and keep selection aligned.
   - `Ctrl+D` / `Ctrl+U` move by half-page and keep selection aligned.
@@ -102,7 +105,8 @@ The next TUI rebuild switches input from editor-like typing to a vim-like mode m
 Implementation note:
 
 - command dispatch uses colon-style ids (for example `cursor:line_up`, `viewport:page_down`).
-- search and filter lifecycle commands are explicit (`search:start`/`search:end`, `filter:start`/`filter:end`).
+- search lifecycle commands are explicit: `search:preview`, `search:start`, `search:end`, `search:cancel`, `search:forward_direction`, `search:backward_direction`.
+- filter lifecycle commands are explicit: `filter:preview`, `filter:start`, `filter:end`, `filter:cancel`.
 - dispatch is pane-first when possible; app-level handlers are used for global behavior, with `mode:*` handled by app.
 
 ## Quick Start
