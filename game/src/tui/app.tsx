@@ -314,6 +314,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   const [search_start_state_json_cursor, set_search_start_state_json_cursor] = useState<number | null>(null);
   const [search_anchor_event_index, set_search_anchor_event_index] = useState<number | null>(null);
   const [search_anchor_state_json_cursor, set_search_anchor_state_json_cursor] = useState<number | null>(null);
+  const [search_phase, set_search_phase] = useState<'idle' | 'preview' | 'started'>('idle');
   const [status_errors_only, set_status_errors_only] = useState(false);
   const [mouse_scroll_enabled, set_mouse_scroll_enabled] = useState(true);
   const [, set_tick] = useState(0);
@@ -548,6 +549,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   }
 
   function start_search_session(target: 'events' | 'state_json'): void {
+    set_search_phase('preview');
     if (target === 'state_json') {
       set_search_start_state_json_cursor(state_json_cursor);
       set_search_anchor_state_json_cursor(state_json_cursor);
@@ -562,6 +564,9 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
   }
 
   function cancel_search_session(target: 'events' | 'state_json'): void {
+    if (search_phase !== 'preview') {
+      return;
+    }
     if (target === 'state_json') {
       if (search_start_state_json_cursor !== null) {
         const restored = clamp(search_start_state_json_cursor, 0, Math.max(0, state_json_lines.length - 1));
@@ -570,6 +575,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       }
       set_search_start_state_json_cursor(null);
       set_search_anchor_state_json_cursor(null);
+      set_search_phase('idle');
       return;
     }
     if (search_start_event_index !== null) {
@@ -577,6 +583,15 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
     }
     set_search_start_event_index(null);
     set_search_anchor_event_index(null);
+    set_search_phase('idle');
+  }
+
+  function close_search_session(): void {
+    set_search_start_event_index(null);
+    set_search_start_state_json_cursor(null);
+    set_search_anchor_event_index(null);
+    set_search_anchor_state_json_cursor(null);
+    set_search_phase('idle');
   }
 
   const step_player_selection = useCallback((delta: number, total_count: number, visible_count: number): void => {
@@ -1021,7 +1036,9 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       pane_focus,
       state_mode,
       count_prefix,
-      pending_g
+      pending_g,
+      mode_input: input,
+      search_entry_direction
     });
 
     if (binding.count_prefix !== count_prefix) {
@@ -1068,7 +1085,11 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
               const target_mode = mode_return_focus === 'state' && mode_return_state_mode === 'json'
                 ? 'state_json'
                 : 'events';
-              cancel_search_session(target_mode);
+              if (search_phase === 'preview') {
+                cancel_search_session(target_mode);
+              } else {
+                close_search_session();
+              }
               set_input('');
               set_history_cursor(null);
               set_vim_mode('normal');
@@ -1122,7 +1143,11 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
               const target_mode = mode_return_focus === 'state' && mode_return_state_mode === 'json'
                 ? 'state_json'
                 : 'events';
-              cancel_search_session(target_mode);
+              if (search_phase === 'preview') {
+                cancel_search_session(target_mode);
+              } else {
+                close_search_session();
+              }
               set_input('');
               set_history_cursor(null);
               set_vim_mode('normal');
@@ -1187,6 +1212,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
       return;
     }
     if (command.id.startsWith('mode:') || command.id.startsWith('search:') || command.id.startsWith('filter:')) {
+      const prior_phase = search_phase;
       const handled = handle_command_mode_command(
         command,
         {
@@ -1227,6 +1253,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
                 run_event_search(query, direction, false, base, true);
               }
             }
+            set_search_phase('preview');
           },
           apply_search_commit: (target, query, direction) => {
             if (target === 'state_json') {
@@ -1236,6 +1263,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
               if (matched) {
                 set_last_state_json_search_query(query);
                 set_last_state_json_search_direction(direction);
+                set_search_phase('started');
               }
             } else {
               set_event_search_query(query);
@@ -1244,6 +1272,7 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
               if (matched) {
                 set_last_event_search_query(query);
                 set_last_event_search_direction(direction);
+                set_search_phase('started');
               }
             }
           },
@@ -1256,13 +1285,22 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
               set_last_event_search_query('');
             }
           },
-          apply_filter_preview: (query) => set_filter_query(query),
-          apply_filter_commit: (query) => set_filter_query(query),
+            apply_filter_preview: (query) => {
+              set_filter_query(query);
+              set_search_phase('preview');
+            },
+            apply_filter_commit: (query) => {
+              set_filter_query(query);
+              set_search_phase('started');
+            },
           run_command,
           exit
         }
       );
       if (handled) {
+        if (command.id === 'search:end' && prior_phase === 'started') {
+          close_search_session();
+        }
         return;
       }
     }

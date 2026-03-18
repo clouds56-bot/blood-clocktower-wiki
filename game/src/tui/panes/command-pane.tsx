@@ -91,11 +91,41 @@ export function handle_command_mode_command(
     return true;
   }
 
+  if (command.id === 'search:preview') {
+    return true;
+  }
+
+  if (command.id === 'search:cancel') {
+    if (context.mode === 'search') {
+      const target = resolve_search_target(context.mode_return_focus, context.mode_return_state_mode);
+      handlers.cancel_search(target);
+      handlers.set_input('');
+      handlers.set_history_cursor(null);
+      handlers.set_mode('normal');
+      handlers.set_pane_focus(context.mode_return_focus);
+    }
+    return true;
+  }
+
   if (command.id === 'mode:enter_filter' || command.id === 'filter:start') {
     handlers.set_mode_return_context(context.pane_focus, context.state_mode);
     handlers.set_mode('filter');
     handlers.set_input('');
     handlers.set_history_cursor(null);
+    return true;
+  }
+
+  if (command.id === 'filter:preview') {
+    return true;
+  }
+
+  if (command.id === 'filter:cancel') {
+    if (context.mode === 'filter') {
+      handlers.set_input('');
+      handlers.set_history_cursor(null);
+      handlers.set_mode('normal');
+      handlers.set_pane_focus(context.mode_return_focus);
+    }
     return true;
   }
 

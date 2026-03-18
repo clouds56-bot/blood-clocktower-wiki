@@ -336,15 +336,23 @@ export function handle_state_pane_command(
       handlers.start_search(command.direction ?? 1);
       return true;
     }
+    if (command.id === 'search:preview') {
+      handlers.start_search(command.direction ?? 1);
+      return true;
+    }
     if (command.id === 'search:end') {
       handlers.end_search();
       return true;
     }
-    if (command.id === 'search:repeat_same') {
+    if (command.id === 'search:cancel') {
+      handlers.end_search();
+      return true;
+    }
+    if (command.id === 'search:forward_direction') {
       handlers.repeat_search('same', count);
       return true;
     }
-    if (command.id === 'search:repeat_opposite') {
+    if (command.id === 'search:backward_direction') {
       handlers.repeat_search('opposite', count);
       return true;
     }
