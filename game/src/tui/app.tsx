@@ -5,23 +5,24 @@ import { CliChannelBus } from '../cli/channels.js';
 import { format_state_brief, format_state_json } from '../cli/formatters.js';
 import { create_cli_context, process_cli_line } from '../cli/repl.js';
 import type { DomainEvent } from '../domain/events.js';
-import type { GameState, PlayerState, PromptColumnSpec, PromptRangeSpec, PromptState } from '../domain/types.js';
+import type { PromptColumnSpec, PromptRangeSpec, PromptState } from '../domain/types.js';
 import { resolve_tui_command, route_tui_command, type TuiCommand } from './command-bindings.js';
 import { CommandPane, type VimMode } from './panes/command-pane.js';
 import { EventsPane, event_matches_query, find_event_match_index, handle_events_pane_command } from './panes/events-pane.js';
 import { InspectorPane } from './panes/inspector-pane.js';
-import { StatePane, find_state_json_match_index, type PlayerStateRow, handle_state_pane_command } from './panes/state-pane.js';
+import {
+  StatePane,
+  derive_player_state_model,
+  find_state_json_match_index,
+  ordered_player_ids,
+  handle_state_pane_command
+} from './panes/state-pane.js';
 import { StatusPane } from './panes/status-pane.js';
 
 type StateMode = 'brief' | 'players' | 'json';
 type InspectorMode = 'overview' | 'prompts' | 'players' | 'markers' | 'output';
 type PaneFocus = 'events' | 'state';
 type StatusKind = 'status' | 'error';
-interface MarkerSeatToken {
-  seat: string;
-  color: string;
-}
-
 interface StatusEntry {
   text: string;
   kind: StatusKind;
@@ -299,106 +300,6 @@ function next_focus(focus: PaneFocus): PaneFocus {
 
 function prev_focus(focus: PaneFocus): PaneFocus {
   return focus === 'events' ? 'state' : 'events';
-}
-
-function ordered_player_ids(state: GameState): string[] {
-  const seated_player_ids = new Set(state.seat_order);
-  return [
-    ...state.seat_order,
-    ...Object.keys(state.players_by_id)
-      .filter((player_id) => !seated_player_ids.has(player_id))
-      .sort((a, b) => a.localeCompare(b))
-  ];
-}
-
-function role_color(character_type: PlayerState['true_character_type']): string {
-  if (character_type === 'townsfolk') {
-    return 'blue';
-  }
-  if (character_type === 'outsider') {
-    return 'cyan';
-  }
-  if (character_type === 'minion') {
-    return 'magenta';
-  }
-  if (character_type === 'demon') {
-    return 'red';
-  }
-  if (character_type === 'traveller') {
-    return 'yellow';
-  }
-  return 'white';
-}
-
-function alignment_color(alignment: PlayerState['true_alignment']): string {
-  if (alignment === 'good') {
-    return 'green';
-  }
-  if (alignment === 'evil') {
-    return 'red';
-  }
-  return 'gray';
-}
-
-function marker_source_color(effect: string | null | undefined): string {
-  const normalized = (effect ?? '').toLowerCase();
-  if (normalized.includes('poison') || normalized.includes('drunk')) {
-    return 'magenta';
-  }
-  if (normalized.includes('protect')) {
-    return 'green';
-  }
-  if (normalized.length === 0 || normalized === 'none') {
-    return 'gray';
-  }
-  return 'white';
-}
-
-function format_player_state_row(player: PlayerState, seat_index: number, marker_sources: MarkerSeatToken[]): {
-  seat: string;
-  identity: string;
-  vote: string;
-  markers: string;
-  marker_tokens: MarkerSeatToken[];
-  type: string;
-  role: string;
-  suffix: string;
-  identity_color: string;
-  type_color: string;
-  role_color: string;
-  italic: boolean;
-  strikethrough: boolean;
-} {
-  const seat = String(seat_index + 1).padStart(2, ' ');
-  const id = player.player_id.padEnd(4, ' ').slice(0, 4);
-  const name = player.display_name.padEnd(12, ' ').slice(0, 12);
-  const vote = player.dead_vote_available ? 'yes ' : 'no  ';
-  const markers = marker_sources.length > 0 ? marker_sources.map((source) => source.seat).join(',') : '-';
-  const character_type = (player.true_character_type ?? 'none').padEnd(10, ' ').slice(0, 10);
-  const role = (player.true_character_id ?? 'none').padEnd(19, ' ').slice(0, 19);
-  const flags = [
-    player.perceived_character_id && player.perceived_character_id !== player.true_character_id
-      ? `seen:${player.perceived_character_id}`
-      : null,
-    player.registered_alignment ? `regA:${player.registered_alignment}` : null,
-    player.registered_character_id ? `regC:${player.registered_character_id}` : null
-  ].filter((value): value is string => Boolean(value)).join(',');
-
-  return {
-    seat,
-    identity: `${id} ${name}`,
-    vote,
-    markers,
-    marker_tokens: marker_sources,
-    type: character_type,
-    role,
-    suffix: ` ${flags || '-'}`,
-    identity_color: player.alive ? 'white' : 'gray',
-    type_color: alignment_color(player.true_alignment),
-    role_color: role_color(player.true_character_type ?? null),
-    italic: player.drunk || player.poisoned,
-    strikethrough: !player.alive
-  };
 }
 
 function next_state_mode(mode: StateMode): StateMode {
@@ -1571,125 +1472,33 @@ function App({ initial_game_id }: { initial_game_id: string }): React.ReactEleme
 
   const player_state_header = 'sel seat id   name         vote markers type       role                flags';
   const player_state_separator = '--- ---- ---- ------------ ---- ------- ---------- ------------------- -----';
-  const player_ids = ordered_player_ids(effective_state);
-  const seat_by_player_id = new Map<string, string>(
-    player_ids.map((player_id, index) => [player_id, String(index + 1)])
-  );
-  const player_marker_sources = new Map<string, MarkerSeatToken[]>();
-  for (const marker_id of effective_state.active_reminder_marker_ids) {
-    const marker = effective_state.reminder_markers_by_id[marker_id];
-    if (!marker || !marker.target_player_id) {
-      continue;
-    }
-    const source_seat = marker.source_player_id ? seat_by_player_id.get(marker.source_player_id) ?? '?' : '?';
-    const source_color = marker_source_color(marker.effect);
-    const current = player_marker_sources.get(marker.target_player_id) ?? [];
-    current.push({ seat: source_seat, color: source_color });
-    player_marker_sources.set(marker.target_player_id, current);
-  }
-  const player_rows = player_ids
-    .map((player_id, index) => {
-      const player = effective_state.players_by_id[player_id];
-      if (!player) {
-        return null;
-      }
-      const marker_sources = player_marker_sources.get(player_id) ?? [];
-      const row = format_player_state_row(player, index, marker_sources);
-      return {
-        key: `${player_id}:${index}`,
-        seat: row.seat,
-        identity: row.identity,
-        vote: row.vote,
-        markers: row.markers,
-        marker_tokens: row.marker_tokens,
-        type: row.type,
-        role: row.role,
-        suffix: row.suffix,
-        identity_color: row.identity_color,
-        type_color: row.type_color,
-        role_color: row.role_color,
-        italic: row.italic,
-        strikethrough: row.strikethrough
-      };
-    })
-    .filter((value): value is PlayerStateRow => Boolean(value));
+  const player_model = useMemo(() => derive_player_state_model({
+    state: effective_state,
+    selected_player_index,
+    player_list_offset,
+    state_content_rows
+  }), [effective_state, selected_player_index, player_list_offset, state_content_rows]);
 
-  const player_visible_count = Math.max(1, state_content_rows - 4);
-  const clamped_selected_player_index = player_rows.length === 0
-    ? null
-    : clamp(selected_player_index, 0, player_rows.length - 1);
-  const max_player_offset = Math.max(0, player_rows.length - Math.max(1, player_visible_count));
-  const effective_player_offset = clamp(player_list_offset, 0, max_player_offset);
-  const selected_player = clamped_selected_player_index === null
-    ? null
-    : effective_state.players_by_id[player_ids[clamped_selected_player_index] ?? ''] ?? null;
-  const selected_player_marker_details = selected_player
-    ? effective_state.active_reminder_marker_ids
-        .map((marker_id) => effective_state.reminder_markers_by_id[marker_id])
-        .filter((marker): marker is NonNullable<typeof marker> => Boolean(marker && marker.target_player_id === selected_player.player_id))
-        .reduce((acc, marker) => {
-          const key = `${marker.kind}|${marker.effect}`;
-          const seat = marker.source_player_id ? seat_by_player_id.get(marker.source_player_id) ?? '?' : '?';
-          const existing = acc.get(key);
-          if (existing) {
-            existing.seats.push(seat);
-            return acc;
-          }
-          acc.set(key, {
-            kind: marker.kind,
-            effect: marker.effect,
-            seats: [seat]
-          });
-          return acc;
-        }, new Map<string, { kind: string; effect: string; seats: string[] }>())
-    : new Map<string, { kind: string; effect: string; seats: string[] }>();
-  const selected_player_markers = Array.from(selected_player_marker_details.values())
-    .map((entry) => ({
-      ...entry,
-      seats: [...entry.seats].sort((a, b) => a.localeCompare(b))
-    }))
-    .sort((left, right) => left.kind.localeCompare(right.kind));
-  const selected_player_status_prefix = selected_player
-    ? `selected=${selected_player.player_id} `
-    : 'selected=(none)';
-  const selected_player_marker_lines = selected_player_markers.map((marker) => ({
-    text: `${marker.kind}:${marker.seats.join(',')}`,
-    color: marker_source_color(marker.effect)
-  }));
+  const {
+    player_rows,
+    clamped_selected_player_index,
+    effective_player_offset,
+    player_visible_count,
+    visible_player_rows,
+    selected_player_status_prefix,
+    selected_player_marker_lines,
+    next_selected_player_index,
+    next_player_list_offset
+  } = player_model;
 
   useEffect(() => {
-    if (player_rows.length === 0) {
-      if (selected_player_index !== 0) {
-        set_selected_player_index(0);
-      }
-      if (player_list_offset !== 0) {
-        set_player_list_offset(0);
-      }
-      return;
+    if (next_selected_player_index !== selected_player_index) {
+      set_selected_player_index(next_selected_player_index);
     }
-    if (selected_player_index >= player_rows.length) {
-      set_selected_player_index(player_rows.length - 1);
+    if (next_player_list_offset !== player_list_offset) {
+      set_player_list_offset(next_player_list_offset);
     }
-    if (clamped_selected_player_index !== null) {
-      const next_offset = ensure_visible_offset(
-        clamped_selected_player_index,
-        player_list_offset,
-        Math.max(1, player_visible_count),
-        player_rows.length
-      );
-      if (next_offset !== player_list_offset) {
-        set_player_list_offset(next_offset);
-      }
-    }
-  }, [
-    clamped_selected_player_index,
-    player_list_offset,
-    player_rows.length,
-    player_visible_count,
-    selected_player_index
-  ]);
-
-  const visible_player_rows = player_rows.slice(effective_player_offset, effective_player_offset + player_visible_count);
+  }, [next_selected_player_index, next_player_list_offset, selected_player_index, player_list_offset]);
 
   const right_pane_width = Math.max(20, Math.floor(columns / 2) - 4);
   const left_pane_width = Math.max(20, Math.floor(columns / 2) - 4);
