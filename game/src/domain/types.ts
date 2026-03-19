@@ -130,7 +130,7 @@ export interface DeathRecord {
 export interface WakeQueueEntry {
   wake_key: string;
   character_id: string;
-  player_id: PlayerId;
+  player_id: PlayerId | null;
 }
 
 export interface InterruptQueueEntry {

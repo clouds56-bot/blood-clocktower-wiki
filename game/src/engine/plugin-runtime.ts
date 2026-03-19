@@ -23,6 +23,7 @@ interface ParsedClaimedAbilityPrompt {
   claimant_player_id: string;
 }
 
+
 function resolve_prompt_key(command: ResolvePromptCommand): string {
   return command.payload.prompt_key;
 }
@@ -1014,12 +1015,14 @@ function process_wake_queue(
       break;
     }
 
-    const wake_player = runtime_state.players_by_id[wake_step.player_id];
+    const wake_player =
+      wake_step.player_id === null
+        ? null
+        : (runtime_state.players_by_id[wake_step.player_id] ?? null);
     const wake_plugin = plugin_registry.get(wake_step.character_id);
     const ability_blocked =
-      !wake_player ||
       !wake_plugin ||
-      (!wake_player.alive && !wake_plugin.metadata.flags.can_function_while_dead);
+      (wake_player !== null && !wake_player.alive && !wake_plugin.metadata.flags.can_function_while_dead);
 
     if (ability_blocked) {
       const wake_consumed: DomainEvent = {
@@ -1040,7 +1043,7 @@ function process_wake_queue(
 
     const dispatch = dispatch_hook(plugin_registry, 'on_night_wake', [wake_step.character_id], {
       state: runtime_state,
-      player_id: wake_step.player_id,
+      player_id: wake_step.player_id ?? 'system',
       wake_step_id: wake_step.wake_key
     });
 

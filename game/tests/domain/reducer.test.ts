@@ -267,6 +267,27 @@ test('WakeScheduled fails fast for unknown player', () => {
   );
 });
 
+test('WakeScheduled accepts null player for system wakes', () => {
+  const state = create_initial_state('g1');
+
+  const next = apply_event(state, {
+    event_id: 180,
+    event_type: 'WakeScheduled',
+    created_at: '2026-03-13T00:00:00.000Z',
+    payload: {
+      wake_key: 'w-system',
+      character_id: 'demoninfo',
+      player_id: null
+    }
+  });
+
+  assert.deepEqual(next.wake_queue[0], {
+    wake_key: 'w-system',
+    character_id: 'demoninfo',
+    player_id: null
+  });
+});
+
 test('PromptQueued rejects duplicate prompt ids', () => {
   const state = replay_events(
     [

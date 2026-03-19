@@ -385,13 +385,16 @@ export function apply_event(state: GameState, event: DomainEvent): GameState {
       break;
     }
     case 'WakeScheduled': {
-      ensure_player(next, event.payload.player_id);
       const wake_key = event.payload.wake_key;
+      const player_id = event.payload.player_id;
+      if (player_id !== null) {
+        ensure_player(next, player_id);
+      }
       if (!next.wake_queue.some((item) => item.wake_key === wake_key)) {
         next.wake_queue.push({
           wake_key,
           character_id: event.payload.character_id,
-          player_id: event.payload.player_id
+          player_id
         });
       }
       break;

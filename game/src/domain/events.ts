@@ -360,7 +360,7 @@ export interface WakeScheduledEvent extends BaseDomainEvent {
   payload: {
     wake_key: string;
     character_id: string;
-    player_id: PlayerId;
+    player_id: PlayerId | null;
   };
 }
 

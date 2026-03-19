@@ -168,6 +168,20 @@ test('validate_invariants checks wake and interrupt queue integrity', () => {
   assert.ok(interruptDuplicate);
 });
 
+test('validate_invariants allows system wake entries with null player_id', () => {
+  const state = create_initial_state('g1');
+  state.wake_queue = [
+    {
+      wake_key: 'w-system',
+      character_id: 'demoninfo',
+      player_id: null
+    }
+  ];
+
+  const issues = validate_invariants(state);
+  assert.equal(issues.some((issue) => issue.code === 'wake_queue_player_missing'), false);
+});
+
 test('validate_invariants rejects invalid wake and interrupt queue fields', () => {
   const state = create_initial_state('g1');
   state.players_by_id.p1 = {

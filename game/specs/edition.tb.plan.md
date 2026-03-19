@@ -27,6 +27,10 @@ Scope:
   `fortune_teller`.
 - Wire first-night wake scheduling from TB night order.
 - Add info payload formatter for role+pair and numeric outputs.
+- Include first-night script special info prompts:
+  - `minioninfo`
+  - `demoninfo`
+  (implemented in engine runtime as script-level special steps, not TB-specific plugins).
 
 Done when:
 - first-night info roles all emit `PrivateInfoShown` payloads deterministically;

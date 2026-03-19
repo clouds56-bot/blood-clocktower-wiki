@@ -45,7 +45,11 @@ Demon:
 6. Apply hidden setup metadata:
    - `fortune_teller` red herring target (good player).
 7. Initialize first-night private info packets:
-   - `minioninfo`, `demoninfo` (for 7+ player standard games).
+    - `minioninfo`, `demoninfo` (for 7+ player standard games).
+
+Implementation status note:
+- `minioninfo` and `demoninfo` are implemented in engine runtime as script-level first-night special prompts (not TB character plugins).
+- This behavior is script-agnostic and reused by other editions/scripts that include these special items.
 
 ## Night Order (TB)
 
