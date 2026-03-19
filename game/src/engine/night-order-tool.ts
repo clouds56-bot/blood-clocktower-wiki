@@ -14,9 +14,10 @@ interface NightOrderToolData {
 }
 
 interface LoadedNightOrder {
-  first_night_character_order_by_id: Readonly<Record<string, number>>;
-  other_night_character_order_by_id: Readonly<Record<string, number>>;
+  first_night_order_by_id: Readonly<Record<string, number>>;
+  other_night_order_by_id: Readonly<Record<string, number>>;
   first_night_special_order_by_number: readonly string[];
+  other_night_special_order_by_number: readonly string[];
 }
 
 function repo_root_dir(): string {
@@ -53,12 +54,9 @@ function as_step_array(value: unknown): NightOrderToolStep[] {
   return value.filter(is_step);
 }
 
-function build_character_order_map(steps: NightOrderToolStep[]): Readonly<Record<string, number>> {
+function build_order_map(steps: NightOrderToolStep[]): Readonly<Record<string, number>> {
   const order: Record<string, number> = {};
   for (const step of steps) {
-    if (step.kind !== 'character') {
-      continue;
-    }
     if (typeof step.id !== 'string' || step.id.trim().length === 0) {
       continue;
     }
@@ -93,13 +91,33 @@ function build_special_first_night_order(steps: NightOrderToolStep[]): readonly 
     .map((step) => step.id as string);
 }
 
+function build_special_other_night_order(steps: NightOrderToolStep[]): readonly string[] {
+  return [...steps]
+    .filter((step) => {
+      return (
+        step.kind === 'special' &&
+        typeof step.id === 'string' &&
+        step.id.trim().length > 0 &&
+        Number.isFinite(step.number) &&
+        Number.isInteger(step.number)
+      );
+    })
+    .sort((left, right) => {
+      const left_number = typeof left.number === 'number' ? left.number : Number.MAX_SAFE_INTEGER;
+      const right_number = typeof right.number === 'number' ? right.number : Number.MAX_SAFE_INTEGER;
+      return left_number - right_number;
+    })
+    .map((step) => step.id as string);
+}
+
 function load_night_order(): LoadedNightOrder {
   const tool_data = read_nightorder_tool_file();
   if (!tool_data) {
     return {
-      first_night_character_order_by_id: {},
-      other_night_character_order_by_id: {},
-      first_night_special_order_by_number: ['minioninfo', 'demoninfo']
+      first_night_order_by_id: {},
+      other_night_order_by_id: {},
+      first_night_special_order_by_number: ['minioninfo', 'demoninfo'],
+      other_night_special_order_by_number: []
     };
   }
 
@@ -107,21 +125,25 @@ function load_night_order(): LoadedNightOrder {
   const other_night_steps = as_step_array(tool_data.other_night);
 
   const first_night_special_order_by_number = build_special_first_night_order(first_night_steps);
+  const other_night_special_order_by_number = build_special_other_night_order(other_night_steps);
 
   return {
-    first_night_character_order_by_id: build_character_order_map(first_night_steps),
-    other_night_character_order_by_id: build_character_order_map(other_night_steps),
+    first_night_order_by_id: build_order_map(first_night_steps),
+    other_night_order_by_id: build_order_map(other_night_steps),
     first_night_special_order_by_number:
       first_night_special_order_by_number.length > 0
         ? first_night_special_order_by_number
-        : ['minioninfo', 'demoninfo']
+        : ['minioninfo', 'demoninfo'],
+    other_night_special_order_by_number
   };
 }
 
 const NIGHT_ORDER = load_night_order();
 
-export const FIRST_NIGHT_ORDER_BY_CHARACTER_ID = NIGHT_ORDER.first_night_character_order_by_id;
+export const FIRST_NIGHT_ORDER_BY_CHARACTER_ID = NIGHT_ORDER.first_night_order_by_id;
 
-export const OTHER_NIGHT_ORDER_BY_CHARACTER_ID = NIGHT_ORDER.other_night_character_order_by_id;
+export const OTHER_NIGHT_ORDER_BY_CHARACTER_ID = NIGHT_ORDER.other_night_order_by_id;
 
 export const FIRST_NIGHT_SPECIAL_ORDER_BY_NUMBER = NIGHT_ORDER.first_night_special_order_by_number;
+
+export const OTHER_NIGHT_SPECIAL_ORDER_BY_NUMBER = NIGHT_ORDER.other_night_special_order_by_number;

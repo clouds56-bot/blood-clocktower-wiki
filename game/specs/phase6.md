@@ -57,10 +57,11 @@ Wake key conventions (normative)
 ### 4) Engine integration is explicit
 
 - Night flow enqueues/executes wake steps through plugin runtime.
-- First-night script-level special items from `data/nightorder.tool.json` (not character plugins) are surfaced as Storyteller prompts.
+- First-night script-level special items from `data/nightorder.tool.json` are implemented as dedicated plugins and inserted into wake scheduling.
   - Implemented special items: `minioninfo`, `demoninfo`.
   - `minioninfo` is ground-truth runtime output (no Storyteller prompt/choice).
   - `demoninfo` remains a Storyteller prompt and requires selecting a bluff bundle choice.
+  - These special steps are now implemented as plugins and inserted into wake scheduling with `player_id: null` owner; runtime passes `"system"` to `on_night_wake(context.player_id)`.
   - Gating: only when non-Traveller player count is 7 or more.
   - Sequencing follows `data/nightorder.tool.json` numeric step order.
   - Scope: script-agnostic (applies to any script that includes these special items), not TB-only.

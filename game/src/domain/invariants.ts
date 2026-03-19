@@ -171,7 +171,7 @@ export function validate_invariants(state: GameState): InvariantIssue[] {
     const wake_key = wake.wake_key;
     const hasWakeId = typeof wake_key === 'string' && wake_key.trim().length > 0;
     const hasCharacterId = typeof wake.character_id === 'string' && wake.character_id.trim().length > 0;
-    const hasPlayerId = typeof wake.player_id === 'string';
+    const hasPlayerId = wake.player_id === null || typeof wake.player_id === 'string';
 
     if (!hasWakeId || !hasCharacterId) {
       issues.push({
@@ -194,7 +194,7 @@ export function validate_invariants(state: GameState): InvariantIssue[] {
       seenWakeIds.add(wake_key);
     }
 
-    if (!hasPlayerId || !state.players_by_id[wake.player_id]) {
+    if (!hasPlayerId || (wake.player_id !== null && !state.players_by_id[wake.player_id])) {
       issues.push({
         code: 'wake_queue_player_missing',
         message: `wake_queue references missing player: ${wake.player_id}`,

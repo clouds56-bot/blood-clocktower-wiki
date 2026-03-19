@@ -6,12 +6,15 @@ import { apply_events } from '../../src/domain/reducer.js';
 import { create_initial_state } from '../../src/domain/state.js';
 import type { GameState } from '../../src/domain/types.js';
 import type { CharacterPlugin, CharacterPluginMetadata } from '../../src/plugins/contracts.js';
+import type { PluginResult } from '../../src/plugins/contracts.js';
 import { empty_plugin_result } from '../../src/plugins/contracts.js';
 import { butler_plugin } from '../../src/plugins/characters/butler.js';
+import { demoninfo_plugin } from '../../src/plugins/characters/demoninfo.js';
 import { empath_plugin } from '../../src/plugins/characters/empath.js';
 import { fortune_teller_plugin } from '../../src/plugins/characters/fortune-teller.js';
 import { imp_plugin } from '../../src/plugins/characters/imp.js';
 import { poisoner_plugin } from '../../src/plugins/characters/poisoner.js';
+import { minioninfo_plugin } from '../../src/plugins/characters/minioninfo.js';
 import { PluginRegistry } from '../../src/plugins/registry.js';
 import { handle_command } from '../../src/engine/command-handler.js';
 
@@ -703,7 +706,7 @@ test('imp does not wake on first night', () => {
 
 test('first-night minioninfo and demoninfo are queued as script-level prompts', () => {
   const state = bootstrap_first_night_special_info_state({ script_id: 'tb', player_count: 7 });
-  const registry = new PluginRegistry([poisoner_plugin]);
+  const registry = new PluginRegistry([minioninfo_plugin, demoninfo_plugin, poisoner_plugin]);
 
   const wake_events = run_with_registry(
     state,
@@ -772,7 +775,7 @@ test('first-night minioninfo and demoninfo are queued as script-level prompts', 
 
 test('first-night special prompts are skipped below seven non-traveller players', () => {
   const state = bootstrap_first_night_special_info_state({ script_id: 'tb', player_count: 6 });
-  const registry = new PluginRegistry([poisoner_plugin]);
+  const registry = new PluginRegistry([minioninfo_plugin, demoninfo_plugin, poisoner_plugin]);
 
   const wake_events = run_with_registry(
     state,
@@ -803,7 +806,7 @@ test('first-night special prompts are skipped below seven non-traveller players'
 
 test('first-night special prompts are not TB-specific and run for BMR script', () => {
   const state = bootstrap_first_night_special_info_state({ script_id: 'bmr', player_count: 7 });
-  const registry = new PluginRegistry([poisoner_plugin]);
+  const registry = new PluginRegistry([minioninfo_plugin, demoninfo_plugin, poisoner_plugin]);
 
   const wake_events = run_with_registry(
     state,
@@ -836,6 +839,83 @@ test('first-night special prompts are not TB-specific and run for BMR script', (
     ),
     true
   );
+});
+
+test('special wake scheduling uses null owner but passes system player to hooks', () => {
+  const system_probe: CharacterPlugin = {
+    metadata: {
+      id: 'minioninfo',
+      name: 'Minion Info Probe',
+      type: 'fabled',
+      alignment_at_start: 'storyteller_choice',
+      timing_category: 'first_night',
+      is_once_per_game: false,
+      target_constraints: {
+        min_targets: 0,
+        max_targets: 0,
+        allow_self: false,
+        require_alive: false,
+        allow_travellers: true
+      },
+      flags: {
+        can_function_while_dead: true,
+        can_trigger_on_death: false,
+        may_cause_drunkenness: false,
+        may_cause_poisoning: false,
+        may_change_alignment: false,
+        may_change_character: false,
+        may_register_as_other: false
+      }
+    },
+    hooks: {
+      on_night_wake: (context): PluginResult => ({
+        emitted_events: [
+          {
+            event_type: 'StorytellerRulingRecorded',
+            payload: {
+              prompt_key: 'plugin:minioninfo:first_night_info:n1',
+              note: `probe_player=${context.player_id}`
+            }
+          }
+        ],
+        queued_prompts: [],
+        queued_interrupts: []
+      })
+    }
+  };
+
+  const state = bootstrap_first_night_special_info_state({ script_id: 'tb', player_count: 7 });
+  const registry = new PluginRegistry([system_probe]);
+
+  const wake_events = run_with_registry(
+    state,
+    {
+      command_id: 'c_special_null_owner',
+      command_type: 'AdvancePhase',
+      actor_id: 'storyteller',
+      payload: {
+        phase: 'first_night',
+        subphase: 'night_wake_sequence',
+        day_number: 0,
+        night_number: 1
+      }
+    },
+    registry
+  );
+
+  const scheduled = wake_events.find(
+    (event) => event.event_type === 'WakeScheduled' && event.payload.character_id === 'minioninfo'
+  );
+  assert.ok(scheduled && scheduled.event_type === 'WakeScheduled');
+  assert.equal(scheduled.payload.player_id, null);
+
+  const probe_note = wake_events.find(
+    (event) =>
+      event.event_type === 'StorytellerRulingRecorded' &&
+      event.payload.prompt_key === 'plugin:minioninfo:first_night_info:n1'
+  );
+  assert.ok(probe_note && probe_note.event_type === 'StorytellerRulingRecorded');
+  assert.equal(probe_note.payload.note, 'probe_player=system');
 });
 
 test('imp plugin prompt resolves into death through engine flow', () => {

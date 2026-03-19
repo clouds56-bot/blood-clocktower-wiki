@@ -9,12 +9,14 @@ import type { GameState } from '../domain/types.js';
 import { handle_command } from '../engine/command-handler.js';
 import { chef_plugin } from '../plugins/characters/chef.js';
 import { butler_plugin } from '../plugins/characters/butler.js';
+import { demoninfo_plugin } from '../plugins/characters/demoninfo.js';
 import { empath_plugin } from '../plugins/characters/empath.js';
 import { fortune_teller_plugin } from '../plugins/characters/fortune-teller.js';
 import { imp_plugin } from '../plugins/characters/imp.js';
 import { investigator_plugin } from '../plugins/characters/investigator.js';
 import { librarian_plugin } from '../plugins/characters/librarian.js';
 import { mayor_plugin } from '../plugins/characters/mayor.js';
+import { minioninfo_plugin } from '../plugins/characters/minioninfo.js';
 import { monk_plugin } from '../plugins/characters/monk.js';
 import { poisoner_plugin } from '../plugins/characters/poisoner.js';
 import { ravenkeeper_plugin } from '../plugins/characters/ravenkeeper.js';
@@ -148,6 +150,8 @@ export function create_cli_context(initial_game_id: string, options?: { channel_
     plugin_registry: new PluginRegistry([
       chef_plugin,
       butler_plugin,
+      minioninfo_plugin,
+      demoninfo_plugin,
       empath_plugin,
       fortune_teller_plugin,
       imp_plugin,
