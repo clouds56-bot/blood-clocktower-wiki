@@ -195,13 +195,17 @@ export const demoninfo_plugin: CharacterPlugin = {
       }
 
       const selected = context.selected_option_id ?? 'none';
+      const minion_ids = context.state.seat_order.filter((player_id) => {
+        const player = context.state.players_by_id[player_id];
+        return Boolean(player && !player.is_traveller && player.true_character_type === 'minion');
+      });
       return {
         emitted_events: [
           {
             event_type: 'StorytellerRulingRecorded',
             payload: {
               prompt_key: context.prompt_key,
-              note: `demoninfo:selected=${selected}`
+              note: `demoninfo:minions=${minion_ids.join(',')};selected=${selected}`
             }
           }
         ],

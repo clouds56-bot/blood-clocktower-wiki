@@ -771,6 +771,16 @@ test('first-night minioninfo and demoninfo are queued as script-level prompts', 
     ),
     true
   );
+
+  assert.equal(
+    resolve_demoninfo.some(
+      (event) =>
+        event.event_type === 'StorytellerRulingRecorded' &&
+        event.payload.prompt_key === 'plugin:demoninfo:first_night_info:n1' &&
+        event.payload.note.includes('demoninfo:minions=')
+    ),
+    true
+  );
 });
 
 test('first-night special prompts are skipped below seven non-traveller players', () => {
