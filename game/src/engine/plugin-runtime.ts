@@ -1121,12 +1121,22 @@ function queue_next_first_night_special_prompt(
     return [];
   }
 
+  const events: DomainEvent[] = [];
+
   for (const special_id of FIRST_NIGHT_SPECIAL_ORDER_BY_NUMBER) {
     if (!SUPPORTED_FIRST_NIGHT_SPECIAL_IDS.has(special_id)) {
       continue;
     }
-    const prompt_key = build_first_night_special_prompt_key(state.night_number, special_id);
-    if (state.prompts_by_id[prompt_key]) {
+    if (is_first_night_special_completed(state, special_id)) {
+      continue;
+    }
+
+    if (special_id === 'minioninfo') {
+      const ground_truth_event = build_minioninfo_ground_truth_event(state, command, created_at);
+      if (!ground_truth_event) {
+        continue;
+      }
+      events.push(ground_truth_event);
       continue;
     }
 
@@ -1135,19 +1145,18 @@ function queue_next_first_night_special_prompt(
       continue;
     }
 
-    return [
-      {
-        event_key: `${command.command_id}:SpecialPromptQueued:${special_id}`,
-        event_id: 1,
-        event_type: 'PromptQueued',
-        created_at,
-        ...(command.actor_id === undefined ? {} : { actor_id: command.actor_id }),
-        payload: prompt
-      }
-    ];
+    events.push({
+      event_key: `${command.command_id}:SpecialPromptQueued:${special_id}`,
+      event_id: 1,
+      event_type: 'PromptQueued',
+      created_at,
+      ...(command.actor_id === undefined ? {} : { actor_id: command.actor_id }),
+      payload: prompt
+    });
+    break;
   }
 
-  return [];
+  return events;
 }
 
 function build_first_night_special_prompt(
@@ -1187,21 +1196,18 @@ function build_first_night_special_prompt(
   }
 
   const minion_ids = minions.map((player) => player.player_id).join(',');
-  const suggested_bluffs = suggest_not_in_play_good_bluffs(state).join(',');
+  const bluff_bundle_options = build_demoninfo_bluff_bundle_options(state);
 
   return {
     prompt_key: build_first_night_special_prompt_key(state.night_number, special_id),
     kind: 'choice',
     reason: `plugin:${special_id}:first_night_info:n${state.night_number}`,
     visibility: 'storyteller',
-    options: [],
+    options: bluff_bundle_options,
     selection_mode: 'single_choice',
     number_range: null,
     multi_columns: null,
-    storyteller_hint:
-      suggested_bluffs.length > 0
-        ? `demoninfo:minions=${minion_ids};suggested_bluffs=${suggested_bluffs}`
-        : `demoninfo:minions=${minion_ids}`
+    storyteller_hint: `demoninfo:minions=${minion_ids};choose_bluff_bundle=true`
   };
 }
 
@@ -1243,6 +1249,87 @@ function suggest_not_in_play_good_bluffs(state: GameState): string[] {
   );
 
   return script_good_ids.filter((character_id) => !in_play.has(character_id)).slice(0, 3);
+}
+
+function list_not_in_play_good_character_ids(state: GameState): string[] {
+  const script_id = (state.script_id ?? '').trim().toLowerCase();
+  const script_good_ids = GOOD_CHARACTER_IDS_BY_SCRIPT_ID[script_id];
+  if (!script_good_ids) {
+    return [];
+  }
+
+  const in_play = new Set(
+    Object.values(state.players_by_id)
+      .map((player) => player.true_character_id)
+      .filter((character_id): character_id is string => typeof character_id === 'string')
+  );
+
+  return script_good_ids.filter((character_id) => !in_play.has(character_id));
+}
+
+function build_demoninfo_bluff_bundle_options(state: GameState): Array<{ option_id: string; label: string }> {
+  const candidates = list_not_in_play_good_character_ids(state);
+  const options: Array<{ option_id: string; label: string }> = [];
+
+  for (let i = 0; i < candidates.length; i += 1) {
+    for (let j = i + 1; j < candidates.length; j += 1) {
+      for (let k = j + 1; k < candidates.length; k += 1) {
+        const left = candidates[i];
+        const middle = candidates[j];
+        const right = candidates[k];
+        if (!left || !middle || !right) {
+          continue;
+        }
+        const bundle = [left, middle, right];
+        options.push({
+          option_id: `bluffs:${bundle.join(',')}`,
+          label: bundle.join(', ')
+        });
+        if (options.length >= 24) {
+          return options;
+        }
+      }
+    }
+  }
+
+  return options;
+}
+
+function is_first_night_special_completed(state: GameState, special_id: string): boolean {
+  const prompt_key = build_first_night_special_prompt_key(state.night_number, special_id);
+  if (state.prompts_by_id[prompt_key]) {
+    return true;
+  }
+
+  return state.storyteller_notes.some((note) => note.prompt_key === prompt_key);
+}
+
+function build_minioninfo_ground_truth_event(
+  state: GameState,
+  command: Command,
+  created_at: string
+): Extract<DomainEvent, { event_type: 'StorytellerRulingRecorded' }> | null {
+  const minions = list_players_by_character_type(state, 'minion');
+  const demons = list_players_by_character_type(state, 'demon');
+  const demon = demons[0];
+  if (!demon || minions.length === 0) {
+    return null;
+  }
+
+  const prompt_key = build_first_night_special_prompt_key(state.night_number, 'minioninfo');
+  const teammate_ids = minions.map((player) => player.player_id).join(',');
+
+  return {
+    event_key: `${command.command_id}:SpecialGroundTruth:minioninfo`,
+    event_id: 1,
+    event_type: 'StorytellerRulingRecorded',
+    created_at,
+    ...(command.actor_id === undefined ? {} : { actor_id: command.actor_id }),
+    payload: {
+      prompt_key,
+      note: `minioninfo:demon=${demon.player_id};minions=${teammate_ids}`
+    }
+  };
 }
 
 function validate_queued_prompt_ids(

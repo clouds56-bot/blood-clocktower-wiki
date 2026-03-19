@@ -721,58 +721,38 @@ test('first-night minioninfo and demoninfo are queued as script-level prompts', 
     registry
   );
 
-  const minioninfo_prompt = wake_events.find(
+  const minioninfo_ground_truth = wake_events.find(
     (event) =>
-      event.event_type === 'PromptQueued' &&
+      event.event_type === 'StorytellerRulingRecorded' &&
       event.payload.prompt_key === 'plugin:minioninfo:first_night_info:n1'
   );
-  assert.ok(minioninfo_prompt && minioninfo_prompt.event_type === 'PromptQueued');
-  assert.equal(minioninfo_prompt.payload.storyteller_hint?.includes('minioninfo:demon='), true);
+  assert.ok(minioninfo_ground_truth && minioninfo_ground_truth.event_type === 'StorytellerRulingRecorded');
+  assert.equal(minioninfo_ground_truth.payload.note.includes('minioninfo:demon='), true);
 
-  assert.equal(
-    wake_events.some(
-      (event) =>
-        event.event_type === 'PromptQueued' &&
-        event.payload.prompt_key === 'plugin:demoninfo:first_night_info:n1'
-    ),
-    false
-  );
-
-  const after_first = apply_events(state, wake_events);
-  const resolve_minioninfo = run_with_registry(
-    after_first,
-    {
-      command_id: 'c_first_night_special_resolve_minion',
-      command_type: 'ResolvePrompt',
-      actor_id: 'storyteller',
-      payload: {
-        prompt_key: 'plugin:minioninfo:first_night_info:n1',
-        selected_option_id: null,
-        freeform: null,
-        notes: 'minion info delivered'
-      }
-    },
-    registry
-  );
-
-  const demoninfo_prompt = resolve_minioninfo.find(
+  const demoninfo_prompt = wake_events.find(
     (event) =>
       event.event_type === 'PromptQueued' &&
       event.payload.prompt_key === 'plugin:demoninfo:first_night_info:n1'
   );
   assert.ok(demoninfo_prompt && demoninfo_prompt.event_type === 'PromptQueued');
-  assert.equal(demoninfo_prompt.payload.storyteller_hint?.includes('suggested_bluffs='), true);
+  assert.equal(demoninfo_prompt.payload.options.length > 0, true);
 
-  const after_second = apply_events(after_first, resolve_minioninfo);
+  const after_first = apply_events(state, wake_events);
+  const selected_bluffs =
+    demoninfo_prompt && demoninfo_prompt.event_type === 'PromptQueued'
+      ? (demoninfo_prompt.payload.options[0]?.option_id ?? null)
+      : null;
+  assert.ok(selected_bluffs);
+
   const resolve_demoninfo = run_with_registry(
-    after_second,
+    after_first,
     {
       command_id: 'c_first_night_special_resolve_demon',
       command_type: 'ResolvePrompt',
       actor_id: 'storyteller',
       payload: {
         prompt_key: 'plugin:demoninfo:first_night_info:n1',
-        selected_option_id: null,
+        selected_option_id: selected_bluffs,
         freeform: null,
         notes: 'demon info delivered'
       }
@@ -844,7 +824,14 @@ test('first-night special prompts are not TB-specific and run for BMR script', (
   assert.equal(
     wake_events.some(
       (event) =>
-        event.event_type === 'PromptQueued' &&
+        event.event_type === 'PromptQueued' && event.payload.prompt_key === 'plugin:demoninfo:first_night_info:n1'
+    ),
+    true
+  );
+  assert.equal(
+    wake_events.some(
+      (event) =>
+        event.event_type === 'StorytellerRulingRecorded' &&
         event.payload.prompt_key === 'plugin:minioninfo:first_night_info:n1'
     ),
     true
