@@ -6,6 +6,7 @@ import { apply_events } from '../../src/domain/reducer.js';
 import { create_initial_state } from '../../src/domain/state.js';
 import type { GameState } from '../../src/domain/types.js';
 import { handle_command } from '../../src/engine/command-handler.js';
+import type { CharacterPlugin } from '../../src/plugins/contracts.js';
 import { butler_plugin } from '../../src/plugins/characters/butler.js';
 import { slayer_plugin } from '../../src/plugins/characters/slayer.js';
 import { virgin_plugin } from '../../src/plugins/characters/virgin.js';
@@ -856,4 +857,207 @@ test('slayer shot kills demon and is once per game', () => {
       assert.equal(final_state.players_by_id.p3?.alive, true);
     }
   }
+});
+
+test('claimed ability accepts claim activation from ability metadata bridge', () => {
+  const claim_bridge_plugin: CharacterPlugin = {
+    metadata: {
+      id: 'bridge_claim_role',
+      name: 'Bridge Claim Role',
+      type: 'townsfolk',
+      alignment_at_start: 'good',
+      abilities: [
+        {
+          ability_id: 'bridge_claim_role.claim_skill',
+          character_id: 'bridge_claim_role',
+          summary: 'Claim-time skill',
+          category: 'skill',
+          activation: ['claim']
+        }
+      ],
+      timing_category: 'each_night',
+      is_once_per_game: false,
+      target_constraints: {
+        min_targets: 1,
+        max_targets: 1,
+        allow_self: false,
+        require_alive: true,
+        allow_travellers: false
+      },
+      flags: {
+        can_function_while_dead: false,
+        can_trigger_on_death: false,
+        may_cause_drunkenness: false,
+        may_cause_poisoning: false,
+        may_change_alignment: false,
+        may_change_character: false,
+        may_register_as_other: false
+      }
+    },
+    hooks: {}
+  };
+
+  const state = bootstrap_day_state();
+  const registry = new PluginRegistry([claim_bridge_plugin]);
+  const result = handle_command(
+    state,
+    {
+      command_id: 'c-bridge-claim',
+      command_type: 'UseClaimedAbility',
+      payload: {
+        claimant_player_id: 'p1',
+        claimed_character_id: 'bridge_claim_role'
+      }
+    },
+    '2026-03-12T03:00:00.000Z',
+    { plugin_registry: registry }
+  );
+
+  assert.equal(result.ok, true);
+  if (!result.ok) {
+    return;
+  }
+
+  const next = apply_events(state, result.value);
+  assert.equal(next.pending_prompts.length, 1);
+});
+
+test('claimed ability requires explicit ability id when claim abilities are ambiguous', () => {
+  const ambiguous_claim_plugin: CharacterPlugin = {
+    metadata: {
+      id: 'ambiguous_claim_role',
+      name: 'Ambiguous Claim Role',
+      type: 'townsfolk',
+      alignment_at_start: 'good',
+      abilities: [
+        {
+          ability_id: 'ambiguous_claim_role.claim_a',
+          character_id: 'ambiguous_claim_role',
+          summary: 'Claim A',
+          category: 'skill',
+          activation: ['claim']
+        },
+        {
+          ability_id: 'ambiguous_claim_role.claim_b',
+          character_id: 'ambiguous_claim_role',
+          summary: 'Claim B',
+          category: 'skill',
+          activation: ['claim']
+        }
+      ],
+      timing_category: 'day',
+      is_once_per_game: false,
+      target_constraints: {
+        min_targets: 1,
+        max_targets: 1,
+        allow_self: false,
+        require_alive: true,
+        allow_travellers: false
+      },
+      flags: {
+        can_function_while_dead: false,
+        can_trigger_on_death: false,
+        may_cause_drunkenness: false,
+        may_cause_poisoning: false,
+        may_change_alignment: false,
+        may_change_character: false,
+        may_register_as_other: false
+      }
+    },
+    hooks: {}
+  };
+
+  const state = bootstrap_day_state();
+  const registry = new PluginRegistry([ambiguous_claim_plugin]);
+  const result = handle_command(
+    state,
+    {
+      command_id: 'c-ambiguous-claim',
+      command_type: 'UseClaimedAbility',
+      payload: {
+        claimant_player_id: 'p1',
+        claimed_character_id: 'ambiguous_claim_role'
+      }
+    },
+    '2026-03-12T03:10:00.000Z',
+    { plugin_registry: registry }
+  );
+
+  assert.equal(result.ok, false);
+  if (!result.ok) {
+    assert.equal(result.error.code, 'ambiguous_claimed_ability_id');
+  }
+});
+
+test('claimed ability accepts explicit ability id when claim abilities are ambiguous', () => {
+  const ambiguous_claim_plugin: CharacterPlugin = {
+    metadata: {
+      id: 'ambiguous_claim_role',
+      name: 'Ambiguous Claim Role',
+      type: 'townsfolk',
+      alignment_at_start: 'good',
+      abilities: [
+        {
+          ability_id: 'ambiguous_claim_role.claim_a',
+          character_id: 'ambiguous_claim_role',
+          summary: 'Claim A',
+          category: 'skill',
+          activation: ['claim']
+        },
+        {
+          ability_id: 'ambiguous_claim_role.claim_b',
+          character_id: 'ambiguous_claim_role',
+          summary: 'Claim B',
+          category: 'skill',
+          activation: ['claim']
+        }
+      ],
+      timing_category: 'day',
+      is_once_per_game: false,
+      target_constraints: {
+        min_targets: 1,
+        max_targets: 1,
+        allow_self: false,
+        require_alive: true,
+        allow_travellers: false
+      },
+      flags: {
+        can_function_while_dead: false,
+        can_trigger_on_death: false,
+        may_cause_drunkenness: false,
+        may_cause_poisoning: false,
+        may_change_alignment: false,
+        may_change_character: false,
+        may_register_as_other: false
+      }
+    },
+    hooks: {}
+  };
+
+  const state = bootstrap_day_state();
+  const registry = new PluginRegistry([ambiguous_claim_plugin]);
+  const result = handle_command(
+    state,
+    {
+      command_id: 'c-explicit-claim',
+      command_type: 'UseClaimedAbility',
+      payload: {
+        claimant_player_id: 'p1',
+        claimed_character_id: 'ambiguous_claim_role',
+        claimed_ability_id: 'ambiguous_claim_role.claim_b'
+      }
+    },
+    '2026-03-12T03:20:00.000Z',
+    { plugin_registry: registry }
+  );
+
+  assert.equal(result.ok, true);
+  if (!result.ok) {
+    return;
+  }
+
+  const next = apply_events(state, result.value);
+  const prompt = next.prompts_by_id[next.pending_prompts[0] ?? ''];
+  assert.ok(prompt);
+  assert.match(prompt?.reason ?? '', /:ambiguous_claim_role\.claim_b$/);
 });

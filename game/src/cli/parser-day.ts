@@ -274,6 +274,7 @@ export function parse_day_domain_command(
   if (command === 'claim' || command === 'claim-ability' || command === 'cliam-ability') {
     const claimant_player_id = args[0] ?? null;
     const claimed_character_id = args[1] ?? null;
+    const claimed_ability_id = args[2] ?? undefined;
     if (!claimant_player_id || !claimed_character_id) {
       return invalid(`usage: ${CLI_USAGE.claim_ability}`);
     }
@@ -284,7 +285,8 @@ export function parse_day_domain_command(
         command_type: 'UseClaimedAbility',
         payload: {
           claimant_player_id,
-          claimed_character_id
+          claimed_character_id,
+          ...(claimed_ability_id === undefined ? {} : { claimed_ability_id })
         }
       }
     };

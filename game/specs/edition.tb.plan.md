@@ -13,6 +13,11 @@ Scope:
 - route wake/claim/trigger checks from ability metadata where available;
 - keep deterministic fallback to legacy character metadata when ability metadata is absent.
 
+Bridge precedence (normative):
+- `claim`: if `abilities[]` is present, at least one ability must include activation `claim`.
+- `night_wake`: if `abilities[]` is present and no ability includes activation `night_wake`, plugin is not scheduled in wake queue.
+- legacy `timing_category` remains fallback only when `abilities[]` is absent.
+
 Done when:
 - TB plugins can be migrated incrementally with no runtime break;
 - claimed ability dispatch can resolve by `ability_id` (or single-claim fallback);

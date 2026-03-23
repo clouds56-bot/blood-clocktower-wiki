@@ -216,6 +216,7 @@ export interface UseClaimedAbilityCommand extends BaseCommand {
   payload: {
     claimant_player_id: PlayerId;
     claimed_character_id: string;
+    claimed_ability_id?: string;
   };
 }
 

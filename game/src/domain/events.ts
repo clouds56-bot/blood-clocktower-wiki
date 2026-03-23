@@ -230,6 +230,7 @@ export interface ClaimedAbilityAttemptedEvent extends BaseDomainEvent {
   payload: {
     claimant_player_id: PlayerId;
     claimed_character_id: string;
+    claimed_ability_id: string | null;
     target_player_ids: PlayerId[];
   };
 }

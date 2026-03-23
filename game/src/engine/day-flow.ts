@@ -10,6 +10,8 @@ import type {
 } from '../domain/commands.js';
 import type { DomainEvent } from '../domain/events.js';
 import type { GameState } from '../domain/types.js';
+import type { CharacterPluginMetadata } from '../plugins/contracts.js';
+import { resolve_activation_support } from '../plugins/contracts.js';
 import type { PluginRegistry } from '../plugins/registry.js';
 import type { EngineResult } from './phase-machine.js';
 
@@ -36,6 +38,60 @@ function error(code: string, message: string): EngineResult<never> {
       code,
       message
     }
+  };
+}
+
+function resolve_claimed_ability_id(
+  metadata: CharacterPluginMetadata,
+  requested_ability_id: string | undefined
+): EngineResult<string | null> {
+  if (!Array.isArray(metadata.abilities)) {
+    if (requested_ability_id !== undefined) {
+      return error(
+        'invalid_claimed_ability_id',
+        `claimed ability id is not supported by legacy plugin metadata: ${requested_ability_id}`
+      );
+    }
+    return {
+      ok: true,
+      value: null
+    };
+  }
+
+  const claim_ability_ids = metadata.abilities
+    .filter((ability) => ability.activation.includes('claim'))
+    .map((ability) => ability.ability_id);
+
+  if (claim_ability_ids.length === 0) {
+    return error(
+      'invalid_claimed_ability_timing',
+      'claimed ability requires at least one claim-activated ability in plugin metadata'
+    );
+  }
+
+  if (requested_ability_id !== undefined) {
+    if (!claim_ability_ids.includes(requested_ability_id)) {
+      return error(
+        'invalid_claimed_ability_id',
+        `claimed ability id is not claim-activated for character ${metadata.id}: ${requested_ability_id}`
+      );
+    }
+    return {
+      ok: true,
+      value: requested_ability_id
+    };
+  }
+
+  if (claim_ability_ids.length > 1) {
+    return error(
+      'ambiguous_claimed_ability_id',
+      `multiple claim-activated abilities available for ${metadata.id}; provide claimed_ability_id`
+    );
+  }
+
+  return {
+    ok: true,
+    value: claim_ability_ids[0] ?? null
   };
 }
 
@@ -183,12 +239,28 @@ export function handle_use_claimed_ability(
       `claimed character plugin not found: ${command.payload.claimed_character_id}`
     );
   }
-  if (claimed_plugin.metadata.timing_category !== 'day') {
+  const claimActivationSupport = resolve_activation_support(claimed_plugin.metadata, 'claim');
+  if (claimActivationSupport === 'unsupported') {
+    return error(
+      'invalid_claimed_ability_timing',
+      'claimed ability requires at least one claim-activated ability in plugin metadata'
+    );
+  }
+  if (claimActivationSupport === 'unspecified' && claimed_plugin.metadata.timing_category !== 'day') {
     return error(
       'invalid_claimed_ability_timing',
       `claimed ability timing must be day but got ${claimed_plugin.metadata.timing_category}`
     );
   }
+
+  const claimed_ability_id_result = resolve_claimed_ability_id(
+    claimed_plugin.metadata,
+    command.payload.claimed_ability_id
+  );
+  if (!claimed_ability_id_result.ok) {
+    return claimed_ability_id_result;
+  }
+  const claimed_ability_id = claimed_ability_id_result.value;
 
   const constraints = claimed_plugin.metadata.target_constraints;
   if (constraints.min_targets !== 1 || constraints.max_targets !== 1) {
@@ -242,14 +314,15 @@ export function handle_use_claimed_ability(
             command.payload.claimed_character_id,
             'claimed_ability',
             time_key_for_day(state.day_number),
-            claimant.player_id
+            claimant.player_id,
+            claimed_ability_id ?? undefined
           ),
           visibility: 'public',
           options,
           selection_mode: 'single_choice',
           number_range: null,
           multi_columns: null,
-          storyteller_hint: `claimant=${claimant.player_id};claimed=${command.payload.claimed_character_id}`
+          storyteller_hint: `claimant=${claimant.player_id};claimed=${command.payload.claimed_character_id};ability=${claimed_ability_id ?? 'legacy'}`
         }
       }
     ]

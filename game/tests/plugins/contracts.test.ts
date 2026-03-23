@@ -3,6 +3,7 @@ import test from 'node:test';
 
 import {
   type CharacterPluginMetadata,
+  resolve_activation_support,
   validate_plugin_metadata
 } from '../../src/plugins/contracts.js';
 
@@ -100,4 +101,48 @@ test('validate_plugin_metadata validates ability metadata fields', () => {
   assert.equal(issueCodes.has('invalid_ability_category'), true);
   assert.equal(issueCodes.has('duplicate_ability_activation'), true);
   assert.equal(issueCodes.has('invalid_ability_reminder_item'), true);
+});
+
+test('resolve_activation_support returns bridge states', () => {
+  const legacy = {
+    id: 'slayer',
+    name: 'Slayer',
+    type: 'townsfolk',
+    alignment_at_start: 'good',
+    timing_category: 'day',
+    is_once_per_game: true,
+    target_constraints: {
+      min_targets: 1,
+      max_targets: 1,
+      allow_self: false,
+      require_alive: true,
+      allow_travellers: false
+    },
+    flags: {
+      can_function_while_dead: false,
+      can_trigger_on_death: false,
+      may_cause_drunkenness: false,
+      may_cause_poisoning: false,
+      may_change_alignment: false,
+      may_change_character: false,
+      may_register_as_other: false
+    }
+  } satisfies CharacterPluginMetadata;
+
+  assert.equal(resolve_activation_support(legacy, 'claim'), 'unspecified');
+
+  const withClaim = {
+    ...legacy,
+    abilities: [
+      {
+        ability_id: 'slayer.public_shot',
+        character_id: 'slayer',
+        summary: 'Public shot',
+        category: 'skill',
+        activation: ['claim']
+      }
+    ]
+  } satisfies CharacterPluginMetadata;
+  assert.equal(resolve_activation_support(withClaim, 'claim'), 'supported');
+  assert.equal(resolve_activation_support(withClaim, 'night_wake'), 'unsupported');
 });

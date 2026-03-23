@@ -116,6 +116,7 @@ export interface ClaimedAbilityUseHookContext {
   state: Readonly<GameState>;
   claimant_player_id: PlayerId;
   claimed_character_id: string;
+  claimed_ability_id?: string;
 }
 
 export interface EventAppliedHookContext {
@@ -260,6 +261,8 @@ export interface PluginValidationIssue {
   path?: string;
 }
 
+export type ActivationSupport = 'supported' | 'unsupported' | 'unspecified';
+
 export function empty_plugin_result(): PluginResult {
   return {
     emitted_events: [],
@@ -320,6 +323,21 @@ export function validate_plugin_metadata(metadata: CharacterPluginMetadata): Plu
   }
 
   return issues;
+}
+
+export function resolve_activation_support(
+  metadata: CharacterPluginMetadata,
+  activation: AbilityActivation
+): ActivationSupport {
+  if (!Array.isArray(metadata.abilities)) {
+    return 'unspecified';
+  }
+  for (const ability of metadata.abilities) {
+    if (ability.activation.includes(activation)) {
+      return 'supported';
+    }
+  }
+  return 'unsupported';
 }
 
 function validate_abilities(
