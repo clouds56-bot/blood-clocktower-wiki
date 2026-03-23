@@ -2,6 +2,10 @@
 
 This plan turns `game/specs/edition.tb.md` into executable implementation slices.
 
+Ability taxonomy source:
+- `game/specs/abilities.tb.md` defines ability ids, single-value categories (`info`/`passive`/`skill`/`registration`),
+  and activation windows (`game_setup`, `night_wake`, `claim`, `triggered`, `passive`).
+
 ## TB-01 Setup + Composition
 
 Scope:

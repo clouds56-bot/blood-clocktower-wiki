@@ -20,11 +20,12 @@ Each TB character is modeled as one or more `ability` entries.
 Each ability entry should include:
 - `ability_id`: stable id, format `<character_id>.<ability_name>`
 - `character_id`: owning character
-- `summary`: short rules summary
-- `categories`: one or more from the taxonomy below
+- `summary`: short rules summary (shown in docs catalogs)
+- `category`: exactly one value from the category taxonomy below
 - `timing_windows`: concrete wake/day/trigger windows
-- `activation`: `active` | `passive` | `triggered`
+- `activation`: one or more from the activation taxonomy below
 - `is_once_per_game`: boolean at ability level (not character level)
+- `is_once_per_day`: boolean (for day-repeat-limited skills)
 - `requires_choice`: boolean
 - `target_constraints`: ability-scoped targeting rules
 - `can_function_while_dead`: boolean
@@ -33,16 +34,24 @@ Each ability entry should include:
 - `misinformation_policy`: truthful only vs may misinform when drunk/poisoned
 - `registration_sensitivity`: whether checks use registration query API
 - `outputs`: events, prompts, markers, and/or registration decisions
+- `reminders`: reminder marker kinds that this ability may apply/clear
 
-## TB Ability Taxonomy
+## TB Category Taxonomy
 
-Primary categories (multi-tag allowed):
-- `info`: grants private information
-- `passive`: always-on condition/guard/override
-- `night_wake`: resolved in night order or wake queue
-- `game_setup`: setup-time mutation or seeded hidden state
-- `claim`: explicitly declared/claimed day ability
-- `triggered`: reacts to an event boundary (nomination, death, execution, win check)
+Primary categories (single value per ability):
+- `info`: grants information. While drunk/poisoned, outcome may be truthful or misinformation per Storyteller adjudication/rules path.
+- `passive`: persistent effect/guard while functional. If source becomes drunk/poisoned, effect is lost immediately; when source returns healthy/sober, effect is restored if still applicable.
+- `skill`: activatable ability that may be spent (for example once per game or once per day). If used while drunk/poisoned, spend is consumed and effect may fail.
+- `registration`: special passive category for registration behavior (query-time alternate registration responses, no direct active resolution).
+
+## TB Activation Taxonomy
+
+Activation windows and styles (multi-tag allowed):
+- `game_setup`: setup-time mutation or seeded hidden state.
+- `night_wake`: resolved in night order or wake queue.
+- `claim`: explicitly declared day action (public claim path).
+- `triggered`: reacts at an event boundary (nomination, vote, death, execution, win check).
+- `passive`: continuously evaluated guard/override state.
 
 Optional support tags:
 - `protection`
@@ -56,75 +65,179 @@ Optional support tags:
 ### Townsfolk
 
 - `chef.adjacent_evil_count`
-  - categories: `info`, `night_wake`
+  - `character_id`: `chef`
+  - `summary`: first night, learn how many adjacent pairs are evil.
+  - `category`: `info`
+  - `activation`: `night_wake`
 - `empath.alive_neighbor_evil_count`
-  - categories: `info`, `night_wake`
+  - `character_id`: `empath`
+  - `summary`: each night, learn how many alive neighbors are evil.
+  - `category`: `info`
+  - `activation`: `night_wake`
 - `fortune_teller.pair_demon_check`
-  - categories: `info`, `night_wake`
+  - `character_id`: `fortune_teller`
+  - `summary`: each night, choose 2 players and learn whether either registers as Demon.
+  - `category`: `info`
+  - `activation`: `night_wake`
 - `fortune_teller.red_herring_seed`
-  - categories: `game_setup`
+  - `character_id`: `fortune_teller`
+  - `summary`: at setup, seed one good player as Fortune Teller red herring.
+  - `category`: `skill`
+  - `activation`: `game_setup`
+  - `reminders`: `fortune_teller:red_herring`
 - `investigator.minion_pair_info`
-  - categories: `info`, `night_wake`
+  - `character_id`: `investigator`
+  - `summary`: first night, learn one of two players is a specific Minion.
+  - `category`: `info`
+  - `activation`: `night_wake`
+  - `reminders`: `investigator:minion`, `investigator:wrong`
 - `librarian.outsider_pair_info`
-  - categories: `info`, `night_wake`
+  - `character_id`: `librarian`
+  - `summary`: first night, learn one of two players is a specific Outsider (or none in play).
+  - `category`: `info`
+  - `activation`: `night_wake`
+  - `reminders`: `librarian:outsider`, `librarian:wrong`
 - `mayor.final_three_no_execution_win`
-  - categories: `passive`, `triggered`
+  - `character_id`: `mayor`
+  - `summary`: with 3 alive, if no execution occurs, good wins.
+  - `category`: `skill`
+  - `activation`: `triggered`
 - `mayor.night_death_redirection`
-  - categories: `passive`, `triggered`
+  - `character_id`: `mayor`
+  - `summary`: if Mayor would die at night, Storyteller may redirect death.
+  - `category`: `skill`
+  - `activation`: `triggered`
 - `monk.night_protection`
-  - categories: `night_wake`, `protection`
+  - `character_id`: `monk`
+  - `summary`: each night except first, choose a non-self player safe from Demon tonight.
+  - `category`: `skill`
+  - `activation`: `night_wake`
+  - support tags: `protection`
+  - `reminders`: `monk:safe`
 - `ravenkeeper.night_death_character_read`
-  - categories: `info`, `triggered`
+  - `character_id`: `ravenkeeper`
+  - `summary`: if killed at night, choose a player and learn their character.
+  - `category`: `info`
+  - `activation`: `triggered`
 - `slayer.public_shot`
-  - categories: `claim`, `triggered`, `kill`
+  - `character_id`: `slayer`
+  - `summary`: once per game by public claim, choose a player; Demon target dies.
+  - `category`: `skill`
+  - `activation`: `claim`
+  - support tags: `kill`
+  - `reminders`: `slayer:spent`
 - `soldier.demon_kill_immunity`
-  - categories: `passive`, `protection`
+  - `character_id`: `soldier`
+  - `summary`: while functional, Soldier is safe from Demon attacks.
+  - `category`: `passive`
+  - `activation`: `passive`
+  - support tags: `protection`
 - `undertaker.executed_character_read`
-  - categories: `info`, `night_wake`
+  - `character_id`: `undertaker`
+  - `summary`: each night except first, learn the character of the executed player.
+  - `category`: `info`
+  - `activation`: `night_wake`
 - `virgin.first_nomination_execution`
-  - categories: `passive`, `triggered`
+  - `character_id`: `virgin`
+  - `summary`: first time nominated, if nominator is Townsfolk, nominator is executed.
+  - `category`: `skill`
+  - `activation`: `triggered`
+  - `reminders`: `virgin:spent`
 - `washerwoman.townsfolk_pair_info`
-  - categories: `info`, `night_wake`
+  - `character_id`: `washerwoman`
+  - `summary`: first night, learn one of two players is a specific Townsfolk.
+  - `category`: `info`
+  - `activation`: `night_wake`
+  - `reminders`: `washerwoman:townsfolk`, `washerwoman:wrong`
 
 ### Outsiders
 
 - `butler.master_selection`
-  - categories: `night_wake`
+  - `character_id`: `butler`
+  - `summary`: each night, choose a master.
+  - `category`: `skill`
+  - `activation`: `night_wake`
+  - `reminders`: `butler:master`
 - `butler.vote_restriction`
-  - categories: `passive`, `vote_constraint`, `triggered`
+  - `character_id`: `butler`
+  - `summary`: while functional, Butler may only vote when master votes.
+  - `category`: `passive`
+  - `activation`: `passive`
+  - support tags: `vote_constraint`
 - `drunk.perceived_role_substitution`
-  - categories: `game_setup`
-- `drunk.persistent_drunkenness`
-  - categories: `passive`
+  - `character_id`: `drunk`
+  - `summary`: at setup, Drunk receives a Townsfolk perceived identity instead of true identity.
+  - `category`: `registration`
+  - `activation`: `game_setup`
+  - `reminders`: `drunk:is_the_drunk`
+- `drunk.persistent_registration_mask`
+  - `character_id`: `drunk`
+  - `summary`: Drunk remains an Outsider with perceived Townsfolk identity for role-facing interactions.
+  - `category`: `registration`
+  - `activation`: `passive`
 - `recluse.registration_mask`
-  - categories: `passive`, `registration_provider`
+  - `character_id`: `recluse`
+  - `summary`: Recluse may register as evil and as Minion or Demon per check.
+  - `category`: `registration`
+  - `activation`: `passive`
+  - support tags: `registration_provider`
 - `saint.execution_loss_trigger`
-  - categories: `passive`, `triggered`
+  - `character_id`: `saint`
+  - `summary`: if Saint is executed and dies while functional, good loses.
+  - `category`: `passive`
+  - `activation`: `triggered`
 
 ### Minions
 
 - `baron.setup_outsider_shift`
-  - categories: `game_setup`
+  - `character_id`: `baron`
+  - `summary`: setup adds 2 Outsiders and removes 2 Townsfolk.
+  - `category`: `passive`
+  - `activation`: `game_setup`
 - `poisoner.night_poison`
-  - categories: `night_wake`
+  - `character_id`: `poisoner`
+  - `summary`: each night, choose a player poisoned tonight and next day.
+  - `category`: `skill`
+  - `activation`: `night_wake`
+  - `reminders`: `poisoner:poisoned`
 - `scarlet_woman.demon_takeover`
-  - categories: `passive`, `triggered`, `continuity`
+  - `character_id`: `scarlet_woman`
+  - `summary`: if Demon dies with 5+ alive non-travellers, Scarlet Woman becomes Demon.
+  - `category`: `passive`
+  - `activation`: `triggered`
+  - support tags: `continuity`
 - `spy.grimoire_view`
-  - categories: `info`, `night_wake`
+  - `character_id`: `spy`
+  - `summary`: each night, Spy sees the Grimoire.
+  - `category`: `info`
+  - `activation`: `night_wake`
 - `spy.registration_mask`
-  - categories: `passive`, `registration_provider`
+  - `character_id`: `spy`
+  - `summary`: Spy may register as good and as Townsfolk or Outsider per check, even if dead.
+  - `category`: `registration`
+  - `activation`: `passive`
+  - support tags: `registration_provider`
 
 ### Demon
 
 - `imp.night_kill`
-  - categories: `night_wake`, `kill`
+  - `character_id`: `imp`
+  - `summary`: each night except first, choose a player; chosen player dies if not prevented.
+  - `category`: `skill`
+  - `activation`: `night_wake`
+  - support tags: `kill`
 - `imp.self_kill_transfer`
-  - categories: `triggered`, `continuity`
+  - `character_id`: `imp`
+  - `summary`: if Imp kills self this way, an alive Minion becomes Imp.
+  - `category`: `skill`
+  - `activation`: `triggered`
+  - support tags: `continuity`
 
 ## Metadata Migration Rules (Character -> Ability)
 
 The following fields should be treated as ability-scoped by default:
 - `is_once_per_game`
+- `is_once_per_day`
 - `requires_choice`
 - `target_constraints`
 - `can_function_while_dead`
@@ -158,5 +271,8 @@ Target direction for TB:
 - multi-ability characters split behavior into separate ability entries;
 - setup-only effects are represented as `game_setup` abilities;
 - registration behavior is represented as dedicated `registration_provider` abilities;
-- claim-based behavior is represented as `claim` abilities;
+- claim-based behavior is represented with activation `claim`;
+- each ability entry declares both `category` and `activation`;
+- docs-visible catalog rows include `ability_id` and `character_id`;
+- docs-facing catalog rows include `summary` for each ability;
 - category tags remain deterministic and non-overlapping in meaning.
