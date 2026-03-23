@@ -36,6 +36,7 @@ This convention is required for easy persistence and de/serialization consistenc
   - `n<night_number>` for night scope (for example `n1`, `n2`)
 - Plugin prompt/reason keys should begin with:
   - `plugin:<character_id>:<verb>:<time_key>:<player_id>[:detail...]`
+  - ability-scoped flows may append or embed `ability_id` in `:detail...` for unambiguous routing/audit.
 - Prompt/wake aliases:
   - `prompt_id` and `wake_id` are removed from domain/engine/plugin contracts.
   - use `prompt_key` and `wake_key` only.
@@ -59,8 +60,9 @@ Split into 7 layers:
    - setup flow, phase machine, nomination/vote/execution/death/win logic.
    - deterministic reducer over events.
 
-2. **Character Plugin Engine**
-   - character metadata + hooks.
+2. **Character/Ability Plugin Engine**
+   - character identity + ability metadata + ability hooks.
+   - lifecycle dispatch is ability-scoped; character plugin is a container.
    - no hardcoded per-character behavior in core.
 
 3. **Storyteller Adjudication Layer**
@@ -331,15 +333,18 @@ Engine is event-oriented.
 
 ---
 
-## Plugin Contract (Character Engine)
+## Plugin Contract (Character/Ability Engine)
 
-Each character definition includes:
-- `id`, `name`, `type`, `alignment_at_start`
-- `timing_category`
-- `is_once_per_game`
-- targeting constraints
-- flags for poison/drunk/registration/alignment/character interactions
-- `handler` hooks
+Each character plugin includes:
+- character identity metadata:
+  - `id`, `name`, `type`, `alignment_at_start`
+- ability list (`abilities[]`) where each ability includes:
+  - `ability_id`, `character_id`, `summary`
+  - single `category` (`info` | `passive` | `skill` | `registration`)
+  - `activation` windows (`game_setup` | `night_wake` | `claim` | `triggered` | `passive`)
+  - ability-scoped constraints/flags (`is_once_per_game`, targeting, dead-function, etc.)
+  - optional `reminders` marker kinds the ability may apply/clear
+- ability hook handlers
 
 Rules:
 - plugin returns events/prompts, never mutates state directly.
@@ -347,6 +352,7 @@ Rules:
 - plugin applies/removes effects through reminder marker events, not direct bool mutation.
 - registration providers (for example `recluse`, `spy`) do not mutate persistent player fields to answer checks; they request/emit query-scoped registration decisions.
 - engine remains authoritative for phase transitions, command validation, queue orchestration, and final win declaration.
+- ability dispatch order is deterministic within a character plugin (stable declaration order unless explicit precedence is declared).
 
 Plugin-first split (target):
 - character-specific rule logic should live in plugins whenever possible;
@@ -354,6 +360,8 @@ Plugin-first split (target):
 - non-character global rules remain engine-owned.
 
 Compatibility bridge:
+- support transition from character-scoped metadata (`timing_category`, character-level flags/constraints) to ability-scoped metadata.
+- runtime reads ability metadata first when present and falls back to legacy character metadata while migration is incomplete.
 - keep `ApplyPoison` / `ApplyDrunk` commands and `PoisonApplied` / `DrunkApplied` / restore events for existing plugin callers.
 - these compatibility commands are adapter entry points that create/clear authoritative reminder markers.
 - plugin-emitted marker lifecycle events also pass through compatibility transition logic (`PoisonApplied`/`HealthRestored`, `DrunkApplied`/`SobrietyRestored`) when effective status changes.
@@ -361,15 +369,15 @@ Compatibility bridge:
 
 ### Runtime Primitives (Phase 6)
 
-- `wake_queue`: ordered wake steps generated from character timing.
+- `wake_queue`: ordered wake steps generated from ability activation (`night_wake`) and script order.
 - `interrupt_queue`: immediate resolution work items that preempt normal wake order.
-- `plugin_registry`: authoritative map of `character_id -> plugin`.
+- `plugin_registry`: authoritative map of `character_id -> plugin container`.
 - `hook_dispatcher`: deterministic dispatcher that calls hooks and normalizes outputs.
 
 ### Hook Lifecycle (Event-Driven)
 
 1. engine enters a hook boundary (for example: night wake step begins, prompt resolved).
-2. dispatcher invokes target plugin hook with read-only context.
+2. dispatcher resolves candidate abilities for the boundary and invokes ability-owned handlers with read-only context.
 3. plugin returns declarative outputs (`events`, `prompts`, `interrupts`).
 4. engine applies outputs through normal command/event pipeline.
 5. reducer is the only state mutation path.
@@ -377,7 +385,8 @@ Compatibility bridge:
 ### Claimed Ability Activation Flow
 
 - `UseClaimedAbility` is the generic public ability-declaration command path.
-- command payload identifies claimant and claimed character only; target selection is prompt-driven.
+- command payload identifies claimant, claimed character, and (optionally) claimed `ability_id`; target selection is prompt-driven.
+- if `ability_id` is omitted, runtime resolves the single claimable ability for that character or rejects ambiguous claims.
 - engine validates coarse timing/eligibility and queues a pending prompt when target input is required (`PromptQueued`).
 - storyteller resolves that prompt through the normal prompt lifecycle (`ResolvePrompt` command -> `PromptResolved` event).
 - after prompt resolution, engine emits `ClaimedAbilityAttempted` as the public audit event, then dispatches plugin consequences.
@@ -385,15 +394,15 @@ Compatibility bridge:
 
 ### Extended Hook Surface (planned)
 
-- `on_night_wake`: role wake actions.
-- `on_prompt_resolved`: role-owned prompt follow-up.
+- `on_night_wake`: ability wake actions.
+- `on_prompt_resolved`: ability-owned prompt follow-up.
 - `on_event_applied`: optional passive reactions (already available).
 - `on_nomination_made`: day-reactive nomination hooks (for example `virgin`).
 - `on_vote_cast_validate`: vote-constraint hooks before vote acceptance (for example `butler`).
 - `on_execution_resolving`: execution replacement/redirection hooks (for example `mayor` redirection path).
 - `on_player_died`: death-trigger hooks and continuity triggers.
 - `on_pre_win_check`: final continuity/override effects before winner resolution (for example `scarlet_woman`).
-- `on_registration_query`: registration provider adjudication for query-scoped checks (`recluse`, `spy`).
+- `on_registration_query`: registration-provider adjudication for query-scoped checks (`recluse`, `spy`, `drunk` registration mask model).
 
 Determinism rules for extended hooks:
 - dispatch order must be stable (seat-order and/or explicit plugin precedence);

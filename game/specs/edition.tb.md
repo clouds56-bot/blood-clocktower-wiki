@@ -144,6 +144,7 @@ Status booleans (`poisoned`, `drunk`) are derived from active authoritative mark
 Ability-first note:
 - canonical ability taxonomy and ability ids are defined in `game/specs/abilities.tb.md`.
 - character sections in this file describe interaction behavior, while ability-level metadata is tracked per ability id.
+- runtime migration target is ability-scoped lifecycle dispatch; character plugin modules act as containers for one or more abilities.
 
 Each entry lists:
 - ability summary;

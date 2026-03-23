@@ -23,6 +23,7 @@
   - `n<night_number>` for night scope (for example `n1`, `n2`)
 - Plugin key prefix shape:
   - `plugin:<character_id>:<verb>:<time_key>:<player_id>[:detail...]`
+  - ability-scoped flows may include `ability_id` in `:detail...` for deterministic routing.
 - Wake key shape:
   - `wake:<time_key>:<global_order>:<player_id>:<character_id>`
   - `global_order` is per-time-slot sequence (resets each `time_key`).
@@ -233,13 +234,14 @@ Support character-specific behavior via plugins.
 
 **Tasks**
 - Define plugin contract and metadata schema.
+- Add ability-level metadata inside character plugins (`abilities[]`).
 - Implement plugin registry and hook dispatcher.
 - Implement interrupt queue integration.
 - Add two sample plugins (`imp`, `poisoner`) as proof of architecture.
 
 **Subtasks (implementation order)**
 - **SPEC-06.1 Contract + Registry**
-  - Add plugin interfaces (metadata, hook signatures, result envelope).
+  - Add plugin interfaces (character metadata + ability metadata, hook signatures, result envelope).
   - Add registry APIs (register/get/list/validate duplicate ids).
 - **SPEC-06.2 Runtime Queue Model**
   - Add `wake_queue` and `interrupt_queue` to state model.
@@ -278,6 +280,37 @@ Support character-specific behavior via plugins.
 - sample scenarios resolve via plugin events/prompts.
 - imp flow is documented and covered by scenario tests.
 - plugin hooks remain pure/declarative (no direct state mutation).
+
+---
+
+### SPEC-06.9 Ability-First Lifecycle Migration
+
+**Goal**
+Move lifecycle dispatch from character-scoped metadata to ability-scoped metadata.
+
+**Tasks**
+- Extend plugin metadata model so each character plugin declares `abilities[]` entries with:
+  - `ability_id`, `character_id`, `summary`
+  - single `category` (`info` | `passive` | `skill` | `registration`)
+  - `activation` (`game_setup`, `night_wake`, `claim`, `triggered`, `passive`)
+  - ability-scoped flags/constraints and optional `reminders`.
+- Update runtime scheduling/dispatch:
+  - wake scheduling from ability activation (`night_wake`)
+  - claimed ability flow from `claim` abilities
+  - trigger boundaries from ability activation and hook ownership.
+- Keep compatibility fallback to legacy character-level metadata while migration is in progress.
+- Migrate TB plugins using `game/specs/abilities.tb.md` as source of truth.
+
+**Deliverables**
+- contract/registry validation updates
+- runtime dispatch integration updates
+- TB plugin metadata migration
+- migration tests and compatibility coverage
+
+**Definition of Done**
+- lifecycle dispatch is ability-scoped for migrated TB plugins;
+- legacy character-scoped metadata is only fallback/bridge, not primary source;
+- deterministic behavior and replay parity remain green.
 
 ---
 
@@ -341,6 +374,7 @@ Unify public ability declarations behind one command and prompt flow.
 
 **Tasks**
 - Add `UseClaimedAbility` command for public claimed ability activation.
+- support optional claimed `ability_id` in command payload for explicit ability-level routing.
 - Keep `UseClaimedAbility` payload target-free; collect targets through queued prompts.
 - Emit `ClaimedAbilityAttempted` only after prompt resolution.
 - Route prompt resolution consequences through character plugin hooks.
@@ -369,7 +403,8 @@ Unify public ability declarations behind one command and prompt flow.
 7. SPEC-06.1 -> SPEC-06.8
 8. SPEC-07
 9. SPEC-08
-10. SPEC-09
+10. SPEC-06.9
+11. SPEC-09
 
 ## Test Matrix (minimum)
 
@@ -396,6 +431,8 @@ Unify public ability declarations behind one command and prompt flow.
 - plugin interrupt behavior
 - social claims lifecycle and querying
 - claimed ability activation flow (`UseClaimedAbility` -> prompt -> `ClaimedAbilityAttempted`)
+- ability-level routing and activation checks for claimed abilities (`ability_id` path + fallback path)
+- ability metadata validation (single `category`, valid `activation`, unique `ability_id`)
 
 ## Risks and Mitigations
 

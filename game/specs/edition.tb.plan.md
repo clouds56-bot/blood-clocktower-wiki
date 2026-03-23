@@ -6,6 +6,23 @@ Ability taxonomy source:
 - `game/specs/abilities.tb.md` defines ability ids, single-value categories (`info`/`passive`/`skill`/`registration`),
   and activation windows (`game_setup`, `night_wake`, `claim`, `triggered`, `passive`).
 
+## TB-00 Ability-Lifecycle Migration Bridge
+
+Scope:
+- add ability-level metadata mapping for TB plugins while keeping character-level compatibility fields;
+- route wake/claim/trigger checks from ability metadata where available;
+- keep deterministic fallback to legacy character metadata when ability metadata is absent.
+
+Done when:
+- TB plugins can be migrated incrementally with no runtime break;
+- claimed ability dispatch can resolve by `ability_id` (or single-claim fallback);
+- wake scheduling can consume ability activation data for migrated plugins.
+
+Tests:
+- metadata validation for TB ability entries;
+- mixed migrated/non-migrated plugin runtime scenarios;
+- replay parity snapshots before/after migration bridge.
+
 ## TB-01 Setup + Composition
 
 Scope:
@@ -173,14 +190,15 @@ Tests:
 
 ## Recommended Execution Order
 
-1. TB-01
-2. TB-02
-3. TB-03
-4. TB-04
-5. TB-05
-6. TB-06
-7. TB-07
-8. TB-08
+1. TB-00
+2. TB-01
+3. TB-02
+4. TB-03
+5. TB-04
+6. TB-05
+7. TB-06
+8. TB-07
+9. TB-08
 
 ## Deliverable Gates
 
