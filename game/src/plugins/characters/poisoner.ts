@@ -18,6 +18,16 @@ export const poisoner_plugin: CharacterPlugin = {
     name: 'Poisoner',
     type: 'minion',
     alignment_at_start: 'evil',
+    abilities: [
+      {
+        ability_id: 'poisoner.night_poison',
+        character_id: 'poisoner',
+        summary: 'Each night, choose a player poisoned tonight and tomorrow day.',
+        category: 'skill',
+        activation: ['night_wake'],
+        reminders: ['poisoner:poisoned']
+      }
+    ],
     timing_category: 'each_night',
     is_once_per_game: false,
     target_constraints: {

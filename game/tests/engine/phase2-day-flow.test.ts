@@ -1061,3 +1061,59 @@ test('claimed ability accepts explicit ability id when claim abilities are ambig
   assert.ok(prompt);
   assert.match(prompt?.reason ?? '', /:ambiguous_claim_role\.claim_b$/);
 });
+
+test('legacy claimed ability metadata keeps legacy reason shape without ability suffix', () => {
+  const legacy_claim_plugin: CharacterPlugin = {
+    metadata: {
+      id: 'legacy_claim_role',
+      name: 'Legacy Claim Role',
+      type: 'townsfolk',
+      alignment_at_start: 'good',
+      timing_category: 'day',
+      is_once_per_game: false,
+      target_constraints: {
+        min_targets: 1,
+        max_targets: 1,
+        allow_self: false,
+        require_alive: true,
+        allow_travellers: false
+      },
+      flags: {
+        can_function_while_dead: false,
+        can_trigger_on_death: false,
+        may_cause_drunkenness: false,
+        may_cause_poisoning: false,
+        may_change_alignment: false,
+        may_change_character: false,
+        may_register_as_other: false
+      }
+    },
+    hooks: {}
+  };
+
+  const state = bootstrap_day_state();
+  const registry = new PluginRegistry([legacy_claim_plugin]);
+  const claimed = handle_command(
+    state,
+    {
+      command_id: 'c-legacy-claim',
+      command_type: 'UseClaimedAbility',
+      payload: {
+        claimant_player_id: 'p1',
+        claimed_character_id: 'legacy_claim_role'
+      }
+    },
+    '2026-03-12T03:30:00.000Z',
+    { plugin_registry: registry }
+  );
+  assert.equal(claimed.ok, true);
+  if (!claimed.ok) {
+    return;
+  }
+
+  const with_prompt = apply_events(state, claimed.value);
+  const prompt_key = with_prompt.pending_prompts[0] ?? '';
+  const prompt = with_prompt.prompts_by_id[prompt_key];
+  assert.ok(prompt);
+  assert.match(prompt?.reason ?? '', /^plugin:legacy_claim_role:claimed_ability:d\d+:p1$/);
+});
