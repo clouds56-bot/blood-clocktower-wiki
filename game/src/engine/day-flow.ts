@@ -240,6 +240,7 @@ export function handle_use_claimed_ability(
     );
   }
   const claimActivationSupport = resolve_activation_support(claimed_plugin.metadata, 'claim');
+  const usingLegacyClaimActivationFallback = claimActivationSupport === 'unspecified';
   if (claimActivationSupport === 'unsupported') {
     return error(
       'invalid_claimed_ability_timing',
@@ -295,6 +296,21 @@ export function handle_use_claimed_ability(
   return {
     ok: true,
     value: [
+      ...(usingLegacyClaimActivationFallback
+        ? [
+            {
+              event_key: `${command.command_id}:ClaimedAbilityActivationFallback`,
+              event_id: 1,
+              event_type: 'StorytellerRulingRecorded' as const,
+              created_at,
+              ...(command.actor_id === undefined ? {} : { actor_id: command.actor_id }),
+              payload: {
+                prompt_key: null,
+                note: `activation_fallback:claim:character=${command.payload.claimed_character_id};claimant=${claimant.player_id};phase=${state.phase}`
+              }
+            }
+          ]
+        : []),
       {
         event_key: `${command.command_id}:ClaimedAbilityPromptQueued`,
         event_id: 1,

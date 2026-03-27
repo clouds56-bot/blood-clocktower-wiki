@@ -31,6 +31,7 @@ Tests:
 Status (implemented):
 - TB plugins in default runtime registry now expose non-empty `abilities[]` metadata;
 - claim and wake dispatch already consume ability activation data with legacy fallback.
+- runtime emits `StorytellerRulingRecorded` audit notes when legacy claim/night-wake activation fallback is used.
 
 ## TB-01 Setup + Composition
 
