@@ -399,6 +399,66 @@ test('night wake scheduling uses night order before seat order', () => {
   assert.equal(wake_events[1]?.payload.character_id, 'fortune_teller');
 });
 
+test('night wake scheduling honors ability activation bridge when abilities are provided', () => {
+  const claim_only_plugin: CharacterPlugin = {
+    metadata: {
+      ...make_metadata('claim_only_role'),
+      abilities: [
+        {
+          ability_id: 'claim_only_role.public_claim',
+          character_id: 'claim_only_role',
+          summary: 'Day claim ability',
+          category: 'skill',
+          activation: ['claim']
+        }
+      ]
+    },
+    hooks: {
+      on_night_wake: () => ({
+        emitted_events: [],
+        queued_prompts: [
+          {
+            prompt_key: 'plugin:claim_only_role:night_wake',
+            kind: 'choice',
+            reason: 'plugin:claim_only_role:should_not_wake',
+            visibility: 'storyteller',
+            options: []
+          }
+        ],
+        queued_interrupts: []
+      })
+    }
+  };
+
+  const state = bootstrap_night_state();
+  const p2 = state.players_by_id.p2;
+  assert.ok(p2);
+  p2.true_character_id = 'claim_only_role';
+
+  const events = run_with_registry(
+    state,
+    {
+      command_id: 'c_phase_activation_bridge',
+      command_type: 'AdvancePhase',
+      actor_id: 'storyteller',
+      payload: {
+        phase: 'first_night',
+        subphase: 'night_wake_sequence',
+        day_number: 0,
+        night_number: 1
+      }
+    },
+    new PluginRegistry([imp_plugin, claim_only_plugin])
+  );
+
+  assert.equal(
+    events.some(
+      (event) => event.event_type === 'WakeScheduled' && event.payload.character_id === 'claim_only_role'
+    ),
+    false
+  );
+});
+
 test('resolve prompt boundary re-enters plugin runtime via prompt owner tag', () => {
   const imp: CharacterPlugin = {
     metadata: make_metadata('imp'),

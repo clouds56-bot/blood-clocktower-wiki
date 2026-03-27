@@ -14,6 +14,16 @@ function make_metadata(id: string): CharacterPluginMetadata {
     name: id.toUpperCase(),
     type: id === 'imp' ? 'demon' : 'minion',
     alignment_at_start: 'evil',
+    abilities: [
+      {
+        ability_id: `${id}.primary`,
+        character_id: id,
+        summary: `${id} primary ability`,
+        category: 'skill',
+        activation: ['night_wake'],
+        reminders: [`${id}:marker`]
+      }
+    ],
     timing_category: 'each_night',
     is_once_per_game: false,
     target_constraints: {
@@ -121,6 +131,9 @@ test('registry does not expose mutable internal metadata', () => {
   const listed = registry.list();
   assert.ok(listed[0]);
   listed[0]!.id = 'mutated_id';
+  listed[0]!.abilities![0]!.ability_id = 'mutated_ability';
+  listed[0]!.abilities![0]!.activation[0] = 'claim';
+  listed[0]!.abilities![0]!.reminders![0] = 'mutated:marker';
   listed[0]!.target_constraints.min_targets = 99;
   listed[0]!.flags.may_change_character = true;
 
@@ -131,6 +144,7 @@ test('registry does not expose mutable internal metadata', () => {
   }
 
   plugin.metadata.id = 'mutated_plugin';
+  plugin.metadata.abilities![0]!.summary = 'mutated summary';
   plugin.metadata.target_constraints.max_targets = 99;
   plugin.metadata.flags.may_change_alignment = true;
 
@@ -140,6 +154,10 @@ test('registry does not expose mutable internal metadata', () => {
   const imp = registry.get('imp');
   assert.ok(imp);
   assert.equal(imp?.metadata.id, 'imp');
+  assert.equal(imp?.metadata.abilities?.[0]?.ability_id, 'imp.primary');
+  assert.deepEqual(imp?.metadata.abilities?.[0]?.activation, ['night_wake']);
+  assert.deepEqual(imp?.metadata.abilities?.[0]?.reminders, ['imp:marker']);
+  assert.equal(imp?.metadata.abilities?.[0]?.summary, 'imp primary ability');
   assert.equal(imp?.metadata.target_constraints.min_targets, 1);
   assert.equal(imp?.metadata.target_constraints.max_targets, 1);
   assert.equal(imp?.metadata.flags.may_change_character, false);

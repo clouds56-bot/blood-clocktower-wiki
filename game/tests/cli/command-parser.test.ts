@@ -516,6 +516,20 @@ test('auto-fills command params from state', () => {
     });
   }
 
+  const claimWithAbility = parse_cli_line('claim p1 slayer slayer.public_shot', state);
+  assert.equal(claimWithAbility.ok, true);
+  if (
+    claimWithAbility.ok &&
+    claimWithAbility.kind === 'engine' &&
+    claimWithAbility.command.command_type === 'UseClaimedAbility'
+  ) {
+    assert.deepEqual(claimWithAbility.command.payload, {
+      claimant_player_id: 'p1',
+      claimed_character_id: 'slayer',
+      claimed_ability_id: 'slayer.public_shot'
+    });
+  }
+
   const bulkVoteDefaultYes = parse_cli_line('vote p1 p2', state);
   assert.equal(bulkVoteDefaultYes.ok, true);
   if (bulkVoteDefaultYes.ok && bulkVoteDefaultYes.kind === 'local') {

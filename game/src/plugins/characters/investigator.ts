@@ -20,6 +20,16 @@ export const investigator_plugin: CharacterPlugin = {
     name: 'Investigator',
     type: 'townsfolk',
     alignment_at_start: 'good',
+    abilities: [
+      {
+        ability_id: 'investigator.minion_pair_info',
+        character_id: 'investigator',
+        summary: 'First night, learn one of two players is a specific Minion.',
+        category: 'info',
+        activation: ['night_wake'],
+        reminders: ['investigator:minion', 'investigator:wrong']
+      }
+    ],
     timing_category: 'first_night',
     is_once_per_game: false,
     target_constraints: {

@@ -23,6 +23,16 @@ export const monk_plugin: CharacterPlugin = {
     name: 'Monk',
     type: 'townsfolk',
     alignment_at_start: 'good',
+    abilities: [
+      {
+        ability_id: 'monk.night_protection',
+        character_id: 'monk',
+        summary: 'Each night except first, choose a player safe from Demon attacks tonight.',
+        category: 'skill',
+        activation: ['night_wake'],
+        reminders: ['monk:safe']
+      }
+    ],
     timing_category: 'each_night_except_first',
     is_once_per_game: false,
     target_constraints: {

@@ -65,6 +65,23 @@ export const fortune_teller_plugin: CharacterPlugin = {
     name: 'Fortune Teller',
     type: 'townsfolk',
     alignment_at_start: 'good',
+    abilities: [
+      {
+        ability_id: 'fortune_teller.pair_demon_check',
+        character_id: 'fortune_teller',
+        summary: 'Each night, choose two players and learn if either registers as Demon.',
+        category: 'info',
+        activation: ['night_wake']
+      },
+      {
+        ability_id: 'fortune_teller.red_herring_seed',
+        character_id: 'fortune_teller',
+        summary: 'At setup, seed one good player as a red herring.',
+        category: 'skill',
+        activation: ['game_setup'],
+        reminders: ['fortune_teller:red_herring']
+      }
+    ],
     timing_category: 'each_night',
     is_once_per_game: false,
     target_constraints: {

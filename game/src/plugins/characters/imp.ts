@@ -26,6 +26,22 @@ export const imp_plugin: CharacterPlugin = {
     name: 'Imp',
     type: 'demon',
     alignment_at_start: 'evil',
+    abilities: [
+      {
+        ability_id: 'imp.night_kill',
+        character_id: 'imp',
+        summary: 'Each night except first, choose a player; they die if not prevented.',
+        category: 'skill',
+        activation: ['night_wake']
+      },
+      {
+        ability_id: 'imp.self_kill_transfer',
+        character_id: 'imp',
+        summary: 'If Imp kills self this way, an alive Minion becomes the Imp.',
+        category: 'skill',
+        activation: ['triggered']
+      }
+    ],
     timing_category: 'each_night_except_first',
     is_once_per_game: false,
     target_constraints: {

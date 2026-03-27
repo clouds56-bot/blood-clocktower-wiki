@@ -23,6 +23,10 @@ export type TimingCategory =
   | 'traveller'
   | 'fabled';
 
+export type AbilityCategory = 'info' | 'passive' | 'skill' | 'registration';
+
+export type AbilityActivation = 'game_setup' | 'night_wake' | 'claim' | 'triggered' | 'passive';
+
 export type AlignmentAtStart = Alignment | 'storyteller_choice';
 
 export interface TargetConstraints {
@@ -48,10 +52,20 @@ export interface CharacterPluginMetadata {
   name: string;
   type: CharacterType;
   alignment_at_start: AlignmentAtStart;
+  abilities?: CharacterAbilityMetadata[];
   timing_category: TimingCategory;
   is_once_per_game: boolean;
   target_constraints: TargetConstraints;
   flags: PluginFlags;
+}
+
+export interface CharacterAbilityMetadata {
+  ability_id: string;
+  character_id: string;
+  summary: string;
+  category: AbilityCategory;
+  activation: AbilityActivation[];
+  reminders?: string[];
 }
 
 export interface PluginEventSpec {
@@ -102,6 +116,7 @@ export interface ClaimedAbilityUseHookContext {
   state: Readonly<GameState>;
   claimant_player_id: PlayerId;
   claimed_character_id: string;
+  claimed_ability_id?: string;
 }
 
 export interface EventAppliedHookContext {
@@ -246,6 +261,8 @@ export interface PluginValidationIssue {
   path?: string;
 }
 
+export type ActivationSupport = 'supported' | 'unsupported' | 'unspecified';
+
 export function empty_plugin_result(): PluginResult {
   return {
     emitted_events: [],
@@ -290,48 +307,225 @@ export function validate_plugin_metadata(metadata: CharacterPluginMetadata): Plu
   }
 
   const targetConstraints = metadata.target_constraints;
+  issues.push(...validate_target_constraints(targetConstraints, 'target_constraints'));
+
+  const flags = metadata.flags;
+  issues.push(...validate_plugin_flags(flags, 'flags'));
+
+  if (Array.isArray(metadata.abilities)) {
+    issues.push(...validate_abilities(metadata.abilities, trimmedId));
+  } else if (metadata.abilities !== undefined) {
+    issues.push({
+      code: 'invalid_abilities',
+      message: 'abilities must be an array when provided',
+      path: 'abilities'
+    });
+  }
+
+  return issues;
+}
+
+export function resolve_activation_support(
+  metadata: CharacterPluginMetadata,
+  activation: AbilityActivation
+): ActivationSupport {
+  if (!Array.isArray(metadata.abilities)) {
+    return 'unspecified';
+  }
+  for (const ability of metadata.abilities) {
+    if (ability.activation.includes(activation)) {
+      return 'supported';
+    }
+  }
+  return 'unsupported';
+}
+
+function validate_abilities(
+  abilities: CharacterAbilityMetadata[],
+  expectedCharacterId: string
+): PluginValidationIssue[] {
+  const issues: PluginValidationIssue[] = [];
+  const seenAbilityIds = new Set<string>();
+
+  for (const [index, ability] of abilities.entries()) {
+    const basePath = `abilities.${index}`;
+    const abilityId = typeof ability.ability_id === 'string' ? ability.ability_id : '';
+    const characterId = typeof ability.character_id === 'string' ? ability.character_id : '';
+    const summary = typeof ability.summary === 'string' ? ability.summary : '';
+
+    const trimmedAbilityId = abilityId.trim();
+    const trimmedCharacterId = characterId.trim();
+    const trimmedSummary = summary.trim();
+
+    if (trimmedAbilityId.length === 0) {
+      issues.push({
+        code: 'ability_id_required',
+        message: 'ability_id must be a non-empty string',
+        path: `${basePath}.ability_id`
+      });
+    } else if (abilityId !== trimmedAbilityId) {
+      issues.push({
+        code: 'ability_id_canonical',
+        message: 'ability_id must not include leading or trailing whitespace',
+        path: `${basePath}.ability_id`
+      });
+    } else if (seenAbilityIds.has(trimmedAbilityId)) {
+      issues.push({
+        code: 'duplicate_ability_id',
+        message: `ability_id must be unique within plugin metadata: ${trimmedAbilityId}`,
+        path: `${basePath}.ability_id`
+      });
+    } else {
+      seenAbilityIds.add(trimmedAbilityId);
+    }
+
+    if (trimmedCharacterId.length === 0) {
+      issues.push({
+        code: 'ability_character_id_required',
+        message: 'character_id must be a non-empty string',
+        path: `${basePath}.character_id`
+      });
+    } else if (characterId !== trimmedCharacterId) {
+      issues.push({
+        code: 'ability_character_id_canonical',
+        message: 'character_id must not include leading or trailing whitespace',
+        path: `${basePath}.character_id`
+      });
+    } else if (expectedCharacterId.length > 0 && trimmedCharacterId !== expectedCharacterId) {
+      issues.push({
+        code: 'ability_character_id_mismatch',
+        message: `character_id must match plugin metadata.id (${expectedCharacterId})`,
+        path: `${basePath}.character_id`
+      });
+    }
+
+    if (trimmedSummary.length === 0) {
+      issues.push({
+        code: 'ability_summary_required',
+        message: 'summary must be a non-empty string',
+        path: `${basePath}.summary`
+      });
+    } else if (summary !== trimmedSummary) {
+      issues.push({
+        code: 'ability_summary_canonical',
+        message: 'summary must not include leading or trailing whitespace',
+        path: `${basePath}.summary`
+      });
+    }
+
+    if (!is_ability_category(ability.category)) {
+      issues.push({
+        code: 'invalid_ability_category',
+        message: 'category must be one of: info, passive, skill, registration',
+        path: `${basePath}.category`
+      });
+    }
+
+    if (!Array.isArray(ability.activation) || ability.activation.length === 0) {
+      issues.push({
+        code: 'invalid_ability_activation',
+        message: 'activation must be a non-empty array',
+        path: `${basePath}.activation`
+      });
+    } else {
+      const seenActivations = new Set<AbilityActivation>();
+      for (const [activationIndex, activation] of ability.activation.entries()) {
+        if (!is_ability_activation(activation)) {
+          issues.push({
+            code: 'invalid_ability_activation_item',
+            message: 'activation item must be one of: game_setup, night_wake, claim, triggered, passive',
+            path: `${basePath}.activation.${activationIndex}`
+          });
+          continue;
+        }
+        if (seenActivations.has(activation)) {
+          issues.push({
+            code: 'duplicate_ability_activation',
+            message: `activation item duplicated: ${activation}`,
+            path: `${basePath}.activation.${activationIndex}`
+          });
+          continue;
+        }
+        seenActivations.add(activation);
+      }
+    }
+
+    if (ability.reminders !== undefined) {
+      if (!Array.isArray(ability.reminders)) {
+        issues.push({
+          code: 'invalid_ability_reminders',
+          message: 'reminders must be an array of non-empty strings when provided',
+          path: `${basePath}.reminders`
+        });
+      } else {
+        for (const [reminderIndex, reminder] of ability.reminders.entries()) {
+          if (typeof reminder !== 'string' || reminder.trim().length === 0 || reminder !== reminder.trim()) {
+            issues.push({
+              code: 'invalid_ability_reminder_item',
+              message: 'reminder item must be a canonical non-empty string',
+              path: `${basePath}.reminders.${reminderIndex}`
+            });
+          }
+        }
+      }
+    }
+  }
+
+  return issues;
+}
+
+function validate_target_constraints(
+  targetConstraints: unknown,
+  path: string
+): PluginValidationIssue[] {
+  const issues: PluginValidationIssue[] = [];
+
   if (!is_record(targetConstraints)) {
     issues.push({
       code: 'invalid_target_constraints',
       message: 'target_constraints must be an object',
-      path: 'target_constraints'
+      path
     });
     return issues;
   }
 
-  const minTargets = targetConstraints.min_targets;
-  const maxTargets = targetConstraints.max_targets;
+  const minTargets: unknown = targetConstraints.min_targets;
+  const maxTargets: unknown = targetConstraints.max_targets;
 
-  if (!Number.isInteger(minTargets) || minTargets < 0) {
+  if (!is_non_negative_integer(minTargets)) {
     issues.push({
       code: 'invalid_min_targets',
       message: 'target_constraints.min_targets must be an integer >= 0',
-      path: 'target_constraints.min_targets'
+      path: `${path}.min_targets`
     });
   }
 
-  if (!Number.isInteger(maxTargets) || maxTargets < 0) {
+  if (!is_non_negative_integer(maxTargets)) {
     issues.push({
       code: 'invalid_max_targets',
       message: 'target_constraints.max_targets must be an integer >= 0',
-      path: 'target_constraints.max_targets'
+      path: `${path}.max_targets`
     });
   }
 
-  if (Number.isInteger(minTargets) && Number.isInteger(maxTargets) && minTargets > maxTargets) {
+  if (is_non_negative_integer(minTargets) && is_non_negative_integer(maxTargets) && minTargets > maxTargets) {
     issues.push({
       code: 'target_constraints_range_invalid',
       message: 'target_constraints.min_targets must be <= target_constraints.max_targets',
-      path: 'target_constraints'
+      path
     });
   }
 
-  const flags = metadata.flags;
+  return issues;
+}
+
+function validate_plugin_flags(flags: unknown, path: string): PluginValidationIssue[] {
+  const issues: PluginValidationIssue[] = [];
   if (!is_record(flags)) {
     issues.push({
       code: 'invalid_plugin_flags',
       message: 'flags must be an object',
-      path: 'flags'
+      path
     });
     return issues;
   }
@@ -351,12 +545,30 @@ export function validate_plugin_metadata(metadata: CharacterPluginMetadata): Plu
       issues.push({
         code: 'invalid_plugin_flag_type',
         message: `flags.${key} must be a boolean`,
-        path: `flags.${key}`
+        path: `${path}.${key}`
       });
     }
   }
 
   return issues;
+}
+
+function is_ability_category(value: unknown): value is AbilityCategory {
+  return value === 'info' || value === 'passive' || value === 'skill' || value === 'registration';
+}
+
+function is_ability_activation(value: unknown): value is AbilityActivation {
+  return (
+    value === 'game_setup' ||
+    value === 'night_wake' ||
+    value === 'claim' ||
+    value === 'triggered' ||
+    value === 'passive'
+  );
+}
+
+function is_non_negative_integer(value: unknown): value is number {
+  return typeof value === 'number' && Number.isInteger(value) && value >= 0;
 }
 
 function is_record(value: unknown): value is Record<string, unknown> {

@@ -15,6 +15,7 @@ Sources:
 - `game/rules.md`
 - `game/architecture.md`
 - `game/speckit-plan.md`
+- `game/specs/abilities.tb.md`
 - `data/editions/tb.json`
 - TB character files under `data/characters/**`
 
@@ -139,6 +140,11 @@ All persistent TB effects should be represented as authoritative reminder marker
 Status booleans (`poisoned`, `drunk`) are derived from active authoritative markers.
 
 ## TB Character Contracts
+
+Ability-first note:
+- canonical ability taxonomy and ability ids are defined in `game/specs/abilities.tb.md`.
+- character sections in this file describe interaction behavior, while ability-level metadata is tracked per ability id.
+- runtime migration target is ability-scoped lifecycle dispatch; character plugin modules act as containers for one or more abilities.
 
 Each entry lists:
 - ability summary;

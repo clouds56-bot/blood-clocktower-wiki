@@ -29,6 +29,15 @@ function error(code: string, message: string): PluginRegistryResult<never> {
 function clone_metadata(metadata: CharacterPluginMetadata): CharacterPluginMetadata {
   return {
     ...metadata,
+    ...(metadata.abilities
+      ? {
+          abilities: metadata.abilities.map((ability) => ({
+            ...ability,
+            activation: [...ability.activation],
+            ...(ability.reminders ? { reminders: [...ability.reminders] } : {})
+          }))
+        }
+      : {}),
     target_constraints: { ...metadata.target_constraints },
     flags: { ...metadata.flags }
   };

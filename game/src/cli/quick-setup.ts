@@ -325,8 +325,8 @@ export function build_tb_setup_marker_commands(
       payload: {
         marker_id: `setup:drunk:${assignment.player_id}`,
         kind: 'drunk:is_the_drunk',
-        effect: 'drunk',
-        note: 'TB setup: the Drunk has no ability.',
+        effect: 'drunk_registration',
+        note: 'TB setup: the Drunk registers as their perceived Townsfolk identity.',
         source_player_id: null,
         source_character_id: 'drunk',
         target_player_id: assignment.player_id,
@@ -338,7 +338,9 @@ export function build_tb_setup_marker_commands(
         source_event_id: null,
         metadata: {
           setup_effect: true,
-          edition: 'tb'
+          edition: 'tb',
+          registration_mask: true,
+          perceived_character_id: assignment.perceived_character_id
         }
       }
     });

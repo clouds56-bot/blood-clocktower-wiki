@@ -128,6 +128,15 @@ export const demoninfo_plugin: CharacterPlugin = {
     name: 'Demon Info',
     type: 'fabled',
     alignment_at_start: 'storyteller_choice',
+    abilities: [
+      {
+        ability_id: 'demoninfo.first_night_info',
+        character_id: 'demoninfo',
+        summary: 'First night, Demon learns Minions and receives bluff bundle in games with 7+ players.',
+        category: 'info',
+        activation: ['night_wake']
+      }
+    ],
     timing_category: 'first_night',
     is_once_per_game: false,
     target_constraints: {

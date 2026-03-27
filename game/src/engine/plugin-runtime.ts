@@ -21,6 +21,7 @@ interface RuntimeContext {
 interface ParsedClaimedAbilityPrompt {
   claimed_character_id: string;
   claimant_player_id: string;
+  claimed_ability_id: string | null;
 }
 
 
@@ -59,7 +60,10 @@ export function integrate_plugin_runtime(
       {
         state: runtime_state,
         claimant_player_id: command.payload.claimant_player_id,
-        claimed_character_id: command.payload.claimed_character_id
+        claimed_character_id: command.payload.claimed_character_id,
+        ...(command.payload.claimed_ability_id === undefined
+          ? {}
+          : { claimed_ability_id: command.payload.claimed_ability_id })
       }
     );
 
@@ -151,6 +155,7 @@ export function integrate_plugin_runtime(
         payload: {
           claimant_player_id: claimed_ability_prompt.claimant_player_id,
           claimed_character_id: claimed_ability_prompt.claimed_character_id,
+          claimed_ability_id: claimed_ability_prompt.claimed_ability_id,
           target_player_ids: [selected_target_id]
         }
       };
@@ -622,14 +627,17 @@ function parse_claimed_ability_prompt(
     return null;
   }
 
-  const match = /^plugin:([a-z0-9_-]+):claimed_ability:(d\d+|n\d+):([a-z0-9_-]+)(?::[a-z0-9_-]+)?$/.exec(prompt.reason);
+  const match = /^plugin:([a-z0-9_-]+):claimed_ability:(d\d+|n\d+):([a-z0-9_-]+)(?::([a-z0-9_.-]+))?$/.exec(
+    prompt.reason
+  );
   if (!match) {
     return null;
   }
 
   return {
     claimed_character_id: match[1] ?? '',
-    claimant_player_id: match[3] ?? ''
+    claimant_player_id: match[3] ?? '',
+    claimed_ability_id: match[4] ?? null
   };
 }
 

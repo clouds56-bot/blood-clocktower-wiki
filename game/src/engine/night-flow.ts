@@ -1,7 +1,7 @@
 import type { AdvancePhaseCommand } from '../domain/commands.js';
 import type { DomainEvent } from '../domain/events.js';
 import type { GameState, WakeQueueEntry } from '../domain/types.js';
-import type { TimingCategory } from '../plugins/contracts.js';
+import { resolve_activation_support, type CharacterPluginMetadata, type TimingCategory } from '../plugins/contracts.js';
 import type { PluginRegistry } from '../plugins/registry.js';
 import type { EngineResult } from './phase-machine.js';
 import {
@@ -70,7 +70,7 @@ export function collect_night_wake_steps(state: GameState, plugin_registry: Plug
     if (!player.alive && !plugin.metadata.flags.can_function_while_dead) {
       continue;
     }
-    if (!should_wake_for_phase(plugin.metadata.timing_category, state.phase)) {
+    if (!should_wake_for_phase(plugin.metadata, state.phase)) {
       continue;
     }
 
@@ -146,7 +146,7 @@ function collect_special_wake_candidates(
     if (!plugin) {
       continue;
     }
-    if (!should_wake_for_phase(plugin.metadata.timing_category, state.phase)) {
+    if (!should_wake_for_phase(plugin.metadata, state.phase)) {
       continue;
     }
 
@@ -193,10 +193,13 @@ function resolve_special_owner(
   return null;
 }
 
-function should_wake_for_phase(
-  timing_category: TimingCategory,
-  phase: GameState['phase']
-): boolean {
+function should_wake_for_phase(metadata: CharacterPluginMetadata, phase: GameState['phase']): boolean {
+  const wakeActivationSupport = resolve_activation_support(metadata, 'night_wake');
+  if (wakeActivationSupport === 'unsupported') {
+    return false;
+  }
+
+  const timing_category = metadata.timing_category;
   if (phase === 'first_night') {
     return timing_category === 'first_night' || timing_category === 'each_night';
   }

@@ -113,7 +113,7 @@ test('TB setup marker builder creates Drunk and red herring markers', () => {
     (command) =>
       command.command_type === 'ApplyReminderMarker' &&
       command.payload.kind === 'drunk:is_the_drunk' &&
-      command.payload.effect === 'drunk'
+      command.payload.effect === 'drunk_registration'
   );
   const red_herring_marker = marker_commands.find(
     (command) =>
@@ -126,6 +126,7 @@ test('TB setup marker builder creates Drunk and red herring markers', () => {
 
   if (drunk_marker && red_herring_marker) {
     assert.equal(drunk_marker.payload.target_player_id, 'p2');
+    assert.equal(drunk_marker.payload.metadata.perceived_character_id, 'chef');
     assert.equal(red_herring_marker.payload.source_player_id, 'p1');
     assert.ok(['p1', 'p2', 'p4'].includes(red_herring_marker.payload.target_player_id ?? ''));
   }

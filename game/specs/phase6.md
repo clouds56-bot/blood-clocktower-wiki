@@ -5,7 +5,7 @@
 Phase 6 implements the character plugin runtime on top of Phase 1-5.5 core engine, adjudication, visibility, and reminder-marker layers.
 
 Focus areas:
-- plugin contract and metadata for character behavior;
+- plugin contract and metadata for character behavior (with ability-level migration path);
 - deterministic registry and hook dispatcher;
 - runtime scheduling via `wake_queue` and `interrupt_queue`;
 - engine integration at explicit hook boundaries;
@@ -74,6 +74,7 @@ Plugin prompt/reason key conventions (normative)
 ------------------------------------------------
 - Plugin-authored prompt keys and plugin reason prefixes should start with:
   - `plugin:<character_id>:<verb>:<time_key>:<player_id>[:detail...]`
+- ability-scoped flows may include `ability_id` in `:detail...` for deterministic routing/audit.
 - Example prompt key:
   - `plugin:poisoner:night_poison:n1:p5`
 
@@ -207,6 +208,22 @@ Done when:
 - plugin runtime tests cover registry, dispatch, queue preemption, imp/poisoner scenarios, and replay determinism;
 - `pnpm --filter game run typecheck` passes;
 - `pnpm --filter game run test` passes.
+
+## Post-Phase 6 Migration: Ability-First Lifecycle (6.9)
+
+Goal:
+- shift runtime lifecycle ownership from character-scoped metadata to ability-scoped metadata.
+
+Scope:
+- keep one plugin module per character as container;
+- add `abilities[]` metadata and route lifecycle by `ability_id`;
+- map wake/claim/trigger boundaries from ability activation;
+- keep fallback to legacy character-scoped metadata until migration is complete.
+
+Done when:
+- migrated plugins dispatch lifecycle using ability metadata first;
+- claimed ability routing supports ability-level resolution;
+- deterministic replay parity is preserved against baseline fixtures.
 
 ## Imp Reference Flow (Normative for 6.5)
 

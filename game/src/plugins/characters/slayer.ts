@@ -13,6 +13,16 @@ export const slayer_plugin: CharacterPlugin = {
     name: 'Slayer',
     type: 'townsfolk',
     alignment_at_start: 'good',
+    abilities: [
+      {
+        ability_id: 'slayer.public_shot',
+        character_id: 'slayer',
+        summary: 'Once per game by public claim, choose a player and Demon target dies.',
+        category: 'skill',
+        activation: ['claim'],
+        reminders: ['slayer:spent']
+      }
+    ],
     timing_category: 'day',
     is_once_per_game: true,
     target_constraints: {
