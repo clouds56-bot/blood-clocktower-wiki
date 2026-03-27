@@ -353,8 +353,24 @@ test('advance phase night wake boundary suspends further wakes when a prompt is 
 
   assert.deepEqual(
     events.map((event) => event.event_type),
-    ['PhaseAdvanced', 'WakeScheduled', 'WakeScheduled', 'PromptQueued', 'WakeConsumed']
+    [
+      'PhaseAdvanced',
+      'StorytellerRulingRecorded',
+      'StorytellerRulingRecorded',
+      'WakeScheduled',
+      'WakeScheduled',
+      'PromptQueued',
+      'WakeConsumed'
+    ]
   );
+
+  const fallback_notes = events.filter(
+    (event) =>
+      event.event_type === 'StorytellerRulingRecorded' &&
+      typeof (event.payload as { note?: unknown }).note === 'string' &&
+      (event.payload as { note: string }).note.startsWith('activation_fallback:night_wake:')
+  );
+  assert.equal(fallback_notes.length, 2);
 
   assert.equal(
     events.some(
@@ -457,6 +473,49 @@ test('night wake scheduling honors ability activation bridge when abilities are 
     ),
     false
   );
+});
+
+test('night wake boundary records legacy activation fallback usage', () => {
+  const legacy_night_plugin: CharacterPlugin = {
+    metadata: {
+      ...make_metadata('legacy_night_role')
+    },
+    hooks: {
+      on_night_wake: () => ({
+        emitted_events: [],
+        queued_prompts: [],
+        queued_interrupts: []
+      })
+    }
+  };
+
+  const state = bootstrap_night_state();
+  const p2 = state.players_by_id.p2;
+  assert.ok(p2);
+  p2.true_character_id = 'legacy_night_role';
+
+  const events = run_with_registry(
+    state,
+    {
+      command_id: 'c_phase_legacy_fallback',
+      command_type: 'AdvancePhase',
+      actor_id: 'storyteller',
+      payload: {
+        phase: 'first_night',
+        subphase: 'night_wake_sequence',
+        day_number: 0,
+        night_number: 1
+      }
+    },
+    new PluginRegistry([legacy_night_plugin])
+  );
+
+  const fallback_note = events.find(
+    (event) =>
+      event.event_type === 'StorytellerRulingRecorded' &&
+      event.payload.note.includes('activation_fallback:night_wake:character=legacy_night_role;player=p2')
+  );
+  assert.ok(fallback_note);
 });
 
 test('resolve prompt boundary re-enters plugin runtime via prompt owner tag', () => {

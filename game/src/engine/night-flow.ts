@@ -11,6 +11,11 @@ import {
   OTHER_NIGHT_ORDER_BY_CHARACTER_ID
 } from './night-order-tool.js';
 
+export interface NightWakeFallbackUsage {
+  character_id: string;
+  player_id: string | null;
+}
+
 function error(code: string, message: string): EngineResult<never> {
   return {
     ok: false,
@@ -102,6 +107,60 @@ export function collect_night_wake_steps(state: GameState, plugin_registry: Plug
       player_id: candidate.player_id
     };
   });
+}
+
+export function collect_night_wake_fallback_usage(
+  state: GameState,
+  plugin_registry: PluginRegistry
+): NightWakeFallbackUsage[] {
+  if (state.phase !== 'first_night' && state.phase !== 'night') {
+    return [];
+  }
+
+  const usages: NightWakeFallbackUsage[] = [];
+
+  for (const player_id of state.seat_order) {
+    const player = state.players_by_id[player_id];
+    if (!player || player.true_character_id === null) {
+      continue;
+    }
+    const plugin = plugin_registry.get(player.true_character_id);
+    if (!plugin) {
+      continue;
+    }
+    if (!player.alive && !plugin.metadata.flags.can_function_while_dead) {
+      continue;
+    }
+    if (!is_legacy_night_wake_fallback(plugin.metadata, state.phase)) {
+      continue;
+    }
+    usages.push({
+      character_id: player.true_character_id,
+      player_id
+    });
+  }
+
+  const non_traveller_count = Object.values(state.players_by_id).filter((player) => !player.is_traveller).length;
+  const special_ids =
+    state.phase === 'first_night' ? FIRST_NIGHT_SPECIAL_ORDER_BY_NUMBER : OTHER_NIGHT_SPECIAL_ORDER_BY_NUMBER;
+  for (const special_id of special_ids) {
+    const plugin = plugin_registry.get(special_id);
+    if (!plugin) {
+      continue;
+    }
+    if (!is_legacy_night_wake_fallback(plugin.metadata, state.phase)) {
+      continue;
+    }
+    if ((special_id === 'minioninfo' || special_id === 'demoninfo') && non_traveller_count < 7) {
+      continue;
+    }
+    usages.push({
+      character_id: special_id,
+      player_id: null
+    });
+  }
+
+  return usages;
 }
 
 function build_time_key(state: Pick<GameState, 'phase' | 'day_number' | 'night_number'>): string {
@@ -199,7 +258,13 @@ function should_wake_for_phase(metadata: CharacterPluginMetadata, phase: GameSta
     return false;
   }
 
-  const timing_category = metadata.timing_category;
+  return should_wake_for_phase_by_timing_category(metadata.timing_category, phase);
+}
+
+function should_wake_for_phase_by_timing_category(
+  timing_category: TimingCategory,
+  phase: GameState['phase']
+): boolean {
   if (phase === 'first_night') {
     return timing_category === 'first_night' || timing_category === 'each_night';
   }
@@ -207,6 +272,13 @@ function should_wake_for_phase(metadata: CharacterPluginMetadata, phase: GameSta
     return timing_category === 'each_night' || timing_category === 'each_night_except_first';
   }
   return false;
+}
+
+function is_legacy_night_wake_fallback(metadata: CharacterPluginMetadata, phase: GameState['phase']): boolean {
+  return (
+    resolve_activation_support(metadata, 'night_wake') === 'unspecified' &&
+    should_wake_for_phase_by_timing_category(metadata.timing_category, phase)
+  );
 }
 
 function resolve_night_order(character_id: string, phase: GameState['phase']): number {

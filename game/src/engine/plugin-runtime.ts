@@ -10,7 +10,7 @@ import { dispatch_hook, type NormalizedHookOutput } from '../plugins/dispatcher.
 import type { PluginRegistry } from '../plugins/registry.js';
 import type { CharacterPlugin } from '../plugins/contracts.js';
 import type { EngineResult } from './phase-machine.js';
-import { collect_night_wake_steps } from './night-flow.js';
+import { collect_night_wake_fallback_usage, collect_night_wake_steps } from './night-flow.js';
 
 interface RuntimeContext {
   state: GameState;
@@ -102,6 +102,23 @@ export function integrate_plugin_runtime(
   }
 
   if (command.command_type === 'AdvancePhase' && is_night_wake_boundary(runtime_state)) {
+    const fallback_usages = collect_night_wake_fallback_usage(runtime_state, plugin_registry);
+    if (fallback_usages.length > 0) {
+      const fallback_events: DomainEvent[] = fallback_usages.map((usage, index) => ({
+        event_key: `${command.command_id}:NightWakeFallback:${index}`,
+        event_id: 1,
+        event_type: 'StorytellerRulingRecorded',
+        created_at,
+        ...(command.actor_id === undefined ? {} : { actor_id: command.actor_id }),
+        payload: {
+          prompt_key: null,
+          note: `activation_fallback:night_wake:character=${usage.character_id};player=${usage.player_id ?? 'system'};phase=${runtime_state.phase}`
+        }
+      }));
+      runtime_events.push(...fallback_events);
+      runtime_state = apply_events(runtime_state, fallback_events);
+    }
+
     if (runtime_state.wake_queue.length === 0) {
       const wake_steps = collect_night_wake_steps(runtime_state, plugin_registry);
       for (const [wake_index, wake_step] of wake_steps.entries()) {

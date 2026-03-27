@@ -28,6 +28,11 @@ Tests:
 - mixed migrated/non-migrated plugin runtime scenarios;
 - replay parity snapshots before/after migration bridge.
 
+Status (implemented):
+- TB plugins in default runtime registry now expose non-empty `abilities[]` metadata;
+- claim and wake dispatch already consume ability activation data with legacy fallback.
+- runtime emits `StorytellerRulingRecorded` audit notes when legacy claim/night-wake activation fallback is used.
+
 ## TB-01 Setup + Composition
 
 Scope:
@@ -40,12 +45,18 @@ Done when:
 - setup invariants pass after Baron mutation;
 - Drunk gets `true_character_id=drunk` and Townsfolk `perceived_character_id`;
 - Drunk setup marker is modeled as registration/perception state (not authoritative `drunk` status effect);
+- setup markers include `metadata.ability_id` for traceability to setup abilities;
 - red herring is persisted and replay-stable.
 
 Tests:
 - player-count composition with and without Baron;
 - Drunk assignment visibility;
 - red herring determinism under replay.
+
+Status (implemented):
+- setup behavior lookup is wired to setup ability metadata in default plugin catalog;
+- Drunk setup marker uses registration semantics and includes `metadata.ability_id`;
+- Fortune Teller red herring marker includes `metadata.ability_id`.
 
 ## TB-02 First-Night Information Roles
 

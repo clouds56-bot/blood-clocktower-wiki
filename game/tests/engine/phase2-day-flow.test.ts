@@ -1111,6 +1111,16 @@ test('legacy claimed ability metadata keeps legacy reason shape without ability 
     return;
   }
 
+  const has_fallback_note = claimed.value.some(
+    (event) =>
+      event.event_type === 'StorytellerRulingRecorded' &&
+      typeof (event.payload as { note?: unknown } | undefined)?.note === 'string' &&
+      (event.payload as { note?: string } | undefined)?.note?.includes(
+        'activation_fallback:claim:character=legacy_claim_role'
+      ) === true
+  );
+  assert.equal(has_fallback_note, true);
+
   const with_prompt = apply_events(state, claimed.value);
   const prompt_key = with_prompt.pending_prompts[0] ?? '';
   const prompt = with_prompt.prompts_by_id[prompt_key];
