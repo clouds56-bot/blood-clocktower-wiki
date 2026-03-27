@@ -32,6 +32,22 @@ export const mayor_plugin: CharacterPlugin = {
     name: 'Mayor',
     type: 'townsfolk',
     alignment_at_start: 'good',
+    abilities: [
+      {
+        ability_id: 'mayor.final_three_no_execution_win',
+        character_id: 'mayor',
+        summary: 'With 3 alive, if no execution occurs, good wins.',
+        category: 'skill',
+        activation: ['triggered']
+      },
+      {
+        ability_id: 'mayor.night_death_redirection',
+        character_id: 'mayor',
+        summary: 'If Mayor would die at night, Storyteller may redirect the death.',
+        category: 'skill',
+        activation: ['triggered']
+      }
+    ],
     timing_category: 'passive',
     is_once_per_game: false,
     target_constraints: {

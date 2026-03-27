@@ -24,6 +24,23 @@ export const butler_plugin: CharacterPlugin = {
     name: 'Butler',
     type: 'outsider',
     alignment_at_start: 'good',
+    abilities: [
+      {
+        ability_id: 'butler.master_selection',
+        character_id: 'butler',
+        summary: 'Each night, choose a master.',
+        category: 'skill',
+        activation: ['night_wake'],
+        reminders: ['butler:master']
+      },
+      {
+        ability_id: 'butler.vote_restriction',
+        character_id: 'butler',
+        summary: 'While functional, Butler may only vote when their master votes.',
+        category: 'passive',
+        activation: ['passive']
+      }
+    ],
     timing_category: 'each_night',
     is_once_per_game: false,
     target_constraints: {

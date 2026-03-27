@@ -6,6 +6,15 @@ export const saint_plugin: CharacterPlugin = {
     name: 'Saint',
     type: 'outsider',
     alignment_at_start: 'good',
+    abilities: [
+      {
+        ability_id: 'saint.execution_loss_trigger',
+        character_id: 'saint',
+        summary: 'If Saint is executed and dies while functional, good loses.',
+        category: 'passive',
+        activation: ['triggered']
+      }
+    ],
     timing_category: 'passive',
     is_once_per_game: false,
     target_constraints: {

@@ -20,6 +20,16 @@ export const librarian_plugin: CharacterPlugin = {
     name: 'Librarian',
     type: 'townsfolk',
     alignment_at_start: 'good',
+    abilities: [
+      {
+        ability_id: 'librarian.outsider_pair_info',
+        character_id: 'librarian',
+        summary: 'First night, learn one of two players is a specific Outsider.',
+        category: 'info',
+        activation: ['night_wake'],
+        reminders: ['librarian:outsider', 'librarian:wrong']
+      }
+    ],
     timing_category: 'first_night',
     is_once_per_game: false,
     target_constraints: {

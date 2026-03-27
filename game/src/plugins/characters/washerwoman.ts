@@ -34,6 +34,16 @@ export const washerwoman_plugin: CharacterPlugin = {
     name: 'Washerwoman',
     type: 'townsfolk',
     alignment_at_start: 'good',
+    abilities: [
+      {
+        ability_id: 'washerwoman.townsfolk_pair_info',
+        character_id: 'washerwoman',
+        summary: 'First night, learn one of two players is a specific Townsfolk.',
+        category: 'info',
+        activation: ['night_wake'],
+        reminders: ['washerwoman:townsfolk', 'washerwoman:wrong']
+      }
+    ],
     timing_category: 'first_night',
     is_once_per_game: false,
     target_constraints: {

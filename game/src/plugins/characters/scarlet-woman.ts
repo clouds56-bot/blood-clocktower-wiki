@@ -6,6 +6,15 @@ export const scarlet_woman_plugin: CharacterPlugin = {
     name: 'Scarlet Woman',
     type: 'minion',
     alignment_at_start: 'evil',
+    abilities: [
+      {
+        ability_id: 'scarlet_woman.demon_takeover',
+        character_id: 'scarlet_woman',
+        summary: 'If Demon dies with 5+ alive non-travellers, Scarlet Woman becomes Demon.',
+        category: 'passive',
+        activation: ['triggered']
+      }
+    ],
     timing_category: 'passive',
     is_once_per_game: false,
     target_constraints: {

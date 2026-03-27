@@ -7,6 +7,22 @@ export const spy_plugin: CharacterPlugin = {
     name: 'Spy',
     type: 'minion',
     alignment_at_start: 'evil',
+    abilities: [
+      {
+        ability_id: 'spy.grimoire_view',
+        character_id: 'spy',
+        summary: 'Each night, Spy sees the Grimoire.',
+        category: 'info',
+        activation: ['night_wake']
+      },
+      {
+        ability_id: 'spy.registration_mask',
+        character_id: 'spy',
+        summary: 'Spy may register as good and as Townsfolk or Outsider for checks.',
+        category: 'registration',
+        activation: ['passive']
+      }
+    ],
     timing_category: 'each_night',
     is_once_per_game: false,
     target_constraints: {

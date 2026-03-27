@@ -6,6 +6,15 @@ export const soldier_plugin: CharacterPlugin = {
     name: 'Soldier',
     type: 'townsfolk',
     alignment_at_start: 'good',
+    abilities: [
+      {
+        ability_id: 'soldier.demon_kill_immunity',
+        character_id: 'soldier',
+        summary: 'While functional, Soldier is safe from Demon attacks.',
+        category: 'passive',
+        activation: ['passive']
+      }
+    ],
     timing_category: 'passive',
     is_once_per_game: false,
     target_constraints: {

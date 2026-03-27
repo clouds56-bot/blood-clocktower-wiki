@@ -59,6 +59,15 @@ export const chef_plugin: CharacterPlugin = {
     name: 'Chef',
     type: 'townsfolk',
     alignment_at_start: 'good',
+    abilities: [
+      {
+        ability_id: 'chef.adjacent_evil_count',
+        character_id: 'chef',
+        summary: 'First night, learn how many adjacent pairs are evil.',
+        category: 'info',
+        activation: ['night_wake']
+      }
+    ],
     timing_category: 'first_night',
     is_once_per_game: false,
     target_constraints: {

@@ -57,6 +57,15 @@ export const empath_plugin: CharacterPlugin = {
     name: 'Empath',
     type: 'townsfolk',
     alignment_at_start: 'good',
+    abilities: [
+      {
+        ability_id: 'empath.alive_neighbor_evil_count',
+        character_id: 'empath',
+        summary: 'Each night, learn how many alive neighbors are evil.',
+        category: 'info',
+        activation: ['night_wake']
+      }
+    ],
     timing_category: 'each_night',
     is_once_per_game: false,
     target_constraints: {

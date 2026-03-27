@@ -12,6 +12,15 @@ export const undertaker_plugin: CharacterPlugin = {
     name: 'Undertaker',
     type: 'townsfolk',
     alignment_at_start: 'good',
+    abilities: [
+      {
+        ability_id: 'undertaker.executed_character_read',
+        character_id: 'undertaker',
+        summary: 'Each night except first, learn the executed player\'s character.',
+        category: 'info',
+        activation: ['night_wake']
+      }
+    ],
     timing_category: 'each_night_except_first',
     is_once_per_game: false,
     target_constraints: {

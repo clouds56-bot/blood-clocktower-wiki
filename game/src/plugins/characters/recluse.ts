@@ -7,6 +7,15 @@ export const recluse_plugin: CharacterPlugin = {
     name: 'Recluse',
     type: 'outsider',
     alignment_at_start: 'good',
+    abilities: [
+      {
+        ability_id: 'recluse.registration_mask',
+        character_id: 'recluse',
+        summary: 'Recluse may register as evil and as Minion or Demon for checks.',
+        category: 'registration',
+        activation: ['passive']
+      }
+    ],
     timing_category: 'passive',
     is_once_per_game: false,
     target_constraints: {

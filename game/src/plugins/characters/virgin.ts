@@ -12,6 +12,16 @@ export const virgin_plugin: CharacterPlugin = {
     name: 'Virgin',
     type: 'townsfolk',
     alignment_at_start: 'good',
+    abilities: [
+      {
+        ability_id: 'virgin.first_nomination_execution',
+        character_id: 'virgin',
+        summary: 'First nomination: if nominator registers as Townsfolk, execute nominator.',
+        category: 'skill',
+        activation: ['triggered'],
+        reminders: ['virgin:spent']
+      }
+    ],
     timing_category: 'day',
     is_once_per_game: true,
     target_constraints: {

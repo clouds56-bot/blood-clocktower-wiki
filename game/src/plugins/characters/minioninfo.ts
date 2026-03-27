@@ -10,6 +10,15 @@ export const minioninfo_plugin: CharacterPlugin = {
     name: 'Minion Info',
     type: 'fabled',
     alignment_at_start: 'storyteller_choice',
+    abilities: [
+      {
+        ability_id: 'minioninfo.first_night_info',
+        character_id: 'minioninfo',
+        summary: 'First night, Minions learn Demon and fellow Minions in games with 7+ players.',
+        category: 'info',
+        activation: ['night_wake']
+      }
+    ],
     timing_category: 'first_night',
     is_once_per_game: false,
     target_constraints: {

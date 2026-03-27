@@ -15,6 +15,15 @@ export const ravenkeeper_plugin: CharacterPlugin = {
     name: 'Ravenkeeper',
     type: 'townsfolk',
     alignment_at_start: 'good',
+    abilities: [
+      {
+        ability_id: 'ravenkeeper.night_death_character_read',
+        character_id: 'ravenkeeper',
+        summary: 'If killed at night, choose a player and learn their character.',
+        category: 'info',
+        activation: ['triggered']
+      }
+    ],
     timing_category: 'on_death',
     is_once_per_game: false,
     target_constraints: {
