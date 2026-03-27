@@ -33,6 +33,14 @@ test('critical TB setup abilities are present in registered metadata', () => {
     true
   );
   assert.equal(
+    ability_index.get('baron')?.has('baron.setup_outsider_shift'),
+    true
+  );
+  assert.equal(
+    ability_index.get('drunk')?.has('drunk.perceived_role_substitution'),
+    true
+  );
+  assert.equal(
     ability_index.get('imp')?.has('imp.self_kill_transfer'),
     true
   );

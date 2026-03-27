@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 import type { Command } from '../domain/commands.js';
 import type { Alignment, PlayerCharacterType } from '../domain/types.js';
+import { DEFAULT_CHARACTER_PLUGINS } from '../plugins/default-plugins.js';
 
 export interface EditionSetupData {
   characters: {
@@ -76,11 +77,14 @@ const TB_SETUP_ABILITY_IDS = {
   FORTUNE_TELLER_RED_HERRING_SEED: 'fortune_teller.red_herring_seed'
 } as const;
 
-const TB_CHARACTER_SETUP_ABILITIES: Record<string, readonly string[]> = {
-  baron: [TB_SETUP_ABILITY_IDS.BARON_SETUP_OUTSIDER_SHIFT],
-  drunk: [TB_SETUP_ABILITY_IDS.DRUNK_PERCEIVED_ROLE_SUBSTITUTION],
-  fortune_teller: [TB_SETUP_ABILITY_IDS.FORTUNE_TELLER_RED_HERRING_SEED]
-};
+const SETUP_ABILITIES_BY_CHARACTER_ID: ReadonlyMap<string, ReadonlySet<string>> = new Map(
+  DEFAULT_CHARACTER_PLUGINS.map((plugin) => {
+    const setup_ability_ids = plugin.metadata.abilities
+      ?.filter((ability) => ability.activation.includes('game_setup'))
+      .map((ability) => ability.ability_id) ?? [];
+    return [plugin.metadata.id, new Set(setup_ability_ids)] as const;
+  })
+);
 
 function next_random(rng?: () => number): number {
   return rng ? rng() : Math.random();
@@ -177,8 +181,8 @@ function read_json<T>(file_path: string): T {
 }
 
 function has_tb_setup_ability(character_id: string, ability_id: string): boolean {
-  const abilities = TB_CHARACTER_SETUP_ABILITIES[character_id];
-  return Boolean(abilities?.includes(ability_id));
+  const abilities = SETUP_ABILITIES_BY_CHARACTER_ID.get(character_id);
+  return abilities?.has(ability_id) ?? false;
 }
 
 function apply_tb_setup_modifiers(setup: SetupCounts, minion_ids: string[]): SetupCounts {

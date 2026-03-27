@@ -7,28 +7,7 @@ import { apply_events } from '../domain/reducer.js';
 import { create_initial_state } from '../domain/state.js';
 import type { GameState } from '../domain/types.js';
 import { handle_command } from '../engine/command-handler.js';
-import { chef_plugin } from '../plugins/characters/chef.js';
-import { butler_plugin } from '../plugins/characters/butler.js';
-import { demoninfo_plugin } from '../plugins/characters/demoninfo.js';
-import { empath_plugin } from '../plugins/characters/empath.js';
-import { fortune_teller_plugin } from '../plugins/characters/fortune-teller.js';
-import { imp_plugin } from '../plugins/characters/imp.js';
-import { investigator_plugin } from '../plugins/characters/investigator.js';
-import { librarian_plugin } from '../plugins/characters/librarian.js';
-import { mayor_plugin } from '../plugins/characters/mayor.js';
-import { minioninfo_plugin } from '../plugins/characters/minioninfo.js';
-import { monk_plugin } from '../plugins/characters/monk.js';
-import { poisoner_plugin } from '../plugins/characters/poisoner.js';
-import { ravenkeeper_plugin } from '../plugins/characters/ravenkeeper.js';
-import { recluse_plugin } from '../plugins/characters/recluse.js';
-import { scarlet_woman_plugin } from '../plugins/characters/scarlet-woman.js';
-import { saint_plugin } from '../plugins/characters/saint.js';
-import { slayer_plugin } from '../plugins/characters/slayer.js';
-import { soldier_plugin } from '../plugins/characters/soldier.js';
-import { spy_plugin } from '../plugins/characters/spy.js';
-import { undertaker_plugin } from '../plugins/characters/undertaker.js';
-import { virgin_plugin } from '../plugins/characters/virgin.js';
-import { washerwoman_plugin } from '../plugins/characters/washerwoman.js';
+import { DEFAULT_CHARACTER_PLUGINS } from '../plugins/default-plugins.js';
 import { PluginRegistry } from '../plugins/registry.js';
 import { project_for_player } from '../projections/player.js';
 import { project_for_public } from '../projections/public.js';
@@ -147,30 +126,7 @@ export function create_cli_context(initial_game_id: string, options?: { channel_
     state: create_initial_state(initial_game_id),
     event_log: [],
     next_command_index: 1,
-    plugin_registry: new PluginRegistry([
-      chef_plugin,
-      butler_plugin,
-      minioninfo_plugin,
-      demoninfo_plugin,
-      empath_plugin,
-      fortune_teller_plugin,
-      imp_plugin,
-      investigator_plugin,
-      librarian_plugin,
-      mayor_plugin,
-      monk_plugin,
-      poisoner_plugin,
-      ravenkeeper_plugin,
-      recluse_plugin,
-      scarlet_woman_plugin,
-      saint_plugin,
-      slayer_plugin,
-      soldier_plugin,
-      spy_plugin,
-      undertaker_plugin,
-      virgin_plugin,
-      washerwoman_plugin
-    ])
+    plugin_registry: new PluginRegistry(DEFAULT_CHARACTER_PLUGINS)
   };
 
   if (options?.channel_bus) {
