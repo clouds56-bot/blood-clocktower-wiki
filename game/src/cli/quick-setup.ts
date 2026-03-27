@@ -369,6 +369,7 @@ export function build_tb_setup_marker_commands(
         metadata: {
           setup_effect: true,
           edition: 'tb',
+          ability_id: TB_SETUP_ABILITY_IDS.DRUNK_PERCEIVED_ROLE_SUBSTITUTION,
           registration_mask: true,
           perceived_character_id: assignment.perceived_character_id
         }
@@ -410,13 +411,14 @@ export function build_tb_setup_marker_commands(
       expires_at_day_number: null,
       expires_at_night_number: null,
       source_event_id: null,
-      metadata: {
-        setup_effect: true,
-        edition: 'tb',
-        registers_as: 'demon',
-        for_character_id: 'fortune_teller'
+        metadata: {
+          setup_effect: true,
+          edition: 'tb',
+          ability_id: TB_SETUP_ABILITY_IDS.FORTUNE_TELLER_RED_HERRING_SEED,
+          registers_as: 'demon',
+          for_character_id: 'fortune_teller'
+        }
       }
-    }
   });
 
   return marker_commands;

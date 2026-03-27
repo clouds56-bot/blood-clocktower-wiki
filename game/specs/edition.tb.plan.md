@@ -40,6 +40,7 @@ Done when:
 - setup invariants pass after Baron mutation;
 - Drunk gets `true_character_id=drunk` and Townsfolk `perceived_character_id`;
 - Drunk setup marker is modeled as registration/perception state (not authoritative `drunk` status effect);
+- setup markers include `metadata.ability_id` for traceability to setup abilities;
 - red herring is persisted and replay-stable.
 
 Tests:
