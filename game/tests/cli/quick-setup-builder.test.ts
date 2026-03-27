@@ -133,3 +133,48 @@ test('TB setup marker builder creates Drunk and red herring markers', () => {
     assert.ok(['p1', 'p2', 'p4'].includes(red_herring_marker.payload.target_player_id ?? ''));
   }
 });
+
+test('TB setup marker builder is deterministic for equal RNG sequence', () => {
+  const assignments: AssignedCharacter[] = [
+    {
+      player_id: 'p1',
+      true_character_id: 'fortune_teller',
+      perceived_character_id: 'fortune_teller',
+      character_type: 'townsfolk',
+      alignment: infer_alignment_from_type('townsfolk')
+    },
+    {
+      player_id: 'p2',
+      true_character_id: 'drunk',
+      perceived_character_id: 'chef',
+      character_type: 'outsider',
+      alignment: infer_alignment_from_type('outsider')
+    },
+    {
+      player_id: 'p3',
+      true_character_id: 'baron',
+      perceived_character_id: 'baron',
+      character_type: 'minion',
+      alignment: infer_alignment_from_type('minion')
+    },
+    {
+      player_id: 'p4',
+      true_character_id: 'chef',
+      perceived_character_id: 'chef',
+      character_type: 'townsfolk',
+      alignment: infer_alignment_from_type('townsfolk')
+    },
+    {
+      player_id: 'p5',
+      true_character_id: 'imp',
+      perceived_character_id: 'imp',
+      character_type: 'demon',
+      alignment: infer_alignment_from_type('demon')
+    }
+  ];
+
+  const left = build_tb_setup_marker_commands(assignments, make_rng([0.12, 0.64, 0.33]));
+  const right = build_tb_setup_marker_commands(assignments, make_rng([0.12, 0.64, 0.33]));
+
+  assert.deepEqual(left, right);
+});

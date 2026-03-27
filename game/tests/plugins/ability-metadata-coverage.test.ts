@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 
 import { create_cli_context } from '../../src/cli/repl.js';
+import { DEFAULT_CHARACTER_PLUGINS } from '../../src/plugins/default-plugins.js';
 
 test('all registered plugins expose non-empty ability metadata', () => {
   const context = create_cli_context('ability-metadata-coverage');
@@ -48,4 +49,10 @@ test('critical TB setup abilities are present in registered metadata', () => {
     ability_index.get('slayer')?.has('slayer.public_shot'),
     true
   );
+});
+
+test('default plugin catalog includes setup-only TB plugins', () => {
+  const plugin_ids = new Set(DEFAULT_CHARACTER_PLUGINS.map((plugin) => plugin.metadata.id));
+  assert.equal(plugin_ids.has('baron'), true);
+  assert.equal(plugin_ids.has('drunk'), true);
 });

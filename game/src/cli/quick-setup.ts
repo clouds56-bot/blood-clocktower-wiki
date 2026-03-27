@@ -185,7 +185,19 @@ function has_tb_setup_ability(character_id: string, ability_id: string): boolean
   return abilities?.has(ability_id) ?? false;
 }
 
+function assert_tb_setup_ability(character_id: string, ability_id: string): void {
+  if (!has_tb_setup_ability(character_id, ability_id)) {
+    throw new Error(`missing_tb_setup_ability_metadata character=${character_id} ability=${ability_id}`);
+  }
+}
+
 function apply_tb_setup_modifiers(setup: SetupCounts, minion_ids: string[]): SetupCounts {
+  for (const minion_id of minion_ids) {
+    if (minion_id === 'baron') {
+      assert_tb_setup_ability(minion_id, TB_SETUP_ABILITY_IDS.BARON_SETUP_OUTSIDER_SHIFT);
+    }
+  }
+
   const has_baron_setup_shift = minion_ids.some((character_id) =>
     has_tb_setup_ability(character_id, TB_SETUP_ABILITY_IDS.BARON_SETUP_OUTSIDER_SHIFT)
   );
@@ -219,6 +231,13 @@ function assign_tb_perceived_characters(
   );
 
   return assignments.map((assignment) => {
+    if (assignment.true_character_id === 'drunk') {
+      assert_tb_setup_ability(
+        assignment.true_character_id,
+        TB_SETUP_ABILITY_IDS.DRUNK_PERCEIVED_ROLE_SUBSTITUTION
+      );
+    }
+
     if (
       !has_tb_setup_ability(
         assignment.true_character_id,
@@ -345,6 +364,13 @@ export function build_tb_setup_marker_commands(
   const marker_commands: Array<Omit<Command, 'command_id'>> = [];
 
   for (const assignment of assignments) {
+    if (assignment.true_character_id === 'drunk') {
+      assert_tb_setup_ability(
+        assignment.true_character_id,
+        TB_SETUP_ABILITY_IDS.DRUNK_PERCEIVED_ROLE_SUBSTITUTION
+      );
+    }
+
     if (
       !has_tb_setup_ability(
         assignment.true_character_id,
@@ -381,12 +407,18 @@ export function build_tb_setup_marker_commands(
     });
   }
 
-  const fortune_teller = assignments.find((assignment) =>
-    has_tb_setup_ability(
+  const fortune_teller = assignments.find((assignment) => {
+    if (assignment.true_character_id === 'fortune_teller') {
+      assert_tb_setup_ability(
+        assignment.true_character_id,
+        TB_SETUP_ABILITY_IDS.FORTUNE_TELLER_RED_HERRING_SEED
+      );
+    }
+    return has_tb_setup_ability(
       assignment.true_character_id,
       TB_SETUP_ABILITY_IDS.FORTUNE_TELLER_RED_HERRING_SEED
-    )
-  );
+    );
+  });
   if (!fortune_teller) {
     return marker_commands;
   }

@@ -28,6 +28,10 @@ Tests:
 - mixed migrated/non-migrated plugin runtime scenarios;
 - replay parity snapshots before/after migration bridge.
 
+Status (implemented):
+- TB plugins in default runtime registry now expose non-empty `abilities[]` metadata;
+- claim and wake dispatch already consume ability activation data with legacy fallback.
+
 ## TB-01 Setup + Composition
 
 Scope:
@@ -47,6 +51,11 @@ Tests:
 - player-count composition with and without Baron;
 - Drunk assignment visibility;
 - red herring determinism under replay.
+
+Status (implemented):
+- setup behavior lookup is wired to setup ability metadata in default plugin catalog;
+- Drunk setup marker uses registration semantics and includes `metadata.ability_id`;
+- Fortune Teller red herring marker includes `metadata.ability_id`.
 
 ## TB-02 First-Night Information Roles
 
